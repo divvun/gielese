@@ -1,4 +1,9 @@
-﻿<div data-role="panel" 
+<div data-role="header">
+    <a id="show-panel" data-icon="gear">Options</a>
+    <h1>Leksa</h1>
+    <a id="show-user-panel" href="#" data-icon="check" data-theme="b">Stats</a>
+</div>
+<div data-role="panel" 
      data-dismissable="true"
      data-display="push"
      data-theme="a"
@@ -36,11 +41,6 @@
             </div>
     </form>
 </div>
-<div data-role="header">
-    <a href="/" id="show-panel" data-icon="arrow-l">Back</a>
-    <h2>Leksa</h2>
-    <a id="show-user-panel" href="#" data-icon="check" data-theme="b">Stats</a>
-</div>
 <div data-role="content">
     <div id="leksa_question"><% if @leksa_question: %><%- @leksa_question %><% end %></div>
 
@@ -56,3 +56,5 @@
 <div data-role="footer">
     <h1></h1>
 </div>
+
+<%# vim: set ts=4 sw=4 tw=0 syntax=eco nobomb: %>

@@ -1,7 +1,7 @@
 <div data-role="header">
-    <a id="show-panel" data-icon="gear">Options</a>
     <h1>Buerie biejjie!</h1>
 </div> 
+
 <div data-role="content">
     <ul data-role="listview" 
         data-theme="c" 
@@ -18,3 +18,4 @@
         <li><a href="/leksa" data-transition="slide">Leksa</a></li>
     </ul>
 </div> 
+

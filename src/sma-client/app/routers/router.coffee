@@ -18,11 +18,11 @@ module.exports = class Router extends Backbone.Router
 
   index: ->
     ##  $('content #content').html app.helloView.render().el
-    @changePage(new HelloView())
+    @changePage(app.helloView)
 
   leksa: ->
     # $('content #content').html app.leksaView.render().el
-    @changePage(new LeksaView())
+    @changePage(app.leksaView)
 
   wordlist: ->
     # $('content #content').html app.leksaView.render().el

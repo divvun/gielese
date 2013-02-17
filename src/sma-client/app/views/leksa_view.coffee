@@ -271,7 +271,8 @@ module.exports = class LeksaView extends Backbone.View
   
   render: ->
     # Render template and insert a question
-    @$el.html @template()
+    @$el.html @template
+
     @renderQuestion()
     # Bind an event to user progression-- TODO: move elsewhere
     userprogression.on('add', @updateLogPanel)
