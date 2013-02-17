@@ -1,0 +1,18 @@
+<li>
+    <dl>
+        <dt><%- @concept_value %></dt>
+        <dd>
+            <span class="word"><% @model.get('concept_value') %></span>
+        </dd>
+    </dl>
+    <ul class="concept_translations">
+    <% for tx in @translations: %>
+         <% if tx.get('concept_type') == 'img': %>
+            <img width="75" height="75" src="<%- tx.get('concept_value') %>"/>
+        <% else: %>
+            <span class="word"><% tx.get('concept_value') %></span>
+        <% end %>
+    <li><%- tx.get('concept_value') %></li>
+    <% end %>
+    </ul>
+</li>

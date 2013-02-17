@@ -1,0 +1,176 @@
+# Getting going
+
+ * http://jquerymobile.com/
+ * http://backbonejs.com/
+ * http://brunch.io/
+
+## Things to read
+
+### Offline sync thoughts
+
+#### Offline media storage
+
+ * applicationCache - good for mobile, and desktop dev.
+   - http://caniuse.com/offline-apps
+
+#### local DB storage stuff
+
+ * Lots of entertaining BS involving choice in indexeddb and SQL storage:
+    http://caniuse.com/sql-storage
+     - supported in iOS browser, mobile chrome and android 
+     - not supported in FF (which is nice for mobile development)
+     - supported in chrome 
+     - deprecated spec
+
+    http://caniuse.com/indexeddb
+     - not deprecated
+     - supported in chrome, firefox
+     - not supported in mobile browsers
+
+   helpful comparison:
+     http://www.html5rocks.com/en/tutorials/webdatabase/websql-indexeddb/
+
+   backbone: 
+     websql - https://github.com/MarrLiss/backbone-websql
+     indexeddb - https://github.com/superfeedr/indexeddb-backbonejs-adapter
+
+   backbone.sync
+     http://backbonejs.org/docs/backbone.html#section-162
+
+   migrating websql to indexedb
+     http://www.html5rocks.com/en/tutorials/webdatabase/websql-indexeddb/
+
+   phonegap has own implementation for devices without local SQL
+   storage, which is compatible with spec
+
+     http://docs.phonegap.com/en/1.2.0/phonegap_storage_storage.md.html
+
+   also: http://persistencejs.org/
+
+ * So, needs for offline storage: 
+   - storing user progression/details between sessions (trying to solve
+     this before something like phonegap comes in) 
+
+   - storing individual exercises and concept data
+     ALTERNATIVES:
+     - create .js file for static things like concepts and questions, include
+       in applicationCache, generate on server for sync, store user data in 
+       localStorage
+
+ * overall, good idea seems to be: get the application working well first,
+   then figure out the storage scheme
+
+### game name
+
+? 
+
+### Lexical, sound, and image data
+
+ * Use existing Oahpa source files for words
+
+ * create extension .xml files for related images and sounds, lemma can be 
+   as detailed as it needs to be, and matching will go with most detailed first, 
+   so that we don't need to spend too much time duplicating info, but if
+   we need to match class="IV" vs class="TV", or hid="1" (govledh vs
+   govledh, svieredh, etc), we can.
+
+ 
+   <e>
+      <lg>
+         <l>guelie</l>
+      </lg>
+      <media>
+        <!-- Paths are relative to this file, must be stored in CDATA tag
+             <![CDATA[stuff goes here]]>
+        -->
+        <img color="brown" texture="fuzzy"><![CDATA[images/img.jpg]]></img>
+        <sound gender="fem" age="young"><![CDATA[sounds/sound.wav]]></sound>
+      </media>
+      <mg>
+         <!-- 
+         if this is present, we can use it for including any additional
+         meanings that need to be included, otherwise, just use
+         additional data that was specified in previously installed
+         lexicon files, n_smanob.xml, v_smanob.xml, etc.
+         -->
+      </mg>
+  </e>
+
+ * 
+
+
+
+### Module formats
+
+#### Database planning
+
+ * Concepts 
+   - language (sma, img)
+   - type (word, img, sound)
+   - semantic tags (family, animate, animal, etc.)
+   - feature tags (bisyl, umlaut, round obj, etc.)
+     - will use these to produce examples that are similar in sound or
+       appearance
+   - translations (related objects in other lang)
+
+ * Progression
+   - track user history, accuracy rate for game, game type, Concept success
+     rate; 
+   - try to determine whether users need to work on a specific concept, game
+     type, or game
+
+ * Questions
+
+#### Wordlist
+
+##### Word model
+
+ * semantic info
+ * basic word / peripheral
+ * frequency
+ * difficult wordpairs / oppositions (td rj vs jr, etc)
+ * image files
+   - different resolutions
+ * sound files
+
+#### Leksa
+
+##### Simple words
+
+ * Q: individual image
+   A: one of several words (sma)
+ 
+ * Q: individual word (sma)
+   A: one of several images
+ 
+ * Q: sma word
+   A: 1 of nob words
+ 
+ * Q: nob word
+   A: 1 of sma words
+
+###### UI
+
+ - question
+ - answers
+ - Sound button(s) for printed words
+ 
+ - show learning progression, or progress on exercise? Progress bar, 1/10, 2/10, 3/10, etc.,?
+
+###### Features
+
+ - wrong words from either similar semantic words, or similar orthographic form
+   (edit distance 2)
+ 
+ - progression: word -> image - show first one image, then two, then four 
+ - keep track of individual user/word learning progression
+ 
+ - be able to clear learning progression
+ - store in oahpa
+ 
+ - need to track: 
+   * times word has been shown as a correct answer (?)
+   * times user has guessed word correctly/incorrectly
+   * times user has played game
+
+

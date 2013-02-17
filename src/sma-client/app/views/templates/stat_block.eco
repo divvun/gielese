@@ -1,0 +1,15 @@
+﻿<h4>Overall progress</h4>
+<dl>
+<dt>Correct</dt>
+<dd><%- @correct %></dd>
+<dt>Total</dt>
+<dd><%- @total %></dk>
+</dl>
+<h4>Concept progress</h4>
+<h5>(Correct / tries)</h5>
+<dl>
+    <% for concept, total_correct of @concept_progress: %>
+      <dt><%- concept %></dt>
+      <dd><%- total_correct[0] %>/<%- total_correct[1] %></dd>
+    <% end %>
+</dl>

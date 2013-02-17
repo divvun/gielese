@@ -1,0 +1,58 @@
+﻿<div data-role="panel" 
+     data-dismissable="true"
+     data-display="push"
+     data-theme="a"
+     id="leksa-options">
+    <ul data-role="listview" data-theme="a" data-divider-theme="a" class="ui-listview">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Leksa Options</a></li>
+        <li><a href="#">Game menu</a></li>
+        <li><a href="#">Check for updates</a></li>
+    </ul>
+</div>
+<div data-role="panel" 
+     data-dismissable="true"
+     data-position="right"
+     data-display="push"
+     data-theme="b"
+     id="user-options">
+    <h2>Stats</h2>
+    <div id="stat_block"></div>
+    <form class="userform">
+    <h2>Save stats?</h2>
+        <div class="ui-corner-all ui-controlgroup" data-role="controlgroup" data-type="horizontal">
+            <a data-role="button"
+               data-mini="true"
+               data-theme="c"
+               data-rel="close">
+               No
+            </a>
+            <a data-role="button"
+               data-mini="true"
+               data-theme="b"
+               data-rel="close">
+               Yes (Create account)
+            </a>
+            </div>
+    </form>
+</div>
+<div data-role="header">
+    <a href="/" id="show-panel" data-icon="arrow-l">Back</a>
+    <h2>Leksa</h2>
+    <a id="show-user-panel" href="#" data-icon="check" data-theme="b">Stats</a>
+</div>
+<div data-role="content">
+    <div id="leksa_question"><% if @leksa_question: %><%- @leksa_question %><% end %></div>
+
+    <div class="set_done_options" style="display: none,">
+        <!-- go on to next set, see current scores, change options? -->
+        <div class="ui-corner-all ui-controlgroup" data-role="controlgroup" data-type="horizontal">
+            <a data-role="button" id="menu_repeat" href="#">Again?</a>
+            <a style="display: none;" id="menu_display_correct" data-role="button" href="#">Show correct?</a>
+            <a data-role="button" id="menu_next" href="#">Next</a>
+        </div>
+    </div>
+</div>
+<div data-role="footer">
+    <h1></h1>
+</div>

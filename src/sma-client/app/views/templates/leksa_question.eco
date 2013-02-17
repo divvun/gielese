@@ -1,0 +1,51 @@
+<div class="question_prompt">
+    <%- @render_concept(@question) %>
+</div>
+<hr />
+<div class="question_type">
+    <% if @question_type == 'word_to_image': %>
+        <h3>Match the word with a picture:</h3>
+    <% else if @question_type == 'image_to_word': %>
+        <h3>Match the picture with a word:</h3>
+    <% else if @question_type == 'word_to_word': %>
+        <h3>Translate the word between languages:</h3>
+    <% end %>
+</div>
+
+<div class="possible_answers">
+    <br />
+    <% for group in @chunker(@choices, 2): %>
+    <div class="ui-grid-a ui-responsive">
+    <% for choice in group: %>
+        <div class="ui-block-a">
+            <div class="ui-body">
+                <% if choice.get('concept_type') == 'text': %>
+                    <a class="answerlink" 
+                       data-role="button"
+                       data-word="<%- choice.get('concept_value') %>" 
+                       href="#"><%- @render_concept(choice) %></a>
+                <% else: %>
+                    <a class="answerlink" data-word="<%- choice.get('concept_value') %>" href="#"><%- @render_concept(choice) %></a>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+    <% end %>
+</div>
+
+<!-- 
+TODO: block-a block-b in above stuff
+<div class="ui-grid-a ui-responsive">
+    <div class="ui-block-a">
+        <div class="ui-body">
+            <a href="#"><img src="http://placekitten.com/250/250"/></a>
+            <span class="hint">C</span>
+        </div>
+    </div>
+    <div class="ui-block-b">
+        <div class="ui-body"><img src="http://placekitten.com/250/250"/></div>
+            <span class="hint">D</span>
+    </div>
+</div>
+-->

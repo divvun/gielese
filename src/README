@@ -1,0 +1,21 @@
+# So far... 
+
+ * http://brunch.io/
+   (version 1.4.4)
+ * http://jquerymobile.com/
+ * http://backbonejs.com/
+
+Other dependencies should be stored in node package.json
+
+# Things working
+
+## Database
+
+Uses `Concept` to create linked words, text and sound for producing translation
+exercizes automatically. `Concepts` are also marked with either phonetic or
+visual characteristics to link together visually and phonetically similar
+answers, to create more challenging question sets.
+
+`Question` defines the type of things that should be produced for users, can eitehr
+be manually defined or automatically.
+

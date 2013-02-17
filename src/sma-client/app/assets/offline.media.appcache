@@ -1,0 +1,55 @@
+CACHE MANIFEST
+# v1 - 2012-02-021
+
+CACHE: 
+# Base stuff
+# index.html
+# javascripts/app.js
+# javascripts/vendor.js
+# stylesheets/app.css
+
+# Audio files
+audio/åalkie%20AD.wav
+audio/ååredæjja%20AD.wav
+audio/åejjie%20AD.wav
+audio/baenie%20AD.wav
+audio/båetskie%20AD.wav
+audio/bielkie%20AD.wav
+audio/gaalloe%20AD.wav
+audio/gaetskedh%20AD.wav
+audio/gïete%20AD.wav
+audio/govledh%20AD.wav
+audio/guehpere%20AD.wav
+audio/haermie%20AD.wav
+audio/hepsedh%20AD.wav
+audio/juelkie%20AD.wav
+audio/kråahpe%20AD.wav
+audio/lïhtse%20AD.wav
+audio/njaelmie%20AD.wav
+audio/njoektjeme%20AD.wav
+audio/njuenie%20AD.wav
+audio/njulhtjedh%20AD.wav
+audio/ravve%20AD.wav
+audio/rudtje%20AD.wav
+audio/searome%20AD.wav
+audio/skaavtjoe%20AD.wav
+audio/soerme%20AD.wav
+audio/steeredh%20AD.wav
+audio/tjahkashidh%20AD.wav
+audio/tjåejjie%20AD.wav
+audio/tjelmie%20AD.wav
+audio/tjiehtjere%20AD.wav
+audio/tjuvliestidh%20AD.wav
+audio/vaeltedh%20AD.wav
+
+# Place-kittens
+http://placekitten.com/250/150
+http://placedog.com/250/150
+http://dummyimage.com/250x150/000/900&text=granny
+http://dummyimage.com/250x150/000/900&text=fish
+http://dummyimage.com/250x150/000/900&text=fox
+
+# jQuery mobile
+images/icons-18-white.png 
+images/ajax-loader.gif
+
