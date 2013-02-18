@@ -19,3 +19,18 @@ answers, to create more challenging question sets.
 `Question` defines the type of things that should be produced for users, can eitehr
 be manually defined or automatically.
 
+# Developing
+
+Requires `node.js` and `npm` for the client side frontend. All other files
+should be included. After installing node and npm...
+
+    cd sma-client
+    npm install
+
+## Development server and automatic build
+
+Since this uses brunch, the easiest way to develop is:
+
+    brunch watch --server
+
+

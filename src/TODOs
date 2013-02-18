@@ -8,12 +8,31 @@
 
 ### Offline sync thoughts
 
+The offline aspect of this app will need to be covered in two ways: 
+
+ * offline caching of media files
+ * storage of non-media files in a local database
+
 #### Offline media storage
 
  * applicationCache - good for mobile, and desktop dev.
    - http://caniuse.com/offline-apps
+   - should allow for easy discovery of new media files, and will use the cache
+     when the user is offline. May be some way to allow the user to force a
+     check, or manually set the application into offline mode for when they are
+     connected but just don't want the app to update.
 
 #### local DB storage stuff
+
+ * overall, good idea seems to be: get the application working well first, then
+   figure out the storage scheme. Backbone.sync handles syncing of online and
+   offline data, so this should be fairly easy to override with one or another
+   local service when it is detected.
+
+   so far, persistencejs.org looks like a really nice thing to use, but just
+   needs some time testing out.
+
+##### Other notes...
 
  * Lots of entertaining BS involving choice in indexeddb and SQL storage:
     http://caniuse.com/sql-storage
@@ -56,9 +75,6 @@
      - create .js file for static things like concepts and questions, include
        in applicationCache, generate on server for sync, store user data in 
        localStorage
-
- * overall, good idea seems to be: get the application working well first,
-   then figure out the storage scheme
 
 ### game name
 
