@@ -250,15 +250,17 @@ module.exports = class LeksaView extends Backbone.View
       user_input = answerlink.attr('data-word')
       answer_value = answer.get('concept_value')
       if user_input == answer_value
+        # If user is correct, stop watching for additional clicks
+        @$el.find('#leksa_question a.answerlink').unbind('click').click (evt) ->
+          return false
         @correctAnswer(q, answerlink, answer, question)
       else
         @incorrectAnswer(q, answerlink, answer, question)
       #
       # rebind event to null result incase user clicks multiple times
-      answerlink.unbind('click')
-      answerlink.click (evt) ->
-        return false
+      answerlink.unbind('click').click (evt) -> return false
       return false
+
     return true
 
   updateLogPanel: (entry) ->

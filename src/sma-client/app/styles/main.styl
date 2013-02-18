@@ -1,53 +1,66 @@
-
 span.word_concept
     font-size: 120%
     text-decoration: None
-    background-color: #DDD
-    color: #33A
-    padding: 4px
 
-.question_prompt .word_concept
-    font-size: 160%
-    margin-left: 1.5em
+.img_concept
+    width: 250px
+    height: 150px
+
+.question_prompt 
+    display: block
+    height: 100%
+    width: 100%
+    margin: 0 auto
+
+    img
+        margin: 0 auto
+
+    .word_concept
+        font-size: 170%
+        margin-left: 1.5em
+        display: block
+        margin: auto 0
+        width: 100%
 
 a.answerlink
     text-decoration: None
 
+    .img_concept
+        height: 100%
+        width: 100%
+
 a.answerlink.correct
     color: #3A3
-    background-color: #3F3
     display: block
     width: 100%
     height: 100%
 
     .concept.img_concept
       border: 1px solid #393
-      opacity: .8
+      opacity: .7
+      background-color: #090
 
     .concept.word_concept
-      background-color: #ACA
       color: #151
       
-
 a.answerlink.correct:after
     content: "  Correct!"
 
 a.answerlink.incorrect
-    color: #3A3
-    background-color: #DFD
+    color: #A33
+    display: block
+    width: 100%
+    height: 100%
 
     .concept.img_concept
       border: 1px solid #FDD
-      opacity: .8
+      opacity: .7
+      background-color: #900
 
     .concept.word_concept
-      background-color: #A77
       color: #311
       
-
 a.answerlink.incorrect:after
     content: " Incorrect!"
     background-color: transparent
-
-
 

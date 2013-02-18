@@ -83,14 +83,6 @@ module.exports = [ new Concept({ language: "img"
                                  , c_id: 10
                                  , translations: [9]
                                  })
-                   # , new Concept({ language: "sma"
-                   #               , concept_type: "sound" # guelie
-                   #               , concept_value: ""
-                   #               , semantics: [ "ANIMAL", "ANIMATE" ]
-                   #               , features: [ "FUZZY", "CUTE"]
-                   #               , c_id: 11
-                   #               , translations: [8]
-                   #               })
                    
                    ##
                    ## Some norwegian test words
@@ -134,6 +126,30 @@ module.exports = [ new Concept({ language: "img"
                                  , features: [ ]
                                  , c_id: 15
                                  , translations: [8]
+                                 })
+                   , new Concept({ language: "nob"
+                                 , concept_type: "text"
+                                 , concept_value: "ekorn"
+                                 , semantics: [ "ANIMAL", "ANIMATE" ]
+                                 , features: [ ]
+                                 , c_id: 16
+                                 , translations: [17]
+                                 })
+                   , new Concept({ language: "sma"
+                                 , concept_type: "text"
+                                 , concept_value: "åeruve"
+                                 , semantics: [ "ANIMAL", "ANIMATE" ]
+                                 , features: [ ]
+                                 , c_id: 17
+                                 , translations: [16, 18]
+                                 })
+                   , new Concept({ language: "img"
+                                 , concept_type: "img"
+                                 , concept_value: "/images/orava.png"
+                                 , semantics: [ "ANIMAL", "ANIMATE" ]
+                                 , features: [ "FUZZY", "CUTE", "RED" ]
+                                 , c_id: 18
+                                 , translations: [17]
                                  })
 ]
 

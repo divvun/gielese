@@ -79,7 +79,9 @@
     potential_incorrect_answers = _.shuffle(potential_incorrect_answers)
 
     leftovers = 4 - answer_possibilities.length
+    console.log "fetch #{leftovers} leftovers"
     fillings = potential_incorrect_answers.slice(0, leftovers)
+    console.log "fetched #{fillings.length} leftovers"
 
 
     answer_possibilities_with_fillings = []

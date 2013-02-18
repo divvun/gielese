@@ -44,7 +44,7 @@
 <div data-role="content">
     <div id="leksa_question"><% if @leksa_question: %><%- @leksa_question %><% end %></div>
 
-    <div class="set_done_options" style="display: none,">
+    <div class="set_done_options" style="display: none;">
         <!-- go on to next set, see current scores, change options? -->
         <div class="ui-corner-all ui-controlgroup" data-role="controlgroup" data-type="horizontal">
             <a data-role="button" id="menu_repeat" href="#">Again?</a>
