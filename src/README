@@ -27,10 +27,14 @@ should be included. After installing node and npm...
     cd sma-client
     npm install
 
-## Development server and automatic build
+## Flask media server
+
+Use virtualenv, install from requirements.txt and run the main python file.
+
+## Development watching for brunch
 
 Since this uses brunch, the easiest way to develop is:
 
-    brunch watch --server
+    brunch watch
 
 

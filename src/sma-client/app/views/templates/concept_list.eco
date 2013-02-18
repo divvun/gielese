@@ -1,5 +1,5 @@
 <div data-role="header">
-    <a href="/" id="show-panel" data-icon="arrow-l">Back</a>
+    <a href="/" data-transition="slide" data-icon="arrow-l">Back</a>
     <h2>Wordlist</h2>
 </div>
 <div data-role="content">

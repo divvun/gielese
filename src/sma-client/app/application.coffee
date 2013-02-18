@@ -54,6 +54,7 @@ window.arrayChunk = arrayChunk
 # not available? is there a javascript fallback of sorts? 
 
 window.initWindowCache = () ->
+  console.log "Initializing appCache"
   # Some log handlers for the console
   if window.applicationCache
     window.applicationCache.onchecking = (e) ->
@@ -94,13 +95,17 @@ module.exports = class Application
   constructor: ->
     $ =>
       @initialize()
-      Backbone.history.start pushState:true
+      Backbone.history.start
+        pushState: false
+        hashChange: true
+        root: window.location.pathname
+      
       # $('div[data-role="page"]').live 'pagehide', (event, ui) ->
       #     $(event.currentTarget).remove()
       #
       # TODO: route for app cache manifest, generate automatically.
       # TODO: reenable cache when less changes are going on
-      # initWindowCache()
+      initWindowCache()
 
 
   initialize: ->

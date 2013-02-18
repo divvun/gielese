@@ -145,7 +145,7 @@ module.exports = [ new Concept({ language: "img"
                                  })
                    , new Concept({ language: "img"
                                  , concept_type: "img"
-                                 , concept_value: "/images/orava.png"
+                                 , concept_value: "http://localhost:5000/static/images/orava.png"
                                  , semantics: [ "ANIMAL", "ANIMATE" ]
                                  , features: [ "FUZZY", "CUTE", "RED" ]
                                  , c_id: 18

@@ -212,6 +212,9 @@ module.exports = class LeksaView extends Backbone.View
     # Hide the question-end options
     $('.set_done_options').hide()
 
+    # TODO: smooth scroll
+    window.scrollTo(0,0)
+
     #
     # Select a question
     q = _.shuffle(questiondb.models)[0]

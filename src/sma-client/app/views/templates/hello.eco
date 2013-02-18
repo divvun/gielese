@@ -8,14 +8,14 @@
         data-dividertheme="d" 
         data-inset="true">
         <li role="heading" data-role="list-divider">Data</li>
-        <li><a href="/wordlist" data-transition="slide">Wordlist</a></li>
+        <li><a href="#wordlist" data-transition="slide">Wordlist</a></li>
     </ul>
     <ul data-role="listview" 
         data-theme="c" 
         data-dividertheme="b" 
         data-inset="true">
         <li role="heading" data-role="list-divider">Games</li>
-        <li><a href="/leksa" data-transition="slide">Leksa</a></li>
+        <li><a href="#leksa" data-transition="slide">Leksa</a></li>
     </ul>
 </div> 
 
