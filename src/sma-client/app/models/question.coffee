@@ -90,6 +90,8 @@
     answer_possibilities_with_fillings.push   actual_answer
     answer_possibilities_with_fillings = _.uniq(answer_possibilities_with_fillings)
 
+    # TODO: note that this is sometimes over 4, so, something above
+    #       needs to be fixed
     console.log "total possibilities: #{answer_possibilities_with_fillings.length}"
     return [ question
            , answer_possibilities_with_fillings
