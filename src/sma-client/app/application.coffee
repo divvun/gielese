@@ -1,6 +1,7 @@
 Router = require 'routers/router'
 HelloView = require 'views/hello_view'
 LeksaView = require 'views/leksa_view'
+GlobalOptionsView = require 'views/global_options'
 ConceptList = require 'views/concept_list'
 
 ConceptDB = require 'models/conceptdb'
@@ -114,6 +115,7 @@ module.exports = class Application
     @router = new Router
     @helloView = new HelloView
     @leksaView = new LeksaView
+    @globalOptionsView = new GlobalOptionsView
     @conceptList = new ConceptList({
       collection: @conceptdb
     })
