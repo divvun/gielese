@@ -1,15 +1,33 @@
-﻿<div data-role="header">
-    <h1>Options</h1>
+<div data-role="header">
+    <a href="/" data-transition="slide" data-icon="arrow-l">Back</a>
+    <h2>Options</h2>
 </div> 
 
 <div data-role="content">
+    <h2>Data storage</h2>
     <div data-role="fieldcontain">
         <fieldset data-role="controlgroup">
-            <legend>Data storage</legend>
-            <input type="checkbox" name="data-storage" id="data-storage" class="custom" />
-            <label for="data-storage">Store data for offline use</label>
+            <legend>Store data offline</legend>
+            <select name="data-storage" 
+                    id="data-storage" 
+                    data-role="slider">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select>
+        </fieldset>
+    </div>
+
+    <h2>Audio</h2>
+    <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup">
+            <legend>Audio enabled?</legend>
+            <select name="data-storage" 
+                    id="data-storage" 
+                    data-role="slider">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select>
         </fieldset>
     </div>
 </div> 
-
 

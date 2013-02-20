@@ -106,7 +106,7 @@ module.exports = class Application
       #
       # TODO: route for app cache manifest, generate automatically.
       # TODO: reenable cache when less changes are going on
-      initWindowCache()
+      # initWindowCache()
 
 
   initialize: ->
