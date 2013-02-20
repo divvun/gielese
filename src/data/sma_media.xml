@@ -93,13 +93,334 @@ For the full license text, see the link above.</lic>
     </lg>
     <media>
       <img>
-        <path><![CDATA[http://localhost:5000/static/images/orava.png]]></path>
+        <path><![CDATA[images/orava.png]]></path>
         <features>
           <feature>FUZZY</feature>
           <feature>CUTE</feature>
           <feature>RED</feature>
         </features>
       </img>
+    </media>
+  </e>
+  <!-- audio -->
+  <e>
+    <lg>
+      <l>åalkie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/åalkie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>ååredæjja</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/ååredæjja AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>åejjie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/åejjie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>baenie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/baenie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>båetskie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/båetskie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>bielkie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/bielkie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>gaalloe</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/gaalloe AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>gaetskedh</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/gaetskedh AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>gïete</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/gïete AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>govledh</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/govledh AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>guehpere</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/guehpere AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>haermie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/haermie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>hepsedh</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/hepsedh AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>juelkie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/juelkie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>kråahpe</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/kråahpe AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>lïhtse</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/lïhtse AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>njaelmie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/njaelmie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>njoektjeme</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/njoektjeme AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>njuenie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/njuenie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>njulhtjedh</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/njulhtjedh AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>ravve</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/ravve AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>rudtje</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/rudtje AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>searome</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/searome AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>skaavtjoe</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/skaavtjoe AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>soerme</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/soerme AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>steeredh</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/steeredh AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>tjahkashidh</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/tjahkashidh AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>tjåejjie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/tjåejjie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>tjelmie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/tjelmie AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>tjiehtjere</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/tjiehtjere AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>tjuvliestidh</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/tjuvliestidh AD.wav]]></path>
+      </sound>
+    </media>
+  </e>
+  <e>
+    <lg>
+      <l>vaeltedh</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/vaeltedh AD.wav]]></path>
+      </sound>
     </media>
   </e>
   <xhtml:script xmlns:xhtml="http://www.w3.org/1999/xhtml" src="../../../words/dicts/scripts/gt_dictionary.js" type="text/javascript"/>
