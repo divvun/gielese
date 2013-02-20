@@ -43,7 +43,8 @@ def create_manifest(app_host):
         "http://dummyimage.com/250x150/000/900&text=fox",
     ]
 
-    audios = join_hosts(list_dir('static/audio/'))
+    from urllib import quote
+    audios = join_hosts(map(quote, list_dir('static/audio/')))
 
     timestamp = datetime.strftime(datetime.today(), format='%Y-%M-%d %H:%M')
 
