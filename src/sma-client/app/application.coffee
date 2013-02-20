@@ -100,6 +100,15 @@ module.exports = class Application
         pushState: false
         hashChange: true
         root: window.location.pathname
+
+      $(document).bind "pagechange", (e, data) ->
+        webkit = $.browser.webkit
+        not_string = data.toPage isnt "string"
+        root_page = data.toPage.attr("data-url") is '/'
+        if webkit and not_string and root_page
+          app.router.index()
+          return e.preventDefault()
+
       
       # $('div[data-role="page"]').live 'pagehide', (event, ui) ->
       #     $(event.currentTarget).remove()

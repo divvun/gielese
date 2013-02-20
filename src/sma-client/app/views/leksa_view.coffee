@@ -132,6 +132,8 @@ window.userprogression = new UserProgression()
 
 module.exports = class LeksaView extends Backbone.View
 
+  id: "leksa"
+
   question_template: require './templates/leksa_question'
   template: require './templates/leksa'
   leksa_error_template: require './templates/leksa_error_template'

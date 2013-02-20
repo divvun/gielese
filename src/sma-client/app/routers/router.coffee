@@ -15,6 +15,7 @@ module.exports = class Router extends Backbone.Router
     'options': 'options'
 
     'home': 'index'
+    '#': 'index'
     '#home': 'index'
     '#wordlist': 'wordlist'
     '#leksa': 'leksa'
