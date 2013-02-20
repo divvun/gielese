@@ -1,6 +1,3 @@
-HelloView = require 'views/hello_view'
-LeksaView = require 'views/leksa_view'
-ConceptList = require 'views/concept_list'
 
 module.exports = class Router extends Backbone.Router
 
