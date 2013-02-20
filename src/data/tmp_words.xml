@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet title="Dictionary view" media="screen,tv,projection" href="../../../words/dicts/scripts/gt_dictionary.css" type="text/css"?>
+<?xml-stylesheet alternate="yes" title="Hierarchical view" media="screen,tv,projection" href="../../../words/dicts/scripts/gt_dictionary_alt.css" type="text/css"?>
+<!DOCTYPE r PUBLIC "-//DivvunGiellatekno//DTD Dictionaries//Multilingual" "../../../words/dicts/scripts/gt_dictionary.dtd">
+<r xml:lang="sma">
+  <lics xml:space="preserve">
+      <lic xml:lang="en">
+This code is made available under a Creative Commons Attribution license
+<a>http://creativecommons.org/licenses/by/3.0/no/deed.en</a>.
+
+You are free to copy, distribute and adapt the work, as long as you always give
+proper attribution using the attribution text below.
+
+For the full license text, see the link above.</lic>
+      <ref>Work by Giellatekno at UiT, Divvun at the Norwegian Saami Parliament,
+          and members of the language communities. Source code
+          available at <a>https://victorio.uit.no/langtech/trunk/</a>.</ref>
+      <sourcenote>
+     THIS TEXT IS THE ORIGINAL SOURCE CODE. This is NOT a fully styled and
+     published dictionary. As such it can and
+     will contain unfinished entries, unpublished entries, entries with
+     objectionable translations, etc. If you find any errors or want to add more
+     words, download the file, edit it, and send it back to
+     <a>mailto:divvun@samediggi.no</a> and <a>mailto:giellatekno@hum.uit.no</a>.
+     Please also note that the entries are not necessarily sorted,
+     or could be wrongly sorted.
+     </sourcenote>
+   </lics>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">guelie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s2"/>
+      <book name="s3"/>
+      <book name="dej"/>
+      <book name="åa1"/>
+      <book name="åa2"/>
+      <book name="åa5"/>
+      <book name="åa4"/>
+      <book name="åa4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="FOOD_DISH"/>
+        <sem class="FOOD_GROCERY"/>
+        <sem class="TRAD_FOOD"/>
+        <sem class="FISHING"/>
+        <!-- test semantics -->
+        <sem class="ANIMAL"/>
+        <sem class="FAMILY"/>
+        <sem class="ANIMATE"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">fisk</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">fisk</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">fish</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">fisk_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">kala</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="a" stem="2syll">aehtjaahka</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="åa2"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="FAMILY"/>
+        <!-- test semantics -->
+        <sem class="ANIMATE"/>
+        <sem class="FAMILY"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">farmor</t>
+        <t pos="n" stat="notpref" tcomm="yes">bestemor</t>
+        <tf pos="phrase_n" tcomm="no">fars mor</tf>
+        <tf tcomm="no">pappas mor</tf>
+        <tf tcomm="no">fars mamma</tf>
+        <tf tcomm="no">pappas mamma</tf>
+        <tf tcomm="no">far sin mor</tf>
+        <tf tcomm="no">far sin mamma</tf>
+        <tf tcomm="no">pappa sin mor</tf>
+        <tf tcomm="no">pappa sin mamma</tf>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">farmor</t>
+        <tf tcomm="no">pappas mor</tf>
+        <tf tcomm="no">fars mor</tf>
+        <t pos="n" stat="notpref" tcomm="yes" xml:lang="swe">farförälder</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">farmor_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">farmor_DEU</t>
+      </tg>
+      <tg xml:lang="sme">
+        <tf pos="phrase_n" stat="pref" tcomm="no">áhči eadni</tf>
+        <t pos="n" stat="notpref" tcomm="yes">áhkku</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">isän äiti</t>
+        <t pos="n" stat="notpref" tcomm="no">mummo</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="oe" stem="2syll">gaahtoe</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="a1"/>
+      <book name="åa6"/>
+      <book name="åa4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="ANIMAL_PET"/>
+        <!-- test semantics -->
+        <sem class="ANIMAL"/>
+        <sem class="ANIMATE"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">katt</t>
+        <t pos="n" stat="notpref" tcomm="no">pus</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">katt</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">cat</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">katt_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">kissa</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="e" stem="2syll">bïenje</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s1"/>
+      <book name="s2"/>
+      <book name="dej"/>
+      <book name="åa1"/>
+      <book name="åa2"/>
+      <book name="a1"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="ANIMAL_PET"/>
+        <sem class="HERDING"/>
+        <sem class="BELONGINGS"/>
+        <!-- test semantics -->
+        <sem class="ANIMAL"/>
+        <sem class="ANIMATE"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">hund</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">hund</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">dog</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">hund_DEU</t>
+      </tg>
+      <tg xml:lang="sme">
+        <t pos="n" stat="notpref" tcomm="no">beana</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">koira</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">riepie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="dej"/>
+      <book name="åa1"/>
+      <book name="åa6"/>
+      <book name="åa4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="ANIMAL_WILD"/>
+        <sem class="ANIMAL_PREDATOR"/>
+        <!-- test semantics -->
+        <sem class="ANIMAL"/>
+        <sem class="ANIMATE"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">rev</t>
+        <t pos="n" stat="notpref" tcomm="no">rødrev</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">räv</t>
+        <t pos="n" stat="notpref" tcomm="no">rödräv</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">red fox</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">rev_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">kettu</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l margo="e" pos="n" soggi="ie" stem="3syll">åeruve</l>
+    </lg>
+    <stem class="trisyllabic"/>
+    <sources>
+      <book name="xxx"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="ANIMAL_WILD"/>
+        <!-- test semantics -->
+        <sem class="ANIMAL"/>
+        <sem class="ANIMATE"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">ekorn</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">ekorre</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">ekorn_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">ekorn_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">orava</t>
+      </tg>
+    </mg>
+  </e>
+  <xhtml:script xmlns:xhtml="http://www.w3.org/1999/xhtml" src="../../../words/dicts/scripts/gt_dictionary.js" type="text/javascript"/>
+</r>
