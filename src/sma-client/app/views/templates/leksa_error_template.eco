@@ -1,0 +1,2 @@
+<h3>Uh oh, an error occurred.</h3>
+Error: <%- @error_msg %>

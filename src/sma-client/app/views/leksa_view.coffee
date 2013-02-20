@@ -134,6 +134,7 @@ module.exports = class LeksaView extends Backbone.View
 
   question_template: require './templates/leksa_question'
   template: require './templates/leksa'
+  leksa_error_template: require './templates/leksa_error_template'
 
   events:
     'click #show-panel': "revealOptionsPanel"
@@ -221,6 +222,12 @@ module.exports = class LeksaView extends Backbone.View
     #
     # Find the concepts, answers, etc., for the question
     [question, alt_choices, answer] = q.find_concepts(app.conceptdb)
+    if not question
+      question_block = @leksa_error_template({
+        error_msg: "A question could not be generated from these parameters"
+      })
+      @$el.find('#leksa_question').html(question_block)
+      return false
 
     #
     # Some objects for handling concept rendering

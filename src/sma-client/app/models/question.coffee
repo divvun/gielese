@@ -28,14 +28,14 @@
       question = _.shuffle(q_concepts)[0]
       # TODO: what if there are no alternates, select other
       # less-matching concepts?
+
+      # Alternate question concepts that match the question criteria
       alternates = _.shuffle(q_concepts).slice(1)
     else
       # TODO: better obvious error
       console.log "No concepts found for question."
       console.log _filters
-
-    # Question prompt
-    console.log "question: #{question.get('concept_value')}"
+      return [false, false, false]
 
     # Here are the direct translations of our question prompt
     # TODO: if word has no translations, things break here.
@@ -45,10 +45,6 @@
     actual_answer_concepts = actual_answer_concepts.filter (o) =>
                                o.get('language') == _to
 
-    console.log "answer: #{actual_answer_concepts[0].get('concept_value')}"
-
-    # Alternate question concepts that match the question criteria
-    console.log "#{alternates.length} alternatives"
 
     # Get translations of the alternate question concepts; these should have a
     # semantic match and thus be a little more difficult.
@@ -57,9 +53,6 @@
     )
     alternate_translations = alternate_translations.filter (o) =>
                                o.get('language') == _to
-    
-    for alt in alternate_translations
-      console.log " - #{alt.get('concept_value')}"
     
     answer_possibilities = alternate_translations
     # TODO: multiple answers?
@@ -80,8 +73,6 @@
       else
         return false
 
-    console.log "#{potential_incorrect_answers.length} possible incorrects"
-    console.log "#{answer_possibilities.length} possibilities"
     potential_incorrect_answers = _.shuffle(potential_incorrect_answers)
 
     answer_possibilities = answer_possibilities.slice(0, max_answers - 1)
@@ -99,7 +90,6 @@
             all_answer_possibilities.push a
             break
 
-    console.log "total possibilities: #{all_answer_possibilities.length}"
     return [ question
            , all_answer_possibilities
            , actual_answer
