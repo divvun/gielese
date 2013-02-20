@@ -51,13 +51,7 @@ def create_manifest(app_host):
     def join_hosts(ps):
         return [app_host + p for p in ps]
 
-    images = join_hosts(list_dir('static/images/')) + [
-        "http://placekitten.com/250/150",
-        "http://placedog.com/250/150",
-        "http://dummyimage.com/250x150/000/900&text=granny",
-        "http://dummyimage.com/250x150/000/900&text=fish",
-        "http://dummyimage.com/250x150/000/900&text=fox",
-    ]
+    images = join_hosts(list_dir('static/images/'))
 
 <<<<<<< HEAD
     from urllib import quote
@@ -69,18 +63,23 @@ def create_manifest(app_host):
     timestamp = datetime.strftime(datetime.today(), format='%Y-%M-%d %H:%M')
 
 
-    networks = [
+    networks = join_hosts([
         'static/client/javascripts/app.js',
         'static/client/javascripts/vendor.js',
         'static/client/stylesheets/app.css',
-    ]
+        # TODO: test
+        #'/data/concepts.json',
+        #'/data/leksa_questions.json',
+    ])
 
     imgs = '\n'.join(images)
-    wavs = '\n'.join(audios)
-    nets = '\n'.join(join_hosts(networks))
+    # wavs = '\n'.join(audios)
+    wavs = '\n'.join([])
+    nets = '\n'.join(networks)
 
-    manifest_cache = dedent("""CACHE MANIFEST\n# %(timestamp)s\n%(imgs)s\n%(wavs)s""" % locals())
-    manifest_network = manifest_cache + """\n\nNETWORK:\n%(nets)s\nFALLBACK:\n%(nets)s""" % locals()
+    # TODO: structure actually correct? missing CACHE? key
+    manifest_cache = dedent("""CACHE MANIFEST\n# %(timestamp)s\n\nCACHE:\n%(imgs)s\n%(wavs)s\n%(nets)s""" % locals())
+    manifest_network = manifest_cache + """\n\nNETWORK:\n%(nets)s\n\nFALLBACK:\n%(nets)s""" % locals()
     # TODO: add FALLBACK and options, etc.?
 
     return manifest_network + '\n'
@@ -93,6 +92,20 @@ def cache_manifest():
     return Response( create_manifest('http://%s/' % request.host)
                    , mimetype='text/cache-manifest')
 
+
+# @app.route('/data/leksa_questions.json', methods=['GET'])
+# def leksa_questions():
+#     from sample_json import leksa_questions
+#     from flask import json
+# 
+#     return json.dumps(leksa_questions).encode('utf-8')
+# 
+# @app.route('/data/concepts.json', methods=['GET'])
+# def concepts():
+#     from sample_json import sample_json
+#     from flask import json
+# 
+#     return json.dumps(sample_json).encode('utf-8')
 
 @app.route('/', methods=['GET'])
 def client():

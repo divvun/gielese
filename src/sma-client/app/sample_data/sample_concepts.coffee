@@ -1,11 +1,8 @@
 Concept = require 'models/concept'
 
-IMG_WIDTH = "250"
-IMG_HEIGHT = "150"
-
 module.exports = [ new Concept({ language: "img"
                                  , concept_type: "img"
-                                 , concept_value: "http://placedog.com/#{IMG_WIDTH}/#{IMG_HEIGHT}"
+                                 , concept_value: "/static/images/puppy.png"
                                  , semantics: [ "ANIMAL", "FAMILY", "ANIMATE" ]
                                  , features: [ "FUZZY", "BROWN" ]
                                  , c_id: 1
@@ -29,7 +26,7 @@ module.exports = [ new Concept({ language: "img"
                                  })
                    , new Concept({ language: "img"
                                  , concept_type: "img"
-                                 , concept_value: "http://placekitten.com/#{IMG_WIDTH}/#{IMG_HEIGHT}"
+                                 , concept_value: "/static/images/kitty.png"
                                  , semantics: [ "ANIMAL", "ANIMATE" ]
                                  , features: [ "FUZZY", "CUTE", "BROWN" ]
                                  , c_id: 4
@@ -45,7 +42,7 @@ module.exports = [ new Concept({ language: "img"
                                  })
                    , new Concept({ language: "img"
                                  , concept_type: "img"
-                                 , concept_value: "http://dummyimage.com/#{IMG_WIDTH}x#{IMG_HEIGHT}/000/900&text=granny"
+                                 , concept_value: "/static/images/granny.png"
                                  , semantics: [ "FAMILY", "ANIMATE" ]
                                  , features: [ "OLD", "CUTE", "WRINKLY" ]
                                  , c_id: 6
@@ -53,7 +50,7 @@ module.exports = [ new Concept({ language: "img"
                                  })
                    , new Concept({ language: "img"
                                  , concept_type: "img"
-                                 , concept_value: "http://dummyimage.com/#{IMG_WIDTH}x#{IMG_HEIGHT}/000/900&text=fish"
+                                 , concept_value: "/static/images/fish.png"
                                  , semantics: [ "ANIMAL", "ANIMATE" ]
                                  , features: [ "SCALY", "CUTE"]
                                  , c_id: 7
@@ -77,7 +74,7 @@ module.exports = [ new Concept({ language: "img"
                                  })
                    , new Concept({ language: "img"
                                  , concept_type: "img"
-                                 , concept_value: "http://dummyimage.com/#{IMG_WIDTH}x#{IMG_HEIGHT}/000/900&text=fox"
+                                 , concept_value: "/static/images/fox.png"
                                  , semantics: [ "ANIMAL", "ANIMATE" ]
                                  , features: [ "FUZZY", "CUTE"]
                                  , c_id: 10
@@ -145,7 +142,7 @@ module.exports = [ new Concept({ language: "img"
                                  })
                    , new Concept({ language: "img"
                                  , concept_type: "img"
-                                 , concept_value: "http://localhost:5000/static/images/orava.png"
+                                 , concept_value: "/static/images/orava.png"
                                  , semantics: [ "ANIMAL", "ANIMATE" ]
                                  , features: [ "FUZZY", "CUTE", "RED" ]
                                  , c_id: 18
