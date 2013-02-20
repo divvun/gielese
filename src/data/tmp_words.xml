@@ -1565,5 +1565,1299 @@ For the full license text, see the link above.</lic>
       </tg>
     </mg>
   </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="a" stem="2syll">ååredæjja</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s3"/>
+      <book name="dej"/>
+      <book name="åa2"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">ansikt</t>
+        <t pos="n" stat="notpref" tcomm="no">fjes</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">ansikte</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">ansikt_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">ansikt_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">kasvot</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">baenie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s3"/>
+      <book name="dej"/>
+      <book name="åa1"/>
+      <book name="åa3"/>
+      <book name="åa5"/>
+      <book name="åa6"/>
+      <book name="a1"/>
+      <book name="åa4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+        <sem class="ANIMAL_OTHER"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">tann</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">tand</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">tooth</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">Zahn</t>
+      </tg>
+      <tg xml:lang="sme">
+        <t pos="n" stat="notpref" tcomm="no">bátni</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">hammas</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">bielkie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="xxx"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+        <sem class="mLONG_SHORT"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">tommel</t>
+        <t pos="n" stat="notpref" tcomm="no">tommelfinger</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">tumme</t>
+        <t pos="n" stat="notpref" tcomm="no">tumfinger</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">thumb</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">tommel_DEU</t>
+      </tg>
+      <tg xml:lang="sme">
+        <t pos="n" stat="notpref" tcomm="no">bealgi</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">peukalo</t>
+      </tg>
+    </mg>
+    <mg>
+      <tg xml:lang="nob">
+        <t pos="n" stat="notpref" tcomm="no">hansketommel</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="notpref" tcomm="no">tumme på handske</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="notpref" tcomm="no">hansketommel_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="notpref" tcomm="no">hansketommel_DEU</t>
+      </tg>
+      <tg xml:lang="sme">
+        <t pos="n" stat="notpref" tcomm="no">bealgi</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" tcomm="no">hansikkaan peukalo</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="oe" stem="2syll">gaalloe</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="åa2"/>
+      <book name="åa3"/>
+      <book name="dej"/>
+      <book name="s3"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">panne</t>
+        <t pos="n" stat="notpref" tcomm="no">skalle</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">panna</t>
+        <t pos="n" stat="notpref" tcomm="no">skalle</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">forehead</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">panne_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">otsa</t>
+      </tg>
+    </mg>
+    <mg>
+      <tg xml:lang="nob">
+        <t pos="n" stat="notpref" tcomm="no">skallehud</t>
+        <t pos="n" stat="notpref" tcomm="no">skalleskinn</t>
+        <t pos="n" stat="notpref" tcomm="no">hodeskinn</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="notpref" tcomm="no">skallhud</t>
+        <t pos="n" stat="notpref" tcomm="no">skallskinn</t>
+        <t pos="n" stat="notpref" tcomm="no">huvudskinn</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="notpref" tcomm="no">skallehud_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="notpref" tcomm="no">skallehud_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" tcomm="no">otsannahka</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l class="I" p3p="gaatska" pos="v" stem="2syll" umlaut="full" vow="x">gaetskedh</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="dej"/>
+      <book name="åa6"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODY_V"/>
+        <sem class="mACTIVITY_V"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="v" stat="pref" tcomm="no">bite</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="pref" tcomm="no">bita</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="pref" tcomm="no">bite</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="pref" tcomm="no">bite_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">purra</t>
+      </tg>
+    </mg>
+    <mg>
+      <tg xml:lang="nob">
+        <t pos="v" stat="notpref" tcomm="no">kastrere</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="notpref" tcomm="no">kastrera</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="notpref" tcomm="no">castrate</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="notpref" tcomm="no">kastrere_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" tcomm="no">kastroida</t>
+      </tg>
+    </mg>
+  </e>
+  <e exclude="smanob">
+    <lg>
+      <l class="IV" p3p="gahpa" pos="v" stem="2syll" vow="a">gahpedh</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="dej"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="REINDEER"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <tf pos="phrase_v" stat="pref" tcomm="no">reise seg på to for å slå</tf>
+      </tg>
+      <tg xml:lang="swe">
+        <tf pos="phrase_v" stat="pref" tcomm="no">ställa sig på tå för att slå</tf>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="phrase_v" stat="pref" tcomm="no">reise seg på to for å slå_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="phrase_v" stat="pref" tcomm="no">reise seg på to for å slå_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="phrase_v" stat="pref" tcomm="no">nousta kahdelle jalalle</t>
+      </tg>
+    </mg>
+    <mg>
+      <tg xml:lang="nob">
+        <tf pos="phrase_v" tcomm="no">streve etter å komme opp</tf>
+      </tg>
+      <tg xml:lang="swe">
+        <tf pos="phrase_v" tcomm="no">sträva efter att komma upp</tf>
+        <tf pos="phrase_v" tcomm="no">klättra</tf>
+        <tg xml:lang="nob">
+          <tf pos="phrase_v" tcomm="no">streve etter å komme opp</tf>
+        </tg>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="phrase_v" stat="notpref" tcomm="no">streve etter å komme opp_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="phrase_v" stat="notpref" tcomm="no">streve etter å komme opp_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="phrase_v" tcomm="no">pyrkiä ylös</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l class="IV" hid="1" p3p="gåvla" pos="v" stem="2syll" umlaut="D">govledh</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s1"/>
+      <book name="s2"/>
+      <book name="s3"/>
+      <book name="a1"/>
+      <book name="dej"/>
+      <book name="åa1"/>
+      <book name="åa2"/>
+      <book name="åa5"/>
+      <book name="åa4"/>
+      <book name="åa4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="EXPERIENCE_V"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="v" stat="pref" tcomm="no">høre</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="pref" tcomm="no">höra</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="pref" tcomm="no">hear</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="pref" tcomm="no">høre_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">kuulla</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l class="V" hid="2" p3p="govloe" pos="v" stem="2syll">govledh</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s1"/>
+      <book name="s2"/>
+      <book name="s3"/>
+      <book name="s4"/>
+      <book name="åa1"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="EXPOSURE_V"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="v" stat="pref" tcomm="no">høres</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="pref" tcomm="no">höras</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="pref" tcomm="no">be heard</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="pref" tcomm="no">høres_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">kuulua</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l margo="e" pos="n" soggi="ie" stem="3syll">guehpere</l>
+    </lg>
+    <stem class="trisyllabic"/>
+    <sources>
+      <book name="dej"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">negl</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">nagel</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">nail</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">negl_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">kynsi</t>
+      </tg>
+    </mg>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="ANIMAL_OTHER"/>
+        <sem class="REINDEER"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">klov</t>
+        <t pos="n" stat="notpref" tcomm="no">klauv</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">klöv</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">klov_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">klov_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">sorkka</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">haermie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s3"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">øyebryn</t>
+        <t pos="n" stat="notpref" tcomm="no">øyenbryn</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">ögonbryn</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">eyebrow</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">øyebryn_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">kulmakarvat</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l class="I" p3p="hapsa" pos="v" stem="2syll" umlaut="full" vow="x">hepsedh</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODY_V"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="v" stat="pref" tcomm="no">lukte</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="pref" tcomm="no">lukta</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="pref" tcomm="no">smell</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="pref" tcomm="no">lukte_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">haistaa</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">juelkie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s3"/>
+      <book name="dej"/>
+      <book name="åa1"/>
+      <book name="åa2"/>
+      <book name="åa5"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">fot</t>
+        <t pos="n" stat="notpref" tcomm="no">bein</t>
+        <t pos="n" stat="notpref" tcomm="no">ben</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">fot</t>
+        <t pos="n" stat="notpref" tcomm="no">ben</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">leg</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">fot_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">jalka</t>
+      </tg>
+    </mg>
+  </e>
+  <e exclude="smanob">
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">juelkiebielie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="dej"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="REINDEER"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <tf pos="phrase_n" stat="pref" tcomm="no">hull i reinskinn etter framføttene</tf>
+      </tg>
+      <tg xml:lang="swe">
+        <tf pos="phrase_n" stat="pref" tcomm="no">hål i renskinnet efter frambenen</tf>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="phrase_n" stat="pref" tcomm="no">hull i reinskinn etter framføttene_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="phrase_n" stat="pref" tcomm="no">hull i reinskinn etter framføttene_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">poronnahan etujalkojen reiät</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">njaelmie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s3"/>
+      <book name="åa2"/>
+      <book name="åa5"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">munn</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">mun</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">mouth</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">munn_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">suu</t>
+      </tg>
+    </mg>
+    <mg>
+      <tg xml:lang="nob">
+        <t pos="n" stat="notpref" tcomm="no">munning</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="notpref" tcomm="no">mynning</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="notpref" tcomm="no">munning_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="notpref" tcomm="no">munning_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" tcomm="no">suuaukko</t>
+      </tg>
+    </mg>
+    <mg>
+      <tg xml:lang="nob">
+        <t pos="n" stat="notpref" tcomm="no">åpning</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="notpref" tcomm="no">öppning</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="notpref" tcomm="no">opening</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="notpref" tcomm="no">åpning_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" tcomm="no">aukko</t>
+      </tg>
+    </mg>
+  </e>
+  <e exclude="smanob">
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">njallemejuelkie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="dej"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="REINDEER"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <tf pos="phrase_n" stat="pref" tcomm="no">flådd fot</tf>
+      </tg>
+      <tg xml:lang="swe">
+        <tf pos="phrase_n" stat="pref" tcomm="no">flådd ben</tf>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="phrase_n" stat="pref" tcomm="no">flådd fot_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="phrase_n" stat="pref" tcomm="no">flådd fot_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">nyljetty jalka</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l margo="e" pos="n" soggi="e" stem="3syll">njoektjeme</l>
+    </lg>
+    <stem class="trisyllabic"/>
+    <sources>
+      <book name="s2"/>
+      <book name="s3"/>
+      <book name="dej"/>
+      <book name="åa4"/>
+      <book name="åa6"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+        <sem class="TRAD_FOOD"/>
+        <sem class="FOOD_DISH"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">tunge</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">tunga</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">tongue</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">tunge_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">kieli</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">njuenie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s3"/>
+      <book name="åa1"/>
+      <book name="åa2"/>
+      <book name="åa6"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">nese</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">näsa</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">nose</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">nese_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">nenä</t>
+      </tg>
+    </mg>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="ANIMAL_OTHER"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">snute</t>
+        <t pos="n" stat="notpref" tcomm="no">nebb</t>
+        <t pos="n" stat="notpref" tcomm="no">mule</t>
+        <t pos="n" stat="notpref" tcomm="no">muleparti</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">nos</t>
+        <t pos="n" stat="notpref" tcomm="no">näbb</t>
+        <t pos="n" stat="notpref" tcomm="no">mule</t>
+        <t pos="n" stat="notpref" tcomm="no">mulparti</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">snute_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">snute_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">kuono</t>
+      </tg>
+    </mg>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="NATURE_PLACE"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">fjellnase</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">fjällnäsa</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">fjellnase_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">fjellnase_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">vuorennenä</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l class="VI" p3p="njulhtjie" pos="v" stem="2syll">njulhtjedh</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="dej"/>
+      <book name="åa4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODY_V"/>
+        <sem class="ANIMAL_V"/>
+        <sem class="mACTIVITY_V"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <re>en gang</re>
+        <t pos="v" stat="pref" tcomm="no">hoppe</t>
+      </tg>
+      <tg xml:lang="swe">
+        <re>en gång</re>
+        <t pos="v" stat="pref" tcomm="no">hoppa</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="pref" tcomm="no">jump</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="pref" tcomm="no">hoppe_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">hypätä</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="e" stem="2syll">ravve</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s3"/>
+      <book name="åa6"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">bak</t>
+        <t pos="n" stat="notpref" tcomm="no">ende</t>
+        <t pos="n" stat="notpref" tcomm="no">rumpe</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">bak</t>
+        <t pos="n" stat="notpref" tcomm="no">rumpa</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">bak_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">bak_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">takamus</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="e" stem="2syll">rudtje</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s2"/>
+      <book name="s3"/>
+      <book name="åa5"/>
+      <book name="åa4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+        <sem class="REINDEER"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">rygg</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">rygg</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">back</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">rygg_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">selkä</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l margo="e" pos="n" soggi="oe" stem="3syll">searome</l>
+    </lg>
+    <stem class="trisyllabic"/>
+    <sources>
+      <book name="xxx"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">kinn</t>
+        <t pos="n" stat="notpref" tcomm="no">kinnbein</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">kind</t>
+        <t pos="n" stat="notpref" tcomm="no">kindben</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">kinn_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">kinn_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">poski</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="oe" stem="2syll">skaavtjoe</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="xxx"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">skjegg</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">skägg</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">skjegg_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">skjegg_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">parta</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="e" stem="2syll">soerme</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s3"/>
+      <book name="åa2"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+        <sem class="mLONG_SHORT"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">finger</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">finger</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">finger_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">finger_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">sormi</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l class="VI" p3p="steerie" pos="v" stem="2syll">steeredh</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="dej"/>
+      <book name="åa3"/>
+      <book name="åa5"/>
+      <book name="åa6"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODY_V"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="v" stat="pref" tcomm="no">holde</t>
+        <tf tcomm="no">holde fast</tf>
+        <tf tcomm="no">holde på</tf>
+        <tf tcomm="no">holde i</tf>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="pref" tcomm="no">hålla fast</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="pref" tcomm="no">hold</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="pref" tcomm="no">holde_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">pitää</t>
+      </tg>
+    </mg>
+    <mg>
+      <tg xml:lang="nob">
+        <t pos="v" stat="notpref" tcomm="no">føre</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="notpref" tcomm="no">föra</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="notpref" tcomm="no">føre_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="notpref" tcomm="no">føre_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" tcomm="no">taluttaa</t>
+      </tg>
+    </mg>
+  </e>
+  <e exclude="smanob">
+    <lg>
+      <l p3p="steereste" pos="v" stem="3syll">steerestidh</l>
+    </lg>
+    <stem class="trisyllabic"/>
+    <sources>
+      <book name="åa3"/>
+      <book name="åa6"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODY_V"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="v" stat="pref" tcomm="no">holde i som snarest</t>
+        <tf pos="phrase_v" tcomm="no">holde i litt</tf>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="pref" tcomm="no">hålla i som hastigast</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="pref" tcomm="no">holde i som snarest_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="pref" tcomm="no">holde i som snarest_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">ottaa</t>
+        <t pos="v" stat="notpref" tcomm="no">pitää kiinni</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">tjelmie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s3"/>
+      <book name="åa1"/>
+      <book name="åa2"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">øye</t>
+        <t pos="n" stat="notpref" tcomm="no">auge</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">öga</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">øye_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">øye_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">silmä</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l margo="e" pos="n" soggi="ie" stem="3syll">tjiehtjere</l>
+    </lg>
+    <stem class="trisyllabic"/>
+    <sources>
+      <book name="s3"/>
+      <book name="åa2"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">tå</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">tå</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">tå_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">tå_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">varvas</t>
+      </tg>
+    </mg>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODYPART"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">lillefinger</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">lillfinger</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">lillefinger_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">lillefinger_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">pikkurilli</t>
+        <t pos="n" stat="notpref" tcomm="no">pikkusormi</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l diph="yes" p3p="tjuvleste" pos="v" stem="3syll">tjuvliestidh</l>
+    </lg>
+    <stem class="trisyllabic"/>
+    <sources>
+      <book name="s4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="BODY_V"/>
+        <sem class="mACTIVITY_V"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="v" stat="pref" tcomm="no">kysse</t>
+        <t pos="v" stat="notpref" tcomm="no">nusse</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="pref" tcomm="no">kyssa</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="pref" tcomm="no">kiss</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="pref" tcomm="no">kysse_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">suudella</t>
+      </tg>
+    </mg>
+  </e>
+  <e exclude="smanob">
+    <lg>
+      <l diph="yes" pos="v" stem="3syll">tjuvviestidh</l>
+    </lg>
+    <stem class="trisyllabic"/>
+    <sources>
+      <book name="s4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="GAMME"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <tf pos="phrase_v" stat="pref" tcomm="no">regne inn gjennom røykhullet</tf>
+      </tg>
+      <tg xml:lang="swe">
+        <tf pos="phrase_v" stat="pref" tcomm="no">regna in genom rökhålet</tf>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="phrase_v" stat="pref" tcomm="no">rain in through the smoke hole</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="phrase_v" stat="pref" tcomm="no">regne inn gjennom røykhullet_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">sataa sisään räppänäaukosta</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l class="I" p3p="vaalta" pos="v" stem="2syll" umlaut="full" vow="x">vaeltedh</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s1"/>
+      <book name="a1"/>
+      <book name="s2"/>
+      <book name="s3"/>
+      <book name="dej"/>
+      <book name="åa2"/>
+      <book name="åa5"/>
+      <book name="åa4"/>
+      <book name="åa4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="ACTION_V"/>
+        <sem class="mCOMMAND_V"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="v" stat="pref" tcomm="no">ta</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t pos="v" stat="pref" tcomm="no">ta</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="v" stat="pref" tcomm="no">take</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="v" stat="pref" tcomm="no">ta_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">ottaa</t>
+      </tg>
+    </mg>
+  </e>
+  <e exclude="smanob">
+    <lg>
+      <l diph="yes" pos="v" stem="3syll">vaerhpiedidh</l>
+    </lg>
+    <stem class="trisyllabic"/>
+    <sources>
+      <book name="s4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="FISHING"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <tf stat="pref" tcomm="no">slenge ut not</tf>
+      </tg>
+      <tg xml:lang="swe">
+        <tf stat="pref" tcomm="no">slenge ut not</tf>
+      </tg>
+      <tg xml:lang="eng">
+        <t stat="pref" tcomm="no">slenge ut not_ENG</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t stat="pref" tcomm="no">slenge ut not_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="v" stat="pref" tcomm="no">apajoida</t>
+        <t pos="v" stat="notpref" tcomm="no">heittää nuottaa</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l pos="n" soggi="ie" stem="2syll">guelie</l>
+    </lg>
+    <stem class="bisyllabic"/>
+    <sources>
+      <book name="s2"/>
+      <book name="s3"/>
+      <book name="dej"/>
+      <book name="åa1"/>
+      <book name="åa2"/>
+      <book name="åa5"/>
+      <book name="åa4"/>
+      <book name="åa4"/>
+    </sources>
+    <mg>
+      <semantics>
+        <sem class="MORFAS"/>
+        <sem class="FOOD_DISH"/>
+        <sem class="FOOD_GROCERY"/>
+        <sem class="TRAD_FOOD"/>
+        <sem class="FISHING"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t pos="n" stat="pref" tcomm="no">fisk</t>
+      </tg>
+      <tg check="'semantics_and_re'" xml:lang="swe">
+        <t pos="n" stat="pref" tcomm="no">fisk</t>
+      </tg>
+      <tg xml:lang="eng">
+        <t pos="n" stat="pref" tcomm="no">fish</t>
+      </tg>
+      <tg xml:lang="deu">
+        <t pos="n" stat="pref" tcomm="no">fisk_DEU</t>
+      </tg>
+      <tg xml:lang="fin">
+        <t pos="n" stat="pref" tcomm="no">kala</t>
+      </tg>
+    </mg>
+  </e>
   <xhtml:script xmlns:xhtml="http://www.w3.org/1999/xhtml" src="../../../words/dicts/scripts/gt_dictionary.js" type="text/javascript"/>
 </r>
