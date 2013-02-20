@@ -1,11 +1,16 @@
 # -*- encoding: utf-8 -*-
 from flask import ( Flask, request, redirect, session, json,
+<<<<<<< HEAD
                     render_template, Response, url_for)
+=======
+                    render_template, Response)
+>>>>>>> initial mediaserv: changing paths, moving files, app cache manifest,
 
 from werkzeug.routing import BaseConverter
 
 app = Flask(__name__, static_url_path='/static',)
 
+<<<<<<< HEAD
 @app.route('/favicon.ico')
 def favicon():
     from flask import send_from_directory
@@ -15,6 +20,8 @@ def favicon():
 
 
 
+=======
+>>>>>>> initial mediaserv: changing paths, moving files, app cache manifest,
 app.jinja_env.line_statement_prefix = '#'
 
 
@@ -52,8 +59,12 @@ def create_manifest(app_host):
         "http://dummyimage.com/250x150/000/900&text=fox",
     ]
 
+<<<<<<< HEAD
     from urllib import quote
     audios = join_hosts(map(quote, list_dir('static/audio/')))
+=======
+    audios = join_hosts(list_dir('static/audio/'))
+>>>>>>> initial mediaserv: changing paths, moving files, app cache manifest,
 
     timestamp = datetime.strftime(datetime.today(), format='%Y-%M-%d %H:%M')
 

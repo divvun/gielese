@@ -109,13 +109,12 @@ module.exports = class Application
           app.router.index()
           return e.preventDefault()
 
-      
       # $('div[data-role="page"]').live 'pagehide', (event, ui) ->
       #     $(event.currentTarget).remove()
       #
       # TODO: route for app cache manifest, generate automatically.
       # TODO: reenable cache when less changes are going on
-      # initWindowCache()
+      initWindowCache()
 
 
   initialize: ->

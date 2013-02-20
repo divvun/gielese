@@ -21,6 +21,11 @@ module.exports = class Router extends Backbone.Router
     '#leksa': 'leksa'
     '#options': 'options'
 
+    'home': 'index'
+    '#home': 'index'
+    '#wordlist': 'wordlist'
+    '#leksa': 'leksa'
+
   index: ->
     ##  $('content #content').html app.helloView.render().el
     @changePage(app.helloView)
