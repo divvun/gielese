@@ -70,7 +70,7 @@ def create_manifest(app_host):
 def cache_manifest():
     from flask import Response
 
-    return Response( create_manifest('http://localhost:5000/')
+    return Response( create_manifest('http://%s/' % request.host)
                    , mimetype='text/cache-manifest')
 
 
@@ -78,6 +78,8 @@ def cache_manifest():
 def client():
     from flask import Response
     return render_template('index.html')
+
+app.debug = True
 
 if __name__ == "__main__":
     app.run(debug=True)
