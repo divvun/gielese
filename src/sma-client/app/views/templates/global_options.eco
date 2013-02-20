@@ -1,0 +1,15 @@
+﻿<div data-role="header">
+    <h1>Options</h1>
+</div> 
+
+<div data-role="content">
+    <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup">
+            <legend>Data storage</legend>
+            <input type="checkbox" name="data-storage" id="data-storage" class="custom" />
+            <label for="data-storage">Store data for offline use</label>
+        </fieldset>
+    </div>
+</div> 
+
+
