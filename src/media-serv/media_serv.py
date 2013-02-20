@@ -1,10 +1,19 @@
 # -*- encoding: utf-8 -*-
 from flask import ( Flask, request, redirect, session, json,
-                    render_template, Response)
+                    render_template, Response, url_for)
 
 from werkzeug.routing import BaseConverter
 
 app = Flask(__name__, static_url_path='/static',)
+
+@app.route('/favicon.ico')
+def favicon():
+    from flask import send_from_directory
+    import os
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+
 
 app.jinja_env.line_statement_prefix = '#'
 
