@@ -1,7 +1,8 @@
 ﻿module.exports = class Question extends Backbone.Model
   find_concepts: (conceptdb) ->
+    
+    max_answers = 4
 
-    question_possibilities = []
     answer_possibilities = []
 
     _filters = @get('filters')
@@ -22,7 +23,7 @@
       else
         return false
 
-    # Select a question
+    # Select a question concept
     if q_concepts.length > 0
       question = _.shuffle(q_concepts)[0]
       # TODO: what if there are no alternates, select other
@@ -38,15 +39,19 @@
 
     # Here are the direct translations of our question prompt
     # TODO: if word has no translations, things break here.
+    # TODO: also if there are multiple translations in a language, we'll only
+    #       get the first in the DB
     actual_answer_concepts = conceptdb.getTranslationsOf question
     actual_answer_concepts = actual_answer_concepts.filter (o) =>
                                o.get('language') == _to
 
     console.log "answer: #{actual_answer_concepts[0].get('concept_value')}"
 
-    # Alternative similar answers
+    # Alternate question concepts that match the question criteria
     console.log "#{alternates.length} alternatives"
 
+    # Get translations of the alternate question concepts; these should have a
+    # semantic match and thus be a little more difficult.
     alternate_translations = _.flatten(
       conceptdb.getTranslationsOf alt for alt in alternates
     )
@@ -56,7 +61,6 @@
     for alt in alternate_translations
       console.log " - #{alt.get('concept_value')}"
     
-    question_possibilities = q_concepts
     answer_possibilities = alternate_translations
     # TODO: multiple answers?
     actual_answer = actual_answer_concepts[0]
@@ -76,25 +80,28 @@
       else
         return false
 
+    console.log "#{potential_incorrect_answers.length} possible incorrects"
+    console.log "#{answer_possibilities.length} possibilities"
     potential_incorrect_answers = _.shuffle(potential_incorrect_answers)
 
-    leftovers = 3 - answer_possibilities.length
-    console.log "fetch #{leftovers} leftovers"
-    fillings = potential_incorrect_answers.slice(0, leftovers)
-    console.log "fetched #{fillings.length} leftovers"
+    answer_possibilities = answer_possibilities.slice(0, max_answers - 1)
 
+    all_answer_possibilities = [actual_answer]
+    all_answer_possibilities = all_answer_possibilities.concat answer_possibilities
+    all_answer_possibilities = _.uniq(all_answer_possibilities)
 
-    answer_possibilities_with_fillings = []
-    answer_possibilities_with_fillings = answer_possibilities_with_fillings.concat answer_possibilities
-    answer_possibilities_with_fillings = answer_possibilities_with_fillings.concat fillings
-    answer_possibilities_with_fillings.push   actual_answer
-    answer_possibilities_with_fillings = _.uniq(answer_possibilities_with_fillings)
+    # Fill the array with missing answers if we have too few.
+    if all_answer_possibilities.length < max_answers
+      difference = max_answers - all_answer_possibilities.length
+      for c in _.range(0, difference)
+        for a in _.shuffle(potential_incorrect_answers)
+          if (a != actual_answer) and !(a in all_answer_possibilities)
+            all_answer_possibilities.push a
+            break
 
-    # TODO: note that this is sometimes over 4, so, something above
-    #       needs to be fixed
-    console.log "total possibilities: #{answer_possibilities_with_fillings.length}"
+    console.log "total possibilities: #{all_answer_possibilities.length}"
     return [ question
-           , answer_possibilities_with_fillings
+           , all_answer_possibilities
            , actual_answer
            ]
 
