@@ -35,6 +35,10 @@ module.exports = class Router extends Backbone.Router
     # $('content #content').html app.leksaView.render().el
     @changePage(app.conceptList)
 
+  refreshCurrentPage: () ->
+    $('[data-role="page"]').trigger("pagecreate")
+    return true
+  
   changePage: (page) ->
     # Here we're creating new change page behavior so that backbone plays
     # nicely with jQuery mobile.

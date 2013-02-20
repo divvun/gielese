@@ -271,6 +271,8 @@ module.exports = class LeksaView extends Backbone.View
       answerlink.unbind('click').click (evt) -> return false
       return false
 
+    app.router.refreshCurrentPage()
+
     return true
 
   updateLogPanel: (entry) ->
