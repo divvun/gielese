@@ -1,6 +1,4 @@
 ﻿
-QuestionDB = require 'models/questiondb'
-Question = require 'models/question'
 StatTemplate = require 'views/templates/stat_block'
 
 UserLog = require 'models/user_log_entry'
@@ -76,54 +74,11 @@ audio_files = {
 
 
 
-default_questions = [
-    new Question({ type: "image_to_word"
-                 , filters: { semantics: ["FAMILY"]
-                            , from_language: "img"
-                            , to_language: "sma"
-                            }
-                 , answer_similarity: { features: [ "BISYL", "HT" ]
-                                      , semantics: [ "ANIMAL" ]
-                                      }
-                 })
-  
-  # attempt at bïenje -> dog image
-  , new Question({ type: "word_to_image"
-                 , filters: { semantics: ["ANIMAL"]
-                            , from_language: "sma"
-                            , to_language: "img"
-                            }
-                 , answer_similarity: { features: [ "BISYL" ]
-                                      , semantics: [ "ANIMAL", "FUZZY" ]
-                                      }
-                 })
-  # attempt at bïenje -> hund
-  , new Question({ type: "word_to_word"
-                 , filters: { semantics: ["ANIMAL"]
-                            , from_language: "sma"
-                            , to_language: "nob"
-                            }
-                 , answer_similarity: { features: [ ]
-                                      , semantics: [ "ANIMAL", "FUZZY" ]
-                                      }
-                 })
-
-  , new Question({ type: "word_to_word"
-                 , filters: { semantics: ["ANIMAL"]
-                            , from_language: "nob"
-                            , to_language: "sma"
-                            }
-                 , answer_similarity: { features: [ ]
-                                      , semantics: [ "ANIMAL", "FUZZY" ]
-                                      }
-                 })
-]
 
 # TODO: all of these things will need to be in local database. Also so far
 # these are all refreshed when the user navigates away from the page and comes
 # back. Some of these will need to be instantiated with the application, or recalled
 # from local or external storage.
-window.questiondb = new QuestionDB(default_questions)
 window.userprogression = new UserProgression()
 
 # TODO: progression: increase amount of possible answers for individual words from
@@ -220,7 +175,7 @@ module.exports = class LeksaView extends Backbone.View
 
     #
     # Select a question
-    q = _.shuffle(questiondb.models)[0]
+    q = _.shuffle(app.questiondb.models)[0]
     #
     # Find the concepts, answers, etc., for the question
     [question, alt_choices, answer] = q.find_concepts(app.conceptdb)

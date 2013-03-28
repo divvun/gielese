@@ -1,13 +1,25 @@
-# TODAY
+# Next
 
-* offline play on android 
-* maybe try to get some sync events going in footer
+ * sync events going in footer
+ * sound
+ * sound options
+
+ * sound -> sound game (e.g., hear one voice, choose the other voice)
+ * image -> sound
+ * sound -> image
+
+ * what about a sound matching game, where you get a board of miscellaneous
+   cards, and you have to match the same word but in multiple voices
 
 # Getting going
 
  * http://jquerymobile.com/
  * http://backbonejs.com/
  * http://brunch.io/
+
+## Misc
+
+TODO: switch to http://html5boilerplate.com/ for markup
 
 ## Things to read
 
@@ -26,6 +38,7 @@ The offline aspect of this app will need to be covered in two ways:
      when the user is offline. May be some way to allow the user to force a
      check, or manually set the application into offline mode for when they are
      connected but just don't want the app to update.
+
 
 #### local DB storage stuff
 

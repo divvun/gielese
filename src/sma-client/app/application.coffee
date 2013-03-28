@@ -5,24 +5,9 @@ GlobalOptionsView = require 'views/global_options'
 ConceptList = require 'views/concept_list'
 
 ConceptDB = require 'models/conceptdb'
-sample_concepts = require 'sample_data/sample_concepts'
-
-
-jQuery.fn.cleanWhitespace = ->
-  textNodes = @contents().filter(->
-    @nodeType is 3 and not /\S/.test(@nodeValue)
-  ).remove()
-  this
-
-jQuery.fn.htmlClean = ->
-  @contents().filter(->
-    unless @nodeType is 3
-      $(this).htmlClean()
-      false
-    else
-      not /\S/.test(@nodeValue)
-  ).remove()
-  this
+QuestionDB = require 'models/questiondb'
+Question = require 'models/question'
+# sample_concepts = require 'sample_data/sample_concepts'
 
 arrayChunk = (a, s) ->
   x = undefined
@@ -38,24 +23,10 @@ arrayChunk = (a, s) ->
 
 window.arrayChunk = arrayChunk
 
-# TODO: initialize local cache / manifest thing 
-# http://developer.teradata.com/tag/backbone-js-cache-manifest
-#
-# TODO: example, docs and demo: http://appcachefacts.info/demo/
-# TODO: http://appcachefacts.info/peterlubbers-owc4/index.html#2
-#
-# TODO: developing will be super irritating with updating cache
-# manifest, every time there are code changes in the files; appCache
-# only seems to check that manifest is updated, not the actual files
-# themselves? 
-
-# TODO: switch to http://html5boilerplate.com/ for markup
-#
-# TODO: how to test on mobile, and what to do when applicationCache is
-# not available? is there a javascript fallback of sorts? 
-
 window.initWindowCache = () ->
   console.log "Initializing appCache"
+  # TODO: need some sort of sync feedback for users
+  #
   # Some log handlers for the console
   if window.applicationCache
     window.applicationCache.onchecking = (e) ->
@@ -109,16 +80,22 @@ module.exports = class Application
           app.router.index()
           return e.preventDefault()
 
-      # $('div[data-role="page"]').live 'pagehide', (event, ui) ->
-      #     $(event.currentTarget).remove()
-      #
-      # TODO: route for app cache manifest, generate automatically.
       # TODO: reenable cache when less changes are going on
       initWindowCache()
 
-
   initialize: ->
-    @conceptdb = new ConceptDB(sample_concepts)
+    @conceptdb = new ConceptDB()
+    @questiondb = new QuestionDB()
+
+    # TODO: depending on how slow this can be, may need to signal to user that
+    # we're still waiting for concepts
+    $.getJSON '/data/concepts.json', false, (data) =>
+      console.log "Fetched #{data.length} concepts from /data/concepts.json"
+      @conceptdb.add(data)
+
+    $.getJSON '/data/leksa_questions.json', false, (data) =>
+      console.log "Fetched #{data.length} concepts from /data/leksa_questions.json"
+      @questiondb.add(data)
 
     @router = new Router
     @helloView = new HelloView

@@ -45,7 +45,6 @@
     actual_answer_concepts = actual_answer_concepts.filter (o) =>
                                o.get('language') == _to
 
-
     # Get translations of the alternate question concepts; these should have a
     # semantic match and thus be a little more difficult.
     alternate_translations = _.flatten(

@@ -1,16 +1,19 @@
 # -*- encoding: utf-8 -*-
 from flask import ( Flask, request, redirect, session, json,
-<<<<<<< HEAD
                     render_template, Response, url_for)
-=======
-                    render_template, Response)
->>>>>>> initial mediaserv: changing paths, moving files, app cache manifest,
 
 from werkzeug.routing import BaseConverter
+from lexicon_models import db
 
-app = Flask(__name__, static_url_path='/static',)
+def create_app():
+    app = Flask(__name__, static_url_path='/static',)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/media_serv.db'
+    db.init_app(app)
+    return app, db
 
-<<<<<<< HEAD
+
+app, db = create_app()
+
 @app.route('/favicon.ico')
 def favicon():
     from flask import send_from_directory
@@ -18,12 +21,7 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-
-
-=======
->>>>>>> initial mediaserv: changing paths, moving files, app cache manifest,
 app.jinja_env.line_statement_prefix = '#'
-
 
 # Using caveman for validation, but note, there is a django project for
 # automatically producing manifests, when integration with smaoahpa
@@ -36,7 +34,6 @@ app.jinja_env.line_statement_prefix = '#'
 # manifest_checker = ManifestChecker(logger=app.logger)
 # get_url param for something that fetches each file and returns
 # something.
-
 
 def create_manifest(app_host):
     from datetime import datetime
@@ -53,37 +50,30 @@ def create_manifest(app_host):
 
     images = join_hosts(list_dir('static/images/'))
 
-<<<<<<< HEAD
     from urllib import quote
-    audios = join_hosts(map(quote, list_dir('static/audio/')))
-=======
-    audios = join_hosts(list_dir('static/audio/'))
->>>>>>> initial mediaserv: changing paths, moving files, app cache manifest,
+    audios = join_hosts(map(quote, list_dir('static/audio/vce1/')))
 
     timestamp = datetime.strftime(datetime.today(), format='%Y-%M-%d %H:%M')
-
 
     networks = join_hosts([
         'static/client/javascripts/app.js',
         'static/client/javascripts/vendor.js',
         'static/client/stylesheets/app.css',
         # TODO: test
-        #'/data/concepts.json',
-        #'/data/leksa_questions.json',
+        '/data/concepts.json',
+        '/data/leksa_questions.json',
     ])
 
     imgs = '\n'.join(images)
-    # wavs = '\n'.join(audios)
-    wavs = '\n'.join([])
+    audios = '\n'.join(audios)
     nets = '\n'.join(networks)
 
     # TODO: structure actually correct? missing CACHE? key
-    manifest_cache = dedent("""CACHE MANIFEST\n# %(timestamp)s\n\nCACHE:\n%(imgs)s\n%(wavs)s\n%(nets)s""" % locals())
+    manifest_cache = dedent("""CACHE MANIFEST\n# %(timestamp)s\n\nCACHE:\n%(imgs)s\n%(audios)s\n%(nets)s""" % locals())
     manifest_network = manifest_cache + """\n\nNETWORK:\n%(nets)s\n\nFALLBACK:\n%(nets)s""" % locals()
     # TODO: add FALLBACK and options, etc.?
 
     return manifest_network + '\n'
-
 
 @app.route('/offline.media.appcache', methods=['GET'])
 def cache_manifest():
@@ -92,20 +82,19 @@ def cache_manifest():
     return Response( create_manifest('http://%s/' % request.host)
                    , mimetype='text/cache-manifest')
 
+@app.route('/data/leksa_questions.json', methods=['GET'])
+def leksa_questions():
+    from sample_json import leksa_questions
+    from flask import json
 
-# @app.route('/data/leksa_questions.json', methods=['GET'])
-# def leksa_questions():
-#     from sample_json import leksa_questions
-#     from flask import json
-# 
-#     return json.dumps(leksa_questions).encode('utf-8')
-# 
-# @app.route('/data/concepts.json', methods=['GET'])
-# def concepts():
-#     from sample_json import sample_json
-#     from flask import json
-# 
-#     return json.dumps(sample_json).encode('utf-8')
+    return json.dumps(leksa_questions).encode('utf-8')
+
+@app.route('/data/concepts.json', methods=['GET'])
+def concepts():
+    from sample_json import sample_json
+    from flask import json
+
+    return json.dumps(sample_json).encode('utf-8')
 
 @app.route('/', methods=['GET'])
 def client():
@@ -116,4 +105,3 @@ app.debug = True
 
 if __name__ == "__main__":
     app.run(debug=True)
-
