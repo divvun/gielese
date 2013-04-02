@@ -1,4 +1,4 @@
-<div data-role="header">
+<div data-role="header" data-position="fixed">
     <a id="show-panel" data-icon="gear">Options</a>
     <h1>Leksa</h1>
     <a id="show-user-panel" href="#" data-icon="check" data-theme="b">Stats</a>
@@ -44,17 +44,15 @@
 <div data-role="content">
     <div id="leksa_question"><% if @leksa_question: %><%- @leksa_question %><% end %></div>
 
-    <div class="set_done_options" style="display: none;">
-        <!-- go on to next set, see current scores, change options? -->
-        <div class="ui-corner-all ui-controlgroup" data-role="controlgroup" data-type="horizontal">
-            <a data-role="button" id="menu_repeat" href="#">Again?</a>
-            <a style="display: none;" id="menu_display_correct" data-role="button" href="#">Show correct?</a>
-            <a data-role="button" id="menu_next" href="#">Next</a>
-        </div>
-    </div>
 </div>
-<div data-role="footer">
-    <h1></h1>
+<div data-role="footer" data-position="fixed">
+    <!-- go on to next set, see current scores, change options? -->
+    <!-- <div class="set_done_options" style="display: none;"> -->
+    <div class="post_game_buttons" data-role="controlgroup" data-type="horizontal" data-position="right">
+        <a class="set_done_options" style="display: none;" data-role="button" id="menu_repeat" href="#">Again?</a>
+        <a class="set_done_options" style="display: none;" id="menu_display_correct" data-role="button" href="#">Show correct?</a>
+        <a data-role="button" id="menu_next" href="#" data-icon="arrow-r">Next</a>
+    </div>
 </div>
 
 <%# vim: set ts=4 sw=4 tw=0 syntax=eco nobomb: %>

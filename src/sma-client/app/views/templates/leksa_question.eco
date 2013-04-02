@@ -1,23 +1,24 @@
+<% # TODO: sound. %>
 <div class="question_prompt">
     <%- @render_concept(@question) %>
 </div>
 <hr />
 <div class="question_type">
     <% if @question_type == 'word_to_image': %>
-        <h3>Match the word with a picture:</h3>
+        <h3>is...</h3>
     <% else if @question_type == 'image_to_word': %>
-        <h3>Match the picture with a word:</h3>
+        <h3>means...</h3>
     <% else if @question_type == 'word_to_word': %>
-        <h3>Translate the word between languages:</h3>
+        <h3>means...</h3>
     <% end %>
 </div>
 
+<% # TODO: sound. %>
 <div class="possible_answers">
-    <br />
-    <% for group in @chunker(@choices, 2): %>
-    <div class="ui-grid-b ui-responsive">
-    <% for choice in group: %>
-        <div class="ui-block-b">
+    <div class="ui-grid-a">
+    <% chars = 'abcdefghijklmnopqrstuvwxyz' %>
+    <% for choice, idx in @choices: %>
+        <div class="ui-block-<%- chars.charAt(idx) %>">
             <div class="ui-body">
                 <% if choice.get('concept_type') == 'text': %>
                     <a class="answerlink" 
@@ -31,7 +32,6 @@
         </div>
     <% end %>
     </div>
-    <% end %>
 </div>
 
 <!-- 
