@@ -12,7 +12,7 @@ class Semtype(db.Model):
     semtype = db.Column(db.String(50), unique=True)
 
     def __repr__(self):
-        return "<Semtype '%s'>" % self.semtype
+        return "<Semtype '%s'>" % self.semtype.encode('utf-8')
 
 class Source(db.Model):
     __tablename__ = 'source'
@@ -111,6 +111,7 @@ word_dialect = db.Table( 'word_dialect'
 
                       )
 
+# TODO: word_wordtranslation relation
 
 class Word(db.Model):
     __tablename__ = 'word'
@@ -137,6 +138,9 @@ class Word(db.Model):
     frequency = db.Column(db.String(10))
     geography = db.Column(db.String(10))
     tcomm = db.Column(db.Boolean, default=False)
+    # TODO: some problem here
+    translations = db.relationship('WordTranslation', backref='words',
+                                    lazy='dynamic')
     morphophon = db.Column('morphphontag_id', db.Integer,
                            db.ForeignKey('morphphontag.id'), nullable=True)
     dialect = db.relationship('Dialect', secondary=word_dialect,
@@ -180,7 +184,7 @@ class Word(db.Model):
     ###     super(Word, self).save(*args, **kwargs)
 
     def __repr__(self):
-        return "<Word: %s>" % self.lemma
+        return "<Word: %s>" % self.lemma.encode('utf-8')
 
 # Many-To-Many intermediary table
 wordtranslation_semtype = db.Table( 'wordtranslation_semtype'
@@ -227,7 +231,7 @@ class WordTranslation(db.Model):
     lemma = db.Column(db.String(200), nullable=True)
     phrase = db.Column(db.Text, nullable=True)
     explanation = db.Column(db.Text, nullable=True)
-    pos = db.Column(db.String(12))
+    pos = db.Column(db.String(12), nullable=True)
     semtype = db.relationship('Semtype', secondary=wordtranslation_semtype,
                              backref=db.backref('wordtranslations', lazy='dynamic'))
     source = db.relationship('Source', secondary=wordtranslation_source,
@@ -256,7 +260,7 @@ class WordTranslation(db.Model):
         return word_answers
 
     def __repr__(self):
-        return self._getTrans().encode('utf-8')
+        return "<WordTranslation: %s>" % self._getTrans().encode('utf-8')
 
     ### def save(self, *args, **kwargs):
     ###     self.definition = self._getTrans()

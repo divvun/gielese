@@ -87,14 +87,43 @@ def leksa_questions():
     from sample_json import leksa_questions
     from flask import json
 
-    return json.dumps(leksa_questions).encode('utf-8')
+    pretty = request.args.get('pretty', False)
+
+    if pretty:
+        data = json.dumps( leksa_questions
+                         , sort_keys=True
+                         , indent=4
+                         , separators=(',', ': ')
+                         )
+    else:
+        data = json.dumps(leksa_questions)
+
+    return data.encode('utf-8')
+
+def format_concept(word):
+    # trick is that instead of Word and WordTranslation, need to have
+    # Concept, so, need a new generic relationship? (Otherwise Words
+    # will have id starting on 1, as will WordTranslations).
+
+    pass
 
 @app.route('/data/concepts.json', methods=['GET'])
 def concepts():
     from sample_json import sample_json
     from flask import json
 
-    return json.dumps(sample_json).encode('utf-8')
+    pretty = request.args.get('pretty', False)
+
+    if pretty:
+        data = json.dumps( sample_json
+                         , sort_keys=True
+                         , indent=4
+                         , separators=(',', ': ')
+                         )
+    else:
+        data = json.dumps(sample_json)
+
+    return data.encode('utf-8')
 
 @app.route('/', methods=['GET'])
 def client():
