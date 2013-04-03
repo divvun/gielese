@@ -315,7 +315,7 @@ class LexiconSimpleJSON(EntryNodeIterator):
                }
 
 def install_media_references(_d, filename):
-    from lexicon_models import Word, WordTranslation, Semtype, Dialect
+    from lexicon_models import Concept, Semtype, Dialect
 
     _add = _d.session.add
     _commit = _d.session.commit
@@ -344,7 +344,7 @@ def install_media_references(_d, filename):
         if media_defs.get('hid', False):
             wkws['pos'] = media_defs.get('pos')
 
-        word = _get_or_create(Word, **wkws)
+        word = _get_or_create(Concept, **wkws)
 
         _add(word)
         print " Installed word: %s" % word.lemma
@@ -356,8 +356,8 @@ def install_media_references(_d, filename):
                             , lemma=medias.get('image').get('path')
                             )
             # TODO: features / semantics, audio / voices
-            wt = WordTranslation(**wt_kwargs)
-            word.translations.append(wt)
+            wt = Concept(**wt_kwargs)
+            word.translations_to.append(wt)
             print " Added image path: %s" % wt.lemma
 
         if 'sound' in medias:
@@ -365,15 +365,15 @@ def install_media_references(_d, filename):
                             , lemma=medias.get('sound').get('path')
                             )
             # TODO: features / semantics, audio / voices
-            wt = WordTranslation(**wt_kwargs)
-            word.translations.append(wt)
+            wt = Concept(**wt_kwargs)
+            word.translations_to.append(wt)
             print " Added audio path: %s" % wt.lemma
 
         _commit()
 
 
 def install_lexical_data(_d, filename):
-    from lexicon_models import Word, WordTranslation, Semtype, Dialect
+    from lexicon_models import Concept, Semtype, Dialect
 
     # TODO: option for only installing data for lemmas existing in the
     # system? e.g., only want lexical data for which there is a media
@@ -420,7 +420,7 @@ def install_lexical_data(_d, filename):
                 pass
             wkws.update(w.get('features'))
 
-        word = _get_or_create(Word, **wkws)
+        word = _get_or_create(Concept, **wkws)
 
         for _sem in w.get('semantics', []):
             s = _get_or_create(Semtype, semtype=_sem)
@@ -439,9 +439,9 @@ def install_lexical_data(_d, filename):
             for _t in _tx:
                 if 'dict' in _t:
                     _t.pop('dict')
-                _t['word'] = word.id
-                wt = WordTranslation(**_t)
-                word.translations.append(wt)
+                # _t['word'] = word.id
+                wt = Concept(**_t)
+                word.translations_to.append(wt)
 
         _commit()
         print "Added: %s" % word.lemma
@@ -453,7 +453,7 @@ def install_lexical_data(_d, filename):
     # integrity error
 
 def append_lexicon(_d, filename):
-    from lexicon_models import Word, WordTranslation, Semtype, Dialect
+    from lexicon_models import Concept, Semtype, Dialect
 
     # TODO: option for only installing data for lemmas existing in the
     # system? e.g., only want lexical data for which there is a media
@@ -497,7 +497,7 @@ def append_lexicon(_d, filename):
         if _lem:
             _kwargs['lemma'] = _lem
 
-        return _get(Word, **_kwargs)
+        return _get(Concept, **_kwargs)
 
     def existing(word_elem):
         _w_obj = _get_existing(word_elem)
@@ -508,7 +508,7 @@ def append_lexicon(_d, filename):
             return False
 
     lang = 'sma'
-    print " * Words in database: %d" % _d.session.query(Word).count()
+    print " * Words in database: %d" % _d.session.query(Concept).count()
     print " * Filtering out pre-existing entries"
     existing_words = filter(existing, word_elements)
     print len(list(existing_words))
@@ -539,7 +539,7 @@ def append_lexicon(_d, filename):
                 pass
             wkws.update(w_infos.get('features'))
 
-        word = Word(**wkws)
+        word = Concept(**wkws)
         new_word = _merge(word)
         print " Installed word: %s" % new_word.lemma
 
@@ -559,9 +559,9 @@ def append_lexicon(_d, filename):
             for _t in _tx:
                 if 'dict' in _t:
                     _t.pop('dict')
-                _t['word'] = new_word.id
-                wt = WordTranslation(**_t)
-                new_word.translations.append(wt)
+                # _t['word'] = new_word.id
+                wt = Concept(**_t)
+                new_word.translations_to.append(wt)
 
         _commit()
         print "Merged: %s" % new_word.lemma

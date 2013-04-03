@@ -9,6 +9,14 @@ app.test_request_context().push()
 
 manager = Manager(app)
 
+def thing():
+    from lexicon_models import Concept
+    a = Concept(lemma='omg')
+    b = Concept(lemma='bbq')
+    a.translations_to.append(b)
+    b.translations_from.append(a)
+
+
 @manager.register('init_db')
 # TODO: this seems to not work yet for some reason
 def init_db(*args, **kwargs):
@@ -45,12 +53,22 @@ def install_db_lex(app):
 @manager.register('test_some_queries')
 def test_some_queries(app):
     def action():
-        from lexicon_models import Word
+        from lexicon_models import Concept, Semtype
         from lexicon_install import install_lexical_data
 
-        w = db.session.query(Word).filter_by(lemma=u'tjovrese').first()
-        print w.semtype
-        print w.translations.group_by('language').all()
+        # w = db.session.query(Word).filter_by(lemma=u'tjovrese').first()
+        # print w.semtype
+        # print w.translations.group_by('language').all()
+
+        fisk = db.session.query(Concept).filter_by(lemma='fisk',
+                                                   language='nob').first()
+
+        print fisk.translations_to
+        print fisk.translations_from
+        print fisk.translations_from[0].semtype
+
+        semtype = db.session.query(Semtype).filter_by(semtype='MORFAS').all()
+        print semtype[0].words.all()
 
     return action
 

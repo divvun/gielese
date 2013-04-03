@@ -100,19 +100,67 @@ def leksa_questions():
 
     return data.encode('utf-8')
 
-def format_concept(word):
+def format_concept(concept):
     # trick is that instead of Word and WordTranslation, need to have
     # Concept, so, need a new generic relationship? (Otherwise Words
     # will have id starting on 1, as will WordTranslations).
+    from lexicon_models import Concept
+    from sqlalchemy import and_
 
-    pass
+    langs = ["sma", "nob", "img"]
+
+    def concept_filter(to_or_from):
+        subset = to_or_from.filter(and_(Concept.language.in_(langs),
+                                        Concept.tcomm_pref == True)).all()
+        return set([ c.id for c in subset])
+
+    _type = False
+    features = []
+    translations = list( concept_filter(concept.translations_to)
+                       ^ concept_filter(concept.translations_from)
+                       )
+
+    concept_media = {}
+    audio = concept.translations_to.filter(Concept.language == 'mp3').all()
+
+    if len(audio) > 0:
+        concept_media['audio'] = [{'path': a.lemma} for a in audio]
+
+    language = concept.language
+    if language == 'img':
+        _type = 'img'
+    elif language == 'mp3':
+        _type = 'mp3'
+    else:
+        _type = 'text'
+
+    return { "c_id": concept.id
+           , "concept_type": _type
+           , "concept_value": concept._getTrans()
+           , "features": features
+           , "language": language
+           , "semantics": list((a.semtype for a in concept.semtype))
+           , "translations": list(set(translations))
+           , "media": concept_media
+           }
 
 @app.route('/data/concepts.json', methods=['GET'])
 def concepts():
     from sample_json import sample_json
     from flask import json
 
-    pretty = request.args.get('pretty', False)
+    from lexicon_models import Concept
+    langs = ["sma", "nob", "img"]
+
+    concept_set = db.session.query(Concept).filter(
+        Concept.language.in_(langs)
+    )
+
+    concepts = map(format_concept, concept_set)
+
+    sample_json = concepts
+
+    pretty = bool(request.args.get('pretty', False))
 
     if pretty:
         data = json.dumps( sample_json

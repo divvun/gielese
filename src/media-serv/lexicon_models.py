@@ -67,11 +67,11 @@ class MorphPhonTag(db.Model):
         return "<Morphophon: %s>" % S
 
 # Many-To-Many intermediary table
-word_semtype = db.Table( 'word_semtype'
+concept_semtype = db.Table( 'concept_semtype'
 
-                       , db.Column( 'word_id'
+                       , db.Column( 'concept_id'
                                   , db.Integer
-                                  , db.ForeignKey('word.id')
+                                  , db.ForeignKey('concept.id')
                                   )
 
                        , db.Column( 'semtype_id'
@@ -82,11 +82,11 @@ word_semtype = db.Table( 'word_semtype'
                        )
 
 # Many-To-Many intermediary table
-word_source = db.Table( 'word_source'
+concept_source = db.Table( 'concept_source'
 
-                      , db.Column( 'word_id'
+                      , db.Column( 'concept_id'
                                  , db.Integer
-                                 , db.ForeignKey('word.id')
+                                 , db.ForeignKey('concept.id')
                                  )
 
                       , db.Column( 'source_id'
@@ -97,11 +97,11 @@ word_source = db.Table( 'word_source'
                       )
 
 # Many-To-Many intermediary table
-word_dialect = db.Table( 'word_dialect'
+concept_dialect = db.Table( 'concept_dialect'
 
-                      , db.Column( 'word_id'
+                      , db.Column( 'concept_id'
                                  , db.Integer
-                                 , db.ForeignKey('word.id')
+                                 , db.ForeignKey('concept.id')
                                  )
 
                       , db.Column( 'dialect_id'
@@ -111,135 +111,66 @@ word_dialect = db.Table( 'word_dialect'
 
                       )
 
-# TODO: word_wordtranslation relation
+concept_concept = db.Table( 'concept_to_concept'
 
-class Word(db.Model):
-    __tablename__ = 'word'
+                          , db.Column( 'left_concept_id'
+                                     , db.Integer
+                                     , db.ForeignKey('concept.id')
+                                     , primary_key=True
+                                     )
+
+                          , db.Column( 'right_concept_id'
+                                     , db.Integer
+                                     , db.ForeignKey('concept.id')
+                                     , primary_key=True
+                                     )
+                          )
+
+class Concept(db.Model):
+    __tablename__ = 'concept'
     id = db.Column(db.Integer, primary_key=True)
     wordid = db.Column(db.String(200), index=True)
     language = db.Column(db.String(5), index=True, default='sma')
+
+    hid = db.Column(db.Integer, nullable=True, default=None)
     lemma = db.Column(db.String(200), index=True)
-    presentationform = db.Column(db.String(5))
-    pos = db.Column(db.String(12))
-    stem = db.Column(db.String(20))
+    phrase = db.Column(db.Text, nullable=True)
+    explanation = db.Column(db.Text, nullable=True)
+    stem = db.Column(db.String(20), nullable=True)
+
+    pos = db.Column(db.String(12), nullable=True)
     wordclass = db.Column(db.String(8))
     valency = db.Column(db.String(10))
-    hid = db.Column(db.Integer, nullable=True, default=None)
-    semtype = db.relationship('Semtype', secondary=word_semtype,
+
+    semtype = db.relationship('Semtype', secondary=concept_semtype,
                              backref=db.backref('words', lazy='dynamic'))
-    source = db.relationship('Source', secondary=word_source,
+    source = db.relationship('Source', secondary=concept_source,
                              backref=db.backref('words', lazy='dynamic'))
+    frequency = db.Column(db.String(10))
+    geography = db.Column(db.String(10))
+
     diphthong = db.Column(db.String(5))
     gradation = db.Column(db.String(20))
     rime = db.Column(db.String(20))
     attrsuffix = db.Column(db.String(20))
     soggi = db.Column(db.String(10))
     compare = db.Column(db.String(5))
-    frequency = db.Column(db.String(10))
-    geography = db.Column(db.String(10))
-    tcomm = db.Column(db.Boolean, default=False)
-    # TODO: some problem here
-    translations = db.relationship('WordTranslation', backref='words',
-                                    lazy='dynamic')
-    morphophon = db.Column('morphphontag_id', db.Integer,
-                           db.ForeignKey('morphphontag.id'), nullable=True)
-    dialect = db.relationship('Dialect', secondary=word_dialect,
-                             backref=db.backref('words', lazy='dynamic'))
 
-    ### def morphTag(self, nosave=True):
-    ###     try:
-    ###         mphon = self.morphophon
-    ###     except MorphPhonTag.DoesNotExist:
-    ###         mphon = False
-    ###     if not mphon:
-    ###         kwargs = {
-    ###             'stem':      self.stem,
-    ###             'wordclass':    self.wordclass,
-    ###             'diphthong':    self.diphthong,
-    ###             'gradation':    self.gradation,
-    ###             'rime':      self.rime,
-    ###             'soggi':        self.soggi,
-    ###         }
-    ###         morphtag, create = MorphPhonTag.objects.get_or_create(**kwargs)
-    ###         if nosave:
-    ###             return morphtag
-    ###         else:
-    ###             self.morphophon = morphtag
-    ###             self.save()
-
-    ### def create(self, *args, **kwargs):
-    ###     morphtag = self.morphTag()
-    ###     self.morphophon = morphtag
-    ###     self.pos = self.pos.lower().capitalize()
-    ###     super(Word, self).create(*args, **kwargs)
-
-    ### def save(self, *args, **kwargs):
-    ###     """ Words model has an override to uppercase pos attribute on save,
-    ###         in case data isn't saved properly.
-    ###         """
-    ###     morphtag = self.morphTag()
-    ###     self.pos = self.pos.lower().capitalize()
-    ###     self.morphophon = morphtag
-
-    ###     super(Word, self).save(*args, **kwargs)
-
-    def __repr__(self):
-        return "<Word: %s>" % self.lemma.encode('utf-8')
-
-# Many-To-Many intermediary table
-wordtranslation_semtype = db.Table( 'wordtranslation_semtype'
-
-                        , db.Column( 'wordtranslation_id'
-                                   , db.Integer
-                                   , db.ForeignKey('wordtranslation.id')
-                                   )
-
-                        , db.Column( 'semtype_id'
-                                   , db.Integer
-                                   , db.ForeignKey('semtype.id')
-                                   )
-
-                        )
-
-# Many-To-Many intermediary table
-wordtranslation_source = db.Table( 'wordtranslation_source'
-
-                       , db.Column( 'wordtranslation_id'
-                                  , db.Integer
-                                  , db.ForeignKey('wordtranslation.id')
-                                  )
-
-                       , db.Column( 'source_id'
-                                  , db.Integer
-                                  , db.ForeignKey('source.id')
-                                  )
-
-                       )
-
-class WordTranslation(db.Model):
-    """ Abstract parent class for all translations.
-        Meta.abstract = True
-
-        TODO: nullable=True necessary?
-    """
-    __tablename__ = 'wordtranslation'
-    id = db.Column(db.Integer, primary_key=True)
-    word = db.Column('word_id', db.Integer, db.ForeignKey('word.id'),
-                     nullable=True, index=True)
-    language = db.Column(db.String(5), index=True)
-    wordid = db.Column(db.String(200), index=True)
-    lemma = db.Column(db.String(200), nullable=True)
-    phrase = db.Column(db.Text, nullable=True)
-    explanation = db.Column(db.Text, nullable=True)
-    pos = db.Column(db.String(12), nullable=True)
-    semtype = db.relationship('Semtype', secondary=wordtranslation_semtype,
-                             backref=db.backref('wordtranslations', lazy='dynamic'))
-    source = db.relationship('Source', secondary=wordtranslation_source,
-                             backref=db.backref('wordtranslations', lazy='dynamic'))
-    frequency = db.Column(db.String(10))
-    geography = db.Column(db.String(10))
     tcomm = db.Column(db.Boolean, default=False)
     tcomm_pref = db.Column(db.Boolean, default=False)
+
+    translations_to = db.relationship("Concept",
+                        secondary=concept_concept,
+                        primaryjoin=id==concept_concept.c.left_concept_id,
+                        secondaryjoin=id==concept_concept.c.right_concept_id,
+                        backref=db.backref("translations_from", lazy='dynamic'),
+                        lazy='dynamic'
+    )
+
+    morphophon = db.Column('morphphontag_id', db.Integer,
+                           db.ForeignKey('morphphontag.id'), nullable=True)
+    dialect = db.relationship('Dialect', secondary=concept_dialect,
+                             backref=db.backref('words', lazy='dynamic'))
 
     def _getTrans(self):
         if self.lemma:
@@ -260,16 +191,7 @@ class WordTranslation(db.Model):
         return word_answers
 
     def __repr__(self):
-        return "<WordTranslation: %s>" % self._getTrans().encode('utf-8')
-
-    ### def save(self, *args, **kwargs):
-    ###     self.definition = self._getTrans()
-    ###     super(WordTranslation, self).save(*args, **kwargs)
-
-    ### def __init__(self, *args, **kwargs):
-    ###     super(WordTranslation, self).__init__(*args, **kwargs)
-    ###     self.definition = self._getTrans()
-    ###     self.word_answers = self._getAnswer()
+        return "<Concept: %s>" % self._getTrans().encode('utf-8')
 
 class Tagset(db.Model):
     __tablename__ = 'tagset'
@@ -328,9 +250,9 @@ form_dialect = db.Table( 'form_dialect'
 class Form(db.Model):
     __tablename__ = 'form'
     id = db.Column(db.Integer, primary_key=True)
-    word = db.Column('word_id', db.Integer, db.ForeignKey('word.id'),
+    word = db.Column('word_id', db.Integer, db.ForeignKey('concept.id'),
                      index=True)
-    tag = db.Column('tag_id', db.Integer, db.ForeignKey('word.id'),
+    tag = db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'),
                      index=True)
     fullform = db.Column(db.String(200))
     dialect = db.relationship('Dialect', secondary=form_dialect,
