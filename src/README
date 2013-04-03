@@ -4,6 +4,7 @@
    (version 1.4.4)
  * http://jquerymobile.com/
  * http://backbonejs.com/
+ * http://www.schillmania.com/projects/soundmanager2/
 
 Other dependencies should be stored in node package.json
 

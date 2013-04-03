@@ -229,6 +229,24 @@ module.exports = class LeksaView extends Backbone.View
       return false
 
     app.router.refreshCurrentPage()
+    # play sound once
+    # threeSixtyPlayer.init()
+    # threeSixtyPlayer.sounds[0].play()
+
+    # NB: Strange bug here. If audio is disabled, and you go to front
+    # page to enable and then come back to leksa, clicking next will
+    # result in going to home.
+    has_audio_file = question.get('media').audio[0].path
+    if has_audio_file?
+      soundManager.destroySound("questionSound")
+      soundManager.createSound({
+      	id: "questionSound"
+      	url: "/static#{has_audio_file}"
+      })
+      soundManager.play("questionSound")
+      @$el.find('#question_play').click () =>
+        soundManager.play("questionSound")
+        return false
 
     return true
 

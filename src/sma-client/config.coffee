@@ -11,11 +11,14 @@ exports.config =
       order:
         before: [
           'vendor/scripts/console-helper.js'
+          'vendor/scripts/soundmanager2-jsmin.js'
           'vendor/scripts/jquery-1.7.2.js'
           'vendor/scripts/jquery.mobile.init.js'
           'vendor/scripts/jquery.mobile-1.3.0-beta.1.min.js'
           'vendor/scripts/underscore-1.3.3.js'
           'vendor/scripts/backbone-0.9.2.js'
+          'vendor/scripts/animator.js'
+          'vendor/scripts/360player.js'
         ]
     stylesheets:
       defaultExtension: 'styl'
@@ -27,6 +30,8 @@ exports.config =
         after: [
           'vendor/styles/helpers.css'
           'vendor/styles/jquery.mobile-1.3.0-beta.1.min.css'
+          'vendor/styles/flashblock.css'
+          'vendor/styles/360player.css'
         ]
     templates:
       defaultExtension: 'eco'
