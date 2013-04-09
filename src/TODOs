@@ -1,8 +1,8 @@
 # Next
 
- * sync events going in footer
- * sound
- * sound options
+ * make sound options actually work, navigation
+
+ * question types
 
  * sound -> sound game (e.g., hear one voice, choose the other voice)
  * image -> sound
