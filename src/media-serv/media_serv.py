@@ -6,8 +6,9 @@ from werkzeug.routing import BaseConverter
 from lexicon_models import db
 
 def create_app():
+    import os
     app = Flask(__name__, static_url_path='/static',)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/media_serv.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////%s/media_serv.db' % os.getcwd()
     db.init_app(app)
     return app, db
 
