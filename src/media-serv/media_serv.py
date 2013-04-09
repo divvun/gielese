@@ -48,7 +48,8 @@ def create_manifest(app_host):
     def join_hosts(ps):
         return [app_host + p for p in ps]
 
-    images = join_hosts(list_dir('static/images/'))
+    images = join_hosts(list_dir('static/images/')) + \
+             join_hosts(list_dir('static/client/images/'))
 
     from urllib import quote
     audios = join_hosts(map(quote, list_dir('static/audio/vce1/')))

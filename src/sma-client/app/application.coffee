@@ -111,30 +111,31 @@ module.exports = class Application
       useFlashBlock: true
       onready: () ->
         console.log "SoundManager ready"
-        soundManager.createSound({
-          id: "someSound"
-          url: "/static/audio/vce1/gaalloe.mp3"
-        })
-        soundManager.play()
+        # soundManager.createSound({
+        #   id: "someSound"
+        #   url: "/static/audio/vce1/gaalloe.mp3"
+        # })
+        # soundManager.play()
     })
-    threeSixtyPlayer.config = {
-      playNext: false
-      # , // stop after one sound, or play through list until end
-      autoPlay: false
-      # , // start playing the first sound right away
-      allowMultiple: false
-      # , // let many sounds play at once (false = one at a time)
-      loadRingColor: '#ccc'
-      # , // amount of sound which has loaded
-      playRingColor: '#000'
-      # , // amount of sound which has played
-      backgroundRingColor: '#eee'
-      # , // "default" color shown underneath everything else
-      animDuration: 500
-      # ,
-      animTransition: Animator.tx.bouncy
-      # // http://www.berniecode.com/writing/animator.html
-    }
+
+    # threeSixtyPlayer.config = {
+    #   playNext: false
+    #   # , // stop after one sound, or play through list until end
+    #   autoPlay: false
+    #   # , // start playing the first sound right away
+    #   allowMultiple: false
+    #   # , // let many sounds play at once (false = one at a time)
+    #   loadRingColor: '#ccc'
+    #   # , // amount of sound which has loaded
+    #   playRingColor: '#000'
+    #   # , // amount of sound which has played
+    #   backgroundRingColor: '#eee'
+    #   # , // "default" color shown underneath everything else
+    #   animDuration: 500
+    #   # ,
+    #   animTransition: Animator.tx.bouncy
+    #   # // http://www.berniecode.com/writing/animator.html
+    # }
 
 
 window.app = new Application

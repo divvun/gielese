@@ -72,6 +72,16 @@ audio_files = {
 ##
 ## ##
 
+fadeUp = (elem) ->
+    elem.fadeOut(1500)
+        .queue (nxt) ->
+            $(this).remove()
+            nxt()
+
+    # .remove()
+    # elem.remove()
+    return false
+
 
 
 
@@ -123,8 +133,11 @@ module.exports = class LeksaView extends Backbone.View
     # Give user feedback that they were correct, and show the set done options.
 
     $(user_input).addClass('correct')
+    usr_msg = $('<a href="#" class="correct usr_msg">Correct</a>')
+    $(user_input).parent().append usr_msg
     @logConcept(question, correct_answer_concept, true)
     $('.set_done_options').show()
+    fadeUp usr_msg
     return false
 
   logConcept: (question, concept, correct) ->
@@ -158,7 +171,11 @@ module.exports = class LeksaView extends Backbone.View
     # on each incorrect attempt, but log instance of user progression for word?
 
     $(user_input).addClass('incorrect')
+    usr_msg = $('<a href="#" class="incorrect usr_msg">Try again!</a>')
+    $(user_input).parent().append usr_msg
     @logConcept(question, correct_answer_concept, false)
+
+    fadeUp usr_msg
 
     return false
     
@@ -216,6 +233,7 @@ module.exports = class LeksaView extends Backbone.View
       answerlink = $(evt.target).parents('.answerlink')
       user_input = answerlink.attr('data-word')
       answer_value = answer.get('concept_value')
+      window.last_user_input = answerlink
       if user_input == answer_value
         # If user is correct, stop watching for additional clicks
         @$el.find('#leksa_question a.answerlink').unbind('click').click (evt) ->
@@ -237,7 +255,7 @@ module.exports = class LeksaView extends Backbone.View
     # page to enable and then come back to leksa, clicking next will
     # result in going to home.
     has_audio_file = question.get('media').audio[0].path
-    if has_audio_file?
+    if has_audio_file? and soundManager.enabled
       soundManager.destroySound("questionSound")
       soundManager.createSound({
       	id: "questionSound"
@@ -247,6 +265,7 @@ module.exports = class LeksaView extends Backbone.View
       @$el.find('#question_play').click () =>
         soundManager.play("questionSound")
         return false
+      
 
     return true
 

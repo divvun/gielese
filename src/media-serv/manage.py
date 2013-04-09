@@ -60,15 +60,15 @@ def test_some_queries(app):
         # print w.semtype
         # print w.translations.group_by('language').all()
 
-        fisk = db.session.query(Concept).filter_by(lemma='fisk',
-                                                   language='nob').first()
+        gaalloe = db.session.query(Concept).filter_by(lemma='gaalloe',
+                                                   language='sma').first()
 
-        print fisk.translations_to
-        print fisk.translations_from
-        print fisk.translations_from[0].semtype
+        print gaalloe.translations_to.all()
+        print gaalloe.translations_from.all()
+        # print gaalloe.translations_from[0].semtype
 
-        semtype = db.session.query(Semtype).filter_by(semtype='MORFAS').all()
-        print semtype[0].words.all()
+        semtype = db.session.query(Semtype).filter_by(semtype='MORFAS').first()
+        print semtype.words.all()
 
     return action
 

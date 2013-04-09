@@ -1,10 +1,29 @@
 .possible_answers 
+    position: relative
+
     .ui-body, .ui-bar
 	    padding: 0
 
     .ui-btn-inner
         padding-left: 0
         padding-right: 0
+
+    .usr_msg
+        display: block
+        position: relative
+        top: -60px
+        left: 20px
+        height: 0px
+        text-decoration: none
+        z-index: 5
+        font-weight: bold
+
+    .usr_msg.correct
+        color: #3A3
+
+    .usr_msg.incorrect
+        color: #A33
+
 
 .post_game_buttons
     position: relative
@@ -35,6 +54,14 @@ span.word_concept
         margin: auto 0
         width: 100%
 
+    #question_play
+        float: right
+        text-decoration: none
+        position: relative
+
+        img
+            opacity: .7
+
 a.answerlink
     text-decoration: None
 
@@ -57,8 +84,8 @@ a.answerlink.correct
     .concept.word_concept
       color: #151
       
-a.answerlink.correct:after
-    content: "  Correct!"
+// a.answerlink.correct:after
+//     content: "  Correct!"
 
 a.answerlink.incorrect
     color: #A33
@@ -75,7 +102,7 @@ a.answerlink.incorrect
     .concept.word_concept
       color: #311
       
-a.answerlink.incorrect:after
-    content: " Incorrect!"
-    background-color: transparent
+// a.answerlink.incorrect:after
+//     content: " Incorrect!"
+//     background-color: transparent
 
