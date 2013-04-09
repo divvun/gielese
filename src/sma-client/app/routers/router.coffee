@@ -13,6 +13,7 @@ module.exports = class Router extends Backbone.Router
     'leksa': 'leksa'
     'wordlist': 'wordlist'
     'options': 'options'
+    'error': 'errorPage'
 
     'home': 'index'
     '#': 'index'
@@ -20,6 +21,7 @@ module.exports = class Router extends Backbone.Router
     '#wordlist': 'wordlist'
     '#leksa': 'leksa'
     '#options': 'options'
+    '#error': 'errorPage'
 
   index: ->
     ##  $('content #content').html app.helloView.render().el
@@ -28,6 +30,10 @@ module.exports = class Router extends Backbone.Router
   leksa: ->
     # $('content #content').html app.leksaView.render().el
     @changePage(app.leksaView)
+
+  errorPage: ->
+    # $('content #content').html app.errorView.render().el
+    @changePage(app.errorView)
 
   options: ->
     @changePage(app.globalOptionsView)

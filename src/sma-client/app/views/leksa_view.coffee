@@ -190,6 +190,9 @@ module.exports = class LeksaView extends Backbone.View
     # TODO: smooth scroll
     window.scrollTo(0,0)
 
+    if app.questiondb.length == 0 and app.conceptdb.length == 0
+      window.last_error = "Question DB and Concept DB not ready."
+      app.router.navigate('error')
     #
     # Select a question
     q = _.shuffle(app.questiondb.models)[0]
@@ -255,7 +258,7 @@ module.exports = class LeksaView extends Backbone.View
     # page to enable and then come back to leksa, clicking next will
     # result in going to home.
     has_audio_file = question.get('media').audio[0].path
-    if has_audio_file? and soundManager.enabled
+    if has_audio_file? and soundManager.enabled and app.options.enable_audio
       soundManager.destroySound("questionSound")
       soundManager.createSound({
       	id: "questionSound"

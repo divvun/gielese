@@ -1,6 +1,7 @@
 Router = require 'routers/router'
 HelloView = require 'views/hello_view'
 LeksaView = require 'views/leksa_view'
+ErrorView = require 'views/error_view'
 GlobalOptionsView = require 'views/global_options'
 ConceptList = require 'views/concept_list'
 
@@ -28,32 +29,97 @@ window.initWindowCache = () ->
   # TODO: need some sort of sync feedback for users
   #
   # Some log handlers for the console
+  loadingFloat = () ->
+    if $('#loading_float').length == 0
+      loading = $("""
+      <div id="loading_float">
+          <img src="/static/client/images/icon_loading_spinner.gif"/>
+          <span id="status"><span id="message">Initializing offline cache ... </span> <span id="cache_count">&nbsp;</span>/<span id="cache_total">55</span></span>
+      </div>
+      """)
+      loading.appendTo $('body')
+    else
+      loading = $('#loading_float')
+    loading.fadeOut(4500)
+    return loading
+  
+  updateLoadingCount = (count, total) =>
+    loader = loadingFloat()
+    loader.fadeIn(500)
+    _count = loader.find('#cache_count')
+    _total = loader.find('#cache_total')
+    _count.html(count)
+    _total.html(total)
+    return true
+
+  incrementLoadingCount = () =>
+    loader = loadingFloat()
+    _count = loader.find('#cache_count')
+    _total = loader.find('#cache_total')
+
+    count = parseInt loader.find('#cache_count').html()
+    total = parseInt loader.find('#cache_total').html()
+
+    if isNaN(count) or isNaN(total)
+      count = 0
+      total = 0
+
+    updateLoadingCount(count + 1, total)
+
+  updateLoadingStatusMessage = (msg) =>
+    loader = loadingFloat()
+    loader.fadeIn(500)
+    _msg = loader.find('#status #message')
+    _msg.html(msg)
+    return true
+
+  fadeOutLoader = () ->
+    loader = loadingFloat().fadeOut(1500)
+    return true
+
+  window.updateLoadingCount = updateLoadingCount
+  window.incrementLoadingCount = incrementLoadingCount
+  window.updateLoadingStatusMessage = updateLoadingStatusMessage
+  window.fadeOutLoader = fadeOutLoader
+
+  loadingFloat()
+
   if window.applicationCache
     window.applicationCache.onchecking = (e) ->
       console.log "onchecking"
-  
+      updateLoadingStatusMessage("Checking for new media files.")
+
     window.applicationCache.onnoupdate = (e) ->
       console.log("No updates")
-    
+      updateLoadingStatusMessage("No updates.")
+      fadeOutLoader()
+
     window.applicationCache.onupdateready = (e) ->
       console.log("Update ready")
-    
+      updateLoadingStatusMessage("Update finished.")
+      fadeOutLoader()
+
     window.applicationCache.onobsolete = (e) ->
       console.log("Obsolete")
-    
+
     window.applicationCache.ondownloading = (e) ->
       console.log("Downloading")
-    
+      updateLoadingStatusMessage("Downloading ...")
+
     window.applicationCache.oncached = (e) ->
       console.log("Cached")
-    
+      updateLoadingStatusMessage("Offline files downloaded.")
+      fadeOutLoader()
+
     window.applicationCache.onerror = (e) ->
       console.log("Error")
-  
+      updateLoadingStatusMessage("Caching error!")
+
     counter = 0
     window.applicationCache.onprogress = (e) ->
       console.log("checking")
       console.log("Progress: downloaded file " + counter)
+      incrementLoadingCount()
       counter++
   
     window.addEventListener "online", (e) ->
@@ -61,6 +127,8 @@ window.initWindowCache = () ->
   
     window.addEventListener "offline", (e) ->
       console.log "you are offline"
+  else
+    fadeOutLoader()
 
 module.exports = class Application
 
@@ -80,10 +148,18 @@ module.exports = class Application
           app.router.index()
           return e.preventDefault()
 
+      # app.router.changePage(app.helloView)
+
       # TODO: reenable cache when less changes are going on
-      initWindowCache()
+      if window.app.options['enable_cache']?
+        initWindowCache()
 
   initialize: ->
+    default_options = {
+      'enable_cache': false
+      'enable_audio': true
+    }
+    @options = DSt.get('app_options') || default_options
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()
 
@@ -100,6 +176,7 @@ module.exports = class Application
     @router = new Router
     @helloView = new HelloView
     @leksaView = new LeksaView
+    @errorView = new ErrorView
     @globalOptionsView = new GlobalOptionsView
     @conceptList = new ConceptList({
       collection: @conceptdb

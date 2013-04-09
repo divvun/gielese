@@ -1,10 +1,12 @@
 <div data-role="header">
     <a href="/" data-transition="slide" data-icon="arrow-l">Back</a>
     <h2>Options</h2>
+    <a id="save-options" data-icon="gear">Save</a>
 </div> 
 
 <div data-role="content">
     <h2>Data storage</h2>
+    <form id="option_form">
     <div data-role="fieldcontain">
         <fieldset data-role="controlgroup">
             <legend>Store data offline</legend>
@@ -21,13 +23,14 @@
     <div data-role="fieldcontain">
         <fieldset data-role="controlgroup">
             <legend>Audio enabled?</legend>
-            <select name="data-storage" 
-                    id="data-storage" 
+            <select name="play-audio" 
+                    id="play-audio" 
                     data-role="slider">
                 <option value="false">No</option>
                 <option value="true">Yes</option>
             </select>
         </fieldset>
     </div>
+    </form>
 </div> 
 
