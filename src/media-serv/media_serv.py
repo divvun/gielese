@@ -62,8 +62,8 @@ def create_manifest(app_host):
         'static/client/javascripts/vendor.js',
         'static/client/stylesheets/app.css',
         # TODO: test
-        '/data/concepts.json',
-        '/data/leksa_questions.json',
+        'data/concepts.json',
+        'data/leksa_questions.json',
     ])
 
     imgs = '\n'.join(images)
