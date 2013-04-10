@@ -20,14 +20,24 @@ leksa_questions = [
                            , 'semantics': ["BODYPART"]
                            }
     }
-  # , { 'type': 'word_to_word'
-  #   , 'filters': { 'from_language': 'nob', 'to_language': 'sma'
-  #                , 'semantics': ["BODYPART"]
-  #                }
-  #   , 'answer_similarity': { 'features': ["BISYL", "HT"]
-  #                          , 'semantics': ["BODYPART"]
-  #                          }
-  #   }
+  , { 'type': 'word_to_word'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+                 , 'semantics': ["ANIMAL_PET"]
+                 }
+    # , 'answer_similarity': { 'features': ["BISYL", "HT"]
+    #                        , 'semantics': ["ANIMAL_PET"]
+    #                        }
+    }
+  , { 'type': 'word_to_word'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+                 , 'semantics': ["MORFAS"]
+                 }
+    }
+  , { 'type': 'word_to_word'
+    , 'filters': { 'from_language': 'nob', 'to_language': 'sma'
+                 , 'semantics': ["MORFAS"]
+                 }
+    }
 ]
 
 
