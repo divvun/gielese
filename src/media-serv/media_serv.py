@@ -3,6 +3,7 @@ from flask import ( Flask, request, redirect, session, json,
                     render_template, Response, url_for)
 
 from werkzeug.routing import BaseConverter
+from werkzeug.contrib.cache import SimpleCache
 from lexicon_models import db
 
 def create_app():
@@ -12,8 +13,9 @@ def create_app():
     db.init_app(app)
     return app, db
 
-
+cache = SimpleCache()
 app, db = create_app()
+app.config['cache'] = cache
 
 @app.route('/favicon.ico')
 def favicon():
@@ -53,7 +55,8 @@ def create_manifest(app_host):
              join_hosts(list_dir('static/client/images/'))
 
     from urllib import quote
-    audios = join_hosts(map(quote, list_dir('static/audio/vce1/')))
+    audios = join_hosts(map(quote, list_dir('static/audio/vce1/'))) + \
+             join_hosts(['static/client/swf/soundmanager2_debug.swf'])
 
     timestamp = datetime.strftime(datetime.today(), format='%Y-%M-%d %H:%M')
 
@@ -112,8 +115,10 @@ def format_concept(concept):
     langs = ["sma", "nob", "img"]
 
     def concept_filter(to_or_from):
-        subset = to_or_from.filter(and_(Concept.language.in_(langs),
-                                        Concept.tcomm_pref == True)).all()
+        subset = to_or_from.filter(Concept.language.in_(langs))
+        tcomm = subset.filter(Concept.tcomm_pref == True)
+        if tcomm.count() > 0:
+          subset = tcomm
         return set([ c.id for c in subset])
 
     _type = False
@@ -136,12 +141,18 @@ def format_concept(concept):
     else:
         _type = 'text'
 
+    semantics = list((a.semtype for a in concept.semtype)) + \
+                sum([[s.semtype for s in c.semtype] for c in concept.translations_from.all()], []) + \
+                sum([[s.semtype for s in c.semtype] for c in concept.translations_to.all()], [])
+
+    semantics = list(set(semantics))
+
     return { "c_id": concept.id
            , "concept_type": _type
            , "concept_value": concept._getTrans()
            , "features": features
            , "language": language
-           , "semantics": list((a.semtype for a in concept.semtype))
+           , "semantics": semantics
            , "translations": list(set(translations))
            , "media": concept_media
            }
@@ -150,19 +161,21 @@ def format_concept(concept):
 def concepts():
     from sample_json import sample_json
     from flask import json
-
     from lexicon_models import Concept
-    langs = ["sma", "nob", "img"]
 
-    concept_set = db.session.query(Concept).filter(
-        Concept.language.in_(langs)
-    )
+    cached = cache.get('concepts.json')
 
-    concepts = map(format_concept, concept_set)
-
-    sample_json = concepts
-
-    pretty = bool(request.args.get('pretty', False))
+    if not cached:
+        langs = ["sma", "nob", "img"]
+        concept_set = db.session.query(Concept).filter(
+            Concept.language.in_(langs)
+        )
+        concepts = map(format_concept, concept_set)
+        sample_json = concepts
+        pretty = bool(request.args.get('pretty', False))
+        cache.set('concepts.json', sample_json)
+    else:
+        sample_json = cached
 
     if pretty:
         data = json.dumps( sample_json
