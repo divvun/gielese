@@ -1,6 +1,6 @@
 <% # TODO: sound. %>
 <div class="question_prompt">
-    <% if soundManager.enabled: %>
+    <% if @audio: %>
     <a href="#" id="question_play">Listen <img width="32" height="32" src="/static/client/images/speaker.png" /></a>
     <% end %>
     <%- @render_concept(@question) %>

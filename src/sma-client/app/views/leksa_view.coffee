@@ -198,7 +198,7 @@ module.exports = class LeksaView extends Backbone.View
     q = _.shuffle(app.questiondb.models)[0]
     #
     # Find the concepts, answers, etc., for the question
-    [question, alt_choices, answer] = q.find_concepts(app.conceptdb)
+    [question, alt_choices, answer] = q.find_concepts(app.conceptdb, window.userprogression)
     if not question
       question_block = @leksa_error_template({
         error_msg: "A question could not be generated from these parameters"
@@ -218,6 +218,13 @@ module.exports = class LeksaView extends Backbone.View
       type = _concept.get('concept_type')
       return concept_renderers[type](_concept)
 
+    audio_enabled = false
+    if app.options.enable_audio and 'audio' of question.get('media')
+      if question.get('media').audio.length > 0
+        has_audio_file = question.get('media').audio[0].path
+        if has_audio_file and soundManager.enabled
+          audio_enabled = true
+
     #
     # Render the template for the question
     question_block = @question_template {
@@ -227,6 +234,7 @@ module.exports = class LeksaView extends Backbone.View
           answer: answer
           render_concept: render_concept
           chunker: arrayChunk
+          audio: audio_enabled
       }
     @$el.find('#leksa_question').html(question_block)
 
@@ -257,19 +265,27 @@ module.exports = class LeksaView extends Backbone.View
     # NB: Strange bug here. If audio is disabled, and you go to front
     # page to enable and then come back to leksa, clicking next will
     # result in going to home.
-    has_audio_file = question.get('media').audio[0].path
-    if has_audio_file? and soundManager.enabled and app.options.enable_audio
-      soundManager.destroySound("questionSound")
-      soundManager.createSound({
-      	id: "questionSound"
-      	url: "/static#{has_audio_file}"
-      })
-      soundManager.play("questionSound")
-      @$el.find('#question_play').click () =>
-        soundManager.play("questionSound")
-        return false
+    if app.options.enable_audio and 'audio' of question.get('media')
+      if question.get('media').audio.length > 0
+        has_audio_file = question.get('media').audio[0].path
+        if has_audio_file and soundManager.enabled
+          soundManager.destroySound("questionSound")
+          soundManager.createSound({
+          	id: "questionSound"
+          	url: "/static#{has_audio_file}"
+          })
+          playFirst = () ->
+            soundManager.play("questionSound")
+          # Delay first sound playing as leksa page renders
+          if not @first
+            setTimeout(playFirst, 1500)
+            @first = false
+          else
+            playFirst()
+          @$el.find('#question_play').click () =>
+            soundManager.play("questionSound")
+            return false
       
-
     return true
 
   updateLogPanel: (entry) ->
@@ -285,6 +301,7 @@ module.exports = class LeksaView extends Backbone.View
     @$el.html @template
 
     @renderQuestion()
+    @first = true
     # Bind an event to user progression-- TODO: move elsewhere
     userprogression.on('add', @updateLogPanel)
     return this

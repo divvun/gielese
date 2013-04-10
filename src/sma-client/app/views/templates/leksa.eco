@@ -15,7 +15,7 @@
         <li><a href="#">Check for updates</a></li>
     </ul>
 </div>
-<div data-role="panel" 
+<div data-role="panel"
      data-dismissable="true"
      data-position="right"
      data-display="push"

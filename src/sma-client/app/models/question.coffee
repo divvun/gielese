@@ -1,12 +1,19 @@
 ﻿module.exports = class Question extends Backbone.Model
-  find_concepts: (conceptdb) ->
+  find_concepts: (conceptdb, userprogression) ->
     
+    # TODO: include userprogression
+    #
     max_answers = 4
 
     answer_possibilities = []
 
+    default_similarity = {
+    	'features': false
+    	'semantics': false
+    }
+
     _filters = @get('filters')
-    _answer_sim = @get('answer_similarity')
+    _answer_sim = @get('answer_similarity') || default_similarity
 
     _from = _filters.from_language
     _to   = _filters.to_language
@@ -62,15 +69,22 @@
     # TODO: feature intersection
     # here we get answers that are similar as described in the answer similarity
     potential_incorrect_answers = conceptdb.filter (concept) =>
-      semantics  = _.intersection( concept.get('semantics')
-                                 , _answer_sim.semantics
-                                 )
       target_language = concept.get('language') == _to
       # TODO: feature match?
-      if target_language and semantics.length > 0 and concept != actual_answer
-        return true
+      if _answer_sim.semantics
+        semantics  = _.intersection( concept.get('semantics')
+                                   , _answer_sim.semantics
+                                   )
+        if target_language and concept != actual_answer and semantics.length > 0
+          return true
+        else
+          return false
+
       else
-        return false
+        if target_language and concept != actual_answer
+          return true
+        else
+          return false
 
     potential_incorrect_answers = _.shuffle(potential_incorrect_answers)
 

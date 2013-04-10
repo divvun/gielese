@@ -113,7 +113,7 @@ window.initWindowCache = () ->
 
     window.applicationCache.onerror = (e) ->
       console.log("Error")
-      updateLoadingStatusMessage("Caching error!")
+      updateLoadingStatusMessage("Caching error! Error connecting.")
 
     counter = 0
     window.applicationCache.onprogress = (e) ->
@@ -151,8 +151,8 @@ module.exports = class Application
       # app.router.changePage(app.helloView)
 
       # TODO: reenable cache when less changes are going on
-      if window.app.options['enable_cache']?
-        initWindowCache()
+      # if window.app.options['enable_cache']?
+      #   initWindowCache()
 
   initialize: ->
     default_options = {
