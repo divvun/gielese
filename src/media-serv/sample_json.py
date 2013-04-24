@@ -4,14 +4,26 @@ from flask import json
 
 # NB: for testing purposes, too lazy to convert this to a python obj.
 leksa_questions = [
-  #   { 'type': 'image_to_word'
-  #   , 'filters': { 'from_language': 'img', 'to_language': 'sma'
-  #                , 'semantics': ["BODYPART"]
-  #                }
-  #   , 'answer_similarity': { 'features': ["BISYL", "HT"]
-  #                          , 'semantics': ["BODYPART"]
-  #                          }
-  #   }
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["BODYPART"]
+                 }
+    , 'answer_similarity': { 'features': ["BISYL", "HT"]
+                           , 'semantics': ["BODYPART"]
+                           }
+    , 'level': 1
+    , 'answers': 1
+    },
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["BODYPART"]
+                 }
+    , 'answer_similarity': { 'features': ["BISYL", "HT"]
+                           , 'semantics': ["BODYPART"]
+                           }
+    , 'level': 2
+    , 'answers': 2
+    },
     { 'type': 'word_to_word'
     , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
                  , 'semantics': ["BODYPART"]
@@ -19,25 +31,34 @@ leksa_questions = [
     , 'answer_similarity': { 'features': ["BISYL", "HT"]
                            , 'semantics': ["BODYPART"]
                            }
-    }
-  , { 'type': 'word_to_word'
-    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
-                 , 'semantics': ["ANIMAL_PET"]
-                 }
+    , 'level': 4
+    , 'answers': 4
+    },
+    # { 'type': 'word_to_image'
+    # , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+    #              , 'semantics': ["BODYPART"]
+    #              }
+    # , 'answer_similarity': { 'features': ["FACE"]
+    #                        }
+    # }
+  # , { 'type': 'word_to_word'
+  #   , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+  #                , 'semantics': ["ANIMAL_PET"]
+  #                }
     # , 'answer_similarity': { 'features': ["BISYL", "HT"]
     #                        , 'semantics': ["ANIMAL_PET"]
     #                        }
-    }
-  , { 'type': 'word_to_word'
-    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
-                 , 'semantics': ["MORFAS"]
-                 }
-    }
-  , { 'type': 'word_to_word'
-    , 'filters': { 'from_language': 'nob', 'to_language': 'sma'
-                 , 'semantics': ["MORFAS"]
-                 }
-    }
+  #   }
+  # , { 'type': 'word_to_word'
+  #   , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+  #                , 'semantics': ["MORFAS"]
+  #                }
+  #   }
+  # , { 'type': 'word_to_word'
+  #   , 'filters': { 'from_language': 'nob', 'to_language': 'sma'
+  #                , 'semantics': ["MORFAS"]
+  #                }
+  #   }
 ]
 
 

@@ -28,7 +28,7 @@ For the full license text, see the link above.</lic>
    </lics>
   <e>
     <lg>
-      <l>guelie</l>
+      <l pos="n">guelie</l>
     </lg>
     <media>
       <!-- Paths are relative to this file, must be stored in CDATA tag
@@ -45,7 +45,7 @@ For the full license text, see the link above.</lic>
   </e>
   <e>
     <lg>
-      <l>bïenje</l>
+      <l pos="n">bïenje</l>
     </lg>
     <media>
       <img>
@@ -103,7 +103,7 @@ For the full license text, see the link above.</lic>
     </media>
   </e>
 
-  <!-- audio -->
+  <!-- face -->
   <e>
     <lg>
         <l>ååredæjja</l>
@@ -115,6 +115,12 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/ååredæjja.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
   <e>
@@ -128,6 +134,50 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/åejjie.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
+    </media>
+  </e>
+  <e>
+    <lg>
+        <l>voepte</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/vce1/voepte.mp3]]></path>
+        <features>
+            <voice vid="1"></voice>
+        </features>
+      </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/voepte.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
+    </media>
+  </e>
+  <e>
+    <lg>
+        <l>bieljie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/vce1/bieljie.mp3]]></path>
+        <features>
+            <voice vid="1"></voice>
+        </features>
+      </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/bieljie.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
   <e>
@@ -141,6 +191,12 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/gaalloe.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
   <e>
@@ -154,6 +210,31 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/haermie.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
+    </media>
+  </e>
+  <e>
+    <lg>
+        <l>tjelmie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/vce1/tjelmie.mp3]]></path>
+        <features>
+            <voice vid="1"></voice>
+        </features>
+      </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/tjelmie.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
   <e>
@@ -167,6 +248,12 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/njaelmie.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
   <e>
@@ -180,6 +267,12 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/njoektjeme.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
   <e>
@@ -193,6 +286,31 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/njuenie.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
+    </media>
+  </e>
+  <e>
+    <lg>
+        <l>baenie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/vce1/baenie.mp3]]></path>
+        <features>
+            <voice vid="1"></voice>
+        </features>
+      </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/baenie.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
   <e>
@@ -206,6 +324,12 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/searome.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
   <e>
@@ -219,6 +343,50 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/skaavtjoe.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
+    </media>
+  </e>
+  <e>
+    <lg>
+        <l>gaejpie</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/vce1/gaejpie.mp3]]></path>
+        <features>
+            <voice vid="1"></voice>
+        </features>
+      </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/gaejpie.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
+    </media>
+  </e>
+  <e>
+    <lg>
+        <l>tjeapohke</l>
+    </lg>
+    <media>
+      <sound>
+        <path><![CDATA[/audio/vce1/tjeapohke.mp3]]></path>
+        <features>
+            <voice vid="1"></voice>
+        </features>
+      </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/tjeapohke.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
   <e>
@@ -232,332 +400,14 @@ For the full license text, see the link above.</lic>
             <voice vid="1"></voice>
         </features>
       </sound>
+      <img>
+        <path><![CDATA[/static/images/ansikt/small/tjovrese.jpg]]></path>
+        <features>
+          <appearance>FACE</appearance>
+        </features>
+      </img>
     </media>
   </e>
 
-
-
-  <!-- TODO:
-  <e>
-    <lg>
-      <l>åalkie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/åalkie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>ååredæjja</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/ååredæjja AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>åejjie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/åejjie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>baenie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/baenie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>båetskie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/båetskie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>bielkie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/bielkie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>gaalloe</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/gaalloe AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>gaetskedh</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/gaetskedh AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>gïete</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/gïete AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>govledh</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/govledh AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>guehpere</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/guehpere AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>haermie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/haermie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>hepsedh</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/hepsedh AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>juelkie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/juelkie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>kråahpe</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/kråahpe AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>lïhtse</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/lïhtse AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>njaelmie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/njaelmie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>njoektjeme</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/njoektjeme AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>njuenie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/njuenie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>njulhtjedh</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/njulhtjedh AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>ravve</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/ravve AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>rudtje</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/rudtje AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>searome</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/searome AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>skaavtjoe</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/skaavtjoe AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>soerme</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/soerme AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>steeredh</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/steeredh AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>tjahkashidh</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/tjahkashidh AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>tjåejjie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/tjåejjie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>tjelmie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/tjelmie AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>tjiehtjere</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/tjiehtjere AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>tjuvliestidh</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/tjuvliestidh AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  <e>
-    <lg>
-      <l>vaeltedh</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/vaeltedh AD.mp3]]></path>
-      </sound>
-    </media>
-  </e>
-  -->
   <xhtml:script xmlns:xhtml="http://www.w3.org/1999/xhtml" src="../../../words/dicts/scripts/gt_dictionary.js" type="text/javascript"/>
 </r>

@@ -2,71 +2,7 @@
 StatTemplate = require 'views/templates/stat_block'
 
 UserLog = require 'models/user_log_entry'
-UserProgression = require 'models/user_progression'
 
-# NOTE: some sample data, which will be eventually stored elsewhere
-
-audio_files = {
-  "åalkie": "/audio/åalkie AD.wav"
-  "ååredæjja": "/audio/ååredæjja AD.wav"
-  "åejjie": "/audio/åejjie AD.wav"
-  "baenie": "/audio/baenie AD.wav"
-  "båetskie": "/audio/båetskie AD.wav"
-  "bielkie": "/audio/bielkie AD.wav"
-  "gaalloe": "/audio/gaalloe AD.wav"
-  "gaetskedh": "/audio/gaetskedh AD.wav"
-  "gïete": "/audio/gïete AD.wav"
-  "govledh": "/audio/govledh AD.wav"
-  "guehpere": "/audio/guehpere AD.wav"
-  "haermie": "/audio/haermie AD.wav"
-  "hepsedh": "/audio/hepsedh AD.wav"
-  "juelkie": "/audio/juelkie AD.wav"
-  "kråahpe": "/audio/kråahpe AD.wav"
-  "lïhtse": "/audio/lïhtse AD.wav"
-  "njaelmie": "/audio/njaelmie AD.wav"
-  "njoektjeme": "/audio/njoektjeme AD.wav"
-  "njuenie": "/audio/njuenie AD.wav"
-  "njulhtjedh": "/audio/njulhtjedh AD.wav"
-  "ravve": "/audio/ravve AD.wav"
-  "rudtje": "/audio/rudtje AD.wav"
-  "searome": "/audio/searome AD.wav"
-  "skaavtjoe": "/audio/skaavtjoe AD.wav"
-  "soerme": "/audio/soerme AD.wav"
-  "steeredh": "/audio/steeredh AD.wav"
-  "tjahkashidh": "/audio/tjahkashidh AD.wav"
-  "tjåejjie": "/audio/tjåejjie AD.wav"
-  "tjelmie": "/audio/tjelmie AD.wav"
-  "tjiehtjere": "/audio/tjiehtjere AD.wav"
-  "tjuvliestidh": "/audio/tjuvliestidh AD.wav"
-  "vaeltedh": "/audio/vaeltedh AD.wav"
-
-  "guelie": "/audio/vaeltedh AD.wav"
-}
-
-
-## ## Storage of concepts in external db?
-##
-#
-
-# Concepts have a value, and potential semantic values and featural values as
-# well as relate to eachother on a many-to-many basis.
-
-# modified extensions for existing sma lexical data
-
-# <tg xml:lang="img">
-#   <t color="brown" texture="fuzzy"><![CDATA[/path/to/img.jpg]]>
-# </tg>
-
-
-# <tg xml:lang="lyd">
-#   <t gender="fem" age="young"><![CDATA[/path/to/sound.mp3]]>
-# </tg>
-
-# Goal is that all of this can be installed in oahpa, or an oahpa-like service,
-# and then serialized to JSON server-side, downloaded and installed to concepts
-# as the internet connection exists, and as new concepts are updated to the
-# external DB.
-#
 
 #
 ##
@@ -83,13 +19,10 @@ fadeUp = (elem) ->
     return false
 
 
-
-
 # TODO: all of these things will need to be in local database. Also so far
 # these are all refreshed when the user navigates away from the page and comes
 # back. Some of these will need to be instantiated with the application, or recalled
 # from local or external storage.
-window.userprogression = new UserProgression()
 
 # TODO: progression: increase amount of possible answers for individual words from
 #       1 - 4
@@ -155,7 +88,7 @@ module.exports = class LeksaView extends Backbone.View
 
     #
     # Create the log entry in the user progression
-    userprogression.push new UserLog({
+    window.app.leksaUserProgression.push new UserLog({
       game_name: "leksa"
       question_concept: concept.get('c_id')
       question_concept_value: concept_name
@@ -195,11 +128,25 @@ module.exports = class LeksaView extends Backbone.View
       app.router.navigate('error')
     #
     # Select a question
-    q = _.shuffle(app.questiondb.models)[0]
     #
-    # Find the concepts, answers, etc., for the question
-    [question, alt_choices, answer] = q.find_concepts(app.conceptdb, window.userprogression)
-    if not question
+    # Max attempts 5, if cannot generate a question from the template,
+    # then skip. The question will be marked as failing, and filtered
+    # out of the cycle
+    max_tries = 5
+    tries = 0
+    question_instance = false
+    while not question_instance and tries <= max_tries
+      functioning_concepts = app.questiondb.models.filter (c) ->
+        _fails = c.get('fails')
+        if not _fails
+          return true
+        if _fails and _fails == false
+          return false
+      q = _.shuffle(functioning_concepts)[0]
+      question_instance = q.find_concepts(app.conceptdb, window.app.leksaUserProgression)
+      tries += 1
+
+    if not question_instance.question
       question_block = @leksa_error_template({
         error_msg: "A question could not be generated from these parameters"
       })
@@ -219,19 +166,19 @@ module.exports = class LeksaView extends Backbone.View
       return concept_renderers[type](_concept)
 
     audio_enabled = false
-    if app.options.enable_audio and 'audio' of question.get('media')
-      if question.get('media').audio.length > 0
-        has_audio_file = question.get('media').audio[0].path
+    if app.options.enable_audio and 'audio' of question_instance.question.get('media')
+      if question_instance.question.get('media').audio.length > 0
+        has_audio_file = question_instance.question.get('media').audio[0].path
         if has_audio_file and soundManager.enabled
           audio_enabled = true
 
     #
     # Render the template for the question
     question_block = @question_template {
-          question_type: q.get('type')
-          question: question
-          choices: _.shuffle(alt_choices)
-          answer: answer
+          question_type: question_instance.generator.get('type')
+          question: question_instance.question
+          choices: _.shuffle(question_instance.choices)
+          answer: question_instance.answer
           render_concept: render_concept
           chunker: arrayChunk
           audio: audio_enabled
@@ -243,15 +190,17 @@ module.exports = class LeksaView extends Backbone.View
     @$el.find('#leksa_question a.answerlink').click (evt) =>
       answerlink = $(evt.target).parents('.answerlink')
       user_input = answerlink.attr('data-word')
-      answer_value = answer.get('concept_value')
+      answer_value = question_instance.answer.get('concept_value')
       window.last_user_input = answerlink
       if user_input == answer_value
         # If user is correct, stop watching for additional clicks
         @$el.find('#leksa_question a.answerlink').unbind('click').click (evt) ->
           return false
-        @correctAnswer(q, answerlink, answer, question)
+        @correctAnswer(question_instance.generator, answerlink,
+                        question_instance.answer, question_instance.question)
       else
-        @incorrectAnswer(q, answerlink, answer, question)
+        @incorrectAnswer(question_instance.generator, answerlink,
+                           question_instance.answer, question_instance.question)
       #
       # rebind event to null result incase user clicks multiple times
       answerlink.unbind('click').click (evt) -> return false
@@ -265,9 +214,9 @@ module.exports = class LeksaView extends Backbone.View
     # NB: Strange bug here. If audio is disabled, and you go to front
     # page to enable and then come back to leksa, clicking next will
     # result in going to home.
-    if app.options.enable_audio and 'audio' of question.get('media')
-      if question.get('media').audio.length > 0
-        has_audio_file = question.get('media').audio[0].path
+    if app.options.enable_audio and 'audio' of question_instance.question.get('media')
+      if question_instance.question.get('media').audio.length > 0
+        has_audio_file = question_instance.question.get('media').audio[0].path
         if has_audio_file and soundManager.enabled
           soundManager.destroySound("questionSound")
           soundManager.createSound({
@@ -289,11 +238,11 @@ module.exports = class LeksaView extends Backbone.View
     return true
 
   updateLogPanel: (entry) ->
-    # Collate results from userprogression collection, display them.
+    # Collate results from window.app.leksaUserProgression collection, display them.
     $('#stat_block').html StatTemplate {
-        total: userprogression.models.length
-        correct: userprogression.totalCorrect()
-        concept_progress: userprogression.collateConcepts(app.conceptdb)
+        total: window.app.leksaUserProgression.models.length
+        correct: window.app.leksaUserProgression.totalCorrect()
+        concept_progress: window.app.leksaUserProgression.collateConcepts(app.conceptdb)
     }
   
   render: ->
@@ -303,6 +252,6 @@ module.exports = class LeksaView extends Backbone.View
     @renderQuestion()
     @first = true
     # Bind an event to user progression-- TODO: move elsewhere
-    userprogression.on('add', @updateLogPanel)
+    window.app.leksaUserProgression.on('add', @updateLogPanel)
     return this
 

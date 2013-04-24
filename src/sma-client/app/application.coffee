@@ -10,6 +10,8 @@ QuestionDB = require 'models/questiondb'
 Question = require 'models/question'
 # sample_concepts = require 'sample_data/sample_concepts'
 
+UserProgression = require 'models/user_progression'
+
 arrayChunk = (a, s) ->
   x = undefined
   i = 0
@@ -151,8 +153,8 @@ module.exports = class Application
       # app.router.changePage(app.helloView)
 
       # TODO: reenable cache when less changes are going on
-      # if window.app.options['enable_cache']?
-      #   initWindowCache()
+      if window.app.options['enable_cache']?
+        initWindowCache()
 
   initialize: ->
     default_options = {
@@ -173,6 +175,7 @@ module.exports = class Application
       console.log "Fetched #{data.length} concepts from /data/leksa_questions.json"
       @questiondb.add(data)
 
+    @leksaUserProgression = new UserProgression()
     @router = new Router
     @helloView = new HelloView
     @leksaView = new LeksaView

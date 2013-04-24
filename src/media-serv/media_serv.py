@@ -87,6 +87,80 @@ def cache_manifest():
     return Response( create_manifest('http://%s/' % request.host)
                    , mimetype='text/cache-manifest')
 
+@app.route('/session/update/', methods=['POST'])
+def generate_session():
+    from lexicon_models import Session
+
+    # TODO: get user id, user access token from form
+
+    user_id = request.form.get('user_id', False)
+    access_token = request.form.get('access_token', False)
+
+    session = db.session.query(Session).filter(
+        and_( Session.user_id == user_id
+            , Session.access_token == access_token
+            )
+    )
+
+    # get data from form, encode to string, and save session
+    user_data = json.loads(request.form.get('user_data', False))
+
+    # TODO: validate
+
+    session.data = json.dumps(user_data)
+
+    # TODO: TEST, right function, does it work?
+    db.session.merge(session)
+
+    if len(session) > 0:
+        session = session[0]
+        return json.dumps({ 'user_id': session.user_id.hex
+                          , 'user_data': json.loads(session.data),
+                          })
+    else:
+        return False
+
+@app.route('/session/get/', methods=['POST'])
+def generate_session():
+    from lexicon_models import Session
+
+    user_id = request.form.get('user_id', False)
+    access_token = request.form.get('access_token', False)
+
+    session = db.session.query(Session).filter(
+        and_( Session.user_id == user_id
+            , Session.access_token == access_token
+            )
+    )
+
+    if len(session) > 0:
+        session = session[0]
+        return json.dumps({ 'user_id': session.user_id.hex
+                          , 'user_data': json.loads(session.data),
+                          })
+    else:
+        return False
+
+
+@app.route('/session/generate/', methods=['GET'])
+def generate_session():
+    import uuid
+    from lexicon_models import Session
+
+    _add = db.session.add
+
+    user_id = uuid.uuid4()
+    access_token = uuid.uuid4()
+
+    sess = Session(user_id=user_id.hex, access_token=access_token.hex)
+    _add(sess)
+
+    return json.dumps({
+        'user_id': user_id.hex,
+        'access_token': access_token.hex,
+    })
+
+
 @app.route('/data/leksa_questions.json', methods=['GET'])
 def leksa_questions():
     from sample_json import leksa_questions

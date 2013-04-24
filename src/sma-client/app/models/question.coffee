@@ -1,9 +1,17 @@
-﻿module.exports = class Question extends Backbone.Model
+﻿
+module.exports = class Question extends Backbone.Model
   find_concepts: (conceptdb, userprogression) ->
+
+    class QuestionInstance
+      constructor: (@generator, @question, @choices, @answer) ->
+        console.log "created instance"
     
     # TODO: include userprogression
     #
-    max_answers = 4
+    if @.get('answers')
+      max_answers = @.get('answers')
+    else
+      max_answers = 4
 
     answer_possibilities = []
 
@@ -40,6 +48,8 @@
       alternates = _.shuffle(q_concepts).slice(1)
     else
       # TODO: better obvious error
+      # TODO: mark question as producing a fail so it is removed from
+      # cycle
       console.log "No concepts found for question."
       console.log _filters
       return [false, false, false]
@@ -61,7 +71,7 @@
                                o.get('language') == _to
     
     answer_possibilities = alternate_translations
-    # TODO: multiple answers?
+
     actual_answer = actual_answer_concepts[0]
     
     # Make some potential incorrect answers to fill things in.
@@ -103,8 +113,16 @@
             all_answer_possibilities.push a
             break
 
-    return [ question
-           , all_answer_possibilities
-           , actual_answer
-           ]
+    if question and all_answer_possibilities.length > 0 and actual_answer
+      inst = new QuestionInstance( @
+                                 , question
+                                 , all_answer_possibilities
+                                 , actual_answer
+                                 )
+
+    else
+      inst = false
+      @.set('fails', true)
+
+    return inst
 
