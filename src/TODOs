@@ -1,6 +1,36 @@
+# Ideas
+
+* may want to split semantic set (bodypart) into separate smaller groups
+  containing 5 words each, then add this to the level progression.
+
+* level progression map, once we get more levels designed
+
 # Next
 
- * make sound options actually work, navigation
+ * photos + sound on photo display pages-- maybe link isn't created in DB for
+   them 
+
+ * problem with lv 1 sma -> image now seems to be that some links aren't being
+   made in the db for ome reason. word -> ord works, but word -> image missing,
+   also image -> sound.
+
+ * level orders: 
+     should perhaps tag 1-1 image->photo with additional semantic subsets to
+     split into 
+
+         * image + sound -> word
+         * word + sound -> 2 images
+         * image + sound -> 2 words
+         * word sma + sound -> 2 word nob
+
+
+ * resize photos
+
+ * sessions
+   * send user progressions, receive from server
+   * load session before making games available
+
+ * leksa - go by levels, store in user data
 
  * question types
 
@@ -10,6 +40,9 @@
 
  * what about a sound matching game, where you get a board of miscellaneous
    cards, and you have to match the same word but in multiple voices
+
+ * BUG: navigating away from leksa and coming back seems to destroy some
+   events. perhaps leksa isn't completely rerendered?
 
 # Getting going
 
