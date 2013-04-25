@@ -49,8 +49,10 @@
     <!-- go on to next set, see current scores, change options? -->
     <!-- <div class="set_done_options" style="display: none;"> -->
     <div class="post_game_buttons" data-role="controlgroup" data-type="horizontal" data-position="right">
+        <!--
         <a class="set_done_options" style="display: none;" data-role="button" id="menu_repeat" href="#">Again?</a>
         <a class="set_done_options" style="display: none;" id="menu_display_correct" data-role="button" href="#">Show correct?</a>
+        -->
         <a data-role="button" id="menu_next" href="#" data-icon="arrow-r">Next</a>
     </div>
 </div>

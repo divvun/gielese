@@ -132,10 +132,14 @@ window.initWindowCache = () ->
   else
     fadeOutLoader()
 
+
+
 module.exports = class Application
 
   constructor: ->
     $ =>
+      # TODO: need to track tasks required before the user can start using the
+      # app, so that once all tasks are complete it disappears. 
       @initialize()
       Backbone.history.start
         pushState: false
@@ -157,6 +161,15 @@ module.exports = class Application
         initWindowCache()
 
   initialize: ->
+
+    # TODO: loading widget until things are downloaded
+    $.mobile.loading('show', {
+        text: 'Loading media...',
+        textVisible: true,
+        theme: 'c',
+        html: ""
+    })
+
     default_options = {
       'enable_cache': false
       'enable_audio': true
@@ -181,21 +194,19 @@ module.exports = class Application
     @leksaView = new LeksaView
     @errorView = new ErrorView
     @globalOptionsView = new GlobalOptionsView
+
     @conceptList = new ConceptList({
       collection: @conceptdb
     })
+
     soundManager.setup({
       url: "/static/client/swf/"
+      useConsole: false
       preferFlash: false
       useHTML5Audio: true
       useFlashBlock: true
       onready: () ->
         console.log "SoundManager ready"
-        # soundManager.createSound({
-        #   id: "someSound"
-        #   url: "/static/audio/vce1/gaalloe.mp3"
-        # })
-        # soundManager.play()
     })
 
     # threeSixtyPlayer.config = {

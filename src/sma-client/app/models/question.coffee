@@ -1,23 +1,93 @@
 ﻿
+filterByLang = (lang, concepts) ->
+  concepts.filter (o) => o.get('language') == lang
+
+class QuestionInstance
+  constructor: (@generator, @question, @choices, @answer) ->
+    console.log "created instance"
+    @choices = _.shuffle(@choices)
+
+orderConceptsByProgression = (q, concepts, up) ->
+  # For now want to organize out those that have been shown the most, so, 
+  # sort by count of concepts in userprogression that are correct
+  debug = window.app.debug
+
+  # Grab only the user progression for this question
+  userprogression = up.filter (u) =>
+    u.get('question').cid == q.cid
+
+  if debug
+    console.log "#{q.cid} - #{userprogression.length} run-throughs"
+
+  if userprogression.length == 0
+  	return concepts
+  
+  getProgressionCorrectCountForConcept = (c) =>
+    concept_instances = userprogression
+      .filter (up) =>
+        up.get('question_concept') == c.get('c_id')
+      .filter (up) =>
+        up.get('question_correct')
+    return concept_instances.length
+
+  # take out of cycle once they've been shown 3 times
+  countLessThanFour = (c) =>
+    getProgressionCorrectCountForConcept(c) < 4
+
+  ordered_by_frequency = _.sortBy( _.filter(concepts, countLessThanFour)
+                                 , getProgressionCorrectCountForConcept
+                                 )
+  
+  if debug
+    console.log "Ordering concepts by user progression"
+    f_strings = ordered_by_frequency.map (f) ->
+        "#{getProgressionCorrectCountForConcept(f)} - #{f.get('concept_value')}"
+
+    if f_strings.length > 0
+      console.log f_strings.join('\n')
+
+  if ordered_by_frequency.length == 0
+  	if debug
+  	  console.log "No more concepts fittting progression"
+  	return concepts
+
+  return ordered_by_frequency
+
 module.exports = class Question extends Backbone.Model
-  find_concepts: (conceptdb, userprogression) ->
+  user_completed_question: (userprogression) ->
+    # Determine whether the user has completed the question, by answering all
+    # concepts in level correctly at least once (TODO: maybe not enough?)
 
-    class QuestionInstance
-      constructor: (@generator, @question, @choices, @answer) ->
-        console.log "created instance"
-    
-    # TODO: include userprogression
-    #
-    if @.get('answers')
-      max_answers = @.get('answers')
+    if userprogression.length > 0
+      logs_for_question = _.uniq userprogression
+          .filter (up) =>
+            up.get('question').cid == @cid
+          .filter (up) ->
+            up.get('question_correct')
+          .map (up) ->
+            up.get('question_concept')
     else
-      max_answers = 4
+      return false
 
-    answer_possibilities = []
+    concepts = @select_question_concepts window.app.conceptdb
+    question_concepts = (a.get('c_id') for a in concepts)
 
+    intersection = _.intersection(logs_for_question, question_concepts)
+    if intersection.length == question_concepts.length
+      return true
+    return false
+
+  select_question_concepts_by_progression: (conceptdb, up) ->
+    return orderConceptsByProgression(
+      @,
+      @select_question_concepts(conceptdb),
+      up
+    )
+
+  select_question_concepts: (conceptdb) ->
     default_similarity = {
-    	'features': false
-    	'semantics': false
+      'features': false
+      'semantics': false
     }
 
     _filters = @get('filters')
@@ -37,13 +107,38 @@ module.exports = class Question extends Backbone.Model
         return true
       else
         return false
+    return q_concepts
+
+  find_concepts: (conceptdb, userprogression) ->
+
+    # TODO: include userprogression
+    #
+    if @.get('answers')
+      max_answers = @.get('answers')
+    else
+      max_answers = 4
+
+    answer_possibilities = []
+
+    default_similarity = {
+      'features': false
+      'semantics': false
+    }
+
+    _filters = @get('filters')
+    _answer_sim = @get('answer_similarity') || default_similarity
+
+    _from = _filters.from_language
+    _to   = _filters.to_language
+
+    q_concepts = @select_question_concepts_by_progression(
+      @select_question_concepts(conceptdb),
+      userprogression
+    )
 
     # Select a question concept
     if q_concepts.length > 0
       question = _.shuffle(q_concepts)[0]
-      # TODO: what if there are no alternates, select other
-      # less-matching concepts?
-
       # Alternate question concepts that match the question criteria
       alternates = _.shuffle(q_concepts).slice(1)
     else
@@ -52,23 +147,24 @@ module.exports = class Question extends Backbone.Model
       # cycle
       console.log "No concepts found for question."
       console.log _filters
-      return [false, false, false]
+      return false
 
     # Here are the direct translations of our question prompt
     # TODO: if word has no translations, things break here.
     # TODO: also if there are multiple translations in a language, we'll only
     #       get the first in the DB
-    actual_answer_concepts = conceptdb.getTranslationsOf question
-    actual_answer_concepts = actual_answer_concepts.filter (o) =>
-                               o.get('language') == _to
+    actual_answer_concepts = filterByLang(_to, conceptdb.getTranslationsOf question)
+
+    if actual_answer_concepts.length == 0
+      console.log " * No translations to #{_to} for #{question.get('concept_value')}"
+      inst = false
+      @.set('fails', true)
 
     # Get translations of the alternate question concepts; these should have a
     # semantic match and thus be a little more difficult.
-    alternate_translations = _.flatten(
+    alternate_translations = filterByLang _to, _.flatten(
       conceptdb.getTranslationsOf alt for alt in alternates
     )
-    alternate_translations = alternate_translations.filter (o) =>
-                               o.get('language') == _to
     
     answer_possibilities = alternate_translations
 
@@ -89,7 +185,6 @@ module.exports = class Question extends Backbone.Model
           return true
         else
           return false
-
       else
         if target_language and concept != actual_answer
           return true
@@ -121,6 +216,8 @@ module.exports = class Question extends Backbone.Model
                                  )
 
     else
+      console.log " * Couldn't generate a question instance for #{@.get('name')}"
+      console.log "   removing question from cycle." 
       inst = false
       @.set('fails', true)
 

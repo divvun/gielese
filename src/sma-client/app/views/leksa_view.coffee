@@ -18,16 +18,6 @@ fadeUp = (elem) ->
     # elem.remove()
     return false
 
-
-# TODO: all of these things will need to be in local database. Also so far
-# these are all refreshed when the user navigates away from the page and comes
-# back. Some of these will need to be instantiated with the application, or recalled
-# from local or external storage.
-
-# TODO: progression: increase amount of possible answers for individual words from
-#       1 - 4
-
-
 module.exports = class LeksaView extends Backbone.View
 
   id: "leksa"
@@ -71,6 +61,7 @@ module.exports = class LeksaView extends Backbone.View
     @logConcept(question, correct_answer_concept, true)
     $('.set_done_options').show()
     fadeUp usr_msg
+    setTimeout((() => @$el.find('#menu_next').click()), 1200)
     return false
 
   logConcept: (question, concept, correct) ->
@@ -93,6 +84,7 @@ module.exports = class LeksaView extends Backbone.View
       question_concept: concept.get('c_id')
       question_concept_value: concept_name
       question_correct: correct
+      question: question
     })
 
     return true
@@ -123,66 +115,35 @@ module.exports = class LeksaView extends Backbone.View
     # TODO: smooth scroll
     window.scrollTo(0,0)
 
+    # TODO: wait for ready if not 
     if app.questiondb.length == 0 and app.conceptdb.length == 0
       window.last_error = "Question DB and Concept DB not ready."
       app.router.navigate('error')
-    #
-    # Select a question
-    #
-    # Max attempts 5, if cannot generate a question from the template,
-    # then skip. The question will be marked as failing, and filtered
-    # out of the cycle
-    max_tries = 5
-    tries = 0
-    question_instance = false
-    while not question_instance and tries <= max_tries
-      functioning_concepts = app.questiondb.models.filter (c) ->
-        _fails = c.get('fails')
-        if not _fails
-          return true
-        if _fails and _fails == false
-          return false
-      q = _.shuffle(functioning_concepts)[0]
-      question_instance = q.find_concepts(app.conceptdb, window.app.leksaUserProgression)
-      tries += 1
 
-    if not question_instance.question
+    q_instance = app.questiondb.selectLeksaConcepts(window.app.leksaUserProgression)
+
+    if not q_instance.question
       question_block = @leksa_error_template({
         error_msg: "A question could not be generated from these parameters"
       })
       @$el.find('#leksa_question').html(question_block)
       return false
 
-    #
-    # Some objects for handling concept rendering
-    concept_renderers =
-      'img': (c) ->
-        return "<img class='concept img_concept' src='#{c.get('concept_value')}' />"
-      'text': (c) ->
-        return "<span class='concept word_concept'>#{c.get('concept_value')}</span>"
-    
-    render_concept = (_concept) =>
-      type = _concept.get('concept_type')
-      return concept_renderers[type](_concept)
-
     audio_enabled = false
-    if app.options.enable_audio and 'audio' of question_instance.question.get('media')
-      if question_instance.question.get('media').audio.length > 0
-        has_audio_file = question_instance.question.get('media').audio[0].path
+    if app.options.enable_audio and 'audio' of q_instance.question.get('media')
+      if q_instance.question.get('media').audio.length > 0
+        has_audio_file = q_instance.question.get('media').audio[0].path
         if has_audio_file and soundManager.enabled
           audio_enabled = true
 
     #
     # Render the template for the question
     question_block = @question_template {
-          question_type: question_instance.generator.get('type')
-          question: question_instance.question
-          choices: _.shuffle(question_instance.choices)
-          answer: question_instance.answer
-          render_concept: render_concept
-          chunker: arrayChunk
-          audio: audio_enabled
-      }
+      instance: q_instance
+      chunker: arrayChunk
+      audio: audio_enabled
+    }
+
     @$el.find('#leksa_question').html(question_block)
 
     #
@@ -190,17 +151,17 @@ module.exports = class LeksaView extends Backbone.View
     @$el.find('#leksa_question a.answerlink').click (evt) =>
       answerlink = $(evt.target).parents('.answerlink')
       user_input = answerlink.attr('data-word')
-      answer_value = question_instance.answer.get('concept_value')
+      answer_value = q_instance.answer.get('concept_value')
       window.last_user_input = answerlink
       if user_input == answer_value
         # If user is correct, stop watching for additional clicks
         @$el.find('#leksa_question a.answerlink').unbind('click').click (evt) ->
           return false
-        @correctAnswer(question_instance.generator, answerlink,
-                        question_instance.answer, question_instance.question)
+        @correctAnswer(q_instance.generator, answerlink,
+                        q_instance.answer, q_instance.question)
       else
-        @incorrectAnswer(question_instance.generator, answerlink,
-                           question_instance.answer, question_instance.question)
+        @incorrectAnswer(q_instance.generator, answerlink,
+                           q_instance.answer, q_instance.question)
       #
       # rebind event to null result incase user clicks multiple times
       answerlink.unbind('click').click (evt) -> return false
@@ -214,9 +175,9 @@ module.exports = class LeksaView extends Backbone.View
     # NB: Strange bug here. If audio is disabled, and you go to front
     # page to enable and then come back to leksa, clicking next will
     # result in going to home.
-    if app.options.enable_audio and 'audio' of question_instance.question.get('media')
-      if question_instance.question.get('media').audio.length > 0
-        has_audio_file = question_instance.question.get('media').audio[0].path
+    if app.options.enable_audio and 'audio' of q_instance.question.get('media')
+      if q_instance.question.get('media').audio.length > 0
+        has_audio_file = q_instance.question.get('media').audio[0].path
         if has_audio_file and soundManager.enabled
           soundManager.destroySound("questionSound")
           soundManager.createSound({
@@ -246,6 +207,8 @@ module.exports = class LeksaView extends Backbone.View
     }
   
   render: ->
+    # if user ends up on front page due to error and comes back here, events
+    # are not registered
     # Render template and insert a question
     @$el.html @template
 

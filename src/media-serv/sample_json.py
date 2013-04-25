@@ -4,25 +4,50 @@ from flask import json
 
 # NB: for testing purposes, too lazy to convert this to a python obj.
 leksa_questions = [
-    { 'type': 'image_to_word'
-    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+    # { 'type': 'word_to_word'
+    # , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+    #              , 'semantics': ["BODYPART"]
+    #              }
+    # , 'answer_similarity': { 'semantics': ["BODYPART"] }
+    # , 'level': 1
+    # , 'answers': 2
+    # , 'name': "Bodypart word to image"
+    # },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
                  , 'semantics': ["BODYPART"]
                  }
-    , 'answer_similarity': { 'features': ["BISYL", "HT"]
-                           , 'semantics': ["BODYPART"]
-                           }
+    , 'answer_similarity': { }
     , 'level': 1
-    , 'answers': 1
+    , 'answers': 2
+    , 'name': "Bodypart word to image"
     },
     { 'type': 'image_to_word'
     , 'filters': { 'from_language': 'img', 'to_language': 'sma'
                  , 'semantics': ["BODYPART"]
                  }
-    , 'answer_similarity': { 'features': ["BISYL", "HT"]
-                           , 'semantics': ["BODYPART"]
-                           }
+    , 'answer_similarity': { 'semantics': ["BODYPART"] }
+    , 'level': 9
+    , 'answers': 1
+    , 'name': "Bodypart image to word"
+    },
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["BODYPART"]
+                 }
+    , 'answer_similarity': { 'semantics': ["BODYPART"] }
     , 'level': 2
     , 'answers': 2
+    , 'name': "Bodypart image to 2-word"
+    },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+                 , 'semantics': ["BODYPART"]
+                 }
+    , 'answer_similarity': { 'semantics': ["BODYPART"] }
+    , 'level': 3
+    , 'answers': 2
+    , 'name': "Bodypart word to 2-img"
     },
     { 'type': 'word_to_word'
     , 'filters': { 'from_language': 'sma', 'to_language': 'nob'

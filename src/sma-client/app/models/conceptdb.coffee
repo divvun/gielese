@@ -1,6 +1,8 @@
 Concept = require 'models/concept'
 
 module.exports = class ConceptDB extends Backbone.Collection
+  model: Concept
+
   getTranslationsOf: (concept) ->
     @models.filter (comp_concept) =>
       if _.contains( concept.get('translations')
