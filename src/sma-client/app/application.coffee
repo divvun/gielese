@@ -132,7 +132,41 @@ window.initWindowCache = () ->
   else
     fadeOutLoader()
 
+class LoadingTracker
+  isReady: () ->
+    for name, status of @dependencies
+      if not status
+      	return false
+    console.log "In readiness."
+    return true
 
+  checkDeps: () ->
+    if @isReady()
+      @hideLoading()
+
+  markReady: (name) ->
+    @dependencies[name] = true
+    @checkDeps()
+
+  hideLoading: () ->
+    $.mobile.loading('hide')
+
+  showLoading: () ->
+    $.mobile.loading('show', {
+      text: 'Loading media...',
+      textVisible: true,
+      theme: 'c',
+      html: ""
+    })
+
+  constructor: ->
+    @dependencies = {
+      'concepts.json': false
+      'leksa_questions.json': false
+    }
+
+
+# TODO: loading widget until things are downloaded
 
 module.exports = class Application
 
@@ -141,6 +175,7 @@ module.exports = class Application
       # TODO: need to track tasks required before the user can start using the
       # app, so that once all tasks are complete it disappears. 
       @initialize()
+
       Backbone.history.start
         pushState: false
         hashChange: true
@@ -162,18 +197,14 @@ module.exports = class Application
 
   initialize: ->
 
-    # TODO: loading widget until things are downloaded
-    $.mobile.loading('show', {
-        text: 'Loading media...',
-        textVisible: true,
-        theme: 'c',
-        html: ""
-    })
+    @loadingTracker = new LoadingTracker()
+    @loadingTracker.showLoading()
 
     default_options = {
       'enable_cache': false
       'enable_audio': true
     }
+
     @options = DSt.get('app_options') || default_options
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()
@@ -182,10 +213,12 @@ module.exports = class Application
     # we're still waiting for concepts
     $.getJSON '/data/concepts.json', false, (data) =>
       console.log "Fetched #{data.length} concepts from /data/concepts.json"
+      @loadingTracker.markReady('concepts.json')
       @conceptdb.add(data)
 
     $.getJSON '/data/leksa_questions.json', false, (data) =>
       console.log "Fetched #{data.length} concepts from /data/leksa_questions.json"
+      @loadingTracker.markReady('leksa_questions.json')
       @questiondb.add(data)
 
     @leksaUserProgression = new UserProgression()
@@ -201,7 +234,8 @@ module.exports = class Application
 
     soundManager.setup({
       url: "/static/client/swf/"
-      useConsole: false
+      debugMode: false
+      useConsole: true
       preferFlash: false
       useHTML5Audio: true
       useFlashBlock: true

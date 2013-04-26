@@ -55,6 +55,7 @@ def test_some_queries(app):
     def action():
         from lexicon_models import Concept, Semtype
         from lexicon_install import install_lexical_data
+        from media_serv import format_concept
 
         # w = db.session.query(Word).filter_by(lemma=u'tjovrese').first()
         # print w.semtype
@@ -69,6 +70,17 @@ def test_some_queries(app):
 
         semtype = db.session.query(Semtype).filter_by(semtype='MORFAS').first()
         print semtype.words.all()
+
+        skaavtjoe = db.session.query(Concept).filter_by(lemma='skaavtjoe',
+                                                   language='sma').first()
+        skaavtjoe_img = skaavtjoe.translations_to.filter(Concept.language == 'img').first()
+
+        # print format_concept(skaavtjoe)
+        print '--'
+        print 'img test'
+        print format_concept(skaavtjoe_img)
+        print skaavtjoe_img.translations_to.all()
+        print skaavtjoe_img.translations_from.all()
 
     return action
 

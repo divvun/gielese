@@ -175,6 +175,8 @@ module.exports = class LeksaView extends Backbone.View
     # NB: Strange bug here. If audio is disabled, and you go to front
     # page to enable and then come back to leksa, clicking next will
     # result in going to home.
+    #
+    # TODO: what to do when media file is not found? 
     if app.options.enable_audio and 'audio' of q_instance.question.get('media')
       if q_instance.question.get('media').audio.length > 0
         has_audio_file = q_instance.question.get('media').audio[0].path

@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "javascript-brunch": ">= 1.0 < 1.4",
-    "coffee-script-brunch": ">= 1.0 < 1.4",
+    "coffee-script-brunch": ">= 1.5 < 1.7",
     "css-brunch": ">= 1.0 < 1.4",
     "stylus-brunch": ">= 1.0 < 1.4",
     "eco-brunch": ">= 1.0 < 1.4",

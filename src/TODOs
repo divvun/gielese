@@ -7,12 +7,7 @@
 
 # Next
 
- * photos + sound on photo display pages-- maybe link isn't created in DB for
-   them 
-
- * problem with lv 1 sma -> image now seems to be that some links aren't being
-   made in the db for ome reason. word -> ord works, but word -> image missing,
-   also image -> sound.
+ * resize photos, convert new media files
 
  * level orders: 
      should perhaps tag 1-1 image->photo with additional semantic subsets to
@@ -23,8 +18,6 @@
          * image + sound -> 2 words
          * word sma + sound -> 2 word nob
 
-
- * resize photos
 
  * sessions
    * send user progressions, receive from server

@@ -52,7 +52,8 @@ def create_manifest(app_host):
         return [app_host + p for p in ps]
 
     images = join_hosts(list_dir('static/images/')) + \
-             join_hosts(list_dir('static/client/images/'))
+             join_hosts(list_dir('static/client/images/')) + \
+             join_hosts(list_dir('static/images/ansikt/small/'))
 
     from urllib import quote
     audios = join_hosts(map(quote, list_dir('static/audio/vce1/'))) + \
@@ -203,9 +204,16 @@ def format_concept(concept):
 
     concept_media = {}
     audio = concept.translations_to.filter(Concept.language == 'mp3').all()
+    image = concept.translations_to.filter(Concept.language == 'img').all()
+
+    media_ids = []
 
     if len(audio) > 0:
         concept_media['audio'] = [{'path': a.lemma} for a in audio]
+        # media_ids.extend([a.id for a in audio])
+    if len(image) > 0:
+        concept_media['image'] = [{'path': a.lemma} for a in image]
+        media_ids.extend([a.id for a in image])
 
     language = concept.language
     if language == 'img':
@@ -227,7 +235,7 @@ def format_concept(concept):
            , "features": features
            , "language": language
            , "semantics": semantics
-           , "translations": list(set(translations))
+           , "translations": list(set(translations)) + media_ids
            , "media": concept_media
            }
 

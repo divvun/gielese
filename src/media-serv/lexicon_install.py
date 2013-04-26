@@ -358,6 +358,7 @@ def install_media_references(_d, filename):
             # TODO: features / semantics, audio / voices
             wt = Concept(**wt_kwargs)
             word.translations_to.append(wt)
+            image_media = wt
             print " Added image path: %s" % wt.lemma
 
         if 'sound' in medias:
@@ -367,7 +368,15 @@ def install_media_references(_d, filename):
             # TODO: features / semantics, audio / voices
             wt = Concept(**wt_kwargs)
             word.translations_to.append(wt)
+            audio_media = wt
             print " Added audio path: %s" % wt.lemma
+
+        if 'image' in medias and 'sound' in medias:
+            audio_media.translations_to.append(image_media)
+            image_media.translations_to.append(audio_media)
+            audio_media.translations_from.append(image_media)
+            image_media.translations_from.append(audio_media)
+            print " Crosslinking media."
 
         _commit()
 

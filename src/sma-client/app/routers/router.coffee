@@ -29,6 +29,10 @@ module.exports = class Router extends Backbone.Router
 
   leksa: ->
     # $('content #content').html app.leksaView.render().el
+    ready = false
+    until ready
+      window.app.loadingTracker.checkDeps()
+      ready = window.app.loadingTracker.isReady()
     @changePage(app.leksaView)
 
   errorPage: ->
