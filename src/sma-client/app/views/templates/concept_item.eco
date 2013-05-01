@@ -1,18 +1,8 @@
 <li>
-    <dl>
-        <dt><%- @concept_value %></dt>
-        <dd>
-            <span class="word"><% @model.get('concept_value') %></span>
-        </dd>
-    </dl>
-    <ul class="concept_translations">
-    <% for tx in @translations: %>
-         <% if tx.get('concept_type') == 'img': %>
-            <img width="75" height="75" src="<%- tx.get('concept_value') %>"/>
-        <% else: %>
-            <span class="word"><% tx.get('concept_value') %></span>
-        <% end %>
-    <li><%- tx.get('concept_value') %></li>
-    <% end %>
-    </ul>
+    <img src="<%- @concept_value %>" />
+    <h2><% for tx in @translations: %><a href="#" class="audio_link" data-concept="<%- tx.cid %>">
+        <img width="32" height="32" src="/static/client/images/speaker.png" />
+        <span class="word"><%- tx.get('concept_value') %></span> 
+    </a> <% end %>
+    </h2>
 </li>

@@ -1,4 +1,6 @@
 
+LeksaView = require 'views/leksa_view'
+
 module.exports = class Router extends Backbone.Router
 
   initialize: () ->
@@ -30,19 +32,22 @@ module.exports = class Router extends Backbone.Router
     @changePage(app.helloView)
 
   leksaOptions: ->
-    ready = false
-    until ready
-      window.app.loadingTracker.checkDeps()
-      ready = window.app.loadingTracker.isReady()
+    window.app.loadingTracker.checkDeps()
     @changePage(app.leksaOptionsView)
 
   leksa: ->
     # $('content #content').html app.leksaView.render().el
-    ready = false
-    until ready
-      window.app.loadingTracker.checkDeps()
-      ready = window.app.loadingTracker.isReady()
+    # ready = false
+    # until ready
+    window.app.loadingTracker.checkDeps()
+
+    if app.leksaView.viewedOnce
+      app.leksaView = new LeksaView()
+      app.leksaView.initialize()
+
     @changePage(app.leksaView)
+
+    app.leksaView.viewedOnce = true
 
   errorPage: ->
     # $('content #content').html app.errorView.render().el

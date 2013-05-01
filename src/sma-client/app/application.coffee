@@ -215,27 +215,30 @@ module.exports = class Application
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()
 
+    @conceptdb.fetch()
+    @questiondb.fetch()
+
     # TODO: depending on how slow this can be, may need to signal to user that
     # we're still waiting for concepts
-    $.getJSON '/data/concepts.json', false, (data) =>
-      console.log "Fetched #{data.length} concepts from /data/concepts.json"
-      @loadingTracker.markReady('concepts.json')
-      @conceptdb.add(data)
+    # $.getJSON '/data/concepts.json', false, (data) =>
+    #   console.log "Fetched #{data.length} concepts from /data/concepts.json"
+    #   @loadingTracker.markReady('concepts.json')
+    #   @conceptdb.add(data)
 
-    $.getJSON '/data/leksa_questions.json', false, (data) =>
-      console.log "Fetched #{data.length} concepts from /data/leksa_questions.json"
-      @loadingTracker.markReady('leksa_questions.json')
-      @questiondb.add(data)
+    # $.getJSON '/data/leksa_questions.json', false, (data) =>
+    #   console.log "Fetched #{data.length} concepts from /data/leksa_questions.json"
+    #   @loadingTracker.markReady('leksa_questions.json')
+    #   @questiondb.add(data)
 
     @leksaUserProgression = new UserProgression()
     @leksaOptions = new LeksaOptions()
 
-    @router = new Router
-    @helloView = new HelloView
-    @leksaView = new LeksaView
-    @leksaOptionsView = new LeksaOptionsView
-    @errorView = new ErrorView
-    @globalOptionsView = new GlobalOptionsView
+    @router = new Router()
+    @helloView = new HelloView()
+    @leksaView = new LeksaView()
+    @leksaOptionsView = new LeksaOptionsView()
+    @errorView = new ErrorView()
+    @globalOptionsView = new GlobalOptionsView()
 
     @conceptList = new ConceptList({
       collection: @conceptdb

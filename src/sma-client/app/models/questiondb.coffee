@@ -28,6 +28,8 @@ chooseQuestionbyProgression = (questions, userprogression) ->
 module.exports = class QuestionDB extends Backbone.Collection
   model: Question
 
+  url: "/data/leksa_questions.json"
+
   selectLeksaConcepts: (userprogression) ->
     #
     # Select a question

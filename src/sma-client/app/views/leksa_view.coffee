@@ -212,6 +212,7 @@ module.exports = class LeksaView extends Backbone.View
     # if user ends up on front page due to error and comes back here, events
     # are not registered
     # Render template and insert a question
+
     @$el.html @template
 
     @renderQuestion()

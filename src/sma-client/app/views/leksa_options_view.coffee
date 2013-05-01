@@ -7,32 +7,51 @@ module.exports = class LeksaOptionsView extends Backbone.View
   events:
     'click #save-options': 'saveOptions'
 
+  getLevel: () ->
+    _level = @$el.find('#current_level input[checked]').val()
+    if _level.length == 0
+      _level = false
+
+    _level
+
+  getSet: () ->
+    _set = @$el.find('#semantic_set input[checked]').val()
+    if _set.length == 0
+      _set = false
+
+    _set
+
   saveOptions: (evt) ->
+    # TODO: check options, store to app.leksaOptions
+    # Then, question generation should use app.leksaOptions if something is set.
+
     toBool = (v) ->
       switch v
         when "true"  then return true
         when "false" then return false
        
-    _data = @$el.find('select[name="data-storage"]')
-    _audio = @$el.find('select[name="play-audio"]')
-    # $('#current_level input[checked]').val()
+    _level = @getLevel()
+    _set = @getSet()
 
-    enable_cache = toBool _data.slider().val()
-    enable_audio = toBool _audio.slider().val()
+    if _level
+      app.leksaOptions.current_level = _level
 
-    new_opts = {
-      'enable_cache': enable_cache
-      'enable_audio': enable_audio
-    }
-
-    DSt.set('app_options', new_opts)
-
-    app.options = new_opts
+    if _set
+      app.leksaOptions.current_set = _set
 
   template: require './templates/leksa_options_view'
 
   render: ->
     @$el.html @template
+
+    _level = @getLevel()
+    _set = @getSet()
+
+    if _level
+      @$el.find("#current_level input[value='#{_level}'").click()
+
+    if _set
+      @$el.find("#semantic_set input[value='#{_set}'").click()
 
     ## if app.options?
     ##   _set = @$el.find('#semantic_set fieldset')

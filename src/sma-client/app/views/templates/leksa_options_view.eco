@@ -23,7 +23,7 @@
     <div data-role="fieldcontain" id="current_level">
         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
             <legend>Level</legend>
-                <input type="radio" name="radio-choice-b" id="radio-choice-c" value="1" checked="checked">
+                <input type="radio" name="radio-choice-b" id="radio-choice-c" value="1">
                 <label for="radio-choice-c">1</label>
                 <input type="radio" name="radio-choice-b" id="radio-choice-d" value="2">
                 <label for="radio-choice-d">2</label>
@@ -31,6 +31,8 @@
                 <label for="radio-choice-e">3</label>
                 <input type="radio" name="radio-choice-b" id="radio-choice-f" value="4">
                 <label for="radio-choice-f">4</label>
+                <input type="radio" name="radio-choice-b" id="radio-choice-g" value="" checked="checked">
+                <label for="radio-choice-g">Auto</label>
         </fieldset>
     </div>
 
