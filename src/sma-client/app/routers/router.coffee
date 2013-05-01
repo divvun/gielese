@@ -11,6 +11,7 @@ module.exports = class Router extends Backbone.Router
   routes:
     '': 'index'
     'leksa': 'leksa'
+    'leksaOptions': 'leksaOptions'
     'wordlist': 'wordlist'
     'options': 'options'
     'error': 'errorPage'
@@ -20,12 +21,20 @@ module.exports = class Router extends Backbone.Router
     '#home': 'index'
     '#wordlist': 'wordlist'
     '#leksa': 'leksa'
+    '#leksaOptions': 'leksaOptions'
     '#options': 'options'
     '#error': 'errorPage'
 
   index: ->
     ##  $('content #content').html app.helloView.render().el
     @changePage(app.helloView)
+
+  leksaOptions: ->
+    ready = false
+    until ready
+      window.app.loadingTracker.checkDeps()
+      ready = window.app.loadingTracker.isReady()
+    @changePage(app.leksaOptionsView)
 
   leksa: ->
     # $('content #content').html app.leksaView.render().el

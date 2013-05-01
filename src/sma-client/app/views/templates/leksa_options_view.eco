@@ -1,0 +1,40 @@
+<div data-role="header">
+    <a href="#leksa" data-transition="slide" data-icon="arrow-l">Back</a>
+    <h2>Options</h2>
+    <a id="save-options" data-icon="gear">Save</a>
+</div> 
+
+<div data-role="content">
+    <h2>Game settings</h2>
+
+    <p>NB: currently only for testing. We'll put real options in later.</p>
+    <form id="option_form">
+
+    <div data-role="fieldcontain" id="semantic_set">
+        <fieldset data-role="controlgroup">
+            <legend>Set</legend>
+            <input type="radio" name="radio-choice-1" id="radio-choice-1" value="face" checked="checked">
+            <label for="radio-choice-1">Face</label>
+            <input type="radio" name="radio-choice-1" id="radio-choice-2" value="other">
+            <label for="radio-choice-2">Other</label>
+        </fieldset>
+    </div>
+
+    <div data-role="fieldcontain" id="current_level">
+        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <legend>Level</legend>
+                <input type="radio" name="radio-choice-b" id="radio-choice-c" value="1" checked="checked">
+                <label for="radio-choice-c">1</label>
+                <input type="radio" name="radio-choice-b" id="radio-choice-d" value="2">
+                <label for="radio-choice-d">2</label>
+                <input type="radio" name="radio-choice-b" id="radio-choice-e" value="3">
+                <label for="radio-choice-e">3</label>
+                <input type="radio" name="radio-choice-b" id="radio-choice-f" value="4">
+                <label for="radio-choice-f">4</label>
+        </fieldset>
+    </div>
+
+    </form>
+</div> 
+
+

@@ -1,6 +1,9 @@
 Router = require 'routers/router'
 HelloView = require 'views/hello_view'
+
 LeksaView = require 'views/leksa_view'
+LeksaOptionsView = require 'views/leksa_options_view'
+
 ErrorView = require 'views/error_view'
 GlobalOptionsView = require 'views/global_options'
 ConceptList = require 'views/concept_list'
@@ -11,6 +14,7 @@ Question = require 'models/question'
 # sample_concepts = require 'sample_data/sample_concepts'
 
 UserProgression = require 'models/user_progression'
+AppCacheStatus = require 'views/templates/app_cache_status'
 
 arrayChunk = (a, s) ->
   x = undefined
@@ -33,18 +37,16 @@ window.initWindowCache = () ->
   # Some log handlers for the console
   loadingFloat = () ->
     if $('#loading_float').length == 0
-      loading = $("""
-      <div id="loading_float">
-          <img src="/static/client/images/icon_loading_spinner.gif"/>
-          <span id="status"><span id="message">Initializing offline cache ... </span> <span id="cache_count">&nbsp;</span>/<span id="cache_total">55</span></span>
-      </div>
-      """)
-      loading.appendTo $('body')
+      loading = AppCacheStatus {
+      	obj_count: 55
+      }
+      $('body').append loading
+      loading = $('#loading_float')
     else
       loading = $('#loading_float')
     loading.fadeOut(4500)
     return loading
-  
+
   updateLoadingCount = (count, total) =>
     loader = loadingFloat()
     loader.fadeIn(500)
@@ -123,10 +125,10 @@ window.initWindowCache = () ->
       console.log("Progress: downloaded file " + counter)
       incrementLoadingCount()
       counter++
-  
+
     window.addEventListener "online", (e) ->
       console.log "you are online"
-  
+
     window.addEventListener "offline", (e) ->
       console.log "you are offline"
   else
@@ -166,6 +168,10 @@ class LoadingTracker
     }
 
 
+class LeksaOptions
+  constructor: ->
+
+
 # TODO: loading widget until things are downloaded
 
 module.exports = class Application
@@ -173,7 +179,7 @@ module.exports = class Application
   constructor: ->
     $ =>
       # TODO: need to track tasks required before the user can start using the
-      # app, so that once all tasks are complete it disappears. 
+      # app, so that once all tasks are complete it disappears.
       @initialize()
 
       Backbone.history.start
@@ -222,9 +228,12 @@ module.exports = class Application
       @questiondb.add(data)
 
     @leksaUserProgression = new UserProgression()
+    @leksaOptions = new LeksaOptions()
+
     @router = new Router
     @helloView = new HelloView
     @leksaView = new LeksaView
+    @leksaOptionsView = new LeksaOptionsView
     @errorView = new ErrorView
     @globalOptionsView = new GlobalOptionsView
 

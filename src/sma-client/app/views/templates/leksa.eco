@@ -1,5 +1,5 @@
 <div data-role="header" data-position="fixed">
-    <a id="show-panel" data-icon="gear">Options</a>
+    <a id="show-panel" data-icon="gear">Menu</a>
     <h1>Leksa</h1>
     <a id="show-user-panel" href="#" data-icon="check" data-theme="b">Stats</a>
 </div>
@@ -10,9 +10,7 @@
      id="leksa-options">
     <ul data-role="listview" data-theme="a" data-divider-theme="a" class="ui-listview">
         <li><a href="#home" data-transition="slide">Home</a></li>
-        <li><a href="#">Leksa Options</a></li>
-        <li><a href="#">Game menu</a></li>
-        <li><a href="#">Check for updates</a></li>
+        <li><a href="#leksaOptions">Leksa Options</a></li>
     </ul>
 </div>
 <div data-role="panel"
