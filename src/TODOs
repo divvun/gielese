@@ -11,9 +11,20 @@
 
 # Next
 
- * TODO: rename soundfiles in media data and .xml, still having problem with
-   utf8 file names on mobile devices. problem could be url escaping, but it
-   seems like the easiest way to deal with it right now is to avoid it.
+ * FEATURE: level-by-level enable sound feature, f.eks., in image->sma word,
+   may want to have sound off because it's a harder test
+
+ * FEATURE: progress bar for current set (count of items left un-passed)
+
+ * FEATURE: more points for faster answer
+
+ * FEATURE: each level gets its own amount of points awarded for correct
+
+
+ * FEATURE: visual map of levels
+   * FEATURE: description of question sets
+
+ * FEATURE: progression of level sets
 
  * FEATURE: UI in three languages: sma, nob, swe.
    - existing code in NDS could be used to extract strings from .js, and manage
@@ -22,10 +33,11 @@
    - translation of concept words should go based on interface language, except
    for when the language is sma, which then requires selection of nob or swe
 
-
- * sessions
+ * FEATURE: sessions
    * send user progressions, receive from server
    * load session before making games available
+
+ * FEATURE: high scores list
 
  * BUG: no sound on iPhone 4S, iOS 5.1.1
    - check that SoundManager supports this, and what to do when not 
