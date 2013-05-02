@@ -1,9 +1,13 @@
 # Ideas
 
-* may want to split semantic set (bodypart) into separate smaller groups
-  containing 5 words each, then add this to the level progression.
+ * may want to split semantic set (bodypart) into separate smaller groups
+   containing 5 words each, then add this to the level progression.
 
-* level progression map, once we get more levels designed
+ * level progression map, once we get more levels designed
+
+ * what about a sound matching game, where you get a board of miscellaneous
+   cards, and you have to match the same word but in multiple voices
+
 
 # Next
 
@@ -23,19 +27,22 @@
    * send user progressions, receive from server
    * load session before making games available
 
- * leksa - go by levels, store in user data
-
- * question types
-
- * sound -> sound game (e.g., hear one voice, choose the other voice)
- * image -> sound
- * sound -> image
-
- * what about a sound matching game, where you get a board of miscellaneous
-   cards, and you have to match the same word but in multiple voices
-
  * BUG: navigating away from leksa and coming back seems to destroy some
    events. perhaps leksa isn't completely rerendered?
+
+ * BUG: no sound on iPhone 4S, iOS 5.1.1
+   - check that SoundManager supports this, and what to do when not 
+
+ * FEATURE: UI in three languages: sma, nob, swe.
+   - existing code in NDS could be used to extract strings from .js, and manage
+     translations with pybabel in typical .po files.
+
+   - translation of concept words should go based on interface language, except
+   for when the language is sma, which then requires selection of nob or swe
+
+
+** Ryan leverer ei spesifisering over dei innstillingane han har brukt for å produsera mp3
+
 
 # Getting going
 

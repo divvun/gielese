@@ -7,7 +7,7 @@ from media_serv import create_app
 app, db = create_app()
 app.test_request_context().push()
 
-manager = Manager(app)
+manager = Manager(app, default_server_actions=True)
 
 def thing():
     from lexicon_models import Concept

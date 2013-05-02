@@ -45,7 +45,7 @@ def create_manifest(app_host):
     def list_dir(p):
         from os import listdir
         from os.path import isfile, join
-        return [ join(p, f) for f in listdir(p) 
+        return [ join(p, f) for f in listdir(p)
                  if isfile(join(p, f)) ]
 
     def join_hosts(ps):
@@ -79,7 +79,8 @@ def create_manifest(app_host):
     manifest_network = manifest_cache + """\n\nNETWORK:\n%(nets)s\n\nFALLBACK:\n%(nets)s""" % locals()
     # TODO: add FALLBACK and options, etc.?
 
-    return manifest_network + '\n'
+    manifest = manifest_network + '\n'
+    return manifest.decode('utf-8')
 
 @app.route('/offline.media.appcache', methods=['GET'])
 def cache_manifest():

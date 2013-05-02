@@ -4,15 +4,6 @@ from flask import json
 
 # NB: for testing purposes, too lazy to convert this to a python obj.
 leksa_questions = [
-    # { 'type': 'word_to_word'
-    # , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
-    #              , 'semantics': ["BODYPART"]
-    #              }
-    # , 'answer_similarity': { 'semantics': ["BODYPART"] }
-    # , 'level': 1
-    # , 'answers': 2
-    # , 'name': "Bodypart word to image"
-    # },
     { 'type': 'image_to_word'
     , 'filters': { 'from_language': 'img', 'to_language': 'sma'
                  , 'semantics': ["BODYPART"]
