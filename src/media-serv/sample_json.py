@@ -31,15 +31,15 @@ leksa_questions = [
     , 'answers': 2
     , 'name': "Bodypart image to 2-word"
     },
-    # { 'type': 'word_to_image'
-    # , 'filters': { 'from_language': 'sma', 'to_language': 'img'
-    #              , 'semantics': ["BODYPART"]
-    #              }
-    # , 'answer_similarity': { 'semantics': ["BODYPART"] }
-    # , 'level': 4
-    # , 'answers': 2
-    # , 'name': "Bodypart word to 2-img"
-    # },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+                 , 'semantics': ["BODYPART"]
+                 }
+    , 'answer_similarity': { 'semantics': ["BODYPART"] }
+    , 'level': 4
+    , 'answers': 2
+    , 'name': "Bodypart word to 2-img"
+    },
     { 'type': 'word_to_word'
     , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
                  , 'semantics': ["BODYPART"]
@@ -47,7 +47,7 @@ leksa_questions = [
     , 'answer_similarity': { 'features': ["BISYL", "HT"]
                            , 'semantics': ["BODYPART"]
                            }
-    , 'level': 4
+    , 'level': 5
     , 'answers': 4
     },
     # { 'type': 'word_to_image'

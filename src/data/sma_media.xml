@@ -26,14 +26,16 @@ For the full license text, see the link above.</lic>
      or could be wrongly sorted.
      </sourcenote>
    </lics>
+   <!-- Paths are relative to this file, must be stored in CDATA tag
+          <![CDATA[stuff goes here]]>
+     -->
+  <!-- Some sample words we don't need anymore -->
+   <!--
   <e>
     <lg>
       <l pos="n">guelie</l>
     </lg>
     <media>
-      <!-- Paths are relative to this file, must be stored in CDATA tag
-             <![CDATA[stuff goes here]]>
-        -->
       <img>
         <path><![CDATA[http://dummyimage.com/250x150/000/900&text=fish]]></path>
         <features>
@@ -102,21 +104,22 @@ For the full license text, see the link above.</lic>
       </img>
     </media>
   </e>
+  -->
 
   <!-- face -->
   <e>
     <lg>
-        <l>ååredæjja</l>
+        <l>ååredæjja</l>
     </lg>
     <media>
       <sound>
-        <path><![CDATA[/audio/vce1/ååredæjja.mp3]]></path>
+        <path><![CDATA[/audio/vce1/aa_aa_red_ae_jja.mp3]]></path>
         <features>
             <voice vid="1"></voice>
         </features>
       </sound>
       <img>
-        <path><![CDATA[/static/images/ansikt/small/ååredæjja.jpg]]></path>
+        <path><![CDATA[/static/images/ansikt/small/aa_aa_red_ae_jja.jpg]]></path>
         <features>
           <appearance>FACE</appearance>
         </features>
@@ -125,17 +128,17 @@ For the full license text, see the link above.</lic>
   </e>
   <e>
     <lg>
-        <l>åejjie</l>
+        <l>åejjie</l>
     </lg>
     <media>
       <sound>
-        <path><![CDATA[/audio/vce1/åejjie.mp3]]></path>
+        <path><![CDATA[/audio/vce1/aa_ejjie.mp3]]></path>
         <features>
             <voice vid="1"></voice>
         </features>
       </sound>
       <img>
-        <path><![CDATA[/static/images/ansikt/small/åejjie.jpg]]></path>
+        <path><![CDATA[/static/images/ansikt/small/aa_ejjie.jpg]]></path>
         <features>
           <appearance>FACE</appearance>
         </features>
