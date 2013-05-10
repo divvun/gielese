@@ -14,6 +14,7 @@ exports.config =
           'vendor/scripts/soundmanager2-jsmin.js'
           'vendor/scripts/DSt.js'
           'vendor/scripts/jquery-1.7.2.js'
+          'vendor/scripts/jquery-ui-1.10.3.custom.min.js'
           'vendor/scripts/jquery.mobile.init.js'
           'vendor/scripts/jquery.mobile-1.3.0-beta.1.min.js'
           'vendor/scripts/jquery.cookie.js'
@@ -30,6 +31,7 @@ exports.config =
         after: [
           'vendor/styles/helpers.css'
           'vendor/styles/jquery.mobile-1.3.0-beta.1.min.css'
+          'vendor/styles/jquery-ui-1.10.3.custom.min.css'
           'vendor/styles/flashblock.css'
         ]
     templates:

@@ -1,6 +1,8 @@
 Router = require 'routers/router'
 HelloView = require 'views/hello_view'
 
+FrontPage = require 'views/front_page'
+
 LeksaView = require 'views/leksa_view'
 LeksaOptionsView = require 'views/leksa_options_view'
 
@@ -235,6 +237,7 @@ module.exports = class Application
 
     @router = new Router()
     @helloView = new HelloView()
+    @frontPage = new FrontPage()
     @leksaView = new LeksaView()
     @leksaOptionsView = new LeksaOptionsView()
     @errorView = new ErrorView()
