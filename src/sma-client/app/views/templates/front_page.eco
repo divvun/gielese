@@ -4,73 +4,87 @@
     </div>
 
     <div id="main_page_content">
-        <p class="lead">Since this is your first time with Gïelese, we have some questions
-        for you to answer!</p>
-
         <div class="question_blocks">
-            <div class="question_block" data-setting="help_language">
-                <div data-role="fieldcontain" id="help_language">
-                    <fieldset data-role="controlgroup">
-                        <legend>Help language</legend>
-                        <input type="radio" name="help-language-1" id="help-language-1" value="nob" checked="checked">
-                        <label for="help-language-1">Norsk</label>
-                        <input type="radio" name="help-language-2" id="help-language-2" value="sma">
-                        <label for="help-language-2">Åarjelsaemien</label>
-                        <input type="radio" name="help-language-3" id="help-language-3" value="swe">
-                        <label for="help-language-3">Svenska</label>
-                        <input type="radio" name="help-language-4" id="help-language-4" value="eng">
-                        <label for="help-language-4">English</label>
-                    </fieldset>
-                    <p class="help">This affects what language is displayed in
-                        options and in-game help, and also vocabulary quizzes.</p>
-                    <p class="help">NB: Sma only - select aux language.  </p>
+            <div class="question_block">
+                <div class="sub_question_block">
+                    <p class="lead">Since this is your first time using Gïelese, we have some questions
+                    for you to answer!</p>
+                    <div data-role="fieldcontain" id="help_language">
+                        <fieldset data-role="controlgroup" data-setting="help_language,target_language">
+                            <legend>Help language</legend>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
+                            <label for="radio-choice-1">Norsk</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-2" value="sma" data-subquestion="true">
+                            <label for="radio-choice-2">Åarjelsaemien</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-3" value="swe">
+                            <label for="radio-choice-3">Svenska</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-4" value="eng">
+                            <label for="radio-choice-4">English</label>
+                        </fieldset>
+
+                        <p class="help">This affects what language is displayed in
+                            options and in-game help, and also vocabulary quizzes.</p>
+                    </div>
                 </div>
-                <div data-role="fieldcontain" id="auxiliary_language" style="display: none;">
-                    <fieldset data-role="controlgroup">
-                        <legend>Help language</legend>
-                        <input type="radio" name="help-language-1" id="help-language-1" value="nob" checked="checked">
-                        <label for="help-language-1">Norsk</label>
-                        <input type="radio" name="help-language-2" id="help-language-2" value="sma">
-                        <label for="help-language-2">Åarjelsaemien</label>
-                        <input type="radio" name="help-language-3" id="help-language-3" value="swe">
-                        <label for="help-language-3">Svenska</label>
-                        <input type="radio" name="help-language-4" id="help-language-4" value="eng">
-                        <label for="help-language-4">English</label>
-                    </fieldset>
-                    <p class="help">This affects what language is displayed in
-                        options and in-game help, and also vocabulary quizzes.</p>
-                    <p class="help">NB: Sma only - select aux language.  </p>
+                <div class="sub_question_block" style="display: none;">
+                    <div data-role="fieldcontain" id="auxiliary_language">
+                        <fieldset data-role="controlgroup" data-setting="help_language,target_language">
+                            <legend>Help language</legend>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
+                            <label for="radio-choice-1">Norsk</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-2" value="swe">
+                            <label for="radio-choice-2">Svenska</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-3" value="eng">
+                            <label for="radio-choice-3">English</label>
+                        </fieldset>
+
+                        <p class="help">You selected Åarjel Saemie as your help
+                        language, but you will still need a language to learn
+                        words. Note, you can change this at any time in the
+                        settings.</p>
+
+                    </div>
                 </div>
             </div>
 
-            <div class="question_block" style="display: none;" data-setting="use_account">
-                <div data-role="fieldcontain" id="create_account">
-                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                        <legend>Create an account?</legend>
-                            <input type="radio" name="create-user-account-b" id="create-user-account-a" value="true">
+            <% # TODO: login %>
+            <div class="question_block" style="display: none;">
+                <div class="sub_question_block">
+                    <div data-role="fieldcontain" id="create_account">
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-setting="use_account">
+                            <legend>Create an account?</legend>
+                            <input type="radio" name="create-user-account-b" id="create-user-account-a" value="true" data-subquestion="true">
                             <label for="create-user-account-a">Yes</label>
                             <input type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
                             <label for="create-user-account-b">No</label>
-                    </fieldset>
-                    <p class="help">If you choose not to create an account, data will be stored
-                       locally, but may be erased if you clear your browser's stored data.</p>
-                    <p class="help">Having an account allows you to always store your
-                        data, compete with others, and integrates with courses.</p>
+                        </fieldset>
+                        <p class="help">If you choose not to create an account, data will be stored
+                           locally, but may be erased if you clear your browser's stored data.</p>
+                        <p class="help">Having an account allows you to always store your
+                            data, compete with others, and integrates with courses.</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="question_block" style="display: none;">
-                <div data-role="fieldcontain" id="something_else">
-                    <p class="help">Are there any more questions?</p>
+                <% # TODO: maybe leave this to last step, because having a different view for this would be much better. %>
+                <div class="sub_question_block" style="display: none;">
+	                <form id="user">
+                        <fieldset>
+                            <legend>Email</legend>
+		                    <input type="text" name="user" id="un" value="" placeholder="username">
+                        </fieldset>	
+                        <fieldset>	
+                            <legend>Password</legend>
+		                    <input type="password" name="pass" id="pw" value="" placeholder="password">
+                        </fieldset>	
+		                <input type="submit" value="Submit" />
+	                </form>
                 </div>
             </div>
         </div>
-
-        <div class="front_page_nav" data-role="controlgroup" data-type="horizontal" data-position="right"> 
-            <a data-role="button" id="next" href="#" data-icon="arrow-r">Next</a>
-        </div>
-
+        <div id="progressbar"></div>
     </div>
 
+    <div class="front_page_nav" data-role="controlgroup" data-type="horizontal"> 
+        <a data-role="button" id="prev" href="#" data-icon="arrow-l" style="display: none;">Previous</a>
+        <a data-role="button" id="next" href="#" data-icon="arrow-r">Next</a>
+    </div>
 </div> 
-
