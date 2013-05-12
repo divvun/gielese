@@ -122,6 +122,8 @@ module.exports = class LeksaView extends Backbone.View
 
     q_instance = app.questiondb.selectLeksaConcepts(window.app.leksaUserProgression)
 
+    @setProgress(q_instance.current_count, q_instance.question_total)
+
     if not q_instance.question
       question_block = @leksa_error_template({
         error_msg: "A question could not be generated from these parameters"
@@ -208,6 +210,14 @@ module.exports = class LeksaView extends Backbone.View
         concept_progress: window.app.leksaUserProgression.collateConcepts(app.conceptdb)
     }
   
+  setProgress: (count, total) ->
+    console.log count
+    console.log total
+    prog = @$el.find "#leksa_progress"
+    prog.progressbar({value: (count/total)*100})
+    console.log '--'
+    return false
+
   render: ->
     # if user ends up on front page due to error and comes back here, events
     # are not registered

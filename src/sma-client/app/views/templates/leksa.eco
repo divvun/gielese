@@ -40,8 +40,10 @@
     </form>
 </div>
 <div data-role="content">
-    <div id="leksa_question"><% if @leksa_question: %><%- @leksa_question %><% end %></div>
-
+    <div id="leksa_question">
+        <% if @leksa_question: %><%- @leksa_question %><% end %>
+    </div>
+    <div id="leksa_progress"></div>
 </div>
 <div data-role="footer" data-position="fixed">
     <!-- go on to next set, see current scores, change options? -->

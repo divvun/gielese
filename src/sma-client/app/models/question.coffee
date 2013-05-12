@@ -3,7 +3,7 @@ filterByLang = (lang, concepts) ->
   concepts.filter (o) => o.get('language') == lang
 
 class QuestionInstance
-  constructor: (@generator, @question, @choices, @answer) ->
+  constructor: (@generator, @question, @choices, @answer, @current_count, @question_total) ->
     console.log "created instance"
     @choices = _.shuffle(@choices)
 
@@ -23,12 +23,12 @@ orderConceptsByProgression = (q, concepts, up) ->
   	return concepts
   
   getProgressionCorrectCountForConcept = (c) =>
-    concept_instances = userprogression
+    userprogression
       .filter (up) =>
         up.get('question_concept') == c.get('c_id')
       .filter (up) =>
         up.get('question_correct')
-    return concept_instances.length
+      .length
 
   # take out of cycle once they've been shown 3 times
   countLessThanFour = (c) =>
@@ -54,6 +54,7 @@ orderConceptsByProgression = (q, concepts, up) ->
   return ordered_by_frequency
 
 module.exports = class Question extends Backbone.Model
+
   user_completed_question: (userprogression) ->
     # Determine whether the user has completed the question, by answering all
     # concepts in level correctly at least once (TODO: maybe not enough?)
@@ -135,6 +136,9 @@ module.exports = class Question extends Backbone.Model
       @select_question_concepts(conceptdb),
       userprogression
     )
+    # Concepts left (probably need to multiple by display count)
+    concepts_total = @select_question_concepts(conceptdb).length
+    concepts_left = concepts_total - q_concepts.length
 
     # Select a question concept
     if q_concepts.length > 0
@@ -213,6 +217,8 @@ module.exports = class Question extends Backbone.Model
                                  , question
                                  , all_answer_possibilities
                                  , actual_answer
+                                 , concepts_left
+                                 , concepts_total
                                  )
 
     else

@@ -30,6 +30,8 @@
 
 
  * FEATURE: progress bar for current set (count of items left un-passed)
+    - problem is that it moves too slow if you have to have passed something
+      three times.
 
  * FEATURE: visual map of levels
    * FEATURE: description of question sets
