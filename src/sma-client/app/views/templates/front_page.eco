@@ -58,14 +58,17 @@
                             <input type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
                             <label for="create-user-account-b">No</label>
                         </fieldset>
-                        <p class="help">If you choose not to create an account, data will be stored
-                           locally, but may be erased if you clear your browser's stored data.</p>
-                        <p class="help">Having an account allows you to always store your
-                            data, compete with others, and integrates with courses.</p>
+                        <p class="help">If you choose not to create an account, data will still be stored 
+                           anonymously, however, it may be erased if you clear your browser's stored data.</p>
+                        <p class="help">Having an account also allows you to
+                        compete with others, and integrates with courses.</p>
                     </div>
                 </div>
                 <% # TODO: maybe leave this to last step, because having a different view for this would be much better. %>
                 <div class="sub_question_block" style="display: none;">
+                    <p class="lead">Your progress will be stored online, and
+                    will syncronise when you connect if you play in offline
+                    mode.</p>
 	                <form id="user">
                         <fieldset>
                             <legend>Email</legend>
@@ -76,7 +79,9 @@
 		                    <input type="password" name="pass" id="pw" value="" placeholder="password">
                         </fieldset>	
 		                <input type="submit" value="Submit" />
+		                <div id="loading_user" class="display: none;" />
 	                </form>
+                    <p class="help"> * Probably need a small legal notice about data policy?</p>
                 </div>
             </div>
         </div>

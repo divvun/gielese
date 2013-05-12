@@ -30,7 +30,11 @@ module.exports = class Router extends Backbone.Router
     '#error': 'errorPage'
 
   index: ->
-    @changePage(app.frontPage)
+    configured_already = DSt.get('gielese-configured')
+    if configured_already
+      @changePage(app.helloView)
+    else
+      @changePage(app.frontPage)
   
   mainMenu: ->
     ##  $('content #content').html app.helloView.render().el

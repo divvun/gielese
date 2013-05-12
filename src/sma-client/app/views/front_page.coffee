@@ -5,10 +5,24 @@ module.exports = class FrontPage extends Backbone.View
 
   events:
     "click #next": "nextQuestion"
+    "submit #user": "userForm"
     # TODO: wrong element?
     # "click input[value='sma']:visible": "userSelectsSma"
     # "select input[value='sma']:visible": "userSelectsSma"
     # TODO: user selects sma 
+
+  userForm: (event) ->
+    # display loading
+    #
+
+    un = $ "#user #un"
+    pw = $ "#user #pw"
+
+    # ajax call to check that user can be created
+    # if fail, display errors
+    # if success, store username, api key, etc., continue
+
+    return false
 
   userSelectsSma: (event) ->
     console.log "omg"
@@ -18,6 +32,11 @@ module.exports = class FrontPage extends Backbone.View
   
   updateProgress: (count) ->
     @$el.find('#progressbar').progressbar({value: count})
+    if count == 100
+      # TODO, commented out for demoing
+      # DSt.set('gielese-configured', true)
+      window.app.router.index()
+
 
   storeCurrentVisibleSetting: (current) ->
     # user global settings object?
@@ -34,17 +53,9 @@ module.exports = class FrontPage extends Backbone.View
     setting_target = fieldset.attr('data-setting')
     setting_value = checked_setting.val()
 
-    console.log setting_target
-    console.log setting_value
-
     # may not be subquestion, also 
     next_subquestion = current.next('.sub_question_block')[0]
     allow_next = checked_setting.attr('data-subquestion')
-
-    console.log "next --"
-    console.log next_subquestion
-    console.log allow_next
-    console.log " -- "
 
     if next_subquestion and allow_next
       current.hide()
@@ -63,8 +74,13 @@ module.exports = class FrontPage extends Backbone.View
     # TODO: shake next on no-answer
     @updateProgress((@questions_answered/@total_questions)*100)
 
-    current = $('.question_blocks .question_block:visible .sub_question_block:visible')
-    next = $('.question_blocks .question_block:visible').next('.question_block')[0]
+    current = $ """ .question_blocks 
+                    .question_block:visible 
+                    .sub_question_block:visible
+                """
+
+    next = $('.question_blocks .question_block:visible')
+           .next('.question_block')[0]
 
     subquestion = @storeCurrentVisibleSetting(current)
 
@@ -89,6 +105,8 @@ module.exports = class FrontPage extends Backbone.View
   render: ->
     @total_questions = 2
     @questions_answered = 0
+    @process_complete = false
+
     @$el.html @template
     @updateProgress((@questions_answered/@total_questions)*100)
     this

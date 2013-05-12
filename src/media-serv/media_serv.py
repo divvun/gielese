@@ -4,7 +4,7 @@ from flask import ( Flask, request, redirect, session, json,
 
 from werkzeug.routing import BaseConverter
 from werkzeug.contrib.cache import SimpleCache
-from lexicon_models import db
+from database import db
 
 def create_app():
     import os
@@ -91,7 +91,7 @@ def cache_manifest():
 
 @app.route('/session/update/', methods=['POST'])
 def generate_session():
-    from lexicon_models import Session
+    from session_models import Session
 
     # TODO: get user id, user access token from form
 
@@ -122,9 +122,30 @@ def generate_session():
     else:
         return False
 
+@app.route('/session/token/', methods=['POST'])
+def generate_session():
+    from session_models import Session
+
+    user_id = request.form.get('user_id', False)
+    access_token = request.form.get('access_token', False)
+
+    session = db.session.query(Session).filter(
+        and_( Session.user_id == user_id
+            , Session.access_token == access_token
+            )
+    )
+
+    if len(session) > 0:
+        session = session[0]
+        return json.dumps({ 'user_id': session.user_id.hex
+                          , 'user_data': json.loads(session.data),
+                          })
+    else:
+        return False
+
 @app.route('/session/get/', methods=['POST'])
 def generate_session():
-    from lexicon_models import Session
+    from session_models import Session
 
     user_id = request.form.get('user_id', False)
     access_token = request.form.get('access_token', False)
@@ -147,7 +168,7 @@ def generate_session():
 @app.route('/session/generate/', methods=['GET'])
 def generate_session():
     import uuid
-    from lexicon_models import Session
+    from session_models import Session
 
     _add = db.session.add
 

@@ -9,7 +9,7 @@
      data-theme="a"
      id="leksa-options">
     <ul data-role="listview" data-theme="a" data-divider-theme="a" class="ui-listview">
-        <li><a href="#home" data-transition="slide">Home</a></li>
+        <li><a href="#mainMenu" data-transition="slide">Home</a></li>
         <li><a href="#leksaOptions">Leksa Options</a></li>
     </ul>
 </div>

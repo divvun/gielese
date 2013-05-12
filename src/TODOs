@@ -34,6 +34,18 @@
  * FEATURE: visual map of levels
    * FEATURE: description of question sets
 
+ * TODO: sessions
+   - user and sessions model separate
+
+   - possibility to not use server-side session to do things. in that case,
+     store all data, and later authenticate when network becomes available, use
+     that session to offload data.
+
+   - auth process:
+     - client send user/pw (neither are stored)
+     - server responds with new session ID
+     - client stores session ID, uses session ID to check for data. 
+
  * FEATURE: UI in three languages: sma, nob, swe.
    - existing code in NDS could be used to extract strings from .js, and manage
      translations with pybabel in typical .po files.

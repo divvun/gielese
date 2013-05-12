@@ -1,22 +1,19 @@
-﻿
 # -*- coding: utf-8 -*-
 
-from flask.ext.sqlalchemy import SQLAlchemy
+from database import db
 from sqlalchemy import UniqueConstraint
 
-db = SQLAlchemy()
-
-# TODO: user progression data
-
-class Session(db.Model):
-    __tablename__ = 'session'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.String(64), unique=True)
-    access_token = db.Column(db.String(64), unique=True)
-    data = db.Column(db.Text)
-
-    def __repr__(self):
-        return "<Session %d / %s: %s>" % (self.id, self.user_id, self.access_token)
+__all__ = [
+    'Semtype',
+    'Source',
+    'Dialect',
+    'MorphPhonTag',
+    'Concept',
+    'Tagset',
+    'Tagname',
+    'Tag',
+    'Form',
+]
 
 class Semtype(db.Model):
     __tablename__ = 'semtype'
