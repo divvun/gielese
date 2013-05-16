@@ -7,19 +7,21 @@
         <div class="question_blocks">
             <div class="question_block">
                 <div class="sub_question_block">
-                    <p class="lead">Since this is your first time using Gïelese, we have some questions
-                    for you to answer!</p>
+                    <p class="lead">Since this is your first time, we
+                    have some questions!</p>
                     <div data-role="fieldcontain" id="help_language">
-                        <fieldset data-role="controlgroup" data-setting="help_language,target_language">
+                        <fieldset data-role="controlgroup" data-setting="help_language,target_language" data-mini="true">
                             <legend>Help language</legend>
-                            <input type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
+                            <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk</label>
-                            <input type="radio" name="radio-choice-1" id="radio-choice-2" value="sma" data-subquestion="true">
+                            <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="sma" data-subquestion="true">
                             <label for="radio-choice-2">Åarjelsaemien</label>
-                            <input type="radio" name="radio-choice-1" id="radio-choice-3" value="swe">
+                            <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-3" value="swe">
                             <label for="radio-choice-3">Svenska</label>
+                            <!--
                             <input type="radio" name="radio-choice-1" id="radio-choice-4" value="eng">
                             <label for="radio-choice-4">English</label>
+                            -->
                         </fieldset>
 
                         <p class="help">This affects what language is displayed in
@@ -28,13 +30,13 @@
                 </div>
                 <div class="sub_question_block" style="display: none;">
                     <div data-role="fieldcontain" id="auxiliary_language">
-                        <fieldset data-role="controlgroup" data-setting="help_language,target_language">
+                        <fieldset data-role="controlgroup" data-setting="help_language,target_language" data-mini="true">
                             <legend>Help language</legend>
-                            <input type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
+                            <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk</label>
-                            <input type="radio" name="radio-choice-1" id="radio-choice-2" value="swe">
+                            <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="swe">
                             <label for="radio-choice-2">Svenska</label>
-                            <input type="radio" name="radio-choice-1" id="radio-choice-3" value="eng">
+                            <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-3" value="eng">
                             <label for="radio-choice-3">English</label>
                         </fieldset>
 
@@ -53,9 +55,9 @@
                     <div data-role="fieldcontain" id="create_account">
                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-setting="use_account">
                             <legend>Create an account?</legend>
-                            <input type="radio" name="create-user-account-b" id="create-user-account-a" value="true" data-subquestion="true">
+                            <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-a" value="true" data-subquestion="true">
                             <label for="create-user-account-a">Yes</label>
-                            <input type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
+                            <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
                             <label for="create-user-account-b">No</label>
                         </fieldset>
                         <p class="help">If you choose not to create an account, data will still be stored 
@@ -70,16 +72,22 @@
                     will syncronise when you connect if you play in offline
                     mode.</p>
 	                <form id="user">
-                        <fieldset>
-                            <legend>Email</legend>
-		                    <input type="text" name="user" id="un" value="" placeholder="username">
-                        </fieldset>	
-                        <fieldset>	
-                            <legend>Password</legend>
-		                    <input type="password" name="pass" id="pw" value="" placeholder="password">
-                        </fieldset>	
-		                <input type="submit" value="Submit" />
-		                <div id="loading_user" class="display: none;" />
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <fieldset>
+		                            <input type="text" name="user" id="un" value="" placeholder="e-mail">
+                                </fieldset>	
+                                <fieldset>	
+		                            <input type="password" name="pass" id="pw" value="" placeholder="password">
+                                </fieldset>	
+                            </div>
+                            <div class="ui-block-b">
+		                        <div data-role="controlgroup" data-type="horizontal" data-position="right">
+		                            <input class="nextSection" type="submit" value="Submit" data-inline="true" data-theme="b" data-position="right" />
+		                        </div>
+		                    </div>
+		                    <div id="loading_user" class="display: none;" />
+		                </div>
 	                </form>
                     <p class="help"> * Probably need a small legal notice about data policy?</p>
                 </div>
@@ -88,8 +96,4 @@
         <div id="progressbar"></div>
     </div>
 
-    <div class="front_page_nav" data-role="controlgroup" data-type="horizontal"> 
-        <a data-role="button" id="prev" href="#" data-icon="arrow-l" style="display: none;">Previous</a>
-        <a data-role="button" id="next" href="#" data-icon="arrow-r">Next</a>
-    </div>
 </div> 

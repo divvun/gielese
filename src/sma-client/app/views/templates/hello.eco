@@ -1,22 +1,46 @@
 <div data-role="header">
     <h1>Buerie biejjie!</h1>
+    <a href="#options" data-transition="slide" id="show-panel" data-icon="gear">Options</a>
 </div> 
 
 <div data-role="content">
     <ul data-role="listview" 
-        data-theme="c" 
-        data-dividertheme="b" 
+        data-theme="d" 
+        data-dividertheme="z" 
         data-inset="true">
         <li role="heading" data-role="list-divider">Games</li>
-        <li><a href="#leksa" data-transition="slide">Leksa</a></li>
     </ul>
+
+    <div class="ui-grid-b" id="main_menu">
+	    <div class="ui-block-a">
+	        <a class="square" href="#leksa" data-transition="slide">
+	            <span class="link_image"></span>
+	            <span class="link_word">Leksa</span>
+	        </a>
+	    </div>
+	    <div class="ui-block-b">
+	        <a class="square" href="#wordlist" data-transition="slide">
+	            <span class="link_image"></span>
+	            <span class="link_word">Wordlist </span>
+	        </a>
+	    </div>	   
+    </div>
+
     <ul data-role="listview" 
-        data-theme="c" 
-        data-dividertheme="d" 
+        data-theme="d" 
+        data-dividertheme="z" 
         data-inset="true">
-        <li role="heading" data-role="list-divider">Data</li>
-        <li><a href="#wordlist" data-transition="slide">Wordlist</a></li>
-        <li><a href="#options" data-transition="slide">Options</a></li>
+        <li role="heading" data-role="list-divider">Debug</li>
     </ul>
+
+    <div class="ui-grid-b" id="main_menu">
+	    <div class="ui-block-a">
+	        <a class="square" href="#reset" data-transition="slide">
+	            <span class="link_image"></span>
+	            <span class="link_word">Reset</span>
+	        </a>
+	    </div>
+    </div>
+
 </div> 
 

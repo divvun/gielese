@@ -1,16 +1,46 @@
+ <!-- 
+
+    * TODO: wordlist
+
+       - split page into nav and content; larger devices, always show menu
+         - lemmas on left
+         - article display on the right
+       - adjust speed of playback?
+       - NB: find out if it's possible to record sound with HTML5 
+
+ -->
+
+
 <div data-role="header">
-    <a href="/" data-transition="slide" data-icon="arrow-l">Back</a>
+    <a id="show-panel" data-icon="gear">Words</a>
     <h2>Wordlist</h2>
+    <a href="/" data-transition="slide" data-icon="arrow-r">Back</a>
+</div>
+<div data-role="panel" 
+     data-dismissable="true"
+     data-display="push"
+     data-theme="a"
+     id="word-links">
+    <ul data-role="listview" data-theme="a" data-divider-theme="a" class="ui-listview">
+        <% for m in @models: %>
+          <li>
+            <a href="#concept/<%- m.cid %>">
+              <%- m.concept_value %>
+            </a>
+          </li>
+        <% end %>
+        <li><a href="#mainMenu" data-transition="slide">Home</a></li>
+        <li><a href="#leksaOptions">Leksa Options</a></li>
+    </ul>
 </div>
 <div data-role="content">
     <ul data-role="listview"
         data-theme="c" 
         data-dividertheme="b" 
         data-inset="true">
-        <li role="heading" data-role="list-divider">Face</li>
+        <li role="heading" data-role="list-divider">Parts of the face</li>
     </ul>
 </div>
 <div data-role="footer">
     <h1></h1>
 </div>
- 

@@ -19,6 +19,7 @@
     "coffee-script-brunch": ">= 1.5 < 1.7",
     "css-brunch": ">= 1.0 < 1.4",
     "stylus-brunch": ">= 1.0 < 1.4",
+    "brunch": "~ 1.4.4",
     "eco-brunch": ">= 1.0 < 1.4",
     "uglify-js-brunch": ">= 1.0 < 1.4",
     "clean-css-brunch": ">= 1.0 < 1.4"

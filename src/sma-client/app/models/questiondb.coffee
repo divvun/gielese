@@ -15,7 +15,7 @@ chooseQuestionbyProgression = (questions, userprogression) ->
   #       _.sortBy(highest_completed_level, 'level').map (q) -> q.level
   #   )
       
-  if window.app.debug
+  if app.debug
     console.log "choosing question by progression"
   filtered_questions = questions.filter (q) =>
       return not q.user_completed_question(userprogression)
@@ -23,12 +23,19 @@ chooseQuestionbyProgression = (questions, userprogression) ->
       {'question': q, 'level': q.get('level')}
 
   filtered_questions = _.sortBy(filtered_questions, 'level')
-  return [filtered_questions[0].question]
+  if filtered_questions.length > 0
+    return [filtered_questions[0].question]
+  else
+  	return false
 
 module.exports = class QuestionDB extends Backbone.Collection
   model: Question
 
   url: "/data/leksa_questions.json"
+
+  fetch: () ->
+    super
+    app.loadingTracker.markReady('leksa_questions.json')
 
   selectLeksaConcepts: (userprogression) ->
     #
@@ -49,14 +56,20 @@ module.exports = class QuestionDB extends Backbone.Collection
         if _fails and _fails == false
           return false
 
-      user_progression_concepts = chooseQuestionbyProgression(
+      user_progression_questions = chooseQuestionbyProgression(
         functioning_questions,
         userprogression
       )
-      q = _.shuffle(user_progression_concepts)[0]
+      # TODO: if this is false, then there are no more questions
+      qs = _.shuffle(user_progression_questions)
 
+      if qs.length == 0
+      	return false
+
+      q = qs[0]
+      
       question_instance = q.find_concepts( app.conceptdb
-                                         , window.app.leksaUserProgression
+                                         , app.leksaUserProgression
                                          )
       tries += 1
 

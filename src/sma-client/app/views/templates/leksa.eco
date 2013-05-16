@@ -40,21 +40,13 @@
     </form>
 </div>
 <div data-role="content">
+    <div id="progress_container">
+        <div id="leksa_progress_indiv"></div>
+        <div id="leksa_progress"><div class="progress_label"></div></div>
+    </div>
     <div id="leksa_question">
         <% if @leksa_question: %><%- @leksa_question %><% end %>
     </div>
-    <div id="leksa_progress"></div>
 </div>
-<div data-role="footer" data-position="fixed">
-    <!-- go on to next set, see current scores, change options? -->
-    <!-- <div class="set_done_options" style="display: none;"> -->
-    <div class="post_game_buttons" data-role="controlgroup" data-type="horizontal" data-position="right">
-        <!--
-        <a class="set_done_options" style="display: none;" data-role="button" id="menu_repeat" href="#">Again?</a>
-        <a class="set_done_options" style="display: none;" id="menu_display_correct" data-role="button" href="#">Show correct?</a>
-        -->
-        <a data-role="button" id="menu_next" href="#" data-icon="arrow-r">Next</a>
-    </div>
-</div>
-
+<a style="display: none;" data-role="button" id="menu_next" href="#" data-icon="arrow-r">Next</a>
 <%# vim: set ts=4 sw=4 tw=0 syntax=eco nobomb: %>

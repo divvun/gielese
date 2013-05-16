@@ -1,9 +1,12 @@
-﻿
+# TODO: questions still being displayed not enough times, check what's going on
+# in filtering
+
 filterByLang = (lang, concepts) ->
   concepts.filter (o) => o.get('language') == lang
 
 class QuestionInstance
-  constructor: (@generator, @question, @choices, @answer, @current_count, @question_total) ->
+  constructor: (@generator, @question, @choices, @answer, @current_count,
+                @question_total, @total_correct) ->
     console.log "created instance"
     @choices = _.shuffle(@choices)
 
@@ -24,6 +27,8 @@ orderConceptsByProgression = (q, concepts, up) ->
   
   getProgressionCorrectCountForConcept = (c) =>
     userprogression
+      .filter (up) =>
+        up.get('question') == q
       .filter (up) =>
         up.get('question_concept') == c.get('c_id')
       .filter (up) =>
@@ -55,27 +60,52 @@ orderConceptsByProgression = (q, concepts, up) ->
 
 module.exports = class Question extends Backbone.Model
 
-  user_completed_question: (userprogression) ->
+  user_completed_question: () ->
+    userprogression = app.leksaUserProgression
+    correct_count = 3
     # Determine whether the user has completed the question, by answering all
     # concepts in level correctly at least once (TODO: maybe not enough?)
 
     if userprogression.length > 0
-      logs_for_question = _.uniq userprogression
+      logs_for_question = userprogression
           .filter (up) =>
             up.get('question').cid == @cid
           .filter (up) ->
-            up.get('question_correct')
+            up.get('question_correct') == true
+      concepts_for_question = logs_for_question
           .map (up) ->
             up.get('question_concept')
     else
       return false
 
+    getProgressionCorrectCountForConcept = (c) =>
+      userprogression
+        .filter (up) =>
+          up.get('question_concept') == c.get('c_id')
+        .filter (up) =>
+          up.get('question_correct')
+        .filter (up) =>
+          up.get('question').cid == @cid
+        .length
+    
     concepts = @select_question_concepts window.app.conceptdb
-    question_concepts = (a.get('c_id') for a in concepts)
+    
+    counts = []
+    for c in concepts
+      corrects = getProgressionCorrectCountForConcept(c)
+      if corrects > 3
+      	corrects = 3
+      counts.push corrects
 
-    intersection = _.intersection(logs_for_question, question_concepts)
-    if intersection.length == question_concepts.length
-      return true
+    console.log counts
+    console.log _.uniq(counts)
+    console.log _.max(counts)
+    if _.uniq(counts).length == 1
+      if _.max(counts) == 3 and _.uniq(counts)[0] == 3
+      	return true
+    # For each concept, need to check that user has gotten it right three
+    # times.
+
     return false
 
   select_question_concepts_by_progression: (conceptdb, up) ->
@@ -137,8 +167,19 @@ module.exports = class Question extends Backbone.Model
       userprogression
     )
     # Concepts left (probably need to multiple by display count)
+    total_correct_answers_for_question = userprogression.where({
+    	game_name: "leksa",
+    	question_correct: true,
+    	question: @
+    }).length
+
+    console.log "count --"
     concepts_total = @select_question_concepts(conceptdb).length
     concepts_left = concepts_total - q_concepts.length
+
+    console.log "total: #{concepts_total}"
+    console.log "left: #{concepts_left}"
+    console.log "total correct for q: #{total_correct_answers_for_question}"
 
     # Select a question concept
     if q_concepts.length > 0
@@ -172,7 +213,7 @@ module.exports = class Question extends Backbone.Model
     
     answer_possibilities = alternate_translations
 
-    actual_answer = actual_answer_concepts[0]
+    actual_answer = _.shuffle(actual_answer_concepts)[0]
     
     # Make some potential incorrect answers to fill things in.
 
@@ -219,6 +260,7 @@ module.exports = class Question extends Backbone.Model
                                  , actual_answer
                                  , concepts_left
                                  , concepts_total
+                                 , total_correct_answers_for_question
                                  )
 
     else

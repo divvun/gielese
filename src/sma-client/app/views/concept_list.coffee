@@ -1,10 +1,10 @@
-﻿
 class UpdatingConceptView extends Backbone.View
   template: require './templates/concept_item'
 
   render: ->
     @$el.html @template({
       model: @model
+      cid: @model.cid
       concept_value: @model.get('concept_value')
       concept_type: @model.get('concept_type')
       translations: app.conceptdb.getTranslationsOf @model
@@ -16,24 +16,29 @@ module.exports = class ConceptList extends Backbone.View
 
   events:
     'click .audio_link': 'findAudio'
+    'click #show-panel': "revealOptionsPanel"
+    'click ul.ui-listview a': 'clickTest'
+  
+  clickTest: (evt) ->
+    $(evt.target).get
+    console.log evt
+    return true
+
+  # Left panel
+  revealOptionsPanel: (evt) ->
+    panel_options =
+      position: "left"
+    $('#word-links').panel('open', panel_options)
+    return false
 
   findAudio: (event) ->
-    concept_id = $(event.target).parent('a.audio_link').attr('data-concept')
+    concept_id = $(event.target)
+                  .parent('a.audio_link')
+                  .attr('data-concept')
+
     concept = app.conceptdb.getByCid concept_id
-
-    has_media = concept.get('media')
     sound_id = "wordListSound"
-    if app.options.enable_audio and ('audio' of has_media)
-      if has_media.audio.length > 0
-        has_audio_file = has_media.audio[0].path
-        if has_audio_file and soundManager.enabled
-          soundManager.destroySound(sound_id)
-          soundManager.createSound({
-             id: sound_id
-             url: "/static#{has_audio_file}"
-          })
-          soundManager.play(sound_id)
-
+    concept.playAudio(sound_id)
     return false
 
   className: 'conceptlist'
@@ -47,12 +52,22 @@ module.exports = class ConceptList extends Backbone.View
     # Filter out images, will display these via translations
       
   render: ->
-    @$el.html @template
 
     filtered_collection = @collection.where({
-      'concept_type': 'img'
+      'language': 'sma'
     }).filter (o) ->
       "BODYPART" in o.get('semantics')
+
+    @$el.html @template {
+      models: filtered_collection.map (m) ->
+        return {
+          model: m
+          cid: m.cid
+          concept_value: m.get('concept_value')
+          concept_type: m.get('concept_type')
+          translations: app.conceptdb.getTranslationsOf m
+        }
+    }
 
     _(filtered_collection).each (concept) =>
       @_conceptViews.push new UpdatingConceptView({

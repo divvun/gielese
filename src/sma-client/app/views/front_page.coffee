@@ -3,13 +3,10 @@
 
 module.exports = class FrontPage extends Backbone.View
 
+  # NB: some events need to be bound after the template is rendered, because
+  # jQuery mobile and Backbone events don't play well together.
   events:
-    "click #next": "nextQuestion"
     "submit #user": "userForm"
-    # TODO: wrong element?
-    # "click input[value='sma']:visible": "userSelectsSma"
-    # "select input[value='sma']:visible": "userSelectsSma"
-    # TODO: user selects sma 
 
   userForm: (event) ->
     # display loading
@@ -34,7 +31,7 @@ module.exports = class FrontPage extends Backbone.View
     @$el.find('#progressbar').progressbar({value: count})
     if count == 100
       # TODO, commented out for demoing
-      # DSt.set('gielese-configured', true)
+      DSt.set('gielese-configured', true)
       window.app.router.index()
 
 
@@ -69,7 +66,7 @@ module.exports = class FrontPage extends Backbone.View
 
     return false
 
-  nextQuestion: (event) ->
+  nextQuestion: (event) =>
     # When the last one arrives, begin! also store that settings were viewed
     # TODO: shake next on no-answer
     @updateProgress((@questions_answered/@total_questions)*100)
@@ -79,8 +76,15 @@ module.exports = class FrontPage extends Backbone.View
                     .sub_question_block:visible
                 """
 
-    next = $('.question_blocks .question_block:visible')
-           .next('.question_block')[0]
+    last = $ """ .question_blocks 
+                 .question_block:last
+             """
+
+    if current == last
+      next = false
+    else
+      next = $('.question_blocks .question_block:visible')
+             .next('.question_block')[0]
 
     subquestion = @storeCurrentVisibleSetting(current)
 
@@ -109,5 +113,10 @@ module.exports = class FrontPage extends Backbone.View
 
     @$el.html @template
     @updateProgress((@questions_answered/@total_questions)*100)
+
+    # Need to bind events here; jQuery mobile creates elements that messes with
+    # backbone events.
+    @$el.find('.nextSection').bind('click', @nextQuestion)
+
     this
 

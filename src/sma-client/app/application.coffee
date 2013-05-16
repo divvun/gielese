@@ -9,6 +9,7 @@ LeksaOptionsView = require 'views/leksa_options_view'
 ErrorView = require 'views/error_view'
 GlobalOptionsView = require 'views/global_options'
 ConceptList = require 'views/concept_list'
+ConceptView = require 'views/concept_view'
 
 ConceptDB = require 'models/conceptdb'
 QuestionDB = require 'models/questiondb'
@@ -246,6 +247,8 @@ module.exports = class Application
     @conceptList = new ConceptList({
       collection: @conceptdb
     })
+
+    @conceptView = new ConceptView
 
     soundManager.setup({
       url: "/static/client/swf/"

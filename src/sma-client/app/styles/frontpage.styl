@@ -14,7 +14,7 @@
     #main_page_header
 
         margin: 0 0 0 0
-        padding: 0 0 20px 0 
+        padding: 0 0 10px 0 
         // border-bottom: 1px solid #CCC
         width: 100%
 
@@ -26,7 +26,6 @@
     h1
         font-family: "Bello Pro"
         margin: 0 auto
-        margin-top: .5em
         position: relative
         width: 100%
         text-align: center
@@ -36,23 +35,30 @@
         text-shadow: 0 0 3px #000
 
     p.lead
-        font-size: 180%
+        font-size: 110%
+        margin-top: .25em
+        margin-bottom: .25em
         line-height: 1.3em
         font-weight: lighter
         padding: 2px
         text-align: justify
 
     p.help
-        font-size: 140%
+        font-size: 90%
         line-height: 1.2em
         font-weight: normal
         font-style: italic
-        margin-left: 2em
-        margin-right: 2em
+        margin-left: .5em
+        margin-right: .5em
+        margin-bottom: 0
 
-    .question_block legend
-        font-weight: bold
-        font-size: 85%
+    .question_block 
+        div[data-role="fieldcontain"]
+            margin-top: 0
+
+        legend
+            font-weight: bold
+            font-size: 85%
 
     .front_page_nav
         margin-top: .75em
@@ -62,6 +68,8 @@
 
     form#user
         fieldset legend
-            font-size: 140% !important
+            font-size: 85%
             
 
+    #progressbar
+        height: 1.25em

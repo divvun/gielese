@@ -1,4 +1,3 @@
-
 LeksaView = require 'views/leksa_view'
 
 module.exports = class Router extends Backbone.Router
@@ -20,6 +19,11 @@ module.exports = class Router extends Backbone.Router
     'options': 'options'
     'error': 'errorPage'
 
+
+    # omg.
+    'concept/:id': 'conceptView'
+    '#concept/:id': 'conceptView'
+
     '#mainMenu': 'mainMenu'
 
     '#home': 'index'
@@ -28,6 +32,8 @@ module.exports = class Router extends Backbone.Router
     '#leksaOptions': 'leksaOptions'
     '#options': 'options'
     '#error': 'errorPage'
+    'reset': 'reset'
+    '#reset': 'reset'
 
   index: ->
     configured_already = DSt.get('gielese-configured')
@@ -36,6 +42,10 @@ module.exports = class Router extends Backbone.Router
     else
       @changePage(app.frontPage)
   
+  reset: ->
+    DSt.set('gielese-configured', false)
+    window.location = '/'
+
   mainMenu: ->
     ##  $('content #content').html app.helloView.render().el
     @changePage(app.helloView)
@@ -68,6 +78,10 @@ module.exports = class Router extends Backbone.Router
   wordlist: ->
     # $('content #content').html app.leksaView.render().el
     @changePage(app.conceptList)
+
+  conceptView: (id) ->
+    app.conceptView.initialize(id)
+    @changePage(app.conceptView)
 
   refreshCurrentPage: () ->
     $('[data-role="page"]').trigger("pagecreate")

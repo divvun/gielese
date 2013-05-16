@@ -6,16 +6,16 @@ from flask import json
 leksa_questions = [
     { 'type': 'image_to_word'
     , 'filters': { 'from_language': 'img', 'to_language': 'sma'
-                 , 'semantics': ["BODYPART"]
+                 , 'semantics': ["GROUP_1"]
                  }
-    , 'answer_similarity': { 'semantics': ["BODYPART"] }
+    , 'answer_similarity': { 'semantics': ["GROUP_1"] }
     , 'level': 1
     , 'answers': 1
     , 'name': "Bodypart image to word"
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
-                 , 'semantics': ["BODYPART"]
+                 , 'semantics': ["GROUP_1"]
                  }
     , 'answer_similarity': { }
     , 'level': 2
@@ -24,32 +24,129 @@ leksa_questions = [
     },
     { 'type': 'image_to_word'
     , 'filters': { 'from_language': 'img', 'to_language': 'sma'
-                 , 'semantics': ["BODYPART"]
+                 , 'semantics': ["GROUP_1"]
                  }
-    , 'answer_similarity': { 'semantics': ["BODYPART"] }
+    , 'answer_similarity': { 'semantics': ["GROUP_1"] }
     , 'level': 3
     , 'answers': 2
     , 'name': "Bodypart image to 2-word"
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
-                 , 'semantics': ["BODYPART"]
+                 , 'semantics': ["GROUP_1"]
                  }
-    , 'answer_similarity': { 'semantics': ["BODYPART"] }
+    , 'answer_similarity': { 'semantics': ["GROUP_1"] }
     , 'level': 4
     , 'answers': 2
     , 'name': "Bodypart word to 2-img"
     },
     { 'type': 'word_to_word'
     , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
-                 , 'semantics': ["BODYPART"]
+                 , 'semantics': ["GROUP_1"]
                  }
     , 'answer_similarity': { 'features': ["BISYL", "HT"]
-                           , 'semantics': ["BODYPART"]
+                           , 'semantics': ["GROUP_1"]
                            }
     , 'level': 5
     , 'answers': 4
     },
+
+    # -- group 2 -- 
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["GROUP_2"]
+                 }
+    , 'answer_similarity': { 'semantics': ["GROUP_2"] }
+    , 'level': 5
+    , 'answers': 1
+    , 'name': "Bodypart image to word"
+    },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+                 , 'semantics': ["GROUP_2"]
+                 }
+    , 'answer_similarity': { }
+    , 'level': 6
+    , 'answers': 2
+    , 'name': "Bodypart word to image"
+    },
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["GROUP_2"]
+                 }
+    , 'answer_similarity': { 'semantics': ["GROUP_2"] }
+    , 'level': 7
+    , 'answers': 2
+    , 'name': "Bodypart image to 2-word"
+    },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+                 , 'semantics': ["GROUP_2"]
+                 }
+    , 'answer_similarity': { 'semantics': ["GROUP_2"] }
+    , 'level': 8
+    , 'answers': 2
+    , 'name': "Bodypart word to 2-img"
+    },
+    { 'type': 'word_to_word'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+                 , 'semantics': ["GROUP_2"]
+                 }
+    , 'answer_similarity': { 'features': ["BISYL", "HT"]
+                           , 'semantics': ["GROUP_2"]
+                           }
+    , 'level': 9
+    , 'answers': 4
+    },
+
+    # -- group 3 -- 
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["GROUP_3"]
+                 }
+    , 'answer_similarity': { 'semantics': ["GROUP_3"] }
+    , 'level': 10
+    , 'answers': 1
+    , 'name': "Bodypart image to word"
+    },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+                 , 'semantics': ["GROUP_3"]
+                 }
+    , 'answer_similarity': { }
+    , 'level': 11
+    , 'answers': 2
+    , 'name': "Bodypart word to image"
+    },
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["GROUP_3"]
+                 }
+    , 'answer_similarity': { 'semantics': ["GROUP_3"] }
+    , 'level': 12
+    , 'answers': 2
+    , 'name': "Bodypart image to 2-word"
+    },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+                 , 'semantics': ["GROUP_3"]
+                 }
+    , 'answer_similarity': { 'semantics': ["GROUP_3"] }
+    , 'level': 13
+    , 'answers': 2
+    , 'name': "Bodypart word to 2-img"
+    },
+    { 'type': 'word_to_word'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+                 , 'semantics': ["GROUP_3"]
+                 }
+    , 'answer_similarity': { 'features': ["BISYL", "HT"]
+                           , 'semantics': ["GROUP_3"]
+                           }
+    , 'level': 14
+    , 'answers': 4
+    },
+
     # { 'type': 'word_to_image'
     # , 'filters': { 'from_language': 'sma', 'to_language': 'img'
     #              , 'semantics': ["BODYPART"]

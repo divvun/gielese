@@ -32,7 +32,7 @@ exports.config =
           'vendor/styles/helpers.css'
           'vendor/styles/jquery.mobile-1.3.1.min.css'
           'vendor/styles/jquery.mobile.theme-1.3.1.min.css'
-          'vendor/styles/jquery-ui-1.10.3.custom.min.css'
+          # 'vendor/styles/jquery-ui-1.10.3.custom.min.css'
           'vendor/styles/flashblock.css'
         ]
     templates:

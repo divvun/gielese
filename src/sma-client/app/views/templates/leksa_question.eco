@@ -2,23 +2,11 @@
 
 <div class="question_prompt">
     <% if @audio: %>
-    <a href="#" id="question_play">Listen <img width="32" height="32" src="/static/client/images/speaker.png" /></a>
+        <a href="#" id="question_play">Listen <img width="32" height="32" src="/static/client/images/speaker.png" /></a>
     <% end %>
     <%- @instance.question.render_concept() %>
 </div>
 <hr />
-<div class="question_type">
-    <span class="question_level"><%- @instance.generator.get('level') %></span>
-
-    <% question_type = @instance.generator.get('type') %>
-    <% if question_type == 'word_to_image': %>
-        <h3>is...</h3>
-    <% else if question_type == 'image_to_word': %>
-        <h3>means...</h3>
-    <% else if question_type == 'word_to_word': %>
-        <h3>means...</h3>
-    <% end %>
-</div>
 
 <% # TODO: sound. %>
 <div class="possible_answers">
@@ -40,4 +28,3 @@
     <% end %>
     </div>
 </div>
-

@@ -122,7 +122,12 @@ module.exports = class LeksaView extends Backbone.View
 
     q_instance = app.questiondb.selectLeksaConcepts(window.app.leksaUserProgression)
 
-    @setProgress(q_instance.current_count, q_instance.question_total)
+    if q_instance == false
+      console.log "Complete!"
+
+    level_note = "Level #{q_instance.generator.get('level')}"
+    @setProgress(q_instance.current_count, q_instance.question_total, level_note)
+    @setIndividualAnswerProgress(q_instance.total_correct, q_instance.question_total*3)
 
     if not q_instance.question
       question_block = @leksa_error_template({
@@ -131,19 +136,12 @@ module.exports = class LeksaView extends Backbone.View
       @$el.find('#leksa_question').html(question_block)
       return false
 
-    audio_enabled = false
-    if app.options.enable_audio and 'audio' of q_instance.question.get('media')
-      if q_instance.question.get('media').audio.length > 0
-        has_audio_file = q_instance.question.get('media').audio[0].path
-        if has_audio_file and soundManager.enabled
-          audio_enabled = true
-
     #
     # Render the template for the question
     question_block = @question_template {
       instance: q_instance
       chunker: arrayChunk
-      audio: audio_enabled
+      audio: q_instance.question.hasAudio()
     }
 
     @$el.find('#leksa_question').html(question_block)
@@ -170,35 +168,20 @@ module.exports = class LeksaView extends Backbone.View
       return false
 
     app.router.refreshCurrentPage()
-    # play sound once
-    # threeSixtyPlayer.init()
-    # threeSixtyPlayer.sounds[0].play()
 
-    # NB: Strange bug here. If audio is disabled, and you go to front
-    # page to enable and then come back to leksa, clicking next will
-    # result in going to home.
-    #
-    # TODO: what to do when media file is not found? 
-    if app.options.enable_audio and 'audio' of q_instance.question.get('media')
-      if q_instance.question.get('media').audio.length > 0
-        has_audio_file = q_instance.question.get('media').audio[0].path
-        if has_audio_file and soundManager.enabled
-          soundManager.destroySound("questionSound")
-          soundManager.createSound({
-          	id: "questionSound"
-          	url: "/static#{has_audio_file}"
-          })
-          playFirst = () ->
-            soundManager.play("questionSound")
-          # Delay first sound playing as leksa page renders
-          if not @first
-            setTimeout(playFirst, 1500)
-            @first = false
-          else
-            playFirst()
-          @$el.find('#question_play').click () =>
-            soundManager.play("questionSound")
-            return false
+    playFirst = () ->
+      q_instance.question.playAudio('questionSound')
+
+    # Delay first sound playing as leksa page renders
+    if not @first
+      setTimeout(playFirst, 1500)
+      @first = false
+    else
+      playFirst()
+
+    @$el.find('#question_play').click () =>
+      q_instance.question.playAudio('questionSound')
+      return false
       
     return true
 
@@ -210,11 +193,16 @@ module.exports = class LeksaView extends Backbone.View
         concept_progress: window.app.leksaUserProgression.collateConcepts(app.conceptdb)
     }
   
-  setProgress: (count, total) ->
-    console.log count
-    console.log total
+  setIndividualAnswerProgress: (count, total) ->
+    prog = @$el.find "#leksa_progress_indiv"
+    prog.progressbar({value: (count/total)*100})
+    console.log '--'
+    return false
+
+  setProgress: (count, total, note) ->
     prog = @$el.find "#leksa_progress"
     prog.progressbar({value: (count/total)*100})
+    prog.find('.progress_label').text(note)
     console.log '--'
     return false
 
@@ -229,5 +217,6 @@ module.exports = class LeksaView extends Backbone.View
     @first = true
     # Bind an event to user progression-- TODO: move elsewhere
     window.app.leksaUserProgression.on('add', @updateLogPanel)
+
     return this
 
