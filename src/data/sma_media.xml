@@ -26,23 +26,23 @@ For the full license text, see the link above.</lic>
      or could be wrongly sorted.
      </sourcenote>
    </lics>
-   <!-- Paths are relative to this file, must be stored in CDATA tag
+  <!-- Paths are relative to this file, must be stored in CDATA tag
           <![CDATA[stuff goes here]]>
      -->
   <!-- Some sample words we don't need anymore -->
-   <!--
+  <!--
   <e>
     <lg>
       <l pos="n">guelie</l>
     </lg>
     <media>
-      <img>
+      <images><image>
         <path><![CDATA[http://dummyimage.com/250x150/000/900&text=fish]]></path>
         <features>
           <appearance>SCALY</appearance>
           <appearance>CUTE</appearance>
         </features>
-      </img>
+      </image></images>
     </media>
   </e>
   <e>
@@ -50,13 +50,13 @@ For the full license text, see the link above.</lic>
       <l pos="n">bïenje</l>
     </lg>
     <media>
-      <img>
+      <images><image>
         <path><![CDATA[http://placedog.com/250/150]]></path>
         <features>
           <appearance>FUZZY</appearance>
           <appearance>BROWN</appearance>
         </features>
-      </img>
+      </image></images>
     </media>
   </e>
   <e>
@@ -64,14 +64,14 @@ For the full license text, see the link above.</lic>
       <l>gaahtoe</l>
     </lg>
     <media>
-      <img>
+      <images><image>
         <path><![CDATA[http://placekitten.com/250/150]]></path>
         <features>
           <appearance>FUZZY</appearance>
           <appearance>CUTE</appearance>
           <appearance>BROWN</appearance>
         </features>
-      </img>
+      </image></images>
     </media>
   </e>
   <e>
@@ -79,14 +79,14 @@ For the full license text, see the link above.</lic>
       <l>aehtjaahka</l>
     </lg>
     <media>
-      <img>
+      <images><image>
         <path><![CDATA[http://dummyimage.com/250x150/000/900&text=granny]]></path>
         <features>
           <appearance>OLD</appearance>
           <appearance>CUTE</appearance>
           <appearance>WRINKLY</appearance>
         </features>
-      </img>
+      </image></images>
     </media>
   </e>
   <e>
@@ -94,323 +94,389 @@ For the full license text, see the link above.</lic>
       <l>åeruve</l>
     </lg>
     <media>
-      <img>
+      <images><image>
         <path><![CDATA[images/orava.png]]></path>
         <features>
           <appearance>FUZZY</appearance>
           <appearance>CUTE</appearance>
           <appearance>RED</appearance>
         </features>
-      </img>
+      </image></images>
     </media>
   </e>
   -->
-
   <!-- face -->
+  <!-- group-1 -->
   <e>
     <lg>
-        <l>ååredæjja</l>
+      <l>ååredæjja</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/aa_aa_red_ae_jja.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/aa_aa_red_ae_jja.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/aa_aa_red_ae_jja.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/aa_aa_red_ae_jja.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>åejjie</l>
+      <l>åejjie</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/aa_ejjie.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/aa_ejjie.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/aa_ejjie.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/aa_ejjie.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>voepte</l>
+      <l>voepte</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/voepte.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/voepte.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/voepte.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/voepte.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>bieljie</l>
+      <l>bieljie</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/bieljie.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/bieljie.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/bieljie.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/bieljie.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
+    </media>
+  </e>
+  <!-- group-2 -->
+  <e>
+    <lg>
+      <l>gaalloe</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/gaalloe.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/gaalloe.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>gaalloe</l>
+      <l>haermie</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/gaalloe.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/gaalloe.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/haermie.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/haermie.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>haermie</l>
+      <l>tjelmie</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/haermie.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/haermie.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/tjelmie.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/tjelmie.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>tjelmie</l>
+      <l>njaelmie</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/tjelmie.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/tjelmie.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/njaelmie.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/njaelmie.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
+    </media>
+  </e>
+  <!-- group-3 -->
+  <e>
+    <lg>
+      <l>njoektjeme</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/njoektjeme.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/njoektjeme.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>njaelmie</l>
+      <l>njuenie</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/njaelmie.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/njaelmie.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/njuenie.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/njuenie.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>njoektjeme</l>
+      <l>baenie</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/njoektjeme.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/njoektjeme.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/baenie.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/baenie.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>njuenie</l>
+      <l>searome</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/njuenie.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/njuenie.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/searome.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/searome.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
+    </media>
+  </e>
+  <!-- group-4 -->
+  <e>
+    <lg>
+      <l>skaavtjoe</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/skaavtjoe.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/skaavtjoe.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>baenie</l>
+      <l>gaejpie</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/baenie.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/baenie.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/gaejpie.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/gaejpie.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>searome</l>
+      <l>tjeapohke</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/searome.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/searome.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/tjeapohke.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/tjeapohke.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
   <e>
     <lg>
-        <l>skaavtjoe</l>
+      <l>tjovrese</l>
     </lg>
     <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/skaavtjoe.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/skaavtjoe.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/body/AD/tjovrese.mp3]]></path>
+          <features>
+            <voice vid="1"/>
+          </features>
+        </sound>
+      </sounds>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/ansikt/small/tjovrese.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
+      </images>
     </media>
   </e>
-  <e>
-    <lg>
-        <l>gaejpie</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/gaejpie.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/gaejpie.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
-    </media>
-  </e>
-  <e>
-    <lg>
-        <l>tjeapohke</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/tjeapohke.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/tjeapohke.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
-    </media>
-  </e>
-  <e>
-    <lg>
-        <l>tjovrese</l>
-    </lg>
-    <media>
-      <sound>
-        <path><![CDATA[/audio/vce1/tjovrese.mp3]]></path>
-        <features>
-            <voice vid="1"></voice>
-        </features>
-      </sound>
-      <img>
-        <path><![CDATA[/static/images/ansikt/small/tjovrese.jpg]]></path>
-        <features>
-          <appearance>FACE</appearance>
-        </features>
-      </img>
-    </media>
-  </e>
-
   <xhtml:script xmlns:xhtml="http://www.w3.org/1999/xhtml" src="../../../words/dicts/scripts/gt_dictionary.js" type="text/javascript"/>
 </r>

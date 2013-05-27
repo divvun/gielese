@@ -1,0 +1,30 @@
+nr	sma	nob	swe	mp3	img
+1	laejpie	brød	bröd	/static/audio/beapmoeh/ED/laejpie.mp3,/static/audio/beapmoeh/AD/laejpie.mp3,/static/audio/beapmoeh/KB/laejpie.mp3	/static/image/beapmoeh/small/laejpie.jpg
+2	muerjie	bær	bär	/static/audio/beapmoeh/ED/muerjie.mp3,/static/audio/beapmoeh/AD/muerjie.mp3,/static/audio/beapmoeh/KB/muerjie.mp3	/static/image/beapmoeh/small/muerjie.jpg
+3	munnie	egg	egg	/static/audio/beapmoeh/ED/munnie.mp3,/static/audio/beapmoeh/AD/munnie.mp3	/static/image/beapmoeh/small/munnie.jpg
+4	guelie	fisk	fisk	/static/audio/beapmoeh/ED/guelie.mp3,/static/audio/beapmoeh/AD/guelie.mp3,/static/audio/beapmoeh/KB/guelie.mp3	/static/image/beapmoeh/small/guelie.jpg
+5	kroenesaate	grønnsak	grönsak	/static/audio/beapmoeh/ED/kroenesaate.mp3,/static/audio/beapmoeh/AD/kroenesaate.mp3,/static/audio/beapmoeh/KB/kroenesaate.mp3	/static/image/beapmoeh/small/kroenesaate.jpg
+6	bearkoe	kjøtt	kött	/static/audio/beapmoeh/ED/bearkoe.mp3,/static/audio/beapmoeh/AD/bearkoe.mp3,/static/audio/beapmoeh/KB/bearkoe.mp3	/static/image/beapmoeh/small/bearkoe.jpg
+7	vuasta	ost	ost	/static/audio/beapmoeh/ED/vuasta.mp3,/static/audio/beapmoeh/AD/vuasta.mp3,/static/audio/beapmoeh/KB/vuasta.mp3	/static/image/beapmoeh/small/vuasta.jpg
+8	peara	potet	potatis	/static/audio/beapmoeh/ED/peara.mp3,/static/audio/beapmoeh/AD/peara.mp3,/static/audio/beapmoeh/KB/peara.mp3	/static/image/beapmoeh/small/peara.jpg
+9	goerve	pølse	korv	/static/audio/beapmoeh/ED/goerve.mp3,/static/audio/beapmoeh/AD/goerve.mp3,/static/audio/beapmoeh/KB/goerve.mp3	/static/image/beapmoeh/small/goerve.jpg
+10	voeje	smør	smör	/static/audio/beapmoeh/ED/voeje.mp3,/static/audio/beapmoeh/AD/voeje.mp3,/static/audio/beapmoeh/KB/voeje.mp3	/static/image/beapmoeh/small/voeje.jpg
+11	joptse	suppe	soppa	/static/audio/beapmoeh/ED/joptse.mp3,/static/audio/beapmoeh/AD/joptse.mp3,/static/audio/beapmoeh/KB/joptse.mp3	/static/image/beapmoeh/small/joptse.jpg
+12	tjaetsie	vann	vatten	/static/audio/beapmoeh/ED/tjaetsie.mp3,/static/audio/beapmoeh/AD/tjaetsie.mp3,/static/audio/beapmoeh/KB/tjaetsie.mp3	/static/image/beapmoeh/small/tjaetsie.jpg
+13	aaloe	saft	saft	/static/audio/beapmoeh/ED/aaloe.mp3,/static/audio/beapmoeh/AD/aaloe.mp3,/static/audio/beapmoeh/KB/aaloe.mp3	/static/image/beapmoeh/small/aaloe.jpg
+14	mielhkie	melk	mjölk	/static/audio/beapmoeh/ED/mielhkie.mp3,/static/audio/beapmoeh/AD/mielhkie.mp3,/static/audio/beapmoeh/KB/mielhkie.mp3	/static/image/beapmoeh/small/mielhkie.jpg
+15	voelege	øl	öl	/static/audio/beapmoeh/ED/voelege.mp3,/static/audio/beapmoeh/AD/voelege.mp3,/static/audio/beapmoeh/KB/voelege.mp3	/static/image/beapmoeh/small/voelege.jpg
+16	prïhtjege	kaffe	kaffe	/static/audio/beapmoeh/ED/prïhtjege.mp3,/static/audio/beapmoeh/AD/prïhtjege.mp3,/static/audio/beapmoeh/KB/prïhtjege.mp3	/static/image/beapmoeh/small/prïhtjege.jpg
+17	beapmoe	mat	mat	/static/audio/beapmoeh/ED/beapmoe.mp3,/static/audio/beapmoeh/AD/beapmoe.mp3,/static/audio/beapmoeh/KB/beapmoe.mp3	/static/image/beapmoeh/small/beapmoe.jpg
+18	aeredsbeapmoe	frokost	frukost	/static/audio/beapmoeh/ED/aeredsbeapmoe.mp3,/static/audio/beapmoeh/AD/aeredsbeapmoe.mp3,/static/audio/beapmoeh/KB/aeredsbeapmoe.mp3	/static/image/beapmoeh/small/aeredsbeapmoe.jpg
+19	gaskebiejjie- beapmoe	middag	middag	gaskebiejjie_/static/audio/beapmoeh/ED/beapmoe.mp3,gaskebiejjie_/static/audio/beapmoeh/AD/beapmoe.mp3,gaskebiejjie_/static/audio/beapmoeh/KB/beapmoe.mp3	/static/image/beapmoeh/small/gaskebiejjie-beapmoe.jpg
+20	iehkedsbeapmoe	kveldsmat	kvällsmat	/static/audio/beapmoeh/ED/iehkedsbeapmoe.mp3,/static/audio/beapmoeh/AD/iehkedsbeapmoe.mp3,/static/audio/beapmoeh/KB/iehkedsbeapmoe.mp3	/static/image/beapmoeh/small/iehkedsbeapmoe.jpg
+21	jovkedh	å drikke	att dricka	/static/audio/beapmoeh/ED/jovkedh.mp3,/static/audio/beapmoeh/AD/jovkedh.mp3,/static/audio/beapmoeh/KB/jovkedh.mp3	/static/image/beapmoeh/small/jovkedh.jpg
+22	byöpmedidh	å spise	att äta	/static/audio/beapmoeh/ED/byöpmedidh.mp3,/static/audio/beapmoeh/AD/byöpmedidh.mp3,/static/audio/beapmoeh/KB/byöpmedidh.mp3	/static/image/beapmoeh/small/byöpmedidh.jpg
+23	doeltedh	å koke	att koka	/static/audio/beapmoeh/ED/doeltedh.mp3,/static/audio/beapmoeh/AD/doeltedh.mp3,/static/audio/beapmoeh/KB/doeltedh.mp3	/static/image/beapmoeh/small/doeltedh.jpg
+24	bissedh	å steke	att steka	/static/audio/beapmoeh/ED/bissedh.mp3,/static/audio/beapmoeh/AD/bissedh.mp3,24.bissedh.jpg
+25	bååhkesjidh	å bake	att baka	/static/audio/beapmoeh/ED/bååhkesjidh.mp3,/static/audio/beapmoeh/AD/bååhkesjidh.mp3,/static/audio/beapmoeh/KB/bååhkesjidh.mp3	/static/image/beapmoeh/small/bååhkesjidh.jpg
+26	jurjiehtidh	å lage mat	att laga mat	/static/audio/beapmoeh/ED/jurjiehtidh.mp3,/static/audio/beapmoeh/AD/jurjiehtidh.mp3,/static/audio/beapmoeh/KB/jurjiehtidh.mp3	/static/image/beapmoeh/small/juerjiehtidh.jpg
+27	dealodh	å dekke på	att duka	/static/audio/beapmoeh/ED/dealodh.mp3,/static/audio/beapmoeh/AD/dealodh.mp3	/static/image/beapmoeh/small/dealodh.jpg
+28	gudtsien	takk	tack	/static/audio/beapmoeh/ED/gudtsien.mp3,/static/audio/beapmoeh/AD/gudtsien.mp3,/static/audio/beapmoeh/KB/gudtsien.mp3	/static/image/beapmoeh/small/gudtsien.jpg
+29	duelie	vær så god	var så god	/static/audio/beapmoeh/ED/duelie.mp3,/static/audio/beapmoeh/AD/duelie.mp3,/static/audio/beapmoeh/KB/duelie.mp3	/static/image/beapmoeh/small/duelie.jpg

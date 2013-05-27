@@ -1,0 +1,513 @@
+<r>
+  <e>
+    <lg>
+      <l>baernie</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/baernie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/baernie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/baernie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/baernie.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">gutt</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">pojke</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>buarastehtedh</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/buarastehtedh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/buarastehtedh.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/buarastehtedh.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/buarastehtedh.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">å håndhilse</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">att handhälsa</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>buaregh</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/buaregh.jpg,buaregh.2.jpg]]></path>
+        </image>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/buaregh.jpg,buaregh.2.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/buaregh.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/buaregh.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/buaregh.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">god dag, sies ved å håndhilse</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">god dag</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>buerie aerede</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/buerie_aerede.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/buerie_aerede.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/buerie_aerede.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/buerie_aerede.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">god morgen</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">god morgon</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>buerie biejjie</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/buerie_biejjie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/buerie_biejjie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/buerie_biejjie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/buerie_biejjie.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">god dag</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">god dag</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>buerie iehkede</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/buerie_iehkede.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/buerie_iehkede.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/buerie_iehkede.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/buerie_iehkede.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">god kveld</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">god kväll</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>buerie jïjje</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/buerie_jïjje.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/buerie_jïjje.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/buerie_jïjje.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/buerie_jïjje.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">god natt</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">god natt</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>datne</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/datne.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/datne.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/datne.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/datne.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">du</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">du</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>dïhte</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/dïhte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/dïhte.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/dïhte.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/dïhte.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">han, hun, den, det</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">hon, han, den, det</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>maana</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/maana.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/maana.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/maana.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/maana.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">unge</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">barn</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>manne</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/manne.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/manne.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/manne.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">jeg</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">jag</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>nyjsenæjja</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/nyjsenæjja.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/nyjsenæjja.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/nyjsenæjja.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/nyjsenæjja.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">dame</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">kvinna</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>nåå nåå!</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/nåå_nåå.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/nåå_nåå.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/nåå_nåå.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/nåå_nåå.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">ha det!</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">hej då</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>nïejte</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/nïejte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/nïejte.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/nïejte.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/nïejte.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">jente</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">flicka</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>ålma</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/image/heelsedh/small/ålma.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/ED/ålma.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/AD/ålma.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/heelsedh/KB/ålma.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="GREETINGS"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">mann</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">man</t>
+      </tg>
+    </mg>
+  </e>
+</r>
+

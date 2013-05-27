@@ -1,0 +1,670 @@
+<r>
+  <e>
+    <lg>
+      <l>Im guarkah</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[jeg forstår ikke AD.mp3,jeg forstår ikke KB.mp3]]></path>
+        </image>
+        <image>
+          <path><![CDATA[jeg forstår ikke AD.mp3,jeg forstår ikke KB.mp3]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[jeg forstår ikke ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Jeg forstår ikke</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Jag förstår inte</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Im govlh</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[2.im govlh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[jeg hører ikke ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[jeg hører ikke AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[jeg hører ikke KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Jeg hører ikke</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Jag hör inte</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Im vuejnieh</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[3.im vuejnieh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[jeg ser ikke ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[jeg ser ikke AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[jeg ser ikke KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Jeg ser ikke</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Jag ser inte</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Gïerth mannem</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[4.gïerth mannem.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[unnskyld meg ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[unnskyld meg AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[unnskyld meg KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Unnskyld meg</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Ursäkta mig</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Jaavoe</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[5.jaavoe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[ja ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[ja AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[ja KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Ja</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Ja</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Ijje</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[6.ijje.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nei ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nei AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nei KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Nei</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Nej</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Im daejrieh</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[7.im daejrieh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[jeg vet ikke ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[jeg vet ikke AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[jeg vet ikke KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Jeg vet ikke</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Jag vet inte</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Garrah</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[8.garrah.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[venstre ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[venstre AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[venstre KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Venstre</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">vänster</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Åelkies</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[9.åelkies.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[høyre ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[høyre AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[høyre KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Høyre</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Höger</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Buerie aerede</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[10.buerie aerede.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[god morgen ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[god morgen AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[god morgen KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">God morgen</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">God morgon</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Buerie biejjie</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[11.buerie biejjie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[god dag ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[god dag AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[god dag KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">God dag</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">God dag</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Buerie iehkede</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[12.buerie iehkede.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[god kveld ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[god kveld AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[god kveld KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">God kveld</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">God kväll</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Buerie jïjje</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[god natt AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[god natt KB.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[13.buerie jïjje.jpg]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">God natt</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">God natt</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Guktie datnine?</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[14.guktie datnine.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[hvordan er det med deg ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[hvordan er det med deg AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[hvordan er det med deg KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Hvordan er det med deg?</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Hur är det med dig?</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Mannine hijven</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[15.mannine hijven.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[med meg er det bra ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[med meg er det bra AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[med meg er det bra KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Med meg er det bra</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Med mig är det bra</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Mannine nåekies</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[16.mannine nåekies.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[med meg er det dårlig ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[med meg er det dårlig AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[med meg er det dårlig KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Med meg er det dårlig</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Med mig är det dåligt</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Maam sïjhth jovkedh?</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[hva vil du drikke ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[hva vil du drikke AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[17.maam sïjhth jovkedh.jpg]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Hva vil du ha å drikke?</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Vad vil du dricka?</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Maam sïjhth byöpmedidh?</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[18.maam sïjhth byöpmedidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[hva vil du spise ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[hva vil du spise AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[hva vil du spise KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Hva vil du ha å spise?</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Vad vil du äta?</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Bööresth!</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[19.bööresth.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[skål ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[skål AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[skål KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Skål!</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Skål!</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Åadtjoem reeknegem?</l>
+    </lg>
+    <media>
+      <images>
+        <image>
+          <path><![CDATA[20.åadtjoem reeknegem.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[får jeg regningen ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[får jeg regningen AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[får jeg regningen KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="PHRASES"/>
+      </semantics>
+      <tg>
+        <t xml:lang="nob">Kan jeg få regningen?</t>
+      </tg>
+      <tg>
+        <t xml:lang="swe">Kan jag få räkningen?</t>
+      </tg>
+    </mg>
+  </e>
+</r>
+

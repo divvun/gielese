@@ -4203,6 +4203,7 @@ For the full license text, see the link above.</lic>
       <mg>
          <semantics>
             <sem class="MORFAS" />
+            <sem class="GROUP_3" />
             <sem class="BODYPART" />
             <sem class="ANIMAL_OTHER" />
          </semantics>
@@ -6498,6 +6499,7 @@ For the full license text, see the link above.</lic>
             <sem class="MORFAS" />
             <sem class="BODYPART" />
             <sem class="ANIMAL_OTHER" />
+            <sem class="GROUP_1" />
          </semantics>
          <tg xml:lang="nob">
             <t pos="n" stat="pref" tcomm="no">øre</t>
@@ -13916,6 +13918,7 @@ For the full license text, see the link above.</lic>
          <semantics>
             <sem class="MORFAS" />
             <sem class="BODYPART" />
+            <sem class="GROUP_2" />
          </semantics>
          <tg xml:lang="nob">
             <t pos="n" stat="pref" tcomm="no">panne</t>
@@ -14967,6 +14970,7 @@ For the full license text, see the link above.</lic>
       <mg>
          <semantics>
             <sem class="MORFAS" />
+            <sem class="GROUP_4" />
             <sem class="BODYPART" />
          </semantics>
          <tg xml:lang="nob">
@@ -22021,6 +22025,7 @@ For the full license text, see the link above.</lic>
          <semantics>
             <sem class="MORFAS" />
             <sem class="BODYPART" />
+            <sem class="GROUP_2" />
          </semantics>
          <tg xml:lang="nob">
             <t pos="n" stat="pref" tcomm="no">øyebryn</t>
@@ -34668,6 +34673,7 @@ For the full license text, see the link above.</lic>
          <semantics>
             <sem class="MORFAS" />
             <sem class="BODYPART" />
+            <sem class="GROUP_2" />
          </semantics>
          <tg xml:lang="nob">
             <t pos="n" stat="pref" tcomm="no">munn</t>
@@ -35047,6 +35053,7 @@ For the full license text, see the link above.</lic>
       </sources>
       <mg>
          <semantics>
+            <sem class="GROUP_3" />
             <sem class="MORFAS" />
             <sem class="BODYPART" />
             <sem class="TRAD_FOOD" />
@@ -35241,6 +35248,7 @@ For the full license text, see the link above.</lic>
       <mg>
          <semantics>
             <sem class="MORFAS" />
+            <sem class="GROUP_3" />
             <sem class="BODYPART" />
          </semantics>
          <tg xml:lang="nob">
@@ -41238,6 +41246,7 @@ For the full license text, see the link above.</lic>
       </sources>
       <mg>
          <semantics>
+            <sem class="GROUP_3" />
             <sem class="MORFAS" />
             <sem class="BODYPART" />
          </semantics>
@@ -42148,6 +42157,7 @@ For the full license text, see the link above.</lic>
       <mg>
          <semantics>
             <sem class="MORFAS" />
+            <sem class="GROUP_4" />
             <sem class="BODYPART" />
          </semantics>
          <tg xml:lang="nob">
@@ -48829,6 +48839,7 @@ For the full license text, see the link above.</lic>
       </sources>
       <mg>
          <semantics>
+            <sem class="GROUP_4" />
             <sem class="MORFAS" />
             <sem class="BODYPART" />
          </semantics>
@@ -49074,6 +49085,7 @@ For the full license text, see the link above.</lic>
          <semantics>
             <sem class="MORFAS" />
             <sem class="BODYPART" />
+            <sem class="GROUP_2" />
          </semantics>
          <tg xml:lang="nob">
             <t pos="n" stat="pref" tcomm="no">øye</t>
@@ -50390,6 +50402,7 @@ For the full license text, see the link above.</lic>
       <mg>
          <semantics>
             <sem class="MORFAS" />
+            <sem class="GROUP_4" />
             <sem class="BODYPART" />
          </semantics>
          <tg xml:lang="nob">
@@ -54980,6 +54993,7 @@ For the full license text, see the link above.</lic>
       </sources>
       <mg>
          <semantics>
+            <sem class="GROUP_1" />
             <sem class="MORFAS" />
             <sem class="BODYPART" />
             <sem class="mLONG_SHORT" />
@@ -56793,11 +56807,14 @@ For the full license text, see the link above.</lic>
          <semantics>
             <sem class="MORFAS" />
             <sem class="BODYPART" />
+            <sem class="GROUP_1" />
          </semantics>
          <tg xml:lang="nob">
             <t pos="n" stat="pref" tcomm="no">hode</t>
-            <t pos="n" stat="notpref" tcomm="no">huggu</t>
-            <t pos="n" stat="notpref" tcomm="no">hau</t>
+            <!-- 
+                <t pos="n" stat="notpref" tcomm="no">huggu</t>
+                <t pos="n" stat="notpref" tcomm="no">hau</t>
+            -->
          </tg>
          <tg xml:lang="swe">
             <t pos="n" stat="pref" tcomm="no">huvud</t>
@@ -58080,6 +58097,7 @@ For the full license text, see the link above.</lic>
          <semantics>
             <sem class="MORFAS" />
             <sem class="BODYPART" />
+            <sem class="GROUP_1" />
          </semantics>
          <tg xml:lang="nob">
             <t pos="n" stat="pref" tcomm="no">ansikt</t>
