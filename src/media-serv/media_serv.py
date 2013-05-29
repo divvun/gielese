@@ -268,7 +268,7 @@ def concepts():
     from lexicon_models import Concept
 
     cached = cache.get('concepts.json')
-    pretty = bool(request.args.get('pretty', False))
+    pretty = bool(request.args.get('pretty'))
 
     if not cached:
         langs = ["sma", "nob", "img"]

@@ -61,6 +61,17 @@ def test_some_queries(app):
         # print w.semtype
         # print w.translations.group_by('language').all()
 
+        aalma = db.session.query(Concept).filter_by(lemma=u'ålma',
+                                                   language='sma').first()
+
+        print aalma.translations_to.all()
+        aalma_img = aalma.translations_to.filter(Concept.language == 'mp3')
+        f_aalma_img = aalma_img.first()
+        print f_aalma_img
+        print f_aalma_img.translations_to.filter(Concept.language == 'nob').all()
+
+        return
+
         gaalloe = db.session.query(Concept).filter_by(lemma='gaalloe',
                                                    language='sma').first()
 
@@ -73,7 +84,8 @@ def test_some_queries(app):
 
         skaavtjoe = db.session.query(Concept).filter_by(lemma='skaavtjoe',
                                                    language='sma').first()
-        skaavtjoe_img = skaavtjoe.translations_to.filter(Concept.language == 'img').first()
+        skaavtjoe_img = skaavtjoe.translations_to.filter(Concept.language == 'img')
+        f_skaavtjoe_img = skaavtjoe_img.first()
 
         # print format_concept(skaavtjoe)
         print '--'

@@ -193,16 +193,20 @@ class MediaSimpleJSON(EntryNodeIterator):
 
         media_type = False
         if media is not None:
-            sound = media.find('sound')
-            image = media.find('img')
-            if sound is not None:
-                media_defs['sound'] = {'path': _path(sound),
-                                       'features': sound_features(sound)}
+            sounds = media.find('sounds')
+            images = media.find('images')
+            if sounds is not None:
+                media_defs['sounds'] = [ {'path': _path(sound),
+                                         'features': sound_features(sound)}
+                                         for sound in sounds
+                                       ]
                 media_type = 'mp3'
 
-            if image is not None:
-                media_defs['image'] = {'path': _path(image),
-                                       'features': image_features(image)}
+            if images is not None:
+                media_defs['images'] = [ {'path': _path(image),
+                                          'features': image_features(image)}
+                                         for image in images
+                                       ]
                 media_type = 'img'
 
         # TODO: redo translations
@@ -351,31 +355,42 @@ def install_media_references(_d, filename):
 
         # Create WordTranslations with media defs.
         medias = media_defs.get('media', False)
-        if 'image' in medias:
-            wt_kwargs = dict( language='img'
-                            , lemma=medias.get('image').get('path')
-                            )
-            # TODO: features / semantics, audio / voices
-            wt = Concept(**wt_kwargs)
-            word.translations_to.append(wt)
-            image_media = wt
-            print " Added image path: %s" % wt.lemma
+        if 'images' in medias:
+            image_medias = []
+            for image in medias.get('images'):
+                wt_kwargs = dict( language='img'
+                                , lemma=image.get('path')
+                                )
+                # TODO: features / semantics, audio / voices
+                wt = Concept(**wt_kwargs)
+                word.translations_to.append(wt)
+                image_medias.append(wt)
+                print " Added image path: %s" % wt.lemma
 
-        if 'sound' in medias:
-            wt_kwargs = dict( language='mp3'
-                            , lemma=medias.get('sound').get('path')
-                            )
-            # TODO: features / semantics, audio / voices
-            wt = Concept(**wt_kwargs)
-            word.translations_to.append(wt)
-            audio_media = wt
-            print " Added audio path: %s" % wt.lemma
+        if 'sounds' in medias:
+            audio_medias = []
+            for sound in medias.get('sounds'):
+                wt_kwargs = dict( language='mp3'
+                                , lemma=sound.get('path')
+                                )
+                # TODO: features / semantics, audio / voices
+                wt = Concept(**wt_kwargs)
+                word.translations_to.append(wt)
+                audio_medias.append(wt)
+                print " Added audio path: %s" % wt.lemma
 
-        if 'image' in medias and 'sound' in medias:
-            audio_media.translations_to.append(image_media)
-            image_media.translations_to.append(audio_media)
-            audio_media.translations_from.append(image_media)
-            image_media.translations_from.append(audio_media)
+        # TODO: this
+        if 'images' in medias and 'sounds' in medias:
+            all_medias = audio_medias + image_medias
+            for m in all_medias:
+                for x in all_medias[:]:
+                    if x != m:
+                        m.translations_to.append(x)
+                        m.translations_from.append(x)
+            # audio_media.translations_to.append(image_media)
+            # image_media.translations_to.append(audio_media)
+            # audio_media.translations_from.append(image_media)
+            # image_media.translations_from.append(audio_media)
             print " Crosslinking media."
 
         _commit()
