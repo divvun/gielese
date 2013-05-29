@@ -1,0 +1,37 @@
+﻿<div data-role="header">
+    <h1>Choose a set</h1>
+    <a href="#options" data-transition="slide" id="show-panel" data-icon="gear">Options</a>
+</div> 
+
+<div data-role="content">
+    <ul data-role="listview" 
+        data-theme="d" 
+        data-dividertheme="z" 
+        data-inset="true">
+        <li role="heading" data-role="list-divider">Sets</li>
+    </ul>
+
+    <div class="ui-grid-b" id="main_menu">
+	    <div class="ui-block-a">
+	        <a class="square" href="#leksa/body" data-transition="slide">
+	            <span class="link_image"></span>
+	            <span class="link_word">Body</span>
+	        </a>
+	    </div>
+	    <div class="ui-block-b">
+	        <a class="square" href="#leksa/greetings" data-transition="slide">
+	            <span class="link_image"></span>
+	            <span class="link_word">Greetings</span>
+	        </a>
+	    </div>	   
+	    <div class="ui-block-c">
+	        <a class="square" href="#leksa/food" data-transition="slide">
+	            <span class="link_image"></span>
+	            <span class="link_word">Food</span>
+	        </a>
+	    </div>	   
+    </div>
+
+</div> 
+
+

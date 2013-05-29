@@ -120,7 +120,10 @@ module.exports = class LeksaView extends Backbone.View
       window.last_error = "Question DB and Concept DB not ready."
       app.router.navigate('error')
 
-    q_instance = app.questiondb.selectLeksaConcepts(window.app.leksaUserProgression)
+    # TODO: category from user
+    q_instance = app.questiondb.selectLeksaConcepts( window.app.leksaUserProgression
+                                                   , @leksa_category
+                                                   )
 
     if q_instance == false
       console.log "Complete!"
@@ -205,6 +208,9 @@ module.exports = class LeksaView extends Backbone.View
     prog.find('.progress_label').text(note)
     console.log '--'
     return false
+
+  constructor: (@leksa_category) ->
+    super
 
   render: ->
     # if user ends up on front page due to error and comes back here, events

@@ -55,8 +55,17 @@ def create_manifest(app_host):
              join_hosts(list_dir('static/client/images/')) + \
              join_hosts(list_dir('static/images/ansikt/small/'))
 
+    def quote_add_dir(s):
+        return join_hosts(map(quote, list_dir(s)))
+
     from urllib import quote
-    audios = join_hosts(map(quote, list_dir('static/audio/vce1/'))) + \
+             # quote_add_dir('static/audio/body/ED/') + \
+             # quote_add_dir('static/audio/body/KB/') + \
+    audios = \
+             quote_add_dir('static/audio/body/AD/') + \
+             quote_add_dir('static/audio/heelsedh/AD/') + \
+             quote_add_dir('static/audio/heelsedh/ED/') + \
+             quote_add_dir('static/audio/heelsedh/KB/') + \
              join_hosts(['static/client/swf/soundmanager2_debug.swf'])
 
     timestamp = datetime.strftime(datetime.today(), format='%Y-%M-%d %H:%M')
@@ -268,7 +277,7 @@ def concepts():
     from lexicon_models import Concept
 
     cached = cache.get('concepts.json')
-    pretty = bool(request.args.get('pretty'))
+    pretty = bool(request.args.get('pretty', False))
 
     if not cached:
         langs = ["sma", "nob", "img"]

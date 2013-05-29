@@ -1,10 +1,11 @@
 module.exports = class HelloView extends Backbone.View
 
-  className: 'hello'
-  id: "hello"
+  className: 'leksa_select'
+  id: "leksa_select"
 
-  template: require './templates/hello'
+  template: require './templates/leksa_select'
 
   render: ->
     @$el.html @template
     this
+

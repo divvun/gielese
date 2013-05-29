@@ -13,7 +13,7 @@ module.exports = class Concept extends Backbone.Model
     has_media = @.get('media')
     if 'image' of has_media
       if has_media.image.length > 0
-        has_audio_file = has_media.image[0].path
+        has_audio_file = _.shuffle(has_media.image)[0].path
         return has_audio_file
     return false
 
@@ -21,24 +21,21 @@ module.exports = class Concept extends Backbone.Model
     has_media = @.get('media')
     if app.options.enable_audio and ('audio' of has_media)
       if has_media.audio.length > 0
-        has_audio_file = has_media.audio[0].path
+        has_audio_file = _.shuffle(has_media.audio)[0].path
         return has_audio_file
     return false
   
   playAudio: (sound_id) ->
-    has_media = @.get('media')
-    if app.options.enable_audio and ('audio' of has_media)
-      if has_media.audio.length > 0
-        has_audio_file = has_media.audio[0].path
-        if has_audio_file and soundManager.enabled
-          if not sound_id?
-            sound_id = "concept-audio-#{@.cid}"
-          soundManager.destroySound(sound_id)
-          soundManager.createSound({
-             id: sound_id
-             url: "/static#{has_audio_file}"
-          })
-          soundManager.play(sound_id)
+    has_audio_file = @hasAudio()
+    if has_audio_file and soundManager.enabled
+      if not sound_id?
+        sound_id = "concept-audio-#{@.cid}"
+      soundManager.destroySound(sound_id)
+      soundManager.createSound({
+         id: sound_id
+         url: has_audio_file
+      })
+      soundManager.play(sound_id)
 
     return false
 

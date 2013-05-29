@@ -13,7 +13,7 @@
 
     <div class="ui-grid-b" id="main_menu">
 	    <div class="ui-block-a">
-	        <a class="square" href="#leksa" data-transition="slide">
+	        <a class="square" href="#leksaSelect" data-transition="slide">
 	            <span class="link_image"></span>
 	            <span class="link_word">Leksa</span>
 	        </a>

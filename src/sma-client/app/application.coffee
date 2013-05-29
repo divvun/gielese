@@ -3,6 +3,8 @@ HelloView = require 'views/hello_view'
 
 FrontPage = require 'views/front_page'
 
+LeksaSelectView = require 'views/leksa_select_view'
+
 LeksaView = require 'views/leksa_view'
 LeksaOptionsView = require 'views/leksa_options_view'
 
@@ -32,6 +34,36 @@ arrayChunk = (a, s) ->
   n
 
 window.arrayChunk = arrayChunk
+
+fakeGetText = (string) ->
+  ### Want to mark strings as requiring gettext somehow, so that
+      a babel can find them.
+
+      NB: Babel only has a javascript extractor, so, just compile to JS first
+
+      Then when you run pybabel's extract command, it will find the
+      strings in the unminified source.
+
+      # TODO: storage format for internationalisations on media_serv
+      #
+      Internationalizations are downloaded and stored in localStorage
+      on the first run of the plugin. Translations should degrade to
+      english if they are missing, or the localization is not present.
+
+      The system will not store multiple localizations at a time, so
+      we assume the user does not really want to switch.
+  ###
+  
+  if window.localization?
+    localized = window.localization[string]
+    if localized?
+      if localized
+        return localized
+  return string
+
+# NB: using underscore as the function name conflicts with underscore.js
+#
+window.fakeGetText = fakeGetText
 
 window.initWindowCache = () ->
   console.log "Initializing appCache"
@@ -239,6 +271,7 @@ module.exports = class Application
     @router = new Router()
     @helloView = new HelloView()
     @frontPage = new FrontPage()
+    @leksaSelectView = new LeksaSelectView()
     @leksaView = new LeksaView()
     @leksaOptionsView = new LeksaOptionsView()
     @errorView = new ErrorView()

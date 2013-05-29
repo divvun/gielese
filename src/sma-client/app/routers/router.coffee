@@ -13,7 +13,8 @@ module.exports = class Router extends Backbone.Router
     '': 'index'
     'mainMenu': 'mainMenu'
 
-    'leksa': 'leksa'
+    'leksa/:category': 'leksa'
+
     'leksaOptions': 'leksaOptions'
     'wordlist': 'wordlist'
     'options': 'options'
@@ -28,12 +29,16 @@ module.exports = class Router extends Backbone.Router
 
     '#home': 'index'
     '#wordlist': 'wordlist'
-    '#leksa': 'leksa'
+    '#leksa/:category': 'leksa'
+
     '#leksaOptions': 'leksaOptions'
     '#options': 'options'
     '#error': 'errorPage'
     'reset': 'reset'
     '#reset': 'reset'
+
+    'leksaSelect': 'leksaSelect'
+    '#leksaSelect': 'leksaSelect'
 
   index: ->
     configured_already = DSt.get('gielese-configured')
@@ -54,15 +59,15 @@ module.exports = class Router extends Backbone.Router
     window.app.loadingTracker.checkDeps()
     @changePage(app.leksaOptionsView)
 
-  leksa: ->
+  leksa: (category) ->
     # $('content #content').html app.leksaView.render().el
     # ready = false
     # until ready
     window.app.loadingTracker.checkDeps()
+    console.log category
 
-    if app.leksaView.viewedOnce
-      app.leksaView = new LeksaView()
-      app.leksaView.initialize()
+    app.leksaView = new LeksaView(category)
+    app.leksaView.initialize()
 
     @changePage(app.leksaView)
 
@@ -71,6 +76,9 @@ module.exports = class Router extends Backbone.Router
   errorPage: ->
     # $('content #content').html app.errorView.render().el
     @changePage(app.errorView)
+
+  leksaSelect: ->
+    @changePage(app.leksaSelectView)
 
   options: ->
     @changePage(app.globalOptionsView)
