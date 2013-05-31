@@ -17,6 +17,15 @@ module.exports = class Concept extends Backbone.Model
         return has_audio_file
     return false
 
+  getTranslations: () ->
+    @collection.filter (comp_concept) =>
+      if _.contains( @.get('translations')
+                   , comp_concept.get('c_id')
+                   )
+        return true
+      else
+        return false
+
   hasAudio: () ->
     has_media = @.get('media')
     if app.options.enable_audio and ('audio' of has_media)

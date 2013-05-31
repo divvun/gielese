@@ -60,6 +60,13 @@ def test_some_queries(app):
         # w = db.session.query(Word).filter_by(lemma=u'tjovrese').first()
         # print w.semtype
         # print w.translations.group_by('language').all()
+        img = db.session.query(Concept).filter_by(lemma=u'/static/images/heelsedh/small/n_ii_ejte.jpg',
+                                                   language='img').first()
+        print img.semtype
+        print img.translations_to.filter(Concept.language == 'sma').all()
+        print img.translations_from.filter(Concept.language == 'sma').all()
+        print img.translations_from.filter(Concept.language == 'sma').first().semtype
+        return
 
         aalma = db.session.query(Concept).filter_by(lemma=u'ålma',
                                                    language='sma').first()
@@ -69,6 +76,11 @@ def test_some_queries(app):
         f_aalma_img = aalma_img.first()
         print f_aalma_img
         print f_aalma_img.translations_to.filter(Concept.language == 'nob').all()
+
+        aalma = db.session.query(Concept).filter_by(lemma=u'ålma',
+                                                   language='sma').first()
+
+        print aalma.translations_to.all()
 
         return
 

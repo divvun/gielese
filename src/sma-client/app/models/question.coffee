@@ -170,7 +170,7 @@ module.exports = class Question extends Backbone.Model
     total_correct_answers_for_question = userprogression.where({
     	game_name: "leksa",
     	question_correct: true,
-    	question: @
+    	question: @,
     }).length
 
     console.log "count --"

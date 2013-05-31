@@ -1,4 +1,4 @@
-﻿<div data-role="header">
+<div data-role="header">
     <h1>Choose a set</h1>
     <a href="#options" data-transition="slide" id="show-panel" data-icon="gear">Options</a>
 </div> 
@@ -13,13 +13,13 @@
 
     <div class="ui-grid-b" id="main_menu">
 	    <div class="ui-block-a">
-	        <a class="square" href="#leksa/body" data-transition="slide">
+	        <a class="square" href="#leksa/bodypart" data-transition="slide">
 	            <span class="link_image"></span>
 	            <span class="link_word">Body</span>
 	        </a>
 	    </div>
 	    <div class="ui-block-b">
-	        <a class="square" href="#leksa/greetings" data-transition="slide">
+	        <a class="square" href="#leksa/heelsedh" data-transition="slide">
 	            <span class="link_image"></span>
 	            <span class="link_word">Greetings</span>
 	        </a>

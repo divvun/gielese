@@ -61,7 +61,7 @@ module.exports = class QuestionDB extends Backbone.Collection
     super
     app.loadingTracker.markReady('leksa_questions.json')
 
-  selectLeksaConcepts: (userprogression) ->
+  selectLeksaConcepts: (userprogression, category) ->
     #
     # Select a question
     #
@@ -73,7 +73,7 @@ module.exports = class QuestionDB extends Backbone.Collection
 
     question_instance = false
     while not question_instance and tries <= max_tries
-      qs = @filterQuestionsByProgression(userprogression, 'bodypart')
+      qs = @filterQuestionsByProgression(userprogression, category)
 
       if qs.length == 0
       	return false

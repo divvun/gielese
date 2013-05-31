@@ -1,0 +1,31 @@
+<div data-role="header">
+    <a href="/#wordlist" data-transition="slide" data-icon="arrow-l">Back</a>
+    <h2> <%- @model.get('concept_value') %> </h2>
+</div> 
+
+<div data-role="content" class="concept">
+    <div class="ui-grid-a">
+	    <div class="ui-block-a">
+            <% if @model.hasImage(): %>
+                <img width="150" 
+                     height="150" 
+                     src="<%- @model.hasImage() %>" />
+            <% end %>
+        </div>
+	    <div class="ui-block-b">
+            <% if @model.hasAudio(): %>
+                <a href="#" class="audio_link">
+                    <img width="32" height="32" src="/static/client/images/speaker.png" />
+                    Listen
+                </a>
+            <% end %>
+            <ul class="translations">
+                <% for t in @translations: %>
+                    <li><%- t.get('concept_value') %></li>
+                <% end %>
+            </ul>
+	    </div>	   
+    </div>
+
+</div> 
+

@@ -191,6 +191,8 @@ class MediaSimpleJSON(EntryNodeIterator):
         media = e.find('media')
         media_defs = {}
 
+        semantics = e.xpath('.//mg/semantics/sem/@class')
+
         media_type = False
         if media is not None:
             sounds = media.find('sounds')
@@ -216,6 +218,7 @@ class MediaSimpleJSON(EntryNodeIterator):
                , 'lang': media_type
                , 'hid': lemma_hid
                , 'media': media_defs
+               , 'semantics': semantics
                }
 
 class LexiconSimpleJSON(EntryNodeIterator):
@@ -392,6 +395,11 @@ def install_media_references(_d, filename):
             # audio_media.translations_from.append(image_media)
             # image_media.translations_from.append(audio_media)
             print " Crosslinking media."
+
+        if 'semantics' in media_defs:
+            for _sem in media_defs.get('semantics', []):
+                s = _get_or_create(Semtype, semtype=_sem)
+                word.semtype.append(s)
 
         _commit()
 

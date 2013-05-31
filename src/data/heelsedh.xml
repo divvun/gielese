@@ -6,7 +6,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/baernie.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/baernie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -40,7 +40,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/buarastehtedh.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/buarastehtedh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -74,10 +74,10 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/buaregh.jpg,buaregh.2.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/buaregh.jpg]]></path>
         </image>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/buaregh.jpg,buaregh.2.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/buaregh.2.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -111,7 +111,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/buerie_aerede.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/buerie_aerede.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -145,7 +145,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/buerie_biejjie.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/buerie_biejjie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -179,7 +179,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/buerie_iehkede.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/buerie_iehkede.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -213,7 +213,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/buerie_jïjje.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/buerie_j_ii_jje.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -247,7 +247,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/datne.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/datne.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -281,7 +281,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/dïhte.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/d_ii_hte.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -315,7 +315,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/maana.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/maana.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -349,7 +349,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/manne.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/manne.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -380,7 +380,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/nyjsenæjja.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/nyjsen_ae_jja.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -414,7 +414,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/nåå_nåå.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/n_aa_aa__n_aa_aa.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -448,7 +448,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/nïejte.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/n_ii_ejte.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -482,7 +482,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/heelsedh/small/ålma.jpg]]></path>
+          <path><![CDATA[/static/images/heelsedh/small/aa_lma.jpg]]></path>
         </image>
       </images>
       <sounds>
