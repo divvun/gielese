@@ -155,6 +155,68 @@ def flatten(_list):
 
 class MediaSimpleJSON(EntryNodeIterator):
 
+    def find_translation_text(self, tg):
+        """ Overriding parent because we want to also mark what kind
+        of translation this is here.
+        """
+
+        try:
+            lang = tg.xpath('@xml:lang')[0]
+        except:
+            # TODO: logger
+            print >> sys.stderr, " * No language specified for translation group"
+
+        def orFalse(l):
+            if len(l) > 0:
+                return l[0]
+            else:
+                return False
+
+        def fix_keys(attrs):
+            _attrs = dict(attrs)
+            if 'stat' in _attrs:
+                if _attrs['stat'] == 'pref':
+                    _attrs['tcomm_pref'] = True
+                if _attrs['stat'] == 'notpref':
+                    _attrs['tcomm_pref'] = False
+                _attrs.pop('stat')
+
+            if 'tcomm' in _attrs:
+                if _attrs['tcomm'] == 'no':
+                    _attrs['tcomm'] = False
+                if _attrs['tcomm'] == 'yes':
+                    _attrs['tcomm'] = True
+            for k in _attrs.keys():
+                if 'XML' in k and 'namespace' in k:
+                    _attrs.pop(k)
+            return _attrs
+
+        text = False
+        re = tg.find('re')
+        te = tg.find('te')
+        tf = tg.findall('tf')
+        tx = tg.findall('t')
+
+        translations = []
+
+        for t in tx:
+            _t = fix_keys(t.attrib)
+            _t['language'] = lang
+            _t['lemma'] = t.text
+            _t['phrase'] = ''
+            translations.append(_t)
+
+        for t in tf:
+            _t = fix_keys(t.attrib)
+            _t['language'] = lang
+            _t['lemma'] = ''
+            if t.text is not None:
+                _t['phrase'] = t.text
+                translations.append(_t)
+            # TODO: {'explanation': 'blah', 'stat': 'pref', 'tcomm': 'etc'}
+
+        return translations
+
     def clean(self, e):
         def _path(n):
             try:
@@ -185,8 +247,6 @@ class MediaSimpleJSON(EntryNodeIterator):
         tgs, ts = self.tg_nodes(e)
 
         translations = map(self.find_translation_text, tgs)
-        right_text = flatten([a for a, b, c in translations])
-        right_langs = flatten([c for a, b, c in translations])
 
         media = e.find('media')
         media_defs = {}
@@ -219,6 +279,7 @@ class MediaSimpleJSON(EntryNodeIterator):
                , 'hid': lemma_hid
                , 'media': media_defs
                , 'semantics': semantics
+               , 'translations': translations
                }
 
 class LexiconSimpleJSON(EntryNodeIterator):
@@ -400,6 +461,15 @@ def install_media_references(_d, filename):
             for _sem in media_defs.get('semantics', []):
                 s = _get_or_create(Semtype, semtype=_sem)
                 word.semtype.append(s)
+        
+        # TODO: a bit more complex...
+        for _tx in media_defs.get('translations', []):
+            for _t in _tx:
+                if 'dict' in _t:
+                    _t.pop('dict')
+                # _t['word'] = word.id
+                wt = Concept(**_t)
+                word.translations_to.append(wt)
 
         _commit()
 
@@ -584,7 +654,6 @@ def append_lexicon(_d, filename):
         for _dial in w_infos.get('dialects', []):
             d = _get_or_create(Dialect, dialect=_dial)
             new_word.dialects.append(d)
-
 
         # TODO: new_word.id, or find existing word pre-merge?
         for _tx in w_infos.get('translations', []):

@@ -25,11 +25,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">brød</t>
+      <tg xml:lang="nob">
+       <t>brød</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">bröd</t>
+      <tg xml:lang="swe">
+       <t>bröd</t>
       </tg>
     </mg>
   </e>
@@ -59,11 +59,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">bær</t>
+      <tg xml:lang="nob">
+       <t>bær</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">bär</t>
+      <tg xml:lang="swe">
+       <t>bär</t>
       </tg>
     </mg>
   </e>
@@ -90,11 +90,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">egg</t>
+      <tg xml:lang="nob">
+       <t>egg</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">egg</t>
+      <tg xml:lang="swe">
+       <t>egg</t>
       </tg>
     </mg>
   </e>
@@ -124,11 +124,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">fisk</t>
+      <tg xml:lang="nob">
+       <t>fisk</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">fisk</t>
+      <tg xml:lang="swe">
+       <t>fisk</t>
       </tg>
     </mg>
   </e>
@@ -158,11 +158,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">grønnsak</t>
+      <tg xml:lang="nob">
+       <t>grønnsak</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">grönsak</t>
+      <tg xml:lang="swe">
+       <t>grönsak</t>
       </tg>
     </mg>
   </e>
@@ -192,11 +192,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">kjøtt</t>
+      <tg xml:lang="nob">
+       <t>kjøtt</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">kött</t>
+      <tg xml:lang="swe">
+       <t>kött</t>
       </tg>
     </mg>
   </e>
@@ -226,11 +226,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">ost</t>
+      <tg xml:lang="nob">
+       <t>ost</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">ost</t>
+      <tg xml:lang="swe">
+       <t>ost</t>
       </tg>
     </mg>
   </e>
@@ -260,11 +260,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">potet</t>
+      <tg xml:lang="nob">
+       <t>potet</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">potatis</t>
+      <tg xml:lang="swe">
+       <t>potatis</t>
       </tg>
     </mg>
   </e>
@@ -294,11 +294,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">pølse</t>
+      <tg xml:lang="nob">
+       <t>pølse</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">korv</t>
+      <tg xml:lang="swe">
+       <t>korv</t>
       </tg>
     </mg>
   </e>
@@ -328,11 +328,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">smør</t>
+      <tg xml:lang="nob">
+       <t>smør</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">smör</t>
+      <tg xml:lang="swe">
+       <t>smör</t>
       </tg>
     </mg>
   </e>
@@ -362,11 +362,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">suppe</t>
+      <tg xml:lang="nob">
+       <t>suppe</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">soppa</t>
+      <tg xml:lang="swe">
+       <t>soppa</t>
       </tg>
     </mg>
   </e>
@@ -396,11 +396,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">vann</t>
+      <tg xml:lang="nob">
+       <t>vann</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">vatten</t>
+      <tg xml:lang="swe">
+       <t>vatten</t>
       </tg>
     </mg>
   </e>
@@ -430,11 +430,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">saft</t>
+      <tg xml:lang="nob">
+       <t>saft</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">saft</t>
+      <tg xml:lang="swe">
+       <t>saft</t>
       </tg>
     </mg>
   </e>
@@ -464,11 +464,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">melk</t>
+      <tg xml:lang="nob">
+       <t>melk</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">mjölk</t>
+      <tg xml:lang="swe">
+       <t>mjölk</t>
       </tg>
     </mg>
   </e>
@@ -498,11 +498,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">øl</t>
+      <tg xml:lang="nob">
+       <t>øl</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">öl</t>
+      <tg xml:lang="swe">
+       <t>öl</t>
       </tg>
     </mg>
   </e>
@@ -532,11 +532,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">kaffe</t>
+      <tg xml:lang="nob">
+       <t>kaffe</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">kaffe</t>
+      <tg xml:lang="swe">
+       <t>kaffe</t>
       </tg>
     </mg>
   </e>
@@ -566,11 +566,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">mat</t>
+      <tg xml:lang="nob">
+       <t>mat</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">mat</t>
+      <tg xml:lang="swe">
+       <t>mat</t>
       </tg>
     </mg>
   </e>
@@ -600,11 +600,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">frokost</t>
+      <tg xml:lang="nob">
+       <t>frokost</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">frukost</t>
+      <tg xml:lang="swe">
+       <t>frukost</t>
       </tg>
     </mg>
   </e>
@@ -634,11 +634,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">middag</t>
+      <tg xml:lang="nob">
+       <t>middag</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">middag</t>
+      <tg xml:lang="swe">
+       <t>middag</t>
       </tg>
     </mg>
   </e>
@@ -668,11 +668,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">kveldsmat</t>
+      <tg xml:lang="nob">
+       <t>kveldsmat</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">kvällsmat</t>
+      <tg xml:lang="swe">
+       <t>kvällsmat</t>
       </tg>
     </mg>
   </e>
@@ -702,11 +702,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">å drikke</t>
+      <tg xml:lang="nob">
+       <t>å drikke</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">att dricka</t>
+      <tg xml:lang="swe">
+       <t>att dricka</t>
       </tg>
     </mg>
   </e>
@@ -736,11 +736,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">å spise</t>
+      <tg xml:lang="nob">
+       <t>å spise</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">att äta</t>
+      <tg xml:lang="swe">
+       <t>att äta</t>
       </tg>
     </mg>
   </e>
@@ -770,11 +770,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">å koke</t>
+      <tg xml:lang="nob">
+       <t>å koke</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">att koka</t>
+      <tg xml:lang="swe">
+       <t>att koka</t>
       </tg>
     </mg>
   </e>
@@ -799,11 +799,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">å steke</t>
+      <tg xml:lang="nob">
+       <t>å steke</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">att steka</t>
+      <tg xml:lang="swe">
+       <t>att steka</t>
       </tg>
     </mg>
   </e>
@@ -833,11 +833,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">å bake</t>
+      <tg xml:lang="nob">
+       <t>å bake</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">att baka</t>
+      <tg xml:lang="swe">
+       <t>att baka</t>
       </tg>
     </mg>
   </e>
@@ -867,11 +867,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">å lage mat</t>
+      <tg xml:lang="nob">
+       <t>å lage mat</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">att laga mat</t>
+      <tg xml:lang="swe">
+       <t>att laga mat</t>
       </tg>
     </mg>
   </e>
@@ -898,11 +898,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">å dekke på</t>
+      <tg xml:lang="nob">
+       <t>å dekke på</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">att duka</t>
+      <tg xml:lang="swe">
+       <t>att duka</t>
       </tg>
     </mg>
   </e>
@@ -932,11 +932,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">takk</t>
+      <tg xml:lang="nob">
+       <t>takk</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">tack</t>
+      <tg xml:lang="swe">
+       <t>tack</t>
       </tg>
     </mg>
   </e>
@@ -966,11 +966,11 @@
       <semantics>
         <sem class="FOOD"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">vær så god</t>
+      <tg xml:lang="nob">
+       <t>vær så god</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">var så god</t>
+      <tg xml:lang="swe">
+       <t>var så god</t>
       </tg>
     </mg>
   </e>

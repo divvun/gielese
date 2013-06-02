@@ -25,11 +25,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">gutt</t>
+      <tg xml:lang="nob">
+       <t>gutt</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">pojke</t>
+      <tg xml:lang="swe">
+       <t>pojke</t>
       </tg>
     </mg>
   </e>
@@ -59,11 +59,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">å håndhilse</t>
+      <tg xml:lang="nob">
+       <t>å håndhilse</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">att handhälsa</t>
+      <tg xml:lang="swe">
+       <t>att handhälsa</t>
       </tg>
     </mg>
   </e>
@@ -96,11 +96,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">god dag, sies ved å håndhilse</t>
+      <tg xml:lang="nob">
+       <t>god dag, sies ved å håndhilse</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">god dag</t>
+      <tg xml:lang="swe">
+       <t>god dag</t>
       </tg>
     </mg>
   </e>
@@ -130,11 +130,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">god morgen</t>
+      <tg xml:lang="nob">
+       <t>god morgen</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">god morgon</t>
+      <tg xml:lang="swe">
+       <t>god morgon</t>
       </tg>
     </mg>
   </e>
@@ -164,11 +164,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">god dag</t>
+      <tg xml:lang="nob">
+       <t>god dag</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">god dag</t>
+      <tg xml:lang="swe">
+       <t>god dag</t>
       </tg>
     </mg>
   </e>
@@ -198,11 +198,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">god kveld</t>
+      <tg xml:lang="nob">
+       <t>god kveld</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">god kväll</t>
+      <tg xml:lang="swe">
+       <t>god kväll</t>
       </tg>
     </mg>
   </e>
@@ -232,11 +232,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">god natt</t>
+      <tg xml:lang="nob">
+       <t>god natt</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">god natt</t>
+      <tg xml:lang="swe">
+       <t>god natt</t>
       </tg>
     </mg>
   </e>
@@ -266,11 +266,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">du</t>
+      <tg xml:lang="nob">
+       <t>du</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">du</t>
+      <tg xml:lang="swe">
+       <t>du</t>
       </tg>
     </mg>
   </e>
@@ -300,11 +300,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">han, hun, den, det</t>
+      <tg xml:lang="nob">
+       <t>han, hun, den, det</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">hon, han, den, det</t>
+      <tg xml:lang="swe">
+       <t>hon, han, den, det</t>
       </tg>
     </mg>
   </e>
@@ -334,11 +334,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">unge</t>
+      <tg xml:lang="nob">
+       <t>unge</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">barn</t>
+      <tg xml:lang="swe">
+       <t>barn</t>
       </tg>
     </mg>
   </e>
@@ -365,11 +365,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">jeg</t>
+      <tg xml:lang="nob">
+       <t>jeg</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">jag</t>
+      <tg xml:lang="swe">
+       <t>jag</t>
       </tg>
     </mg>
   </e>
@@ -399,11 +399,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">dame</t>
+      <tg xml:lang="nob">
+       <t>dame</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">kvinna</t>
+      <tg xml:lang="swe">
+       <t>kvinna</t>
       </tg>
     </mg>
   </e>
@@ -433,11 +433,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">ha det!</t>
+      <tg xml:lang="nob">
+       <t>ha det!</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">hej då</t>
+      <tg xml:lang="swe">
+       <t>hej då</t>
       </tg>
     </mg>
   </e>
@@ -467,11 +467,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">jente</t>
+      <tg xml:lang="nob">
+       <t>jente</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">flicka</t>
+      <tg xml:lang="swe">
+       <t>flicka</t>
       </tg>
     </mg>
   </e>
@@ -501,11 +501,11 @@
       <semantics>
         <sem class="GREETINGS"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">mann</t>
+      <tg xml:lang="nob">
+       <t>mann</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">man</t>
+      <tg xml:lang="swe">
+       <t>man</t>
       </tg>
     </mg>
   </e>

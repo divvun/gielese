@@ -57,6 +57,9 @@ def test_some_queries(app):
         from lexicon_install import install_lexical_data
         from media_serv import format_concept
 
+        print db.session.query(Concept).filter(Concept.lemma == "Garrah").first().translations_to.all()
+        return
+
         # w = db.session.query(Word).filter_by(lemma=u'tjovrese').first()
         # print w.semtype
         # print w.translations.group_by('language').all()

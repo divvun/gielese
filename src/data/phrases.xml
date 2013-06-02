@@ -25,11 +25,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Jeg forstår ikke</t>
+      <tg xml:lang="nob">
+       <t>Jeg forstår ikke</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Jag förstår inte</t>
+      <tg xml:lang="swe">
+       <t>Jag förstår inte</t>
       </tg>
     </mg>
   </e>
@@ -59,11 +59,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Jeg hører ikke</t>
+      <tg xml:lang="nob">
+       <t>Jeg hører ikke</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Jag hör inte</t>
+      <tg xml:lang="swe">
+       <t>Jag hör inte</t>
       </tg>
     </mg>
   </e>
@@ -93,11 +93,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Jeg ser ikke</t>
+      <tg xml:lang="nob">
+       <t>Jeg ser ikke</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Jag ser inte</t>
+      <tg xml:lang="swe">
+       <t>Jag ser inte</t>
       </tg>
     </mg>
   </e>
@@ -127,11 +127,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Unnskyld meg</t>
+      <tg xml:lang="nob">
+       <t>Unnskyld meg</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Ursäkta mig</t>
+      <tg xml:lang="swe">
+       <t>Ursäkta mig</t>
       </tg>
     </mg>
   </e>
@@ -161,11 +161,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Ja</t>
+      <tg xml:lang="nob">
+       <t>Ja</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Ja</t>
+      <tg xml:lang="swe">
+       <t>Ja</t>
       </tg>
     </mg>
   </e>
@@ -195,11 +195,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Nei</t>
+      <tg xml:lang="nob">
+       <t>Nei</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Nej</t>
+      <tg xml:lang="swe">
+       <t>Nej</t>
       </tg>
     </mg>
   </e>
@@ -229,11 +229,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Jeg vet ikke</t>
+      <tg xml:lang="nob">
+       <t>Jeg vet ikke</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Jag vet inte</t>
+      <tg xml:lang="swe">
+       <t>Jag vet inte</t>
       </tg>
     </mg>
   </e>
@@ -263,11 +263,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Venstre</t>
+      <tg xml:lang="nob">
+       <t>Venstre</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">vänster</t>
+      <tg xml:lang="swe">
+       <t>vänster</t>
       </tg>
     </mg>
   </e>
@@ -297,11 +297,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Høyre</t>
+      <tg xml:lang="nob">
+       <t>Høyre</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Höger</t>
+      <tg xml:lang="swe">
+       <t>Höger</t>
       </tg>
     </mg>
   </e>
@@ -328,11 +328,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">God morgen</t>
+      <tg xml:lang="nob">
+       <t>God morgen</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">God morgon</t>
+      <tg xml:lang="swe">
+       <t>God morgon</t>
       </tg>
     </mg>
   </e>
@@ -359,11 +359,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">God dag</t>
+      <tg xml:lang="nob">
+       <t>God dag</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">God dag</t>
+      <tg xml:lang="swe">
+       <t>God dag</t>
       </tg>
     </mg>
   </e>
@@ -390,11 +390,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">God kveld</t>
+      <tg xml:lang="nob">
+       <t>God kveld</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">God kväll</t>
+      <tg xml:lang="swe">
+       <t>God kväll</t>
       </tg>
     </mg>
   </e>
@@ -413,11 +413,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">God natt</t>
+      <tg xml:lang="nob">
+       <t>God natt</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">God natt</t>
+      <tg xml:lang="swe">
+       <t>God natt</t>
       </tg>
     </mg>
   </e>
@@ -447,11 +447,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Hvordan er det med deg?</t>
+      <tg xml:lang="nob">
+       <t>Hvordan er det med deg?</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Hur är det med dig?</t>
+      <tg xml:lang="swe">
+       <t>Hur är det med dig?</t>
       </tg>
     </mg>
   </e>
@@ -481,11 +481,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Med meg er det bra</t>
+      <tg xml:lang="nob">
+       <t>Med meg er det bra</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Med mig är det bra</t>
+      <tg xml:lang="swe">
+       <t>Med mig är det bra</t>
       </tg>
     </mg>
   </e>
@@ -515,11 +515,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Med meg er det dårlig</t>
+      <tg xml:lang="nob">
+       <t>Med meg er det dårlig</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Med mig är det dåligt</t>
+      <tg xml:lang="swe">
+       <t>Med mig är det dåligt</t>
       </tg>
     </mg>
   </e>
@@ -541,11 +541,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Hva vil du ha å drikke?</t>
+      <tg xml:lang="nob">
+       <t>Hva vil du ha å drikke?</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Vad vil du dricka?</t>
+      <tg xml:lang="swe">
+       <t>Vad vil du dricka?</t>
       </tg>
     </mg>
   </e>
@@ -575,11 +575,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Hva vil du ha å spise?</t>
+      <tg xml:lang="nob">
+       <t>Hva vil du ha å spise?</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Vad vil du äta?</t>
+      <tg xml:lang="swe">
+       <t>Vad vil du äta?</t>
       </tg>
     </mg>
   </e>
@@ -609,11 +609,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Skål!</t>
+      <tg xml:lang="nob">
+       <t>Skål!</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Skål!</t>
+      <tg xml:lang="swe">
+       <t>Skål!</t>
       </tg>
     </mg>
   </e>
@@ -643,11 +643,11 @@
       <semantics>
         <sem class="PHRASES"/>
       </semantics>
-      <tg>
-        <t xml:lang="nob">Kan jeg få regningen?</t>
+      <tg xml:lang="nob">
+       <t>Kan jeg få regningen?</t>
       </tg>
-      <tg>
-        <t xml:lang="swe">Kan jag få räkningen?</t>
+      <tg xml:lang="swe">
+       <t>Kan jag få räkningen?</t>
       </tg>
     </mg>
   </e>

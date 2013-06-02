@@ -54,10 +54,10 @@ def create_entry(row, semantics=['TODO']):
     semantics = E.semantics(*semantics)
 
     if _nob:
-        tgs.append( tg( t(_nob, {XML_LANG: 'nob'})))
+        tgs.append( tg( t(_nob), {XML_LANG: 'nob'}))
 
     if _swe:
-        tgs.append( tg( t(_swe, {XML_LANG: 'swe'})))
+        tgs.append( tg( t(_swe), {XML_LANG: 'swe'}))
 
     _img = row.get('img', False)
     _mp3 = row.get('mp3', False)

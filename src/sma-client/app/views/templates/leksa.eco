@@ -10,7 +10,8 @@
      id="leksa-options">
     <ul data-role="listview" data-theme="a" data-divider-theme="a" class="ui-listview">
         <li><a href="#mainMenu" data-transition="slide">Home</a></li>
-        <li><a href="#leksaOptions">Leksa Options</a></li>
+        <li><a href="#leksaSelect">Choose category</a></li>
+<!--        <li><a href="#leksaOptions">Game options</a></li> -->
     </ul>
 </div>
 <div data-role="panel"
