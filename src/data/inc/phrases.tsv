@@ -1,21 +1,21 @@
 sma	nob	swe	mp3	img
-Im guarkah	Jeg forstår ikke	Jag förstår inte	jeg forstår ikke ED.mp3	jeg forstår ikke AD.mp3,jeg forstår ikke KB.mp3	1.im guarkah.jpg
-Im govlh	Jeg hører ikke	Jag hör inte	jeg hører ikke ED.mp3,jeg hører ikke AD.mp3,jeg hører ikke KB.mp3	2.im govlh.jpg
-Im vuejnieh	Jeg ser ikke	Jag ser inte	jeg ser ikke ED.mp3,jeg ser ikke AD.mp3,jeg ser ikke KB.mp3	3.im vuejnieh.jpg
-Gïerth mannem	Unnskyld meg	Ursäkta mig	unnskyld meg ED.mp3,unnskyld meg AD.mp3,unnskyld meg KB.mp3	4.gïerth mannem.jpg
-Jaavoe	Ja	Ja	ja ED.mp3,ja AD.mp3,ja KB.mp3	5.jaavoe.jpg
-Ijje	Nei	Nej	nei ED.mp3,nei AD.mp3,nei KB.mp3	6.ijje.jpg
-Im daejrieh	Jeg vet ikke	Jag vet inte	jeg vet ikke ED.mp3,jeg vet ikke AD.mp3,jeg vet ikke KB.mp3	7.im daejrieh.jpg
-Garrah	Venstre	vänster	venstre ED.mp3,venstre AD.mp3,venstre KB.mp3	8.garrah.jpg
-Åelkies	Høyre	Höger	høyre ED.mp3,høyre AD.mp3,høyre KB.mp3	9.åelkies.jpg
-Buerie aerede	God morgen	God morgon	god morgen ED.mp3,god morgen AD.mp3,god morgen KB.mp3	10.buerie aerede.jpg
-Buerie biejjie	God dag	God dag	god dag ED.mp3,god dag AD.mp3,god dag KB.mp3	11.buerie biejjie.jpg
-Buerie iehkede	God kveld	God kväll	god kveld ED.mp3,god kveld AD.mp3,god kveld KB.mp3	12.buerie iehkede.jpg
-Buerie jïjje	God natt	God natt	god natt AD.mp3,god natt KB.mp3,13.buerie jïjje.jpg
-Guktie datnine?	Hvordan er det med deg?	Hur är det med dig?	hvordan er det med deg ED.mp3,hvordan er det med deg AD.mp3,hvordan er det med deg KB.mp3	14.guktie datnine.jpg
-Mannine hijven	Med meg er det bra	Med mig är det bra	med meg er det bra ED.mp3,med meg er det bra AD.mp3,med meg er det bra KB.mp3	15.mannine hijven.jpg
-Mannine nåekies	Med meg er det dårlig	Med mig är det dåligt	med meg er det dårlig ED.mp3,med meg er det dårlig AD.mp3,med meg er det dårlig KB.mp3	16.mannine nåekies.jpg
-Maam sïjhth jovkedh?	Hva vil du ha å drikke?	Vad vil du dricka?	hva vil du drikke ED.mp3,hva vil du drikke AD.mp3,17.maam sïjhth jovkedh.jpg
-Maam sïjhth byöpmedidh?	Hva vil du ha å spise?	Vad vil du äta?	hva vil du spise ED.mp3,hva vil du spise AD.mp3,hva vil du spise KB.mp3	18.maam sïjhth byöpmedidh.jpg
-Bööresth!	Skål!	Skål!	skål ED.mp3,skål AD.mp3,skål KB.mp3	19.bööresth.jpg
-Åadtjoem reeknegem?	Kan jeg få regningen?	Kan jag få räkningen?	får jeg regningen ED.mp3,får jeg regningen AD.mp3,får jeg regningen KB.mp3	20.åadtjoem reeknegem.jpg
+Im guarkah	Jeg forstår ikke	Jag förstår inte	ED/im_guarkah.mp3,AD/im_guarkah.mp3,KB/im_guarkah.mp3	im_guarkah.jpg
+Im govlh	Jeg hører ikke	Jag hör inte	ED/im_govlh.mp3,AD/im_govlh.mp3,KB/im_govlh.mp3	im_govlh.jpg
+Im vuejnieh	Jeg ser ikke	Jag ser inte	ED/im_vuejnieh.mp3,AD/im_vuejnieh.mp3,KB/im_vuejnieh.mp3	im_vuejnieh.jpg
+Gïerth mannem	Unnskyld meg	Ursäkta mig	ED/g_ii_erth_mannem.mp3,AD/g_ii_erth_mannem.mp3,KB/g_ii_erth_mannem.mp3	g_ii_erth_mannem.jpg
+Jaavoe	Ja	Ja	ED/jaavoe.mp3,AD/jaavoe.mp3,KB/jaavoe.mp3	jaavoe.jpg
+Ijje	Nei	Nej	ED/ijje.mp3,AD/ijje.mp3,KB/ijje.mp3	ijje.jpg
+Im daejrieh	Jeg vet ikke	Jag vet inte	ED/im_daejrieh.mp3,AD/im_daejrieh.mp3,KB/im_daejrieh.mp3	im_daejrieh.jpg
+Garrah	Venstre	vänster	ED/garrah.mp3,AD/garrah.mp3,KB/garrah.mp3	garrah.jpg
+Åelkies	Høyre	Höger	ED/aa_elkies.mp3,AD/aa_elkies.mp3,KB/aa_elkies.mp3	aa_elkies.jpg
+Buerie aerede	God morgen	God morgon	ED/buerie_aerede.mp3,AD/buerie_aerede.mp3,KB/buerie_aerede.mp3	buerie_aerede.jpg
+Buerie biejjie	God dag	God dag	ED/buerie_biejjie.mp3,AD/buerie_biejjie.mp3,KB/buerie_biejjie.mp3	buerie_biejjie.jpg
+Buerie iehkede	God kveld	God kväll	ED/buerie_iehkede.mp3,AD/buerie_iehkede.mp3,KB/buerie_iehkede.mp3	buerie_iehkede.jpg
+Buerie jïjje	God natt	God natt	ED,AD,KB	
+Guktie datnine?	Hvordan er det med deg?	Hur är det med dig?	ED/guktie_datnine.mp3,AD/guktie_datnine.mp3,KB/guktie_datnine.mp3	guktie_datnine.jpg
+Mannine hijven	Med meg er det bra	Med mig är det bra	ED/mannine_hijven.mp3,AD/mannine_hijven.mp3,KB/mannine_hijven.mp3	mannine_hijven.jpg
+Mannine nåekies	Med meg er det dårlig	Med mig är det dåligt	ED/mannine_n_aa_ekies.mp3,AD/mannine_n_aa_ekies.mp3,KB/mannine_n_aa_ekies.mp3	mannine_n_aa_ekies.jpg
+Maam sïjhth jovkedh?	Hva vil du ha å drikke?	Vad vil du dricka?	ED,AD,KB	
+Maam sïjhth byöpmedidh?	Hva vil du ha å spise?	Vad vil du äta?	ED/maam_s_ii_jhth_by_oe_pmedidh.mp3,AD/maam_s_ii_jhth_by_oe_pmedidh.mp3,KB/maam_s_ii_jhth_by_oe_pmedidh.mp3	maam_s_ii_jhth_by_oe_pmedidh.jpg
+Bööresth!	Skål!	Skål!	ED/b_oe_oeresth.mp3,AD/b_oe_oeresth.mp3,KB/b_oe_oeresth.mp3	b_oe_oeresth.jpg
+Åadtjoem reeknegem?	Kan jeg få regningen?	Kan jag få räkningen?	ED/aa_adtjoem_reeknegem.mp3,AD/aa_adtjoem_reeknegem.mp3,KB/aa_adtjoem_reeknegem.mp3	aa_adtjoem_reeknegem.jpg

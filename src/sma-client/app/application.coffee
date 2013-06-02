@@ -247,6 +247,9 @@ module.exports = class Application
     }
 
     @options = DSt.get('app_options') || default_options
+    @options.interface_lang = 'nob'
+    @options.help_lang = 'nob'
+
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()
 
@@ -277,9 +280,7 @@ module.exports = class Application
     @errorView = new ErrorView()
     @globalOptionsView = new GlobalOptionsView()
 
-    @conceptList = new ConceptList({
-      collection: @conceptdb
-    })
+    @conceptList = new ConceptList()
 
     @conceptView = new ConceptView
 

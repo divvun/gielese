@@ -2,7 +2,7 @@
 
     * TODO: wordlist
 
-       - split page into nav and content; larger devices, always show menu
+       - split page into nav and content; larger devices, always show menu, on smaller devices, disable the menu.
          - lemmas on left
          - article display on the right
        - adjust speed of playback?
@@ -12,8 +12,8 @@
 
 
 <div data-role="header">
-    <a id="show-panel" data-icon="gear">Words</a>
-    <h2>Wordlist</h2>
+    <a id="show-panel" data-icon="gear">Categories</a>
+    <h2>Vocabulary</h2>
     <a href="/" data-transition="slide" data-icon="arrow-r">Back</a>
 </div>
 <div data-role="panel" 
@@ -22,24 +22,24 @@
      data-theme="a"
      id="word-links">
     <ul data-role="listview" data-theme="a" data-divider-theme="a" class="ui-listview">
-        <% for m in @models: %>
-          <li>
-            <a href="#concept/<%- m.cid %>">
-              <%- m.concept_value %>
-            </a>
-          </li>
-        <% end %>
-        <li><a href="#mainMenu" data-transition="slide">Home</a></li>
-        <li><a href="#leksaOptions">Leksa Options</a></li>
+        <li>
+            <a href="#conceptSet/BODYPART">Face</a>
+        </li>
+        <li>
+            <a href="#conceptSet/GREETINGS">Greetings</a>
+        </li>
+        <li>
+            <a href="#conceptSet/PHRASES">Phrases</a>
+        </li>
+        <li>
+            <a href="#conceptSet/FOOD">Food</a>
+        </li>
+
     </ul>
 </div>
 <div data-role="content">
-    <ul data-role="listview"
-        data-theme="c" 
-        data-dividertheme="b" 
-        data-inset="true">
-        <li role="heading" data-role="list-divider">Parts of the face</li>
-    </ul>
+    <div class="ui-grid-a" id="concept_list_view">
+    </div>
 </div>
 <div data-role="footer">
     <h1></h1>

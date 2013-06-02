@@ -1,4 +1,5 @@
 LeksaView = require 'views/leksa_view'
+ConceptList = require 'views/concept_list'
 
 module.exports = class Router extends Backbone.Router
 
@@ -14,12 +15,12 @@ module.exports = class Router extends Backbone.Router
     'mainMenu': 'mainMenu'
 
     'leksa/:category': 'leksa'
+    '#leksa/:category': 'leksa'
 
     'leksaOptions': 'leksaOptions'
     'wordlist': 'wordlist'
     'options': 'options'
     'error': 'errorPage'
-
 
     # omg.
     'concept/:id': 'conceptView'
@@ -27,9 +28,11 @@ module.exports = class Router extends Backbone.Router
 
     '#mainMenu': 'mainMenu'
 
+    'conceptSet/:category': 'conceptSet'
+    '#conceptSet/:category': 'conceptSet'
+
     '#home': 'index'
     '#wordlist': 'wordlist'
-    '#leksa/:category': 'leksa'
 
     '#leksaOptions': 'leksaOptions'
     '#options': 'options'
@@ -83,8 +86,16 @@ module.exports = class Router extends Backbone.Router
   options: ->
     @changePage(app.globalOptionsView)
 
+  conceptSet: (category) ->
+    # $('content #content').html app.leksaView.render().el
+    app.conceptList = new ConceptList(category)
+    app.conceptList.initialize()
+    @changePage(app.conceptList)
+
   wordlist: ->
     # $('content #content').html app.leksaView.render().el
+    app.conceptList = new ConceptList("BODYPART")
+    app.conceptList.initialize()
     @changePage(app.conceptList)
 
   conceptView: (id) ->

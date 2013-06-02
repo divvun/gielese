@@ -1,7 +1,20 @@
-<li>
-    <a href="#concept/<%- @cid %>" 
+<div class="ui-block-a">
+    <a href="#" 
+       class="audio_link"
        data-concept-cid="<%- @cid %>">
-       <h2> <%- @model.get('concept_value') %> </h2>
+        <img width="16" height="16" src="/static/client/images/speaker.png" /> <%- @model.get('concept_value') %>
     </a>
-</li>
+    <ul>
+        <% for tx in @translations: %>
+            <li> <%- tx.get('concept_value') %></li>
+        <% end %>
+    </ul>
+</div>
 
+<div class="ui-block-b">
+<% if @model.hasImage(): %>
+    <img width="150" 
+         height="150" 
+         src="<%- @model.hasImage() %>" />
+<% end %>
+</div>

@@ -6,15 +6,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[jeg forstår ikke AD.mp3,jeg forstår ikke KB.mp3]]></path>
-        </image>
-        <image>
-          <path><![CDATA[jeg forstår ikke AD.mp3,jeg forstår ikke KB.mp3]]></path>
+          <path><![CDATA[/static/images/phrases/small/im_guarkah.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[jeg forstår ikke ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/im_guarkah.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/phrases/AD/im_guarkah.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/audio/phrases/KB/im_guarkah.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -37,18 +40,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[2.im govlh.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/im_govlh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[jeg hører ikke ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/im_govlh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[jeg hører ikke AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/im_govlh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[jeg hører ikke KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/im_govlh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -71,18 +74,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[3.im vuejnieh.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/im_vuejnieh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[jeg ser ikke ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/im_vuejnieh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[jeg ser ikke AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/im_vuejnieh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[jeg ser ikke KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/im_vuejnieh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -105,18 +108,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[4.gïerth mannem.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/g_ii_erth_mannem.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[unnskyld meg ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/g_ii_erth_mannem.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[unnskyld meg AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/g_ii_erth_mannem.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[unnskyld meg KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/g_ii_erth_mannem.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -139,18 +142,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[5.jaavoe.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/jaavoe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[ja ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/jaavoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[ja AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/jaavoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[ja KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/jaavoe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -173,18 +176,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[6.ijje.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/ijje.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nei ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/ijje.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nei AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/ijje.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nei KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/ijje.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -207,18 +210,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[7.im daejrieh.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/im_daejrieh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[jeg vet ikke ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/im_daejrieh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[jeg vet ikke AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/im_daejrieh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[jeg vet ikke KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/im_daejrieh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -241,18 +244,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[8.garrah.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/garrah.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[venstre ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/garrah.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[venstre AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/garrah.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[venstre KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/garrah.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -275,18 +278,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[9.åelkies.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/aa_elkies.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[høyre ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/aa_elkies.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[høyre AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/aa_elkies.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[høyre KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/aa_elkies.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -309,18 +312,15 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[10.buerie aerede.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/buerie_aerede.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[god morgen ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/buerie_aerede.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[god morgen AD.mp3]]></path>
-        </sound>
-        <sound>
-          <path><![CDATA[god morgen KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/buerie_aerede.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -343,18 +343,15 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[11.buerie biejjie.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/buerie_biejjie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[god dag ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/buerie_biejjie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[god dag AD.mp3]]></path>
-        </sound>
-        <sound>
-          <path><![CDATA[god dag KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/buerie_biejjie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -377,18 +374,15 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[12.buerie iehkede.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/buerie_iehkede.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[god kveld ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/buerie_iehkede.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[god kveld AD.mp3]]></path>
-        </sound>
-        <sound>
-          <path><![CDATA[god kveld KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/buerie_iehkede.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -411,13 +405,7 @@
     <media>
       <sounds>
         <sound>
-          <path><![CDATA[god natt AD.mp3]]></path>
-        </sound>
-        <sound>
-          <path><![CDATA[god natt KB.mp3]]></path>
-        </sound>
-        <sound>
-          <path><![CDATA[13.buerie jïjje.jpg]]></path>
+          <path><![CDATA[/static/audio/phrases/buerie_j_ii_jje.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -440,18 +428,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[14.guktie datnine.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/guktie_datnine.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[hvordan er det med deg ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/guktie_datnine.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[hvordan er det med deg AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/guktie_datnine.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[hvordan er det med deg KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/guktie_datnine.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -474,18 +462,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[15.mannine hijven.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/mannine_hijven.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[med meg er det bra ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/mannine_hijven.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[med meg er det bra AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/mannine_hijven.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[med meg er det bra KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/mannine_hijven.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -508,18 +496,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[16.mannine nåekies.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/mannine_n_aa_ekies.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[med meg er det dårlig ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/mannine_n_aa_ekies.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[med meg er det dårlig AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/mannine_n_aa_ekies.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[med meg er det dårlig KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/mannine_n_aa_ekies.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -542,13 +530,10 @@
     <media>
       <sounds>
         <sound>
-          <path><![CDATA[hva vil du drikke ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/maam_s_ii_jhth_jovkedh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[hva vil du drikke AD.mp3]]></path>
-        </sound>
-        <sound>
-          <path><![CDATA[17.maam sïjhth jovkedh.jpg]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/maam_s_ii_jhth_jovkedh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -571,18 +556,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[18.maam sïjhth byöpmedidh.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/maam_s_ii_jhth_by_oe_pmedidh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[hva vil du spise ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/maam_s_ii_jhth_by_oe_pmedidh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[hva vil du spise AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/maam_s_ii_jhth_by_oe_pmedidh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[hva vil du spise KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/maam_s_ii_jhth_by_oe_pmedidh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -605,18 +590,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[19.bööresth.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/b_oe_oeresth.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[skål ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/b_oe_oe_resth.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[skål AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/b_oe_oe_resth.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[skål KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/b_oe_oeresth.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -639,18 +624,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[20.åadtjoem reeknegem.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/aa_adtjoem_reeknegem.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[får jeg regningen ED.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/ED/aa_adtjoem_reeknegem.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[får jeg regningen AD.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/AD/aa_adtjoem_reeknegem.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[får jeg regningen KB.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/aa_adtjoem_reeknegem.mp3]]></path>
         </sound>
       </sounds>
     </media>

@@ -7,7 +7,7 @@ class UpdatingConceptView extends Backbone.View
       cid: @model.cid
       concept_value: @model.get('concept_value')
       concept_type: @model.get('concept_type')
-      translations: app.conceptdb.getTranslationsOf @model
+      translations: @model.getTranslationsToLang app.options.help_lang
     })
 
     this
@@ -17,7 +17,7 @@ module.exports = class ConceptList extends Backbone.View
   events:
     'click .audio_link': 'findAudio'
     'click #show-panel': "revealOptionsPanel"
-    'click ul.ui-listview a': 'clickTest'
+    # 'click ul.ui-listview a': 'clickTest'
   
   clickTest: (evt) ->
     $(evt.target).get
@@ -45,7 +45,11 @@ module.exports = class ConceptList extends Backbone.View
 
   template: require './templates/concept_list'
 
+  constructor: (@for_category) ->
+    super
+
   initialize: () ->
+    @collection = app.conceptdb
     super
     @_conceptViews = []
     #
@@ -53,10 +57,13 @@ module.exports = class ConceptList extends Backbone.View
       
   render: ->
 
+    if @for_category
+      semantics = [@for_category]
+
     filtered_collection = @collection.where({
+      'semantics': semantics
       'language': 'sma'
-    }).filter (o) ->
-      "BODYPART" in o.get('semantics')
+    })
 
     @$el.html @template {
       models: filtered_collection.map (m) ->
@@ -76,6 +83,6 @@ module.exports = class ConceptList extends Backbone.View
 
     _(@_conceptViews).each (cv) =>
       _el = cv.render().$el.html()
-      @$el.find('ul[data-role="listview"]').append(_el)
+      @$el.find('#concept_list_view').append(_el)
 
     this

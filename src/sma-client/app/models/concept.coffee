@@ -17,6 +17,10 @@ module.exports = class Concept extends Backbone.Model
         return has_audio_file
     return false
 
+  getTranslationsToLang: (lang) ->
+    @getTranslations().filter (c) =>
+      c.get('language') == lang
+
   getTranslations: () ->
     @collection.filter (comp_concept) =>
       if _.contains( @.get('translations')
@@ -34,17 +38,21 @@ module.exports = class Concept extends Backbone.Model
         return has_audio_file
     return false
   
-  playAudio: (sound_id) ->
+  playAudio: (opts) ->
     has_audio_file = @hasAudio()
     if has_audio_file and soundManager.enabled
-      if not sound_id?
+      if not opts.sound_id?
         sound_id = "concept-audio-#{@.cid}"
+      else
+        sound_id = opts.sound_id
       soundManager.destroySound(sound_id)
-      soundManager.createSound({
+      s = soundManager.createSound({
          id: sound_id
          url: has_audio_file
       })
-      soundManager.play(sound_id)
+      if s.isHTML5
+        s._a.playbackRate = opts.rate
+      s.play()
 
     return false
 
