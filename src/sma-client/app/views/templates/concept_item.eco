@@ -1,9 +1,13 @@
 <div class="ui-block-a">
+    <% if @model.hasAudio(): %>
     <a href="#" 
        class="audio_link"
        data-concept-cid="<%- @cid %>">
         <img width="16" height="16" src="/static/client/images/speaker.png" /> <%- @model.get('concept_value') %>
     </a>
+    <% else: %>
+        <%- @model.get('concept_value') %>
+    <% end %>
     <ul>
         <% for tx in @translations: %>
             <li> <%- tx.get('concept_value') %></li>

@@ -2,12 +2,16 @@ class UpdatingConceptView extends Backbone.View
   template: require './templates/concept_item'
 
   render: ->
+    lang = switch app.options.help_lang
+            when "no" then "nob"
+            when "sv" then "swe"
+            else app.options.help_lang
     @$el.html @template({
       model: @model
       cid: @model.cid
       concept_value: @model.get('concept_value')
       concept_type: @model.get('concept_type')
-      translations: @model.getTranslationsToLang app.options.help_lang
+      translations: @model.getTranslationsToLang lang
     })
 
     this
@@ -32,13 +36,14 @@ module.exports = class ConceptList extends Backbone.View
     return false
 
   findAudio: (event) ->
+    console.log event.target
     concept_id = $(event.target)
-                  .parent('a.audio_link')
-                  .attr('data-concept')
+                  .attr('data-concept-cid')
 
     concept = app.conceptdb.getByCid concept_id
-    sound_id = "wordListSound"
-    concept.playAudio(sound_id)
+    if concept
+      sound_id = "wordListSound"
+      concept.playAudio(sound_id)
     return false
 
   className: 'conceptlist'

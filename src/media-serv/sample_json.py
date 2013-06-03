@@ -116,6 +116,60 @@ leksa_questions = [
     , 'category': "heelsedh"
     },
 
+    # -*- food -*- 
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["FOOD"]
+                 }
+    , 'answer_similarity': { 'semantics': ["FOOD"] }
+    , 'level': 1
+    , 'answers': 1
+    , 'name': "Bodypart image to word"
+    , 'category': "food"
+    },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+                 , 'semantics': ["FOOD"]
+                 }
+    , 'answer_similarity': { }
+    , 'level': 2
+    , 'answers': 2
+    , 'name': "Bodypart word to image"
+    , 'category': "food"
+    },
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["FOOD"]
+                 }
+    , 'answer_similarity': { 'semantics': ["FOOD"] }
+    , 'level': 3
+    , 'answers': 2
+    , 'name': "Bodypart image to 2-word"
+    , 'category': "food"
+    },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+                 , 'semantics': ["FOOD"]
+                 }
+    , 'answer_similarity': { 'semantics': ["FOOD"] }
+    , 'level': 4
+    , 'answers': 2
+    , 'name': "Bodypart word to 2-img"
+    , 'category': "food"
+    },
+    { 'type': 'word_to_word'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+                 , 'semantics': ["FOOD"]
+                 }
+    , 'answer_similarity': { 'features': ["BISYL", "HT"]
+                           , 'semantics': ["FOOD"]
+                           }
+    , 'level': 5
+    , 'answers': 4
+    , 'category': "food"
+    },
+
+
 ]
 
 

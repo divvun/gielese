@@ -6,18 +6,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/laejpie.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/laejpie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/laejpie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/laejpie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/laejpie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/laejpie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/laejpie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/laejpie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -40,18 +40,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/muerjie.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/muerjie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/muerjie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/muerjie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/muerjie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/muerjie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/muerjie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/muerjie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -74,15 +74,15 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/munnie.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/munnie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/munnie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/munnie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/munnie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/munnie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -105,18 +105,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/guelie.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/guelie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/guelie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/guelie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/guelie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/guelie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/guelie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/guelie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -139,18 +139,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/kroenesaate.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/kroenesaate.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/kroenesaate.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/kroenesaate.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/kroenesaate.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/kroenesaate.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/kroenesaate.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/kroenesaate.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -173,18 +173,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/bearkoe.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/bearkoe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/bearkoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/bearkoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/bearkoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/bearkoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/bearkoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/bearkoe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -207,18 +207,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/vuasta.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/vuasta.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/vuasta.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/vuasta.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/vuasta.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/vuasta.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/vuasta.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/vuasta.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -241,18 +241,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/peara.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/peara.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/peara.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/peara.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/peara.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/peara.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/peara.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/peara.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -275,18 +275,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/goerve.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/goerve.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/goerve.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/goerve.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/goerve.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/goerve.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/goerve.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/goerve.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -309,18 +309,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/voeje.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/voeje.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/voeje.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/voeje.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/voeje.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/voeje.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/voeje.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/voeje.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -343,18 +343,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/joptse.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/joptse.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/joptse.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/joptse.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/joptse.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/joptse.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/joptse.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/joptse.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -377,18 +377,19 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/tjaetsie.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/tjaetsie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/tjaetsie.mp3]]></path>
+          <!-- TODO: sound missing? -->
+          <path><![CDATA[/static/audio/food/ED/tjaetsie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/tjaetsie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/tjaetsie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/tjaetsie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/tjaetsie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -411,18 +412,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/aaloe.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/aaloe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/aaloe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/aaloe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/aaloe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/aaloe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/aaloe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/aaloe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -445,18 +446,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/mielhkie.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/mielhkie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/mielhkie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/mielhkie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/mielhkie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/mielhkie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/mielhkie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/mielhkie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -479,18 +480,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/voelege.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/voelege.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/voelege.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/voelege.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/voelege.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/voelege.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/voelege.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/voelege.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -513,18 +514,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/prïhtjege.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/pr_ii_htjege.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/prïhtjege.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/pr_ii_htjege.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/prïhtjege.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/pr_ii_htjege.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/prïhtjege.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/pr_ii_htjege.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -547,18 +548,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/beapmoe.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/beapmoe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/beapmoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/beapmoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/beapmoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/beapmoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/beapmoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/beapmoe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -581,18 +582,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/aeredsbeapmoe.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/aeredsbeapmoe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/aeredsbeapmoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/aeredsbeapmoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/aeredsbeapmoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/aeredsbeapmoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/aeredsbeapmoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/aeredsbeapmoe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -610,23 +611,24 @@
   </e>
   <e>
     <lg>
-      <l>gaskebiejjie- beapmoe</l>
+      <l>gaskebiejjie-beapmoe</l>
     </lg>
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/gaskebiejjie-beapmoe.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/gaskebiejjiebeapmoe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[gaskebiejjie_/static/audio/beapmoeh/ED/beapmoe.mp3]]></path>
+          <!-- TODO: sound missing -->
+          <path><![CDATA[gaskebiejjie_/static/audio/food/ED/gaskebiejjiebeapmoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[gaskebiejjie_/static/audio/beapmoeh/AD/beapmoe.mp3]]></path>
+          <path><![CDATA[gaskebiejjie_/static/audio/food/AD/gaskebiejjiebeapmoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[gaskebiejjie_/static/audio/beapmoeh/KB/beapmoe.mp3]]></path>
+          <path><![CDATA[gaskebiejjie_/static/audio/food/KB/gaskebiejjiebeapmoe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -649,18 +651,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/iehkedsbeapmoe.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/iehkedsbeapmoe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/iehkedsbeapmoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/iehkedsbeapmoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/iehkedsbeapmoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/iehkedsbeapmoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/iehkedsbeapmoe.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/iehkedsbeapmoe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -683,18 +685,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/jovkedh.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/jovkedh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/jovkedh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/jovkedh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/jovkedh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/jovkedh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/jovkedh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/jovkedh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -717,18 +719,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/byöpmedidh.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/by_oe_pmedidh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/byöpmedidh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/by_oe_pmedidh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/byöpmedidh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/by_oe_pmedidh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/byöpmedidh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/by_oe_pmedidh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -751,18 +753,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/doeltedh.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/doeltedh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/doeltedh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/doeltedh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/doeltedh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/doeltedh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/doeltedh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/doeltedh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -783,15 +785,17 @@
       <l>bissedh</l>
     </lg>
     <media>
+      <images>
+        <image>
+          <path><![CDATA[/static/images/food/small/bissedh.jpg]]></path>
+        </image>
+      </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/bissedh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/bissedh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/bissedh.mp3]]></path>
-        </sound>
-        <sound>
-          <path><![CDATA[24.bissedh.jpg]]></path>
+          <path><![CDATA[/static/audio/food/AD/bissedh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -814,18 +818,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/bååhkesjidh.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/b_aa_aa_hkesjidh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/bååhkesjidh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/b_aa_aa_hkesjidh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/bååhkesjidh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/b_aa_aa_hkesjidh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/bååhkesjidh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/b_aa_aa_hkesjidh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -848,18 +852,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/juerjiehtidh.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/jurjiehtidh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/jurjiehtidh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/jurjiehtidh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/jurjiehtidh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/jurjiehtidh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/jurjiehtidh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/jurjiehtidh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -882,15 +886,15 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/dealodh.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/dealodh.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/dealodh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/dealodh.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/dealodh.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/dealodh.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -913,18 +917,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/gudtsien.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/gudtsien.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/gudtsien.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/gudtsien.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/gudtsien.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/gudtsien.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/gudtsien.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/gudtsien.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -947,18 +951,18 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/image/beapmoeh/small/duelie.jpg]]></path>
+          <path><![CDATA[/static/images/food/small/duelie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/ED/duelie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/ED/duelie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/AD/duelie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/AD/duelie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/beapmoeh/KB/duelie.mp3]]></path>
+          <path><![CDATA[/static/audio/food/KB/duelie.mp3]]></path>
         </sound>
       </sounds>
     </media>
