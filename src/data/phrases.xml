@@ -590,7 +590,7 @@
     <media>
       <images>
         <image>
-          <path><![CDATA[/static/images/phrases/small/b_oe_oeresth.jpg]]></path>
+          <path><![CDATA[/static/images/phrases/small/b_oe_oe_resth.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -601,7 +601,7 @@
           <path><![CDATA[/static/audio/phrases/AD/b_oe_oe_resth.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[/static/audio/phrases/KB/b_oe_oeresth.mp3]]></path>
+          <path><![CDATA[/static/audio/phrases/KB/b_oe_oe_resth.mp3]]></path>
         </sound>
       </sounds>
     </media>

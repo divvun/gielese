@@ -4,14 +4,10 @@
 </div> 
 
 <div data-role="content">
-    <ul data-role="listview" 
-        data-theme="d" 
-        data-dividertheme="z" 
-        data-inset="true">
-        <li role="heading" data-role="list-divider">Games</li>
-    </ul>
+    <h2 class="heading" data-role="list-divider">Games</h2>
 
-    <div class="ui-grid-b" id="main_menu">
+    <div id="main_menu">
+    <div class="ui-grid-b">
 	    <div class="ui-block-a">
 	        <a class="square" href="#leksaSelect" data-transition="slide">
 	            <span class="link_image"></span>
@@ -26,20 +22,16 @@
 	    </div>	   
     </div>
 
-    <ul data-role="listview" 
-        data-theme="d" 
-        data-dividertheme="z" 
-        data-inset="true">
-        <li role="heading" data-role="list-divider">Debug</li>
-    </ul>
+    <h2 class="heading" data-role="list-divider">Debug</h2>
 
-    <div class="ui-grid-b" id="main_menu">
+    <div class="ui-grid-b">
 	    <div class="ui-block-a">
 	        <a class="square" href="#reset" data-transition="slide">
 	            <span class="link_image"></span>
 	            <span class="link_word">Reset</span>
 	        </a>
 	    </div>
+    </div>
     </div>
 
 </div> 

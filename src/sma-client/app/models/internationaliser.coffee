@@ -16,20 +16,6 @@ module.exports = class Internationalisations extends Backbone.Collection
     app.loadingTracker.markReady('translations.json')
     @ready = true
 
-    # console.log fGT("Help language")
-  
-  # where: (params) ->
-  #   # TODO: features
-  #   if 'semantics' of params
-  #     new_coll = @whereSemantics(params.semantics)
-  #     delete params.semantics
-  #     if Object.keys(params).length > 0
-  #       return new_coll.where(params)
-  #     else
-  #     	return new_coll.models
-  #     
-  #   super
-    
   getLocale: (locale) ->
     @where({locale: locale})[0]
 

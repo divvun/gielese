@@ -195,7 +195,7 @@ class LoadingTracker
 
   showLoading: () ->
     $.mobile.loading('show', {
-      text: 'Loading media...',
+      text: 'Loading...',
       textVisible: true,
       theme: 'c',
       html: ""
@@ -228,6 +228,12 @@ module.exports = class Application
         hashChange: true
         root: window.location.pathname
 
+      if not @loadingTracker.isReady()
+        @loadingTracker.showLoading()
+      # $.mobile.loading 'show',
+      #   text: 'Loading'
+      #   textVisible: true
+
       $(document).bind "pagechange", (e, data) ->
         webkit = $.browser.webkit
         not_string = data.toPage isnt "string"
@@ -236,9 +242,6 @@ module.exports = class Application
           app.router.index()
           return e.preventDefault()
 
-      # app.router.changePage(app.helloView)
-
-      # TODO: reenable cache when less changes are going on
       if window.app.options['enable_cache']?
         initWindowCache()
 
@@ -265,18 +268,6 @@ module.exports = class Application
     @questiondb.fetch()
     @internationalisations.fetch()
 
-    # TODO: depending on how slow this can be, may need to signal to user that
-    # we're still waiting for concepts
-    # $.getJSON '/data/concepts.json', false, (data) =>
-    #   console.log "Fetched #{data.length} concepts from /data/concepts.json"
-    #   @loadingTracker.markReady('concepts.json')
-    #   @conceptdb.add(data)
-
-    # $.getJSON '/data/leksa_questions.json', false, (data) =>
-    #   console.log "Fetched #{data.length} concepts from /data/leksa_questions.json"
-    #   @loadingTracker.markReady('leksa_questions.json')
-    #   @questiondb.add(data)
-
     @leksaUserProgression = new UserProgression()
     @leksaOptions = new LeksaOptions()
 
@@ -293,7 +284,7 @@ module.exports = class Application
 
     @conceptView = new ConceptView
 
-    soundManager.setup({
+    soundManager.setup
       url: "/static/client/swf/"
       debugMode: false
       useConsole: true
@@ -302,26 +293,5 @@ module.exports = class Application
       useFlashBlock: true
       onready: () ->
         console.log "SoundManager ready"
-    })
-
-    # threeSixtyPlayer.config = {
-    #   playNext: false
-    #   # , // stop after one sound, or play through list until end
-    #   autoPlay: false
-    #   # , // start playing the first sound right away
-    #   allowMultiple: false
-    #   # , // let many sounds play at once (false = one at a time)
-    #   loadRingColor: '#ccc'
-    #   # , // amount of sound which has loaded
-    #   playRingColor: '#000'
-    #   # , // amount of sound which has played
-    #   backgroundRingColor: '#eee'
-    #   # , // "default" color shown underneath everything else
-    #   animDuration: 500
-    #   # ,
-    #   animTransition: Animator.tx.bouncy
-    #   # // http://www.berniecode.com/writing/animator.html
-    # }
-
 
 window.app = new Application

@@ -44,6 +44,17 @@ module.exports = class Router extends Backbone.Router
     '#leksaSelect': 'leksaSelect'
 
   index: ->
+    c = 0
+    while not app.loadingTracker.isReady()
+      console.log c
+      c += 1
+
+    $.mobile.loading('hide')
+    interval = setInterval(() ->
+        $.mobile.loading('hide')
+        clearInterval(interval)
+    ,1)
+
     configured_already = DSt.get('gielese-configured')
     if configured_already
       @changePage(app.helloView)
