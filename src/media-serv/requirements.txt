@@ -1,5 +1,7 @@
+Babel==0.9.6
 Flask==0.9
 Flask-Actions==0.6.6
+Flask-Babel==0.8
 Flask-SQLAlchemy==0.16
 Jinja2==2.6
 SQLAlchemy==0.8.0
@@ -9,4 +11,6 @@ caveman==1.0
 flup==1.0.3.dev-20110405
 gunicorn==0.17.4
 lxml==3.1.0
+pytz==2013b
+speaklater==1.3
 wsgiref==0.1.2

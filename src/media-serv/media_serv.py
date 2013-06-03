@@ -91,6 +91,49 @@ def create_manifest(app_host):
     manifest = manifest_network + '\n'
     return manifest.decode('utf-8')
 
+def fmtForCallback(serialized_json, callback):
+    if not callback:
+        return serialized_json
+    else:
+        return "%s(%s)" % (callback, serialized_json)
+
+def fetch_messages(locale):
+    from polib import pofile
+
+    try:
+        _pofile = pofile('translations/%s/LC_MESSAGES/messages.po' % locale)
+    except:
+        return {}
+
+    jsentries = filter( lambda x: any(['.js' in a[0] for a in x.occurrences])
+                      , list(_pofile)
+                      )
+
+    return dict( [(e.msgid, e.msgstr or False) for e in jsentries] )
+
+
+@app.route('/data/translations.json', methods=['GET'])
+def bookmarklet_configs():
+    """ Compile a JSON response containing dictionary pairs,
+    and internationalization strings.
+    """
+    from flaskext.babel import get_locale
+
+    translations = ['sma', 'no', 'sv', 'en']
+
+    has_callback = request.args.get('callback', False)
+
+    data = [ {'locale': lx, 'messages': fetch_messages(lx)}
+             for lx in translations ]
+    
+    formatted = fmtForCallback(json.dumps(data), has_callback)
+
+    return Response( response=formatted
+                   , status=200
+                   , mimetype="application/json"
+                   )
+
+
 @app.route('/offline.media.appcache', methods=['GET'])
 def cache_manifest():
     from flask import Response

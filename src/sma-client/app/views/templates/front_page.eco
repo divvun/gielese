@@ -7,11 +7,10 @@
         <div class="question_blocks">
             <div class="question_block">
                 <div class="sub_question_block">
-                    <p class="lead">Since this is your first time, we
-                    have some questions!</p>
+                    <p class="lead"><%- fakeGetText "Since this is your first time, we have some questions!" %></p>
                     <div data-role="fieldcontain" id="help_language">
                         <fieldset data-role="controlgroup" data-setting="help_language,target_language">
-                            <legend>Help language</legend>
+                            <legend><%- fakeGetText "Help language" %></legend>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk</label>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="sma" data-subquestion="true">
@@ -24,14 +23,13 @@
                             -->
                         </fieldset>
 
-                        <p class="help">This affects what language is displayed in
-                            options and in-game help, and also vocabulary quizzes.</p>
+                        <p class="help"><%- fakeGetText "This affects what language is displayed in options and in-game help, and also vocabulary quizzes." %></p>
                     </div>
                 </div>
                 <div class="sub_question_block" style="display: none;">
                     <div data-role="fieldcontain" id="auxiliary_language">
                         <fieldset data-role="controlgroup" data-setting="help_language,target_language">
-                            <legend>Help language</legend>
+                            <legend><%- fakeGetText "Translation language" %></legend>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk</label>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="swe">
@@ -40,10 +38,7 @@
                             <label for="radio-choice-3">English</label>
                         </fieldset>
 
-                        <p class="help">You selected Åarjel Saemie as your help
-                        language, but you will still need a language to learn
-                        words. Note, you can change this at any time in the
-                        settings.</p>
+                        <p class="help"><%- fakeGetText "You selected South Saami as your help language, but you will still need a language to learn words. Note, you can change this at any time in the settings." %></p>
 
                     </div>
                 </div>
@@ -54,23 +49,19 @@
                 <div class="sub_question_block">
                     <div data-role="fieldcontain" id="create_account">
                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-setting="use_account">
-                            <legend>Create an account?</legend>
+                            <legend><%- fakeGetText "Create an account?" %></legend>
                             <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-a" value="true" data-subquestion="true">
                             <label for="create-user-account-a">Yes</label>
                             <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
                             <label for="create-user-account-b">No</label>
                         </fieldset>
-                        <p class="help">If you choose not to create an account, data will still be stored 
-                           anonymously, however, it may be erased if you clear your browser's stored data.</p>
-                        <p class="help">Having an account also allows you to
-                        compete with others, and integrates with courses.</p>
+                        <p class="help"><%- fakeGetText "If you choose not to create an account, data will still be stored anonymously, however, it may be erased if you clear your browser's stored data." %></p>
+                        <p class="help"><%- fakeGetText "Having an account also allows you to compete with others, and integrates with courses." %></p>
                     </div>
                 </div>
                 <% # TODO: maybe leave this to last step, because having a different view for this would be much better. %>
                 <div class="sub_question_block" style="display: none;">
-                    <p class="lead">Your progress will be stored online, and
-                    will syncronise when you connect if you play in offline
-                    mode.</p>
+                    <p class="lead"><%- fakeGetText "Your progress will be stored online, and will syncronise when you connect if you play in offline mode." %></p>
 	                <form id="user">
                         <div class="ui-grid-a">
                             <div class="ui-block-a">

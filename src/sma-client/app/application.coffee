@@ -16,6 +16,7 @@ ConceptView = require 'views/concept_view'
 ConceptDB = require 'models/conceptdb'
 QuestionDB = require 'models/questiondb'
 Question = require 'models/question'
+Internationalisations = require 'models/internationaliser' 
 # sample_concepts = require 'sample_data/sample_concepts'
 
 UserProgression = require 'models/user_progression'
@@ -34,6 +35,8 @@ arrayChunk = (a, s) ->
   n
 
 window.arrayChunk = arrayChunk
+
+window.i18n = new Internationalisations()
 
 fakeGetText = (string) ->
   ### Want to mark strings as requiring gettext somehow, so that
@@ -54,15 +57,17 @@ fakeGetText = (string) ->
       we assume the user does not really want to switch.
   ###
   
-  if window.localization?
-    localized = window.localization[string]
-    if localized?
-      if localized
-        return localized
+  if window.i18n?
+  	console.log "has i18n"
+  	if window.i18n.ready
+  	  console.log "is ready"
+  	  return window.i18n.fakeGetText(string)
+
   return string
 
 # NB: using underscore as the function name conflicts with underscore.js
 #
+
 window.fakeGetText = fakeGetText
 
 window.initWindowCache = () ->
@@ -200,6 +205,7 @@ class LoadingTracker
     @dependencies = {
       'concepts.json': false
       'leksa_questions.json': false
+      'translations.json': false
     }
 
 
@@ -238,6 +244,8 @@ module.exports = class Application
 
   initialize: ->
 
+    @internationalisations = window.i18n
+
     @loadingTracker = new LoadingTracker()
     @loadingTracker.showLoading()
 
@@ -247,14 +255,15 @@ module.exports = class Application
     }
 
     @options = DSt.get('app_options') || default_options
-    @options.interface_lang = 'nob'
-    @options.help_lang = 'nob'
+    @options.interface_lang = 'no'
+    @options.help_lang = 'no'
 
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()
 
     @conceptdb.fetch()
     @questiondb.fetch()
+    @internationalisations.fetch()
 
     # TODO: depending on how slow this can be, may need to signal to user that
     # we're still waiting for concepts

@@ -1,0 +1,68 @@
+# Southern Sami translations for PROJECT.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2013-06-02 18:21-0500\n"
+"PO-Revision-Date: 2013-06-02 18:15-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: sma <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: ../sma-client/public/javascripts/app.js:2556
+msgid "Since this is your first time, we have some questions!"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:2560
+msgid "Help language"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:2564
+msgid ""
+"This affects what language is displayed in options and in-game help, and "
+"also vocabulary quizzes."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:2568
+msgid "Translation language"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:2572
+msgid ""
+"You selected South Saami as your help language, but you will still need a"
+" language to learn words. Note, you can change this at any time in the "
+"settings."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:2578
+msgid "Create an account?"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:2582
+msgid ""
+"If you choose not to create an account, data will still be stored "
+"anonymously, however, it may be erased if you clear your browser's stored"
+" data."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:2586
+msgid ""
+"Having an account also allows you to compete with others, and integrates "
+"with courses."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:2592
+msgid ""
+"Your progress will be stored online, and will syncronise when you connect"
+" if you play in offline mode."
+msgstr ""
+
