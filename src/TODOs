@@ -1,35 +1,22 @@
-# Ideas
-
- * may want to split semantic set (bodypart) into separate smaller groups
-   containing 5 words each, then add this to the level progression.
-
- * level progression map, once we get more levels designed
-
- * what about a sound matching game, where you get a board of miscellaneous
-   cards, and you have to match the same word but in multiple voices
-
 # Next
 
- * TODO: i18n / i10n test with some items, but make it all work
+ * TODO: loading screen
 
- * TODO: different format for menu progression of games -- word set first, with
-   levels, then
+ * TODO: i18n / i10n - need to have all resources loaded first
 
- * TODO: semantic set list for menu 
-
- * TODO: remove means, etc.
  * TODO: 4 images type
+
  * TODO: check møtereferat for more stuff
+
  * TODO: wordlist
    - one page not separate pages; different types for different screen widths
+
 
  * TODO: intro page - download or not? 
    - use time on intro page to figure out what device to download images for,
      then fetch resources accordingly
 
  * TODO: store all options in some central place
-
- * FEATURE: progress bar for current set (count of items left un-passed)
 
  * FEATURE: visual map of levels
    * FEATURE: description of question sets
@@ -53,9 +40,10 @@
    - translation of concept words should go based on interface language, except
    for when the language is sma, which then requires selection of nob or swe
 
+ * level progression map, once we get more levels designed
 
-
-
+ * what about a sound matching game, where you get a board of miscellaneous
+   cards, and you have to match the same word but in multiple voices
 
  * FEATURE: level-by-level enable sound feature, f.eks., in image->sma word,
    may want to have sound off because it's a harder test
