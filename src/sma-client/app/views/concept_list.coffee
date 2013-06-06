@@ -6,6 +6,7 @@ class UpdatingConceptView extends Backbone.View
             when "no" then "nob"
             when "sv" then "swe"
             else app.options.help_lang
+
     @$el.html @template({
       model: @model
       cid: @model.cid
@@ -50,22 +51,14 @@ module.exports = class ConceptList extends Backbone.View
 
   template: require './templates/concept_list'
 
-  constructor: (@for_category) ->
-    super
-
-  initialize: () ->
-    @collection = app.conceptdb
-    super
-    @_conceptViews = []
-    #
-    # Filter out images, will display these via translations
-      
   render: ->
 
+    @_conceptViews = []
     if @for_category
       semantics = [@for_category]
 
-    filtered_collection = @collection.where({
+    console.log semantics
+    filtered_collection = app.conceptdb.where({
       'semantics': semantics
       'language': 'sma'
     })

@@ -2,13 +2,30 @@ Concept = require 'models/concept'
 
 module.exports = class ConceptDB extends Backbone.Collection
   model: Concept
+  idAttribute: "c_id"
   url: "/data/concepts.json"
 
   fetch: () ->
     super
     app.loadingTracker.markReady('concepts.json')
+
+  localStorage: new Backbone.LocalStorage("ConceptDB")
   
+  getByCid: (cid) ->
+    ms = @models.filter (m) =>
+      m.cid == cid
+
+    if ms.length > 0
+      ms[0]
+    else
+      false
+
   whereSemantics: (sets, extra_filter) ->
+    _type = Object.prototype.toString.call(sets)
+    _type_str = Object.prototype.toString.call("str")
+    if _type == _type_str
+      sets = [sets]
+
     filtered = @models.filter (m) =>
       sem_match = _.intersection( m.get('semantics')
                                 , sets

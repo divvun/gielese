@@ -1,22 +1,32 @@
-# Next
+# Before demo
 
  * TODO: loading screen - test more
 
- * TODO: wordlist - audio links not working, text too small
+ * TODO: persistent storage of concepts in localStorage, block usage of
+   leksa, wordlist until they're ready
+
+ * TODO: conceptdb sync method? check for differences?
+
+ * TODO: wordlist - text too small
+
+# Before demo, if there's time
+
+ * points
+ * i18n
+ 
+# Next
 
  * TODO: i18n / i10n - need to have all resources loaded first
 
  * TODO: 4 images type
 
- * TODO: check møtereferat for more stuff
-
  * TODO: wordlist
-   - one page not separate pages; different types for different screen widths
-
+   - one page not separate pages; different types for different screen
+     widths
 
  * TODO: intro page - download or not? 
-   - use time on intro page to figure out what device to download images for,
-     then fetch resources accordingly
+   - use time on intro page to figure out what device to download images
+   for, then fetch resources accordingly
 
  * TODO: store all options in some central place
 
@@ -106,6 +116,8 @@ The offline aspect of this app will need to be covered in two ways:
    needs some time testing out.
 
 ##### Other notes...
+
+ * No real need for indexeddb and SQL storage-- JSON formats seem to suffice.
 
  * Lots of entertaining BS involving choice in indexeddb and SQL storage:
     http://caniuse.com/sql-storage

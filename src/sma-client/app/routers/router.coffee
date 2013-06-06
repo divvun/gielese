@@ -78,9 +78,9 @@ module.exports = class Router extends Backbone.Router
     # ready = false
     # until ready
     window.app.loadingTracker.checkDeps()
-    console.log category
 
-    app.leksaView = new LeksaView(category)
+    app.leksaView = new LeksaView()
+    app.leksaView.leksa_category = category
     app.leksaView.initialize()
 
     @changePage(app.leksaView)
@@ -99,13 +99,15 @@ module.exports = class Router extends Backbone.Router
 
   conceptSet: (category) ->
     # $('content #content').html app.leksaView.render().el
-    app.conceptList = new ConceptList(category)
+    app.conceptList = new ConceptList()
+    app.conceptList.for_category = category
     app.conceptList.initialize()
     @changePage(app.conceptList)
 
   wordlist: ->
     # $('content #content').html app.leksaView.render().el
-    app.conceptList = new ConceptList("BODYPART")
+    app.conceptList = new ConceptList()
+    app.conceptList.for_category = "BODYPART"
     app.conceptList.initialize()
     @changePage(app.conceptList)
 

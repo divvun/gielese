@@ -1,5 +1,15 @@
 
 module.exports = class Concept extends Backbone.Model
+  idAttribute: "c_id"
+  defaults:
+    language: false
+    concept_type: false
+    concept_value: false
+    semantics: []
+    features: []
+    c_id: null
+    translations: []
+
     #
   # attributes: { language: false # string (3char)
   #             , concept_type: false # string (3char)
@@ -38,13 +48,13 @@ module.exports = class Concept extends Backbone.Model
         return has_audio_file
     return false
   
-  playAudio: (opts) ->
+  playAudio: (opts={}) ->
     has_audio_file = @hasAudio()
     if has_audio_file and soundManager.enabled
-      if not opts.sound_id?
-        sound_id = "concept-audio-#{@.cid}"
-      else
+      if 'sound_id' of opts
         sound_id = opts.sound_id
+      else
+        sound_id = "concept-audio-#{@.cid}"
       soundManager.destroySound(sound_id)
       s = soundManager.createSound({
          id: sound_id
@@ -53,6 +63,7 @@ module.exports = class Concept extends Backbone.Model
       if s.isHTML5
         s._a.playbackRate = opts.rate
       s.play()
+      return s
 
     return false
 

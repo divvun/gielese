@@ -209,9 +209,6 @@ module.exports = class LeksaView extends Backbone.View
     console.log '--'
     return false
 
-  constructor: (@leksa_category) ->
-    super
-
   render: ->
     # if user ends up on front page due to error and comes back here, events
     # are not registered
