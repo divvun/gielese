@@ -1,9 +1,19 @@
 # Before demo
 
+ * TODO: improve speed of compiling concepts.json on media server. compile on
+   launch, restore from cache on each load. more concepts make it ultra slow 
+
  * TODO: loading screen - test more
+
+   - loading screen needs some sort of wrapper to trigger it from the
+     application, otherwise it is unhappy.
 
  * TODO: persistent storage of concepts in localStorage, block usage of
    leksa, wordlist until they're ready
+
+   - need to be able to download and sync models from server, but rely on
+     localStorage, such that models will be used from that first when present
+     and when the page loads... Then trigger sync and fetch later.
 
  * TODO: conceptdb sync method? check for differences?
 
