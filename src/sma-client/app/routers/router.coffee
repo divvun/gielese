@@ -10,50 +10,55 @@ module.exports = class Router extends Backbone.Router
           return false
       @firstPage = true
 
+  # Seems to be no way to avoid the double listing for now, because of hash
+  # option, which does some funky redirecting.
   routes:
     '': 'index'
+
+    'home': 'index'
+    '#home': 'index'
+
     'mainMenu': 'mainMenu'
+    '#mainMenu': 'mainMenu'
 
     'leksa/:category': 'leksa'
     '#leksa/:category': 'leksa'
 
     'leksaOptions': 'leksaOptions'
+    '#leksaOptions': 'leksaOptions'
+
     'wordlist': 'wordlist'
+    '#wordlist': 'wordlist'
+
     'options': 'options'
+    '#options': 'options'
+
     'error': 'errorPage'
+    '#error': 'errorPage'
 
     # omg.
     'concept/:id': 'conceptView'
     '#concept/:id': 'conceptView'
 
-    '#mainMenu': 'mainMenu'
-
     'conceptSet/:category': 'conceptSet'
     '#conceptSet/:category': 'conceptSet'
 
-    '#home': 'index'
-    '#wordlist': 'wordlist'
-
-    '#leksaOptions': 'leksaOptions'
-    '#options': 'options'
-    '#error': 'errorPage'
     'reset': 'reset'
     '#reset': 'reset'
 
     'leksaSelect': 'leksaSelect'
     '#leksaSelect': 'leksaSelect'
 
+    'loading': 'loading'
+    '#loading': 'loading'
+
   index: ->
     c = 0
-    while not app.loadingTracker.isReady()
-      console.log c
-      c += 1
+    # while not app.loadingTracker.isReady()
+    #   console.log c
+    #   c += 1
 
-    $.mobile.loading('hide')
-    interval = setInterval(() ->
-        $.mobile.loading('hide')
-        clearInterval(interval)
-    ,1)
+    # app.loadingTracker.hideLoading()
 
     configured_already = DSt.get('gielese-configured')
     if configured_already
@@ -61,6 +66,9 @@ module.exports = class Router extends Backbone.Router
     else
       @changePage(app.frontPage)
   
+  loading: ->
+    @changePage(app.loadingView)
+
   reset: ->
     DSt.set('gielese-configured', false)
     window.location = '/'

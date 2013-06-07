@@ -5,11 +5,7 @@ module.exports = class ConceptDB extends Backbone.Collection
   idAttribute: "c_id"
   url: "/data/concepts.json"
 
-  fetch: () ->
-    super
-    app.loadingTracker.markReady('concepts.json')
-
-  localStorage: new Backbone.LocalStorage("ConceptDB")
+  # localStorage: new Backbone.LocalStorage("ConceptDB")
   
   getByCid: (cid) ->
     ms = @models.filter (m) =>

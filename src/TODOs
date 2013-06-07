@@ -3,11 +3,6 @@
  * TODO: improve speed of compiling concepts.json on media server. compile on
    launch, restore from cache on each load. more concepts make it ultra slow 
 
- * TODO: loading screen - test more
-
-   - loading screen needs some sort of wrapper to trigger it from the
-     application, otherwise it is unhappy.
-
  * TODO: persistent storage of concepts in localStorage, block usage of
    leksa, wordlist until they're ready
 

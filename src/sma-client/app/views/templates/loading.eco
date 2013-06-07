@@ -1,0 +1,10 @@
+<div data-role="header">
+    <h1>Please wait...</h1>
+</div> 
+
+<div data-role="content">
+    <p> Downloading some resources </p>
+    <pre></pre>
+</div> 
+
+

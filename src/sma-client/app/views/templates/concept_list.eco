@@ -14,7 +14,7 @@
 <div data-role="header">
     <a id="show-panel" data-icon="gear">Categories</a>
     <h2>Vocabulary</h2>
-    <a href="/" data-transition="slide" data-icon="arrow-r">Back</a>
+    <a href="#mainMenu" data-transition="slide" data-icon="arrow-r">Back</a>
 </div>
 <div data-role="panel" 
      data-dismissable="true"

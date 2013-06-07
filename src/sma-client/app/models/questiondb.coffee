@@ -57,10 +57,6 @@ module.exports = class QuestionDB extends Backbone.Collection
     qs = _.shuffle(user_progression_questions)
     return qs
 
-  fetch: () ->
-    super
-    app.loadingTracker.markReady('leksa_questions.json')
-
   selectLeksaConcepts: (userprogression, category) ->
     #
     # Select a question

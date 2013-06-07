@@ -13,6 +13,8 @@ GlobalOptionsView = require 'views/global_options'
 ConceptList = require 'views/concept_list'
 ConceptView = require 'views/concept_view'
 
+LoadingView = require 'views/loading'
+
 ConceptDB = require 'models/conceptdb'
 QuestionDB = require 'models/questiondb'
 Question = require 'models/question'
@@ -191,15 +193,23 @@ class LoadingTracker
     @checkDeps()
 
   hideLoading: () ->
-    $.mobile.loading('hide')
+    interval = setInterval(() ->
+      $.mobile.loading('hide')
+      clearInterval(interval)
+    ,1)
+    return false
 
   showLoading: () ->
-    $.mobile.loading('show', {
-      text: 'Loading...',
-      textVisible: true,
-      theme: 'c',
-      html: ""
-    })
+    interval = setInterval(() ->
+      $.mobile.loading('show', {
+        text: 'Loading...',
+        textVisible: true,
+        theme: 'a',
+        html: ""
+      })
+      clearInterval(interval)
+    ,1)
+    return false
 
   constructor: ->
     @dependencies = {
@@ -227,12 +237,6 @@ module.exports = class Application
         pushState: false
         hashChange: true
         root: window.location.pathname
-
-      if not @loadingTracker.isReady()
-        @loadingTracker.showLoading()
-      # $.mobile.loading 'show',
-      #   text: 'Loading'
-      #   textVisible: true
 
       $(document).bind "pagechange", (e, data) ->
         webkit = $.browser.webkit
@@ -264,9 +268,21 @@ module.exports = class Application
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()
 
-    @conceptdb.fetch()
-    @questiondb.fetch()
-    @internationalisations.fetch()
+    @conceptdb.fetch
+      success: () =>
+        app.loadingTracker.markReady('concepts.json')
+        console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+
+    @questiondb.fetch
+      success: () =>
+        app.loadingTracker.markReady('leksa_questions.json')
+        console.log "fetched leksa_questions.json (#{app.questiondb.models.length})"
+        
+
+    @internationalisations.fetch
+      success: () =>
+        app.loadingTracker.markReady('internationalisations.json')
+        console.log "fetched internationalisations.json (#{app.internationalisations.models.length})"
 
     @leksaUserProgression = new UserProgression()
     @leksaOptions = new LeksaOptions()
@@ -283,6 +299,8 @@ module.exports = class Application
     @conceptList = new ConceptList()
 
     @conceptView = new ConceptView
+
+    @loadingView = new LoadingView()
 
     soundManager.setup
       url: "/static/client/swf/"

@@ -1,5 +1,5 @@
 <div data-role="header">
-    <a href="/" data-transition="slide" data-icon="arrow-r">Back</a>
+    <a href="#mainMenu" data-transition="slide" data-icon="arrow-r">Back</a>
     <h1>Choose a set</h1>
 </div> 
 
