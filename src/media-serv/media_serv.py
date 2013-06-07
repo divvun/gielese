@@ -112,6 +112,12 @@ def fetch_messages(locale):
     return dict( [(e.msgid, e.msgstr or False) for e in jsentries] )
 
 
+def prepare_translations(db):
+    translations = ['sma', 'no', 'sv', 'en']
+    data = [ {'locale': lx, 'messages': fetch_messages(lx)}
+             for lx in translations ]
+    return data
+
 @app.route('/data/translations.json', methods=['GET'])
 def bookmarklet_configs():
     """ Compile a JSON response containing dictionary pairs,
@@ -119,14 +125,12 @@ def bookmarklet_configs():
     """
     from flaskext.babel import get_locale
 
-    translations = ['sma', 'no', 'sv', 'en']
-
     has_callback = request.args.get('callback', False)
 
-    data = [ {'locale': lx, 'messages': fetch_messages(lx)}
-             for lx in translations ]
-    
-    formatted = fmtForCallback(json.dumps(data), has_callback)
+    with open('data/translations.json', 'r') as F:
+        json_data = F.read().strip()
+
+    formatted = fmtForCallback(json_data, has_callback)
 
     return Response( response=formatted
                    , status=200
@@ -235,24 +239,41 @@ def generate_session():
         'access_token': access_token.hex,
     })
 
+def prepare_leksa_questions(db):
+    from sample_json import leksa_questions
+    return leksa_questions
 
 @app.route('/data/leksa_questions.json', methods=['GET'])
 def leksa_questions():
-    from sample_json import leksa_questions
     from flask import json
 
     pretty = request.args.get('pretty', False)
+    reprepare = request.args.get('force_prepare', False)
 
-    if pretty:
-        data = json.dumps( leksa_questions
-                         , sort_keys=True
-                         , indent=4
-                         , separators=(',', ': ')
-                         )
+    if not reprepare:
+        with open('data/leksa_questions.json', 'r') as F:
+            json_data = F.read().strip()
+
+        return Response( response=json_data
+                       , status=200
+                       , mimetype="application/json"
+                       )
     else:
-        data = json.dumps(leksa_questions)
+        leksa_questions = prepare_leksa_questions(db)
 
-    return data.encode('utf-8')
+        if pretty:
+            data = json.dumps( leksa_questions
+                             , sort_keys=True
+                             , indent=4
+                             , separators=(',', ': ')
+                             )
+        else:
+            data = json.dumps(leksa_questions)
+
+        return Response( response=data.encode('utf-8')
+                       , status=200
+                       , mimetype="application/json"
+                       )
 
 def format_concept(concept):
     # trick is that instead of Word and WordTranslation, need to have
@@ -313,36 +334,58 @@ def format_concept(concept):
            , "media": concept_media
            }
 
-@app.route('/data/concepts.json', methods=['GET'])
-def concepts():
-    from sample_json import sample_json
-    from flask import json
+def prepare_concepts(db):
     from lexicon_models import Concept
 
-    cached = cache.get('concepts.json')
-    pretty = bool(request.args.get('pretty', False))
+    langs = ["sma", "nob", "img"]
+    concept_set = db.session.query(Concept).filter(
+        Concept.language.in_(langs)
+    )
+    concepts = map(format_concept, concept_set)
 
-    if not cached:
-        langs = ["sma", "nob", "img"]
-        concept_set = db.session.query(Concept).filter(
-            Concept.language.in_(langs)
-        )
-        concepts = map(format_concept, concept_set)
-        sample_json = concepts
-        cache.set('concepts.json', sample_json)
+    return concepts
+
+
+@app.route('/data/concepts.json', methods=['GET'])
+def concepts():
+    from flask import json
+
+    reprepare = request.args.get('force_prepare', False)
+    if not reprepare:
+        with open('data/concepts.json', 'r') as F:
+            json_data = F.read().strip()
+
+        return Response( response=json_data
+                       , status=200
+                       , mimetype="application/json"
+                       )
+
     else:
-        sample_json = cached
+        cached = cache.get('concepts.json')
+        pretty = bool(request.args.get('pretty', False))
 
-    if pretty:
-        data = json.dumps( sample_json
-                         , sort_keys=True
-                         , indent=4
-                         , separators=(',', ': ')
-                         )
-    else:
-        data = json.dumps(sample_json)
+        if not cached:
+            concepts = prepare_concepts(db)
+            cache.set('concepts.json', concepts)
+        else:
+            concepts = cached
 
-    return data.encode('utf-8')
+        if pretty:
+            data = json.dumps( concepts 
+                             , sort_keys=True
+                             , indent=4
+                             , separators=(',', ': ')
+                             )
+        else:
+            data = json.dumps(concepts)
+
+        with open('data/concepts.json', 'w') as F:
+            F.write(data)
+
+        return Response( response=data.encode('utf-8')
+                       , status=200
+                       , mimetype="application/json"
+                       )
 
 @app.route('/', methods=['GET'])
 def client():

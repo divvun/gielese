@@ -1,8 +1,5 @@
 # Before demo
 
- * TODO: improve speed of compiling concepts.json on media server. compile on
-   launch, restore from cache on each load. more concepts make it ultra slow 
-
  * TODO: persistent storage of concepts in localStorage, block usage of
    leksa, wordlist until they're ready
 

@@ -25,6 +25,41 @@ def init_db(*args, **kwargs):
         print "Models initialized"
     return action
 
+def store_cache_file(data, filename):
+    with open(filename, 'w') as F:
+        F.write(data)
+    return True
+
+@manager.register('prepare_json')
+def prepare_json(app):
+    import json
+
+    from media_serv import ( prepare_concepts
+                           , prepare_leksa_questions
+                           , prepare_translations
+                           )
+
+    def action():
+        _file = "data/concepts.json"
+        concepts = prepare_concepts(db)
+        data = json.dumps(concepts)
+        store_cache_file(data, _file)
+        print " * Dumped %d concepts to %s" % (len(concepts), _file)
+
+        _file = "data/leksa_questions.json"
+        leksa_questions = prepare_leksa_questions(db)
+        l_data = json.dumps(leksa_questions)
+        store_cache_file(l_data, _file)
+        print " * Dumped %d questions to %s" % (len(leksa_questions), _file)
+
+        _file = "data/translations.json"
+        translations = prepare_translations(db)
+        t_data = json.dumps(translations)
+        store_cache_file(t_data, _file)
+        print " * Dumped %d questions to %s" % (len(translations), _file)
+
+    return action
+
 @manager.register('install_media')
 def install_db(app):
     def action(media_filename=('f', 'mediafile')):
