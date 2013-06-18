@@ -1,4 +1,22 @@
-# Before demo
+#
+
+* framsida med play knapp for now 
+
+* ta kontak med Anne
+
+* ï words
+
+* få lokaliseringsstøtteprogram klar 
+
+* menus
+    category -> game -> level
+    
+* use user progression to remove possibility that a word is repeated twice in a
+  row, unless it is all that can be shown
+
+* reaction time for points, but no matter what points are given
+
+# Next
 
  * TODO: persistent storage of concepts in localStorage, block usage of
    leksa, wordlist until they're ready
@@ -11,12 +29,8 @@
 
  * TODO: wordlist - text too small
 
-# Before demo, if there's time
-
  * points
  * i18n
- 
-# Next
 
  * TODO: i18n / i10n - need to have all resources loaded first
 
