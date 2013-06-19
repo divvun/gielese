@@ -387,13 +387,13 @@ def concepts():
                        , mimetype="application/json"
                        )
 
-@app.route('/landing/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def landing():
     from flask import Response
     return render_template('landing.html')
 
 
-@app.route('/', methods=['GET'])
+@app.route('/play/', methods=['GET'])
 def client():
     from flask import Response
     return render_template('index.html')

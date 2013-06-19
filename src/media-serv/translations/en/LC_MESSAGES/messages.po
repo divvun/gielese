@@ -22,6 +22,10 @@ msgstr ""
 msgid "Since this is your first time, we have some questions!"
 msgstr ""
 
+#: ../sma-client/public/javascripts/app.js:2566
+msgid "This is a test string not actually in the application, but to see if transifex knows what to do?"
+msgstr ""
+
 #: ../sma-client/public/javascripts/app.js:2560
 msgid "Help language"
 msgstr ""

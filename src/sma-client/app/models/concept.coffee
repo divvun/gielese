@@ -42,7 +42,7 @@ module.exports = class Concept extends Backbone.Model
 
   hasAudio: () ->
     has_media = @.get('media')
-    if app.options.enable_audio and ('audio' of has_media)
+    if app.options.enable_audio and has_media.audio?
       if has_media.audio.length > 0
         has_audio_file = _.shuffle(has_media.audio)[0].path
         return has_audio_file
@@ -51,7 +51,7 @@ module.exports = class Concept extends Backbone.Model
   playAudio: (opts={}) ->
     has_audio_file = @hasAudio()
     if has_audio_file and soundManager.enabled
-      if 'sound_id' of opts
+      if opts.sound_id?
         sound_id = opts.sound_id
       else
         sound_id = "concept-audio-#{@.cid}"
