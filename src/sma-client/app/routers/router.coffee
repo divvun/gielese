@@ -1,4 +1,5 @@
 LeksaView = require 'views/leksa_view'
+CategoryGames = require 'views/category_games_view'
 ConceptList = require 'views/concept_list'
 
 module.exports = class Router extends Backbone.Router
@@ -15,11 +16,32 @@ module.exports = class Router extends Backbone.Router
   routes:
     '': 'index'
 
-    'home': 'index'
-    '#home': 'index'
+    # Misc 
+    
+    'options': 'options'
+    '#options': 'options'
 
-    'mainMenu': 'mainMenu'
-    '#mainMenu': 'mainMenu'
+    'error': 'errorPage'
+    '#error': 'errorPage'
+
+    'reset': 'reset'
+    '#reset': 'reset'
+
+    'loading': 'loading'
+    '#loading': 'loading'
+
+    # First step
+
+    'mainMenu':  'categoryMenu'
+    '#mainMenu': 'categoryMenu'
+
+    'categoryMenu':  'categoryMenu'
+    '#categoryMenu': 'categoryMenu'
+
+    'category/:name':  'categoryGames'
+    '#category/:name': 'categoryGames'
+
+    # 
 
     'leksa/:category': 'leksa'
     '#leksa/:category': 'leksa'
@@ -30,27 +52,13 @@ module.exports = class Router extends Backbone.Router
     'wordlist': 'wordlist'
     '#wordlist': 'wordlist'
 
-    'options': 'options'
-    '#options': 'options'
-
-    'error': 'errorPage'
-    '#error': 'errorPage'
-
     # omg.
+
     'concept/:id': 'conceptView'
     '#concept/:id': 'conceptView'
 
     'conceptSet/:category': 'conceptSet'
     '#conceptSet/:category': 'conceptSet'
-
-    'reset': 'reset'
-    '#reset': 'reset'
-
-    'leksaSelect': 'leksaSelect'
-    '#leksaSelect': 'leksaSelect'
-
-    'loading': 'loading'
-    '#loading': 'loading'
 
   index: ->
     c = 0
@@ -62,9 +70,9 @@ module.exports = class Router extends Backbone.Router
 
     configured_already = DSt.get('gielese-configured')
     if configured_already
-      @changePage(app.helloView)
+      @changePage(app.categoryMenu)
     else
-      @changePage(app.frontPage)
+      @changePage(app.categoryMenu)
   
   loading: ->
     @changePage(app.loadingView)
@@ -73,9 +81,16 @@ module.exports = class Router extends Backbone.Router
     DSt.set('gielese-configured', false)
     window.location = '/'
 
-  mainMenu: ->
-    ##  $('content #content').html app.helloView.render().el
-    @changePage(app.helloView)
+  categoryMenu: ->
+    @changePage(app.categoryMenu)
+
+  categoryGames: (name) ->
+
+    app.categoryGames = new CategoryGames()
+    app.categoryGames.category = name
+    app.categoryGames.initialize()
+
+    @changePage(app.categoryGames)
 
   leksaOptions: ->
     window.app.loadingTracker.checkDeps()
@@ -98,9 +113,6 @@ module.exports = class Router extends Backbone.Router
   errorPage: ->
     # $('content #content').html app.errorView.render().el
     @changePage(app.errorView)
-
-  leksaSelect: ->
-    @changePage(app.leksaSelectView)
 
   options: ->
     @changePage(app.globalOptionsView)

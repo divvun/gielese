@@ -1,17 +1,13 @@
 #
 
-* framsida med play knapp for now 
+* use user progression to remove possibility that a word is repeated twice in a
+  row, unless it is all that can be shown
 
 * ï words
-
-* få lokaliseringsstøtteprogram klar 
 
 * menus
     category -> game -> level
     
-* use user progression to remove possibility that a word is repeated twice in a
-  row, unless it is all that can be shown
-
 * reaction time for points, but no matter what points are given
 
 # Next

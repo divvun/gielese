@@ -1,9 +1,9 @@
 Router = require 'routers/router'
-HelloView = require 'views/hello_view'
+CategoryMenu = require 'views/category_view'
+
+CategoryGames = require 'views/category_games_view'
 
 FrontPage = require 'views/front_page'
-
-LeksaSelectView = require 'views/leksa_select_view'
 
 LeksaView = require 'views/leksa_view'
 LeksaOptionsView = require 'views/leksa_options_view'
@@ -18,7 +18,7 @@ LoadingView = require 'views/loading'
 ConceptDB = require 'models/conceptdb'
 QuestionDB = require 'models/questiondb'
 Question = require 'models/question'
-Internationalisations = require 'models/internationaliser' 
+Internationalisations = require 'models/internationaliser'
 # sample_concepts = require 'sample_data/sample_concepts'
 
 UserProgression = require 'models/user_progression'
@@ -288,9 +288,10 @@ module.exports = class Application
     @leksaOptions = new LeksaOptions()
 
     @router = new Router()
-    @helloView = new HelloView()
+    @categoryMenu = new CategoryMenu()
+    @categoryGames = new CategoryGames()
+
     @frontPage = new FrontPage()
-    @leksaSelectView = new LeksaSelectView()
     @leksaView = new LeksaView()
     @leksaOptionsView = new LeksaOptionsView()
     @errorView = new ErrorView()

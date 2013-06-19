@@ -64,6 +64,7 @@ module.exports = class ConceptList extends Backbone.View
     })
 
     @$el.html @template {
+      category: @for_category
       models: filtered_collection.map (m) ->
         return {
           model: m

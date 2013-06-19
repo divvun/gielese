@@ -265,7 +265,7 @@ module.exports = class Question extends Backbone.Model
 
     else
       console.log " * Couldn't generate a question instance for #{@.get('name')}"
-      console.log "   removing question from cycle." 
+      console.log "   removing question from cycle."
       inst = false
       @.set('fails', true)
 

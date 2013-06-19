@@ -18,6 +18,7 @@ leksa_questions = [
     , 'answer_similarity': { 'semantics': ["BODYPART"] }
     , 'level': 1
     , 'answers': 1
+    , 'points': 20
     , 'name': "Bodypart image to word"
     , 'category': "bodypart"
     },
@@ -28,6 +29,7 @@ leksa_questions = [
     , 'answer_similarity': { }
     , 'level': 2
     , 'answers': 2
+    , 'points': 40
     , 'name': "Bodypart word to image"
     , 'category': "bodypart"
     },
@@ -38,6 +40,7 @@ leksa_questions = [
     , 'answer_similarity': { 'semantics': ["BODYPART"] }
     , 'level': 3
     , 'answers': 2
+    , 'points': 50
     , 'name': "Bodypart image to 2-word"
     , 'category': "bodypart"
     },
@@ -47,6 +50,7 @@ leksa_questions = [
                  }
     , 'answer_similarity': { 'semantics': ["BODYPART"] }
     , 'level': 4
+    , 'points': 60
     , 'answers': 2
     , 'name': "Bodypart word to 2-img"
     , 'category': "bodypart"
@@ -59,6 +63,7 @@ leksa_questions = [
                            , 'semantics': ["BODYPART"]
                            }
     , 'level': 5
+    , 'points': 60
     , 'answers': 4
     , 'category': "bodypart"
     },
