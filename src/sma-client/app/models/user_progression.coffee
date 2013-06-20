@@ -1,5 +1,10 @@
 ﻿module.exports = class UserProgression extends Backbone.Collection
 
+  countPoints: () ->
+    points = (m.get('points') for m in @models)
+    sum = (memo, num) -> memo + num
+    return _.reduce(points, sum, 0)
+
   collateConcepts: (conceptdb) ->
     # for each log entry, collect concept and correct 1/0, sum correct / length for each concept
     boolToInt = (b) ->
@@ -24,48 +29,9 @@
       totals[c_name] = [_v_correct, _v_total]
 
     return totals
-    
+
   totalCorrect: () ->
     models = @models.filter (m) ->
       m.get('question_correct') == true
     models.length
-
-  # NOTES on things to track: 
-  # external_uid: 324233
-  # last_question: ["leksa", 24]
-  # question_types: [
-  #     { type: "image_to_word"
-  #     , game_play_count: 32
-  #     , game_correct_count: 10
-  #     }
-  #   , { type: "word_to_image"
-  #     , game_play_count: 18
-  #     , game_correct_count: 18
-  #     }
-  # ]
-  # concepts: [
-  #     { concept_id: 3
-  #     , presented_as_correct_answer_count: 0
-  #     , presented_as_question_count: 0
-  #     , answer_correct: 0
-  #     , question_correct: 0
-  #     }
-  #   , { concept_id: 2
-  #     , presented_as_correct_answer_count: 0
-  #     , presented_as_question_count: 0
-  #     , answer_correct: 0
-  #     , question_correct: 0
-  #     }
-  # ]
-  # games: [
-  #     { game_name: "leksa"
-  #     , game_play_count: 24
-  #     , game_correct_count: 18
-  #     }
-  #   , { game_name: "morfa"
-  #     , game_play_count: 24
-  #     , game_correct_count: 18
-  #     }
-  # ]
-
 

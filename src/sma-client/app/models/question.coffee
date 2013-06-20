@@ -43,7 +43,6 @@ orderConceptsByProgression = (q, concepts, up) ->
 
   if up.models.length > 0
     excluding_last_concept = _.filter(concepts, (c) -> c.get('question_concept_value') != last_concept.id)
-    console.log (c.get('question_concept_value') for c in up.models)
     if excluding_last_concept.length == 0
       excluding_last_concept = concepts
   else
@@ -54,7 +53,6 @@ orderConceptsByProgression = (q, concepts, up) ->
                                  )
 
   if debug
-    console.log "Ordering concepts by user progression"
     f_strings = ordered_by_frequency.map (f) ->
         "#{getProgressionCorrectCountForConcept(f)} - #{f.get('concept_value')}"
 
@@ -107,9 +105,6 @@ module.exports = class Question extends Backbone.Model
       	corrects = 3
       counts.push corrects
 
-    console.log counts
-    console.log _.uniq(counts)
-    console.log _.max(counts)
     if _.uniq(counts).length == 1
       if _.max(counts) == 3 and _.uniq(counts)[0] == 3
       	return true
@@ -183,13 +178,8 @@ module.exports = class Question extends Backbone.Model
     	question: @,
     }).length
 
-    console.log "count --"
     concepts_total = @select_question_concepts(conceptdb).length
     concepts_left = concepts_total - q_concepts.length
-
-    console.log "total: #{concepts_total}"
-    console.log "left: #{concepts_left}"
-    console.log "total correct for q: #{total_correct_answers_for_question}"
 
     # Select a question concept
     if q_concepts.length > 0

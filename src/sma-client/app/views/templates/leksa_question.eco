@@ -16,7 +16,7 @@
         <div class="ui-block-<%- chars.charAt(idx) %>">
             <div class="ui-body">
                 <% if choice.get('concept_type') == 'text': %>
-                    <a class="answerlink" 
+                    <a class="answerlink text" 
                        data-role="button"
                        data-word="<%- choice.get('concept_value') %>" 
                        href="#"><%- choice.render_concept() %></a>

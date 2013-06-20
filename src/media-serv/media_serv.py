@@ -371,7 +371,7 @@ def concepts():
             concepts = cached
 
         if pretty:
-            data = json.dumps( concepts 
+            data = json.dumps( concepts
                              , sort_keys=True
                              , indent=4
                              , separators=(',', ': ')

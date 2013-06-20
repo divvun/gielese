@@ -14,6 +14,7 @@ exports.config =
           'vendor/scripts/soundmanager2-jsmin.js'
           'vendor/scripts/DSt.js'
           'vendor/scripts/jquery-1.7.2.js'
+          'vendor/scripts/jquery.textfill.min.js'
           'vendor/scripts/jquery-ui-1.10.3.custom.min.js'
           'vendor/scripts/jquery.mobile.init.js'
           'vendor/scripts/jquery.mobile-1.3.1.min.js'

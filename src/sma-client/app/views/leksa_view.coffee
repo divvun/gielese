@@ -79,12 +79,15 @@ module.exports = class LeksaView extends Backbone.View
 
     #
     # Create the log entry in the user progression
+    clearInterval(@countdown_handle)
+    @$el.find('#points_for_question').fadeIn(100)
     window.app.leksaUserProgression.push new UserLog({
       game_name: "leksa"
       question_concept: concept.get('c_id')
       question_concept_value: concept_name
       question_correct: correct
       question: question
+      points: @cur_points
     })
 
     return true
@@ -148,6 +151,21 @@ module.exports = class LeksaView extends Backbone.View
     }
 
     @$el.find('#leksa_question').html(question_block)
+    @$el.find('#leksa_question a.answerlink.text').textfill({
+        minFontPixels: 18
+        maxFontPixels: 36
+    })
+
+    @cur_points = q_instance.generator.get('points')
+    @$el.find('#points_for_question .points').html("+#{@cur_points}")
+    @$el.find('#points_for_question').hide()
+
+    countdownPoints = (evt) =>
+        if @cur_points > 5
+          @cur_points -= 1
+          @$el.find('#points_for_question .points').html("+#{@cur_points}")
+
+    @countdown_handle = setInterval(countdownPoints, 1000)
 
     #
     # Register answer click handlers
@@ -199,14 +217,12 @@ module.exports = class LeksaView extends Backbone.View
   setIndividualAnswerProgress: (count, total) ->
     prog = @$el.find "#leksa_progress_indiv"
     prog.progressbar({value: (count/total)*100})
-    console.log '--'
     return false
 
   setProgress: (count, total, note) ->
     prog = @$el.find "#leksa_progress"
     prog.progressbar({value: (count/total)*100})
     prog.find('.progress_label').text(note)
-    console.log '--'
     return false
 
   render: ->
@@ -217,6 +233,8 @@ module.exports = class LeksaView extends Backbone.View
     @$el.html @template {
       leksa_category: @leksa_category
     }
+
+    @$el.find('#points_for_question').hide()
 
     @renderQuestion()
     @first = true

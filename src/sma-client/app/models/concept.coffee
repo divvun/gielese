@@ -72,7 +72,9 @@ module.exports = class Concept extends Backbone.Model
       'img': (c) ->
         return "<img class='concept img_concept' src='#{c.get('concept_value')}' />"
       'text': (c) ->
-        return "<span class='concept word_concept'>#{c.get('concept_value')}</span>"
+        linebreaks = ///[-–—]///
+        val = c.get('concept_value').split(linebreaks).join('-<br />')
+        return "<span class='concept word_concept'>#{val}</span>"
     type = @.get('concept_type')
     return concept_renderers[type](@)
 

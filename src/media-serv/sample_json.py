@@ -77,6 +77,7 @@ leksa_questions = [
     , 'level': 1
     , 'answers': 1
     , 'name': "Bodypart image to word"
+    , 'points': 20
     , 'category': "GREETINGS"
     },
     { 'type': 'word_to_image'
@@ -87,6 +88,7 @@ leksa_questions = [
     , 'level': 2
     , 'answers': 2
     , 'name': "Bodypart word to image"
+    , 'points': 40
     , 'category': "GREETINGS"
     },
     { 'type': 'image_to_word'
@@ -97,6 +99,7 @@ leksa_questions = [
     , 'level': 3
     , 'answers': 2
     , 'name': "Bodypart image to 2-word"
+    , 'points': 50
     , 'category': "GREETINGS"
     },
     { 'type': 'word_to_image'
@@ -107,6 +110,7 @@ leksa_questions = [
     , 'level': 4
     , 'answers': 2
     , 'name': "Bodypart word to 2-img"
+    , 'points': 60
     , 'category': "GREETINGS"
     },
     { 'type': 'word_to_word'
@@ -117,6 +121,7 @@ leksa_questions = [
                            , 'semantics': ["GREETINGS"]
                            }
     , 'level': 5
+    , 'points': 80
     , 'answers': 4
     , 'category': "GREETINGS"
     },
@@ -130,6 +135,7 @@ leksa_questions = [
     , 'level': 1
     , 'answers': 1
     , 'name': "Bodypart image to word"
+    , 'points': 20
     , 'category': "FOOD"
     },
     { 'type': 'word_to_image'
@@ -140,6 +146,7 @@ leksa_questions = [
     , 'level': 2
     , 'answers': 2
     , 'name': "Bodypart word to image"
+    , 'points': 40
     , 'category': "FOOD"
     },
     { 'type': 'image_to_word'
@@ -150,6 +157,7 @@ leksa_questions = [
     , 'level': 3
     , 'answers': 2
     , 'name': "Bodypart image to 2-word"
+    , 'points': 60
     , 'category': "FOOD"
     },
     { 'type': 'word_to_image'
@@ -160,6 +168,7 @@ leksa_questions = [
     , 'level': 4
     , 'answers': 2
     , 'name': "Bodypart word to 2-img"
+    , 'points': 80
     , 'category': "FOOD"
     },
     { 'type': 'word_to_word'
@@ -171,6 +180,7 @@ leksa_questions = [
                            }
     , 'level': 5
     , 'answers': 4
+    , 'points': 100
     , 'category': "FOOD"
     },
 

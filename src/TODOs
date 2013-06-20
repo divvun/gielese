@@ -2,17 +2,20 @@
 
 * fix text size for long words in buttons
 
+     split on hyphens - default size when no resizing happens?
+
 * split up leksa into two games
 
 * use user progression to remove possibility that a word is repeated twice in a
   row, unless it is all that can be shown
 
+    - seems to work sometimes but not always
+
 * ï words
 
-* menus
-    category -> game -> level
-    
 * reaction time for points, but no matter what points are given
+
+* test repeat avoidance in other types.
 
 # Next
 
