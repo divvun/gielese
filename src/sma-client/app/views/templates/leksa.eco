@@ -1,7 +1,7 @@
 <div data-role="header" data-position="fixed">
-    <a id="show-panel" data-icon="gear">Menu</a>
+    <a data-icon="arrow-l" href="#category/<%- @leksa_category %>">Back</a>
     <h1>Leksa</h1>
-    <a id="show-user-panel" href="#" data-icon="check" data-theme="b">Stats</a>
+    <a id="show-user-panel" href="#" data-icon="check" data-theme="b">Stats/Options</a>
 </div>
 <div data-role="panel" 
      data-dismissable="true"

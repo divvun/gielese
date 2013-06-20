@@ -214,7 +214,9 @@ module.exports = class LeksaView extends Backbone.View
     # are not registered
     # Render template and insert a question
 
-    @$el.html @template
+    @$el.html @template {
+      leksa_category: @leksa_category
+    }
 
     @renderQuestion()
     @first = true

@@ -20,7 +20,7 @@ leksa_questions = [
     , 'answers': 1
     , 'points': 20
     , 'name': "Bodypart image to word"
-    , 'category': "bodypart"
+    , 'category': "BODYPART"
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
@@ -31,7 +31,7 @@ leksa_questions = [
     , 'answers': 2
     , 'points': 40
     , 'name': "Bodypart word to image"
-    , 'category': "bodypart"
+    , 'category': "BODYPART"
     },
     { 'type': 'image_to_word'
     , 'filters': { 'from_language': 'img', 'to_language': 'sma'
@@ -42,7 +42,7 @@ leksa_questions = [
     , 'answers': 2
     , 'points': 50
     , 'name': "Bodypart image to 2-word"
-    , 'category': "bodypart"
+    , 'category': "BODYPART"
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
@@ -53,7 +53,7 @@ leksa_questions = [
     , 'points': 60
     , 'answers': 2
     , 'name': "Bodypart word to 2-img"
-    , 'category': "bodypart"
+    , 'category': "BODYPART"
     },
     { 'type': 'word_to_word'
     , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
@@ -65,7 +65,7 @@ leksa_questions = [
     , 'level': 5
     , 'points': 60
     , 'answers': 4
-    , 'category': "bodypart"
+    , 'category': "BODYPART"
     },
 
     # -*- heelsedh -*- 
@@ -77,7 +77,7 @@ leksa_questions = [
     , 'level': 1
     , 'answers': 1
     , 'name': "Bodypart image to word"
-    , 'category': "heelsedh"
+    , 'category': "GREETINGS"
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
@@ -87,7 +87,7 @@ leksa_questions = [
     , 'level': 2
     , 'answers': 2
     , 'name': "Bodypart word to image"
-    , 'category': "heelsedh"
+    , 'category': "GREETINGS"
     },
     { 'type': 'image_to_word'
     , 'filters': { 'from_language': 'img', 'to_language': 'sma'
@@ -97,7 +97,7 @@ leksa_questions = [
     , 'level': 3
     , 'answers': 2
     , 'name': "Bodypart image to 2-word"
-    , 'category': "heelsedh"
+    , 'category': "GREETINGS"
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
@@ -107,7 +107,7 @@ leksa_questions = [
     , 'level': 4
     , 'answers': 2
     , 'name': "Bodypart word to 2-img"
-    , 'category': "heelsedh"
+    , 'category': "GREETINGS"
     },
     { 'type': 'word_to_word'
     , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
@@ -118,7 +118,7 @@ leksa_questions = [
                            }
     , 'level': 5
     , 'answers': 4
-    , 'category': "heelsedh"
+    , 'category': "GREETINGS"
     },
 
     # -*- food -*- 
@@ -130,7 +130,7 @@ leksa_questions = [
     , 'level': 1
     , 'answers': 1
     , 'name': "Bodypart image to word"
-    , 'category': "food"
+    , 'category': "FOOD"
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
@@ -140,7 +140,7 @@ leksa_questions = [
     , 'level': 2
     , 'answers': 2
     , 'name': "Bodypart word to image"
-    , 'category': "food"
+    , 'category': "FOOD"
     },
     { 'type': 'image_to_word'
     , 'filters': { 'from_language': 'img', 'to_language': 'sma'
@@ -150,7 +150,7 @@ leksa_questions = [
     , 'level': 3
     , 'answers': 2
     , 'name': "Bodypart image to 2-word"
-    , 'category': "food"
+    , 'category': "FOOD"
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
@@ -160,7 +160,7 @@ leksa_questions = [
     , 'level': 4
     , 'answers': 2
     , 'name': "Bodypart word to 2-img"
-    , 'category': "food"
+    , 'category': "FOOD"
     },
     { 'type': 'word_to_word'
     , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
@@ -171,7 +171,7 @@ leksa_questions = [
                            }
     , 'level': 5
     , 'answers': 4
-    , 'category': "food"
+    , 'category': "FOOD"
     },
 
 
