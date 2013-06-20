@@ -38,11 +38,21 @@ orderConceptsByProgression = (q, concepts, up) ->
   # take out of cycle once they've been shown 3 times
   countLessThanFour = (c) =>
     getProgressionCorrectCountForConcept(c) < 4
+  
+  last_concept = up.last()
 
-  ordered_by_frequency = _.sortBy( _.filter(concepts, countLessThanFour)
+  if up.models.length > 0
+    excluding_last_concept = _.filter(concepts, (c) -> c.get('question_concept_value') != last_concept.id)
+    console.log (c.get('question_concept_value') for c in up.models)
+    if excluding_last_concept.length == 0
+      excluding_last_concept = concepts
+  else
+    excluding_last_concept = concepts
+
+  ordered_by_frequency = _.sortBy( _.filter(excluding_last_concept, countLessThanFour)
                                  , getProgressionCorrectCountForConcept
                                  )
-  
+
   if debug
     console.log "Ordering concepts by user progression"
     f_strings = ordered_by_frequency.map (f) ->

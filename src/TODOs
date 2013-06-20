@@ -1,5 +1,9 @@
 #
 
+* fix text size for long words in buttons
+
+* split up leksa into two games
+
 * use user progression to remove possibility that a word is repeated twice in a
   row, unless it is all that can be shown
 
