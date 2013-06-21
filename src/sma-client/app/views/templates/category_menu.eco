@@ -1,0 +1,46 @@
+<div data-role="header">
+    <h1>Buerie biejjie!</h1>
+    <a href="#options" data-transition="slide" id="show-panel" data-icon="gear">Options</a>
+</div> 
+
+<div data-role="content">
+    <h2 class="heading" data-role="list-divider">Categories</h2>
+
+    <div id="main_menu">
+
+        <div class="ui-grid-b">
+	        <div class="ui-block-a">
+                <a class="square" href="#category/BODYPART" data-transition="slide">
+	                <span class="link_image"></span>
+	                <span class="link_word">Face</span>
+	            </a>
+	        </div>
+	        <div class="ui-block-b">
+                <a class="square" href="#category/GREETINGS" data-transition="slide">
+	                <span class="link_image"></span>
+	                <span class="link_word">Greetings</span>
+	            </a>
+	        </div>	   
+	        <div class="ui-block-c">
+                <a class="square" href="#category/FOOD" data-transition="slide">
+	                <span class="link_image"></span>
+	                <span class="link_word">Food</span>
+	            </a>
+	        </div>
+        </div>
+
+
+        <h2 class="heading" data-role="list-divider">Debug</h2>
+
+        <div class="ui-grid-b">
+	        <div class="ui-block-a">
+	            <a class="square" href="#reset" data-transition="slide">
+	                <span class="link_image"></span>
+	                <span class="link_word">Reset</span>
+	            </a>
+	        </div>
+        </div>
+    </div>
+
+</div> 
+
