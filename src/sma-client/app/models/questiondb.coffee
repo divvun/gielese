@@ -35,12 +35,25 @@ module.exports = class QuestionDB extends Backbone.Collection
 
   url: "/data/leksa_questions.json"
 
-  filterQuestionsByProgression: (progression, category) ->
+  filterQuestionsByCategory: (category, qs) ->
 
     if category
-      category_questions = @where({'category': category})
+      category_questions = qs.where({'category': category})
     else
-      category_questions = @
+      category_questions = qs
+
+    functioning_questions = category_questions.filter (c) ->
+      _fails = c.get('fails')
+      if not _fails
+        return true
+      if _fails and _fails == false
+        return false
+
+    _.shuffle(functioning_questions)
+
+  orderQuestionsByProgression: (progression, qs) ->
+
+    category_questions = qs
 
     functioning_questions = category_questions.filter (c) ->
       _fails = c.get('fails')
@@ -57,7 +70,29 @@ module.exports = class QuestionDB extends Backbone.Collection
     qs = _.shuffle(user_progression_questions)
     return qs
 
-  selectLeksaConcepts: (userprogression, category) ->
+  filterQuestionsByProgression: (progression, category, qs) ->
+
+    if category
+      category_questions = qs.where({'category': category})
+    else
+      category_questions = qs 
+
+    functioning_questions = category_questions.filter (c) ->
+      _fails = c.get('fails')
+      if not _fails
+        return true
+      if _fails and _fails == false
+        return false
+
+    user_progression_questions = chooseQuestionbyProgression(
+      functioning_questions,
+      progression
+    )
+
+    qs = _.shuffle(user_progression_questions)
+    return qs
+
+  selectLeksaConcepts: (userprogression, category, level_constraint=false) ->
     #
     # Select a question
     #
@@ -66,13 +101,46 @@ module.exports = class QuestionDB extends Backbone.Collection
     # out of the cycle
 
     [tries, max_tries] = [0, 5]
+     
+    # TODO: for now just ordering by progression and dispalying everything anyway
 
     question_instance = false
     while not question_instance and tries <= max_tries
-      qs = @filterQuestionsByProgression(userprogression, category)
+      category_qs = @filterQuestionsByCategory(category, @)
+      level_constraint_qs = category_qs.filter(level_constraint)
+      if level_constraint_qs.length > 0
+        qs = level_constraint_qs
+      else
+        qs = category_qs
+
+      progression_qs = @orderQuestionsByProgression(userprogression, qs)
+
+      if progression_qs
+        qs = progression_qs
+      else
+        qs = qs
+      
+      # qs = @filterQuestionsByProgression(userprogression, category)
+
+      # level_constraint_qs = qs.filter(level_constraint)
+
+      # if level_constraint_qs.length < qs.length
+      #   completeds = (q.user_completed_question(userprogression) for q in qs)
+      #   console.log completeds
+      #   # TODO: is current level complete? 
+      #   # no concepts?
+      #   if _.every(completeds, (e) -> e == false)
+      #     console.log "PREVIOUS INCOMPLETE"
+      #     qs = qs
+      #     # return [false, "PREVIOUS INCOMPLETE"]
+      #   else
+      #     console.log "Something else"
+      #     return false
+      # else
+      #   qs = level_constraint_qs
 
       if qs.length == 0
-      	return false
+        return false
 
       q = qs[0]
       

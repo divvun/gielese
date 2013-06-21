@@ -46,6 +46,9 @@ module.exports = class Router extends Backbone.Router
     'leksa/:category': 'leksa'
     '#leksa/:category': 'leksa'
 
+    'leksa/:level/:category': 'leksa_first'
+    '#leksa/:level/:category': 'leksa_first'
+
     'leksaOptions': 'leksaOptions'
     '#leksaOptions': 'leksaOptions'
 
@@ -104,6 +107,26 @@ module.exports = class Router extends Backbone.Router
 
     app.leksaView = new LeksaView()
     app.leksaView.leksa_category = category
+    app.leksaView.initialize()
+
+    @changePage(app.leksaView)
+
+    app.leksaView.viewedOnce = true
+    
+  leksa_first: (level, category) ->
+    # $('content #content').html app.leksaView.render().el
+    # ready = false
+    # until ready
+    window.app.loadingTracker.checkDeps()
+
+    level = parseInt level
+    app.leksaView = new LeksaView()
+    app.leksaView.leksa_category = category
+    app.leksaView.level_constraint = (question) =>
+      if level == 1
+        question.get('level') == level
+      else if level > 1
+        question.get('level') > level
     app.leksaView.initialize()
 
     @changePage(app.leksaView)

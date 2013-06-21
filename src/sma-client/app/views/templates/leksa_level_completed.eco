@@ -1,0 +1,14 @@
+<% # TODO: sound. %>
+
+<div class="question_prompt">
+</div>
+<hr />
+
+<% # TODO: sound. %>
+<div class="possible_answers">
+    <div class="ui-grid-a">
+        <h3>You must have completed the level, or something else broke that
+        will be fixed soon.</h3>
+    </div>
+</div>
+

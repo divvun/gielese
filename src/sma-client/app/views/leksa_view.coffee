@@ -1,5 +1,6 @@
 ﻿
 StatTemplate = require 'views/templates/stat_block'
+LevelCompleted = require 'views/templates/leksa_level_completed'
 
 UserLog = require 'models/user_log_entry'
 
@@ -62,6 +63,8 @@ module.exports = class LeksaView extends Backbone.View
     $('.set_done_options').show()
     fadeUp usr_msg
     setTimeout((() => @$el.find('#menu_next').click()), 1200)
+    clearInterval(@countdown_handle)
+    @$el.find('#points_for_question').fadeIn(100)
     return false
 
   logConcept: (question, concept, correct) ->
@@ -79,8 +82,6 @@ module.exports = class LeksaView extends Backbone.View
 
     #
     # Create the log entry in the user progression
-    clearInterval(@countdown_handle)
-    @$el.find('#points_for_question').fadeIn(100)
     window.app.leksaUserProgression.push new UserLog({
       game_name: "leksa"
       question_concept: concept.get('c_id')
@@ -123,13 +124,23 @@ module.exports = class LeksaView extends Backbone.View
       window.last_error = "Question DB and Concept DB not ready."
       app.router.navigate('error')
 
+    if @level_constraint
+      level_constraint = @level_constraint
+    else
+      level_constraint = (level) -> true
+
     # TODO: category from user
     q_instance = app.questiondb.selectLeksaConcepts( window.app.leksaUserProgression
                                                    , @leksa_category
+                                                   , level_constraint
                                                    )
 
+    # TODO: feedback to user that they haven't completed this yet or have already-- if already, repeat
     if q_instance == false
       console.log "Complete!"
+      finished_level = LevelCompleted()
+      @$el.find('#leksa_question').html(finished_level)
+      return false
 
     level_note = "Level #{q_instance.generator.get('level')}"
     @setProgress(q_instance.current_count, q_instance.question_total, level_note)
@@ -212,6 +223,7 @@ module.exports = class LeksaView extends Backbone.View
         total: window.app.leksaUserProgression.models.length
         correct: window.app.leksaUserProgression.totalCorrect()
         concept_progress: window.app.leksaUserProgression.collateConcepts(app.conceptdb)
+        total_points: window.app.leksaUserProgression.countPoints()
     }
   
   setIndividualAnswerProgress: (count, total) ->
