@@ -1,4 +1,4 @@
-﻿
+
 StatTemplate = require 'views/templates/stat_block'
 LevelCompleted = require 'views/templates/leksa_level_completed'
 
@@ -34,7 +34,15 @@ module.exports = class LeksaView extends Backbone.View
     'swiperight body': "revealOptionsPanel"
     'swipeleft body': "revealUserPanel"
     'click #menu_next': "newQuestionSameGroup"
+
+  newQuestionSameGroup: (evt) ->
+    @renderQuestion()
+    return false
     
+  # # #
+  # # #  Panels
+  # # #
+  
   # Left panel
   revealOptionsPanel: (evt) ->
     panel_options =
@@ -49,10 +57,10 @@ module.exports = class LeksaView extends Backbone.View
     $('#user-options').panel('open', panel_options)
     return false
 
-  newQuestionSameGroup: (evt) ->
-    @renderQuestion()
-    return false
-  
+  # # #
+  # # #  Answer logging
+  # # #
+
   correctAnswer: (question, user_input, user_answer_concept, correct_answer_concept) ->
     # Give user feedback that they were correct, and show the set done options.
 
@@ -107,6 +115,35 @@ module.exports = class LeksaView extends Backbone.View
     fadeUp usr_msg
 
     return false
+
+  updateLogPanel: (entry) ->
+    # Collate results from window.app.leksaUserProgression collection, display them.
+    $('#stat_block').html StatTemplate {
+        total: window.app.leksaUserProgression.models.length
+        correct: window.app.leksaUserProgression.totalCorrect()
+        concept_progress: window.app.leksaUserProgression.collateConcepts(app.conceptdb)
+        total_points: window.app.leksaUserProgression.countPoints()
+    }
+
+  # # #
+  # # #  Progress bar
+  # # #
+  
+  setIndividualAnswerProgress: (count, total) ->
+    prog = @$el.find "#leksa_progress_indiv"
+    prog.progressbar({value: (count/total)*100})
+    return false
+
+  setProgress: (count, total, note) ->
+    prog = @$el.find "#leksa_progress"
+    prog.progressbar({value: (count/total)*100})
+    prog.find('.progress_label').text(note)
+    return false
+
+
+  # # #
+  # # #  Question rendering
+  # # #
     
   renderQuestion: ->
     # Select a question, render it, bind event handlers to each possible
@@ -216,26 +253,6 @@ module.exports = class LeksaView extends Backbone.View
       return false
       
     return true
-
-  updateLogPanel: (entry) ->
-    # Collate results from window.app.leksaUserProgression collection, display them.
-    $('#stat_block').html StatTemplate {
-        total: window.app.leksaUserProgression.models.length
-        correct: window.app.leksaUserProgression.totalCorrect()
-        concept_progress: window.app.leksaUserProgression.collateConcepts(app.conceptdb)
-        total_points: window.app.leksaUserProgression.countPoints()
-    }
-  
-  setIndividualAnswerProgress: (count, total) ->
-    prog = @$el.find "#leksa_progress_indiv"
-    prog.progressbar({value: (count/total)*100})
-    return false
-
-  setProgress: (count, total, note) ->
-    prog = @$el.find "#leksa_progress"
-    prog.progressbar({value: (count/total)*100})
-    prog.find('.progress_label').text(note)
-    return false
 
   render: ->
     # if user ends up on front page due to error and comes back here, events

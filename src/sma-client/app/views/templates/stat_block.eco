@@ -1,4 +1,4 @@
-﻿<h4>Overall progress</h4>
+<h4>Overall progress</h4>
 <dl>
 <dt>Total points</dt>
 <dd><%- @total_points %></dd>

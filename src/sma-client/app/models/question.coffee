@@ -1,6 +1,3 @@
-# TODO: questions still being displayed not enough times, check what's going on
-# in filtering
-
 filterByLang = (lang, concepts) ->
   concepts.filter (o) => o.get('language') == lang
 

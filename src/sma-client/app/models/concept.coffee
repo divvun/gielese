@@ -1,6 +1,8 @@
 
 module.exports = class Concept extends Backbone.Model
+  # Compatibility with old version of bootstrap
   idAttribute: "c_id"
+
   defaults:
     language: false
     concept_type: false
@@ -10,15 +12,6 @@ module.exports = class Concept extends Backbone.Model
     c_id: null
     translations: []
 
-    #
-  # attributes: { language: false # string (3char)
-  #             , concept_type: false # string (3char)
-  #             , concept_value: # string (word, url)
-  #             , semantics: [ ] # list
-  #             , features: [ ] # list
-  #             , c_id: null # int
-  #             , translations: [ ] # list of related ints
-  #             }
   hasImage: () ->
     has_media = @.get('media')
     if 'image' of has_media
@@ -77,5 +70,4 @@ module.exports = class Concept extends Backbone.Model
         return "<span class='concept word_concept'>#{val}</span>"
     type = @.get('concept_type')
     return concept_renderers[type](@)
-
 

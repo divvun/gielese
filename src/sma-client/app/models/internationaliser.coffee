@@ -29,5 +29,3 @@ module.exports = class Internationalisations extends Backbone.Collection
   fakeGetText: (str) ->
     return @getMessage(window.app.options.help_lang, str)
 
-
-

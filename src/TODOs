@@ -4,6 +4,9 @@
 
      split on hyphens - default size when no resizing happens?
 
+     iehkedsbeapmoe still a problem, but will probably be fixed when format
+     changes
+
 * split up leksa into two games
 
 * use user progression to remove possibility that a word is repeated twice in a
@@ -11,9 +14,7 @@
 
     - seems to work sometimes but not always
 
-* ï words
-
-* reaction time for points, but no matter what points are given
+* ï words - audio
 
 * test repeat avoidance in other types.
 

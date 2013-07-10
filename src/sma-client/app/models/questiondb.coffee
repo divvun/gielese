@@ -1,20 +1,7 @@
-﻿
 Question = require 'models/question'
 
 chooseQuestionbyProgression = (questions, userprogression) ->
-  # if userprogression.length == 0
-  #   highest_completed_level = 0
-  # else
-  # 	highest_completed_level = questions
-  #     .filter (q) =>
-  #       q.user_completed_question(userprogression)
-  #     .map (q) =>
-  #       {'question': q, 'level': q.get('level')}
-
-  #   highest_completed_level = _.max(
-  #       _.sortBy(highest_completed_level, 'level').map (q) -> q.level
-  #   )
-      
+  
   if app.debug
     console.log "choosing question by progression"
   _filtered_questions = questions.filter (q) =>
@@ -102,7 +89,8 @@ module.exports = class QuestionDB extends Backbone.Collection
 
     [tries, max_tries] = [0, 5]
      
-    # TODO: for now just ordering by progression and dispalying everything anyway
+    # TODO: for now just ordering by progression and dispalying everything
+    # anyway
 
     question_instance = false
     while not question_instance and tries <= max_tries
@@ -120,25 +108,6 @@ module.exports = class QuestionDB extends Backbone.Collection
       else
         qs = qs
       
-      # qs = @filterQuestionsByProgression(userprogression, category)
-
-      # level_constraint_qs = qs.filter(level_constraint)
-
-      # if level_constraint_qs.length < qs.length
-      #   completeds = (q.user_completed_question(userprogression) for q in qs)
-      #   console.log completeds
-      #   # TODO: is current level complete? 
-      #   # no concepts?
-      #   if _.every(completeds, (e) -> e == false)
-      #     console.log "PREVIOUS INCOMPLETE"
-      #     qs = qs
-      #     # return [false, "PREVIOUS INCOMPLETE"]
-      #   else
-      #     console.log "Something else"
-      #     return false
-      # else
-      #   qs = level_constraint_qs
-
       if qs.length == 0
         return false
 
