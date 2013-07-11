@@ -9,22 +9,34 @@
 <hr />
 
 <% # TODO: sound. %>
-<div class="possible_answers">
-    <div class="ui-grid-a">
-    <% chars = 'abcdefghijklmnopqrstuvwxyz' %>
-    <% for choice, idx in @instance.choices: %>
-        <div class="ui-block-<%- chars.charAt(idx) %>">
-            <div class="ui-body">
-                <% if choice.get('concept_type') == 'text': %>
-                    <a class="answerlink text" 
-                       data-role="button"
-                       data-word="<%- choice.get('concept_value') %>" 
-                       href="#"><%- choice.render_concept() %></a>
-                <% else: %>
-                    <a class="answerlink" data-word="<%- choice.get('concept_value') %>" href="#"><%- choice.render_concept() %></a>
-                <% end %>
-            </div>
+<% @q_type %>
+<% window.i = @instance %>
+<% if @q_type == 'image_to_word' or @q_type == 'word_to_word': %>
+    <div class="possible_answers word_set">
+        <div data-role="controlgroup">
+        <% for choice, idx in @instance.choices: %>
+            <% if choice.get('concept_type') == 'text': %>
+                <a class="answerlink text" 
+                   data-role="button"
+                   data-word="<%- choice.get('concept_value') %>" 
+                   href="#"><%- choice.render_concept() %></a>
+            <% else: %>
+                <a class="answerlink" data-word="<%- choice.get('concept_value') %>" href="#"><%- choice.render_concept() %></a>
+            <% end %>
+        <% end %>
         </div>
-    <% end %>
     </div>
-</div>
+<% else if @q_type == 'word_to_image': %>
+    <div class="possible_answers image_set">
+        <div class="ui-grid-a">
+        <% chars = 'abcdefghijklmnopqrstuvwxyz' %>
+        <% for choice, idx in @instance.choices: %>
+            <div class="ui-block-<%- chars.charAt(idx) %>">
+                <div class="ui-body">
+                    <a class="answerlink" data-word="<%- choice.get('concept_value') %>" href="#"><span class="tint"><%- choice.render_concept() %></span></a>
+                </div>
+            </div>
+        <% end %>
+        </div>
+    </div>
+<% end %>

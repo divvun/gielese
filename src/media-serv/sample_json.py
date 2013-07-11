@@ -184,6 +184,28 @@ leksa_questions = [
     , 'category': "FOOD"
     },
 
+    # -*- test -*- 
+    { 'type': 'image_to_word'
+    , 'filters': { 'from_language': 'img', 'to_language': 'sma'
+                 , 'semantics': ["FOOD"]
+                 }
+    , 'answer_similarity': { 'semantics': ["FOOD"] }
+    , 'level': 1
+    , 'answers': 1
+    , 'name': "Bodypart image to word"
+    , 'points': 20
+    , 'category': "TEST"
+    },
+    { 'type': 'word_to_image'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'img'
+                 , 'semantics': ["FOOD"]
+                 }
+    , 'answer_similarity': { 'semantics': ["FOOD"] }
+    , 'level': 3
+    , 'answers': 4
+    , 'points': 100
+    , 'category': "TEST"
+    },
 
 ]
 

@@ -88,6 +88,10 @@ module.exports = class LeksaView extends Backbone.View
       if _transl.length > 0
         concept_name = _transl[0].get('concept_value')
 
+    if correct
+      points_given = @cur_points
+    else
+      points_given = 0
     #
     # Create the log entry in the user progression
     window.app.leksaUserProgression.push new UserLog({
@@ -96,7 +100,7 @@ module.exports = class LeksaView extends Backbone.View
       question_concept_value: concept_name
       question_correct: correct
       question: question
-      points: @cur_points
+      points: points_given
     })
 
     return true
@@ -192,10 +196,12 @@ module.exports = class LeksaView extends Backbone.View
 
     #
     # Render the template for the question
+    console.log q_instance.generator.get('type')
     question_block = @question_template {
       instance: q_instance
       chunker: arrayChunk
       audio: q_instance.question.hasAudio()
+      q_type: q_instance.generator.get('type')
     }
 
     @$el.find('#leksa_question').html(question_block)
