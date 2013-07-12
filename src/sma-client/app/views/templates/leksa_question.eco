@@ -32,9 +32,7 @@
         <% chars = 'abcdefghijklmnopqrstuvwxyz' %>
         <% for choice, idx in @instance.choices: %>
             <div class="ui-block-<%- chars.charAt(idx) %>">
-                <div class="ui-body">
-                    <a class="answerlink" data-word="<%- choice.get('concept_value') %>" href="#"><span class="tint"><%- choice.render_concept() %></span></a>
-                </div>
+                <a class="answerlink" data-word="<%- choice.get('concept_value') %>" href="#"><span class="tint"><%- choice.render_concept() %></span></a>
             </div>
         <% end %>
         </div>

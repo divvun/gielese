@@ -69,50 +69,68 @@ span.question_level
 
 a.answerlink
     text-decoration: None
-
-    .img_concept
-        width: 150px
-        height: 150px
-        padding-bottom: 1em
-
-a.answerlink.correct
-    color: #3A3
     display: block
-    width: 100%
-    height: 100%
 
-    .tint
-      background-color: #090
-      display: block
-      width: 150px
-      height: 150px
-
-    .concept.img_concept
-      opacity: .7
-
-    .concept.word_concept
-      color: #151
 
 // a.answerlink.correct:after
 //     content: "  Correct!"
 
-a.answerlink.incorrect
-    color: #A33
+.image_set 
+
     display: block
-    width: 100%
-    height: 100%
+    margin: 0 auto
+
+    a.answerlink
+        width: 150px
+        height: 150px
+        padding-bottom: 1em
+        margin: 0 auto
 
     .tint
-      background-color: #900
-      display: block
-      width: 150px
-      height: 150px
+        display: block
+        width: 150px
+        height: 150px
 
-    .concept.img_concept
-      opacity: .5
+    .correct
+        color: #3A3
 
-    .concept.word_concept
-      color: #311
+        .tint
+          background-color: #090
+
+        .concept
+          opacity: .5
+
+
+    .incorrect
+        color: #A33
+
+        .tint
+          background-color: #900
+
+        .concept
+          opacity: .5
+
+
+.word_set
+
+    // background shading
+    .answerlink.incorrect .ui-btn-inner
+        background-color: rgba(170, 51, 51, 0.7)
+
+    .answerlink.correct .ui-btn-inner
+        background-color: rgba(51, 170, 51, 0.7)
+
+    .correct
+        color: #3A3
+
+        .concept
+          color: #151
+
+    .incorrect
+        color: #A33
+
+        .concept
+          color: #311
       
 // a.answerlink.incorrect:after
 //     content: " Incorrect!"
