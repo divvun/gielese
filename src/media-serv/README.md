@@ -10,6 +10,11 @@ first step, if you want to just install everything, use:
 
  * `python manage.py install_lexicon -f ../data/n_smanob.xml`
 
+## Final step
+
+Prepare JSON files.
+
+ * `python manage.py prepare_json`
 
 # Internationalisation
 

@@ -65,7 +65,7 @@ module.exports = class LeksaView extends Backbone.View
     # Give user feedback that they were correct, and show the set done options.
 
     $(user_input).addClass('correct')
-    usr_msg = $('<a href="#" class="correct usr_msg">Correct</a>')
+    usr_msg = $("<a href='#' class='correct usr_msg'>Correct</a>")
     $(user_input).parent().append usr_msg
     @logConcept(question, correct_answer_concept, true)
     $('.set_done_options').show()
