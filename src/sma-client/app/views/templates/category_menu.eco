@@ -29,6 +29,7 @@
 	        </div>
         </div>
 
+        <!--
         <div class="ui-grid-b">
 	        <div class="ui-block-a">
                 <a class="square" href="#category/TEST" data-transition="slide">
@@ -37,6 +38,7 @@
 	            </a>
 	        </div>
         </div>
+        -->
 
         <h2 class="heading" data-role="list-divider">Debug</h2>
 
