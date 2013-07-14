@@ -1,7 +1,7 @@
 
 module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
-  idAttribute: "c_id"
+  idAttribute: "id"
 
   defaults:
     language: false
@@ -9,7 +9,7 @@ module.exports = class Concept extends Backbone.Model
     concept_value: false
     semantics: []
     features: []
-    c_id: null
+    id: null
     translations: []
 
   hasImage: () ->
@@ -27,7 +27,7 @@ module.exports = class Concept extends Backbone.Model
   getTranslations: () ->
     @collection.filter (comp_concept) =>
       if _.contains( @.get('translations')
-                   , comp_concept.get('c_id')
+                   , comp_concept.get('id')
                    )
         return true
       else

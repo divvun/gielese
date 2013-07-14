@@ -15,6 +15,16 @@ __all__ = [
     'Form',
 ]
 
+from sqlalchemy.sql import func
+from datetime import datetime
+
+class TimestampMixin(object):
+    """
+    Provides the :attr:`created_at` and :attr:`updated_at` audit timestamps
+    """
+    created_at = db.Column(db.DateTime, default=func.now(), nullable=False)
+    updated_at = db.Column(db.DateTime, default=func.now(), onupdate=datetime.utcnow, nullable=False)
+
 class Semtype(db.Model):
     __tablename__ = 'semtype'
     id = db.Column(db.Integer, primary_key=True)
@@ -135,7 +145,7 @@ concept_concept = db.Table( 'concept_to_concept'
                                      )
                           )
 
-class Concept(db.Model):
+class Concept(db.Model, TimestampMixin):
     __tablename__ = 'concept'
     id = db.Column(db.Integer, primary_key=True)
     wordid = db.Column(db.String(200), index=True)

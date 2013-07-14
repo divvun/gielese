@@ -324,11 +324,13 @@ def format_concept(concept):
 
     semantics = list(set(semantics))
 
-    return { "c_id": concept.id
+    return { "id": concept.id
            , "concept_type": _type
            , "concept_value": concept._getTrans()
            , "features": features
            , "language": language
+           , "updated_at": concept.updated_at.isoformat()
+           , "created_at": concept.created_at.isoformat()
            , "semantics": semantics
            , "translations": list(set(translations)) + media_ids
            , "media": concept_media

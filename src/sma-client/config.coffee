@@ -22,8 +22,11 @@ exports.config =
           'vendor/scripts/underscore-1.3.3.js'
           'vendor/scripts/backbone.js'
           
-          # https://github.com/jeromegn/Backbone.localStorage
-          'vendor/scripts/backbone.localStorage.js'
+          ## https://github.com/jeromegn/Backbone.localStorage
+          # 'vendor/scripts/backbone.localStorage.js'
+
+          ## https://github.com/ask11/backbone-offline/
+          'vendor/scripts/backbone_offline.js'
         ]
     stylesheets:
       defaultExtension: 'styl'

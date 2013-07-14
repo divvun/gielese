@@ -2,10 +2,16 @@ Concept = require 'models/concept'
 
 module.exports = class ConceptDB extends Backbone.Collection
   model: Concept
-  idAttribute: "c_id"
+
   url: "/data/concepts.json"
 
-  # localStorage: new Backbone.LocalStorage("ConceptDB")
+  initialize: () ->
+    # @storage = new Offline.Storage('concepts', this, {})
+    @fetch
+      success: () =>
+        app.loadingTracker.markReady('concepts.json')
+        console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+
   
   getByCid: (cid) ->
     ms = @models.filter (m) =>
@@ -52,7 +58,7 @@ module.exports = class ConceptDB extends Backbone.Collection
   getTranslationsOf: (concept) ->
     @models.filter (comp_concept) =>
       if _.contains( concept.get('translations')
-                   , comp_concept.get('c_id')
+                   , comp_concept.get('id')
                    )
         return true
       else

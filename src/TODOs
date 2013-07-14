@@ -1,13 +1,17 @@
 #
 
+* working out offline sync of models in preparation for user stuff
+  - Offline.Sync seems to be having some problem with Backbone 1.0, either that
+    or data from media_serv is still not completely in line with what
+    Offline.Sync wants. In any case, content IDs are now what it wants, and there
+    are timestamps on model i'm testing on.
+
 * fix text size for long words in buttons
 
      split on hyphens - default size when no resizing happens?
 
      iehkedsbeapmoe still a problem, but will probably be fixed when format
      changes
-
-* split up leksa into two games
 
 * use user progression to remove possibility that a word is repeated twice in a
   row, unless it is all that can be shown

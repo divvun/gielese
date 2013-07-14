@@ -27,7 +27,7 @@ orderConceptsByProgression = (q, concepts, up) ->
       .filter (up) =>
         up.get('question') == q
       .filter (up) =>
-        up.get('question_concept') == c.get('c_id')
+        up.get('question_concept') == c.get('id')
       .filter (up) =>
         up.get('question_correct')
       .length
@@ -86,7 +86,7 @@ module.exports = class Question extends Backbone.Model
     getProgressionCorrectCountForConcept = (c) =>
       userprogression
         .filter (up) =>
-          up.get('question_concept') == c.get('c_id')
+          up.get('question_concept') == c.get('id')
         .filter (up) =>
           up.get('question_correct')
         .filter (up) =>
