@@ -231,7 +231,17 @@ do (global = window, _, Backbone) ->
     ajax: (method, model, options) ->
       if Offline.onLine()
         @prepareOptions(options)
-        Backbone.ajaxSync(method, model, options)
+        # TODO: ajax response seems to be returning a string which success:
+        # functions don't know what to do with-- but I don't want to believe
+        # yet that the problem is here...
+        #
+        # NOTE: problem is compatibility difference between Backbone 1.0 and
+        # 0.9.10; which has some API changes to success and error callbacks.
+        # 
+        # https://github.com/jashkenas/backbone/commit/6e646f1ba
+        #
+        res = Backbone.ajaxSync(method, model, options)
+        return res
       else
         @storage.setItem('offline', 'true')
 
@@ -631,6 +641,8 @@ module.exports = class Application
     @questiondb = new QuestionDB()
 
     # moved to collection.initialize for convenience
+    @conceptdb.storage = new Offline.Storage('concepts', @conceptdb)
+    @conceptdb.storage.sync.pull()
     # @conceptdb.fetch
     #   success: () =>
     #     app.loadingTracker.markReady('concepts.json')
