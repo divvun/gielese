@@ -5,13 +5,12 @@ module.exports = class ConceptDB extends Backbone.Collection
 
   url: "/data/concepts.json"
 
-  ## initialize: () ->
-  ##   @storage = new Offline.Storage('concepts', @)
-  ##   @fetch
-  ##     success: () =>
-  ##       app.loadingTracker.markReady('concepts.json')
-  ##       console.log "fetched concepts.json (#{app.conceptdb.models.length})"
-  ##   return @
+  initialize: () ->
+    @storage = new Offline.Storage('concepts', @)
+    @storage.sync.pull
+      success: () =>
+        app.loadingTracker.markReady('concepts.json')
+        console.log "fetched concepts.json (#{app.conceptdb.models.length})"
   
   getByCid: (cid) ->
     ms = @models.filter (m) =>

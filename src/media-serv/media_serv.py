@@ -324,7 +324,8 @@ def format_concept(concept):
 
     semantics = list(set(semantics))
 
-    return { "id": concept.id
+    return { "c_id": concept.id
+           , "id":  concept.id
            , "concept_type": _type
            , "concept_value": concept._getTrans()
            , "features": features

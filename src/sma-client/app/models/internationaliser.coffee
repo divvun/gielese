@@ -11,6 +11,13 @@ module.exports = class Internationalisations extends Backbone.Collection
   model: Internationalisation
   url: "/data/translations.json"
 
+  # TODO: app not accessible when instantiated globally
+  initialize: () ->
+  #   @fetch
+  #     success: () =>
+  #       app.loadingTracker.markReady('internationalisations.json')
+  #       console.log "fetched internationalisations.json (#{app.internationalisations.models.length})"
+
   fetch: () ->
     super
     app.loadingTracker.markReady('translations.json')

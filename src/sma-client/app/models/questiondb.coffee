@@ -17,17 +17,17 @@ chooseQuestionbyProgression = (questions, userprogression) ->
   else
   	return false
 
-# class QuestionDBCache extends Backbone.Collection
-#   localStorage: new Backbone.LocalStorage("QuestionDBCache")
-# 
-#   refreshFromServer: () ->
-#     Backbone.ajaxSync('read', this)
-
-module.exports = class QuestionDB extends Backbone.Collection # QuestionDBCache
+module.exports = class QuestionDB extends Backbone.Collection
   model: Question
 
   url: "/data/leksa_questions.json"
 
+  initialize: () ->
+    @fetch
+      success: () =>
+        app.loadingTracker.markReady('leksa_questions.json')
+        console.log "fetched leksa_questions.json (#{app.questiondb.models.length})"
+  
   filterQuestionsByCategory: (category, qs) ->
 
     if category

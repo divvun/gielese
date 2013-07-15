@@ -1,7 +1,7 @@
 
 module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
-  idAttribute: "id"
+  idAttribute: "c_id"
 
   hasImage: () ->
     has_media = @.get('media')
@@ -18,7 +18,7 @@ module.exports = class Concept extends Backbone.Model
   getTranslations: () ->
     @collection.filter (comp_concept) =>
       if _.contains( @.get('translations')
-                   , comp_concept.get('id')
+                   , comp_concept.get('c_id')
                    )
         return true
       else
@@ -38,7 +38,7 @@ module.exports = class Concept extends Backbone.Model
       if opts.sound_id?
         sound_id = opts.sound_id
       else
-        sound_id = "concept-audio-#{@.cid}"
+        sound_id = "concept-audio-#{@.get('c_id')}"
       soundManager.destroySound(sound_id)
       s = soundManager.createSound({
          id: sound_id
