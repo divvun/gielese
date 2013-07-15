@@ -1,10 +1,25 @@
 #
 
+* need a means of forcing the app to work offline, independently of whatever
+  browser reports
+
+   - online/offline detection in chrome seems to work
+
 * working out offline sync of models in preparation for user stuff
-  - Offline.Sync seems to be having some problem with Backbone 1.0, either that
-    or data from media_serv is still not completely in line with what
-    Offline.Sync wants. In any case, content IDs are now what it wants, and there
-    are timestamps on model i'm testing on.
+  - may be some success callbacks to fix, yet, but Sync.full, Sync.pull,
+    Sync.push seem to work
+
+  - User Progression syncing to server, what's needed:
+     - endpoints for PUTting user log entries
+     - a dummy user for testing
+
+     - user models on server
+     - auth: logs should be assigned user ID via authentication, not from
+       setting in log entry, otherwise problems
+
+     - ideas: 
+        http://thomassileo.com/blog/2012/09/10/build-a-backbone-slash-brunch-slash-chaplin-backend-with-python-flask-and-mongodb/
+
 
 * fix text size for long words in buttons
 

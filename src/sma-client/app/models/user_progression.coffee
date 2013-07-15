@@ -1,5 +1,13 @@
 ﻿module.exports = class UserProgression extends Backbone.Collection
 
+  initialize: () ->
+    @storage = new Offline.Storage('leksa-user-progression', @)
+    # get everything for user's account from server
+    # @storage.sync.pull
+    #   success: () =>
+    #     app.loadingTracker.markReady('concepts.json')
+    #     console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+
   countPoints: () ->
     points = (m.get('points') for m in @models)
     sum = (memo, num) -> memo + num

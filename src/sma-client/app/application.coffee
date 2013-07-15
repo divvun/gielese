@@ -171,9 +171,11 @@ window.initWindowCache = () ->
       counter++
 
     window.addEventListener "online", (e) ->
+      # TODO: things to do here
       console.log "you are online"
 
     window.addEventListener "offline", (e) ->
+      # TODO: things to do here
       console.log "you are offline"
   else
     fadeOutLoader()

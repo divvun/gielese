@@ -1,4 +1,5 @@
 Concept = require 'models/concept'
+require 'backbone.offline'
 
 module.exports = class ConceptDB extends Backbone.Collection
   model: Concept

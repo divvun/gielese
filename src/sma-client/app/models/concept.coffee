@@ -1,8 +1,6 @@
 
 module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
-  idAttribute: "c_id"
-
   hasImage: () ->
     has_media = @.get('media')
     if 'image' of has_media

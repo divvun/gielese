@@ -6,7 +6,7 @@
 
 do (global = window, _, Backbone) ->
   global.Offline =
-    VERSION: '0.4.3'
+    VERSION: '0.4.3a'
 
     # This is a method for CRUD operations with localStorage.
     # Delegates to 'Offline.Storage' and works as ‘Backbone.sync’ alternative
@@ -296,7 +296,7 @@ do (global = window, _, Backbone) ->
       delete item.attributes.id
       [method, item.id] = if item.get('sid') is 'new' then ['create', null] else ['update', item.attributes.sid]
 
-      @ajax method, item, success: (model, response, opts) =>
+      @ajax method, item, success: (response) =>
         item.set(sid: response.id) if method is 'create'
         item.save {dirty: false}, {local: true}
 
