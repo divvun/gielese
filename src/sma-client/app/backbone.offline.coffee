@@ -19,7 +19,8 @@ do (global = window, _, Backbone) ->
         when 'delete' then store.destroy(model, options)
 
       if resp
-        options.success(model, resp.attributes ? resp, options)
+        # TODO: test/check this
+        options.success(resp.attributes ? resp)
       else
         options.error?('Record not found')
 
@@ -205,17 +206,7 @@ do (global = window, _, Backbone) ->
     ajax: (method, model, options) ->
       if Offline.onLine()
         @prepareOptions(options)
-        # TODO: ajax response seems to be returning a string which success:
-        # functions don't know what to do with-- but I don't want to believe
-        # yet that the problem is here...
-        #
-        # NOTE: problem is compatibility difference between Backbone 1.0 and
-        # 0.9.10; which has some API changes to success and error callbacks.
-        # 
-        # https://github.com/jashkenas/backbone/commit/6e646f1ba
-        #
-        res = Backbone.ajaxSync(method, model, options)
-        return res
+        return Backbone.ajaxSync(method, model, options)
       else
         @storage.setItem('offline', 'true')
 
@@ -243,8 +234,8 @@ do (global = window, _, Backbone) ->
       if @storage.getItem('offline')
         @storage.removeItem('offline')
         success = options.success
-        options.success = (model, response, opts) =>
-          success(model, response, opts)
+        options.success = (response) =>
+          success(response)
           @incremental()
 
     # Requests data from the server and merges it with a collection.

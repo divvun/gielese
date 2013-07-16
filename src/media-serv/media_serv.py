@@ -390,6 +390,54 @@ def concepts():
                        , mimetype="application/json"
                        )
 
+##
+### User auth and data
+##
+
+
+# TODO: make this do things
+# TODO: auth
+# TODO: mongodb
+# TODO: how to error and tell backbone it didn't succeed and can't mark
+# dirty?
+@app.route('/user/data/log/', methods=["PUT"])
+def put_user_log():
+    from flask import jsonify
+    print json.loads(request.data)
+    return jsonify(success=True)
+
+# TODO: auth
+# TODO: return all user's data
+@app.route('/user/data/', methods=["GET"])
+def get_user_log():
+    from flask import jsonify
+    test_items = [{u'question_concept': 217, u'question': {u'category': u'FOOD', u'name': u'Bodypart image to 2-word', u'level': 3, u'answers': 2, u'answer_similarity': {u'semantics': [u'FOOD']}, u'points': 60, u'filters': {u'to_language': u'sma', u'from_language': u'img', u'semantics': [u'FOOD']}, u'type': u'image_to_word'}, u'points': 60, u'game_name': u'leksa', u'question_correct': True, u'question_concept_value': u'voeje', u'dirty': True},
+    {u'question_concept': 301, u'question': {u'category': u'FOOD', u'name': u'Bodypart image to 2-word', u'level': 3, u'answers': 2, u'answer_similarity': {u'semantics': [u'FOOD']}, u'points': 60, u'filters': {u'to_language': u'sma', u'from_language': u'img', u'semantics': [u'FOOD']}, u'type': u'image_to_word'}, u'points': 0, u'game_name': u'leksa', u'question_correct': False, u'question_concept_value': u'by\xf6pmedidh', u'dirty': True},
+    {u'question_concept': 301, u'question': {u'category': u'FOOD', u'name': u'Bodypart image to 2-word', u'level': 3, u'answers': 2, u'answer_similarity': {u'semantics': [u'FOOD']}, u'points': 60, u'filters': {u'to_language': u'sma', u'from_language': u'img', u'semantics': [u'FOOD']}, u'type': u'image_to_word'}, u'points': 59, u'game_name': u'leksa', u'question_correct': True, u'question_concept_value': u'by\xf6pmedidh', u'dirty': True}
+    ]
+    return jsonify(items=test_items)
+
+
+# TODO: actually authenticate
+@app.route('/user/login/', methods=['POST'])
+def login():
+    from flask import jsonify
+    session['username'] = request.form['username']
+    pw = request.form['username']
+    return jsonify(success=True)
+
+@app.route('/user/logout/')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    return jsonify(success=True)
+
+
+
+##
+### Front page
+##
+
 @app.route('/', methods=['GET'])
 def landing():
     from flask import Response
@@ -402,6 +450,12 @@ def client():
     return render_template('index.html')
 
 app.debug = True
+
+import sys
+
+
+with open('secret_key', 'r') as F:
+    app.secret_key = F.read().strip()
 
 if __name__ == "__main__":
     app.run(debug=True)

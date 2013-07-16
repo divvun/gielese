@@ -1,6 +1,6 @@
 Router = require 'routers/router'
-CategoryMenu = require 'views/category_view'
 
+CategoryMenu = require 'views/category_view'
 CategoryGames = require 'views/category_games_view'
 
 FrontPage = require 'views/front_page'

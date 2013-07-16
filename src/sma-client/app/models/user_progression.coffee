@@ -1,7 +1,23 @@
-﻿module.exports = class UserProgression extends Backbone.Collection
+﻿UserLogEntry = require 'models/user_log_entry'
+
+module.exports = class UserProgression extends Backbone.Collection
+
+  url: "/user/data/"
+
+  model: UserLogEntry
+
+  parse: (resp) ->
+    # TODO: for offline this isn't called at all for sync methods?
+    console.log "parse"
+    return resp.items
 
   initialize: () ->
     @storage = new Offline.Storage('leksa-user-progression', @)
+    # set after the user successfully authenticates
+    if app.has_user
+      if navigator.onLine
+      	@fetch()
+
     # get everything for user's account from server
     # @storage.sync.pull
     #   success: () =>
@@ -14,7 +30,8 @@
     return _.reduce(points, sum, 0)
 
   collateConcepts: (conceptdb) ->
-    # for each log entry, collect concept and correct 1/0, sum correct / length for each concept
+    # for each log entry, collect concept and correct 1/0, sum correct / length
+    # for each concept
     boolToInt = (b) ->
       switch b
         when true  then 1

@@ -1,18 +1,24 @@
 Concept = require 'models/concept'
-require 'backbone.offline'
 
 module.exports = class ConceptDB extends Backbone.Collection
   model: Concept
+  idAttribute: "c_id"
 
   url: "/data/concepts.json"
 
   initialize: () ->
-    @storage = new Offline.Storage('concepts', @)
-    @storage.sync.pull
+    # @storage = new Offline.Storage('concepts', @)
+    # if navigator.onLine
+    #   @storage.sync.pull
+    #     success: () =>
+    #       app.loadingTracker.markReady('concepts.json')
+    #       console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+  
+    @fetch
       success: () =>
         app.loadingTracker.markReady('concepts.json')
         console.log "fetched concepts.json (#{app.conceptdb.models.length})"
-  
+
   getByCid: (cid) ->
     ms = @models.filter (m) =>
       m.cid == cid
@@ -23,6 +29,8 @@ module.exports = class ConceptDB extends Backbone.Collection
       false
 
   whereSemantics: (sets, extra_filter) ->
+    # Really the only reliable way to check the type of an object...
+    #
     _type = Object.prototype.toString.call(sets)
     _type_str = Object.prototype.toString.call("str")
     if _type == _type_str

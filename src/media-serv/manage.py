@@ -16,6 +16,13 @@ def thing():
     a.translations_to.append(b)
     b.translations_from.append(a)
 
+@manager.register('generate_key')
+def generate_key(*args, **kwargs):
+    import os
+    def action():
+        with open('secret_key', 'w') as F:
+            F.write(os.urandom(24))
+    return action
 
 @manager.register('init_db')
 # TODO: this seems to not work yet for some reason
