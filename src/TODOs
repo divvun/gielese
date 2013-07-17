@@ -1,3 +1,13 @@
+## Today
+
+ + user creation exists, stupid simple
+   - TODO: hash password
+
+ + TODO: login via client
+
+ + TODO: start syncing user log entries
+ + TODO: debug function to reset user log entries
+
 #
 
 * front page has been disabled

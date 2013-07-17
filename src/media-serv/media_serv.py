@@ -406,6 +406,8 @@ from flask.views import MethodView
 from functools import wraps
 import simplejson
 
+from passlib.apps import custom_app_context as pwd_context
+
 class MongoDocumentEncoder(simplejson.JSONEncoder):
     def default(self, o):
         if isinstance(o, datetime):
@@ -539,16 +541,16 @@ def login():
                        , mimetype='application/json'
                        )
 
-    print request.form
     # TODO: validate
-    # TODO: hashing omg
-    user = request.form['username']
-    pw = request.form['username']
-    print "logged in"
 
-    if users.find({'username': user, 'password': pw}):
-        session['username'] = request.form['username']
-        return jsonify(success=True)
+    user = request.form['username']
+    pw = request.form['password']
+
+    u = users.find_one({'username': user})
+    if u:
+        if pwd_context.verify(pw, u.get('password')):
+            session['username'] = request.form['username']
+            return jsonify(success=True)
 
     return nope('You were not authenticated.')
 
@@ -589,7 +591,7 @@ def create_user():
     em = form.email
 
     user_kwargs = { 'username': un
-                  , 'password': pw
+                  , 'password': pwd_context.encrypt(pw)
                   , 'email': em
                   }
 
