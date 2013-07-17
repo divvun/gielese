@@ -559,9 +559,15 @@ def create_user():
     from schematics.models import Model
     from schematics.types import EmailType, StringType
     from schematics.exceptions import ValidationError
+    from schematics.serialize import blacklist
+
+    def user_does_not_exist(value):
+        if users.find_one({'username': value}):
+            raise ValidationError("User with that name exists already!")
+        return value
 
     class UserFormValidation(Model):
-        username = StringType(required=True)
+        username = StringType(required=True, validators=[user_does_not_exist])
         password = StringType(required=True)
         email = EmailType(required=True)
 
@@ -579,6 +585,7 @@ def create_user():
                        , mimetype='application/json'
                        )
 
+    print request.form
     form = UserFormValidation(**request.form.to_dict())
 
     try:
@@ -595,8 +602,6 @@ def create_user():
                   , 'email': em
                   }
 
-    if users.find_one({'username': un}):
-        return nope("user exists")
 
     # remove the username from the session if it's there
     session.pop('username', None)

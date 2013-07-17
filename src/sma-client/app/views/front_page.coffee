@@ -8,13 +8,74 @@ module.exports = class FrontPage extends Backbone.View
   events:
     "submit #user": "userForm"
 
+  hideLoading: () ->
+    interval = setInterval(() ->
+      $.mobile.loading('hide')
+      clearInterval(interval)
+    ,1)
+    return false
+
+  showLoading: (txt) ->
+    interval = setInterval(() =>
+      $.mobile.loading('show', {
+        text: txt,
+        textVisible: true,
+        theme: 'a',
+        html: ""
+      })
+      clearInterval(interval)
+    ,1)
+    return false
+
   userForm: (event) ->
     # display loading
     #
 
-    un = $ "#user #un"
-    pw = $ "#user #pw"
+    data =
+      username: $("#user #un").val()
+      email:    $("#user #em").val()
+      password: $("#user #pw").val()
 
+    # TODO: maybe submit json instead? do something so it can't be sniffed?
+    #
+
+    @showLoading("Submitting...")
+
+    create_user = $.post("/user/create/", data)
+
+    create_user.fail (resp) =>
+        error_json = JSON.parse(resp.responseText)
+        fields = error_json.reasons
+        $("form#user input").removeClass("error")
+        $("form#user span.error").remove()
+
+        # Can't rely on schematics to return consistent data. Sometimes this is
+        # a list, sometimes an Object
+        if fields.length?
+          # Append errors to form
+          for error in fields
+            error_msg = $("<span class='error'>")
+            error_msg.html(error)
+            $("form#user .form_fields").append(error_msg)
+        else
+          # Highlight fields that have errors
+          for key, error of fields
+            input = $("input[name=#{key}]")
+            input.addClass("error")
+            fieldset = input.parents('fieldset')
+
+            error_msg = $("<span class='error'>")
+            error_msg.html(error.join(', '))
+            fieldset.append error_msg
+
+    create_user.success (resp) =>
+        console.log "wat"
+        setTimeout(@hideLoading, 500)
+        # y u not work
+        @nextQuestion()
+
+    create_user.always () => setTimeout(@hideLoading, 500)
+                    
     # ajax call to check that user can be created
     # if fail, display errors
     # if success, store username, api key, etc., continue

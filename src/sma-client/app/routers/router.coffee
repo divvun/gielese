@@ -15,6 +15,7 @@ module.exports = class Router extends Backbone.Router
   # option, which does some funky redirecting.
   routes:
     '': 'index'
+    '#index': 'index'
 
     # Misc 
     
@@ -75,7 +76,7 @@ module.exports = class Router extends Backbone.Router
     if configured_already
       @changePage(app.categoryMenu)
     else
-      @changePage(app.categoryMenu)
+      @changePage(app.frontPage)
   
   loading: ->
     @changePage(app.loadingView)
