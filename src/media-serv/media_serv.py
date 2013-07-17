@@ -416,13 +416,23 @@ class MongoDocumentEncoder(simplejson.JSONEncoder):
 
 
 def mongodoc_jsonify(*args, **kwargs):
-    return Response(simplejson.dumps(dict(*args, **kwargs), cls=MongoDocumentEncoder), mimetype='application/json')
+    return Response( simplejson.dumps( dict(*args, **kwargs)
+                                     , cls=MongoDocumentEncoder
+                                     )
+                   , mimetype='application/json'
+                   )
+
+def plz_can_haz_auth():
+    return Response( simplejson.dumps(dict(error="no login"))
+                   , status=401
+                   , mimetype='application/json'
+                   )
 
 def api_login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if not 'username' in session:
-            return Response(simplejson.dumps(dict(error="no login")), status=401, mimetype='application/json')
+            return plz_can_haz_auth()
         return f(*args, **kwargs)
     return decorated_function
 
@@ -447,26 +457,61 @@ class LogsAPI(MethodView):
     def table(self):
         return app.mongodb.db.user_logs
 
+    def session_user(self):
+        un = None
+        user_id = None
+
+        if 'username' in session:
+            un = session['username']
+            if un:
+                user = app.mongodb.db.users.find_one({"username": un})
+                user_id = user.get('_id')
+
+        print "session: %s, %s" % (str(un), str(user_id))
+
+        return un, user_id
+
     def get(self, item_id):
-        if item_id is None:
-            return mongodoc_jsonify(items=list(self.table.find()))
-        else:
-            return mongodoc_jsonify(data=self.table.find_one({"_id": ObjectId(item_id)}))
+        un, user_id = self.session_user()
+
+        query = {"user_id": user_id}
+
+        if item_id is not None:
+            query["_id"] = ObjectId(item_id)
+        return mongodoc_jsonify(data=self.table.find_one(query))
 
     def post(self):
-        print request.json
+        un, user_id = self.session_user()
+        if not un:
+            return plz_can_haz_auth()
+
+        # TODO: is this sufficient?
+        request.json['user_id'] = user_id
+        # TODO: can user create record?
         self.table.insert(request.json)
         return mongodoc_jsonify(data=request.json)
 
-    def create(self):
-        self.table.insert(request.json)
-        return mongodoc_jsonify(data=request.json)
+    create = post
 
     def delete(self, item_id):
+        un, user_id = self.session_user()
+        if not un:
+            return plz_can_haz_auth()
+
+        # TODO: can user remove record?
         self.table.remove({"_id": ObjectId(item_id)})
         return ""
 
     def put(self, item_id):
+        un, user_id = self.session_user()
+        if not un:
+            return plz_can_haz_auth()
+
+        # TODO: can user update record?
+
+        # add user id
+        request.json['user_id'] = user_id
+
         self.table.update({"_id": ObjectId(item_id)}, {'$set': request.json})
         return mongodoc_jsonify(data=request.json)
 
@@ -482,16 +527,95 @@ app.add_url_rule('/user/data/log/<item_id>', view_func=items_view,
 # TODO: @auth_required views
 # TODO:
 
+# TODO: validate, check that user exists, if not, nope
 @app.route('/user/login/', methods=['POST'])
 def login():
     from flask import jsonify
-    session['username'] = request.form['username']
+    users = app.mongodb.db.users
+
+    def nope(error):
+        return Response( simplejson.dumps(dict(error=error))
+                       , status=500
+                       , mimetype='application/json'
+                       )
+
+    print request.form
+    # TODO: validate
+    # TODO: hashing omg
+    user = request.form['username']
     pw = request.form['username']
+    print "logged in"
+
+    if users.find({'username': user, 'password': pw}):
+        session['username'] = request.form['username']
+        return jsonify(success=True)
+
+    return nope('You were not authenticated.')
+
+@app.route('/user/create/', methods=['POST', 'CREATE'])
+def create_user():
+    from schematics.models import Model
+    from schematics.types import EmailType, StringType
+    from schematics.exceptions import ValidationError
+
+    class UserFormValidation(Model):
+        username = StringType(required=True)
+        password = StringType(required=True)
+        email = EmailType(required=True)
+
+    users = app.mongodb.db.users
+
+    def nope(error):
+        return Response( simplejson.dumps(dict(error=error))
+                       , status=500
+                       , mimetype='application/json'
+                       )
+
+    def nopes(error, reasons):
+        return Response( simplejson.dumps(dict(error=error, reasons=reasons))
+                       , status=500
+                       , mimetype='application/json'
+                       )
+
+    form = UserFormValidation(**request.form.to_dict())
+
+    try:
+        form.validate()
+    except ValidationError, e:
+        return nopes("Validation error(s)", e.messages)
+
+    un = form.username
+    pw = form.password
+    em = form.email
+
+    user_kwargs = { 'username': un
+                  , 'password': pw
+                  , 'email': em
+                  }
+
+    if users.find_one({'username': un}):
+        return nope("user exists")
+
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    users.insert(user_kwargs)
+
+    print list(users.find())
+
     return jsonify(success=True)
 
 @app.route('/user/logout/')
 def logout():
     # remove the username from the session if it's there
+    # TODO: doesn't seem to kill the cookie 
+
+    # TEST:
+    # http -f POST http://localhost:5000/user/create/ username=boba password=bobbala email=boba@someplace.com
+    # http -f POST http://localhost:5000/user/login/ username=boba password=bobbala --session=boba
+    # http GET http://localhost:5000/user/data/log/ --session=boba
+    # http GET http://localhost:5000/user/logout/ --session=boba
+    # http GET http://localhost:5000/user/data/log/ --session=boba
+
     session.pop('username', None)
     return jsonify(success=True)
 
