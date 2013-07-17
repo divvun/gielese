@@ -6,11 +6,15 @@ from werkzeug.routing import BaseConverter
 from werkzeug.contrib.cache import SimpleCache
 from database import db
 
+from flask.ext.pymongo import PyMongo
+
 def create_app():
     import os
     app = Flask(__name__, static_url_path='/static',)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////%s/media_serv.db' % os.getcwd()
     db.init_app(app)
+    mongo = PyMongo(app)
+    app.mongodb = mongo
     return app, db
 
 cache = SimpleCache()
@@ -394,31 +398,90 @@ def concepts():
 ### User auth and data
 ##
 
+from bson import ObjectId
+from datetime import datetime
+from flask import Response, session, jsonify, request
+from flask import request
+from flask.views import MethodView
+from functools import wraps
+import simplejson
 
-# TODO: make this do things
+class MongoDocumentEncoder(simplejson.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, datetime):
+            return o.isoformat()
+        elif isinstance(o, ObjectId):
+            return str(o)
+        return simplejson.JSONEncoder(self, o)
+
+
+def mongodoc_jsonify(*args, **kwargs):
+    return Response(simplejson.dumps(dict(*args, **kwargs), cls=MongoDocumentEncoder), mimetype='application/json')
+
+def api_login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not 'username' in session:
+            return Response(simplejson.dumps(dict(error="no login")), status=401, mimetype='application/json')
+        return f(*args, **kwargs)
+    return decorated_function
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not 'username' in session:
+            return redirect(url_for('user_login', next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
+
+# TODO: validate with schematics
 # TODO: auth
-# TODO: mongodb
-# TODO: how to error and tell backbone it didn't succeed and can't mark
+# TODO: return all user's data: stored options included
 # dirty?
-@app.route('/user/data/log/', methods=["PUT"])
-def put_user_log():
-    from flask import jsonify
-    print json.loads(request.data)
-    return jsonify(success=True)
+# _id vs id
+# TODO: strip sid key?
 
-# TODO: auth
-# TODO: return all user's data
-@app.route('/user/data/', methods=["GET"])
-def get_user_log():
-    from flask import jsonify
-    test_items = [{u'question_concept': 217, u'question': {u'category': u'FOOD', u'name': u'Bodypart image to 2-word', u'level': 3, u'answers': 2, u'answer_similarity': {u'semantics': [u'FOOD']}, u'points': 60, u'filters': {u'to_language': u'sma', u'from_language': u'img', u'semantics': [u'FOOD']}, u'type': u'image_to_word'}, u'points': 60, u'game_name': u'leksa', u'question_correct': True, u'question_concept_value': u'voeje', u'dirty': True},
-    {u'question_concept': 301, u'question': {u'category': u'FOOD', u'name': u'Bodypart image to 2-word', u'level': 3, u'answers': 2, u'answer_similarity': {u'semantics': [u'FOOD']}, u'points': 60, u'filters': {u'to_language': u'sma', u'from_language': u'img', u'semantics': [u'FOOD']}, u'type': u'image_to_word'}, u'points': 0, u'game_name': u'leksa', u'question_correct': False, u'question_concept_value': u'by\xf6pmedidh', u'dirty': True},
-    {u'question_concept': 301, u'question': {u'category': u'FOOD', u'name': u'Bodypart image to 2-word', u'level': 3, u'answers': 2, u'answer_similarity': {u'semantics': [u'FOOD']}, u'points': 60, u'filters': {u'to_language': u'sma', u'from_language': u'img', u'semantics': [u'FOOD']}, u'type': u'image_to_word'}, u'points': 59, u'game_name': u'leksa', u'question_correct': True, u'question_concept_value': u'by\xf6pmedidh', u'dirty': True}
-    ]
-    return jsonify(items=test_items)
+class LogsAPI(MethodView):
 
+    @property
+    def table(self):
+        return app.mongodb.db.user_logs
+
+    def get(self, item_id):
+        if item_id is None:
+            return mongodoc_jsonify(items=list(self.table.find()))
+        else:
+            return mongodoc_jsonify(data=self.table.find_one({"_id": ObjectId(item_id)}))
+
+    def post(self):
+        print request.json
+        self.table.insert(request.json)
+        return mongodoc_jsonify(data=request.json)
+
+    def create(self):
+        self.table.insert(request.json)
+        return mongodoc_jsonify(data=request.json)
+
+    def delete(self, item_id):
+        self.table.remove({"_id": ObjectId(item_id)})
+        return ""
+
+    def put(self, item_id):
+        self.table.update({"_id": ObjectId(item_id)}, {'$set': request.json})
+        return mongodoc_jsonify(data=request.json)
+
+items_view = LogsAPI.as_view('items_api')
+
+app.add_url_rule('/user/data/log/', defaults={'item_id': None},
+                 view_func=items_view, methods=['GET',])
+app.add_url_rule('/user/data/log/', view_func=items_view, methods=['POST'])
+app.add_url_rule('/user/data/log/<item_id>', view_func=items_view,
+                 methods=['GET', 'DELETE'])
 
 # TODO: actually authenticate
+# TODO: @auth_required views
+# TODO:
+
 @app.route('/user/login/', methods=['POST'])
 def login():
     from flask import jsonify

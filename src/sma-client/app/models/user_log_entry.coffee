@@ -9,5 +9,7 @@ module.exports = class UserLogEntry extends Backbone.Model
 
   initialize: (args...) ->
     super args
+    @set('sid', 'new')
     @set('dirty', true)
+    @set('_id', @cid)
 
