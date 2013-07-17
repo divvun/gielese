@@ -55,6 +55,14 @@
 
 * test repeat avoidance in other types.
 
+
+* things to document: 
+
+  - http://api.mongodb.org/python/current/tutorial.html
+  - auth situation
+
+* need to clean up the media_serv source and start modularizing
+
 # Next
 
  * TODO: sessions
