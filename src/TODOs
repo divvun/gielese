@@ -1,19 +1,28 @@
 ## Today
 
- + TODO: where did front page go? 
-   - TODO: front page needs an option to skip to login: maybe (1) create account, or login?; if create then (2) languages, etc
-     
+ - TODO: front page needs an option to skip to login: maybe (1) create account, or login?; if create then (2) languages, etc
 
- + TODO: login via client
-   - basic login done, but form POST okay? probs not
+    * Login / Create account / Play without account
+      - success modal
+      - "You can start playing now, but you will need to confirm your email
+         address if you wish to be able to reset your password."
+      - choosing no just creates an anonymous user and anonymous session
+
+    * Help language
+      - definition language
+    * Store data, etc. for offline play
+    
+ - TODO: form POST okay? probs not
+ - TODO: email verification?
 
  + TODO: start syncing user log entries
-
  + TODO: debug function to reset user log entries
 
  - TODO: anything more necessary? http://pythonhosted.org/passlib/new_app_quickstart.html
 
 #
+
+* password reset forms
 
 * need a means of forcing the app to work offline, independently of whatever
   browser reports

@@ -1,5 +1,7 @@
 Router = require 'routers/router'
 
+Authenticator = require 'auth/authentication'
+
 CategoryMenu = require 'views/category_view'
 CategoryGames = require 'views/category_games_view'
 
@@ -259,6 +261,8 @@ module.exports = class Application
 
     @loadingTracker = new LoadingTracker()
     @loadingTracker.showLoading()
+
+    @auth = new Authenticator()
 
     default_options = {
       'enable_cache': false

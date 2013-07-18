@@ -38,12 +38,6 @@
                     <p class="help"> * Probably need a small legal notice about data policy?</p>
                 </div>
                 <div class="sub_question_block" style="display: none;">
-                    <p class="lead"><%- fakeGetText "Great! You made an account, now log in!" %></p>
-                    <div data-role="fieldcontain" id="login_test">
-                        <p>Nothing here, just use the popup form</p>
-                    </div>
-                </div>
-                <div class="sub_question_block" style="display: none;">
                     <div data-role="fieldcontain" id="create_account">
                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-setting="use_account">
                             <legend><%- fakeGetText "Create an account?" %></legend>

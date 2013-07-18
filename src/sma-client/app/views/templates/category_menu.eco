@@ -1,6 +1,7 @@
 <div data-role="header">
-    <h1>Buerie biejjie!</h1>
     <a href="#options" data-transition="slide" id="show-panel" data-icon="gear">Options</a>
+    <h1>Buerie biejjie!</h1>
+    <a href="#" id="login_button" data-transition="slide" id="show-panel" data-icon="gear">Login</a>
 </div> 
 
 <div data-role="content">

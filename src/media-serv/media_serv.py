@@ -447,10 +447,15 @@ def login_required(f):
     return decorated_function
 
 # TODO: validate with schematics
-# TODO: auth
+
+# TODO: auth - get user data to store in db from session, and totes do
+#       not trust input
+
 # TODO: return all user's data: stored options included
-# dirty?
-# _id vs id
+#       dirty?
+
+#       _id vs id
+
 # TODO: strip sid key?
 
 class LogsAPI(MethodView):
@@ -475,6 +480,8 @@ class LogsAPI(MethodView):
 
     def get(self, item_id):
         un, user_id = self.session_user()
+        if not un:
+            return plz_can_haz_auth()
 
         query = {"user_id": user_id}
 
@@ -550,7 +557,11 @@ def login():
     if u:
         if pwd_context.verify(pw, u.get('password')):
             session['username'] = request.form['username']
-            return jsonify(success=True)
+            u_data = u.copy()
+            u_data.pop('password')
+            u_data.pop('_id')
+            print u_data
+            return jsonify(user=u_data)
 
     return nope('You were not authenticated.')
 
@@ -566,10 +577,16 @@ def create_user():
             raise ValidationError("User with that name exists already!")
         return value
 
+    def email_does_not_exist(value):
+        if users.find_one({'email': value}):
+            raise ValidationError("This email is in use already, please use another.")
+        return value
+
+
     class UserFormValidation(Model):
         username = StringType(required=True, validators=[user_does_not_exist])
         password = StringType(required=True)
-        email = EmailType(required=True)
+        email = EmailType(required=True, validators=[email_does_not_exist])
 
     users = app.mongodb.db.users
 

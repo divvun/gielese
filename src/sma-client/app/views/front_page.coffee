@@ -30,6 +30,7 @@ module.exports = class FrontPage extends Backbone.View
   userForm: (event) ->
     # display loading
     #
+    @showLoading("Submitting...")
 
     data =
       username: $("#user #un").val()
@@ -38,8 +39,6 @@ module.exports = class FrontPage extends Backbone.View
 
     # TODO: maybe submit json instead? do something so it can't be sniffed?
     #
-
-    @showLoading("Submitting...")
 
     create_user = $.post("/user/create/", data)
 
@@ -69,9 +68,7 @@ module.exports = class FrontPage extends Backbone.View
             fieldset.append error_msg
 
     create_user.success (resp) =>
-        console.log "wat"
-        setTimeout(@hideLoading, 500)
-        # y u not work
+        console.log "you were successful, but this doesn't work yet"
         @nextQuestion()
 
     create_user.always () => setTimeout(@hideLoading, 500)
