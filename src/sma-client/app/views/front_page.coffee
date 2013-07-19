@@ -32,7 +32,9 @@ module.exports = class FrontPage extends Backbone.View
     #
     @showLoading("Submitting...")
 
-    data =
+    # TODO: client-side validation?
+    #
+    opts =
       username: $("#user #un").val()
       email:    $("#user #em").val()
       password: $("#user #pw").val()
@@ -40,10 +42,9 @@ module.exports = class FrontPage extends Backbone.View
     # TODO: maybe submit json instead? do something so it can't be sniffed?
     #
 
-    create_user = $.post("/user/create/", data)
-
-    create_user.fail (resp) =>
+    opts.fail = (resp) =>
         error_json = JSON.parse(resp.responseText)
+        console.log "fail2"
         fields = error_json.reasons
         $("form#user input").removeClass("error")
         $("form#user span.error").remove()
@@ -67,11 +68,23 @@ module.exports = class FrontPage extends Backbone.View
             error_msg.html(error.join(', '))
             fieldset.append error_msg
 
-    create_user.success (resp) =>
-        console.log "you were successful, but this doesn't work yet"
-        @nextQuestion()
+    opts.success = (resp) =>
+      console.log "success2"
+      console.log "you were successful, but this doesn't work yet"
+      $("#loginform_subsub").hide()
+      $("#loginform_success").show()
+      # TODO: authenticate created user, and show feedback that this is going on
 
-    create_user.always () => setTimeout(@hideLoading, 500)
+    @$el.find('#fakeSubmit').click (evt) ->
+      $("#loginform_subsub").hide()
+      $("#loginform_success").show()
+
+    opts.always = (resp) =>
+      console.log "always2"
+      setTimeout(@hideLoading, 500)
+
+    create_user = app.auth.create_user(opts)
+
                     
     # ajax call to check that user can be created
     # if fail, display errors
