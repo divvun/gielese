@@ -7,7 +7,7 @@ module.exports = class Authenticator
       xhrFields:
         withCredentials: true
 
-    login_request.fail (resp) =>
+    login_request.fail (resp) ->
         console.log "fail"
         console.log JSON.parse resp.responseText
         app.user = null
@@ -31,7 +31,7 @@ module.exports = class Authenticator
       xhrFields:
         withCredentials: true
 
-    login_request.fail (resp) =>
+    login_request.fail (resp) ->
         console.log "fail"
         console.log JSON.parse resp.responseText
         app.user = null

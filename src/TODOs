@@ -22,6 +22,11 @@
 
 #
 
+* user flows to think about:
+
+  - user plays anonymously for a while, then creates an account, where does data go?
+  - user plays anonymously offline, connects, and wants to send in data
+
 * password reset forms
 
 * need a means of forcing the app to work offline, independently of whatever
