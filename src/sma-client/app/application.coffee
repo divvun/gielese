@@ -9,6 +9,7 @@ FrontPage = require 'views/front_page'
 
 LeksaView = require 'views/leksa_view'
 LeksaOptionsView = require 'views/leksa_options_view'
+UserSettings = require 'models/user_settings'
 
 ErrorView = require 'views/error_view'
 GlobalOptionsView = require 'views/global_options'
@@ -264,19 +265,17 @@ module.exports = class Application
 
     @auth = new Authenticator()
 
-    default_options = {
-      'enable_cache': false
-      'enable_audio': true
-    }
-
     @internationalisations.fetch
       success: () =>
         app.loadingTracker.markReady('internationalisations.json')
         console.log "fetched internationalisations.json (#{app.internationalisations.models.length})"
 
-    @options = DSt.get('app_options') || default_options
-    @options.interface_lang = 'no'
-    @options.help_lang = 'no'
+    @options = new UserSettings({
+      'enable_cache': false
+      'enable_audio': true
+    })
+    @options.set('interface_language', 'no')
+    @options.set('help_language', 'no')
 
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()

@@ -1,4 +1,59 @@
+LoginTemplate = require '/views/templates/login_modal'
+
 module.exports = class Authenticator
+
+
+  render_authentication_popup: (el, opts = {}) ->
+    # TODO: mutiple insertions in different elements will result in two of the
+    # same IDs, fix
+    auth_popup_form_submit = (event) =>
+      # TODO: disable form
+      console.log "submitted"
+      el.find('#loginPopup #loading').fadeIn()
+  
+      @login
+        username: el.find('#loginPopup #un').val()
+        password: el.find('#loginPopup #pw').val()
+        success: (data, textStatus, jqXHR) =>
+          el.find('#loginPopup #loading').fadeOut()
+          el.find('#loginPopup #success').fadeIn()
+          opts.success() if opts.success
+        fail: (resp) =>
+          el.find('#loginPopup #loading').fadeOut()
+          el.find('#loginPopup #fail').fadeIn()
+          el.find('#loginPopup #login_error').html resp.error
+          opts.fail() if opts.fail
+      
+      return false
+
+    resetState = () ->
+      # TODO: enable form
+      el.find('#loginPopup #loading').hide()
+      el.find('#loginPopup #success').hide()
+      el.find('#loginPopup #fail').hide()
+      el.find('#loginPopup #pw').val('')
+
+    if $('#loginPopup').length == 0
+      login_template = LoginTemplate()
+      el.append(login_template)
+      
+      # Rerender elements
+      el.find('#loginPopup input').textinput()
+      el.find('#loginPopup button').button()
+      el.find('#loginPopup .close_modal').button()
+      
+      # Events
+      el.find('#loginPopup form').submit auth_popup_form_submit
+      el.find('#loginPopup .close_modal').click (e) ->
+        popup = el.find("#loginPopup")
+        popup.popup().hide().popup('close')
+
+    # Show it
+    popup = el.find("#loginPopup")
+    resetState()
+    popup.popup().show().popup('open')
+
+    return false
 
   create_user: (opts = {}) ->
     data =
@@ -33,14 +88,15 @@ module.exports = class Authenticator
         console.log "fail"
         console.log JSON.parse resp.responseText
         app.user = null
-        opts.fail(data, textStatus, jqXHR) if opts.fail
+        opts.fail(resp) if opts.fail
 
     login_request.success (data, textStatus, jqXHR) ->
         console.log "Should be logged out..."
         test_authed_request = $.getJSON('/user/data/log')
         test_authed_request.success (resp) ->
           console.log resp
-        app.user = null
+        # TODO: app.user = something
+        app.user = true
         opts.success(data, textStatus, jqXHR) if opts.success
 
   login: (opts = {}) ->

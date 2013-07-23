@@ -7,5 +7,15 @@
 
             <button type="submit" data-theme="b">Sign in</button>
         </div>
+        <div id="loading" style="display: none;">
+            Sending... <span id="login_status">&nbsp;</span>
+        </div>
+        <div id="success" style="display: none;">
+            Success!
+        </div>
+        <div id="fail" style="display: none;">
+            You were not logged in. Are you connected, or was your password wrong?
+        </div>
+        <!-- TODO: close button? -->
     </form>
 </div>

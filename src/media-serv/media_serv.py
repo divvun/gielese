@@ -192,68 +192,6 @@ def leksa_questions():
                        , mimetype="application/json"
                        )
 
-def format_concept(concept):
-    # trick is that instead of Word and WordTranslation, need to have
-    # Concept, so, need a new generic relationship? (Otherwise Words
-    # will have id starting on 1, as will WordTranslations).
-    from lexicon_models import Concept
-    from sqlalchemy import and_
-
-    langs = ["sma", "nob", "img"]
-
-    def concept_filter(to_or_from):
-        subset = to_or_from.filter(Concept.language.in_(langs))
-        tcomm = subset.filter(Concept.tcomm_pref == True)
-        if tcomm.count() > 0:
-          subset = tcomm
-        return set([ c.id for c in subset])
-
-    _type = False
-    features = []
-    translations = list( concept_filter(concept.translations_to)
-                       ^ concept_filter(concept.translations_from)
-                       )
-
-    concept_media = {}
-    audio = concept.translations_to.filter(Concept.language == 'mp3').all()
-    image = concept.translations_to.filter(Concept.language == 'img').all()
-
-    media_ids = []
-
-    if len(audio) > 0:
-        concept_media['audio'] = [{'path': a.lemma} for a in audio]
-        # media_ids.extend([a.id for a in audio])
-    if len(image) > 0:
-        concept_media['image'] = [{'path': a.lemma} for a in image]
-        media_ids.extend([a.id for a in image])
-
-    language = concept.language
-    if language == 'img':
-        _type = 'img'
-    elif language == 'mp3':
-        _type = 'mp3'
-    else:
-        _type = 'text'
-
-    semantics = list((a.semtype for a in concept.semtype)) + \
-                sum([[s.semtype for s in c.semtype] for c in concept.translations_from.all()], []) + \
-                sum([[s.semtype for s in c.semtype] for c in concept.translations_to.all()], [])
-
-    semantics = list(set(semantics))
-
-    return { "c_id": concept.id
-           , "id":  concept.id
-           , "concept_type": _type
-           , "concept_value": concept._getTrans()
-           , "features": features
-           , "language": language
-           , "updated_at": concept.updated_at.isoformat()
-           , "created_at": concept.created_at.isoformat()
-           , "semantics": semantics
-           , "translations": list(set(translations)) + media_ids
-           , "media": concept_media
-           }
-
 def prepare_concepts(db):
     from lexicon_models import Concept
 
@@ -261,10 +199,9 @@ def prepare_concepts(db):
     concept_set = db.session.query(Concept).filter(
         Concept.language.in_(langs)
     )
-    concepts = map(format_concept, concept_set)
+    concepts = [c.toJSON(with_langs=langs) for c in concept_set]
 
     return concepts
-
 
 @app.route('/data/concepts.json', methods=['GET'])
 def concepts():

@@ -14,9 +14,9 @@
                             <label for="create-user-account-a">Yes</label>
                             <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
                             <label for="create-user-account-b">No</label>
-                            <input type="radio" name="create-user-account-c" id="create-user-account-c" value="false">
-                            <label for="create-user-account-c">Log in</label>
                         </fieldset>
+                        <legend><%- fakeGetText "or..." %></legend>
+                        <a data-role="button" id="displayLogin">Log in</a>
                         <p class="help"><%- fakeGetText "If you choose not to create an account, data will still be stored anonymously, however, it may be erased if you clear your browser's stored data." %></p>
                         <p class="help"><%- fakeGetText "Having an account also allows you to compete with others, and integrates with courses." %></p>
                     </div>
@@ -54,14 +54,13 @@
                         <a data-role="button" id="fakeSubmit">Fake submit</a>
                     </div>
                     <div id="loginform_success" style="display:none;">
-                        <p class="lead"><%- fakeGetText "Great, your account was created. Now for some basic questions..." %></p>
+                        <p class="lead"><%- fakeGetText "Great, your account was created, and you've been logged in. Now for some basic questions..." %></p>
                         <a data-role="button" class="nextSection">Got it!</a>
                     </div>
                 </div>
             </div>
             <div class="question_block" style="display: none;">
                 <div class="sub_question_block">
-                    <p class="lead"><%- fakeGetText "Since this is your first time, we have some questions!" %></p>
                     <div data-role="fieldcontain" id="help_language">
                         <fieldset data-role="controlgroup" data-setting="help_language,target_language">
                             <legend><%- fakeGetText "Help language" %></legend>

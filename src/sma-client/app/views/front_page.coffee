@@ -7,6 +7,15 @@ module.exports = class FrontPage extends Backbone.View
   # jQuery mobile and Backbone events don't play well together.
   events:
     "submit #user": "userForm"
+    "click #displayLogin": "displayLogin"
+
+  displayLogin: ->
+    app.auth.render_authentication_popup @$el, {
+      success: () ->
+        console.log "done"
+        # TODO: navigate to front page
+    }
+    return false
 
   hideLoading: () ->
     interval = setInterval(() ->
@@ -101,13 +110,12 @@ module.exports = class FrontPage extends Backbone.View
   updateProgress: (count) ->
     @$el.find('#progressbar').progressbar({value: count})
     if count == 100
-      # TODO, commented out for demoing
+      # TODO: change this to be whether user has authed 
       DSt.set('gielese-configured', true)
       window.app.router.index()
 
 
   storeCurrentVisibleSetting: (current) ->
-    # user global settings object?
     # TODO: check if in subquestion block?
     window.current = current
     console.log current
@@ -120,6 +128,10 @@ module.exports = class FrontPage extends Backbone.View
     checked_setting = current.find('fieldset input[type="radio"]:checked')
     setting_target = fieldset.attr('data-setting')
     setting_value = checked_setting.val()
+
+    if setting_target and setting_value
+      for key in setting_target.split(',')
+        app.options.set(key, setting_value)
 
     # may not be subquestion, also 
     next_subquestion = current.next('.sub_question_block')[0]

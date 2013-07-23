@@ -212,6 +212,74 @@ class Concept(db.Model, TimestampMixin):
     def __repr__(self):
         return "<Concept: %s>" % self._getTrans().encode('utf-8')
 
+    def toJSON(self, with_langs=["sma", "nob", "img"]):
+        """ Format a concept to a JSON-ready structure. This includes
+            many-to-many relationships, which are represented by IDs.
+
+            :param with_langs: list of strings defining ISO codes for
+                languages to be included in translations.
+
+            :returns:
+                A dictionary ready to be encoded in JSON.
+        """
+
+        from sqlalchemy import and_
+
+        langs = with_langs
+
+        def concept_filter(to_or_from):
+            subset = to_or_from.filter(Concept.language.in_(langs))
+            tcomm = subset.filter(Concept.tcomm_pref == True)
+            if tcomm.count() > 0:
+                subset = tcomm
+            return set([ c.id for c in subset])
+
+        _type = False
+        features = []
+        translations = list( concept_filter(self.translations_to)
+                           ^ concept_filter(self.translations_from)
+                           )
+
+        concept_media = {}
+        audio = self.translations_to.filter(Concept.language == 'mp3').all()
+        image = self.translations_to.filter(Concept.language == 'img').all()
+
+        media_ids = []
+
+        if len(audio) > 0:
+            concept_media['audio'] = [{'path': a.lemma} for a in audio]
+
+        if len(image) > 0:
+            concept_media['image'] = [{'path': a.lemma} for a in image]
+            media_ids.extend([a.id for a in image])
+
+        language = self.language
+        if language == 'img':
+            _type = 'img'
+        elif language == 'mp3':
+            _type = 'mp3'
+        else:
+            _type = 'text'
+
+        semantics = list((a.semtype for a in self.semtype)) + \
+                    sum([[s.semtype for s in c.semtype] for c in self.translations_from.all()], []) + \
+                    sum([[s.semtype for s in c.semtype] for c in self.translations_to.all()], [])
+
+        semantics = list(set(semantics))
+
+        return { "c_id": self.id
+               , "id":  self.id
+               , "concept_type": _type
+               , "concept_value": self._getTrans()
+               , "features": features
+               , "language": language
+               , "updated_at": self.updated_at.isoformat()
+               , "created_at": self.created_at.isoformat()
+               , "semantics": semantics
+               , "translations": list(set(translations)) + media_ids
+               , "media": concept_media
+               }
+
 class Tagset(db.Model):
     __tablename__ = 'tagset'
     id = db.Column(db.Integer, primary_key=True)
