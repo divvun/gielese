@@ -76,7 +76,22 @@ class LogsAPI(MethodView, SessionCheck):
 
         if item_id is not None:
             query["_id"] = ObjectId(item_id)
-        return mongodoc_jsonify(data=self.table.find_one(query))
+        logs = self.table.find(query)
+
+        if logs is None:
+            logs = []
+
+        def switch_id(model):
+            if '_id' in model:
+                _id = model.get('_id')
+                c_id = model.get('c_id')
+                model.pop('_id')
+                model.pop('c_id')
+                model['id'] = c_id
+            return model
+
+        logs = map(switch_id, logs)
+        return mongodoc_jsonify(data=logs)
 
     def post(self):
         un, user_id = self.session_user()
@@ -86,7 +101,15 @@ class LogsAPI(MethodView, SessionCheck):
         # TODO: is this sufficient?
         request.json['user_id'] = user_id
         # TODO: can user create record?
-        self.table.insert(request.json)
+        def switch_id(model):
+            if '_id' in model:
+                _id = model.get('_id')
+                model.pop('_id')
+                model['c_id'] = _id
+                # model['_id'] = ObjectId(_id)
+            return model
+        cleaned = switch_id(request.json)
+        self.table.insert(cleaned)
         return mongodoc_jsonify(data=request.json)
 
     create = post

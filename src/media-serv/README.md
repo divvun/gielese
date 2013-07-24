@@ -53,6 +53,18 @@ In order to use the transifex client, you need two things:
 
  [txdoc]: http://support.transifex.com/customer/portal/articles/1000855-configuring-the-client
 
+### user-specific file: ~/.transifexrc
+
+The short of it is to copy all this, and replace the password. If more
+is necessary, refer to docs. Token must be left blank.
+
+    [https://www.transifex.com]
+    hostname = https://www.transifex.com
+    password = yourpasswordgoeshere!
+    token = 
+    username = aajegebot
+
+### Basic operations
 
 Once the virtualenv is enabled properly, this should mean that the
 transifex command line client is available to use. Typically, all you

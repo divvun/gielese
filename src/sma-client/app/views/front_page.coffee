@@ -14,7 +14,6 @@ module.exports = class FrontPage extends Backbone.View
       success: () =>
         setTimeout(() =>
           app.auth.hide_authentication_popup @$el
-          app.router.changePage(app.categoryMenu)
         , 250)
         # TODO: check if user has configured stuff-- if not (for instance, they
         # created a username and account, but got thrown out of the process for

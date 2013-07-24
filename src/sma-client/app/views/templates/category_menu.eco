@@ -1,7 +1,11 @@
 <div data-role="header">
     <a href="#options" data-transition="slide" id="show-panel" data-icon="gear">Options</a>
     <h1>Buerie biejjie!</h1>
-    <a href="#" id="login_button" data-transition="slide" id="show-panel" data-icon="gear">Login</a>
+    <% if app.user: %>
+    <a href="#" id="userinfo_button" data-transition="slide" id="show-panel" data-icon="gear"><%- app.user.username %></a>
+    <% else: %>
+    <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="gear">Login</a>
+    <% end %>
 </div> 
 
 <div data-role="content">

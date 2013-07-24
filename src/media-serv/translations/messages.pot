@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 # Translations template for PROJECT.
 # Copyright (C) 2013 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.

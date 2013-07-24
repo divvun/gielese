@@ -19,7 +19,7 @@ module.exports = class Authenticator
         success: (data, textStatus, jqXHR) =>
           el.find('#loginPopup #loading').fadeOut()
           el.find('#loginPopup #success').fadeIn()
-          opts.success() if opts.success
+          opts.success(data, textStatus, jqXHR) if opts.success
         fail: (resp) =>
           el.find('#loginPopup #loading').fadeOut()
           el.find('#loginPopup #fail').fadeIn()
@@ -80,26 +80,26 @@ module.exports = class Authenticator
     return opts
 
   logout: (opts = {}) ->
-    login_request = $.ajax
+    logout_request = $.ajax
       type: "GET"
       url: "/user/logout/"
       xhrFields:
         withCredentials: true
 
-    login_request.fail (resp) ->
-        console.log "fail"
-        console.log JSON.parse resp.responseText
-        app.user = null
-        opts.fail(resp) if opts.fail
+    logout_request.fail (resp) ->
+      console.log "fail"
+      console.log JSON.parse resp.responseText
+      app.user = null
+      opts.fail(resp) if opts.fail
 
-    login_request.success (data, textStatus, jqXHR) ->
-        console.log "Should be logged out..."
-        test_authed_request = $.getJSON('/user/data/log')
-        test_authed_request.success (resp) ->
-          console.log resp
-        # TODO: app.user = something
-        app.user = true
-        opts.success(data, textStatus, jqXHR) if opts.success
+    logout_request.success (data, textStatus, jqXHR) ->
+      console.log "Should be logged out..."
+      test_authed_request = $.getJSON('/user/data/log')
+      test_authed_request.success (resp) ->
+        console.log resp
+      # TODO: app.user = something
+      app.user = false
+      opts.success(data, textStatus, jqXHR) if opts.success
 
   login: (opts = {}) ->
     data =
@@ -114,16 +114,38 @@ module.exports = class Authenticator
         withCredentials: true
 
     login_request.fail (resp) =>
-        console.log "fail"
-        console.log JSON.parse resp.responseText
-        app.user = null
-        opts.fail(resp) if opts.fail
+      console.log "fail"
+      console.log JSON.parse resp.responseText
+      app.user = null
+      opts.fail(resp) if opts.fail
 
     login_request.success (data, textStatus, jqXHR) ->
-        console.log "Should be logged in..."
-        test_authed_request = $.getJSON('/user/data/log')
-        test_authed_request.success (resp) ->
-          console.log resp
-        app.user = true
+      console.log "Should be logged in..."
+      test_authed_request = $.getJSON('/user/data/log')
+      test_authed_request.success (resp) ->
+        console.log resp
 
-        opts.success(data, textStatus, jqXHR) if opts.success
+      app.user = {
+        username: data.user.username
+        email: data.user.email
+      }
+
+      # console.log "User logged in, syncing options"
+      # app.options.storage.sync.pull({
+      #   success: (data) ->
+      #     console.log "storage.success"
+      #     console.log data
+      #     console.log app.options.attributes
+      # })
+
+      # TODO: why isn't this creating objects? It's fetching them properly.
+      #       same result with .full()
+      console.log "User logged in, syncing progression"
+      app.leksaUserProgression.storage.sync.pull({
+        success: (data) ->
+          console.log "userlog.success"
+          console.log data
+          console.log app.options.attributes
+      })
+
+      opts.success(data, textStatus, jqXHR) if opts.success

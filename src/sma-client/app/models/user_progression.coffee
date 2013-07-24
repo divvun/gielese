@@ -2,7 +2,7 @@
 
 module.exports = class UserProgression extends Backbone.Collection
 
-  url: "/user/data/"
+  url: "/user/data/log/"
 
   model: UserLogEntry
 
