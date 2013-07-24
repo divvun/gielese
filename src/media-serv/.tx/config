@@ -1,0 +1,14 @@
+[main]
+host = https://www.transifex.com
+
+[aajege.gielese-grensesnitt]
+file_filter = translations/.po
+source_file = translations/messages.pot
+source_lang = en
+trans.sma = translations/sma/LC_MESSAGES/messages.po
+trans.nb = translations/no/LC_MESSAGES/messages.po
+trans.se = translations/se/LC_MESSAGES/messages.po
+trans.sv = translations/sv/LC_MESSAGES/messages.po
+trans.en = translations/en/LC_MESSAGES/messages.po
+type = PO
+

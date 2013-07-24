@@ -11,9 +11,15 @@ module.exports = class FrontPage extends Backbone.View
 
   displayLogin: ->
     app.auth.render_authentication_popup @$el, {
-      success: () ->
-        console.log "done"
-        # TODO: navigate to front page
+      success: () =>
+        setTimeout(() =>
+          app.auth.hide_authentication_popup @$el
+          app.router.changePage(app.categoryMenu)
+        , 250)
+        # TODO: check if user has configured stuff-- if not (for instance, they
+        # created a username and account, but got thrown out of the process for
+        # some reason), need to resume for them.
+        #
     }
     return false
 
@@ -43,6 +49,9 @@ module.exports = class FrontPage extends Backbone.View
 
     # TODO: client-side validation?
     #
+    username = $("#user #un").val()
+    password = $("#user #pw").val()
+
     opts =
       username: $("#user #un").val()
       email:    $("#user #em").val()
@@ -52,36 +61,41 @@ module.exports = class FrontPage extends Backbone.View
     #
 
     opts.fail = (resp) =>
-        error_json = JSON.parse(resp.responseText)
-        console.log "fail2"
-        fields = error_json.reasons
-        $("form#user input").removeClass("error")
-        $("form#user span.error").remove()
+      error_json = JSON.parse(resp.responseText)
+      console.log "fail2"
+      fields = error_json.reasons
+      $("form#user input").removeClass("error")
+      $("form#user span.error").remove()
 
-        # Can't rely on schematics to return consistent data. Sometimes this is
-        # a list, sometimes an Object
-        if fields.length?
-          # Append errors to form
-          for error in fields
-            error_msg = $("<span class='error'>")
-            error_msg.html(error)
-            $("form#user .form_fields").append(error_msg)
-        else
-          # Highlight fields that have errors
-          for key, error of fields
-            input = $("input[name=#{key}]")
-            input.addClass("error")
-            fieldset = input.parents('fieldset')
+      # Can't rely on schematics to return consistent data. Sometimes this is
+      # a list, sometimes an Object
+      if fields.length?
+        # Append errors to form
+        for error in fields
+          error_msg = $("<span class='error'>")
+          error_msg.html(error)
+          $("form#user .form_fields").append(error_msg)
+      else
+        # Highlight fields that have errors
+        for key, error of fields
+          input = $("input[name=#{key}]")
+          input.addClass("error")
+          fieldset = input.parents('fieldset')
 
-            error_msg = $("<span class='error'>")
-            error_msg.html(error.join(', '))
-            fieldset.append error_msg
+          error_msg = $("<span class='error'>")
+          error_msg.html(error.join(', '))
+          fieldset.append error_msg
 
     opts.success = (resp) =>
       console.log "success2"
       console.log "you were successful, but this doesn't work yet"
-      $("#loginform_subsub").hide()
-      $("#loginform_success").show()
+      app.auth.login({
+      	username: username
+      	password: password
+      	success: () =>
+          $("#loginform_subsub").hide()
+          $("#loginform_success").show()
+      })
       # TODO: authenticate created user, and show feedback that this is going on
 
     @$el.find('#fakeSubmit').click (evt) ->
@@ -94,7 +108,6 @@ module.exports = class FrontPage extends Backbone.View
 
     create_user = app.auth.create_user(opts)
 
-                    
     # ajax call to check that user can be created
     # if fail, display errors
     # if success, store username, api key, etc., continue

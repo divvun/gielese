@@ -41,3 +41,47 @@ However, NB: can't traverse symlinks so need to be specific
 
     pybabel compile -d translations
 
+## Updating from transifex
+
+In order to use the transifex client, you need two things:
+
+ * the gïelese virtual environment enabled
+ * a user-specific configuration file for transifex in your own home
+   directory: ~/.transifexrc ([docs](txdoc)), otherwise, the
+   project-specific configuration is already checked in in 
+   `src/media-serv/.tx/config`
+
+ [txdoc]: http://support.transifex.com/customer/portal/articles/1000855-configuring-the-client
+
+
+Once the virtualenv is enabled properly, this should mean that the
+transifex command line client is available to use. Typically, all you
+should need to be concerned with for fetching new translations is:
+
+    tx pull
+
+A specific language can be specified also: 
+
+    tx pull -l sma
+    tx pull --language sma
+
+After updating translation strings in messages.pot, send them to the
+server for translators to start working:
+
+    tx push --source
+
+If you have made modifications locally to any of the translation files,
+you will need to include the `--translations` flag.
+
+Further documentation on the command line tool's various options is [here](txopts).
+
+  [txopts]: http://support.transifex.com/customer/portal/articles/960804-overview
+
+
+### Additional docs: 
+
+ * http://support.transifex.com/customer/portal/topics/440187-transifex-client/articles
+ * `tx --help`
+
+
+

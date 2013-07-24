@@ -2,6 +2,8 @@ LoginTemplate = require '/views/templates/login_modal'
 
 module.exports = class Authenticator
 
+  hide_authentication_popup: (el) ->
+    el.find('#loginPopup').hide()
 
   render_authentication_popup: (el, opts = {}) ->
     # TODO: mutiple insertions in different elements will result in two of the

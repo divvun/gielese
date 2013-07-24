@@ -1,6 +1,14 @@
 from . import blueprint
 from flask import current_app
 
+from bson import ObjectId
+from datetime import datetime
+from flask import Response, session, jsonify, request
+from flask import request
+from flask.views import MethodView
+from functools import wraps
+import simplejson
+
 # TODO: validate with schematics
 
 # TODO: auth - get user data to store in db from session, and totes do
@@ -14,14 +22,8 @@ from flask import current_app
 # TODO: strip sid key?
 
 # DOC: http://flask.pocoo.org/docs/views/ - class based view ideas
+# DOC: http://api.mongodb.org/python/current/api/pymongo/collection.html
 
-from bson import ObjectId
-from datetime import datetime
-from flask import Response, session, jsonify, request
-from flask import request
-from flask.views import MethodView
-from functools import wraps
-import simplejson
 
 class MongoDocumentEncoder(simplejson.JSONEncoder):
     def default(self, o):
@@ -161,7 +163,7 @@ class SettingsAPI(MethodView, SessionCheck):
 
         if item_id is not None:
             query["_id"] = ObjectId(item_id)
-        return mongodoc_jsonify(data=pop_ids(self.table.find_one(query)))
+        return mongodoc_jsonify(data=[pop_ids(self.table.find_one(query))])
 
     def delete_existing(self, user_id):
         qw = {'user_id': user_id}

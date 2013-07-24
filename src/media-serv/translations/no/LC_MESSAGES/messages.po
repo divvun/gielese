@@ -1,26 +1,34 @@
-# Norwegian translations for PROJECT.
+# English translations for PROJECT.
 # Copyright (C) 2013 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
-#
-#, fuzzy
+# 
+# Translators:
+# Trondtr <trond.trosterud@uit.no>, 2013
+# rtxanson <ryan.txanson@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
+"Project-Id-Version: Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2013-06-02 18:21-0500\n"
-"PO-Revision-Date: 2013-06-02 18:14-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: no <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"PO-Revision-Date: 2013-06-18 21:34+0000\n"
+"Last-Translator: Trondtr <trond.trosterud@uit.no>\n"
+"Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/aajege/language/nb/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+"Language: nb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../sma-client/public/javascripts/app.js:2556
 msgid "Since this is your first time, we have some questions!"
-msgstr ""
+msgstr "I og med at dette er din første gang med programmet har vi noen spørsmål. "
+
+#: ../sma-client/public/javascripts/app.js:2566
+msgid ""
+"This is a test string not actually in the application, but to see if "
+"transifex knows what to do?"
+msgstr "Dette er en teststreng, transifiks, transifaks."
 
 #: ../sma-client/public/javascripts/app.js:2560
 msgid "Help language"
@@ -30,7 +38,7 @@ msgstr "Hjelpespråk"
 msgid ""
 "This affects what language is displayed in options and in-game help, and "
 "also vocabulary quizzes."
-msgstr ""
+msgstr "Dette påvirker valg av språk for menyer og hjelpefunksjoner, og også for gloseøving."
 
 #: ../sma-client/public/javascripts/app.js:2568
 msgid "Translation language"
@@ -38,31 +46,30 @@ msgstr "Oversettelsesspråk"
 
 #: ../sma-client/public/javascripts/app.js:2572
 msgid ""
-"You selected South Saami as your help language, but you will still need a"
-" language to learn words. Note, you can change this at any time in the "
+"You selected South Saami as your help language, but you will still need a "
+"language to learn words. Note, you can change this at any time in the "
 "settings."
-msgstr ""
+msgstr "Du har valgt sørsamisk som hjelpespråk, men du vil likevel trenge et hjelpespråk når du skal lære sørsamiske ord. Merk at du kan endre dette i innstillingene når som helst."
 
 #: ../sma-client/public/javascripts/app.js:2578
 msgid "Create an account?"
-msgstr "Lage en konto?"
+msgstr "Lag en konto?"
 
 #: ../sma-client/public/javascripts/app.js:2582
 msgid ""
 "If you choose not to create an account, data will still be stored "
-"anonymously, however, it may be erased if you clear your browser's stored"
-" data."
-msgstr ""
+"anonymously, however, it may be erased if you clear your browser's stored "
+"data."
+msgstr "Hvis du velger å ikke lage en konto vil data likevel bli lagra anonymt. Hvis du ikke vil at de skal bli lagra anonymt heller kan du slette data lagra i lettleseren etter sesjonen. "
 
 #: ../sma-client/public/javascripts/app.js:2586
 msgid ""
 "Having an account also allows you to compete with others, and integrates "
 "with courses."
-msgstr ""
+msgstr "Hvis du har en konto kan du konkurrere med andre, og kontoen kan bli integrert med språklæringskurs. "
 
 #: ../sma-client/public/javascripts/app.js:2592
 msgid ""
-"Your progress will be stored online, and will syncronise when you connect"
-" if you play in offline mode."
-msgstr ""
-
+"Your progress will be stored online, and will syncronise when you connect if"
+" you play in offline mode."
+msgstr "Framgangen din vil bli lagra online, og vil synkroniseres når du logger deg på etter å ha spilt i offlinemodus."

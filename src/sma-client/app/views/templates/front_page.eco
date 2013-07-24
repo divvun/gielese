@@ -10,13 +10,13 @@
                     <div data-role="fieldcontain" id="create_account">
                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-setting="use_account">
                             <legend><%- fakeGetText "Create an account?" %></legend>
-                            <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-a" value="true" data-subquestion="true">
+                            <input class="nextSection" type="radio" name="create-user-account-a" id="create-user-account-a" value="true" data-subquestion="true">
                             <label for="create-user-account-a">Yes</label>
                             <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
                             <label for="create-user-account-b">No</label>
                         </fieldset>
                         <legend><%- fakeGetText "or..." %></legend>
-                        <a data-role="button" id="displayLogin">Log in</a>
+                        <a data-role="button" id="displayLogin" data-mini="true" style="width: 7em;">Log in</a>
                         <p class="help"><%- fakeGetText "If you choose not to create an account, data will still be stored anonymously, however, it may be erased if you clear your browser's stored data." %></p>
                         <p class="help"><%- fakeGetText "Having an account also allows you to compete with others, and integrates with courses." %></p>
                     </div>
