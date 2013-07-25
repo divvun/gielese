@@ -43,40 +43,6 @@ arrayChunk = (a, s) ->
 
 window.arrayChunk = arrayChunk
 
-window.i18n = new Internationalisations()
-
-fakeGetText = (string) ->
-  ### Want to mark strings as requiring gettext somehow, so that
-      a babel can find them.
-
-      NB: Babel only has a javascript extractor, so, just compile to JS first
-
-      Then when you run pybabel's extract command, it will find the
-      strings in the unminified source.
-
-      # TODO: storage format for internationalisations on media_serv
-      #
-      Internationalizations are downloaded and stored in localStorage
-      on the first run of the plugin. Translations should degrade to
-      english if they are missing, or the localization is not present.
-
-      The system will not store multiple localizations at a time, so
-      we assume the user does not really want to switch.
-  ###
-  
-  if window.i18n?
-  	console.log "has i18n"
-  	if window.i18n.ready
-  	  console.log "is ready"
-  	  return window.i18n.fakeGetText(string)
-
-  return string
-
-# NB: using underscore as the function name conflicts with underscore.js
-#
-
-window.fakeGetText = fakeGetText
-
 window.initWindowCache = () ->
   console.log "Initializing appCache"
   # TODO: need some sort of sync feedback for users
@@ -258,7 +224,12 @@ module.exports = class Application
 
   initialize: ->
 
-    @internationalisations = window.i18n
+    @gettext = new Gettext({
+      domain: 'messages'
+      locale_data: new Internationalisations()
+    })
+
+    window.gettext = @gettext.gettext
 
     @loadingTracker = new LoadingTracker()
     @loadingTracker.showLoading()

@@ -12,6 +12,7 @@ exports.config =
         before: [
           'vendor/scripts/console-helper.js'
           'vendor/scripts/soundmanager2-jsmin.js'
+          'vendor/scripts/Gettext.js'
           'vendor/scripts/DSt.js'
           'vendor/scripts/jquery-1.7.2.js'
           'vendor/scripts/jquery.textfill.min.js'

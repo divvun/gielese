@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 # Translations template for PROJECT.
 # Copyright (C) 2013 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
@@ -9,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-07-24 16:08-0500\n"
+"POT-Creation-Date: 2013-07-25 16:04-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,4 +16,58 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+
+#: ../sma-client/public/javascripts/app.js:3701
+msgid "Create an account?"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:3705
+msgid "or..."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:3709
+msgid ""
+"If you choose not to create an account, data will still be stored "
+"anonymously, however, it may be erased if you clear your browser's stored"
+" data."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:3713
+msgid ""
+"Having an account also allows you to compete with others, and integrates "
+"with courses."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:3719
+msgid ""
+"Your progress will be stored online, and will syncronise when you connect"
+" if you play in offline mode."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:3723
+msgid ""
+"Great, your account was created, and you've been logged in. Now for some "
+"basic questions..."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:3727
+msgid "Help language"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:3731
+msgid ""
+"This affects what language is displayed in options and in-game help, and "
+"also vocabulary quizzes."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:3735
+msgid "Translation language"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:3739
+msgid ""
+"You selected South Saami as your help language, but you will still need a"
+" language to learn words. Note, you can change this at any time in the "
+"settings."
+msgstr ""
 

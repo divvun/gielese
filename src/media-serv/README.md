@@ -36,7 +36,6 @@ However, NB: can't traverse symlinks so need to be specific
     pybabel extract -F babel.cfg -k lazy_gettext -o translations/messages.pot .
     pybabel update -i translations/messages.pot -d translations
 
-
 ## compiling
 
     pybabel compile -d translations

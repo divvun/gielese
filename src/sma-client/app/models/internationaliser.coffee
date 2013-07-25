@@ -33,6 +33,6 @@ module.exports = class Internationalisations extends Backbone.Collection
       loc.getMessage(msg)
     return msg
 
-  fakeGetText: (str) ->
+  gettext: (str) ->
     return @getMessage(window.app.options.help_lang, str)
 
