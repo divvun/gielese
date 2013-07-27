@@ -1,28 +1,41 @@
 ## Today
 
+ + TODO: localization - get gettext.js actually working.
+
+ + TODO: debug function to reset user log entries on server
+
+
  + TODO: sync user configs, reload from server on login, disallow login from
          offline 
 
- + TODO: how to allow a client to sync offline data with only one account when: 
+       -> Backbone.Offline apparently prefers to sync collections, but not
+          individual models/classes.
+
+ + TODO: start syncing user log entries
+
+       -> Some sort of problem with actually getting the models into a
+          collection, but events fire.
+
+#
+
+* email verification?
+
+* user flows to think about:
+
+  - user plays anonymously for a while, then creates an account, where does data go?
+  - user plays anonymously offline, connects, and wants to send in data
+
+  - this one: 
 
      (1) play in anonymous mode
      (2) log in
      (3) log out
      (4) play in anonymous mode
      (5) log in to a separate account?
-
- + TODO: start syncing user log entries
-
- - TODO: email verification?
-
- + TODO: debug function to reset user log entries
-
-#
-
-* user flows to think about:
-
-  - user plays anonymously for a while, then creates an account, where does data go?
-  - user plays anonymously offline, connects, and wants to send in data
+     
+       -> solution: delete existing history if user wants to log into separate
+          account than they previously did, but warn them first and tell them
+          they can cancel.
 
 * password reset forms
 
