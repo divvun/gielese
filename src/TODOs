@@ -18,6 +18,8 @@
 
 #
 
+* password reset forms
+
 * email verification?
 
 * user flows to think about:
@@ -37,8 +39,6 @@
           account than they previously did, but warn them first and tell them
           they can cancel.
 
-* password reset forms
-
 * need a means of forcing the app to work offline, independently of whatever
   browser reports
 
@@ -52,37 +52,6 @@
   - may be some success callbacks to fix, yet, but Sync.full, Sync.pull,
     Sync.push seem to work
 
-  - maybe mongo? things are gonna change fairly frequently on the frontend,
-    will need an easy way to store stuff without changing schemas lots.
-
-  - User Progression syncing to server, what's needed:
-     - endpoints for PUTting user log entries
-     - a dummy user for testing
-
-     - user models on server
-     - auth: logs should be assigned user ID via authentication, not from
-       setting in log entry, otherwise problems
-
-     - ideas: 
-        http://thomassileo.com/blog/2012/09/10/build-a-backbone-slash-brunch-slash-chaplin-backend-with-python-flask-and-mongodb/
-        - Schematics for validation
-        - stop returning purely lists, wrap in items, or something. security concerns.
-
-  - endpoints
-      - "/user/data/" - GET + auth, fetch all user data
-      - "/user/data/log/#{@cid}" - PUT + auth, upload some data
-
-  - More things to sync:
-    - options
-
-
-* fix text size for long words in buttons
-
-     split on hyphens - default size when no resizing happens?
-
-     iehkedsbeapmoe still a problem, but will probably be fixed when format
-     changes
-
 * use user progression to remove possibility that a word is repeated twice in a
   row, unless it is all that can be shown
 
@@ -92,27 +61,14 @@
 
 * test repeat avoidance in other types.
 
-
 * things to document: 
 
   - http://api.mongodb.org/python/current/tutorial.html
   - auth situation
 
-* need to clean up the media_serv source and start modularizing
+* TODO: wordlist - redo design
 
 # Next
-
- * TODO: sessions
-   - user and sessions model separate
-
-   - possibility to not use server-side session to do things. in that case,
-     store all data, and later authenticate when network becomes available, use
-     that session to offload data.
-
-   - auth process:
-     - client send user/pw (neither are stored)
-     - server responds with new session ID
-     - client stores session ID, uses session ID to check for data. 
 
  * TODO: persistent storage of concepts in localStorage, block usage of
    leksa, wordlist until they're ready
@@ -121,9 +77,6 @@
      localStorage, such that models will be used from that first when present
      and when the page loads... Then trigger sync and fetch later.
 
- * TODO: conceptdb sync method? check for differences?
-
- * TODO: wordlist - text too small
 
  * points
  * i18n
@@ -144,7 +97,6 @@
 
  * FEATURE: visual map of levels
    * FEATURE: description of question sets
-
 
  * FEATURE: UI in three languages: sma, nob, swe.
    - existing code in NDS could be used to extract strings from .js, and manage
@@ -195,6 +147,9 @@ The offline aspect of this app will need to be covered in two ways:
 
  * offline caching of media files
  * storage of non-media files in a local database
+
+TODO: write readme section about all the dependencies/things synced for offline
+      mode
 
 #### Offline media storage
 

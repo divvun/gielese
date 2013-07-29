@@ -94,5 +94,3 @@ Further documentation on the command line tool's various options is [here](txopt
  * http://support.transifex.com/customer/portal/topics/440187-transifex-client/articles
  * `tx --help`
 
-
-

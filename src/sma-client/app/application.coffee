@@ -224,22 +224,31 @@ module.exports = class Application
 
   initialize: ->
 
-    @gettext = new Gettext({
-      domain: 'messages'
-      locale_data: new Internationalisations()
-    })
+    # TODO: json internationalisation format
+    #
 
-    window.gettext = @gettext.gettext
 
     @loadingTracker = new LoadingTracker()
     @loadingTracker.showLoading()
 
-    @auth = new Authenticator()
+    @gettext = new Gettext({
+      domain: 'messages'
+    })
+    window.gettext = @gettext
 
-    @internationalisations.fetch
-      success: () =>
-        app.loadingTracker.markReady('internationalisations.json')
-        console.log "fetched internationalisations.json (#{app.internationalisations.models.length})"
+    $.get( '/data/translations/sv/messages.json', (locale_data) =>
+      gettext = new Gettext({
+        domain: 'messages'
+        locale_data: locale_data
+      })
+      @gettext = gettext
+      window.gettext = @gettext
+      @loadingTracker.markReady('translations.json')
+      @loadingTracker.markReady('internationalisations.json')
+    )
+
+
+    @auth = new Authenticator()
 
     @options = new UserSettings({
       'enable_cache': false

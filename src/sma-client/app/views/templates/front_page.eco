@@ -9,22 +9,22 @@
                 <div class="sub_question_block">
                     <div data-role="fieldcontain" id="create_account">
                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-setting="use_account">
-                            <legend><%- gettext "Create an account?" %></legend>
+                            <legend><%- gettext.gettext "Create an account?" %></legend>
                             <input class="nextSection" type="radio" name="create-user-account-a" id="create-user-account-a" value="true" data-subquestion="true">
                             <label for="create-user-account-a">Yes</label>
                             <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
                             <label for="create-user-account-b">No</label>
                         </fieldset>
-                        <legend><%- gettext "or..." %></legend>
+                        <legend><%- gettext.gettext "or..." %></legend>
                         <a data-role="button" id="displayLogin" data-mini="true" style="width: 7em;">Log in</a>
-                        <p class="help"><%- gettext "If you choose not to create an account, data will still be stored anonymously, however, it may be erased if you clear your browser's stored data." %></p>
-                        <p class="help"><%- gettext "Having an account also allows you to compete with others, and integrates with courses." %></p>
+                        <p class="help"><%- gettext.gettext "If you choose not to create an account, data will still be stored anonymously, however, it may be erased if you clear your browser's stored data." %></p>
+                        <p class="help"><%- gettext.gettext "Having an account also allows you to compete with others, and integrates with courses." %></p>
                     </div>
                 </div>
                 <% # TODO: maybe leave this to last step, because having a different view for this would be much better. %>
                 <div class="sub_question_block" style="display: none;">
                     <div id="loginform_subsub">
-                        <p class="lead"><%- gettext "Your progress will be stored online, and will syncronise when you connect if you play in offline mode." %></p>
+                        <p class="lead"><%- gettext.gettext "Your progress will be stored online, and will syncronise when you connect if you play in offline mode." %></p>
 	                    <form id="user" action="">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
@@ -54,7 +54,7 @@
                         <a data-role="button" id="fakeSubmit">Fake submit</a>
                     </div>
                     <div id="loginform_success" style="display:none;">
-                        <p class="lead"><%- gettext "Great, your account was created, and you've been logged in. Now for some basic questions..." %></p>
+                        <p class="lead"><%- gettext.gettext "Great, your account was created, and you've been logged in. Now for some basic questions..." %></p>
                         <a data-role="button" class="nextSection">Got it!</a>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                 <div class="sub_question_block">
                     <div data-role="fieldcontain" id="help_language">
                         <fieldset data-role="controlgroup" data-setting="help_language,target_language">
-                            <legend><%- gettext "Help language" %></legend>
+                            <legend><%- gettext.gettext "Help language" %></legend>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk</label>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="sma" data-subquestion="true">
@@ -76,13 +76,13 @@
                             -->
                         </fieldset>
 
-                        <p class="help"><%- gettext "This affects what language is displayed in options and in-game help, and also vocabulary quizzes." %></p>
+                        <p class="help"><%- gettext.gettext "This affects what language is displayed in options and in-game help, and also vocabulary quizzes." %></p>
                     </div>
                 </div>
                 <div class="sub_question_block" style="display: none;">
                     <div data-role="fieldcontain" id="auxiliary_language">
                         <fieldset data-role="controlgroup" data-setting="help_language,target_language">
-                            <legend><%- gettext "Translation language" %></legend>
+                            <legend><%- gettext.gettext "Translation language" %></legend>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk</label>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="swe">
@@ -91,7 +91,7 @@
                             <label for="radio-choice-3">English</label>
                         </fieldset>
 
-                        <p class="help"><%- gettext "You selected South Saami as your help language, but you will still need a language to learn words. Note, you can change this at any time in the settings." %></p>
+                        <p class="help"><%- gettext.gettext "You selected South Saami as your help language, but you will still need a language to learn words. Note, you can change this at any time in the settings." %></p>
 
                     </div>
                 </div>

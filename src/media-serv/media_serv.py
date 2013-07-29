@@ -108,6 +108,57 @@ def fmtForCallback(serialized_json, callback):
     else:
         return "%s(%s)" % (callback, serialized_json)
 
+def format_as_gettextjs(locale):
+    import os, sys
+    import polib
+    import json
+    from operator import itemgetter
+
+    def get_message_data(m):
+
+        pl_msgid = m.msgid_plural.strip() and True or False
+        pl_msgstrs = len(m.msgstr_plural.keys()) > 0
+        if pl_msgid and pl_msgstrs:
+            # Try to sort by ID number, if it doesn't work, well, that sucks
+            numerii = list(m.msgstr_plural.iteritems())
+
+            try:
+                numerii = [(int(a), b) for a, b in numerii]
+            except:
+                pass
+
+            numerii = map(itemgetter(1), sorted(numerii, key=itemgetter(0)))
+
+            return (m.msgid, numerii)
+
+        if m.msgstr is not None:
+            return (m.msgid, [None, m.msgstr])
+
+    def fmt_pofile(filename):
+        try:
+            po = polib.pofile(filename)
+        except:
+            return {}
+
+        domain = po.metadata.get('domain', 'messages')
+        out_meta = { 'domain': domain
+                   , 'lang': po.metadata.get('Language', '')
+                   , 'plural-forms': po.metadata.get('Plural-Forms', '')
+                   }
+
+        messages = dict(map(get_message_data, po.translated_entries()))
+
+        out_json = { '': out_meta
+                   }
+
+        out_json.update(**messages)
+
+        return {domain: out_json} 
+
+    _pofile = fmt_pofile('translations/%s/LC_MESSAGES/messages.po' % locale)
+
+    return _pofile
+
 def fetch_messages(locale):
     from polib import pofile
 
@@ -148,6 +199,28 @@ def bookmarklet_configs():
                    , mimetype="application/json"
                    )
 
+@app.route('/data/translations/<locale>/messages.json', methods=['GET'])
+def get_messages_for(locale):
+    has_callback = request.args.get('callback', False)
+
+    pretty = request.args.get('pretty', False)
+    json_data = format_as_gettextjs(locale)
+
+    if pretty:
+        data = json.dumps( json_data
+                         , sort_keys=True
+                         , indent=4
+                         , separators=(',', ': ')
+                         )
+    else:
+        data = json.dumps(json_data)
+
+    formatted = fmtForCallback(data, has_callback)
+
+    return Response( response=formatted
+                   , status=200
+                   , mimetype="application/json"
+                   )
 
 @app.route('/offline.media.appcache', methods=['GET'])
 def cache_manifest():
