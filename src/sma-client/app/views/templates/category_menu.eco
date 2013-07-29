@@ -1,15 +1,15 @@
 <div data-role="header">
-    <a href="#options" data-transition="slide" id="show-panel" data-icon="gear">Options</a>
+    <a href="#options" data-transition="slide" id="show-panel" data-icon="gear"><%- gettext.gettext "Options" %></a>
     <h1>Buerie biejjie!</h1>
     <% if app.user: %>
     <a href="#" id="userinfo_button" data-transition="slide" id="show-panel" data-icon="gear"><%- app.user.username %></a>
     <% else: %>
-    <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="gear">Login</a>
+    <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="gear"><%- gettext.gettext "Log in" %></a>
     <% end %>
 </div> 
 
 <div data-role="content">
-    <h2 class="heading" data-role="list-divider">Categories</h2>
+    <h2 class="heading" data-role="list-divider"><%- gettext.gettext "Categories" %></h2>
 
     <div id="main_menu">
 
@@ -17,13 +17,13 @@
 	        <div class="ui-block-a">
                 <a class="square" href="#category/BODYPART" data-transition="slide">
 	                <span class="link_image"></span>
-	                <span class="link_word">Face</span>
+	                <span class="link_word"><%- gettext.gettext "Face" %></span>
 	            </a>
 	        </div>
 	        <div class="ui-block-b">
                 <a class="square" href="#category/GREETINGS" data-transition="slide">
 	                <span class="link_image"></span>
-	                <span class="link_word">Greetings</span>
+	                <span class="link_word"><%- gettext.gettext "Greetings" %></span>
 	            </a>
 	        </div>	   
 	        <div class="ui-block-c">

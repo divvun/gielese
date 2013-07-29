@@ -1,6 +1,8 @@
 ## Today
 
  + TODO: localization - get gettext.js actually working.
+   - cache translations offline
+   - get translations parsed and working before first view
 
  + TODO: debug function to reset user log entries on server
 
