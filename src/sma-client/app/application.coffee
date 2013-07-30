@@ -26,8 +26,11 @@ Internationalisations = require 'models/internationaliser'
 
 UserProgression = require 'models/user_progression'
 AppCacheStatus = require 'views/templates/app_cache_status'
+LoadingTracker = require 'loadingtracker'
 
 require 'backbone.offline'
+
+window.initWindowCache = require 'appcache'
 
 arrayChunk = (a, s) ->
   x = undefined
@@ -43,167 +46,13 @@ arrayChunk = (a, s) ->
 
 window.arrayChunk = arrayChunk
 
-window.initWindowCache = () ->
-  console.log "Initializing appCache"
-  # TODO: need some sort of sync feedback for users
-  #
-  # Some log handlers for the console
-  loadingFloat = () ->
-    if $('#loading_float').length == 0
-      loading = AppCacheStatus {
-      	obj_count: 55
-      }
-      $('body').append loading
-      loading = $('#loading_float')
-    else
-      loading = $('#loading_float')
-    loading.fadeOut(4500)
-    return loading
-
-  updateLoadingCount = (count, total) =>
-    loader = loadingFloat()
-    loader.fadeIn(500)
-    _count = loader.find('#cache_count')
-    _total = loader.find('#cache_total')
-    _count.html(count)
-    _total.html(total)
-    return true
-
-  incrementLoadingCount = () =>
-    loader = loadingFloat()
-    _count = loader.find('#cache_count')
-    _total = loader.find('#cache_total')
-
-    count = parseInt loader.find('#cache_count').html()
-    total = parseInt loader.find('#cache_total').html()
-
-    if isNaN(count) or isNaN(total)
-      count = 0
-      total = 0
-
-    updateLoadingCount(count + 1, total)
-
-  updateLoadingStatusMessage = (msg) =>
-    loader = loadingFloat()
-    loader.fadeIn(500)
-    _msg = loader.find('#status #message')
-    _msg.html(msg)
-    return true
-
-  fadeOutLoader = () ->
-    loader = loadingFloat().fadeOut(1500)
-    return true
-
-  window.updateLoadingCount = updateLoadingCount
-  window.incrementLoadingCount = incrementLoadingCount
-  window.updateLoadingStatusMessage = updateLoadingStatusMessage
-  window.fadeOutLoader = fadeOutLoader
-
-  loadingFloat()
-
-  if window.applicationCache
-    window.applicationCache.onchecking = (e) ->
-      console.log "onchecking"
-      updateLoadingStatusMessage("Checking for new media files.")
-
-    window.applicationCache.onnoupdate = (e) ->
-      console.log("No updates")
-      updateLoadingStatusMessage("No updates.")
-      fadeOutLoader()
-
-    window.applicationCache.onupdateready = (e) ->
-      console.log("Update ready")
-      updateLoadingStatusMessage("Update finished.")
-      fadeOutLoader()
-
-    window.applicationCache.onobsolete = (e) ->
-      console.log("Obsolete")
-
-    window.applicationCache.ondownloading = (e) ->
-      console.log("Downloading")
-      updateLoadingStatusMessage("Downloading ...")
-
-    window.applicationCache.oncached = (e) ->
-      console.log("Cached")
-      updateLoadingStatusMessage("Offline files downloaded.")
-      fadeOutLoader()
-
-    window.applicationCache.onerror = (e) ->
-      console.log("Error")
-      updateLoadingStatusMessage("Caching error! Error connecting.")
-
-    counter = 0
-    window.applicationCache.onprogress = (e) ->
-      console.log("checking")
-      console.log("Progress: downloaded file " + counter)
-      incrementLoadingCount()
-      counter++
-
-    window.addEventListener "online", (e) ->
-      # TODO: things to do here
-      console.log "you are online"
-
-    window.addEventListener "offline", (e) ->
-      # TODO: things to do here
-      console.log "you are offline"
-  else
-    fadeOutLoader()
-
-class LoadingTracker
-  isReady: () ->
-    for name, status of @dependencies
-      if not status
-      	return false
-    console.log "In readiness."
-    return true
-
-  checkDeps: () ->
-    if @isReady()
-      @hideLoading()
-
-  markReady: (name) ->
-    @dependencies[name] = true
-    @checkDeps()
-
-  hideLoading: () ->
-    interval = setInterval(() ->
-      $.mobile.loading('hide')
-      clearInterval(interval)
-    ,1)
-    return false
-
-  showLoading: () ->
-    interval = setInterval(() ->
-      $.mobile.loading('show', {
-        text: 'Loading...',
-        textVisible: true,
-        theme: 'a',
-        html: ""
-      })
-      clearInterval(interval)
-    ,1)
-    return false
-
-  constructor: ->
-    @dependencies = {
-      'concepts.json': false
-      'leksa_questions.json': false
-      'translations.json': false
-    }
-
-
 class LeksaOptions
   constructor: ->
-
-
-# TODO: loading widget until things are downloaded
 
 module.exports = class Application
 
   constructor: ->
     $ =>
-      # TODO: need to track tasks required before the user can start using the
-      # app, so that once all tasks are complete it disappears.
       @initialize
       	complete: () =>
           Backbone.history.start
@@ -223,10 +72,6 @@ module.exports = class Application
             initWindowCache()
 
   initialize: (options = {}) ->
-
-    # TODO: json internationalisation format
-    #
-
 
     @loadingTracker = new LoadingTracker()
     @loadingTracker.showLoading()

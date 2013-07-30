@@ -1,16 +1,5 @@
 ## Today
 
- - TODO: localization - get gettext.js actually working.
-   + gettext.js works
-   + po -> json works
-   + transifex works
-   + cache translations offline
-   + get translations parsed and working before first view
-   + detection of locale automatically from browser, until user switches in front_page
-   + sync all locales offline so that user can change whenever
-
-   - add more strings
-
  + TODO: debug function to reset user log entries on server
 
  + TODO: sync user configs, reload from server on login, disallow login from
@@ -25,6 +14,8 @@
           collection, but events fire.
 
 #
+
+* fix options view, make it work
 
 * password reset forms
 
