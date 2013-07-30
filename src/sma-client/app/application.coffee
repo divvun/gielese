@@ -204,25 +204,25 @@ module.exports = class Application
     $ =>
       # TODO: need to track tasks required before the user can start using the
       # app, so that once all tasks are complete it disappears.
-      @initialize()
+      @initialize
+      	complete: () =>
+          Backbone.history.start
+            pushState: false
+            hashChange: true
+            root: window.location.pathname
 
-      Backbone.history.start
-        pushState: false
-        hashChange: true
-        root: window.location.pathname
+          $(document).bind "pagechange", (e, data) ->
+            webkit = $.browser.webkit
+            not_string = data.toPage isnt "string"
+            root_page = data.toPage.attr("data-url") is '/'
+            if webkit and not_string and root_page
+              app.router.index()
+              return e.preventDefault()
 
-      $(document).bind "pagechange", (e, data) ->
-        webkit = $.browser.webkit
-        not_string = data.toPage isnt "string"
-        root_page = data.toPage.attr("data-url") is '/'
-        if webkit and not_string and root_page
-          app.router.index()
-          return e.preventDefault()
+          if window.app.options['enable_cache']?
+            initWindowCache()
 
-      if window.app.options['enable_cache']?
-        initWindowCache()
-
-  initialize: ->
+  initialize: (options = {}) ->
 
     # TODO: json internationalisation format
     #
@@ -236,17 +236,7 @@ module.exports = class Application
     })
     window.gettext = @gettext
 
-    $.get( '/data/translations/sv/messages.json', (locale_data) =>
-      gettext = new Gettext({
-        domain: 'messages'
-        locale_data: locale_data
-      })
-      @gettext = gettext
-      window.gettext = @gettext
-      @loadingTracker.markReady('translations.json')
-      @loadingTracker.markReady('internationalisations.json')
-    )
-
+    initial_language = navigator.language || navigator.userLanguage || "no"
 
     @auth = new Authenticator()
 
@@ -288,5 +278,21 @@ module.exports = class Application
       useFlashBlock: true
       onready: () ->
         console.log "SoundManager ready"
+
+    if initial_language not in ["sma", "se", "no", "en"]
+      initial_language = "no"
+
+    $.get( "/data/translations/#{initial_language}/messages.json", (locale_data) =>
+      gettext = new Gettext({
+        domain: 'messages'
+        locale_data: locale_data
+      })
+      @gettext = gettext
+      window.gettext = @gettext
+      @loadingTracker.markReady('translations.json')
+      @loadingTracker.markReady('internationalisations.json')
+      options.complete() if options.complete
+    )
+
 
 window.app = new Application

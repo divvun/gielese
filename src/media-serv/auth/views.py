@@ -53,6 +53,8 @@ def login():
 
 @blueprint.route('/user/create/', methods=['POST', 'CREATE'])
 def create_user():
+    # TODO: send confirmation email
+
     from schematics.models import Model
     from schematics.types import EmailType, StringType
     from schematics.exceptions import ValidationError
@@ -67,7 +69,6 @@ def create_user():
         if users.find_one({'email': value}):
             raise ValidationError("This email is in use already, please use another.")
         return value
-
 
     class UserFormValidation(Model):
         username = StringType(required=True, validators=[user_does_not_exist])
@@ -88,7 +89,6 @@ def create_user():
                        , mimetype='application/json'
                        )
 
-    print request.form
     form = UserFormValidation(**request.form.to_dict())
 
     try:
@@ -109,8 +109,6 @@ def create_user():
     # remove the username from the session if it's there
     session.pop('username', None)
     users.insert(user_kwargs)
-
-    print list(users.find())
 
     return jsonify(success=True)
 

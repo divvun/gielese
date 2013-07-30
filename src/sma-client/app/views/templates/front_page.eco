@@ -51,7 +51,6 @@
 		                    </div>
 	                    </form>
                         <p class="help"> * Probably need a small legal notice about data policy?</p>
-                        <a data-role="button" id="fakeSubmit">Fake submit</a>
                     </div>
                     <div id="loginform_success" style="display:none;">
                         <p class="lead"><%- gettext.gettext "Great, your account was created, and you've been logged in. Now for some basic questions..." %></p>

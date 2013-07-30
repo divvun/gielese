@@ -88,6 +88,11 @@ def create_manifest(app_host):
         # TODO: test
         'data/concepts.json',
         'data/leksa_questions.json',
+        # TODO: test
+        'data/translations/sv/messages.json',
+        'data/translations/no/messages.json',
+        'data/translations/sma/messages.json',
+        'data/translations/en/messages.json',
     ])
 
     imgs = '\n'.join(images)
