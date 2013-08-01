@@ -1,33 +1,15 @@
 <div data-role="header">
     <a href="#categoryMenu" data-transition="slide" id="show-panel" data-icon="arrow-l">Back</a>
-    <h1><%- @category %></h1>
+    <h1>&nbsp;</h1>
 </div> 
 
-<div data-role="content">
-    <h2 class="heading" data-role="list-divider">Games</h2>
+<div data-role="content" id="category_content">
 
-    <div id="main_menu">
-        <div class="ui-grid-b">
-	        <div class="ui-block-a">
-	            <a class="square" href="#conceptSet/<%- @category %>" data-transition="slide">
-	                <span class="link_image"></span>
-	                <span class="link_word">Wordlist </span>
-	            </a>
-	        </div>	   
-	        <div class="ui-block-b">
-	            <a class="square" href="#leksa/1/<%- @category %>" data-transition="slide">
-	                <span class="link_image"></span>
-	                <span class="link_word">Learn</span>
-	            </a>
-	        </div>
-	        <div class="ui-block-c">
-	            <a class="square" href="#leksa/2/<%- @category %>" data-transition="slide">
-	                <span class="link_image"></span>
-	                <span class="link_word">Practice</span>
-	            </a>
-	        </div>
-        </div>
-
+    <h2 class="category_name"><%- @category %></h2>
+    <div data-role="controlgroup">
+	    <a data-role="button" href="#conceptSet/<%- @category %>" data-transition="slide">Wordlist</a>
+	    <a data-role="button" href="#leksa/1/<%- @category %>" data-transition="slide">Learn</a>
+	    <a data-role="button" href="#leksa/2/<%- @category %>" data-transition="slide">Practice</a>
     </div>
 
 </div> 
