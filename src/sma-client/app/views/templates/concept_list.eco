@@ -1,45 +1,29 @@
- <!-- 
-
-    * TODO: wordlist
-
-       - split page into nav and content; larger devices, always show menu, on smaller devices, disable the menu.
-         - lemmas on left
-         - article display on the right
-       - adjust speed of playback?
-       - NB: find out if it's possible to record sound with HTML5 
-
- -->
-
-
 <div data-role="header">
     <a href="#category/<%- @category %>" data-transition="slide" data-icon="arrow-l">Back</a>
-    <h2>Vocabulary</h2>
+    <h2><%- @category %></h2>
 </div>
-<div data-role="panel" 
-     data-dismissable="true"
-     data-display="push"
-     data-theme="a"
-     id="word-links">
-    <ul data-role="listview" data-theme="a" data-divider-theme="a" class="ui-listview">
-        <li>
-            <a href="#conceptSet/BODYPART">Face</a>
-        </li>
-        <li>
-            <a href="#conceptSet/GREETINGS">Greetings</a>
-        </li>
-        <li>
-            <a href="#conceptSet/PHRASES">Phrases</a>
-        </li>
-        <li>
-            <a href="#conceptSet/FOOD">Food</a>
-        </li>
 
-    </ul>
-</div>
 <div data-role="content">
-    <div class="ui-grid-a" id="concept_list_view">
+    <div class="ui-grid-a twothirds" id="concept_list_view">
+        <div class="ui-block-a" id="concept_content">
+            <%- @initial_model %>
+        </div>
+        <div class="ui-block-b">
+            <ul data-role="listview" 
+                data-theme="d" 
+                data-divider-theme="c" 
+                data-split-icon=""
+                data-icon=""
+                id="concept-list"
+                class="ui-listview">
+                <% for concept in @models: %>
+                <li>
+                    <a class="concept_link"
+                       data-concept-id="<%- concept.cid %>"
+                       href="#"><%- concept.concept_value %></a>
+                </li>
+                <% end %>
+            </ul>
+        </div>
     </div>
-</div>
-<div data-role="footer">
-    <h1></h1>
 </div>

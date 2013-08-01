@@ -1,24 +1,36 @@
-<div class="ui-block-a">
-    <% if @model.hasAudio(): %>
+<% if @model.hasImage(): %>
+    <div id="concept_img_frame">
+    <img width="150" 
+         height="150" 
+         id="current_concept_img"
+         src="<%- @model.hasImage() %>" />
+     </div>
+<% end %>
+
+<% if @model.hasAudio(): %>
     <a href="#" 
        class="audio_link"
        data-concept-cid="<%- @cid %>">
         <img width="16" height="16" src="/static/client/images/speaker.png" /> <%- @model.get('concept_value') %>
     </a>
     <% else: %>
-        <%- @model.get('concept_value') %>
+        <h2 class="concept_definition">
+            <%- @model.get('concept_value') %>
+        </h2>
+<% end %>
+
+
+<ul id="concept_definitions">
+    <% for tx in @translations: %>
+        <li> 
+            <h2 class="concept_definition"><%- tx.get('concept_value') %></h2>
+        </li>
     <% end %>
-    <ul>
-        <% for tx in @translations: %>
-            <li> <%- tx.get('concept_value') %></li>
-        <% end %>
-    </ul>
+</ul>
+
+<div data-role="controlgroup"
+     data-type="horizontal">
+    <a id="cycle-concept-prev" href="index.html" data-role="button">Prev</a>
+    <a id="cycle-concept-next"href="index.html" data-role="button">Next</a>
 </div>
 
-<div class="ui-block-b">
-<% if @model.hasImage(): %>
-    <img width="150" 
-         height="150" 
-         src="<%- @model.hasImage() %>" />
-<% end %>
-</div>

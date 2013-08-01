@@ -1,3 +1,4 @@
+# TODO: clean up all this.
 Router = require 'routers/router'
 
 Authenticator = require 'auth/authentication'
@@ -138,6 +139,5 @@ module.exports = class Application
       @loadingTracker.markReady('internationalisations.json')
       options.complete() if options.complete
     )
-
 
 window.app = new Application

@@ -1,4 +1,4 @@
-class UpdatingConceptView extends Backbone.View
+class ConceptView extends Backbone.View
   template: require './templates/concept_item'
 
   render: ->
@@ -6,6 +6,9 @@ class UpdatingConceptView extends Backbone.View
             when "no" then "nob"
             when "sv" then "swe"
             else app.options.help_lang
+
+    if not lang
+      lang = "nob"
 
     @$el.html @template({
       model: @model
@@ -63,25 +66,30 @@ module.exports = class ConceptList extends Backbone.View
       'language': 'sma'
     })
 
-    @$el.html @template {
-      category: @for_category
-      models: filtered_collection.map (m) ->
-        return {
+    category_concepts = filtered_collection.map (m) ->
+        {
           model: m
           cid: m.cid
           concept_value: m.get('concept_value')
           concept_type: m.get('concept_type')
           translations: app.conceptdb.getTranslationsOf m
         }
+
+    # TODO: what is south sami alphabetical order?
+
+    category_concepts = _.sortBy category_concepts, (concept) -> concept.model.get('concept_value')
+
+    initial = new ConceptView {
+    	model: category_concepts[0].model
     }
 
-    _(filtered_collection).each (concept) =>
-      @_conceptViews.push new UpdatingConceptView({
-        model: concept
-      })
+    @$el.html @template {
+      category: @for_category
+      models: category_concepts
+      initial_model: initial.render().$el.html()
+    }
 
-    _(@_conceptViews).each (cv) =>
-      _el = cv.render().$el.html()
-      @$el.find('#concept_list_view').append(_el)
+    window.current_display_model = initial.model
+
 
     this

@@ -1,5 +1,7 @@
 ## Today
 
+ + TODO: app.options needs to have values set, it's messing things up
+
  + TODO: debug function to reset user log entries on server
 
  + TODO: sync user configs, reload from server on login, disallow login from
