@@ -40,9 +40,11 @@ module.exports = class Authenticator
       el.append(login_template)
       
       # Rerender elements
-      el.find('#loginPopup input').textinput()
-      el.find('#loginPopup button').button()
-      el.find('#loginPopup .close_modal').button()
+      el.find('#loginPopup').trigger('create')
+
+      # el.find('#loginPopup input').textinput()
+      # el.find('#loginPopup button').button()
+      # el.find('#loginPopup .close_modal').button()
       
       # Events
       el.find('#loginPopup form').submit auth_popup_form_submit

@@ -20,7 +20,7 @@
                 <li>
                     <a class="concept_link"
                        data-concept-id="<%- concept.cid %>"
-                       href="#"><%- concept.concept_value %></a>
+                       href="#"><%- concept.get('concept_value') %></a>
                 </li>
                 <% end %>
             </ul>

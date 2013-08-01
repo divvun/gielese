@@ -25,13 +25,25 @@ module.exports = class ConceptList extends Backbone.View
   events:
     'click .audio_link': 'findAudio'
     'click #show-panel': "revealOptionsPanel"
-    # 'click ul.ui-listview a': 'clickTest'
+    'click .concept_link': 'showConcept'
   
   clickTest: (evt) ->
     $(evt.target).get
     console.log evt
     return true
 
+  showConcept: (evt) ->
+    _cid = $(evt.target).attr('data-concept-id')
+    concept = app.conceptdb.get(_cid)
+
+    concept_template = new ConceptView {
+    	model: concept
+    }
+
+    $('#concept_content').html concept_template.render().$el.html()
+    $('#concept_content').trigger('create')
+
+    return false
   # Left panel
   revealOptionsPanel: (evt) ->
     panel_options =
@@ -66,21 +78,13 @@ module.exports = class ConceptList extends Backbone.View
       'language': 'sma'
     })
 
-    category_concepts = filtered_collection.map (m) ->
-        {
-          model: m
-          cid: m.cid
-          concept_value: m.get('concept_value')
-          concept_type: m.get('concept_type')
-          translations: app.conceptdb.getTranslationsOf m
-        }
-
     # TODO: what is south sami alphabetical order?
 
-    category_concepts = _.sortBy category_concepts, (concept) -> concept.model.get('concept_value')
+    category_concepts = filtered_collection
+    category_concepts = _.sortBy category_concepts, (concept) -> concept.get('concept_value')
 
     initial = new ConceptView {
-    	model: category_concepts[0].model
+    	model: category_concepts[0]
     }
 
     @$el.html @template {
@@ -88,8 +92,5 @@ module.exports = class ConceptList extends Backbone.View
       models: category_concepts
       initial_model: initial.render().$el.html()
     }
-
-    window.current_display_model = initial.model
-
 
     this

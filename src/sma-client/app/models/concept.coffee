@@ -3,7 +3,8 @@ module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
   idAttribute: "c_id"
 
-  hasImage: () ->
+  hasImage: (size = false) ->
+    # TODO: get various image sizes and devices
     has_media = @.get('media')
     if 'image' of has_media
       if has_media.image.length > 0
