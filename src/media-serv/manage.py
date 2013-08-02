@@ -97,7 +97,8 @@ def test_some_queries(app):
     def action():
         from lexicon_models import Concept, Semtype
         from lexicon_install import install_lexical_data
-        from media_serv import format_concept
+        print db.session.query(Concept).filter(Concept.lemma == "aaloe").first().toJSON()
+        return
 
         print db.session.query(Concept).filter(Concept.lemma == "Garrah").first().translations_to.all()
         return

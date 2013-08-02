@@ -61,7 +61,7 @@
             <div class="question_block" style="display: none;">
                 <div class="sub_question_block">
                     <div data-role="fieldcontain" id="help_language">
-                        <fieldset data-role="controlgroup" data-setting="help_language,target_language">
+                        <fieldset data-role="controlgroup" data-setting="help_language,interface_language">
                             <legend><%- gettext.gettext "Help language" %></legend>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk</label>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="sub_question_block" style="display: none;">
                     <div data-role="fieldcontain" id="auxiliary_language">
-                        <fieldset data-role="controlgroup" data-setting="help_language,target_language">
+                        <fieldset data-role="controlgroup" data-setting="help_language">
                             <legend><%- gettext.gettext "Translation language" %></legend>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk</label>

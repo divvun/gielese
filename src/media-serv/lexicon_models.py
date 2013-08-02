@@ -240,6 +240,7 @@ class Concept(db.Model, TimestampMixin):
 
         _type = False
         features = []
+
         translations = list( concept_filter(self.translations_to)
                            ^ concept_filter(self.translations_from)
                            )

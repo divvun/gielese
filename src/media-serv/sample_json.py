@@ -56,7 +56,7 @@ leksa_questions = [
     , 'category': "BODYPART"
     },
     { 'type': 'word_to_word'
-    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'USERLANG'
                  , 'semantics': ["BODYPART"]
                  }
     , 'answer_similarity': { 'features': ["BISYL", "HT"]
@@ -114,7 +114,7 @@ leksa_questions = [
     , 'category': "GREETINGS"
     },
     { 'type': 'word_to_word'
-    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'USERLANG'
                  , 'semantics': ["GREETINGS"]
                  }
     , 'answer_similarity': { 'features': ["BISYL", "HT"]
@@ -172,7 +172,7 @@ leksa_questions = [
     , 'category': "FOOD"
     },
     { 'type': 'word_to_word'
-    , 'filters': { 'from_language': 'sma', 'to_language': 'nob'
+    , 'filters': { 'from_language': 'sma', 'to_language': 'USERLANG'
                  , 'semantics': ["FOOD"]
                  }
     , 'answer_similarity': { 'features': ["BISYL", "HT"]

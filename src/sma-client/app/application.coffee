@@ -89,12 +89,13 @@ module.exports = class Application
 
     @auth = new Authenticator()
 
-    @options = new UserSettings({
+    @options = new UserSettings()
+    @options.setDefaults({
       'enable_cache': false
       'enable_audio': true
+      'interface_language': 'no'
+      'help_language': 'no'
     })
-    @options.set('interface_language', 'no')
-    @options.set('help_language', 'no')
 
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()

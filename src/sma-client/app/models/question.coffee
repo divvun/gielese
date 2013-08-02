@@ -143,6 +143,13 @@ module.exports = class Question extends Backbone.Model
     return q_concepts
 
   find_concepts: (conceptdb, userprogression) ->
+    # TODO: make sure this is the 3-char iso
+    userlang = switch app.options.getSetting('help_language')
+      when "no" then "nob"
+      when "sv" then "swe"
+      when "swe" then "swe"
+      when "sma" then "sma"
+      else "nob"
 
     # TODO: include userprogression
     #
@@ -163,6 +170,11 @@ module.exports = class Question extends Backbone.Model
 
     _from = _filters.from_language
     _to   = _filters.to_language
+
+    if _to == "USERLANG"
+      console.log "USERLANG found, replacing with user help lang"
+      console.log userlang
+      _to = userlang
 
     q_concepts = @select_question_concepts_by_progression(
       @select_question_concepts(conceptdb),

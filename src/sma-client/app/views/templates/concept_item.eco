@@ -25,7 +25,11 @@
 <ul id="concept_definitions">
     <% for tx in @translations: %>
         <li>
-            <h2 class="concept_definition"><%- tx.get('concept_value') %></h2>
+            <% if @fallback: %>
+             <h2 class="concept_definition"><%- tx.get('concept_value') %> <span class="concept_language">(<%- tx.get('language') %>)</span></h2>
+            <% else: %>
+                <h2 class="concept_definition"><%- tx.get('concept_value') %></h2>
+            <% end %>
         </li>
     <% end %>
 </ul>
@@ -40,5 +44,9 @@
     <a id="cycle-concept-next"
        href="index.html"
        data-role="button">Next</a>
+
 </div>
 
+<% if @fallback: %>
+    <span class="error">No definition in db for <%- @userlang %> for word, falling back to nob.</span>
+<% end %>

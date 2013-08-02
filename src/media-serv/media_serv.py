@@ -273,7 +273,7 @@ def leksa_questions():
 def prepare_concepts(db):
     from lexicon_models import Concept
 
-    langs = ["sma", "nob", "img"]
+    langs = ["sma", "nob", "img", "swe"]
     concept_set = db.session.query(Concept).filter(
         Concept.language.in_(langs)
     )

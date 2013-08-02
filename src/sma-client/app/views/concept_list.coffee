@@ -2,20 +2,31 @@ class ConceptView extends Backbone.View
   template: require './templates/concept_item'
 
   render: ->
-    lang = switch app.options.help_lang
-            when "no" then "nob"
-            when "sv" then "swe"
-            else app.options.help_lang
+    lang = switch app.options.getSetting('help_language')
+      when "no" then "nob"
+      when "sv" then "swe"
+      when "swe" then "swe"
+      when "sma" then "sma"
+      else "nob"
 
     if not lang
       lang = "nob"
+
+    fallback = false
+    translations = @model.getTranslationsToLang lang
+    if translations.length == 0
+      console.log "no translations found for #{lang}, defaulting..."
+      translations = @model.getTranslationsToLang "nob"
+      fallback = true
 
     @$el.html @template({
       model: @model
       cid: @model.cid
       concept_value: @model.get('concept_value')
       concept_type: @model.get('concept_type')
-      translations: @model.getTranslationsToLang lang
+      translations: translations
+      fallback: fallback
+      userlang: lang
     })
 
     this
@@ -37,7 +48,7 @@ module.exports = class ConceptList extends Backbone.View
     concept = app.conceptdb.get(_cid)
 
     concept_template = new ConceptView {
-    	model: concept
+        model: concept
     }
 
     $('#concept_content').html concept_template.render().$el.html()
@@ -84,7 +95,7 @@ module.exports = class ConceptList extends Backbone.View
     category_concepts = _.sortBy category_concepts, (concept) -> concept.get('concept_value')
 
     initial = new ConceptView {
-    	model: category_concepts[0]
+        model: category_concepts[0]
     }
 
     @$el.html @template {

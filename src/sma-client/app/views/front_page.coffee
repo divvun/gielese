@@ -144,7 +144,7 @@ module.exports = class FrontPage extends Backbone.View
 
     if setting_target and setting_value
       for key in setting_target.split(',')
-        app.options.set(key, setting_value)
+        app.options.setSetting(key, setting_value)
 
     # may not be subquestion, also 
     next_subquestion = current.next('.sub_question_block')[0]
