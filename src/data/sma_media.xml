@@ -36,7 +36,7 @@ For the full license text, see the link above.</lic>
       <l pos="n">guelie</l>
     </lg>
     <media>
-      <images><image>
+      <images><image size="small" device="mobile">
         <path><![CDATA[http://dummyimage.com/250x150/000/900&text=fish]]></path>
         <features>
           <appearance>SCALY</appearance>
@@ -50,7 +50,7 @@ For the full license text, see the link above.</lic>
       <l pos="n">bïenje</l>
     </lg>
     <media>
-      <images><image>
+      <images><image size="small" device="mobile">
         <path><![CDATA[http://placedog.com/250/150]]></path>
         <features>
           <appearance>FUZZY</appearance>
@@ -64,7 +64,7 @@ For the full license text, see the link above.</lic>
       <l>gaahtoe</l>
     </lg>
     <media>
-      <images><image>
+      <images><image size="small" device="mobile">
         <path><![CDATA[http://placekitten.com/250/150]]></path>
         <features>
           <appearance>FUZZY</appearance>
@@ -79,7 +79,7 @@ For the full license text, see the link above.</lic>
       <l>aehtjaahka</l>
     </lg>
     <media>
-      <images><image>
+      <images><image size="small" device="mobile">
         <path><![CDATA[http://dummyimage.com/250x150/000/900&text=granny]]></path>
         <features>
           <appearance>OLD</appearance>
@@ -94,7 +94,7 @@ For the full license text, see the link above.</lic>
       <l>åeruve</l>
     </lg>
     <media>
-      <images><image>
+      <images><image size="small" device="mobile">
         <path><![CDATA[images/orava.png]]></path>
         <features>
           <appearance>FUZZY</appearance>
@@ -121,7 +121,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/aa_aa_red_ae_jja.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -144,7 +144,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/aa_ejjie.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -167,7 +167,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/voepte.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -190,7 +190,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/bieljie.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -214,7 +214,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/gaalloe.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -237,7 +237,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/haermie.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -260,7 +260,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/tjelmie.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -283,7 +283,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/njaelmie.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -307,7 +307,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/njoektjeme.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -330,7 +330,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/njuenie.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -353,7 +353,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/baenie.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -376,7 +376,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/searome.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -400,7 +400,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/skaavtjoe.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -423,7 +423,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/gaejpie.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -446,7 +446,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/tjeapohke.jpg]]></path>
           <features>
             <appearance>FACE</appearance>
@@ -469,7 +469,7 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/tjovrese.jpg]]></path>
           <features>
             <appearance>FACE</appearance>

@@ -3,13 +3,34 @@ module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
   idAttribute: "c_id"
 
-  hasImage: (size = false) ->
-    # TODO: get various image sizes and devices
+  hasImage: (opts = {}) ->
+    if not opts.device
+      device = app.device_type
+    else
+      device = opts.device
+
+    if not opts.size
+      size = "small"
+    else
+      size = opts.size
+
+    console.log [device, size]
+    # TODO: maybe preference to image size over device? i.e., if large/tablet
+    # doesn't exist, but large/mobile does, take that one
     has_media = @.get('media')
     if 'image' of has_media
       if has_media.image.length > 0
-        has_audio_file = _.shuffle(has_media.image)[0].path
-        return has_audio_file
+
+        images_for_device = _.filter has_media.image, (i) ->
+          return i.size == size and i.device == device
+
+        if images_for_device.length == 0
+          return has_media.image[0].path
+
+        if images_for_device.length > 0
+          return images_for_device[0].path
+
+        return images_for_device
     return false
 
   getTranslationsToLang: (lang) ->

@@ -5,8 +5,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/im_guarkah.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/im_guarkah.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -39,8 +42,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/im_govlh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/im_govlh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -73,8 +79,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/im_vuejnieh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/im_vuejnieh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -107,8 +116,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/g_ii_erth_mannem.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/g_ii_erth_mannem.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -141,8 +153,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/jaavoe.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/jaavoe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -175,8 +190,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/ijje.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/ijje.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -209,8 +227,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/im_daejrieh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/im_daejrieh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -243,8 +264,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/garrah.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/garrah.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -277,8 +301,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/aa_elkies.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/aa_elkies.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -311,8 +338,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/buerie_aerede.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/buerie_aerede.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -342,8 +372,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/buerie_biejjie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/buerie_biejjie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -373,8 +406,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/buerie_iehkede.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/buerie_iehkede.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -427,8 +463,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/guktie_datnine.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/guktie_datnine.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -461,8 +500,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/mannine_hijven.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/mannine_hijven.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -495,8 +537,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/mannine_n_aa_ekies.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/mannine_n_aa_ekies.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -555,8 +600,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/maam_s_ii_jhth_by_oe_pmedidh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/maam_s_ii_jhth_by_oe_pmedidh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -589,8 +637,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/b_oe_oe_resth.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/b_oe_oe_resth.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -623,8 +674,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/phrases/small/aa_adtjoem_reeknegem.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/phrases/medium/aa_adtjoem_reeknegem.jpg]]></path>
         </image>
       </images>
       <sounds>

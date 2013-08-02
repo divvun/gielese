@@ -5,8 +5,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/baernie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/baernie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -39,8 +42,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/buarastehtedh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/buarastehtedh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -73,10 +79,10 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/buaregh.jpg]]></path>
         </image>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/buaregh.2.jpg]]></path>
         </image>
       </images>
@@ -110,8 +116,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/buerie_aerede.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/buerie_aerede.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -144,8 +153,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/buerie_biejjie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/buerie_biejjie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -178,8 +190,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/buerie_iehkede.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/buerie_iehkede.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -212,8 +227,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/buerie_j_ii_jje.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/buerie_j_ii_jje.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -246,8 +264,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/datne.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/datne.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -280,8 +301,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/d_ii_hte.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/d_ii_hte.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -314,8 +338,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/maana.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/maana.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -348,8 +375,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/manne.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/manne.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -379,8 +409,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/nyjsen_ae_jja.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/nyjsen_ae_jja.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -413,8 +446,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/n_aa_aa__n_aa_aa.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/n_aa_aa__n_aa_aa.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -447,8 +483,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/n_ii_ejte.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/n_ii_ejte.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -481,8 +520,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/aa_lma.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/heelsedh/medium/aa_lma.jpg]]></path>
         </image>
       </images>
       <sounds>

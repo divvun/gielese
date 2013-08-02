@@ -137,6 +137,7 @@ module.exports = class FrontPage extends Backbone.View
     if not fieldset
       return false
 
+    # TODO: user settings model
     checked_setting = current.find('fieldset input[type="radio"]:checked')
     setting_target = fieldset.attr('data-setting')
     setting_value = checked_setting.val()

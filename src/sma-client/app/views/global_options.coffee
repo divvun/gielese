@@ -2,7 +2,8 @@ module.exports = class GlobalOptionsView extends Backbone.View
 
   # ? Multiple different manifests depending on what user wants to
   # store?
-  className: 'hello'
+  id: 'global_options'
+
   events:
     'click #save-options': 'saveOptions'
 

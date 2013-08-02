@@ -74,6 +74,9 @@ module.exports = class Application
 
   initialize: (options = {}) ->
 
+    # TODO: device detection
+    @device_type = "mobile"
+
     @loadingTracker = new LoadingTracker()
     @loadingTracker.showLoading()
 

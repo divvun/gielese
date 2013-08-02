@@ -178,6 +178,10 @@ class Concept(db.Model, TimestampMixin):
     tcomm = db.Column(db.Boolean, default=False)
     tcomm_pref = db.Column(db.Boolean, default=False)
 
+    # image media
+    size = db.Column(db.String(12), nullable=True)
+    device = db.Column(db.String(12), nullable=True)
+
     translations_to = db.relationship("Concept",
                         secondary=concept_concept,
                         primaryjoin=id==concept_concept.c.left_concept_id,
@@ -250,7 +254,7 @@ class Concept(db.Model, TimestampMixin):
             concept_media['audio'] = [{'path': a.lemma} for a in audio]
 
         if len(image) > 0:
-            concept_media['image'] = [{'path': a.lemma} for a in image]
+            concept_media['image'] = [{'path': a.lemma, 'device': a.device, 'size': a.size} for a in image]
             media_ids.extend([a.id for a in image])
 
         language = self.language

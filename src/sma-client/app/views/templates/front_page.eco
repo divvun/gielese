@@ -8,15 +8,15 @@
             <div class="question_block">
                 <div class="sub_question_block">
                     <div data-role="fieldcontain" id="create_account">
-                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-setting="use_account">
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
                             <legend><%- gettext.gettext "Create an account?" %></legend>
                             <input class="nextSection" type="radio" name="create-user-account-a" id="create-user-account-a" value="true" data-subquestion="true">
-                            <label for="create-user-account-a">Yes</label>
+                            <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
                             <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
-                            <label for="create-user-account-b">No</label>
+                            <label for="create-user-account-b"><%- gettext.gettext "No" %></label>
                         </fieldset>
                         <legend><%- gettext.gettext "or..." %></legend>
-                        <a data-role="button" id="displayLogin" data-mini="true" style="width: 7em;">Log in</a>
+                        <a data-role="button" id="displayLogin" data-mini="true" style="width: 7em;"><%- gettext.gettext "Log in" %></a>
                         <p class="help"><%- gettext.gettext "If you choose not to create an account, data will still be stored anonymously, however, it may be erased if you clear your browser's stored data." %></p>
                         <p class="help"><%- gettext.gettext "Having an account also allows you to compete with others, and integrates with courses." %></p>
                     </div>
@@ -54,7 +54,7 @@
                     </div>
                     <div id="loginform_success" style="display:none;">
                         <p class="lead"><%- gettext.gettext "Great, your account was created, and you've been logged in. Now for some basic questions..." %></p>
-                        <a data-role="button" class="nextSection">Got it!</a>
+                        <a data-role="button" class="nextSection"><%- gettext.gettext "Got it!" %></a>
                     </div>
                 </div>
             </div>

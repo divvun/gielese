@@ -5,8 +5,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/laejpie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/laejpie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -39,8 +42,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/muerjie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/muerjie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -73,8 +79,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/munnie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/munnie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -104,8 +113,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/guelie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/guelie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -138,8 +150,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/kroenesaate.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/kroenesaate.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -172,8 +187,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/bearkoe.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/bearkoe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -206,8 +224,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/vuasta.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/vuasta.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -240,8 +261,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/peara.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/peara.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -274,8 +298,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/goerve.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/goerve.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -308,8 +335,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/voeje.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/voeje.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -342,8 +372,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/joptse.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/joptse.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -376,8 +409,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/tjaetsie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/tjaetsie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -411,8 +447,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/aaloe.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/aaloe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -445,8 +484,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/mielhkie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/mielhkie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -479,8 +521,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/voelege.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/voelege.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -513,8 +558,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/pr_ii_htjege.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/pr_ii_htjege.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -547,8 +595,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/beapmoe.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/beapmoe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -581,8 +632,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/aeredsbeapmoe.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/aeredsbeapmoe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -615,8 +669,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/gaskebiejjiebeapmoe.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/gaskebiejjiebeapmoe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -650,8 +707,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/iehkedsbeapmoe.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/iehkedsbeapmoe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -684,8 +744,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/jovkedh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/jovkedh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -718,8 +781,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/by_oe_pmedidh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/by_oe_pmedidh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -752,8 +818,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/doeltedh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/doeltedh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -786,8 +855,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/bissedh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/bissedh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -817,8 +889,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/b_aa_aa_hkesjidh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/b_aa_aa_hkesjidh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -851,8 +926,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/jurjiehtidh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/jurjiehtidh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -885,8 +963,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/dealodh.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/dealodh.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -916,8 +997,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/gudtsien.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/gudtsien.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -950,8 +1034,11 @@
     </lg>
     <media>
       <images>
-        <image>
+        <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/duelie.jpg]]></path>
+        </image>
+        <image size="medium" device="mobile">
+          <path><![CDATA[/static/images/food/medium/duelie.jpg]]></path>
         </image>
       </images>
       <sounds>

@@ -224,6 +224,22 @@ class MediaSimpleJSON(EntryNodeIterator):
             except:
                 return False
 
+        def image_device(n):
+            device = n.attrib.get('device', False)
+            path = n.find('path').text
+            if not device:
+                print >> sys.stderr, "No device attribute for image with path %s. Using default value mobile" % path
+                device = "mobile"
+            return device
+
+        def image_size(n):
+            size = n.attrib.get('size', False)
+            path = n.find('path').text
+            if not size:
+                print >> sys.stderr, "No size attribute for image with path %s. Using default value mobile" % path
+                size = "mobile"
+            return size
+
         def image_features(n):
             from collections import defaultdict
             features = n.find('features')
@@ -266,7 +282,9 @@ class MediaSimpleJSON(EntryNodeIterator):
 
             if images is not None:
                 media_defs['images'] = [ {'path': _path(image),
-                                          'features': image_features(image)}
+                                          'features': image_features(image),
+                                          'device': image_device(image),
+                                          'size': image_size(image),}
                                          for image in images
                                        ]
                 media_type = 'img'
@@ -424,6 +442,8 @@ def install_media_references(_d, filename):
             for image in medias.get('images'):
                 wt_kwargs = dict( language='img'
                                 , lemma=image.get('path')
+                                , device=image.get('device')
+                                , size=image.get('size')
                                 )
                 # TODO: features / semantics, audio / voices
                 wt = Concept(**wt_kwargs)

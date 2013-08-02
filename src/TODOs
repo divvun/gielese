@@ -3,8 +3,9 @@
  + TODO: all media sizes need to be available for the frontend to select and
    download, but need to figure out:
 
-     * each device needs different media sizes, to display a concept as a
-       background or an icon. how many files is this, and will they all need to
+     + added device and size attributes to image files and image concepts
+
+     * how many files is this, and will they all need to
        be downloaded, or designate one concept as the "title" concept
 
  + TODO: app.options needs to have values set, it's messing things up
