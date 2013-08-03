@@ -142,12 +142,22 @@ module.exports = class Authenticator
 
       # TODO: why isn't this creating objects? It's fetching them properly.
       #       same result with .full()
+      #
+      # TODO: sync options as well.
+      #
       console.log "User logged in, syncing progression"
       app.leksaUserProgression.storage.sync.pull({
         success: (data) ->
           console.log "userlog.success"
           console.log data
           console.log app.options.attributes
+      })
+
+      app.options.storage.sync.full({
+        success: (data) ->
+          console.log "storage.full.success"
+          console.log data
+          console.log app.options.models
       })
 
       opts.success(data, textStatus, jqXHR) if opts.success

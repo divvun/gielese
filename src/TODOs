@@ -8,8 +8,6 @@
      * how many files is this, and will they all need to
        be downloaded, or designate one concept as the "title" concept
 
- + TODO: app.options needs to have values set, it's messing things up
-
  + TODO: debug function to reset user log entries on server
 
  + TODO: sync user configs, reload from server on login, disallow login from
@@ -18,12 +16,20 @@
        -> Backbone.Offline apparently prefers to sync collections, but not
           individual models/classes.
 
+       -> TODO: parse not called when responses are fetched, had to edit in
+                some parse support for collections (on sync.full), thus some
+                functions may not work properly, and if so this is why.
+
  + TODO: start syncing user log entries
 
-       -> Some sort of problem with actually getting the models into a
-          collection, but events fire.
+ + TODO: once everything is syncing, global stats/log view for user 
 
 #
+
+
+* wordlist: cycle audio by voice randomly 
+
+* google analytics
 
 * fix options view, make it work
 

@@ -4,6 +4,8 @@ module.exports = class GlobalOptionsView extends Backbone.View
   # store?
   id: 'global_options'
 
+  # TODO: save when the options are adjusted individually.
+
   events:
     'click #save-options': 'saveOptions'
 
@@ -19,14 +21,8 @@ module.exports = class GlobalOptionsView extends Backbone.View
     enable_cache = toBool _data.slider().val()
     enable_audio = toBool _audio.slider().val()
 
-    new_opts = {
-      'enable_cache': enable_cache
-      'enable_audio': enable_audio
-    }
-
-    DSt.set('app_options', new_opts)
-
-    app.options = new_opts
+    app.options.setSetting('enable_cache', enable_cache)
+    app.options.setSetting('enable_audio', enable_audio)
 
   template: require './templates/global_options'
 
@@ -36,12 +32,14 @@ module.exports = class GlobalOptionsView extends Backbone.View
     if app.options?
       _cache = @$el.find('select[name="data-storage"]')
       _audio = @$el.find('select[name="play-audio"]')
+
       _cache.val(
-          app.options.enable_cache.toString()
+          app.options.getSetting('enable_cache').toString()
       )
       _audio.val(
-          app.options.enable_audio.toString()
+          app.options.getSetting('enable_audio').toString()
       )
+
       # _cache.slider('refresh')
       # _audio.slider('refresh')
 

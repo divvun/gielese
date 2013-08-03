@@ -169,72 +169,91 @@ def pop_ids(obj):
     return obj
 
 class SettingsAPI(MethodView, SessionCheck):
-    """ An object for storing settings for each user. Limit one object
-    per user.
-    """
+    """ An object for storing settings for each user.  """
 
     @property
     def table(self):
         return current_app.mongodb.db.user_settings
 
-    def get(self, item_id):
+    def get(self):
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
 
         query = {"user_id": user_id}
 
-        if item_id is not None:
-            query["_id"] = ObjectId(item_id)
-        return mongodoc_jsonify(data=[pop_ids(self.table.find_one(query))])
+        def clean_setting(s):
+            def tryPop(d, k):
+                try: d.pop(k)
+                except: pass
+                return d
 
-    def delete_existing(self, user_id):
-        qw = {'user_id': user_id}
-        self.table.remove(qw)
+            _s = pop_ids(s)
+            _s = tryPop(_s, 'user_id')
+            _s = tryPop(_s, 'dirty')
+            _s = tryPop(_s, 'sid')
+            _s = tryPop(_s, 'updated_at')
+            _s = tryPop(_s, 'created_at')
+
+            return _s
+
+        return mongodoc_jsonify(settings=map(clean_setting, self.table.find(query)))
+
+        # return mongodoc_jsonify(data=[pop_ids(self.table.find(query))])
 
     def post(self):
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
 
-        self.delete_existing(user_id)
-
-        # TODO: is this sufficient?
-        print request.json
+        # TODO: can user update record?
         request.json['user_id'] = user_id
+        setting_key = request.json.get('setting_key')
 
-        # TODO: can user create record?
-        self.table.insert(request.json)
+        existing_query = {'user_id': user_id, 'setting_key': setting_key}
+
+        self.table.remove(existing_query)
+        self.table.insert({ 'user_id': user_id
+                          , 'setting_key': setting_key
+                          , 'setting_value': request.json.get('setting_value')
+                          })
+
         return mongodoc_jsonify(data=request.json)
 
     create = post
 
-    def delete(self, item_id):
+    def delete(self, setting_key):
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
 
-        self.delete_existing(user_id)
+        existing_query = {'user_id': user_id, 'setting_key': setting_key}
+
+        self.table.remove(existing_query)
         return ""
 
-    def put(self, item_id):
+    def put(self):
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
 
         # TODO: can user update record?
-        self.delete_existing(user_id)
-
-        # add user id
         request.json['user_id'] = user_id
+        setting_key = request.json.get('setting_key')
 
-        self.table.update({"_id": ObjectId(item_id)}, {'$set': request.json})
+        existing_query = {'user_id': user_id, 'setting_key': setting_key}
+
+        self.table.remove(existing_query)
+        self.table.insert({ 'user_id': user_id
+                          , 'setting_key': setting_key
+                          , 'setting_value': request.json.get('setting_value')
+                          })
+
         return mongodoc_jsonify(data=request.json)
 
 settings_view = SettingsAPI.as_view('settings_api')
 
 blueprint.add_url_rule( '/user/settings/'
-                      , defaults={'item_id': None}
                       , view_func=settings_view
                       , methods=['GET',]
                       )

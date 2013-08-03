@@ -53,6 +53,8 @@ module.exports = class LeksaOptionsView extends Backbone.View
     if _set
       @$el.find("#semantic_set input[value='#{_set}'").click()
 
+    # TODO: app.options.getSetting
+
     ## if app.options?
     ##   _set = @$el.find('#semantic_set fieldset')
     ##   _level = @$el.find('#current_level fieldset')

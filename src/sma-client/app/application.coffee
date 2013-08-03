@@ -22,7 +22,6 @@ LoadingView = require 'views/loading'
 ConceptDB = require 'models/conceptdb'
 QuestionDB = require 'models/questiondb'
 Question = require 'models/question'
-Internationalisations = require 'models/internationaliser'
 # sample_concepts = require 'sample_data/sample_concepts'
 
 UserProgression = require 'models/user_progression'
@@ -69,7 +68,7 @@ module.exports = class Application
               app.router.index()
               return e.preventDefault()
 
-          if window.app.options['enable_cache']?
+          if window.app.options.getSetting('enable_cache')?
             initWindowCache()
 
   initialize: (options = {}) ->

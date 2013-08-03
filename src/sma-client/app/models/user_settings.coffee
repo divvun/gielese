@@ -25,12 +25,16 @@ module.exports = class UserSettings extends Backbone.Collection
       @remove(setting)
 
     new_setting = @create({setting_key: key, setting_value: val})
+    new_setting.set('dirty', true)
     # TODO: full sync? 
     return new_setting
 
   setDefaults: (opts) ->
     for k, v of opts
       @setSetting(k, v)
+
+  parse: (response, opts) ->
+    return response.settings
 
   initialize: () ->
     @storage = new Offline.Storage('user-settings', @)
