@@ -249,6 +249,8 @@ do (global = window, _, Backbone) ->
     pull: (options = {}) ->
       @ajax 'read', @collection.items, _.extend {}, options,
         success: (response) =>
+          if @storage.collection.parse
+          	response = @storage.collection.parse(response)
           @collection.destroyDiff(response)
           @pullItem(item) for item in response
           options.success(response) if options.success

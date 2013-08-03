@@ -144,6 +144,8 @@ module.exports = class FrontPage extends Backbone.View
 
     if setting_target and setting_value
       for key in setting_target.split(',')
+        if key == 'interface_language' or key == 'help_language'
+          setting_value = ISOs.three_to_two setting_value
         app.options.setSetting(key, setting_value)
 
     # may not be subquestion, also 

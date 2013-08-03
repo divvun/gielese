@@ -1,5 +1,8 @@
 ## Today
 
+ + TODO: things that sync with the server need to also be stored in
+     localStorage via Backbone.Offline. 
+
  + TODO: all media sizes need to be available for the frontend to select and
    download, but need to figure out:
 

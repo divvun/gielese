@@ -30,6 +30,8 @@ LoadingTracker = require 'loadingtracker'
 
 require 'backbone.offline'
 
+require 'language_codes'
+
 window.initWindowCache = require 'appcache'
 
 arrayChunk = (a, s) ->
@@ -84,17 +86,7 @@ module.exports = class Application
     })
     window.gettext = @gettext
 
-    initial_language = navigator.language || navigator.userLanguage || "no"
-
     @auth = new Authenticator()
-
-    @options = new UserSettings()
-    @options.setDefaults({
-      'enable_cache': false
-      'enable_audio': true
-      'interface_language': 'no'
-      'help_language': 'no'
-    })
 
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()
@@ -128,8 +120,16 @@ module.exports = class Application
       onready: () ->
         console.log "SoundManager ready"
 
-    if initial_language not in ["sma", "se", "no", "en"]
+    # usually ISO 639-1, excepting languages that don't have them but the trick
+    # is that we want to store ISO 639-2, because the lexicon has special needs
+    initial_language = navigator.language || navigator.userLanguage || "no"
+
+    # Force Norwegian if someone doesn't have one of the localizations
+    # supported here.
+    if initial_language not in ["sma", "sv", "no"]
       initial_language = "no"
+
+    initial_language = ISOs.three_to_two initial_language
 
     $.get( "/data/translations/#{initial_language}/messages.json", (locale_data) =>
       gettext = new Gettext({
@@ -142,5 +142,16 @@ module.exports = class Application
       @loadingTracker.markReady('internationalisations.json')
       options.complete() if options.complete
     )
+
+    # Convert the initial ISO settings
+
+    @options = new UserSettings()
+    @options.setDefaults({
+      'enable_cache': false
+      'enable_audio': true
+      'interface_language': ISOs.two_to_three initial_language
+      'help_language': ISOs.two_to_three initial_language
+    })
+
 
 window.app = new Application
