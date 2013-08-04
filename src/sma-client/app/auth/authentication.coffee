@@ -10,7 +10,7 @@ module.exports = class Authenticator
     # same IDs, fix
     auth_popup_form_submit = (event) =>
       # TODO: disable form
-      console.log "submitted"
+      console.log "Authenticator.login: submitted"
       el.find('#loginPopup #loading').fadeIn()
   
       @login
@@ -89,15 +89,17 @@ module.exports = class Authenticator
         withCredentials: true
 
     logout_request.fail (resp) ->
-      console.log "fail"
+      console.log "Authenticator.logout.logout_request.fail: fail"
       console.log JSON.parse resp.responseText
       app.user = null
       opts.fail(resp) if opts.fail
 
     logout_request.success (data, textStatus, jqXHR) ->
-      console.log "Should be logged out..."
+      console.log "Authenticator.logout.logout_request.success:"
+      console.log "  Should be logged out..."
       test_authed_request = $.getJSON('/user/data/log')
       test_authed_request.success (resp) ->
+        console.log "Authenticator.logout.logout_request.success.test_authed_request.success:"
         console.log resp
       # TODO: app.user = something
       app.user = false
@@ -122,9 +124,10 @@ module.exports = class Authenticator
       opts.fail(resp) if opts.fail
 
     login_request.success (data, textStatus, jqXHR) ->
-      console.log "Should be logged in..."
+      console.log "Authenticator.login.success: Should be logged in..."
       test_authed_request = $.getJSON('/user/data/log')
       test_authed_request.success (resp) ->
+        console.log "Authenticator.login.success.tesst_authed_request: "
         console.log resp
 
       app.user = {
@@ -149,15 +152,11 @@ module.exports = class Authenticator
       app.leksaUserProgression.storage.sync.pull({
         success: (data) ->
           console.log "userlog.success"
-          console.log data
-          console.log app.options.attributes
       })
 
       app.options.storage.sync.full({
         success: (data) ->
           console.log "storage.full.success"
-          console.log data
-          console.log app.options.models
       })
 
       opts.success(data, textStatus, jqXHR) if opts.success

@@ -3,6 +3,7 @@ Router = require 'routers/router'
 
 Authenticator = require 'auth/authentication'
 
+UserStats = require 'views/user_stats'
 CategoryMenu = require 'views/category_view'
 CategoryGames = require 'views/category_games_view'
 
@@ -96,6 +97,7 @@ module.exports = class Application
 
     @router = new Router()
     @categoryMenu = new CategoryMenu()
+    @userStats = new UserStats()
     @categoryGames = new CategoryGames()
 
     @frontPage = new FrontPage()

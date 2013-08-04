@@ -13,15 +13,20 @@ module.exports = class CategoryMenu extends Backbone.View
     console.log app.user
     return false
 
-  displayLogin: ->
+  displayLogin: (evt) ->
     # TODO: where did username go? 
+    if app.user
+      window.location.hash = 'stats'
+      return true
     app.auth.render_authentication_popup @$el, {
       success: (data, textStatus, jqXHR) =>
         un = data.user.username
+        @$el.find('#login_button').find('.action').html " "
+        @$el.find('#login_button').find('.user').html un
+        @$el.find('#login_button').attr('href', "#stats")
         setTimeout(() =>
           app.auth.hide_authentication_popup @$el
-          @$el.find('#login_button .action').html " "
-          @$el.find('#login_button .user').html un
+          console.log "bbq"
         , 250)
     }
 

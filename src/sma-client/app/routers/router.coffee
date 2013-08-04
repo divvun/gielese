@@ -31,6 +31,9 @@ module.exports = class Router extends Backbone.Router
     'loading': 'loading'
     '#loading': 'loading'
 
+    'stats':  'userStats'
+    '#stats': 'userStats'
+
     # First step
 
     'mainMenu':  'categoryMenu'
@@ -84,6 +87,9 @@ module.exports = class Router extends Backbone.Router
   reset: ->
     DSt.set('gielese-configured', false)
     window.location = '/'
+
+  userStats: ->
+    @changePage(app.userStats)
 
   categoryMenu: ->
     @changePage(app.categoryMenu)

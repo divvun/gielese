@@ -7,9 +7,7 @@ module.exports = class UserProgression extends Backbone.Collection
   model: UserLogEntry
 
   parse: (resp) ->
-    # TODO: for offline this isn't called at all for sync methods?
-    console.log "parse"
-    return resp.items
+    return resp.data
 
   initialize: () ->
     @storage = new Offline.Storage('leksa-user-progression', @)

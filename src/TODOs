@@ -1,7 +1,19 @@
 ## Today
 
- + TODO: things that sync with the server need to also be stored in
-     localStorage via Backbone.Offline. 
+ + TODO: start syncing user log entries -- easiest way to troubleshoot other
+         things
+
+ + TODO: debug function to reset user log entries on server
+
+ + TODO: server-synced objects stored in localStorage sometimes are extra
+   persistent, usersettings will have multiple objects for each setting,
+   matching revisions. Need to clear these things from localstorage. 
+
+    ? when in various workflows should Collection.storage.clear() be called?
+      only destroys storage, not local models stored in memory.
+
+      localStorage appears to be synced when synced with server as well, but 
+      what happens when there's no connection?
 
  + TODO: all media sizes need to be available for the frontend to select and
    download, but need to figure out:
@@ -11,7 +23,6 @@
      * how many files is this, and will they all need to
        be downloaded, or designate one concept as the "title" concept
 
- + TODO: debug function to reset user log entries on server
 
  + TODO: sync user configs, reload from server on login, disallow login from
          offline 
@@ -23,11 +34,19 @@
                 some parse support for collections (on sync.full), thus some
                 functions may not work properly, and if so this is why.
 
- + TODO: start syncing user log entries
-
  + TODO: once everything is syncing, global stats/log view for user 
 
 #
+
+* offline workflow (TODO: test this)
+
+  1. login
+  2. set options
+  3. internet disconnects / server not available
+  4. refresh
+  5. check settings
+  6. check log entries
+
 
 
 * wordlist: cycle audio by voice randomly 
@@ -42,7 +61,12 @@
 
 * user flows to think about:
 
+  - user has cookie stored in browser, is online, and comes back to app which
+    needs to reload from the beginning. Session detection + localStorage +
+    download stuff that's changed.
+
   - user plays anonymously for a while, then creates an account, where does data go?
+
   - user plays anonymously offline, connects, and wants to send in data
 
   - this one: 

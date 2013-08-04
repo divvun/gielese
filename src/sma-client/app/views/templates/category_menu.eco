@@ -2,9 +2,15 @@
     <a href="#options" data-transition="slide" id="show-panel" data-icon="gear"><%- gettext.gettext "Options" %></a>
     <h1>Buerie biejjie!</h1>
     <% if app.user: %>
-    <a href="#" id="userinfo_button" data-transition="slide" id="show-panel" data-icon="gear"><%- app.user.username %></a>
+    <a href="#" id="userinfo_button" data-transition="slide" id="show-panel" data-icon="gear">
+        <span class="action"></span>
+        <span class="user"> <%- app.user.username %> </span>
+    </a>
     <% else: %>
-    <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="gear"><%- gettext.gettext "Log in" %></a>
+    <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="gear">
+        <span class="action"><%- gettext.gettext "Log in" %></span>
+        <span class="user"></span>
+    </a>
     <% end %>
 </div> 
 

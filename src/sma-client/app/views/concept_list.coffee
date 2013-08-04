@@ -2,12 +2,7 @@ class ConceptView extends Backbone.View
   template: require './templates/concept_item'
 
   render: ->
-    lang = switch app.options.getSetting('help_language')
-      when "no" then "nob"
-      when "sv" then "swe"
-      when "swe" then "swe"
-      when "sma" then "sma"
-      else "nob"
+    lang = app.options.getSetting('help_language')
 
     if not lang
       lang = "nob"
