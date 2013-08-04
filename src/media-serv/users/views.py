@@ -144,6 +144,7 @@ blueprint.add_url_rule( '/user/data/log/'
                       , methods=['GET',]
                       )
 
+# TODO: put -- make sure that update and replace stuff is figured out 
 blueprint.add_url_rule( '/user/data/log/'
                       , view_func=items_view
                       , methods=['POST']

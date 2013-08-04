@@ -94,7 +94,7 @@ module.exports = class LeksaView extends Backbone.View
       points_given = 0
     #
     # Create the log entry in the user progression
-    window.app.leksaUserProgression.push new UserLog({
+    log = window.app.leksaUserProgression.logActivity({
       game_name: "leksa"
       question_concept: concept.get('id')
       question_concept_value: concept_name

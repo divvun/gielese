@@ -7,8 +7,19 @@ module.exports = class UserLogEntry extends Backbone.Model
     question_concept: false # related?
     question_correct: false # boolean
 
-  initialize: (args...) ->
-    super args
+  do_not_push: [
+    "sid"
+    "dirty"
+  ]
+
+  toJSON: (options) ->
+    # TODO: setting to keep everything?
+    attrs = @attributes
+    for i in @do_not_push
+      delete attrs[i]
+    return _.clone(attrs)
+
+  initialize: () ->
     @set('sid', 'new')
     @set('dirty', true)
     @set('_id', @cid)

@@ -16,16 +16,16 @@ module.exports = class UserProgression extends Backbone.Collection
       if navigator.onLine
       	@fetch()
 
-    # get everything for user's account from server
-    # @storage.sync.pull
-    #   success: () =>
-    #     app.loadingTracker.markReady('concepts.json')
-    #     console.log "fetched concepts.json (#{app.conceptdb.models.length})"
-
   countPoints: () ->
     points = (m.get('points') for m in @models)
     sum = (memo, num) -> memo + num
     return _.reduce(points, sum, 0)
+
+  logActivity: (opts) ->
+    log = @create(opts)
+    log.set('dirty', true)
+    return log
+
 
   collateConcepts: (conceptdb) ->
     # for each log entry, collect concept and correct 1/0, sum correct / length

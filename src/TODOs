@@ -3,6 +3,9 @@
  + TODO: start syncing user log entries -- easiest way to troubleshoot other
          things
 
+    -> backend needs put method, but needs to be sure that replace / create
+       distinction is clear
+
  + TODO: debug function to reset user log entries on server
 
  + TODO: server-synced objects stored in localStorage sometimes are extra
