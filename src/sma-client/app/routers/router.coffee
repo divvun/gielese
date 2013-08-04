@@ -89,7 +89,12 @@ module.exports = class Router extends Backbone.Router
     window.location = '/'
 
   userStats: ->
-    @changePage(app.userStats)
+    # TODO: logged in testing only
+    app.auth.login
+      username: "asdf"
+      password: "asdf"
+      success: () =>
+        @changePage(app.userStats)
 
   categoryMenu: ->
     @changePage(app.categoryMenu)

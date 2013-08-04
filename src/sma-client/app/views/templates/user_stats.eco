@@ -1,0 +1,24 @@
+<div data-role="header">
+    <a href="#mainMenu" data-transition="slide" data-icon="arrow-l">Back</a>
+    <h2>Progress</h2>
+</div>
+
+<div data-role="content">
+    <h3>items</h3>
+    <ul>
+    <% for item in @logs: %>
+    <li><%- item %></li>
+    <% end %>
+    </ul>
+
+    <h3>category success</h3>
+    <ul>
+    <% for category, data of @category_scores: %>
+    <li><%- category %> - <%- data.percent %>%</li>
+    <% end %>
+    </ul>
+
+    <h3>TODO: change password, etc</h3>
+
+</div>
+

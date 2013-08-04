@@ -135,28 +135,23 @@ module.exports = class Authenticator
         email: data.user.email
       }
 
-      # console.log "User logged in, syncing options"
-      # app.options.storage.sync.pull({
-      #   success: (data) ->
-      #     console.log "storage.success"
-      #     console.log data
-      #     console.log app.options.attributes
-      # })
+    login_request.complete () =>
 
-      # TODO: why isn't this creating objects? It's fetching them properly.
-      #       same result with .full()
-      #
-      # TODO: sync options as well.
-      #
+      # TODO: need to chain some of this stuff so that opts.success is only
+      # called when everything else is done, or create a separate opts.finished
+      # method or something.
+
       console.log "User logged in, syncing progression"
-      app.leksaUserProgression.storage.sync.pull({
-        success: (data) ->
-          console.log "userlog.success"
-      })
+      $.when(
+        app.leksaUserProgression.storage.sync.pull({
+          success: (data) ->
+            console.log "userlog.success"
+        }),
+        app.options.storage.sync.pull({
+          success: (data) ->
+            console.log "storage.pull.success"
+        })
+      ).then () =>
+        console.log "all login requests complete"
+        opts.success() if opts.success
 
-      app.options.storage.sync.full({
-        success: (data) ->
-          console.log "storage.full.success"
-      })
-
-      opts.success(data, textStatus, jqXHR) if opts.success

@@ -19,8 +19,8 @@ module.exports = class CategoryMenu extends Backbone.View
       window.location.hash = 'stats'
       return true
     app.auth.render_authentication_popup @$el, {
-      success: (data, textStatus, jqXHR) =>
-        un = data.user.username
+      success: () =>
+        un = app.user.username
         @$el.find('#login_button').find('.action').html " "
         @$el.find('#login_button').find('.user').html un
         @$el.find('#login_button').attr('href', "#stats")
