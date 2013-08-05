@@ -1,12 +1,6 @@
 ## Today
 
- + TODO: start syncing user log entries -- easiest way to troubleshoot other
-         things
-
-    -> backend needs put method, but needs to be sure that replace / create
-       distinction is clear
-
- + TODO: debug function to reset user log entries on server
+ + TODO: stats view broken for some reason
 
  + TODO: server-synced objects stored in localStorage sometimes are extra
    persistent, usersettings will have multiple objects for each setting,
@@ -26,22 +20,9 @@
      * how many files is this, and will they all need to
        be downloaded, or designate one concept as the "title" concept
 
-
- + TODO: sync user configs, reload from server on login, disallow login from
-         offline 
-
-       -> Backbone.Offline apparently prefers to sync collections, but not
-          individual models/classes.
-
-       -> TODO: parse not called when responses are fetched, had to edit in
-                some parse support for collections (on sync.full), thus some
-                functions may not work properly, and if so this is why.
-
- + TODO: once everything is syncing, global stats/log view for user 
-
 #
 
-* offline workflow (TODO: test this)
+* offline workflow (TODO: test this) -- what happens with storage?
 
   1. login
   2. set options
@@ -50,13 +31,12 @@
   5. check settings
   6. check log entries
 
-
-
-* wordlist: cycle audio by voice randomly 
+* how will the user progression work when a user has learned a lot of things,
+  and nothing is left to learn? maybe just have leksa construct things based on
+  log entries for the day, and then when nothing can be done, start showing
+  random items from the set? 
 
 * google analytics
-
-* fix options view, make it work
 
 * password reset forms
 

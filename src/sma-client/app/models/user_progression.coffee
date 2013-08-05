@@ -24,8 +24,9 @@ module.exports = class UserProgression extends Backbone.Collection
   logActivity: (opts) ->
     log = @create(opts)
     log.set('dirty', true)
+    if app.user
+      @storage.sync.push()
     return log
-
 
   collateConcepts: (conceptdb) ->
     # for each log entry, collect concept and correct 1/0, sum correct / length

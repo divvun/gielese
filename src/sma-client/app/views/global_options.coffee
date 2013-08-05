@@ -12,12 +12,21 @@ module.exports = class GlobalOptionsView extends Backbone.View
     'change #help_language input': 'selectHelpLang'
 
   selectHelpLang: (evt) ->
-    target_fieldset = $(evt.target).parents('fieldset').attr('data-copy-to')
-    target_value = $(evt.target).parents('fieldset').find('input[type="radio"]:checked').val()
-    $("[data-setting='#{target_fieldset}']").find("[type='radio']").attr("checked",false).checkboxradio("refresh")
-    $("[data-setting='#{target_fieldset}']").find("[value='#{target_value}']").attr("checked",true).checkboxradio("refresh")
+    $fieldset = $(evt.target).parents('fieldset')
+    target_fieldset = $fieldset.attr('data-copy-to')
+    target_value = $fieldset.find('input[type="radio"]:checked')
+                            .val()
+
+    # Sync language option between two separate fields
+    $("[data-setting='#{target_fieldset}']").find("[type='radio']")
+        .attr("checked",false).checkboxradio("refresh")
+
+    $("[data-setting='#{target_fieldset}']").find("[value='#{target_value}']")
+        .attr("checked",true).checkboxradio("refresh")
+
     console.log $(evt.target).parents('fieldset').find('input[type="radio"]:checked').val()
     console.log $("[data-setting='#{target_fieldset}']").find('input[type="radio"]:checked').val()
+
     return true
 
   revealSubquestion: (evt) ->
@@ -44,16 +53,17 @@ module.exports = class GlobalOptionsView extends Backbone.View
     interface_language = $("[data-setting='interface_language']").find('input[type="radio"]:checked').val()
     help_language = $("[data-setting='help_language']").find('input[type="radio"]:checked').val()
 
-    # TODO: weird bug with flipping away and coming back, does not reset
-    # interface languages
-    #
-    console.log [enable_cache, enable_audio, interface_language, help_language] # MAKE THIS WORK
+    new_settings = {
+      enable_cache:       enable_cache
+      enable_audio:       enable_audio
+      interface_language: interface_language
+      help_language:      help_language
+    }
 
-
-    app.options.setSetting('enable_cache', enable_cache)
-    app.options.setSetting('enable_audio', enable_audio)
-    app.options.setSetting('interface_language', interface_language)
-    app.options.setSetting('help_language', help_language)
+    app.options.setSettings(new_settings, {
+      store: true
+    })
+      
 
   template: require './templates/global_options'
 
@@ -78,8 +88,8 @@ module.exports = class GlobalOptionsView extends Backbone.View
         app.options.getSetting('enable_audio').toString()
     )
 
-    _ui.attr("checked",true)
-    _hl.attr("checked",true)
+    _ui.attr("checked", true)
+    _hl.attr("checked", true)
 
     # TODO: sync offline, or in localstorage
 

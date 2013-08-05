@@ -9,6 +9,7 @@ module.exports = class FrontPage extends Backbone.View
     "submit #user": "userForm"
     "click #displayLogin": "displayLogin"
 
+  # TODO: action for after login?
   displayLogin: ->
     app.auth.render_authentication_popup @$el, {
       success: () =>
@@ -124,6 +125,8 @@ module.exports = class FrontPage extends Backbone.View
     if count == 100
       # TODO: change this to be whether user has authed 
       DSt.set('gielese-configured', true)
+      if app.user
+        app.options.storage.sync.push()
       window.app.router.index()
 
 
@@ -144,8 +147,6 @@ module.exports = class FrontPage extends Backbone.View
 
     if setting_target and setting_value
       for key in setting_target.split(',')
-        if key == 'interface_language' or key == 'help_language'
-          setting_value = ISOs.three_to_two setting_value
         app.options.setSetting(key, setting_value)
 
     # may not be subquestion, also 
@@ -196,6 +197,8 @@ module.exports = class FrontPage extends Backbone.View
       @questions_answered += 1
       @updateProgress((@questions_answered/@total_questions)*100)
     else
+      if app.user
+        app.options.storage.sync.push()
       window.app.router.mainMenu()
 
     return false

@@ -143,13 +143,13 @@ module.exports = class Authenticator
 
       console.log "User logged in, syncing progression"
       $.when(
-        app.leksaUserProgression.storage.sync.pull({
+        app.leksaUserProgression.storage.sync.full({
           success: (data) ->
-            console.log "userlog.success"
+            console.log "userlog.full.success"
         }),
-        app.options.storage.sync.pull({
+        app.options.storage.sync.full({
           success: (data) ->
-            console.log "storage.pull.success"
+            console.log "storage.full.success"
         })
       ).then () =>
         console.log "all login requests complete"

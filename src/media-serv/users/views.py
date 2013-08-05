@@ -113,6 +113,7 @@ class LogsAPI(MethodView, SessionCheck):
         return mongodoc_jsonify(data=request.json)
 
     create = post
+    put = post
 
     def delete(self, item_id):
         un, user_id = self.session_user()
@@ -122,19 +123,6 @@ class LogsAPI(MethodView, SessionCheck):
         # TODO: can user remove record?
         self.table.remove({"_id": ObjectId(item_id)})
         return ""
-
-    def put(self, item_id):
-        un, user_id = self.session_user()
-        if not un:
-            return plz_can_haz_auth()
-
-        # TODO: can user update record?
-
-        # add user id
-        request.json['user_id'] = user_id
-
-        self.table.update({"_id": ObjectId(item_id)}, {'$set': request.json})
-        return mongodoc_jsonify(data=request.json)
 
 items_view = LogsAPI.as_view('items_api')
 
@@ -147,7 +135,7 @@ blueprint.add_url_rule( '/user/data/log/'
 # TODO: put -- make sure that update and replace stuff is figured out 
 blueprint.add_url_rule( '/user/data/log/'
                       , view_func=items_view
-                      , methods=['POST']
+                      , methods=['POST', 'PUT']
                       )
 
 blueprint.add_url_rule( '/user/data/log/<item_id>'

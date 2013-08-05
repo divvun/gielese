@@ -14,9 +14,29 @@ module.exports = class UserSettings extends Backbone.Collection
 
   model: UserSetting
 
+  # NB: currently only used for getting settings, not actually automatically
+  # populated on instantiation
+  default_setting_values:
+    enable_cache: false
+    enable_audio: true
+    interface_language: 'nob'
+    help_language: 'nob'
+
   getSetting: (setting) ->
-    setting = @where({setting_key: setting})
-    return setting[0].get('setting_value')
+    s = @where({setting_key: setting})
+    if s.length > 0
+      return s[0].get('setting_value')
+    else
+      val = @default_setting_values[setting]
+      if val?
+        new_s = @setSetting(setting, val)
+        return val
+    return null
+
+  setSettings: (values, opts = {}) ->
+    @setSetting k, v for k, v of values
+    if opts.store?
+      @storage.sync.push()
 
   setSetting: (key, val) ->
     setting = @where({setting_key: key})
@@ -30,14 +50,15 @@ module.exports = class UserSettings extends Backbone.Collection
     return new_setting
 
   setDefaults: (opts) ->
-    for k, v of opts
-      @setSetting(k, v)
+    @setSetting k, v  for k, v of opts
 
   parse: (response, opts) ->
     return response.settings
 
   initialize: () ->
     @storage = new Offline.Storage('user-settings', @)
+    if not app.user
+      @setDefaults @default_setting_values
 
     # set after the user successfully authenticates
     # if app.has_user and navigator.onLine

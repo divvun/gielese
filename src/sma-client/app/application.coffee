@@ -148,9 +148,7 @@ module.exports = class Application
     # Convert the initial ISO settings
 
     @options = new UserSettings()
-    @options.setDefaults({
-      'enable_cache': false
-      'enable_audio': true
+    @options.setSettings({
       'interface_language': ISOs.two_to_three initial_language
       'help_language': ISOs.two_to_three initial_language
     })
