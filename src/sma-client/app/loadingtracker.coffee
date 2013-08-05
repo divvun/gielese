@@ -33,10 +33,5 @@ module.exports = class LoadingTracker
     ,1)
     return false
 
-  constructor: ->
-    @dependencies = {
-      'concepts.json': false
-      'leksa_questions.json': false
-      'translations.json': false
-    }
-
+  constructor: (deps) ->
+    @dependencies = deps

@@ -1,3 +1,5 @@
+AppCacheStatus = require 'views/templates/app_cache_status'
+
 module.exports = AppCacheHandler = () ->
   console.log "Initializing appCache"
   # TODO: need some sort of sync feedback for users

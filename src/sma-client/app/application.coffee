@@ -1,36 +1,18 @@
-# TODO: clean up all this.
+# Views
 Router = require 'routers/router'
 
+# User stuff
 Authenticator = require 'auth/authentication'
-
-UserStats = require 'views/user_stats'
-CategoryMenu = require 'views/category_view'
-CategoryGames = require 'views/category_games_view'
-
-FrontPage = require 'views/front_page'
-
-LeksaView = require 'views/leksa_view'
-LeksaOptionsView = require 'views/leksa_options_view'
 UserSettings = require 'models/user_settings'
+UserProgression = require 'models/user_progression'
 
-ErrorView = require 'views/error_view'
-GlobalOptionsView = require 'views/global_options'
-ConceptList = require 'views/concept_list'
-ConceptView = require 'views/concept_view'
-
-LoadingView = require 'views/loading'
-
+# Data
+LoadingTracker = require 'loadingtracker'
 ConceptDB = require 'models/conceptdb'
 QuestionDB = require 'models/questiondb'
-Question = require 'models/question'
-# sample_concepts = require 'sample_data/sample_concepts'
 
-UserProgression = require 'models/user_progression'
-AppCacheStatus = require 'views/templates/app_cache_status'
-LoadingTracker = require 'loadingtracker'
-
+# some global things that get called
 require 'backbone.offline'
-
 require 'language_codes'
 
 window.initWindowCache = require 'appcache'
@@ -79,7 +61,12 @@ module.exports = class Application
     # TODO: device detection
     @device_type = "mobile"
 
-    @loadingTracker = new LoadingTracker()
+    @loadingTracker = new LoadingTracker({
+      'concepts.json': false
+      'leksa_questions.json': false
+      'translations.json': false
+    })
+
     @loadingTracker.showLoading()
 
     @gettext = new Gettext({
@@ -96,21 +83,6 @@ module.exports = class Application
     @leksaOptions = new LeksaOptions()
 
     @router = new Router()
-    @categoryMenu = new CategoryMenu()
-    @userStats = new UserStats()
-    @categoryGames = new CategoryGames()
-
-    @frontPage = new FrontPage()
-    @leksaView = new LeksaView()
-    @leksaOptionsView = new LeksaOptionsView()
-    @errorView = new ErrorView()
-    @globalOptionsView = new GlobalOptionsView()
-
-    @conceptList = new ConceptList()
-
-    @conceptView = new ConceptView
-
-    @loadingView = new LoadingView()
 
     soundManager.setup
       url: "/static/client/swf/"
@@ -141,7 +113,6 @@ module.exports = class Application
       @gettext = gettext
       window.gettext = @gettext
       @loadingTracker.markReady('translations.json')
-      @loadingTracker.markReady('internationalisations.json')
       options.complete() if options.complete
     )
 

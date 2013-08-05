@@ -6,12 +6,9 @@ do (global = window, _, Backbone) ->
     VERSION: '0.0.1'
 
     constructor: () ->
-      console.log "ISOConv"
-
       for k, v of @ISOs
         if not @reverseISOs[v]?
           @reverseISOs[v] = k
-
 
     reverseISOs:
       "nob": "no"

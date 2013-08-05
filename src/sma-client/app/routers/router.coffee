@@ -1,15 +1,39 @@
+# TODO: clean up all this.
+# TODO: additional issue is that some views need to be reinstantiated
+#       in order for all events to be available again, as
+#       router.changePage destroys them for some reason.
+
 LeksaView = require 'views/leksa_view'
 CategoryGames = require 'views/category_games_view'
 ConceptList = require 'views/concept_list'
+GlobalOptionsView = require 'views/global_options'
+
+UserStats = require 'views/user_stats'
+CategoryMenu = require 'views/category_view'
+CategoryGames = require 'views/category_games_view'
+FrontPage = require 'views/front_page'
+LeksaOptionsView = require 'views/leksa_options_view'
+ErrorView = require 'views/error_view'
+ConceptView = require 'views/concept_view'
+LoadingView = require 'views/loading'
 
 module.exports = class Router extends Backbone.Router
 
   initialize: () ->
-      # Handle back button throughout the application
-      $('.back').live 'click', (event) ->
-          window.history.back()
-          return false
-      @firstPage = true
+    # Handle back button throughout the application
+    $('.back').live 'click', (event) ->
+        window.history.back()
+        return false
+    @firstPage = true
+
+    app.userStats = new UserStats()
+    app.categoryMenu = new CategoryMenu()
+    app.categoryGames = new CategoryGames()
+    app.errorView = new ErrorView()
+    app.conceptView = new ConceptView
+    app.leksaOptionsView = new LeksaOptionsView()
+    app.frontPage = new FrontPage()
+    app.loadingView = new LoadingView()
 
   # Seems to be no way to avoid the double listing for now, because of hash
   # option, which does some funky redirecting.
@@ -90,11 +114,7 @@ module.exports = class Router extends Backbone.Router
 
   userStats: ->
     # TODO: logged in testing only
-    app.auth.login
-      username: "asdf"
-      password: "asdf"
-      success: () =>
-        @changePage(app.userStats)
+    @changePage(app.userStats)
 
   categoryMenu: ->
     @changePage(app.categoryMenu)
@@ -150,6 +170,7 @@ module.exports = class Router extends Backbone.Router
     @changePage(app.errorView)
 
   options: ->
+    app.globalOptionsView = new GlobalOptionsView()
     @changePage(app.globalOptionsView)
 
   conceptSet: (category) ->

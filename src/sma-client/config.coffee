@@ -14,6 +14,7 @@ exports.config =
           'vendor/scripts/soundmanager2-jsmin.js'
           'vendor/scripts/Gettext.js'
           'vendor/scripts/DSt.js'
+          'vendor/scripts/Chart.min.js'
           'vendor/scripts/jquery-1.7.2.js'
           'vendor/scripts/jquery.textfill.min.js'
           'vendor/scripts/jquery-ui-1.10.3.custom.min.js'
@@ -40,6 +41,7 @@ exports.config =
           'vendor/styles/helpers.css'
           'vendor/styles/jquery.mobile-1.3.1.min.css'
           'vendor/styles/jquery.mobile.theme-1.3.1.min.css'
+          # 'vendor/styles/jquery.mobile.flatui.css'
           # 'vendor/styles/jquery-ui-1.10.3.custom.min.css'
           'vendor/styles/flashblock.css'
         ]

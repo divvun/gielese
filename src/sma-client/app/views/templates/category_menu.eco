@@ -7,7 +7,7 @@
         <span class="user"> <%- app.user.username %> </span>
     </a>
     <% else: %>
-    <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="gear">
+    <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="grid">
         <span class="action"><%- gettext.gettext "Log in" %></span>
         <span class="user"></span>
     </a>

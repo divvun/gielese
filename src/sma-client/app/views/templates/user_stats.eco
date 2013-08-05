@@ -1,24 +1,35 @@
 <div data-role="header">
     <a href="#mainMenu" data-transition="slide" data-icon="arrow-l">Back</a>
-    <h2>Progress</h2>
+    <h2>Progress / User Info</h2>
 </div>
 
 <div data-role="content">
+
+    <h3>TODO: subnav - stats / account info</h3>
+
     <h3>items</h3>
     <ul>
-    <% for item in @logs: %>
-    <li><%- item %></li>
-    <% end %>
+        <% for item in @logs: %>
+            <li><%- item %></li>
+        <% end %>
     </ul>
 
-    <h3>category success</h3>
-    <ul>
-    <% for category, data of @category_scores: %>
-    <li><%- category %> - <%- data.percent %>%</li>
-    <% end %>
-    </ul>
-
-    <h3>TODO: change password, etc</h3>
+    <h3>points per category</h3>
+    <div class="seventy_thirty_grid">
+        <div class="row">
+            <div class="item">
+                <canvas id="category_use" width="150" height="150">
+                </canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item">
+                <div id="categories">
+                    <!-- stats_category_legend.eco -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
