@@ -1,4 +1,12 @@
 class ConceptView extends Backbone.View
+  events:
+    'click #cycle-concept-prev': 'prevConcept'
+    'click #cycle-concept-next': 'nextConcept'
+
+  nextConcept: ->
+    app.conceptList.nextConcept(@next)
+    return false
+
   template: require './templates/concept_item'
 
   render: ->
@@ -14,6 +22,8 @@ class ConceptView extends Backbone.View
       translations = @model.getTranslationsToLang "nob"
       fallback = true
 
+    console.log [@next, @prev]
+
     @$el.html @template({
       model: @model
       cid: @model.cid
@@ -22,6 +32,8 @@ class ConceptView extends Backbone.View
       translations: translations
       fallback: fallback
       userlang: lang
+      next: @next
+      prev: @prev
     })
 
     this
@@ -38,13 +50,49 @@ module.exports = class ConceptList extends Backbone.View
     console.log evt
     return true
 
-  showConcept: (evt) ->
-    _cid = $(evt.target).attr('data-concept-id')
-    concept = app.conceptdb.get(_cid)
+  nextConcept: (concept_index) ->
+    concept = @concepts_in_order[concept_index]
+
+    prev = "#"
+    if (concept_index - 1) > -1
+      prev = concept_index - 1
+
+    next = concept_index + 1
+
 
     concept_template = new ConceptView {
         model: concept
     }
+
+    concept_template.prev = prev
+    concept_template.next = next
+    console.log "bbq"
+    console.log [prev, next]
+
+    $('#concept_content').html concept_template.render().$el.html()
+    $('#concept_content').trigger('create')
+
+    return false
+
+  showConcept: (evt) ->
+    concept_index = parseInt $(evt.target).attr('data-concept-index')
+    console.log concept_index
+
+    concept = @concepts_in_order[concept_index]
+
+    prev = "#"
+    if (concept_index - 1) > -1
+      prev = concept_index - 1
+
+    next = concept_index + 1
+
+
+    concept_template = new ConceptView {
+        model: concept
+    }
+
+    concept_template.prev = prev
+    concept_template.next = next
 
     $('#concept_content').html concept_template.render().$el.html()
     $('#concept_content').trigger('create')
@@ -92,6 +140,11 @@ module.exports = class ConceptList extends Backbone.View
     initial = new ConceptView {
         model: category_concepts[0]
     }
+
+    initial.next = 1
+    initial.prev = "#"
+
+    @concepts_in_order = category_concepts
 
     @$el.html @template {
       category: @for_category

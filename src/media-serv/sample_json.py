@@ -21,7 +21,7 @@ leksa_questions = [
     , 'points': 20
     , 'name': "Bodypart image to word"
     , 'category': "BODYPART"
-    , 'sound': False
+    , 'sound': True
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
@@ -84,7 +84,7 @@ leksa_questions = [
     , 'name': "Bodypart image to word"
     , 'points': 20
     , 'category': "GREETINGS"
-    , 'sound': False
+    , 'sound': True
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
@@ -147,7 +147,7 @@ leksa_questions = [
     , 'name': "Bodypart image to word"
     , 'points': 20
     , 'category': "FOOD"
-    , 'sound': False
+    , 'sound': True
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'
@@ -210,7 +210,7 @@ leksa_questions = [
     , 'name': "Bodypart image to word"
     , 'points': 20
     , 'category': "TEST"
-    , 'sound': False
+    , 'sound': True
     },
     { 'type': 'word_to_image'
     , 'filters': { 'from_language': 'sma', 'to_language': 'img'

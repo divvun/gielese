@@ -38,11 +38,11 @@
      data-type="horizontal">
 
     <a id="cycle-concept-prev"
-       href="index.html"
+       href="#"
        data-role="button">Prev</a>
 
     <a id="cycle-concept-next"
-       href="index.html"
+       href="#"
        data-role="button">Next</a>
 
 </div>
