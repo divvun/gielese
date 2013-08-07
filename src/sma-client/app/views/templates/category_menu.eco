@@ -22,19 +22,34 @@
         <div class="ui-grid-b">
 	        <div class="ui-block-a">
                 <a class="square" href="#category/BODYPART" data-transition="slide">
-	                <span class="link_image"></span>
+                    <% if app.conceptdb.titleImages("BODYPART"): %>
+                        <% background_img = app.conceptdb.titleImages("BODYPART")[0].path %>
+	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
+	                <% else: %>
+	                    <span class="link_image"></span>
+	                <% end %>
 	                <span class="link_word"><%- gettext.gettext "Face" %></span>
 	            </a>
 	        </div>
 	        <div class="ui-block-b">
                 <a class="square" href="#category/GREETINGS" data-transition="slide">
-	                <span class="link_image"></span>
+                    <% if app.conceptdb.titleImages("GREETINGS"): %>
+                        <% background_img = app.conceptdb.titleImages("GREETINGS")[0].path %>
+	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
+	                <% else: %>
+	                    <span class="link_image"></span>
+	                <% end %>
 	                <span class="link_word"><%- gettext.gettext "Greetings" %></span>
 	            </a>
 	        </div>	   
 	        <div class="ui-block-c">
                 <a class="square" href="#category/FOOD" data-transition="slide">
-	                <span class="link_image"></span>
+                    <% if app.conceptdb.titleImages("FOOD"): %>
+                        <% background_img = app.conceptdb.titleImages("FOOD")[0].path %>
+	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
+	                <% else: %>
+	                    <span class="link_image"></span>
+	                <% end %>
 	                <span class="link_word">Food</span>
 	            </a>
 	        </div>
@@ -56,7 +71,6 @@
         <div class="ui-grid-b">
 	        <div class="ui-block-a">
 	            <a class="square" href="#reset" data-transition="slide">
-	                <span class="link_image"></span>
 	                <span class="link_word">Reset</span>
 	            </a>
 	        </div>

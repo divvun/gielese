@@ -1,10 +1,10 @@
 class ConceptView extends Backbone.View
-  events:
-    'click #cycle-concept-prev': 'prevConcept'
-    'click #cycle-concept-next': 'nextConcept'
+  # events:
 
-  nextConcept: ->
-    app.conceptList.nextConcept(@next)
+  nextConcept: (evt) ->
+    console.log "next"
+    console.log @next
+    # app.conceptList.nextConcept(@next)
     return false
 
   template: require './templates/concept_item'
@@ -44,28 +44,40 @@ module.exports = class ConceptList extends Backbone.View
     'click .audio_link': 'findAudio'
     'click #show-panel': "revealOptionsPanel"
     'click .concept_link': 'showConcept'
+    'click #cycle-concept-prev': 'prevConcept'
+    'click #cycle-concept-next': 'nextConcept'
   
   clickTest: (evt) ->
     $(evt.target).get
     console.log evt
     return true
 
-  nextConcept: (concept_index) ->
+  nextConcept: ->
+    if @next?
+      # TODO: what to do when end arrives?
+      @conceptByIndex(@next)
+    return false
+
+  prevConcept: ->
+    if @prev?
+      @conceptByIndex(@prev)
+    return false
+
+  conceptByIndex: (concept_index) ->
     concept = @concepts_in_order[concept_index]
 
-    prev = "#"
+    prev = null
     if (concept_index - 1) > -1
       prev = concept_index - 1
 
     next = concept_index + 1
 
-
     concept_template = new ConceptView {
         model: concept
     }
 
-    concept_template.prev = prev
-    concept_template.next = next
+    @prev = prev
+    @next = next
     console.log "bbq"
     console.log [prev, next]
 
@@ -80,7 +92,7 @@ module.exports = class ConceptList extends Backbone.View
 
     concept = @concepts_in_order[concept_index]
 
-    prev = "#"
+    prev = null
     if (concept_index - 1) > -1
       prev = concept_index - 1
 
@@ -91,8 +103,8 @@ module.exports = class ConceptList extends Backbone.View
         model: concept
     }
 
-    concept_template.prev = prev
-    concept_template.next = next
+    @prev = prev
+    @next = next
 
     $('#concept_content').html concept_template.render().$el.html()
     $('#concept_content').trigger('create')
@@ -141,8 +153,8 @@ module.exports = class ConceptList extends Backbone.View
         model: category_concepts[0]
     }
 
-    initial.next = 1
-    initial.prev = "#"
+    @next = 1
+    @prev = null
 
     @concepts_in_order = category_concepts
 

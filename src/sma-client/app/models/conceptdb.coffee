@@ -51,6 +51,16 @@ module.exports = class ConceptDB extends Backbone.Collection
       return more_collection
     return result_collection
 
+  titleImages: (semantic_set) ->
+    concepts = @where({'semantics': [semantic_set]})
+                     .filter (concept) -> concept.hasThumbnail()
+
+    if concepts.length > 0
+      images = concepts[0].hasThumbnail()
+      return images
+
+    return false
+
   where: (params) ->
     # TODO: features
     if 'semantics' of params

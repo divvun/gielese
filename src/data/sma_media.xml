@@ -121,6 +121,12 @@ For the full license text, see the link above.</lic>
         </sound>
       </sounds>
       <images>
+        <image size="thumbnail" device="mobile" image_for_category="true">
+          <path><![CDATA[/static/images/ansikt/small/aa_aa_red_ae_jja.jpg]]></path>
+          <features>
+            <appearance>FACE</appearance>
+          </features>
+        </image>
         <image size="small" device="mobile">
           <path><![CDATA[/static/images/ansikt/small/aa_aa_red_ae_jja.jpg]]></path>
           <features>

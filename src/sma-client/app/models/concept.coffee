@@ -3,6 +3,17 @@ module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
   idAttribute: "c_id"
 
+  hasThumbnail: () ->
+    thumbs = false
+    has_media = @.get('media')
+    if 'image' of has_media
+      if has_media.image.length > 0
+      	thumbs = _.filter has_media.image, (i) ->
+      	  return i.size == 'thumbnail'
+        if thumbs.length == 0
+          thumbs = false
+    return thumbs
+
   hasImage: (opts = {}) ->
     if not opts.device
       device = app.device_type

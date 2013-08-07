@@ -232,6 +232,10 @@ class MediaSimpleJSON(EntryNodeIterator):
                 device = "mobile"
             return device
 
+        def image_for_category(n):
+            device = n.attrib.get('image_for_category', None)
+            return device
+
         def image_size(n):
             size = n.attrib.get('size', False)
             path = n.find('path').text
@@ -284,6 +288,7 @@ class MediaSimpleJSON(EntryNodeIterator):
                 media_defs['images'] = [ {'path': _path(image),
                                           'features': image_features(image),
                                           'device': image_device(image),
+                                          'image_for_category': image_for_category(image),
                                           'size': image_size(image),}
                                          for image in images
                                        ]
@@ -445,6 +450,9 @@ def install_media_references(_d, filename):
                                 , device=image.get('device')
                                 , size=image.get('size')
                                 )
+                image_for_category = image.get('image_for_category')
+                if image_for_category is not None:
+                    wt_kwargs['image_for_category'] = True
                 # TODO: features / semantics, audio / voices
                 wt = Concept(**wt_kwargs)
                 word.translations_to.append(wt)

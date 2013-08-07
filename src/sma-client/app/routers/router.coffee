@@ -114,6 +114,7 @@ module.exports = class Router extends Backbone.Router
 
   userStats: ->
     # TODO: logged in testing only
+    app.userStats = new UserStats()
     @changePage(app.userStats)
 
   categoryMenu: ->

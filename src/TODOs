@@ -1,13 +1,7 @@
 ## Today
 
- + TODO: next / back buttons on lexicon view
  + TODO: some ï words don't work for images still
- + TODO: after navigating manually to stats page, chart doesn't work -- but
-         seems to work after logging in again? -- 
- + TODO: bodypart missing from stats page
-
- + TODO: stats view needs to be reinstantiated each time, or chart needs to be
-         updated when it's redisplayed
+ + TODO: next button at end of line, cycle to first? 
 
  + TODO: two settings missing on start, login, set lang, logout, login: enable_cache and play_sound 
  + TODO: how much question data needs to be stripped before sending to server? 
