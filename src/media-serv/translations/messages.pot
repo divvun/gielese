@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-08-02 14:51-0500\n"
+"POT-Creation-Date: 2013-08-08 14:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,90 +17,100 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: ../sma-client/public/javascripts/app.js:3500
+#: ../sma-client/public/javascripts/app.js:3715
 msgid "Options"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3510
-#: ../sma-client/public/javascripts/app.js:3899
+#: ../sma-client/public/javascripts/app.js:3725
+#: ../sma-client/public/javascripts/app.js:4144
 msgid "Log in"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3516
+#: ../sma-client/public/javascripts/app.js:3731
 msgid "Categories"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3520
+#: ../sma-client/public/javascripts/app.js:3747
 msgid "Face"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3524
+#: ../sma-client/public/javascripts/app.js:3763
 msgid "Greetings"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3883
+#: ../sma-client/public/javascripts/app.js:4128
 msgid "Create an account?"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3887
+#: ../sma-client/public/javascripts/app.js:4132
 msgid "Yes"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3891
+#: ../sma-client/public/javascripts/app.js:4136
 msgid "No"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3895
+#: ../sma-client/public/javascripts/app.js:4140
 msgid "or..."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3903
+#: ../sma-client/public/javascripts/app.js:4148
 msgid ""
 "If you choose not to create an account, data will still be stored "
 "anonymously, however, it may be erased if you clear your browser's stored"
 " data."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3907
+#: ../sma-client/public/javascripts/app.js:4152
 msgid ""
 "Having an account also allows you to compete with others, and integrates "
 "with courses."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3913
+#: ../sma-client/public/javascripts/app.js:4158
 msgid ""
 "Your progress will be stored online, and will syncronise when you connect"
 " if you play in offline mode."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3917
+#: ../sma-client/public/javascripts/app.js:4162
 msgid ""
 "Great, your account was created, and you've been logged in. Now for some "
 "basic questions..."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3921
+#: ../sma-client/public/javascripts/app.js:4166
 msgid "Got it!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3925
+#: ../sma-client/public/javascripts/app.js:4170
+#: ../sma-client/public/javascripts/app.js:4235
 msgid "Help language"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3929
+#: ../sma-client/public/javascripts/app.js:4174
 msgid ""
 "This affects what language is displayed in options and in-game help, and "
 "also vocabulary quizzes."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3933
+#: ../sma-client/public/javascripts/app.js:4178
+#: ../sma-client/public/javascripts/app.js:4239
 msgid "Translation language"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3937
+#: ../sma-client/public/javascripts/app.js:4182
 msgid ""
 "You selected South Saami as your help language, but you will still need a"
 " language to learn words. Note, you can change this at any time in the "
 "settings."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:4873
+msgid "Log out"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:4881
+msgid "Please log in first."
 msgstr ""
 
