@@ -11,6 +11,10 @@ LoadingTracker = require 'loadingtracker'
 ConceptDB = require 'models/conceptdb'
 QuestionDB = require 'models/questiondb'
 
+# Tests
+
+Tests = require 'tests/tests'
+
 # some global things that get called
 require 'backbone.offline'
 require 'language_codes'
@@ -77,6 +81,8 @@ module.exports = class Application
     window.gettext = @gettext
 
     @auth = new Authenticator()
+
+    @tests = new Tests()
 
     @conceptdb = new ConceptDB()
     @questiondb = new QuestionDB()
