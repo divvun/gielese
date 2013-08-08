@@ -3,16 +3,15 @@
  + TODO: some ï words don't work for images still
  + TODO: next button at end of line, cycle to first? 
 
- + TODO: two settings missing on start, login, set lang, logout, login: enable_cache and play_sound 
- + TODO: how much question data needs to be stripped before sending to server? 
+ + TODO: flag icons
+   http://jquerymobile.com/demos/1.2.1/docs/lists/lists-icons.html
 
  + TODO: TEST category 4 picture view repeats images-- need to avoid this 
  + TODO: 4 images -- need to find a way to resize dynamically so everything fits on the screen
 
  + TODO: stats view: Total Points
- + TODO: lexicon view -- accuracy rate when viewing a word? 
 
- + TODO: options view -- double line
+ + TODO: lexicon view -- accuracy rate when viewing a word? 
 
  + TODO: server-synced objects stored in localStorage sometimes are extra
    persistent, usersettings will have multiple objects for each setting,
@@ -31,6 +30,8 @@
 
      * how many files is this, and will they all need to
        be downloaded, or designate one concept as the "title" concept
+
+ + TODO: how much question data needs to be stripped before sending to server? 
 
 #
 

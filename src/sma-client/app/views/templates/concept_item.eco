@@ -7,39 +7,46 @@
      </div>
 <% end %>
 
-<% if @model.hasAudio(): %>
-    <a href="#"
-       class="audio_link"
-       data-concept-cid="<%- @cid %>">
-        <img width="16"
-             height="16"
-             src="/static/client/images/speaker.png" /> <%- @model.get('concept_value') %>
-    </a>
-    <% else: %>
-        <h2 class="co+<F4>ncept_value">
-            <%- @model.get('concept_value') %>
-        </h2>
-<% end %>
-
-
 <ul id="concept_definitions">
-    <% for tx in @translations: %>
+    <li>
+        <h2 class="concept_definition concept_value"><%- @model.get('concept_value') %></h2>
+    </li>
+
+    <% if @fallback: %>
         <li>
-            <% if @fallback: %>
-             <h2 class="concept_definition"><%- tx.get('concept_value') %> <span class="concept_language">(<%- tx.get('language') %>)</span></h2>
-            <% else: %>
-                <h2 class="concept_definition"><%- tx.get('concept_value') %></h2>
-            <% end %>
+             <h2 class="concept_definition"><%- @txl_string %> <span class="concept_language">(<%- tx.get('language') %>)</span></h2>
+        </li>
+    <% else: %>
+        <li>
+            <h2 class="concept_definition"><%- @txl_string %></h2>
         </li>
     <% end %>
+
 </ul>
 
 <div data-role="controlgroup"
+     data-mini="true"
+     id="nav_buttons"
      data-type="horizontal">
 
     <a id="cycle-concept-prev"
        href="#"
        data-role="button">Prev</a>
+
+<% if @model.hasAudio(): %>
+    <a href="#"
+       class="audio_link"
+       data-role="button"
+       data-concept-cid="<%- @cid %>">
+        <img width="16"
+             height="16"
+             src="/static/client/images/speaker.png" />
+    </a>
+    <% else: %>
+    <h2 class="co+<F4>ncept_value">
+        <%- @model.get('concept_value') %>
+    </h2>
+<% end %>
 
     <a id="cycle-concept-next"
        href="#"

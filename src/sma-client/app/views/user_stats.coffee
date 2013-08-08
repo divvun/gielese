@@ -8,6 +8,15 @@ module.exports = class UserStats extends Backbone.View
     'click .audio_link': 'findAudio'
     'click #show-panel': "revealOptionsPanel"
     'click .concept_link': 'showConcept'
+    'click #logout': "logOut"
+
+  logOut: ->
+    app.loadingTracker.showLoading()
+    app.auth.logout
+      success: () =>
+        app.loadingTracker.hideLoading()
+        window.location.hash = "#reset"
+    return false
   
   template: require './templates/user_stats'
 
@@ -113,6 +122,7 @@ module.exports = class UserStats extends Backbone.View
       logs: models
       category_scores: correct_for_category
 
-    @categoryChart()
+    if app.leksaUserProgression.length > 0
+      @categoryChart()
 
 

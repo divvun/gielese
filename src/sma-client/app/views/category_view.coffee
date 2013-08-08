@@ -8,11 +8,6 @@ module.exports = class CategoryMenu extends Backbone.View
   className: 'hello'
   id: "hello"
 
-  displayUserInfo: (e) ->
-    # TODO: catually impliment user info stuff, for now just log out 
-    console.log app.user
-    return false
-
   displayLogin: (evt) ->
     # TODO: where did username go? 
     if app.user

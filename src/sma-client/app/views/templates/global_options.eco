@@ -2,66 +2,63 @@
     <a href="#mainMenu" data-transition="slide" data-icon="arrow-l">Back</a>
     <h2>Options</h2>
     <a id="save-options" data-icon="gear">Save</a>
-</div> 
+</div>
 
 <div data-role="content">
-    <h2>Language</h2>
-    <div data-role="fieldcontain">
-        <fieldset id="help_language" data-role="controlgroup" data-mini="true" data-setting="interface_language" data-copy-to="help_language">
-            <legend><%- gettext.gettext "Help language" %></legend>
-            <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
-            <label for="radio-choice-1">Norsk</label>
-            <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="sma" data-reveal-subquestion="help_language_sub">
-            <label for="radio-choice-2">Åarjelsaemien</label>
-            <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-3" value="swe">
-            <label for="radio-choice-3">Svenska</label>
-        </fieldset>
-    </div>
+    <form>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="fieldcontain">
+                <fieldset id="help_language" data-role="controlgroup"  data-setting="interface_language" data-copy-to="help_language">
+                    <legend><%- gettext.gettext "Help language" %></legend>
+                    <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
+                    <label for="radio-choice-1">Norsk</label>
+                    <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="sma" data-reveal-subquestion="help_language_sub">
+                    <label for="radio-choice-2">Åarjelsaemien</label>
+                    <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-3" value="swe">
+                    <label for="radio-choice-3">Svenska</label>
+                </fieldset>
+            </li>
 
-    <!-- TODO: this option will be in sync with the previous value unless
-               the value is 'sma'
-    -->
+            <!-- TODO: this option will be in sync with the previous value unless
+                       the value is 'sma'
+            -->
 
-    <div data-role="fieldcontain">
-        <fieldset data-role="controlgroup" data-mini="true" data-setting="help_language" style="display: none;" id="help_language_sub">
-            <legend><%- gettext.gettext "Translation language" %></legend>
-            <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-1" value="nob" checked="checked">
-            <label for="radio-choice-1">Norsk</label>
-            <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-2" value="swe">
-            <label for="radio-choice-2">Svenska</label>
-            <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-3" value="eng">
-            <label for="radio-choice-3">English</label>
-        </fieldset>
-    </div>
+            <li data-role="fieldcontain" style="display: none;" id="help_language_sub">
+                <fieldset data-role="controlgroup"  data-setting="help_language">
+                    <legend><%- gettext.gettext "Translation language" %></legend>
+                    <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-1" value="nob" checked="checked">
+                    <label for="radio-choice-1">Norsk</label>
+                    <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-2" value="swe">
+                    <label for="radio-choice-2">Svenska</label>
+                    <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-3" value="eng">
+                    <label for="radio-choice-3">English</label>
+                </fieldset>
+            </li>
+
+            <li data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <legend>Audio enabled?</legend>
+                    <select name="play-audio" 
+                            id="play-audio" 
+                            data-role="slider">
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                </fieldset>
+            </li>
+
+            <li data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <legend>Store data offline</legend>
+                    <select name="data-storage" 
+                            id="data-storage" 
+                            data-role="slider">
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                </fieldset>
+            </li>
+        </ul>
     </form>
 
-    <h2>Audio</h2>
-    <div data-role="fieldcontain">
-        <fieldset data-role="controlgroup">
-            <legend>Audio enabled?</legend>
-            <select name="play-audio" 
-                    id="play-audio" 
-                    data-role="slider">
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-            </select>
-        </fieldset>
-    </div>
-    </form>
-
-    <h2>Data storage</h2>
-    <form id="option_form">
-    <div data-role="fieldcontain">
-        <fieldset data-role="controlgroup">
-            <legend>Store data offline</legend>
-            <select name="data-storage" 
-                    id="data-storage" 
-                    data-role="slider">
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-            </select>
-        </fieldset>
-    </div>
-
-</div> 
-
+</div>

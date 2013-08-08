@@ -58,6 +58,8 @@ module.exports = class Application
 
   initialize: (options = {}) ->
 
+    # TODO: when to automatically clear localstorage, and check for
+    # existing session?
     # TODO: device detection
     @device_type = "mobile"
 

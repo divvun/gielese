@@ -88,24 +88,30 @@ module.exports = class Authenticator
       xhrFields:
         withCredentials: true
 
+    # TODO: sync everything left over in user collections
+
     logout_request.fail (resp) ->
       console.log "Authenticator.logout.logout_request.fail: fail"
       console.log JSON.parse resp.responseText
       app.user = null
       opts.fail(resp) if opts.fail
 
-    logout_request.success (data, textStatus, jqXHR) ->
-      console.log "Authenticator.logout.logout_request.success:"
-      console.log "  Should be logged out..."
-      test_authed_request = $.getJSON('/user/data/log')
-      test_authed_request.success (resp) ->
-        console.log "Authenticator.logout.logout_request.success.test_authed_request.success:"
-        console.log resp
-      # TODO: app.user = something
+    logout_request.success (data, textStatus, jqXHR) =>
       app.user = false
+      console.log "Authenticator.logout.logout_request.success"
+      @clearUserData()
+
       opts.success(data, textStatus, jqXHR) if opts.success
 
+  clearUserData: ->
+    console.log "Authenticator.clearUserData()"
+    window.localStorage.clear()
+    app.options.reset()
+    app.leksaUserProgression.reset()
+    console.log [app.leksaUserProgression.length, app.options.length, window.localStorage]
+
   login: (opts = {}) ->
+    # TODO: when to clear user data before login?
     data =
       username: opts.username
       password: opts.password

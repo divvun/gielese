@@ -1,5 +1,8 @@
 class ConceptView extends Backbone.View
-  # events:
+
+  play: (evt) ->
+    @model.playAudio()
+    return false
 
   nextConcept: (evt) ->
     console.log "next"
@@ -17,6 +20,8 @@ class ConceptView extends Backbone.View
 
     fallback = false
     translations = @model.getTranslationsToLang lang
+    txl_string = (a.get('concept_value') for a in translations).join(', ')
+
     if translations.length == 0
       console.log "no translations found for #{lang}, defaulting..."
       translations = @model.getTranslationsToLang "nob"
@@ -30,6 +35,7 @@ class ConceptView extends Backbone.View
       concept_value: @model.get('concept_value')
       concept_type: @model.get('concept_type')
       translations: translations
+      txl_string: txl_string
       fallback: fallback
       userlang: lang
       next: @next
@@ -76,6 +82,8 @@ module.exports = class ConceptList extends Backbone.View
         model: concept
     }
 
+    @current_concept_view = concept_template
+
     @prev = prev
     @next = next
     console.log "bbq"
@@ -103,6 +111,8 @@ module.exports = class ConceptList extends Backbone.View
         model: concept
     }
 
+    @current_concept_view = concept_template
+
     @prev = prev
     @next = next
 
@@ -118,14 +128,7 @@ module.exports = class ConceptList extends Backbone.View
     return false
 
   findAudio: (event) ->
-    console.log event.target
-    concept_id = $(event.target)
-                  .attr('data-concept-cid')
-
-    concept = app.conceptdb.getByCid concept_id
-    if concept
-      sound_id = "wordListSound"
-      concept.playAudio(sound_id)
+    @current_concept_view.play()
     return false
 
   className: 'conceptlist'
@@ -152,6 +155,8 @@ module.exports = class ConceptList extends Backbone.View
     initial = new ConceptView {
         model: category_concepts[0]
     }
+
+    @current_concept_view = initial
 
     @next = 1
     @prev = null

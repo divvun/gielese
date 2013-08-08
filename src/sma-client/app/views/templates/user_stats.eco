@@ -1,18 +1,19 @@
 <div data-role="header">
     <a href="#mainMenu" data-transition="slide" data-icon="arrow-l">Back</a>
     <h2>Progress / User Info</h2>
+    <% if app.user: %>
+    <a id="logout" href="#" data-iconpos="right" data-icon="delete"><%- gettext.gettext "Log out" %></a>
+    <% end %>
 </div>
 
 <div data-role="content">
+    <% if app.user is undefined: %>
+        <h3><%- gettext.gettext "Please log in first." %></h3>
+    <% else: %>
+        
+    <% end %>
 
-    <h3>TODO: subnav - stats / account info</h3>
-
-    <h3>items</h3>
-    <ul>
-        <% for item in @logs: %>
-            <li><%- item %></li>
-        <% end %>
-    </ul>
+<% if @logs.length > 0: %>
 
     <h3>points per category</h3>
     <div class="seventy_thirty_grid">
@@ -31,5 +32,11 @@
         </div>
     </div>
 
-</div>
+<% else: %>
 
+    <h3>Learn some words to see stats!</h3>
+
+
+<% end %>
+
+</div>

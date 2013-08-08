@@ -1,4 +1,17 @@
 ﻿<div id="loginPopup" style="display: none;" data-transition="pop" data-theme="a">
+    <% if @logout: %>
+
+        <div id="loading" style="display: none;">
+            Sending... <span id="login_status">&nbsp;</span>
+        </div>
+        <div id="success" style="display: none;">
+            Success!
+        </div>
+        <div id="fail" style="display: none;">
+            You were not logged in. Are you connected, or was your password wrong?
+        </div>
+        
+    <% else: %>
     <form id="login_form">
         <div style="padding:10px 20px;">
             <h3>Please sign in</h3>
@@ -18,4 +31,5 @@
         </div>
         <!-- TODO: close button? -->
     </form>
+    <% end %>
 </div>
