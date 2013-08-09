@@ -246,7 +246,7 @@ module.exports = class LeksaView extends Backbone.View
     app.router.refreshCurrentPage()
 
     playFirst = =>
-      if app.options.getSetting('enable_audio')
+      if app.options.getSetting('enable_audio') and q_instance.generator.get('sound')
         q_instance.question.playAudio()
 
     # Delay first sound playing as leksa page renders
