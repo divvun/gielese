@@ -3,6 +3,19 @@ module.exports = class QuestionTests
     'duplicate_four_questions'
   ]
 
+  filter_concepts_by_media_size: ->
+    # TODO: finish this with new code
+    pluck_values = (c) -> c.attributes.concept_value
+    media_size = 'small'
+
+    concepts = app.conceptdb.where({language: "img", semantics: ["FOOD"]})
+    console.log concepts.map pluck_values
+
+    concepts_f = @filter_concepts_by_media(concepts, media_size)
+    console.log concepts_f.map pluck_values
+    return false
+
+
   duplicate_four_questions: ->
     # Create a specific type of question and inspect the kinds of values it
     # presents
@@ -31,6 +44,7 @@ module.exports = class QuestionTests
     return [success, errors]
 
   run: (iterations = 4) ->
+    # TODO: iterations
 
     status_str = (a) ->
       if a

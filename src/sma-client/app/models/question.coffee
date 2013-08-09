@@ -11,7 +11,7 @@ orderConceptsByProgression = (q, concepts, up) ->
   # For now want to organize out those that have been shown the most, so, 
   # sort by count of concepts in userprogression that are correct
   debug = window.app.debug
-
+  
   # Grab only the user progression for this question
   userprogression = up.filter (u) =>
     u.get('question').cid == q.cid
@@ -20,7 +20,7 @@ orderConceptsByProgression = (q, concepts, up) ->
     console.log "#{q.cid} - #{userprogression.length} run-throughs"
 
   if userprogression.length == 0
-  	return concepts
+    return concepts
   
   getProgressionCorrectCountForConcept = (c) =>
     userprogression
@@ -57,9 +57,9 @@ orderConceptsByProgression = (q, concepts, up) ->
       console.log f_strings.join('\n')
 
   if ordered_by_frequency.length == 0
-  	if debug
-  	  console.log "No more concepts fittting progression"
-  	return concepts
+    if debug
+      console.log "No more concepts fittting progression"
+    return concepts
 
   return ordered_by_frequency
 
@@ -99,21 +99,33 @@ module.exports = class Question extends Backbone.Model
     for c in concepts
       corrects = getProgressionCorrectCountForConcept(c)
       if corrects > 3
-      	corrects = 3
+        corrects = 3
       counts.push corrects
 
     if _.uniq(counts).length == 1
       if _.max(counts) == 3 and _.uniq(counts)[0] == 3
-      	return true
+        return true
     # For each concept, need to check that user has gotten it right three
     # times.
 
     return false
 
+  filter_concepts_by_media: (concepts, media_size) ->
+    # TODO: why doesn't this work using the actual size attribute?
+
+    _ms = "/#{media_size}/"
+    concepts = _.filter concepts, (c) =>
+      if c.get('language') == 'img'
+        return c.get('concept_value').search(_ms) > -1
+      else
+      	return true
+
+    return concepts
+
   select_question_concepts_by_progression: (conceptdb, up) ->
     return orderConceptsByProgression(
       @,
-      @select_question_concepts(conceptdb),
+      @filter_concepts_by_media(@select_question_concepts(conceptdb), 'small'),
       up
     )
 
@@ -143,13 +155,7 @@ module.exports = class Question extends Backbone.Model
     return q_concepts
 
   find_concepts: (conceptdb, userprogression) ->
-    # TODO: make sure this is the 3-char iso
-    userlang = switch app.options.getSetting('help_language')
-      when "no" then "nob"
-      when "sv" then "swe"
-      when "swe" then "swe"
-      when "sma" then "sma"
-      else "nob"
+    userlang = ISOs.two_to_three app.options.getSetting('help_language')
 
     # TODO: include userprogression
     #
@@ -180,11 +186,15 @@ module.exports = class Question extends Backbone.Model
       @select_question_concepts(conceptdb),
       userprogression
     )
+
+    # WHAT
+    console.log (a.attributes.concept_value for a in q_concepts)
+
     # Concepts left (probably need to multiple by display count)
     total_correct_answers_for_question = userprogression.where({
-    	game_name: "leksa",
-    	question_correct: true,
-    	question: @,
+        game_name: "leksa",
+        question_correct: true,
+        question: @,
     }).length
 
     concepts_total = @select_question_concepts(conceptdb).length
@@ -193,6 +203,7 @@ module.exports = class Question extends Backbone.Model
     # Select a question concept
     if q_concepts.length > 0
       question = _.shuffle(q_concepts)[0]
+      console.log question.attributes.question_value
       # Alternate question concepts that match the question criteria
       alternates = _.shuffle(q_concepts).slice(1)
     else
@@ -207,7 +218,9 @@ module.exports = class Question extends Backbone.Model
     # TODO: if word has no translations, things break here.
     # TODO: also if there are multiple translations in a language, we'll only
     #       get the first in the DB
-    actual_answer_concepts = filterByLang(_to, conceptdb.getTranslationsOf question)
+    actual_answer_concepts = filterByLang( _to
+                                         , conceptdb.getTranslationsOf question
+                                         )
 
     if actual_answer_concepts.length == 0
       console.log " * No translations to #{_to} for #{question.get('concept_value')}"
@@ -229,6 +242,7 @@ module.exports = class Question extends Backbone.Model
     # TODO: feature intersection
     # here we get answers that are similar as described in the answer similarity
     potential_incorrect_answers = conceptdb.filter (concept) =>
+
       target_language = concept.get('language') == _to
       # TODO: feature match?
       if _answer_sim.semantics
@@ -245,27 +259,46 @@ module.exports = class Question extends Backbone.Model
         else
           return false
 
-    potential_incorrect_answers = _.shuffle(potential_incorrect_answers)
+    if @attributes.type == 'word_to_image'
+      chop_concept = (a) -> a.split('/').slice(-1)[0]
+    else
+      chop_concept = (a) -> a
+
+    uniq_for_concept_value = (cs) =>
+      _cs = []
+      _cvs = []
+      for c in cs
+        _cv = chop_concept c.attributes.concept_value
+        if _cv in _cvs
+          continue
+        _cs.push c
+        _cvs.push _cv
+      return _cs
+
+    potential_incorrect_answers = _.shuffle(
+      uniq_for_concept_value potential_incorrect_answers
+    )
 
     answer_possibilities = answer_possibilities.slice(0, max_answers - 1)
 
-    all_answer_possibilities = [actual_answer]
-    all_answer_possibilities = all_answer_possibilities.concat answer_possibilities
-    all_answer_possibilities = _.uniq(all_answer_possibilities)
+    all_answer_poss = [actual_answer]
+    all_answer_poss = all_answer_poss.concat answer_possibilities
+    all_answer_poss = uniq_for_concept_value all_answer_poss
 
     # Fill the array with missing answers if we have too few.
-    if all_answer_possibilities.length < max_answers
-      difference = max_answers - all_answer_possibilities.length
+    if all_answer_poss.length < max_answers
+      difference = max_answers - all_answer_poss.length
+      concept_values = (a.attributes.concept_value for a in all_answer_poss)
       for c in _.range(0, difference)
         for a in _.shuffle(potential_incorrect_answers)
-          if (a != actual_answer) and !(a in all_answer_possibilities)
-            all_answer_possibilities.push a
+          if (a != actual_answer) and !(a in all_answer_poss)
+            all_answer_poss.push a
             break
 
-    if question and all_answer_possibilities.length > 0 and actual_answer
+    if question and all_answer_poss.length > 0 and actual_answer
       inst = new QuestionInstance( @
                                  , question
-                                 , all_answer_possibilities
+                                 , all_answer_poss
                                  , actual_answer
                                  , concepts_left
                                  , concepts_total

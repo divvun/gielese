@@ -1,12 +1,10 @@
 ## Today
 
- + TODO: TEST category 4 picture view repeats images-- need to avoid this 
- + TODO: 4 images -- need to find a way to resize dynamically so everything fits on the screen
-
  + TODO: flag icons
    http://jquerymobile.com/demos/1.2.1/docs/lists/lists-icons.html
 
- + TODO: some ï words don't work for images still
+ + TODO: missing image for mielhke 
+
  + TODO: next button at end of line, cycle to first? 
 
  + TODO: stats view: Total Points
@@ -22,6 +20,9 @@
 
       localStorage appears to be synced when synced with server as well, but 
       what happens when there's no connection?
+
+    ? might be an issue of not clearing on login before settings are
+      downloaded-- check that.
 
  + TODO: all media sizes need to be available for the frontend to select and
    download, but need to figure out:

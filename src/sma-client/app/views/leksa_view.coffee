@@ -133,15 +133,15 @@ module.exports = class LeksaView extends Backbone.View
   # # #  Progress bar
   # # #
   
-  setIndividualAnswerProgress: (count, total) ->
+  setIndividualAnswerProgress: (count, total, note) ->
     prog = @$el.find "#leksa_progress_indiv"
     prog.progressbar({value: (count/total)*100})
+    prog.find('.progress_label').text(note)
     return false
 
-  setProgress: (count, total, note) ->
+  setProgress: (count, total) ->
     prog = @$el.find "#leksa_progress"
     prog.progressbar({value: (count/total)*100})
-    prog.find('.progress_label').text(note)
     return false
 
 
@@ -184,8 +184,8 @@ module.exports = class LeksaView extends Backbone.View
       return false
 
     level_note = "Level #{q_instance.generator.get('level')}"
-    @setProgress(q_instance.current_count, q_instance.question_total, level_note)
-    @setIndividualAnswerProgress(q_instance.total_correct, q_instance.question_total*3)
+    @setProgress(q_instance.current_count, q_instance.question_total)
+    @setIndividualAnswerProgress(q_instance.total_correct, q_instance.question_total*3, level_note)
 
     if not q_instance.question
       question_block = @leksa_error_template({
