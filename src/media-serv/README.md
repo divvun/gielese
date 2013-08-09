@@ -1,6 +1,7 @@
 # Initializing media server
 
  * Create a virtualenv, run it and initialize from requirements.txt
+ * `python -c "import os ; print os.urandom(24)" > secret_key`
  * `python manage.py init_db`
  * `python manage.py install_media -f ../data/sma_media.xml`
  * `python manage.py append_lexical_data -f ../data/n_smanob_test.xml`
