@@ -1,0 +1,7 @@
+<ul>
+<% for category in @items: %>
+    <% if category.points > 0: %>
+        <li style="background-color: <%- category.color %>"><%- category.name %><br /><%- category.points %></li>
+    <% end %>
+<% end %>
+</ul>
