@@ -85,6 +85,12 @@ module.exports = class Application
     @tests = new Tests()
 
     @conceptdb = new ConceptDB()
+    @conceptdb.fetch
+      success: () =>
+        window.fetched_somewhere = true
+        app.loadingTracker.markReady('concepts.json')
+        console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+
     @questiondb = new QuestionDB()
 
     @leksaUserProgression = new UserProgression()

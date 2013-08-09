@@ -1,5 +1,10 @@
 ## Today
 
+ + TODO: audio cycling not as random on android? 
+
+ + TODO: audio doesn't play automatically on gielese.no / maybe just generally
+ + TODO: loading concepts.json more frequently than necessary
+
  + TODO: flag icons
    http://jquerymobile.com/demos/1.2.1/docs/lists/lists-icons.html
 

@@ -14,11 +14,6 @@ module.exports = class ConceptDB extends Backbone.Collection
     #       app.loadingTracker.markReady('concepts.json')
     #       console.log "fetched concepts.json (#{app.conceptdb.models.length})"
   
-    @fetch
-      success: () =>
-        app.loadingTracker.markReady('concepts.json')
-        console.log "fetched concepts.json (#{app.conceptdb.models.length})"
-
   getByCid: (cid) ->
     ms = @models.filter (m) =>
       m.cid == cid
@@ -69,7 +64,7 @@ module.exports = class ConceptDB extends Backbone.Collection
       if Object.keys(params).length > 0
         return new_coll.where(params)
       else
-      	return new_coll.models
+        return new_coll.models
       
     super
     

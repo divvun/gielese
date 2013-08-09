@@ -175,6 +175,7 @@ module.exports = class LeksaView extends Backbone.View
                                                    , @leksa_category
                                                    , level_constraint
                                                    )
+    @current_q = q_instance
 
     # TODO: feedback to user that they haven't completed this yet or have already-- if already, repeat
     if q_instance == false
@@ -244,9 +245,9 @@ module.exports = class LeksaView extends Backbone.View
 
     app.router.refreshCurrentPage()
 
-    playFirst = () ->
-      if q_instance.question.get('sound')
-        q_instance.question.playAudio('questionSound')
+    playFirst = =>
+      if app.options.getSetting('enable_audio')
+        q_instance.question.playAudio()
 
     # Delay first sound playing as leksa page renders
     if not @first
