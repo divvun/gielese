@@ -13,14 +13,14 @@
         
     <% end %>
 
-    <h3>High scores</h3>
-    <div id="high_scores">
-        Loading...
-    </div>
+    <% if app.user is undefined: %>
+        <h3>Points</h3>
+    <% else: %>
+        <h3><%- @points_total %> points</h3>
+    <% end %>
 
 <% if @logs.length > 0: %>
 
-    <h3>points per category</h3>
     <div class="seventy_thirty_grid">
         <div class="row">
             <div class="item">
@@ -41,7 +41,12 @@
 
     <h3>Learn some words to see stats!</h3>
 
-
 <% end %>
+
+    <h3><%- gettext.gettext "High scores" %></h3>
+    <div id="high_scores">
+        <%- gettext.gettext "Loading..." %>
+    </div>
+
 
 </div>

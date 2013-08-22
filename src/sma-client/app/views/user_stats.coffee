@@ -117,9 +117,16 @@ module.exports = class UserStats extends Backbone.View
           'percent': (total_questions_correct/total_questions_tried)*100
         }
 
+    if app.user
+      sum = (ls) -> _.reduce(ls,((memo, num) -> memo + num ), 0)
+      points = sum app.leksaUserProgression.pluck('points')
+    else
+      points = false
+
     @$el.html @template
       logs: models
       category_scores: correct_for_category
+      points_total: points
 
     if app.leksaUserProgression.length > 0
       @categoryChart()

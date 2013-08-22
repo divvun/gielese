@@ -1,5 +1,7 @@
 ## Today
 
+ + TODO: back button on create an account page -- accidental navigation
+
  + TODO: when sma is selected and user navigates to options, both language
          selects are not visible
 
@@ -8,8 +10,6 @@
  + TODO: missing image for mielhke 
 
  + TODO: wordlist - next button at end of line, cycle to first? 
-
- + TODO: stats view: Total Points
 
  + TODO: lexicon view -- accuracy rate when viewing a word? 
 
