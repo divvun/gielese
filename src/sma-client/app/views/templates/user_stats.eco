@@ -13,6 +13,11 @@
         
     <% end %>
 
+    <h3>High scores</h3>
+    <div id="high_scores">
+        Loading...
+    </div>
+
 <% if @logs.length > 0: %>
 
     <h3>points per category</h3>

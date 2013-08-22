@@ -1,4 +1,5 @@
 CategoryLegend = require './templates/stats_category_legend'
+HighScoreList = require './templates/high_scores_block'
 
 module.exports = class UserStats extends Backbone.View
 
@@ -21,7 +22,7 @@ module.exports = class UserStats extends Backbone.View
   template: require './templates/user_stats'
 
   categoryChart: () ->
-    # POINTS or amount of times played? 
+    # POINTS or amount of times played?
     colors = [ "#F7464A" ,
                "#E2EAE9" ,
                "#D4CCC5" ,
@@ -52,7 +53,7 @@ module.exports = class UserStats extends Backbone.View
     for [cat, col] in _.zip(catego, colors)
       logs = app.leksaUserProgression
                 .filter (q) =>
-                   q.get("question").category is cat if q.get("question")?
+                  q.get("question").category is cat if q.get("question")?
 
       _points = logs.map (l) -> l.get('points')
       points = _.reduce(_points, ((memo, num) -> memo + num), 0)
@@ -76,18 +77,16 @@ module.exports = class UserStats extends Backbone.View
       items: category_colors
     }
 
-    console.log category_colors
-
   render: ->
 
     # * word accuracy rate
     # * category accuracy rate
     # * words to practice
-    # * percentage of time spent on each category-- see what needs doing (fancy pie chart?)
+    # * percentage of time spent on each category-- see what needs doing (fancy
+    #   pie chart?)
     #
     # but for now, just a list of objects
     models = app.leksaUserProgression.models
-    console.log "wtf #{ models.length }"
 
     correct_for_category = {}
     if app.leksaUserProgression.length > 0
@@ -125,4 +124,9 @@ module.exports = class UserStats extends Backbone.View
     if app.leksaUserProgression.length > 0
       @categoryChart()
 
+    scores = @$el.find('div#high_scores')
+    $.get '/users/scores/',
+      (resp) =>
+        scores.html HighScoreList
+          highscores: resp.highscores
 

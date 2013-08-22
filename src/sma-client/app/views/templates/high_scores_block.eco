@@ -1,0 +1,7 @@
+<ul id="point_list">
+    <% for entry in @highscores: %>
+        <li><span class="username"><%- entry.username %></span>&nbsp;
+            <span class="points"><%- entry.points %> <%- gettext.gettext "points" %></span>
+        </li>
+    <% end %>
+</ul>

@@ -43,7 +43,7 @@ module.exports = class Application
   constructor: ->
     $ =>
       @initialize
-      	complete: () =>
+        complete: () =>
           Backbone.history.start
             pushState: false
             hashChange: true
@@ -119,16 +119,17 @@ module.exports = class Application
 
     initial_language = ISOs.three_to_two initial_language
 
-    $.get( "/data/translations/#{initial_language}/messages.json", (locale_data) =>
-      gettext = new Gettext({
-        domain: 'messages'
-        locale_data: locale_data
-      })
-      @gettext = gettext
-      window.gettext = @gettext
-      @loadingTracker.markReady('translations.json')
-      options.complete() if options.complete
-    )
+    $.get "/data/translations/#{initial_language}/messages.json",
+      (locale_data) =>
+        gettext = new Gettext({
+          domain: 'messages'
+          locale_data: locale_data
+        })
+        @gettext = gettext
+        window.gettext = @gettext
+        @loadingTracker.markReady('translations.json')
+        options.complete() if options.complete
+        
 
     # Convert the initial ISO settings
 
@@ -137,6 +138,5 @@ module.exports = class Application
       'interface_language': ISOs.two_to_three initial_language
       'help_language': ISOs.two_to_three initial_language
     })
-
 
 window.app = new Application

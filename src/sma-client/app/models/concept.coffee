@@ -1,4 +1,3 @@
-
 module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
   idAttribute: "c_id"
@@ -8,8 +7,8 @@ module.exports = class Concept extends Backbone.Model
     has_media = @.get('media')
     if 'image' of has_media
       if has_media.image.length > 0
-      	thumbs = _.filter has_media.image, (i) ->
-      	  return i.size == 'thumbnail'
+        thumbs = _.filter has_media.image, (i) ->
+          return i.size == 'thumbnail'
         if thumbs.length == 0
           thumbs = false
     return thumbs
@@ -74,8 +73,8 @@ module.exports = class Concept extends Backbone.Model
         sound_id = "concept-audio-#{@.get('c_id')}"
       soundManager.destroySound(sound_id)
       s = soundManager.createSound({
-         id: sound_id
-         url: has_audio_file
+        id: sound_id
+        url: has_audio_file
       })
       if s.isHTML5
         s._a.playbackRate = opts.rate
@@ -87,11 +86,12 @@ module.exports = class Concept extends Backbone.Model
   render_concept: () ->
     concept_renderers =
       'img': (c) ->
-        return "<img class='concept img_concept' src='#{c.get('concept_value')}' />"
+        """<img class='concept img_concept'
+                src='#{c.get('concept_value')}' />"""
       'text': (c) ->
         linebreaks = ///[-–—]///
         val = c.get('concept_value').split(linebreaks).join('-<br />')
-        return "<span class='concept word_concept'>#{val}</span>"
+        "<span class='concept word_concept'>#{val}</span>"
     type = @.get('concept_type')
     return concept_renderers[type](@)
 

@@ -11,11 +11,11 @@
                 <fieldset id="help_language" data-role="controlgroup"  data-setting="interface_language" data-copy-to="help_language">
                     <legend><%- gettext.gettext "Help language" %></legend>
                     <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
-                    <label for="radio-choice-1">Norsk</label>
+                    <label for="radio-choice-1">Norsk <img class="flag_ico" src="/static/images/flags/no_20x15.png" /></label>
                     <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="sma" data-reveal-subquestion="help_language_sub">
-                    <label for="radio-choice-2">Åarjelsaemien</label>
+                    <label for="radio-choice-2">Åarjelsaemien <img class="flag_ico" src="/static/images/flags/sma_20x15.png" /></label>
                     <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-3" value="swe">
-                    <label for="radio-choice-3">Svenska</label>
+                    <label for="radio-choice-3">Svenska <img class="flag_ico" src="/static/images/flags/sv_20x15.png" /></label>
                 </fieldset>
             </li>
 
@@ -27,11 +27,11 @@
                 <fieldset data-role="controlgroup"  data-setting="help_language">
                     <legend><%- gettext.gettext "Translation language" %></legend>
                     <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-1" value="nob" checked="checked">
-                    <label for="radio-choice-1">Norsk</label>
+                    <label for="radio-choice-1">Norsk <img class="flag_ico" src="/static/images/flags/no_20x15.png" /></label>
                     <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-2" value="swe">
-                    <label for="radio-choice-2">Svenska</label>
+                    <label for="radio-choice-2">Svenska <img class="flag_ico" src="/static/images/flags/sv_20x15.png" /></label>
                     <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-3" value="eng">
-                    <label for="radio-choice-3">English</label>
+                    <label for="radio-choice-3">English <img class="flag_ico" src="/static/images/flags/en_20x15.png" /></label>
                 </fieldset>
             </li>
 
