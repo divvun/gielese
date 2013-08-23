@@ -1,0 +1,409 @@
+﻿## NB: this key is not actually used in any of the code, but just here
+## to document the format.
+
+
+Examples:
+  # Each question is an entry in a list
+
+  # Valid types:
+  #   "image_to_word"
+  #   "word_to_word"
+  #   "word_to_image"
+  #
+  # These govern how to display items in the interface.
+  #
+  - type: "image_to_word"
+
+    # A category name which determines what set the questions belong to
+    # in the UI.
+    #
+    category: "BODYPART"
+
+    # A name for internal uses (this will not be displayed to users)
+    #
+    name: "Bodypart image to word"
+
+    # The level is essentially the order that the question comes in
+    # progression.
+    #
+    level: 1
+
+    # Number of answers displayed to the user. 1 - 4
+    answers: 1
+
+    # Full amount of points awarded. (Points decrease for each second of
+    # inactivity)
+    #
+    points: 20
+
+    # Play a sound if associated with the question concept that is
+    # displayed.
+    #
+    sound: true
+
+    # Filters select question-answer concepts. For now, images are
+    # considered to be a separate 'language' in the system for concepts,
+    # otherwise standard 3-character ISO codes are needed. If the user's
+    # interface language is to be used to generate, use the value
+    # "USERLANG".
+    #
+    # For the semantics setting, use a list of semantic sets that must
+    # intersect with concepts in the database.
+    #
+    # TODO: implement alternate things that may select concepts, such as image
+    # tags.
+    filters:
+      from_language: "img"
+      to_language: "sma"
+      semantics:
+        - "BODYPART"
+
+    # For all additional answers that will be displayed to "fill in" the
+    # answers when the number of answers displayed is greater than one,
+    # control how these answers should be filtered. It may be you wish
+    # to include some phonetic features to make things more challenging,
+    # and these would go here.
+    #
+    answer_similarity:
+      semantics:
+        - "BODYPART"
+      # features:
+      #   - "BISYL"
+      #   - "HT"
+
+
+Questions:
+  # -*- body -*-
+  - type: "image_to_word"
+    category: "BODYPART"
+    name: "Bodypart image to word"
+
+    level: 1
+    answers: 1
+    points: 20
+    sound: true
+
+    filters:
+      from_language: "img"
+      to_language: "sma"
+      semantics:
+        - "BODYPART"
+
+    answer_similarity:
+      semantics:
+        - "BODYPART"
+
+  - type: "word_to_image"
+    category: "BODYPART"
+    name: "Bodypart word to image"
+
+    level: 2
+    answers: 2
+    points: 40
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "img"
+      semantics:
+        - "BODYPART"
+
+    # answer_similarity:
+    #   semantics:
+    #     - "BODYPART"
+
+  - type: "image_to_word"
+    category: "BODYPART"
+    name: "Bodypart image to 2-word"
+
+    level: 3
+    answers: 2
+    points: 50
+    sound: false
+
+    filters:
+      from_language: "img"
+      to_language: "sma"
+      semantics:
+        - "BODYPART"
+
+    answer_similarity:
+      semantics:
+        - "BODYPART"
+
+  - type: "word_to_image"
+    category: "BODYPART"
+    name: "Bodypart word to 2-img"
+
+    level: 4
+    answers: 2
+    points: 60
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "img"
+      semantics:
+        - "BODYPART"
+
+    answer_similarity:
+      semantics:
+        - "BODYPART"
+
+  - type: "word_to_word"
+    category: "BODYPART"
+    name: "Bodypart word to 2-img"
+
+    level: 5
+    answers: 4
+    points: 60
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "USERLANG"
+      semantics:
+        - "BODYPART"
+
+    answer_similarity:
+      semantics:
+        - "BODYPART"
+      features:
+        - "BISYL"
+        - "HT"
+
+  # -*- heelsedh -*- 
+
+  - type: "image_to_word"
+    category: "GREETINGS"
+    name: "Greetings image to word"
+
+    level: 1
+    answers: 1
+    points: 20
+    sound: true
+
+    filters:
+      from_language: "img"
+      to_language: "sma"
+      semantics:
+        - "GREETINGS"
+
+    answer_similarity:
+      semantics:
+        - "GREETINGS"
+
+  - type: "word_to_image"
+    category: "GREETINGS"
+    name: "Greetings word to image"
+
+    level: 2
+    answers: 2
+    points: 40
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "img"
+      semantics:
+        - "GREETINGS"
+
+    # answer_similarity:
+    #   semantics:
+    #     - "GREETINGS"
+
+  - type: "image_to_word"
+    category: "GREETINGS"
+    name: "Greetings image to 2-word"
+
+    level: 3
+    answers: 2
+    points: 50
+    sound: false
+
+    filters:
+      from_language: "img"
+      to_language: "sma"
+      semantics:
+        - "GREETINGS"
+
+    answer_similarity:
+      semantics:
+        - "GREETINGS"
+
+  - type: "word_to_image"
+    category: "GREETINGS"
+    name: "Greetings word to 2-img"
+
+    level: 4
+    answers: 2
+    points: 60
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "img"
+      semantics:
+        - "GREETINGS"
+
+    answer_similarity:
+      semantics:
+        - "GREETINGS"
+
+  - type: "word_to_word"
+    category: "GREETINGS"
+    name: "Greetings word to 2-img"
+
+    level: 5
+    answers: 4
+    points: 80
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "USERLANG"
+      semantics:
+        - "GREETINGS"
+
+    answer_similarity:
+      semantics:
+        - "GREETINGS"
+      features:
+        - "BISYL"
+        - "HT"
+
+  # -*- food -*- 
+
+  - type: "image_to_word"
+    category: "FOOD"
+    name: "Food image to word"
+
+    level: 1
+    answers: 1
+    points: 20
+    sound: true
+
+    filters:
+      from_language: "img"
+      to_language: "sma"
+      semantics:
+        - "FOOD"
+
+    answer_similarity:
+      semantics:
+        - "FOOD"
+
+  - type: "word_to_image"
+    category: "FOOD"
+    name: "Food word to image"
+
+    level: 2
+    answers: 2
+    points: 40
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "img"
+      semantics:
+        - "FOOD"
+
+    # answer_similarity:
+    #   semantics:
+    #     - "FOOD"
+
+  - type: "image_to_word"
+    category: "FOOD"
+    name: "Food image to 2-word"
+
+    level: 3
+    answers: 2
+    points: 60
+    sound: false
+
+    filters:
+      from_language: "img"
+      to_language: "sma"
+      semantics:
+        - "FOOD"
+
+    answer_similarity:
+      semantics:
+        - "FOOD"
+
+  - type: "word_to_image"
+    category: "FOOD"
+    name: "Food word to 2-img"
+
+    level: 4
+    answers: 2
+    points: 80
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "img"
+      semantics:
+        - "FOOD"
+
+    answer_similarity:
+      semantics:
+        - "FOOD"
+
+  - type: "word_to_word"
+    category: "FOOD"
+    name: "Food word to 2-img"
+
+    level: 5
+    answers: 4
+    points: 100
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "USERLANG"
+      semantics:
+        - "FOOD"
+
+    answer_similarity:
+      semantics:
+        - "FOOD"
+
+  # -*- test -*-
+  - type: "image_to_word"
+    category: "TEST"
+    name: "Bodypart image to word"
+
+    level: 1
+    answers: 1
+    points: 20
+    sound: true
+
+    filters:
+      from_language: "img"
+      to_language: "sma"
+      semantics:
+        - "FOOD"
+
+    answer_similarity:
+      semantics:
+        - "FOOD"
+
+  - type: "word_to_image"
+    category: "TEST"
+    name: "Bodypart image to word"
+
+    level: 3
+    answers: 4
+    points: 100
+    sound: true
+
+    filters:
+      from_language: "sma"
+      to_language: "img"
+      semantics:
+        - "FOOD"
+
+    answer_similarity:
+      semantics:
+        - "FOOD"

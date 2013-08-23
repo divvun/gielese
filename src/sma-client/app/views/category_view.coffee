@@ -9,7 +9,7 @@ module.exports = class CategoryMenu extends Backbone.View
   id: "hello"
 
   displayLogin: (evt) ->
-    # TODO: where did username go? 
+    # TODO: where did username go?
     if app.user
       window.location.hash = 'stats'
       return true
@@ -21,7 +21,6 @@ module.exports = class CategoryMenu extends Backbone.View
         @$el.find('#login_button').attr('href', "#stats")
         setTimeout(() =>
           app.auth.hide_authentication_popup @$el
-          console.log "bbq"
         , 250)
     }
 

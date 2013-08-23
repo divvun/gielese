@@ -118,8 +118,7 @@ module.exports = class UserStats extends Backbone.View
         }
 
     if app.user
-      sum = (ls) -> _.reduce(ls,((memo, num) -> memo + num ), 0)
-      points = sum app.leksaUserProgression.pluck('points')
+      points = app.leksaUserProgression.countPoints()
     else
       points = false
 

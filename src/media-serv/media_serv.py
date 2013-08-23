@@ -235,8 +235,12 @@ def cache_manifest():
                    , mimetype='text/cache-manifest')
 
 def prepare_leksa_questions(db):
-    from sample_json import leksa_questions
-    return leksa_questions
+    import yaml
+    with open('../data/leksa_levels.yaml', 'r') as F:
+        data = yaml.load(F.read())
+
+    questions = data.get('Questions')
+    return questions
 
 @app.route('/data/leksa_questions.json', methods=['GET'])
 def leksa_questions():

@@ -79,15 +79,13 @@ module.exports = class ConceptList extends Backbone.View
     next = concept_index + 1
 
     concept_template = new ConceptView {
-        model: concept
+      model: concept
     }
 
     @current_concept_view = concept_template
 
     @prev = prev
     @next = next
-    console.log "bbq"
-    console.log [prev, next]
 
     $('#concept_content').html concept_template.render().$el.html()
     $('#concept_content').trigger('create')
