@@ -1,5 +1,5 @@
 <div data-role="header" data-position="fixed">
-    <a data-icon="arrow-l" href="#category/<%- @leksa_category %>">Back</a>
+    <a data-icon="arrow-l" href="#category/<%- @leksa_category %>"><%- gettext.gettext "Back" %></a>
     <h1>Leksa</h1>
     <a id="show-user-panel" href="#" data-icon="check" data-theme="b">Stats/Options</a>
 </div>

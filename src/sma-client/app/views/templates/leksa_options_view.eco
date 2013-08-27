@@ -1,5 +1,5 @@
 <div data-role="header">
-    <a href="#leksa" data-transition="slide" data-icon="arrow-l">Back</a>
+    <a href="#leksa" data-transition="slide" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
     <h2>Options</h2>
     <a id="save-options" data-icon="gear">Save</a>
 </div> 

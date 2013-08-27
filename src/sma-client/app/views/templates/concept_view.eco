@@ -1,5 +1,5 @@
 <div data-role="header">
-    <a href="/#wordlist" data-transition="slide" data-icon="arrow-l">Back</a>
+    <a href="/#wordlist" data-transition="slide" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
     <h2> <%- @model.get('concept_value') %> </h2>
 </div> 
 

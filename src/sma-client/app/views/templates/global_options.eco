@@ -1,5 +1,5 @@
 <div data-role="header">
-    <a href="#mainMenu" data-transition="slide" data-icon="arrow-l">Back</a>
+    <a href="#mainMenu" data-transition="slide" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
     <h2>Options</h2>
     <a id="save-options" data-icon="gear">Save</a>
 </div>
@@ -56,6 +56,26 @@
                         <option value="false">No</option>
                         <option value="true">Yes</option>
                     </select>
+                </fieldset>
+            </li>
+
+            <li data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <legend>Debug</legend>
+                    <div class="ui-grid-b">
+	                    <div class="ui-block-a">
+	                        <a class="square" href="#reset" data-transition="slide">
+	                            <span class="link_word">Reset App</span>
+	                        </a>
+	                    </div>
+
+	                    <div class="ui-block-b">
+                            <a class="square" href="#category/TEST" data-transition="slide">
+	                            <span class="link_image"></span>
+	                            <span class="link_word">Test Category</span>
+	                        </a>
+	                    </div>
+                    </div>
                 </fieldset>
             </li>
         </ul>

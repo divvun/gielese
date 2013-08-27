@@ -1,5 +1,5 @@
 <div data-role="header">
-    <a href="#mainMenu" data-transition="slide" data-icon="arrow-l">Back</a>
+    <a href="#mainMenu" data-transition="slide" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
     <h2>Progress / User Info</h2>
     <% if app.user: %>
     <a id="logout" href="#" data-iconpos="right" data-icon="delete"><%- gettext.gettext "Log out" %></a>
@@ -14,9 +14,9 @@
     <% end %>
 
     <% if app.user is undefined: %>
-        <h3>Points</h3>
+        <h3><%- gettext.gettext("Points") %></h3>
     <% else: %>
-        <h3><%- @points_total %> points</h3>
+        <h3><%- @points_total %> <%- gettext.gettext "points" %></h3>
     <% end %>
 
 <% if @logs.length > 0: %>
@@ -47,6 +47,5 @@
     <div id="high_scores">
         <%- gettext.gettext "Loading..." %>
     </div>
-
 
 </div>

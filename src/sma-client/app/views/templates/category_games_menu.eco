@@ -1,17 +1,15 @@
 <div data-role="header">
-    <a href="#categoryMenu" data-transition="slide" id="show-panel" data-icon="arrow-l">Back</a>
+    <a href="#categoryMenu" data-transition="slide" id="show-panel" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
     <h1>&nbsp;</h1>
 </div> 
 
 <div data-role="content" id="category_content">
 
-    <h2 class="category_name"><%- @category %></h2>
+    <h2 class="category_name"><%- gettext.gettext @category %></h2>
     <div data-role="controlgroup">
-	    <a data-role="button" href="#conceptSet/<%- @category %>" data-transition="slide">Wordlist</a>
-	    <a data-role="button" href="#leksa/1/<%- @category %>" data-transition="slide">Learn</a>
-	    <a data-role="button" href="#leksa/2/<%- @category %>" data-transition="slide">Practice</a>
+	    <a data-role="button" href="#conceptSet/<%- @category %>" data-transition="slide"><%- gettext.gettext "Wordlist" %></a>
+	    <a data-role="button" href="#leksa/1/<%- @category %>" data-transition="slide"><%- gettext.gettext "Learn" %></a>
+	    <a data-role="button" href="#leksa/2/<%- @category %>" data-transition="slide"><%- gettext.gettext "Practice" %></a>
     </div>
 
 </div> 
-
-

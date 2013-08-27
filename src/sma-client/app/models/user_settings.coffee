@@ -33,6 +33,9 @@ module.exports = class UserSettings extends Backbone.Collection
         return val
     return null
 
+  setLanguage: (value, opts = {}) ->
+    app.switch_locale(value, opts)
+
   setSettings: (values, opts = {}) ->
     @setSetting k, v for k, v of values
     if opts.store?
@@ -46,6 +49,10 @@ module.exports = class UserSettings extends Backbone.Collection
 
     new_setting = @create({setting_key: key, setting_value: val})
     new_setting.set('dirty', true)
+
+    if key == 'interface_language'
+      @setLanguage(val)
+
     # TODO: full sync? 
     return new_setting
 

@@ -40,6 +40,18 @@ class LeksaOptions
 
 module.exports = class Application
 
+  switch_locale: (locale, options = {}) ->
+    $.get "/data/translations/#{locale}/messages.json",
+      (locale_data) =>
+        gettext = new Gettext({
+          domain: 'messages'
+          locale_data: locale_data
+        })
+        @gettext = gettext
+        window.gettext = @gettext
+        @loadingTracker.markReady('translations.json')
+        options.complete() if options.complete
+
   constructor: ->
     $ =>
       @initialize
@@ -119,17 +131,7 @@ module.exports = class Application
 
     initial_language = ISOs.three_to_two initial_language
 
-    $.get "/data/translations/#{initial_language}/messages.json",
-      (locale_data) =>
-        gettext = new Gettext({
-          domain: 'messages'
-          locale_data: locale_data
-        })
-        @gettext = gettext
-        window.gettext = @gettext
-        @loadingTracker.markReady('translations.json')
-        options.complete() if options.complete
-        
+    @switch_locale(initial_language, options)
 
     # Convert the initial ISO settings
 
