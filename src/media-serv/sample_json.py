@@ -81,7 +81,7 @@ leksa_questions = [
     , 'answer_similarity': { 'semantics': ["GREETINGS"] }
     , 'level': 1
     , 'answers': 1
-    , 'name': "Bodypart image to word"
+    , 'name': "Greetings image to word"
     , 'points': 20
     , 'category': "GREETINGS"
     , 'sound': True
@@ -93,7 +93,7 @@ leksa_questions = [
     , 'answer_similarity': { }
     , 'level': 2
     , 'answers': 2
-    , 'name': "Bodypart word to image"
+    , 'name': "Greetings word to image"
     , 'points': 40
     , 'category': "GREETINGS"
     , 'sound': True
@@ -105,7 +105,7 @@ leksa_questions = [
     , 'answer_similarity': { 'semantics': ["GREETINGS"] }
     , 'level': 3
     , 'answers': 2
-    , 'name': "Bodypart image to 2-word"
+    , 'name': "Greetings image to 2-word"
     , 'points': 50
     , 'category': "GREETINGS"
     , 'sound': False
@@ -117,7 +117,7 @@ leksa_questions = [
     , 'answer_similarity': { 'semantics': ["GREETINGS"] }
     , 'level': 4
     , 'answers': 2
-    , 'name': "Bodypart word to 2-img"
+    , 'name': "Greetings word to 2-img"
     , 'points': 60
     , 'category': "GREETINGS"
     , 'sound': True
@@ -133,7 +133,7 @@ leksa_questions = [
     , 'points': 80
     , 'answers': 4
     , 'category': "GREETINGS"
-    , 'sound': False
+    , 'sound': True
     },
 
     # -*- food -*- 
@@ -144,7 +144,7 @@ leksa_questions = [
     , 'answer_similarity': { 'semantics': ["FOOD"] }
     , 'level': 1
     , 'answers': 1
-    , 'name': "Bodypart image to word"
+    , 'name': "Food image to word"
     , 'points': 20
     , 'category': "FOOD"
     , 'sound': True
@@ -156,7 +156,7 @@ leksa_questions = [
     , 'answer_similarity': { }
     , 'level': 2
     , 'answers': 2
-    , 'name': "Bodypart word to image"
+    , 'name': "Food word to image"
     , 'points': 40
     , 'category': "FOOD"
     , 'sound': True
@@ -168,7 +168,7 @@ leksa_questions = [
     , 'answer_similarity': { 'semantics': ["FOOD"] }
     , 'level': 3
     , 'answers': 2
-    , 'name': "Bodypart image to 2-word"
+    , 'name': "Food image to 2-word"
     , 'points': 60
     , 'category': "FOOD"
     , 'sound': False
@@ -180,7 +180,7 @@ leksa_questions = [
     , 'answer_similarity': { 'semantics': ["FOOD"] }
     , 'level': 4
     , 'answers': 2
-    , 'name': "Bodypart word to 2-img"
+    , 'name': "Food word to 2-img"
     , 'points': 80
     , 'category': "FOOD"
     , 'sound': True
@@ -225,3 +225,20 @@ leksa_questions = [
     },
 
 ]
+
+import unittest
+
+class TestYaml(unittest.TestCase):
+    maxDiff = None
+
+    def runTest(self):
+        import yaml
+        with open('../data/leksa_levels.yaml', 'r') as F:
+            data = yaml.load(F.read())
+
+        questions = data.get('Questions')
+        for q, qq in zip(leksa_questions, questions):
+            self.assertEqual(q, qq)
+
+        self.assertEqual(leksa_questions, questions)
+
