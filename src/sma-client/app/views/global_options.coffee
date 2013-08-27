@@ -24,9 +24,6 @@ module.exports = class GlobalOptionsView extends Backbone.View
     $("[data-setting='#{target_fieldset}']").find("[value='#{target_value}']")
         .attr("checked",true).checkboxradio("refresh")
 
-    console.log $(evt.target).parents('fieldset').find('input[type="radio"]:checked').val()
-    console.log $("[data-setting='#{target_fieldset}']").find('input[type="radio"]:checked').val()
-
     return true
 
   revealSubquestion: (evt) ->
@@ -50,8 +47,11 @@ module.exports = class GlobalOptionsView extends Backbone.View
     enable_cache = toBool _data.slider().val()
     enable_audio = toBool _audio.slider().val()
 
-    interface_language = $("[data-setting='interface_language']").find('input[type="radio"]:checked').val()
-    help_language = $("[data-setting='help_language']").find('input[type="radio"]:checked').val()
+    interface_language = $("[data-setting='interface_language']")
+                            .find('input[type="radio"]:checked').val()
+
+    help_language = $("[data-setting='help_language']")
+                            .find('input[type="radio"]:checked').val()
 
     new_settings = {
       enable_cache:       enable_cache
@@ -78,14 +78,15 @@ module.exports = class GlobalOptionsView extends Backbone.View
     # read and save in storage
     #
     _ui = @$el.find("[data-setting='interface_language'] input[value='#{uil}']")
+
     _hl = @$el.find("[data-setting='help_language'] input[value='#{hl}']")
 
     _cache.val(
-        app.options.getSetting('enable_cache').toString()
+      app.options.getSetting('enable_cache').toString()
     )
 
     _audio.val(
-        app.options.getSetting('enable_audio').toString()
+      app.options.getSetting('enable_audio').toString()
     )
 
     _ui.attr("checked", true)
@@ -94,7 +95,13 @@ module.exports = class GlobalOptionsView extends Backbone.View
     # TODO: sync offline, or in localstorage
 
   render: ->
+    if app.options.getSetting('interface_language') == 'sma'
+      hide_sub = false
+    else
+      hide_sub = true
+
     @$el.html @template
+      hide_sub: hide_sub
 
     @reloadSettings()
 

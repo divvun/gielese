@@ -106,7 +106,7 @@ module.exports = class ConceptList extends Backbone.View
 
 
     concept_template = new ConceptView {
-        model: concept
+      model: concept
     }
 
     @current_concept_view = concept_template
@@ -148,10 +148,11 @@ module.exports = class ConceptList extends Backbone.View
     # TODO: what is south sami alphabetical order?
 
     category_concepts = filtered_collection
-    category_concepts = _.sortBy category_concepts, (concept) -> concept.get('concept_value')
+    category_concepts = _.sortBy category_concepts,
+      (c) -> c.get('concept_value')
 
     initial = new ConceptView {
-        model: category_concepts[0]
+      model: category_concepts[0]
     }
 
     @current_concept_view = initial

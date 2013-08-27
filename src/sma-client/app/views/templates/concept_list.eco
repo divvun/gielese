@@ -1,5 +1,5 @@
 <div data-role="header">
-    <a href="#category/<%- @category %>" data-transition="slide" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
+    <a href="#category/<%- @category %>" data-transition="slide" data-icon="arrow-l">Back</a>
     <h2><%- @category %></h2>
 </div>
 

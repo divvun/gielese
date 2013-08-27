@@ -23,7 +23,11 @@
                        the value is 'sma'
             -->
 
+            <% if @hide_sub: %>
             <li data-role="fieldcontain" style="display: none;" id="help_language_sub">
+            <% else: %>
+            <li data-role="fieldcontain" id="help_language_sub">
+            <% end %>
                 <fieldset data-role="controlgroup"  data-setting="help_language">
                     <legend><%- gettext.gettext "Translation language" %></legend>
                     <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-1" value="nob" checked="checked">
