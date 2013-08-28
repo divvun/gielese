@@ -9,11 +9,16 @@ class TSV(Dialect):
     quoting = csv.QUOTE_NONE
     lineterminator = '\n'
 
+class CSV(Dialect):
+    delimiter = ','
+    quoting = csv.QUOTE_NONE
+    lineterminator = '\n'
+
 def pretty(node):
     from lxml.etree import tostring
     return tostring(node, pretty_print=True, encoding=unicode)
 
-def create_entry(row, semantics=['TODO']):
+def create_entry(row, semantics=['TODO'], rename_files=False):
     import lxml.etree
     from lxml.builder import ElementMaker
     from lxml.etree import CDATA
@@ -46,6 +51,13 @@ def create_entry(row, semantics=['TODO']):
 
     lg_node = lg(l(_sma))
 
+    # TODO: need to rename files, but not just the string, actual file
+    # name.
+    def rename_file(_p):
+        if rename_files:
+            print _p.split('/')
+        return _p
+
     semantics = []
     if _semantics:
         for _sem in _semantics:
@@ -65,17 +77,17 @@ def create_entry(row, semantics=['TODO']):
     medias = []
     if _img:
         _images = []
-        for i in _img.split(','):
+        for i in _img.split(';'):
             _p = path()
-            _p.text = CDATA(_img)
+            _p.text = CDATA(rename_file(_img))
             _images.append(E.image(_p))
         medias.append(E.images(*_images))
 
     if _mp3:
         sounds = []
-        for i in _mp3.split(','):
+        for i in _mp3.split(';'):
             _m = path()
-            _m.text = CDATA(i)
+            _m.text = CDATA(rename_file(i))
             sounds.append(sound(_m))
         medias.append(E.sounds(*sounds))
 
@@ -88,9 +100,14 @@ def main():
     from lxml.builder import ElementMaker
     E = ElementMaker()
 
+    # TODO: file rename -- directory to take as relative root for all
+    # filepaths in img and mp3
+
+    # TODO: for images, create an orig/ dir, for later resize
+
     with open(sys.argv[1], 'rb') as F:
         lines = unicode(F.read().decode('utf-8')).splitlines()
-        header, rest = lines[0].split('\t'), map(lambda x: x.split('\t'), lines[1::])
+        header, rest = lines[0].split(','), map(lambda x: x.split(','), lines[1::])
 
     _row_dicts = []
     for r in rest:
@@ -99,9 +116,9 @@ def main():
 
     if len(sys.argv) > 2:
         _sems = sys.argv[2].split(',')
-        create_entry_with_semantics = partial(create_entry, semantics=_sems)
+        create_entry_with_semantics = partial(create_entry, semantics=_sems, rename_files=True)
     else:
-        create_entry_with_semantics = partial(create_entry)
+        create_entry_with_semantics = partial(create_entry, rename_files=True)
 
     _r = E.r(*map(create_entry_with_semantics, _row_dicts))
 
