@@ -1,0 +1,614 @@
+<r>
+  <e>
+    <lg>
+      <l>Aske</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/aske.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/aske.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/aske.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/aske.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Måne</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Måne</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Biejjie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/biejjie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/biejjie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/biejjie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/biejjie.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Sol</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Sol</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Balve</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/balve.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/balve.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/balve.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/balve.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Sky</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Moln</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Naestie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/naestie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/naestie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/naestie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/naestie.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Stjerne</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Stjärna</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Gierkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/gierkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/gierkie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/gierkie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/gierkie.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Stein</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Sten</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Gaedtie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/gaedtie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/gaedtie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/gaedtie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/gaedtie.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Strand</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Strand</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Baalka</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/baalka.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/baalka.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/baalka.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Sti</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Stig</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Pluevie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/pluevie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/pluevie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/pluevie.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Myr</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Myr</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Skåajje</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/sk_aa_ajje.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/sk_aa_ajje.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/sk_aa_ajje.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Skog</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Skog</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Geajnoe</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/geajnoe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/geajnoe.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/geajnoe.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/geajnoe.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Veg</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Väg</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Baaroe</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/baaroe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/baaroe.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/baaroe.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/baaroe.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Bølge</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Våg</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Gaaltije</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/gaaltije.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/gaaltije.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/gaaltije.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/gaaltije.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Kilde</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Källa</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Garse</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/garse.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/garse.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/garse.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/garse.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Foss</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Fors</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Johke</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/johke.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/johke.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/johke.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Bekk</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Bäck</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Jaevrie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/jaevrie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/jaevrie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/jaevrie.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Innsjø</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Insjö</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Mearoe</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/mearoe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/mearoe.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/mearoe.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Hav</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Hav</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Eatneme</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/eatneme.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/eatneme.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/eatneme.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/eatneme.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Jorden</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Jorden</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>Elmie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[nature_world/img/orig/elmie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[nature_world/mp3/AD/elmie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/ED/elmie.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[nature_world/mp3/KB/elmie.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NATURE"/>
+        <sem class="WORLD"/>
+      </semantics>
+      <tg xml:lang="nob">
+        <t>Himmel</t>
+      </tg>
+      <tg xml:lang="swe">
+        <t>Himmel</t>
+      </tg>
+    </mg>
+  </e>
+</r>
