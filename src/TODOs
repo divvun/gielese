@@ -1,5 +1,12 @@
 ## Today
 
+ + TODO:  new media sets: 
+   * create various image sizes
+   * define category images
+   * check that semantic sets match up with leksa level definition
+   * there may be some complexity to simplify now, which can be seen while
+     adding new categories.
+
  + TODO: back button on create an account page -- accidental navigation
 
  + TODO: when sma is selected and user navigates to options, both language

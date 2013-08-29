@@ -1,13 +1,25 @@
 # -*- encoding: utf-8 -*-
 """CSV -> XML thing
 
+# TODO: update media xml format.
+
+A two-step process for importing data.
+
+ 1. `convert` command converts a CSV into an XML file with media
+    definitions.
+
+ 2. `copy_files` copies a directory structure with data from the CSV
+    into a target directory with renamed files, with filenames based on CSV
+    entries, and directory structure copied.
+
+        /path/to/source/Lydfiler/KB/lydfile KB.mp3
+          -> /path/to/target/Lydfiler/KB/term_name.mp3
+
 Usage:
   make_xml.py convert --csv=<in_file> [-v | --verbose] [--rename=<target_path>]
   make_xml.py convert --csv=<in_file> --semantics=<semantic_tags> [-v | --verbose] [--rename=<target_path>]
   make_xml.py convert --csv=<in_file> --xml=<out_file> --semantics=<semantic_tags> [-v | --verbose] [--rename=<target_path>]
   make_xml.py copy_files --csv=<in_file> --source=<path_to_source_root> --target=<path_to_target_root> [-v | --verbose]
-
-
 
 """
 import os, sys

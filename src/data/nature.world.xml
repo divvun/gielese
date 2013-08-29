@@ -6,18 +6,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/aske.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/aske.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/aske.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/aske.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/aske.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/aske.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/aske.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/aske.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -41,18 +41,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/biejjie.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/biejjie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/biejjie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/biejjie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/biejjie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/biejjie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/biejjie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/biejjie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -76,18 +76,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/balve.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/balve.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/balve.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/balve.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/balve.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/balve.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/balve.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/balve.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -111,18 +111,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/naestie.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/naestie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/naestie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/naestie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/naestie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/naestie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/naestie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/naestie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -146,18 +146,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/gierkie.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/gierkie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/gierkie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/gierkie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/gierkie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/gierkie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/gierkie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/gierkie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -181,18 +181,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/gaedtie.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/gaedtie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/gaedtie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/gaedtie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/gaedtie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/gaedtie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/gaedtie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/gaedtie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -216,15 +216,15 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/baalka.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/baalka.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/baalka.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/baalka.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/baalka.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/baalka.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -248,15 +248,15 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/pluevie.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/pluevie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/pluevie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/pluevie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/pluevie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/pluevie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -280,15 +280,15 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/sk_aa_ajje.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/sk_aa_ajje.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/sk_aa_ajje.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/sk_aa_ajje.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/sk_aa_ajje.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/sk_aa_ajje.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -312,18 +312,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/geajnoe.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/geajnoe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/geajnoe.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/geajnoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/geajnoe.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/geajnoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/geajnoe.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/geajnoe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -347,18 +347,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/baaroe.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/baaroe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/baaroe.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/baaroe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/baaroe.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/baaroe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/baaroe.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/baaroe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -382,18 +382,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/gaaltije.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/gaaltije.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/gaaltije.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/gaaltije.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/gaaltije.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/gaaltije.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/gaaltije.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/gaaltije.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -417,18 +417,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/garse.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/garse.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/garse.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/garse.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/garse.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/garse.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/garse.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/garse.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -452,15 +452,15 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/johke.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/johke.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/johke.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/johke.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/johke.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/johke.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -484,15 +484,15 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/jaevrie.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/jaevrie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/jaevrie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/jaevrie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/jaevrie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/jaevrie.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -516,15 +516,15 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/mearoe.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/mearoe.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/mearoe.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/mearoe.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/mearoe.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/mearoe.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -548,18 +548,18 @@
     <media>
       <images>
         <image size="orig">
-          <path><![CDATA[nature_world/img/orig/eatneme.jpg]]></path>
+          <path><![CDATA[/static/nature_world/img/orig/eatneme.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/eatneme.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/eatneme.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/eatneme.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/eatneme.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/eatneme.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/eatneme.mp3]]></path>
         </sound>
       </sounds>
     </media>
@@ -582,19 +582,19 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[nature_world/img/orig/elmie.jpg]]></path>
+        <image size="orig" image_for_category="true">
+          <path><![CDATA[/static/nature_world/img/orig/elmie.jpg]]></path>
         </image>
       </images>
       <sounds>
         <sound>
-          <path><![CDATA[nature_world/mp3/AD/elmie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/AD/elmie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/ED/elmie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/ED/elmie.mp3]]></path>
         </sound>
         <sound>
-          <path><![CDATA[nature_world/mp3/KB/elmie.mp3]]></path>
+          <path><![CDATA[/static/nature_world/mp3/KB/elmie.mp3]]></path>
         </sound>
       </sounds>
     </media>

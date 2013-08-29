@@ -58,6 +58,34 @@
 	        </div>
         </div>
 
+        <br />
+        <br />
+
+        <div class="ui-grid-b">
+	        <div class="ui-block-a">
+                <a class="square" href="#category/ANIMALS" data-transition="slide">
+                    <% if app.conceptdb.titleImages("ANIMALS"): %>
+                        <% background_img = app.conceptdb.titleImages("ANIMALS")[0].path %>
+	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
+	                <% else: %>
+	                    <span class="link_image"></span>
+	                <% end %>
+	                <span class="link_word"><%- gettext.gettext "Animals" %></span>
+	            </a>
+	        </div>
+	        <div class="ui-block-b">
+                <a class="square" href="#category/WORLD" data-transition="slide">
+                    <% if app.conceptdb.titleImages("WORLD"): %>
+                        <% background_img = app.conceptdb.titleImages("WORLD")[0].path %>
+	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
+	                <% else: %>
+	                    <span class="link_image"></span>
+	                <% end %>
+	                <span class="link_word"><%- gettext.gettext "World" %></span>
+	            </a>
+	        </div>	   
+        </div>
+
     </div>
 
 </div> 
