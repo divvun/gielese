@@ -33,7 +33,7 @@ module.exports = class CategoryGames extends Backbone.View
       children = false
 
     @$el.html @template {
-      category: @category
+      category: cat
       subcategory: subcategory
     }
 

@@ -2,8 +2,27 @@
 <% # TODO: links for subcategory %>
 
 <div data-role="header">
-    <a href="#categoryMenu" data-transition="slide" id="show-panel" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
-    <h1>&nbsp;</h1>
+
+    <% if @subcategory: %>
+        <% prev = "#categoryMenu" %>
+    <% else: %>
+        <% if @category.get('parent'): %>
+            <% prev = "#category/" + @category.get('parent') %>
+        <% else: %>
+            <% prev = "#categoryMenu" %>
+        <% end %>
+    <% end %>
+
+    <a href="<%- prev %>" 
+       data-transition="slide" 
+       id="show-panel" 
+       data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
+
+    <% if not @subcategory: %>
+        <h1>&nbsp;</h1>
+    <% else: %>
+        <h1> <%- gettext.gettext @category.get('name') %> </h1>
+    <% end %>
 </div> 
 
 <% if @subcategory: %>
@@ -40,16 +59,16 @@
 <% else: %>
 
     <div data-role="content" id="category_content">
-        <h2 class="category_name"><%- gettext.gettext @category %></h2>
+        <h2 class="category_name"><%- gettext.gettext @category.get('name') %></h2>
         <div data-role="controlgroup">
 	        <a data-role="button" 
-	           href="#conceptSet/<%- @category %>" 
+	           href="#conceptSet/<%- @category.get('category') %>" 
 	           data-transition="slide"><%- gettext.gettext "Wordlist" %></a>
 	        <a data-role="button" 
-	           href="#leksa/1/<%- @category %>" 
+	           href="#leksa/1/<%- @category.get('category')%>" 
 	           data-transition="slide"><%- gettext.gettext "Learn" %></a>
 	        <a data-role="button" 
-	           href="#leksa/2/<%- @category %>" 
+	           href="#leksa/2/<%- @category.get('category')%>" 
 	           data-transition="slide"><%- gettext.gettext "Practice" %></a>
         </div>
     </div> 

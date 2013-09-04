@@ -281,7 +281,8 @@ def prepare_categories(db):
     import yaml
     with open('../data/categories.yaml', 'r') as F:
         data = yaml.load(F.read())
-    categories = data.get('Categories')
+    categories = data.get('Categories') + \
+                 data.get('Subcategories')
     return categories
 
 # TODO: merge this with the above concept thing, it's basically the

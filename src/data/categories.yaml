@@ -13,12 +13,22 @@ Subcategories:
     name: "Animals"
     activities: *ACTIVITIES
     main_menu: false
+    parent: "NATURE"
+    media:
+      image:
+        - path: "http://placekitten.com/g/600/800"
+          device: "mobile"
 
   - &world
     category: "WORLD"
     name: "World"
     activities: *ACTIVITIES
     main_menu: false
+    parent: "NATURE"
+    media:
+      image:
+        - path: "http://placekitten.com/g/600/800"
+          device: "mobile"
 
 # These are displayed in the main list.
 #
@@ -58,6 +68,10 @@ Categories:
   - category: "NATURE"
     name: "Nature"
     main_menu: true
+    media:
+      image:
+        - path: "http://placekitten.com/g/600/800"
+          device: "mobile"
     children: 
       - *animals
       - *world
