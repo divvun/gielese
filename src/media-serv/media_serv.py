@@ -49,70 +49,6 @@ app.jinja_env.line_statement_prefix = '#'
 # get_url param for something that fetches each file and returns
 # something.
 
-def create_manifest(app_host):
-    from datetime import datetime
-    from textwrap import dedent
-
-    def list_dir(p):
-        from os import listdir
-        from os.path import isfile, join
-        return [ join(p, f) for f in listdir(p)
-                 if isfile(join(p, f)) ]
-
-    def join_hosts(ps):
-        return [app_host + p for p in ps]
-
-    images = join_hosts(list_dir('static/images/')) + \
-             join_hosts(list_dir('static/client/images/')) + \
-             join_hosts(list_dir('static/images/ansikt/small/'))
-
-    def quote_add_dir(s):
-        return join_hosts(map(quote, list_dir(s)))
-
-    from urllib import quote
-             # quote_add_dir('static/audio/body/ED/') + \
-             # quote_add_dir('static/audio/body/KB/') + \
-    audios = \
-             quote_add_dir('static/audio/body/AD/') + \
-             quote_add_dir('static/audio/heelsedh/AD/') + \
-             quote_add_dir('static/audio/heelsedh/ED/') + \
-             quote_add_dir('static/audio/heelsedh/KB/') + \
-             join_hosts(['static/client/swf/soundmanager2_debug.swf'])
-
-    timestamp = datetime.strftime(datetime.today(), format='%Y-%M-%d %H:%M')
-
-    networks = join_hosts([
-        'static/client/javascripts/app.js',
-        'static/client/javascripts/vendor.js',
-        'static/client/stylesheets/app.css',
-        # TODO: test
-        'data/concepts.json',
-        'data/leksa_questions.json',
-        # TODO: test
-        'data/translations/sv/messages.json',
-        'data/translations/no/messages.json',
-        'data/translations/sma/messages.json',
-        'data/translations/en/messages.json',
-    ])
-
-    imgs = '\n'.join(images)
-    audios = '\n'.join(audios)
-    nets = '\n'.join(networks)
-
-    # TODO: structure actually correct? missing CACHE? key
-    manifest_cache = dedent("""CACHE MANIFEST\n# %(timestamp)s\n\nCACHE:\n%(imgs)s\n%(audios)s\n%(nets)s""" % locals())
-    manifest_network = manifest_cache + """\n\nNETWORK:\n%(nets)s\n\nFALLBACK:\n%(nets)s""" % locals()
-    # TODO: add FALLBACK and options, etc.?
-
-    manifest = manifest_network + '\n'
-    return manifest.decode('utf-8')
-
-def fmtForCallback(serialized_json, callback):
-    if not callback:
-        return serialized_json
-    else:
-        return "%s(%s)" % (callback, serialized_json)
-
 def format_as_gettextjs(locale):
     import os, sys
     import polib
@@ -185,6 +121,20 @@ def prepare_translations(db):
              for lx in translations ]
     return data
 
+
+##
+### JSON data files endpoints
+##
+
+# TODO: move these to own module.
+
+def fmtForCallback(serialized_json, callback):
+    if not callback:
+        return serialized_json
+    else:
+        return "%s(%s)" % (callback, serialized_json)
+
+
 @app.route('/data/translations.json', methods=['GET'])
 def bookmarklet_configs():
     """ Compile a JSON response containing dictionary pairs,
@@ -230,6 +180,7 @@ def get_messages_for(locale):
 @app.route('/offline.media.appcache', methods=['GET'])
 def cache_manifest():
     from flask import Response
+    from app_manifest import create_manifest
 
     return Response( create_manifest('http://%s/' % request.host)
                    , mimetype='text/cache-manifest')
@@ -326,10 +277,64 @@ def concepts():
                        , mimetype="application/json"
                        )
 
+def prepare_categories(db):
+    import yaml
+    with open('../data/categories.yaml', 'r') as F:
+        data = yaml.load(F.read())
+    categories = data.get('Categories')
+    return categories
 
+# TODO: merge this with the above concept thing, it's basically the
+# same.
+@app.route('/data/categories.json', methods=['GET'])
+def categories():
+    from flask import json
+
+    reprepare = request.args.get('force_prepare', False)
+
+    if not reprepare:
+        try:
+            with open('data/categories.json', 'r') as F:
+                json_data = F.read().strip()
+            return Response( response=json_data
+                           , status=200
+                           , mimetype="application/json"
+                           )
+        except IOError:
+            pass
+
+    cached = cache.get('categories.json')
+    pretty = bool(request.args.get('pretty', False))
+
+    if not cached:
+        categories = prepare_categories(db)
+        cache.set('categories.json', categories)
+    else:
+        categories = cached
+
+    categories = {
+        'categories': categories
+    }
+
+    if pretty:
+        data = json.dumps( categories
+                         , sort_keys=True
+                         , indent=4
+                         , separators=(',', ': ')
+                         )
+    else:
+        data = json.dumps(categories)
+
+    with open('data/categories.json', 'w') as F:
+        F.write(data)
+
+    return Response( response=data.encode('utf-8')
+                   , status=200
+                   , mimetype="application/json"
+                   )
 
 ##
-### Front page
+### Front page and brunch serving view
 ##
 
 @app.route('/', methods=['GET'])

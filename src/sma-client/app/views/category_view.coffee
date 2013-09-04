@@ -27,5 +27,22 @@ module.exports = class CategoryMenu extends Backbone.View
   template: require './templates/category_menu'
 
   render: ->
+    categories = app.categories.where
+      main_menu: true
+
+    labels = 'cba'
+    _labels = labels.split('')
+    withLabel = (c) =>
+      if _labels.length == 0
+        _labels = labels.split('')
+      lab = _labels.pop(0)
+      return [c, lab]
+
+    chunks = window.arrayChunk(
+      withLabel c for c in categories,
+      3
+    )
     @$el.html @template
+      categories: chunks
+
     this

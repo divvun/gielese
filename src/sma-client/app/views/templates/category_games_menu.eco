@@ -1,15 +1,58 @@
+<% # TODO: back button for subcategory %>
+<% # TODO: links for subcategory %>
+
 <div data-role="header">
     <a href="#categoryMenu" data-transition="slide" id="show-panel" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
     <h1>&nbsp;</h1>
 </div> 
 
-<div data-role="content" id="category_content">
+<% if @subcategory: %>
 
-    <h2 class="category_name"><%- gettext.gettext @category %></h2>
-    <div data-role="controlgroup">
-	    <a data-role="button" href="#conceptSet/<%- @category %>" data-transition="slide"><%- gettext.gettext "Wordlist" %></a>
-	    <a data-role="button" href="#leksa/1/<%- @category %>" data-transition="slide"><%- gettext.gettext "Learn" %></a>
-	    <a data-role="button" href="#leksa/2/<%- @category %>" data-transition="slide"><%- gettext.gettext "Practice" %></a>
+    <div data-role="content" id="main_menu">
+        <div class="ui-grid-b">
+            <% for group in @subcategory: %>
+                <% for [category, label] in group: %>
+	                <% cat  = category.get('category') %>
+	                <% name = category.get('name') %>
+	                <% subcat = category.get('children').length > 0 %>
+
+	                <div class="ui-block-<%- label %>">
+                        <a class="square" 
+                           href="#category/<%- cat %>" 
+                           data-transition="slide">
+                            <% if app.conceptdb.titleImages(cat): %>
+                                <% background_img = app.conceptdb.titleImages(cat)[0].path %>
+	                            <span class="link_image" 
+	                                  style="background-image: url('<%- background_img %>')">
+	                            </span>
+	                        <% else: %>
+	                            <span class="link_image"></span>
+	                        <% end %>
+	                        <span class="link_word"><%- gettext.gettext name %></span>
+	                    </a>
+	                </div>
+
+	            <% end %>
+            <% end %>
+        </div>
     </div>
 
-</div> 
+<% else: %>
+
+    <div data-role="content" id="category_content">
+        <h2 class="category_name"><%- gettext.gettext @category %></h2>
+        <div data-role="controlgroup">
+	        <a data-role="button" 
+	           href="#conceptSet/<%- @category %>" 
+	           data-transition="slide"><%- gettext.gettext "Wordlist" %></a>
+	        <a data-role="button" 
+	           href="#leksa/1/<%- @category %>" 
+	           data-transition="slide"><%- gettext.gettext "Learn" %></a>
+	        <a data-role="button" 
+	           href="#leksa/2/<%- @category %>" 
+	           data-transition="slide"><%- gettext.gettext "Practice" %></a>
+        </div>
+    </div> 
+
+<% end %>
+

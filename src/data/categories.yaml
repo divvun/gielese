@@ -1,0 +1,64 @@
+﻿# Helpful alias.
+DefaultActivities: &ACTIVITIES
+  - "wordlist"
+  - "learn"
+  - "practice"
+
+# These won't be displayed in the main list, only when called from the
+# sublist.
+
+Subcategories:
+  - &animals
+    category: "ANIMALS"
+    name: "Animals"
+    activities: *ACTIVITIES
+    main_menu: false
+
+  - &world
+    category: "WORLD"
+    name: "World"
+    activities: *ACTIVITIES
+    main_menu: false
+
+# These are displayed in the main list.
+#
+
+Categories:
+
+  - category: "BODYPART"
+    name: "Face"
+    activities: *ACTIVITIES
+    children: []
+    main_menu: true
+    media:
+      image:
+        - path: "http://placekitten.com/g/500/600"
+          device: "mobile"
+
+  - category: "GREETINGS"
+    name: "Greetings"
+    activities: *ACTIVITIES
+    children: []
+    main_menu: true
+    media:
+      image:
+        - path: "http://placekitten.com/g/300/500"
+          device: "mobile"
+
+  - category: "FOOD"
+    name: "Food"
+    activities: *ACTIVITIES
+    children: []
+    main_menu: true
+    media:
+      image:
+        - path: "http://placekitten.com/g/400/600"
+          device: "mobile"
+
+  - category: "NATURE"
+    name: "Nature"
+    main_menu: true
+    children: 
+      - *animals
+      - *world
+

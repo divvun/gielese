@@ -9,6 +9,7 @@ UserProgression = require 'models/user_progression'
 # Data
 LoadingTracker = require 'loadingtracker'
 ConceptDB = require 'models/conceptdb'
+CategoryList = require 'models/categorylist'
 QuestionDB = require 'models/questiondb'
 
 # Tests
@@ -83,6 +84,7 @@ module.exports = class Application
       'concepts.json': false
       'leksa_questions.json': false
       'translations.json': false
+      'categories.json': false
     })
 
     @loadingTracker.showLoading()
@@ -102,6 +104,13 @@ module.exports = class Application
         window.fetched_somewhere = true
         app.loadingTracker.markReady('concepts.json')
         console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+
+    @categories = new CategoryList()
+    @categories.fetch
+      success: () =>
+        window.fetched_somewhere = true
+        app.loadingTracker.markReady('categories.json')
+        console.log "fetched categories.json (#{app.conceptdb.models.length})"
 
     @questiondb = new QuestionDB()
 

@@ -72,17 +72,7 @@ Examples:
       #   - "HT"
 
 
-# Controls visible categories within the system.
-
-Categories:
-  - category: "BODYPART"
-    display_name: "Face"
-  - category: "GREETINGS"
-    display_name: "Greetings"
-  - category: "FOOD"
-    display_name: "Food"
-  - category: "TEST"
-    display_name: "Test"
+# For category definitions, see categories.yaml.
 
 Questions:
   # -*- body -*-

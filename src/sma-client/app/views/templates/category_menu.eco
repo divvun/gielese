@@ -15,75 +15,33 @@
 </div> 
 
 <div data-role="content">
-    <!--
-    <h2 class="heading" data-role="list-divider"><%- gettext.gettext "Categories" %></h2>
-    -->
     <br />
 
     <div id="main_menu">
 
         <div class="ui-grid-b">
-	        <div class="ui-block-a">
-                <a class="square" href="#category/BODYPART" data-transition="slide">
-                    <% if app.conceptdb.titleImages("BODYPART"): %>
-                        <% background_img = app.conceptdb.titleImages("BODYPART")[0].path %>
-	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
-	                <% else: %>
-	                    <span class="link_image"></span>
-	                <% end %>
-	                <span class="link_word"><%- gettext.gettext "Face" %></span>
-	            </a>
-	        </div>
-	        <div class="ui-block-b">
-                <a class="square" href="#category/GREETINGS" data-transition="slide">
-                    <% if app.conceptdb.titleImages("GREETINGS"): %>
-                        <% background_img = app.conceptdb.titleImages("GREETINGS")[0].path %>
-	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
-	                <% else: %>
-	                    <span class="link_image"></span>
-	                <% end %>
-	                <span class="link_word"><%- gettext.gettext "Greetings" %></span>
-	            </a>
-	        </div>	   
-	        <div class="ui-block-c">
-                <a class="square" href="#category/FOOD" data-transition="slide">
-                    <% if app.conceptdb.titleImages("FOOD"): %>
-                        <% background_img = app.conceptdb.titleImages("FOOD")[0].path %>
-	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
-	                <% else: %>
-	                    <span class="link_image"></span>
-	                <% end %>
-	                <span class="link_word">Food</span>
-	            </a>
-	        </div>
-        </div>
+        <% for group in @categories: %>
+            <% for [category, label] in group: %>
+	            <% cat  = category.get('category') %>
+	            <% name = category.get('name') %>
+	            <% subcat = category.get('children').length > 0 %>
 
-        <br />
-        <br />
+	            <div class="ui-block-<%- label %>">
+                    <a class="square" 
+                       href="#category/<%- cat %>" 
+                       data-transition="slide">
+                        <% if app.conceptdb.titleImages(cat): %>
+                            <% background_img = app.conceptdb.titleImages(cat)[0].path %>
+	                        <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
+	                    <% else: %>
+	                        <span class="link_image"></span>
+	                    <% end %>
+	                    <span class="link_word"><%- gettext.gettext name %></span>
+	                </a>
+	            </div>
 
-        <div class="ui-grid-b">
-	        <div class="ui-block-a">
-                <a class="square" href="#category/ANIMALS" data-transition="slide">
-                    <% if app.conceptdb.titleImages("ANIMALS"): %>
-                        <% background_img = app.conceptdb.titleImages("ANIMALS")[0].path %>
-	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
-	                <% else: %>
-	                    <span class="link_image"></span>
-	                <% end %>
-	                <span class="link_word"><%- gettext.gettext "Animals" %></span>
-	            </a>
-	        </div>
-	        <div class="ui-block-b">
-                <a class="square" href="#category/WORLD" data-transition="slide">
-                    <% if app.conceptdb.titleImages("WORLD"): %>
-                        <% background_img = app.conceptdb.titleImages("WORLD")[0].path %>
-	                    <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
-	                <% else: %>
-	                    <span class="link_image"></span>
-	                <% end %>
-	                <span class="link_word"><%- gettext.gettext "World" %></span>
-	            </a>
-	        </div>	   
+	        <% end %>
+        <% end %>
         </div>
 
     </div>
