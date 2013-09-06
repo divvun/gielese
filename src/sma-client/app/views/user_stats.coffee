@@ -142,6 +142,7 @@ module.exports = class UserStats extends Backbone.View
     @$el.html @template
       logs: models
       category_scores: correct_for_category
+      highscore_visible: app.options.getSetting('highscore_visible')
       points_total: points
 
     if app.leksaUserProgression.length > 0

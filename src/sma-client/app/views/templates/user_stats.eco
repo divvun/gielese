@@ -55,11 +55,17 @@
                                name="radio-choice-b" 
                                id="radio-choice-a"
                                data-highscore-visible="true"
-                               checked="checked">
+                               <% if @highscore_visible: %>
+                               checked="checked"
+                               <% end %>
+                               >
                         <label for="radio-choice-a"><%- gettext.gettext "Yes" %></label>
                         <input type="radio"
                                name="radio-choice-b"
                                id="radio-choice-b"
+                               <% if not @highscore_visible: %>
+                               checked="checked"
+                               <% end %>
                                data-highscore-visible="false">
                         <label for="radio-choice-b"><%- gettext.gettext "No" %></label>
                 </fieldset>
