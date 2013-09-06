@@ -1,9 +1,3 @@
-# TODO: problem - syncing one model outside of a collection doesn't quite work
-#       so well - requires creating methods to make sure backbone-offline
-#       doesn't fail when expecting a collection. how does backbone-offline
-#       prefer to do this? 
-#
-
 UserSetting = require 'models/usersetting'
 
 module.exports = class UserSettings extends Backbone.Collection
@@ -19,6 +13,7 @@ module.exports = class UserSettings extends Backbone.Collection
   default_setting_values:
     enable_cache: false
     enable_audio: true
+    highscore_visible: true
     interface_language: 'nob'
     help_language: 'nob'
 
@@ -53,7 +48,7 @@ module.exports = class UserSettings extends Backbone.Collection
     if key == 'interface_language'
       @setLanguage(val)
 
-    # TODO: full sync? 
+    # TODO: full sync?
     return new_setting
 
   setDefaults: (opts) ->
@@ -76,6 +71,4 @@ module.exports = class UserSettings extends Backbone.Collection
       #   console.log resp
       #   return resp.data
 
-# TODO: sync methods
 # TODO: call something to refresh settings when a login happens.
-

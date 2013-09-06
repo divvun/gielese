@@ -9,8 +9,6 @@
 <div data-role="content">
     <% if app.user is undefined: %>
         <h3><%- gettext.gettext "Please log in first." %></h3>
-    <% else: %>
-        
     <% end %>
 
     <% if app.user is undefined: %>
@@ -47,5 +45,26 @@
     <div id="high_scores">
         <%- gettext.gettext "Loading..." %>
     </div>
+
+    <form id="display_stats">
+        <ul data-role="listview" data-inset="true">
+            <li data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <legend><%- gettext.gettext "Show my score to everyone?" %></legend>
+                        <input type="radio" 
+                               name="radio-choice-b" 
+                               id="radio-choice-a"
+                               data-highscore-visible="true"
+                               checked="checked">
+                        <label for="radio-choice-a"><%- gettext.gettext "Yes" %></label>
+                        <input type="radio"
+                               name="radio-choice-b"
+                               id="radio-choice-b"
+                               data-highscore-visible="false">
+                        <label for="radio-choice-b"><%- gettext.gettext "No" %></label>
+                </fieldset>
+            </li>
+        </ul>
+    </form>
 
 </div>

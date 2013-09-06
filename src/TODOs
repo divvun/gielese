@@ -1,5 +1,21 @@
 ## Today
 
+ + TODO: 
+
+    * moglegheit til å slå av presentasjon i high scores
+      - TODO: global options
+      - TODO: automatically set option
+
+    * bilætestørrelse i ordlista og spelet - for liten no, særleg på nettbrett
+
+    * lyden kjem ikkje av seg sjølv på iPhone (iOS 5) - berre etter at ein har trykt på lydlenka ein gong
+    * lyden er borte på iOS 6
+
+    * problem med rulling i ordlister for å sjå det siste ordet/kategorien
+    * manglar rullesjakt i ordlista når ein rullar (=vanskeleg å vita om ein har kome til slutten/starten, og kor lang lista er)
+
+
+
  + TODO:  new media sets: 
    * create various image sizes
    * define category images

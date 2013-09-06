@@ -51,19 +51,41 @@ def get_highscores():
     if not un:
         return plz_can_haz_auth()
 
-    table = current_app.mongodb.db.user_logs
+    logs_table = current_app.mongodb.db.user_logs
+    settings = current_app.mongodb.db.user_settings
+    users_table = current_app.mongodb.db.users
 
-    user_names = dict(
-        [(u.get('_id'), u.get('username')) for u in current_app.mongodb.db.users.find()]
+    # All user visibility options
+    _visibility_opts = settings.find({
+        u'setting_key': u'highscore_visible',
+    })
+
+    user_visibilities = dict(
+        [(u.get('user_id'), u.get('setting_value')) for u in _visibility_opts]
     )
-    pipeline = [
+
+    # Only users with visibility that exists, and is set to False,
+    # meaning they don't want to be shown.
+    hidden_user_ids = [_uid for _uid, _vis in user_visibilities.iteritems()
+                       if _vis == False]
+
+    points = logs_table.aggregate([
+        # Users not in hidden
+        {'$match':
+            {'user_id': {'$nin': hidden_user_ids}}
+        },
+        # group and sum points
         {'$group':
             {'_id': '$user_id',
              'points': {'$sum': '$points'}}
         },
-    ]
-    points = table.aggregate(pipeline)
+    ])
 
+    user_names = dict(
+        [(u.get('_id'), u.get('username')) for u in users_table.find()]
+    )
+
+    # now we add in usernames
     users_and_points = []
     for r in points.get('result'):
         _r = r.copy()
@@ -72,6 +94,7 @@ def get_highscores():
             _r.pop('_id')
             users_and_points.append(_r)
 
+    # sort
     users_and_points = sorted( users_and_points
                              , key=itemgetter('points')
                              , reverse=True

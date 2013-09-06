@@ -1,3 +1,6 @@
+# TODO: if this view is called and someone isn't logged in, display login
+# but with a back button
+#
 CategoryLegend = require './templates/stats_category_legend'
 HighScoreList = require './templates/high_scores_block'
 
@@ -77,6 +80,20 @@ module.exports = class UserStats extends Backbone.View
       items: category_colors
     }
 
+  store_user_visibility: (evt, ui) ->
+    toBool = (v) ->
+      switch v
+        when "true"  then return true
+        when "false" then return false
+
+    key = 'highscore_visible'
+    val = toBool $(evt.target).attr('data-highscore-visible')
+
+    if app.user
+      app.options.setSettings({highscore_visible: val}, {store: true})
+
+    return false
+
   render: ->
 
     # * word accuracy rate
@@ -129,6 +146,11 @@ module.exports = class UserStats extends Backbone.View
 
     if app.leksaUserProgression.length > 0
       @categoryChart()
+
+    @$el.find('#display_stats input[type=radio]').on(
+      'change',
+      @store_user_visibility
+    )
 
     scores = @$el.find('div#high_scores')
     $.get '/users/scores/',

@@ -1,4 +1,5 @@
 # TODO: clean up all this.
+#
 # TODO: additional issue is that some views need to be reinstantiated
 #       in order for all events to be available again, as
 #       router.changePage destroys them for some reason.
@@ -118,6 +119,8 @@ module.exports = class Router extends Backbone.Router
     @changePage(app.userStats)
 
   categoryMenu: ->
+    app.categoryMenu = new CategoryMenu()
+    app.categoryMenu.initialize()
     @changePage(app.categoryMenu)
 
   categoryGames: (name) ->

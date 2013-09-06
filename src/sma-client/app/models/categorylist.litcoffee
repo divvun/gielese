@@ -1,8 +1,6 @@
 ﻿The category list maintains all the dependencies of the main word categories,
 and uses them to generate the main menu.
 
-TODO: return children as a category instance.
-
     Category = require 'models/category'
 
     module.exports = class CategoryList extends Backbone.Collection
