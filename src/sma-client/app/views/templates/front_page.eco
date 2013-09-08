@@ -1,6 +1,6 @@
 <div data-role="content">
     <div id="main_page_header">
-        <h1>Gïelese!</h1>
+        <img id="logo" src="/static/images/logo_large.png" />
     </div>
 
     <div id="main_page_content">
