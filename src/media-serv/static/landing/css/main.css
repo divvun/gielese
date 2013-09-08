@@ -2558,6 +2558,10 @@ body.vjs-full-window {
     ) ;
 }
 
+.hero-unit {
+    background-color: #EFEFEF;
+}
+
 .hero-unit h1 {
     font-family: "Kaushan Script", "Bello Pro", "Bello-Pro" ;
     margin-bottom: .5em;
