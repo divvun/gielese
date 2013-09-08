@@ -79,6 +79,29 @@ a.answerlink
 // a.answerlink.correct:after
 //     content: "  Correct!"
 
+ul.image-grid
+    display: block
+    
+    margin: 0 0 0 0
+    padding: 0 0 0 0
+
+    width: 300px
+    height: 300px
+
+    list-style-type: none
+
+    li.image-item
+
+        display: block
+        float: left
+
+        width: 130px
+        height: 150px
+
+        img
+            position: relative
+            vertical-align: center
+
 .image_set 
 
     display: block
@@ -143,14 +166,16 @@ a.answerlink
 #progress_container
     display: block
     margin-top: .25em
-    position: relative
+    position: fixed
+    bottom: 10px
+    width: 100%
 
     div 
         height: 1em
         background-color: transparent
 
     .progress_label
-        display: block
+        display: none
         float: right
         text-shadow: 0 0 3px #FFF
         font-size: 80%

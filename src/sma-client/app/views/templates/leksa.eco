@@ -1,7 +1,6 @@
 <div data-role="header" data-position="fixed">
     <a data-icon="arrow-l" href="#category/<%- @leksa_category %>"><%- gettext.gettext "Back" %></a>
     <h1>Leksa</h1>
-    <a id="show-user-panel" href="#" data-icon="check" data-theme="b">Stats/Options</a>
 </div>
 <div data-role="panel" 
      data-dismissable="true"
@@ -14,6 +13,7 @@
 <!--        <li><a href="#leksaOptions">Game options</a></li> -->
     </ul>
 </div>
+<!--
 <div data-role="panel"
      data-dismissable="true"
      data-position="right"
@@ -40,15 +40,18 @@
             </div>
     </form>
 </div>
+-->
+
 <div data-role="content">
-    <div id="progress_container">
-        <div id="leksa_progress_indiv"><div class="progress_label"></div></div>
-        <div id="leksa_progress" style="display: none;"></div>
-    </div>
     <div id="leksa_question">
         <% if @leksa_question: %><%- @leksa_question %><% end %>
     </div>
     <div id="points_for_question"><span class="points">+15</span></div>
+    <div id="progress_container">
+        <div id="leksa_progress_indiv"><div class="progress_label"></div></div>
+    </div>
 </div>
+
 <a style="display: none;" data-role="button" id="menu_next" href="#" data-icon="arrow-r">Next</a>
+
 <%# vim: set ts=4 sw=4 tw=0 syntax=eco nobomb: %>

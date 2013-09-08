@@ -48,7 +48,7 @@ module.exports = class ConceptList extends Backbone.View
 
   events:
     'click .audio_link': 'findAudio'
-    'click #show-panel': "revealOptionsPanel"
+    'click #show-panel': "revealWordsPanel"
     'click .concept_link': 'showConcept'
     'click #cycle-concept-prev': 'prevConcept'
     'click #cycle-concept-next': 'nextConcept'
@@ -116,13 +116,11 @@ module.exports = class ConceptList extends Backbone.View
 
     $('#concept_content').html concept_template.render().$el.html()
     $('#concept_content').trigger('create')
-
+    $('#wordlist_panel').panel('close', {})
     return false
   # Left panel
-  revealOptionsPanel: (evt) ->
-    panel_options =
-      position: "left"
-    $('#word-links').panel('open', panel_options)
+  revealWordsPanel: (evt) ->
+    $('#wordlist_panel').panel('open', {})
     return false
 
   findAudio: (event) ->

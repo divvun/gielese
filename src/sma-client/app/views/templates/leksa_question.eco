@@ -28,13 +28,13 @@
     </div>
 <% else if @q_type == 'word_to_image': %>
     <div class="possible_answers image_set">
-        <div class="ui-grid-a">
+        <ul class="image-grid">
         <% chars = 'abcdefghijklmnopqrstuvwxyz' %>
         <% for choice, idx in @instance.choices: %>
-            <div class="ui-block-<%- chars.charAt(idx) %>">
+            <li class="image-item image-<%- chars.charAt(idx) %>">
                 <a class="answerlink" data-word="<%- choice.get('concept_value') %>" href="#"><span class="tint"><%- choice.render_concept() %></span></a>
-            </div>
+            </li>
         <% end %>
-        </div>
+        </ul>
     </div>
 <% end %>
