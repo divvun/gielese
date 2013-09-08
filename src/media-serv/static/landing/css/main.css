@@ -2570,5 +2570,9 @@ body.vjs-full-window {
     text-shadow: 0 0 1px #000 ;
 }
 
+.hero-unit img {
+    margin-bottom: .75em;
+}
+
 
 
