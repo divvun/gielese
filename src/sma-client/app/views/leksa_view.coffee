@@ -245,6 +245,19 @@ module.exports = class LeksaView extends Backbone.View
 
     app.router.refreshCurrentPage()
 
+    if @$el.find('.image_set')
+      box = document.width - 40
+      img = box / 2
+
+      @$el.find('.image-grid').css({
+        width: "#{box}px"
+        height: "#{box}px"
+      })
+      @$el.find('.image-grid .image-item').css({
+        width: "#{img}px"
+        height: "#{img}px"
+      })
+
     playFirst = =>
       if app.options.getSetting('enable_audio') and q_instance.generator.get('sound')
         q_instance.question.playAudio()
