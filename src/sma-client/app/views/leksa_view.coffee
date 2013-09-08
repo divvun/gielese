@@ -245,6 +245,14 @@ module.exports = class LeksaView extends Backbone.View
 
     app.router.refreshCurrentPage()
 
+    if @$el.find('.question_prompt .img_concept')
+      box = document.width - 40
+      img = box / 2
+      @$el.find('.question_prompt .img_concept').css({
+        width: "#{box}px"
+        height: "#{box}px"
+      })
+      
     if @$el.find('.image_set')
       box = document.width - 40
       img = box / 2
