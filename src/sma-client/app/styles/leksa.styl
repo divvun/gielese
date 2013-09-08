@@ -50,10 +50,13 @@ span.question_level
     display: block
     height: 100%
     width: 100%
-    margin: 0 auto
+    margin: 2em auto 0
+    font-family: "Open Sans"
 
-    img
+    img.img_concept
         margin: 0 auto
+        width: 300px
+        height: 300px
 
     .word_concept
         font-size: 170%
@@ -63,10 +66,18 @@ span.question_level
         width: 100%
 
     #question_play
-        float: right
+        position: fixed
+        z-index: 5
+
+        right: -5px
+        top: 30px
+
         text-decoration: none
-        position: relative
         font-weight: lighter
+        background-color: #DDD
+        border: 1px solid #BBB
+        border-radius: 50%
+        padding: 10px
 
         img
             opacity: .7

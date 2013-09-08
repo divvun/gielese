@@ -1,30 +1,12 @@
-<div data-role="header">
-
-    <% if @subcategory: %>
-        <% prev = "#categoryMenu" %>
-    <% else: %>
-        <% if @category.get('parent'): %>
-            <% prev = "#category/" + @category.get('parent') %>
-        <% else: %>
-            <% prev = "#categoryMenu" %>
-        <% end %>
-    <% end %>
-
-    <a href="<%- prev %>" 
-       data-transition="slide" 
-       id="show-panel" 
-       data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
-
-    <% if not @subcategory: %>
-        <h1>&nbsp;</h1>
-    <% else: %>
-        <h1> <%- gettext.gettext @category.get('name') %> </h1>
-    <% end %>
-</div> 
-
 <% if @subcategory: %>
 
+    <% prev = "#categoryMenu" %>
     <div data-role="content" id="main_menu">
+        <a href="<%- prev %>" 
+           class="upper-left-bubble"
+           data-iconpos="notext"
+           data-icon="arrow-l">Back</a>
+        <h1> <%- gettext.gettext @category.get('name') %> </h1>
         <div class="ui-grid-b">
             <% for group in @subcategory: %>
                 <% for [category, label] in group: %>
@@ -55,7 +37,20 @@
 
 <% else: %>
 
+    <% if @category.get('parent'): %>
+        <% prev = "#category/" + @category.get('parent') %>
+    <% else: %>
+        <% prev = "#categoryMenu" %>
+    <% end %>
+
+
     <div data-role="content" id="category_content">
+
+        <a href="<%- prev %>" 
+           class="upper-left-bubble"
+           data-iconpos="notext"
+           data-icon="arrow-l">Back</a>
+
         <h2 class="category_name"><%- gettext.gettext @category.get('name') %></h2>
         <div data-role="controlgroup">
 	        <a data-role="button" 

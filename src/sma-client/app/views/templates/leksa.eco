@@ -1,7 +1,4 @@
-<div data-role="header" data-position="fixed">
-    <a data-icon="arrow-l" href="#category/<%- @leksa_category %>"><%- gettext.gettext "Back" %></a>
-    <h1>Leksa</h1>
-</div>
+<!--
 <div data-role="panel" 
      data-dismissable="true"
      data-display="push"
@@ -10,9 +7,9 @@
     <ul data-role="listview" data-theme="a" data-divider-theme="a" class="ui-listview">
         <li><a href="#mainMenu" data-transition="slide">Home</a></li>
         <li><a href="#leksaSelect">Choose category</a></li>
-<!--        <li><a href="#leksaOptions">Game options</a></li> -->
     </ul>
 </div>
+-->
 <!--
 <div data-role="panel"
      data-dismissable="true"
@@ -43,13 +40,21 @@
 -->
 
 <div data-role="content">
+
+    <a href="#category/<%- @leksa_category %>" 
+       class="upper-left-bubble invert-bubble"
+       href="#category/<%- @leksa_category %>"><%- gettext.gettext "Back" %></a>
+
     <div id="leksa_question">
         <% if @leksa_question: %><%- @leksa_question %><% end %>
     </div>
+
     <div id="points_for_question"><span class="points">+15</span></div>
+
     <div id="progress_container">
         <div id="leksa_progress_indiv"><div class="progress_label"></div></div>
     </div>
+
 </div>
 
 <a style="display: none;" data-role="button" id="menu_next" href="#" data-icon="arrow-r">Next</a>
