@@ -1,0 +1,11 @@
+<% if @concept_type == 'img': %>
+
+    <img class='concept img_concept' src='<%- @concept_value %>' />
+
+<% else if @concept_type == 'text': %>
+
+    <% linebreaks = ///[-–—]/// %>
+    <% val = @concept_value.split(linebreaks).join('-<br />') %>
+    <span class='concept word_concept'><%- val %></span>
+
+<% end %>

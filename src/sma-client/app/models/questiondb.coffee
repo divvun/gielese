@@ -1,21 +1,21 @@
 Question = require 'models/question'
 
 chooseQuestionbyProgression = (questions, userprogression) ->
-  
+
   if app.debug
     console.log "choosing question by progression"
   _filtered_questions = questions.filter (q) =>
-      return not q.user_completed_question(userprogression)
+    return not q.user_completed_question(userprogression)
 
   filtered_questions = _filtered_questions.map (q) ->
-      {'question': q, 'level': q.get('level')}
+    {'question': q, 'level': q.get('level')}
 
   filtered_questions = _.sortBy(filtered_questions, 'level')
 
   if filtered_questions.length > 0
     return [filtered_questions[0].question]
   else
-  	return false
+    return false
 
 module.exports = class QuestionDB extends Backbone.Collection
   model: Question
@@ -27,7 +27,7 @@ module.exports = class QuestionDB extends Backbone.Collection
       success: () =>
         app.loadingTracker.markReady('leksa_questions.json')
         console.log "fetched leksa_questions.json (#{app.questiondb.models.length})"
-  
+
   filterQuestionsByCategory: (category, qs) ->
 
     if category
@@ -68,7 +68,7 @@ module.exports = class QuestionDB extends Backbone.Collection
     if category
       category_questions = qs.where({'category': category})
     else
-      category_questions = qs 
+      category_questions = qs
 
     functioning_questions = category_questions.filter (c) ->
       _fails = c.get('fails')
@@ -94,7 +94,7 @@ module.exports = class QuestionDB extends Backbone.Collection
     # out of the cycle
 
     [tries, max_tries] = [0, 5]
-     
+
     # TODO: for now just ordering by progression and dispalying everything
     # anyway
 
@@ -113,16 +113,15 @@ module.exports = class QuestionDB extends Backbone.Collection
         qs = progression_qs
       else
         qs = qs
-      
+
       if qs.length == 0
         return false
 
       q = qs[0]
-      
+
       question_instance = q.find_concepts( app.conceptdb
                                          , app.leksaUserProgression
                                          )
       tries += 1
 
     return question_instance
-

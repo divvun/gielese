@@ -4,6 +4,9 @@ LevelCompleted = require 'views/templates/leksa_level_completed'
 
 UserLog = require 'models/user_log_entry'
 
+LeksaQuestionImageToWord = require './templates/leksa_question_image_to_word'
+LeksaQuestionWordToWord = require './templates/leksa_question_image_to_word'
+LeksaQuestionWordToImage = require './templates/leksa_question_word_to_image'
 
 #
 ##
@@ -23,8 +26,17 @@ module.exports = class LeksaView extends Backbone.View
 
   id: "leksa"
 
-  question_template: require './templates/leksa_question'
   template: require './templates/leksa'
+
+  question_template: (context) ->
+    console.log context.q_type
+    if context.q_type == 'image_to_word'
+      LeksaQuestionImageToWord context
+    if context.q_type == 'word_to_word'
+      LeksaQuestionWordToWord context
+    if context.q_type == 'word_to_image'
+      LeksaQuestionWordToImage context
+    
   leksa_error_template: require './templates/leksa_error_template'
 
   events:
@@ -177,7 +189,8 @@ module.exports = class LeksaView extends Backbone.View
                                                    )
     @current_q = q_instance
 
-    # TODO: feedback to user that they haven't completed this yet or have already-- if already, repeat
+    # TODO: feedback to user that they haven't completed this yet or have
+    # already-- if already, repeat
     if q_instance == false
       console.log "Complete!"
       finished_level = LevelCompleted()
@@ -197,7 +210,6 @@ module.exports = class LeksaView extends Backbone.View
 
     #
     # Render the template for the question
-    console.log q_instance.generator.get('type')
     question_block = @question_template {
       instance: q_instance
       chunker: arrayChunk
@@ -300,4 +312,3 @@ module.exports = class LeksaView extends Backbone.View
     window.app.leksaUserProgression.on('add', @updateLogPanel)
 
     return this
-

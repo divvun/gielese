@@ -41,9 +41,11 @@
 
 <div data-role="content">
 
+    <!--
     <a href="#category/<%- @leksa_category %>" 
        class="upper-left-bubble invert-bubble"
        href="#category/<%- @leksa_category %>"><%- gettext.gettext "Back" %></a>
+       -->
 
     <div id="leksa_question">
         <% if @leksa_question: %><%- @leksa_question %><% end %>
@@ -58,5 +60,3 @@
 </div>
 
 <a style="display: none;" data-role="button" id="menu_next" href="#" data-icon="arrow-r">Next</a>
-
-<%# vim: set ts=4 sw=4 tw=0 syntax=eco nobomb: %>

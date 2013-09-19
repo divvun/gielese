@@ -1,0 +1,20 @@
+<div class="word_to_image">
+    <div class="possible_answers image_set">
+        <ul class="image-grid">
+        <% chars = 'abcdefghijklmnopqrstuvwxyz' %>
+        <% for choice, idx in @instance.choices: %>
+            <li class="image-item image-<%- chars.charAt(idx) %>">
+                <a class="answerlink" data-word="<%- choice.get('concept_value') %>" href="#"><span class="tint"><%- choice.render_concept() %></span></a>
+            </li>
+        <% end %>
+        </ul>
+    </div>
+
+    <div class="question_prompt">
+        <%- @instance.question.render_concept() %>
+    </div>
+
+    <% if @audio and @instance.generator.get('sound'): %>
+        <a href="#" id="question_play"><img width="32" height="32" src="/static/client/images/speaker.png" /></a>
+    <% end %>
+</div>

@@ -30,13 +30,13 @@
                                 <div class="ui-block-a">
                                   <div class="form_fields">
                                     <fieldset>
-		                                <input type="text" name="username" id="un" value="" placeholder="username">
+		                                <input autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder="username">
                                     </fieldset>	
                                     <fieldset>	
 		                                <input type="password" name="password" id="pw" value="" placeholder="password">
                                     </fieldset>	
                                     <fieldset>
-		                                <input type="text" name="email" id="em" value="" placeholder="e-mail">
+		                                <input autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder="e-mail">
                                     </fieldset>	
                                   </div>
                                 </div>

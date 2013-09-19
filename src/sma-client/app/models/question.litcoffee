@@ -20,7 +20,7 @@ answering all concepts in level correctly at least once.
 
       user_completed_question: () ->
         userprogression = app.leksaUserProgression
-        correct_count = 3
+        correct_count = 2
 
         if userprogression.length > 0
           logs_for_question = userprogression
@@ -49,12 +49,12 @@ answering all concepts in level correctly at least once.
         counts = []
         for c in concepts
           corrects = getProgressionCorrectCountForConcept(c)
-          if corrects > 3
-            corrects = 3
+          if corrects > correct_count
+            corrects = correct_count
           counts.push corrects
 
         if _.uniq(counts).length == 1
-          if _.max(counts) == 3 and _.uniq(counts)[0] == 3
+          if _.max(counts) == correct_count and _.uniq(counts)[0] == correct_count
             return true
 
         # For each concept, need to check that user has gotten it right three
@@ -138,9 +138,6 @@ answering all concepts in level correctly at least once.
           userprogression
         )
 
-        # WHAT
-        console.log (a.attributes.concept_value for a in q_concepts)
-
         # Concepts left (probably need to multiple by display count)
         total_correct_answers_for_question = userprogression.where({
             game_name: "leksa",
@@ -154,7 +151,6 @@ answering all concepts in level correctly at least once.
         # Select a question concept
         if q_concepts.length > 0
           question = _.shuffle(q_concepts)[0]
-          console.log question.attributes.question_value
           # Alternate question concepts that match the question criteria
           alternates = _.shuffle(q_concepts).slice(1)
         else

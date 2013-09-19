@@ -1,3 +1,5 @@
+LeksaConceptTemplate = require '../views/templates/leksa_concept'
+
 module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
   idAttribute: "c_id"
@@ -84,14 +86,8 @@ module.exports = class Concept extends Backbone.Model
     return false
 
   render_concept: () ->
-    concept_renderers =
-      'img': (c) ->
-        """<img class='concept img_concept'
-                src='#{c.get('concept_value')}' />"""
-      'text': (c) ->
-        linebreaks = ///[-–—]///
-        val = c.get('concept_value').split(linebreaks).join('-<br />')
-        "<span class='concept word_concept'>#{val}</span>"
-    type = @.get('concept_type')
-    return concept_renderers[type](@)
-
+    LeksaConceptTemplate({
+      concept: @
+      concept_type: @.get('concept_type')
+      concept_value: @.get('concept_value')
+    })

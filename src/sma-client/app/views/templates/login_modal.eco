@@ -15,8 +15,8 @@
     <form id="login_form">
         <div style="padding:10px 20px;">
             <h3>Please sign in</h3>
-            <input type="text" name="user" id="un" value="" placeholder="Username or e-mail" data-theme="a">
-            <input type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a">
+            <input autocapitalize="off" autocorrect="off" type="text" name="user" id="un" value="" placeholder="Username or e-mail" data-theme="a">
+            <input autocapitalize="off" autocorrect="off"type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a">
 
             <button type="submit" data-theme="b">Sign in</button>
         </div>
