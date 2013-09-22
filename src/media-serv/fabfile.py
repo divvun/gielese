@@ -60,6 +60,33 @@ def update_target_envs():
             local("npm update")
 
 @task
+def update_media_db():
+    host, _, path = staging_remote_host_and_path.partition(':')
+
+    media_db_path = path + '/src/media-serv/'
+
+    with cd(path):
+        run("svn up")
+
+        # reinstall db
+        with cd(media_db_path):
+            run("mv media_serv.db media_serv.db.bak")
+            run("sh install_db.sh")
+
+@task
+def brunch_build_target():
+    host, _, path = staging_remote_host_and_path.partition(':')
+
+    client_path = path + '/src/sma-client/'
+
+    with cd(client_path):
+        run("svn up")
+
+        # recompile client
+        with cd(client_path):
+            run("brunch build")
+
+@task
 def deploy():
     host, _, path = staging_remote_host_and_path.partition(':')
 
