@@ -3,7 +3,16 @@ import os
 import sys
 
 from fabric.api import local, task, cd, settings, abort, run
+from fabric.api import env
 from fabric.contrib.console import confirm
+
+staging_remote_host_and_path = os.environ.get("GTLAB_AAJEGE_STAGING_HOST")
+if staging_remote_host_and_path is None:
+    _print_and_exit("GTLAB_AAJEGE_STAGING_HOST environment variable not set.")
+
+staging_host, _, _stg_path = staging_remote_host_and_path.partition(':')
+
+env.hosts = [staging_host, ]
 
 # @task
 # def init():
@@ -33,9 +42,6 @@ def reinstall_db():
 def rsync_svn():
     local("cd ../ && sh rsync_the_things.sh")
 
-staging_remote_host_and_path = os.environ.get("GTLAB_AAJEGE_STAGING_HOST")
-if staging_remote_host_and_path is None:
-    _print_and_exit("GTLAB_AAJEGE_STAGING_HOST environment variable not set.")
 
 @task
 def update_target_envs():
