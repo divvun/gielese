@@ -63,13 +63,20 @@ answering all concepts in level correctly at least once.
 
       filter_concepts_by_media: (concepts, media_size) ->
         _ms = "/#{media_size}/"
-        concepts = _.filter concepts, (c) =>
+        filtered_concepts = _.filter concepts, (c) =>
           if c.get('language') == 'img'
             return c.get('concept_value').search(_ms) > -1
           else
       	    return true
 
-        return concepts
+        if filtered_concepts.length == 0
+          if window.app.debug
+            console.log "* Unable to filter by media type because concepts do not"
+            console.log "  have a media type that matches device. Falling back to"
+            console.log "  whatever is available."
+          return concepts
+
+        return filtered_concepts
 
       select_question_concepts_by_progression: (conceptdb, userprog) ->
         orderConceptsByProgression = require './helpers/concept_progression_sorter'
@@ -133,8 +140,9 @@ answering all concepts in level correctly at least once.
           console.log userlang
           _to = userlang
 
+        question_concepts = @select_question_concepts(conceptdb)
         q_concepts = @select_question_concepts_by_progression(
-          @select_question_concepts(conceptdb),
+          question_concepts,
           userprogression
         )
 
@@ -145,7 +153,7 @@ answering all concepts in level correctly at least once.
             question: @,
         }).length
 
-        concepts_total = @select_question_concepts(conceptdb).length
+        concepts_total = question_concepts.length
         concepts_left = concepts_total - q_concepts.length
 
         # Select a question concept
