@@ -72,498 +72,314 @@ Examples:
       #   - "HT"
 
 
+# Some of my own shortcuts...
+
+BpImgWord: &BP_IMG_WORD
+  type: "image_to_word"
+  category: "BODYPART"
+  name: "Face image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "BODYPART"
+
+  answer_similarity:
+    semantics:
+      - "BODYPART"
+
+BpWordImg: &BP_WORD_IMG
+  type: "word_to_image"
+  category: "BODYPART"
+  name: "Face image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "BODYPART"
+
+  answer_similarity:
+    semantics:
+      - "BODYPART"
+
+GreetingImgWord: &GREETING_IMG_WORD
+  type: "image_to_word"
+  category: "GREETINGS"
+  name: "Greetings image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "GREETINGS"
+
+  answer_similarity:
+    semantics:
+      - "GREETINGS"
+
+GreetingWordImg: &GREETING_WORD_IMG
+  type: "word_to_image"
+  category: "GREETINGS"
+  name: "Greetings image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "GREETINGS"
+
+  answer_similarity:
+    semantics:
+      - "GREETINGS"
+
+FoodImgWord: &FOOD_IMG_WORD
+  type: "image_to_word"
+  category: "FOOD"
+  name: "Food image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "FOOD"
+
+  answer_similarity:
+    semantics:
+      - "FOOD"
+
+FoodWordImg: &FOOD_WORD_IMG
+  type: "word_to_image"
+  category: "FOOD"
+  name: "Food image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "FOOD"
+
+  answer_similarity:
+    semantics:
+      - "FOOD"
+
+AnimalsImgWord: &ANIMALS_IMG_WORD
+  type: "image_to_word"
+  category: "ANIMALS"
+  name: "Animals image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "ANIMALS"
+
+  answer_similarity:
+    semantics:
+      - "ANIMALS"
+
+AnimalsWordImg: &ANIMALS_WORD_IMG
+  type: "word_to_image"
+  category: "ANIMALS"
+  name: "Animals image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "ANIMALS"
+
+  answer_similarity:
+    semantics:
+      - "ANIMALS"
+
+WorldImgWord: &WORLD_IMG_WORD
+  type: "image_to_word"
+  category: "WORLD"
+  name: "World image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "WORLD"
+
+  answer_similarity:
+    semantics:
+      - "WORLD"
+
+WorldWordImg: &WORLD_WORD_IMG
+  type: "word_to_image"
+  category: "WORLD"
+  name: "World image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "WORLD"
+
+  answer_similarity:
+    semantics:
+      - "WORLD"
+
 # For category definitions, see categories.yaml.
 
 Questions:
-  # -*- body -*-
-  - type: "image_to_word"
-    category: "BODYPART"
-    name: "Bodypart image to word"
+  - <<: *BP_IMG_WORD
 
-    level: 1
-    answers: 1
-    points: 20
-    sound: true
-
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "BODYPART"
-
-    answer_similarity:
-      semantics:
-        - "BODYPART"
-
-  - type: "word_to_image"
-    category: "BODYPART"
-    name: "Bodypart word to image"
-
+  - <<: *BP_WORD_IMG
     level: 2
     answers: 2
     points: 40
-    sound: true
 
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "BODYPART"
-
-    # answer_similarity:
-    #   semantics:
-    #     - "BODYPART"
-
-  - type: "image_to_word"
-    category: "BODYPART"
-    name: "Bodypart image to 2-word"
-
+  - <<: *BP_WORD_IMG
     level: 3
-    answers: 2
-    points: 50
-    sound: false
+    answers: 3
+    points: 60
 
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "BODYPART"
-
-    answer_similarity:
-      semantics:
-        - "BODYPART"
-
-  - type: "word_to_image"
-    category: "BODYPART"
-    name: "Bodypart word to 2-img"
-
+  - <<: *BP_WORD_IMG
     level: 4
-    answers: 2
-    points: 60
-    sound: true
-
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "BODYPART"
-
-    answer_similarity:
-      semantics:
-        - "BODYPART"
-
-  - type: "word_to_word"
-    category: "BODYPART"
-    name: "Bodypart word to 2-img"
-
-    level: 5
     answers: 4
-    points: 60
-    sound: true
+    points: 80
 
-    filters:
-      from_language: "sma"
-      to_language: "USERLANG"
-      semantics:
-        - "BODYPART"
-
-    answer_similarity:
-      semantics:
-        - "BODYPART"
-      features:
-        - "BISYL"
-        - "HT"
 
   # -*- heelsedh -*- 
 
-  - type: "image_to_word"
-    category: "GREETINGS"
-    name: "Greetings image to word"
+  - <<: *GREETING_IMG_WORD
 
-    level: 1
-    answers: 1
-    points: 20
-    sound: true
-
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "GREETINGS"
-
-    answer_similarity:
-      semantics:
-        - "GREETINGS"
-
-  - type: "word_to_image"
-    category: "GREETINGS"
-    name: "Greetings word to image"
-
+  - <<: *GREETING_WORD_IMG
     level: 2
     answers: 2
     points: 40
-    sound: true
 
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "GREETINGS"
-
-    # answer_similarity:
-    #   semantics:
-    #     - "GREETINGS"
-
-  - type: "image_to_word"
-    category: "GREETINGS"
-    name: "Greetings image to 2-word"
-
+  - <<: *GREETING_WORD_IMG
     level: 3
-    answers: 2
-    points: 50
-    sound: false
-
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "GREETINGS"
-
-    answer_similarity:
-      semantics:
-        - "GREETINGS"
-
-  - type: "word_to_image"
-    category: "GREETINGS"
-    name: "Greetings word to 2-img"
-
-    level: 4
-    answers: 2
+    answers: 3
     points: 60
-    sound: true
 
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "GREETINGS"
-
-    answer_similarity:
-      semantics:
-        - "GREETINGS"
-
-  - type: "word_to_word"
-    category: "GREETINGS"
-    name: "Greetings word to 2-img"
-
-    level: 5
+  - <<: *GREETING_WORD_IMG
+    level: 4
     answers: 4
     points: 80
-    sound: true
-
-    filters:
-      from_language: "sma"
-      to_language: "USERLANG"
-      semantics:
-        - "GREETINGS"
-
-    answer_similarity:
-      semantics:
-        - "GREETINGS"
-      features:
-        - "BISYL"
-        - "HT"
 
   # -*- food -*- 
 
-  - type: "image_to_word"
-    category: "FOOD"
-    name: "Food image to word"
+  - <<: *FOOD_IMG_WORD
 
-    level: 1
-    answers: 1
-    points: 20
-    sound: true
-
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "FOOD"
-
-    answer_similarity:
-      semantics:
-        - "FOOD"
-
-  - type: "word_to_image"
-    category: "FOOD"
-    name: "Food word to image"
-
+  - <<: *FOOD_WORD_IMG
     level: 2
     answers: 2
     points: 40
-    sound: true
 
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "FOOD"
-
-    # answer_similarity:
-    #   semantics:
-    #     - "FOOD"
-
-  - type: "image_to_word"
-    category: "FOOD"
-    name: "Food image to 2-word"
-
+  - <<: *FOOD_WORD_IMG
     level: 3
-    answers: 2
+    answers: 3
     points: 60
-    sound: false
 
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "FOOD"
-
-    answer_similarity:
-      semantics:
-        - "FOOD"
-
-  - type: "word_to_image"
-    category: "FOOD"
-    name: "Food word to 2-img"
-
+  - <<: *FOOD_WORD_IMG
     level: 4
-    answers: 2
-    points: 80
-    sound: true
-
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "FOOD"
-
-    answer_similarity:
-      semantics:
-        - "FOOD"
-
-  - type: "word_to_word"
-    category: "FOOD"
-    name: "Food word to 2-img"
-
-    level: 5
     answers: 4
-    points: 100
-    sound: true
-
-    filters:
-      from_language: "sma"
-      to_language: "USERLANG"
-      semantics:
-        - "FOOD"
-
-    answer_similarity:
-      semantics:
-        - "FOOD"
+    points: 80
 
   # -*- nature-world -*- 
 
-  - type: "image_to_word"
-    category: "WORLD"
-    name: "Food image to word"
+  - <<: *WORLD_IMG_WORD
 
-    level: 1
-    answers: 1
-    points: 20
-    sound: true
-
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "WORLD"
-
-    answer_similarity:
-      semantics:
-        - "WORLD"
-
-  - type: "word_to_image"
-    category: "WORLD"
-    name: "Food word to image"
-
+  - <<: *WORLD_WORD_IMG
     level: 2
     answers: 2
     points: 40
-    sound: true
 
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "WORLD"
-
-    # answer_similarity:
-    #   semantics:
-    #     - "WORLD"
-
-  - type: "image_to_word"
-    category: "WORLD"
-    name: "Food image to 2-word"
-
+  - <<: *WORLD_WORD_IMG
     level: 3
-    answers: 2
+    answers: 3
     points: 60
-    sound: false
 
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "WORLD"
-
-    answer_similarity:
-      semantics:
-        - "WORLD"
-
-  - type: "word_to_image"
-    category: "WORLD"
-    name: "Food word to 2-img"
-
+  - <<: *WORLD_WORD_IMG
     level: 4
-    answers: 2
-    points: 80
-    sound: true
-
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "WORLD"
-
-    answer_similarity:
-      semantics:
-        - "WORLD"
-
-  - type: "word_to_word"
-    category: "WORLD"
-    name: "Food word to 2-img"
-
-    level: 5
     answers: 4
-    points: 100
-    sound: true
+    points: 80
 
-    filters:
-      from_language: "sma"
-      to_language: "USERLANG"
-      semantics:
-        - "WORLD"
+  # -*- nature-animals -*- 
 
-    answer_similarity:
-      semantics:
-        - "WORLD"
+  - <<: *ANIMALS_IMG_WORD
 
-  # -*- nature-world -*- 
-
-  - type: "image_to_word"
-    category: "ANIMALS"
-    name: "Food image to word"
-
-    level: 1
-    answers: 1
-    points: 20
-    sound: true
-
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "ANIMALS"
-
-    answer_similarity:
-      semantics:
-        - "ANIMALS"
-
-  - type: "word_to_image"
-    category: "ANIMALS"
-    name: "Food word to image"
-
+  - <<: *ANIMALS_WORD_IMG
     level: 2
     answers: 2
     points: 40
-    sound: true
 
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "ANIMALS"
-
-    # answer_similarity:
-    #   semantics:
-    #     - "ANIMALS"
-
-  - type: "image_to_word"
-    category: "ANIMALS"
-    name: "Food image to 2-word"
-
+  - <<: *ANIMALS_WORD_IMG
     level: 3
-    answers: 2
+    answers: 3
     points: 60
-    sound: false
 
-    filters:
-      from_language: "img"
-      to_language: "sma"
-      semantics:
-        - "ANIMALS"
-
-    answer_similarity:
-      semantics:
-        - "ANIMALS"
-
-  - type: "word_to_image"
-    category: "ANIMALS"
-    name: "Food word to 2-img"
-
+  - <<: *ANIMALS_WORD_IMG
     level: 4
-    answers: 2
-    points: 80
-    sound: true
-
-    filters:
-      from_language: "sma"
-      to_language: "img"
-      semantics:
-        - "ANIMALS"
-
-    answer_similarity:
-      semantics:
-        - "ANIMALS"
-
-  - type: "word_to_word"
-    category: "ANIMALS"
-    name: "Food word to 2-img"
-
-    level: 5
     answers: 4
-    points: 100
-    sound: true
-
-    filters:
-      from_language: "sma"
-      to_language: "USERLANG"
-      semantics:
-        - "ANIMALS"
-
-    answer_similarity:
-      semantics:
-        - "ANIMALS"
+    points: 80
 
   # -*- test -*-
   - type: "image_to_word"

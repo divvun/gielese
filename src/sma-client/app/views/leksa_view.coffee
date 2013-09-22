@@ -30,12 +30,11 @@ module.exports = class LeksaView extends Backbone.View
 
   question_template: (context) ->
     console.log context.q_type
-    if context.q_type == 'image_to_word'
-      LeksaQuestionImageToWord context
-    if context.q_type == 'word_to_word'
-      LeksaQuestionWordToWord context
-    if context.q_type == 'word_to_image'
-      LeksaQuestionWordToImage context
+    tpl = switch context.q_type
+      when "image_to_word" then LeksaQuestionImageToWord
+      when "word_to_word" then LeksaQuestionWordToWord
+      when "word_to_image" then LeksaQuestionWordToImage
+    return tpl context
     
   leksa_error_template: require './templates/leksa_error_template'
 
