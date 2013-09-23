@@ -1,5 +1,7 @@
 ## Today
 
+* bug: level sorting seems to be off somewhere
+
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart
 

@@ -41,11 +41,9 @@
 
 <div data-role="content">
 
-    <!--
     <a href="#category/<%- @leksa_category %>" 
        class="upper-left-bubble invert-bubble"
        href="#category/<%- @leksa_category %>"><%- gettext.gettext "Back" %></a>
-       -->
 
     <div id="leksa_question">
         <% if @leksa_question: %><%- @leksa_question %><% end %>

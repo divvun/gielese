@@ -42,7 +42,7 @@ module.exports = class QuestionDB extends Backbone.Collection
       if _fails and _fails == false
         return false
 
-    _.shuffle(functioning_questions)
+    functioning_questions
 
   orderQuestionsByProgression: (progression, qs) ->
 
@@ -50,10 +50,12 @@ module.exports = class QuestionDB extends Backbone.Collection
 
     functioning_questions = category_questions.filter (c) ->
       _fails = c.get('fails')
-      if not _fails
-        return true
-      if _fails and _fails == false
-        return false
+      if _fails?
+        if not _fails
+          return true
+        else
+          return false
+      return true
 
     user_progression_questions = chooseQuestionbyProgression(
       functioning_questions,
