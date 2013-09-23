@@ -17,11 +17,11 @@
                 id="concept-list"
                 class="ui-listview">
                 <% for concept, i in @models: %>
-                <li>
-                    <a class="concept_link"
-                       data-concept-index="<%- i %>"
-                       href="#"><%- concept.get('concept_value') %></a>
-                </li>
+                    <li>
+                        <a class="concept_link"
+                           data-concept-index="<%- i %>"
+                           href="#"><%- concept.get('concept_value') %></a>
+                    </li>
                 <% end %>
             </ul>
         </div>

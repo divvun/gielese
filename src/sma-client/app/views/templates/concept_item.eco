@@ -1,9 +1,7 @@
 <% if @model.hasImage(): %>
     <div id="concept_img_frame">
-    <img width="150"
-         height="150"
-         id="current_concept_img"
-         src="<%- @model.hasImage() %>" />
+        <img id="current_concept_img"
+             src="<%- @model.hasImage() %>" />
      </div>
 <% end %>
 
@@ -43,7 +41,7 @@
              src="/static/client/images/speaker.png" />
     </a>
     <% else: %>
-    <h2 class="co+<F4>ncept_value">
+    <h2 class="concept_value">
         <%- @model.get('concept_value') %>
     </h2>
 <% end %>

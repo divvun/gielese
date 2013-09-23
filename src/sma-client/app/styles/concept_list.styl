@@ -3,19 +3,20 @@
     position: fixed
     bottom: 35px
 
-#concept_content
-    margin: 0 auto
-
-li.concept_item h2
-    font-weight: 200
-    font-family: "Open Sans", sans-serif
-    font-size: 125%
-
 #concept-list
     width: 10em
 
+    .concept_link
+        font-family: "Open Sans"
+
 #concept_list_view.twothirds ui-block-a
     width: 60% !important
+
+#concept_content
+    display: block
+    position: relative
+    width: 60%
+    margin: 0 auto
 
 #concept_list_view.twothirds ui-block-b
     width: 40% !important
@@ -28,16 +29,17 @@ li.concept_item h2
     right: 0em
     height: 90%
 
+    li.concept_item h2
+        font-weight: 200
+        font-family: "Open Sans", sans-serif
+        font-size: 125%
+
+
 #current_concept_img
     margin: 0 auto
     display: block
     border-radius: 15px
     border: 1px solid #FFF
-
-h2.concept_value
-    font-family: "Open Sans"
-    font-family: 500
-    line-height: 1.1em
 
 span.concept_language
     font-family: "Open Sans"
@@ -53,12 +55,14 @@ h2.concept_definition
     font-weight: 300
     line-height: 1.1em
     font-size: 130%
+    text-align: center
 
 h2.concept_value
     font-family: "Open Sans"
     font-weight: 500
     line-height: 1.2em
     font-size: 130%
+    text-align: center
 
 ul#concept_definitions
 
@@ -70,3 +74,52 @@ ul#concept_definitions
         list-style-type: none
         margin: 0 0
         line-height: 1.2em
+
+@media only screen and (max-width: 320px)
+    #current_concept_img
+        width: 150px
+        height: 150px
+
+
+    #concept-list
+        width: 40%
+
+        .concept_link
+            font-size: 11pt
+            font-family: "Open Sans"
+
+@media only screen and (min-width: 400px)
+    #current_concept_img
+        width: 250px
+        height: 250px
+
+@media only screen and (min-width: 500px)
+    #current_concept_img
+        width: 350px
+        height: 350px
+
+    #concept_list_view.twothirds ui-block-a
+        width: 60% !important
+
+    #concept_content
+        width: 60%
+        margin-top: 5em
+
+    #concept_list_view.twothirds ui-block-b
+        width: 30% !important
+
+    h2.concept_definition
+        font-weight: 300
+        font-size: 230%
+
+    h2.concept_value
+        font-weight: 500
+        font-size: 230%
+
+    #concept-list
+        width: 40%
+
+        .concept_link
+            font-size: 150%
+            font-weight: 500
+            font-family: "Open Sans"
