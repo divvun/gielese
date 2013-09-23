@@ -127,33 +127,27 @@ span.question_level
     ul.image-grid
         display: block
         
-        margin: 0 0 0 0
+        margin: 0 auto 0 auto
         padding: 0 0 0 0
 
         list-style-type: none
-
-        width: 300px
-        height: 300px
 
     .image-item
 
         float: left
         display: block
 
-        width: 140px
-        height: 140px
-
         margin-right: 5px
         margin-bottom: 5px
 
 
     .img_concept
-        width: 140px
-        height: 140px
 
         display: block
         border: 4px double #555
         border-radius: 15px
+
+
 
 
 .image_set 
@@ -290,6 +284,34 @@ span.question_level
             width: 200px
             height: 200px
 
+@media only screen and (max-width: 320px)
+    ul.image-grid
+        width:  260px
+        height: 260px
+
+    .image-item, .img_concept
+        width: (240/2)px
+        height: (240/2)px
+
+@media only screen and (min-width: 400px)
+
+    ul.image-grid
+        width: 400px !important
+        height: 400px !important
+
+    .image-item, .img_concept
+        width: 190px !important
+        height: 190px !important
+
+@media only screen and (min-width: 500px)
+
+    ul.image-grid
+        width: 500px !important
+        height: 500px !important
+
+    .image-item, .img_concept
+        width: 240px !important
+        height: 240px !important
 
 // This will target iPhone-like widths
 // @media only screen and (max-width: 321px)

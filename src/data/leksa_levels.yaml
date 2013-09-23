@@ -405,8 +405,8 @@ Questions:
     category: "TEST"
     name: "Bodypart image to word"
 
-    level: 3
-    answers: 4
+    level: 2
+    answers: 2
     points: 100
     sound: true
 
