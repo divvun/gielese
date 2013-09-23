@@ -116,7 +116,9 @@ module.exports = class LeksaView extends Backbone.View
 
     return true
     
-  incorrectAnswer: (question, user_input, user_answer_concept, correct_answer_concept) ->
+  incorrectAnswer: (question, user_input, user_answer_concept,
+                    correct_answer_concept) ->
+
     # Give user visual feedback on incorrect, add user log.
 
     # TODO: generate incorrect log entry only on first incorrect attempt, not
@@ -126,18 +128,17 @@ module.exports = class LeksaView extends Backbone.View
     usr_msg = $('<a href="#" class="incorrect usr_msg">Try again!</a>')
     $(user_input).parent().append usr_msg
     @logConcept(question, correct_answer_concept, false)
-
     fadeUp usr_msg
-
-    return false
+    false
 
   updateLogPanel: (entry) ->
-    # Collate results from window.app.leksaUserProgression collection, display them.
+    # Collate results from window.app.leksaUserProgression collection, display
+    # them.
     $('#stat_block').html StatTemplate {
-        total: window.app.leksaUserProgression.models.length
-        correct: window.app.leksaUserProgression.totalCorrect()
-        concept_progress: window.app.leksaUserProgression.collateConcepts(app.conceptdb)
-        total_points: window.app.leksaUserProgression.countPoints()
+      total: window.app.leksaUserProgression.models.length
+      correct: window.app.leksaUserProgression.totalCorrect()
+      concept_progress: window.app.leksaUserProgression.collateConcepts(app.conceptdb)
+      total_points: window.app.leksaUserProgression.countPoints()
     }
 
   # # #
@@ -164,14 +165,14 @@ module.exports = class LeksaView extends Backbone.View
     # Select a question, render it, bind event handlers to each possible
     # answer
 
-    # 
+    #
     # Hide the question-end options
     $('.set_done_options').hide()
 
     # TODO: smooth scroll
     window.scrollTo(0,0)
 
-    # TODO: wait for ready if not 
+    # TODO: wait for ready if not
     if app.questiondb.length == 0 and app.conceptdb.length == 0
       window.last_error = "Question DB and Concept DB not ready."
       app.router.navigate('error')
@@ -182,10 +183,11 @@ module.exports = class LeksaView extends Backbone.View
       level_constraint = (level) -> true
 
     # TODO: category from user
-    q_instance = app.questiondb.selectLeksaConcepts( window.app.leksaUserProgression
-                                                   , @leksa_category
-                                                   , level_constraint
-                                                   )
+    q_instance = app.questiondb.selectLeksaConcepts(
+      window.app.leksaUserProgression,
+      @leksa_category,
+      level_constraint
+    )
     @current_q = q_instance
 
     # TODO: feedback to user that they haven't completed this yet or have
@@ -198,7 +200,11 @@ module.exports = class LeksaView extends Backbone.View
 
     level_note = "Level #{q_instance.generator.get('level')}"
     @setProgress(q_instance.current_count, q_instance.question_total)
-    @setIndividualAnswerProgress(q_instance.total_correct, q_instance.question_total*3, level_note)
+    @setIndividualAnswerProgress(
+      q_instance.total_correct,
+      q_instance.question_total*3,
+      level_note
+    )
 
     if not q_instance.question
       question_block = @leksa_error_template({
@@ -218,8 +224,8 @@ module.exports = class LeksaView extends Backbone.View
 
     @$el.find('#leksa_question').html(question_block)
     @$el.find('#leksa_question a.answerlink.text').textfill({
-        minFontPixels: 18
-        maxFontPixels: 36
+      minFontPixels: 18
+      maxFontPixels: 36
     })
 
     @cur_points = q_instance.generator.get('points')
@@ -227,9 +233,9 @@ module.exports = class LeksaView extends Backbone.View
     @$el.find('#points_for_question').hide()
 
     countdownPoints = (evt) =>
-        if @cur_points > 5
-          @cur_points -= 1
-          @$el.find('#points_for_question .points').html("+#{@cur_points}")
+      if @cur_points > 5
+        @cur_points -= 1
+        @$el.find('#points_for_question .points').html("+#{@cur_points}")
 
     @countdown_handle = setInterval(countdownPoints, 1000)
 
@@ -256,26 +262,31 @@ module.exports = class LeksaView extends Backbone.View
 
     app.router.refreshCurrentPage()
 
-    if @$el.find('.question_prompt .img_concept')
-      box = document.width - 40
-      img = box / 2
-      @$el.find('.question_prompt .img_concept').css({
-        width: "#{box}px"
-        height: "#{box}px"
-      })
+    # q_imgs = @$el.find('.question_prompt .img_concept')
+    # if q_imgs.length > 0
+    #   box = document.width - 40
+    #   if box/document.height > .5
+    #     box = 250
+    #   if box/document.height > .6
+    #     box = 200
+    #   q_imgs.css({
+    #     width: "#{box}px"
+    #     height: "#{box}px"
+    #   })
       
-    if @$el.find('.image_set')
-      box = document.width - 40
-      img = box / 2
+    # a_imgs = @$el.find('.image_set')
+    # if a_imgs.length > 0
+    #   box = document.width - 40
+    #   img = box / 2
 
-      @$el.find('.image-grid').css({
-        width: "#{box}px"
-        height: "#{box}px"
-      })
-      @$el.find('.image-grid .image-item').css({
-        width: "#{img}px"
-        height: "#{img}px"
-      })
+    #   @$el.find('.image-grid').css({
+    #     width: "#{box}px"
+    #     height: "#{box}px"
+    #   })
+    #   @$el.find('.image-grid .image-item').css({
+    #     width: "#{img}px"
+    #     height: "#{img}px"
+    #   })
 
     playFirst = =>
       if app.options.getSetting('enable_audio') and q_instance.generator.get('sound')
