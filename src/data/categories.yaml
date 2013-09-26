@@ -31,7 +31,7 @@ Subcategories:
     parent: "NATURE"
     media:
       image:
-        - path: "http://placekitten.com/g/600/800"
+        - path: "/static/nature_world/img/small_background/elmie.jpg"
           device: "mobile"
 
 # These are displayed in the main list.
@@ -82,7 +82,7 @@ Categories:
     main_menu: true
     media:
       image:
-        - path: "/static/nature_world/img/orig/balve.jpg"
+        - path: "/static/nature_world/img/small_background/elmie.jpg"
           device: "mobile"
     children: 
       - *animals

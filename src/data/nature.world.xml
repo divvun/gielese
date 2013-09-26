@@ -585,7 +585,7 @@
         <image size="thumbnail" image_for_category="true">
           <path><![CDATA[/static/nature_world/img/small/elmie.jpg]]></path>
         </image>
-        <image size="small">
+        <image size="small" device="mobile">
           <path><![CDATA[/static/nature_world/img/small/elmie.jpg]]></path>
         </image>
       </images>
