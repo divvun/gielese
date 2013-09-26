@@ -36,6 +36,7 @@ env.use_ssh_config = True
 @task
 def reinstall_db():
     """Wipe the db, and reinstall"""
+    local("rm ./data/*.json")
     local("mv media_serv.db media_serv.db.bak")
     local("sh install_db.sh")
 
@@ -71,6 +72,7 @@ def update_media_db():
 
         # reinstall db
         with cd(media_db_path):
+            run("rm ./data/*.json")
             run("mv media_serv.db media_serv.db.bak")
             run("sh install_db.sh")
 
@@ -99,6 +101,7 @@ def deploy():
 
         # reinstall db
         with cd(media_db_path):
+            run("rm ./data/*.json")
             run("mv media_serv.db media_serv.db.bak")
             run("sh install_db.sh")
 
