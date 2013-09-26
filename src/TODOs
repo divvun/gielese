@@ -6,6 +6,8 @@
 * next and prev buttons on concept list don't change highlight or list
   orientation
 
+* new next and prev images based on images from designer
+
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart
 
