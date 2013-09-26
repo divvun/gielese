@@ -13,6 +13,7 @@ if staging_remote_host_and_path is None:
 staging_host, _, _stg_path = staging_remote_host_and_path.partition(':')
 
 env.hosts = [staging_host, ]
+env.use_ssh_config = True
 
 # @task
 # def init():
