@@ -8,15 +8,22 @@
             <div class="question_block">
                 <div class="sub_question_block">
                     <div data-role="fieldcontain" id="create_account">
-                        <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
-                            <legend><%- gettext.gettext "Create an account?" %></legend>
-                            <input class="nextSection" type="radio" name="create-user-account-a" id="create-user-account-a" value="true" data-subquestion="true">
-                            <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
-                            <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
-                            <label for="create-user-account-b"><%- gettext.gettext "No" %></label>
-                        </fieldset>
-                        <legend><%- gettext.gettext "or..." %></legend>
-                        <a data-role="button" id="displayLogin" data-mini="true" style="width: 7em;"><%- gettext.gettext "Log in" %></a>
+                        <h2 class="legend"><%- gettext.gettext "Create an account?" %></h2>
+                        <div class="ui-grid-a">
+	                        <div class="ui-block-a">
+                                <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
+                                    <input class="nextSection" type="radio" name="create-user-account-a" id="create-user-account-a" value="true" data-subquestion="true">
+                                    <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
+                                    <input class="nextSection" type="radio" name="create-user-account-b" id="create-user-account-b" value="false">
+                                    <label for="create-user-account-b"><%- gettext.gettext "No" %></label>
+                                </fieldset>
+                                <br />
+	                        </div>
+	                        <div class="ui-block-b">
+                                <a data-role="button" id="displayLogin" data-mini="true" style="width: 7em;"><%- gettext.gettext "Log in" %></a>
+                                <br />
+	                        </div>
+                        </div>
                         <p class="help"><%- gettext.gettext "If you choose not to create an account, data will still be stored anonymously, however, it may be erased if you clear your browser's stored data." %></p>
                         <p class="help"><%- gettext.gettext "Having an account also allows you to compete with others, and integrates with courses." %></p>
                     </div>
@@ -61,8 +68,8 @@
             <div class="question_block" style="display: none;">
                 <div class="sub_question_block">
                     <div data-role="fieldcontain" id="help_language">
+                        <h2 class="legend"><%- gettext.gettext "Help language" %></h2>
                         <fieldset data-role="controlgroup" data-setting="help_language,interface_language">
-                            <legend><%- gettext.gettext "Help language" %></legend>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk <img class="flag_ico" src="/static/images/flags/no_20x15.png" /></label>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="sma" data-subquestion="true">
@@ -80,8 +87,8 @@
                 </div>
                 <div class="sub_question_block" style="display: none;">
                     <div data-role="fieldcontain" id="auxiliary_language">
+                        <h2 class="legend"><%- gettext.gettext "Translation language" %></h2>
                         <fieldset data-role="controlgroup" data-setting="help_language">
-                            <legend><%- gettext.gettext "Translation language" %></legend>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-1" value="nob" checked="checked">
                             <label for="radio-choice-1">Norsk <img class="flag_ico" src="/static/images/flags/no_20x15.png" /></label>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-2" value="swe">

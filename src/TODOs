@@ -1,6 +1,10 @@
 ## Today
 
-* bug: level sorting seems to be off somewhere
+* bug: level sorting seems to be off somewhere , seeing three when two should
+  be visible
+
+* next and prev buttons on concept list don't change highlight or list
+  orientation
 
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart

@@ -45,7 +45,7 @@ class ConceptView extends Backbone.View
     this
 
 module.exports = class ConceptList extends Backbone.View
-
+  id: "conceptlistview"
   events:
     'click .audio_link': 'findAudio'
     'click #show-panel': "revealWordsPanel"
@@ -94,6 +94,10 @@ module.exports = class ConceptList extends Backbone.View
 
   showConcept: (evt) ->
     concept_index = parseInt $(evt.target).attr('data-concept-index')
+
+    @$el.find('.ui-btn-active-d').removeClass('ui-btn-active-d')
+    $(evt.target).parents('li.ui-btn').addClass('ui-btn-active-d')
+
     console.log concept_index
 
     concept = @concepts_in_order[concept_index]

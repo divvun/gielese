@@ -1,11 +1,13 @@
 <% if @subcategory: %>
 
     <% prev = "#categoryMenu" %>
+
+    <div data-role="header" data-theme="c">
+        <a href="<%- prev %>" data-transition="slide" data-icon="arrow-l">Back</a>
+        <h2>&nbsp;</h2>
+    </div>
+
     <div data-role="content" id="main_menu">
-        <a href="<%- prev %>" 
-           class="upper-left-bubble"
-           data-iconpos="notext"
-           data-icon="arrow-l">Back</a>
         <h1> <%- gettext.gettext @category.get('name') %> </h1>
         <div class="ui-grid-b">
             <% for group in @subcategory: %>

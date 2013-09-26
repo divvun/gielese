@@ -1,16 +1,16 @@
-<div data-role="header">
+<div data-role="header" data-theme="c">
     <a href="#options" data-transition="slide" id="show-panel" data-icon="gear"><%- gettext.gettext "Options" %></a>
     <h1>&nbsp;</h1>
     <% if app.user: %>
-    <a href="#stats" id="userinfo_button" data-transition="slide" id="show-panel" data-icon="info" data-iconpos="right">
-        <span class="action"></span>
-        <span class="user"> <%- app.user.username %> </span>
-    </a>
+        <a href="#stats" id="userinfo_button" data-transition="slide" id="show-panel" data-icon="info" data-iconpos="right">
+            <span class="action"></span>
+            <span class="user"> <%- app.user.username %> </span>
+        </a>
     <% else: %>
-    <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="grid">
-        <span class="action"><%- gettext.gettext "Log in" %></span>
-        <span class="user"></span>
-    </a>
+        <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="grid">
+            <span class="action"><%- gettext.gettext "Log in" %></span>
+            <span class="user"></span>
+        </a>
     <% end %>
 </div> 
 

@@ -26,7 +26,8 @@ module.exports = class QuestionDB extends Backbone.Collection
     @fetch
       success: () =>
         app.loadingTracker.markReady('leksa_questions.json')
-        console.log "fetched leksa_questions.json (#{app.questiondb.models.length})"
+        mod_count = app.questiondb.models.length
+        console.log "fetched leksa_questions.json (#{mod_count})"
 
   filterQuestionsByCategory: (category, qs) ->
 
@@ -91,9 +92,11 @@ module.exports = class QuestionDB extends Backbone.Collection
     #
     # Select a question
     #
-    # Max attempts 5, if cannot generate a question from the template,
+    # Max attempts 5, if cannot generate a question from the definition,
     # then skip. The question will be marked as failing, and filtered
-    # out of the cycle
+    # out of the cycle.
+    #
+    # TODO: log a server error.
 
     [tries, max_tries] = [0, 5]
 

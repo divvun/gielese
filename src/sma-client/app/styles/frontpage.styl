@@ -1,14 +1,20 @@
 ﻿#frontPage
     background-color: #FFF
 
+    #main_page_header, #main_page_content
+        max-width: 450px
+
     #main_page_header
 
-        margin: 0 0 0 0
+        margin: 0 auto 0 auto
         padding: 0 0 10px 0 
         // border-bottom: 1px solid #CCC
         width: 100%
+        display: block
 
     #main_page_content
+        margin: 0 auto 0 auto
+        display: block
         background-color: #eee
         padding: 5px 8px
         border-radius: 5px
@@ -63,6 +69,12 @@
             font-weight: 300
             font-size: 125%
 
+        h2.legend
+            font-family: "Open Sans", sans-serif
+            font-weight: 300
+            margin-bottom: .25em
+            margin-top: 0
+
     .front_page_nav
         margin-top: .75em
 
@@ -80,7 +92,16 @@
         span.error
             color: #900
             font-weight: bold
-
             
     #progressbar
         height: 1.25em
+
+    @media only screen and (min-width: 399px)
+        p.help
+            font-size: 12pt
+            line-height: 1.3em
+
+    @media only screen and (min-width: 500px)
+        p.help
+            font-size: 14pt
+            line-height: 1.5em

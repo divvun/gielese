@@ -1,4 +1,4 @@
-<div data-role="header">
+<div data-role="header" data-theme="c">
     <a href="#mainMenu" data-transition="slide" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
     <h2>Options</h2>
     <a id="save-options" data-icon="gear">Save</a>
