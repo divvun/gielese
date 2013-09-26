@@ -5,9 +5,6 @@
     </lg>
     <media>
       <images>
-        <image size="thumbnail" device="mobile" image_for_category="true">
-          <path><![CDATA[/static/images/food/small/laejpie.jpg]]></path>
-        </image>
         <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/laejpie.jpg]]></path>
         </image>
@@ -598,6 +595,9 @@
     </lg>
     <media>
       <images>
+        <image size="thumbnail" device="mobile" image_for_category="true">
+          <path><![CDATA[/static/images/food/small/beapmoe.jpg]]></path>
+        </image>
         <image size="small" device="mobile">
           <path><![CDATA[/static/images/food/small/beapmoe.jpg]]></path>
         </image>

@@ -10,18 +10,22 @@ DefaultActivities: &ACTIVITIES
 Subcategories:
   - &animals
     category: "ANIMALS"
+    semantics: 
+      - "ANIMALS"
     name: "Animals"
     activities: *ACTIVITIES
     main_menu: false
     parent: "NATURE"
     media:
       image:
-        - path: "http://placekitten.com/g/600/800"
+        - path: "/static/nature_animals/img/orig/gaahtoe.jpg"
           device: "mobile"
 
   - &world
     category: "WORLD"
     name: "World"
+    semantics: 
+      - "WORLD"
     activities: *ACTIVITIES
     main_menu: false
     parent: "NATURE"
@@ -37,6 +41,8 @@ Categories:
 
   - category: "BODYPART"
     name: "Face"
+    semantics: 
+      - "BODYPART"
     activities: *ACTIVITIES
     children: []
     main_menu: true
@@ -47,6 +53,8 @@ Categories:
 
   - category: "GREETINGS"
     name: "Greetings"
+    semantics: 
+      - "GREETINGS"
     activities: *ACTIVITIES
     children: []
     main_menu: true
@@ -57,20 +65,24 @@ Categories:
 
   - category: "FOOD"
     name: "Food"
+    semantics: 
+      - "FOOD"
     activities: *ACTIVITIES
     children: []
     main_menu: true
     media:
       image:
-        - path: "http://placekitten.com/g/400/600"
+        - path: "/static/images/food/large/beapmoe.jpg"
           device: "mobile"
 
   - category: "NATURE"
     name: "Nature"
+    semantics: 
+      - "NATURE"
     main_menu: true
     media:
       image:
-        - path: "http://placekitten.com/g/600/800"
+        - path: "/static/nature_world/img/orig/balve.jpg"
           device: "mobile"
     children: 
       - *animals

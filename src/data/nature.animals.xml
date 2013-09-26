@@ -5,8 +5,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/b_ii_enje.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/b_ii_enje.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -37,8 +37,11 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/gaahtoe.JPG]]></path>
+        <image size="thumbnail" device="mobile" image_for_category="true">
+          <path><![CDATA[/static/nature_animals/img/small/gaahtoe.jpeg]]></path>
+        </image>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/gaahtoe.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -72,8 +75,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/gaajhtse.JPG]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/gaajhtse.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -107,8 +110,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/govse.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/govse.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -142,8 +145,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/hierkie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/hierkie.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -177,8 +180,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/snurke.JPG]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/snurke.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -212,8 +215,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/s_ii_rve.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/s_ii_rve.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -244,8 +247,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/v_oe_oe_nhtse.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/v_oe_oe_nhtse.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -279,8 +282,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/bovtsh.jpeg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/bovtsh.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -314,8 +317,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/sarva.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/sarva.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -349,8 +352,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/aaltoe.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/aaltoe.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -384,8 +387,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/miesie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/miesie.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -419,8 +422,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/gierhkie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/gierhkie.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -454,8 +457,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/b_ii_erne.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/b_ii_erne.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -489,8 +492,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/r_aa_ate.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/r_aa_ate.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -524,8 +527,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/sn_oe_oe_lhke.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/sn_oe_oe_lhke.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -556,8 +559,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/nj_aa_emele.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/nj_aa_emele.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -591,8 +594,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/riepie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/riepie.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -626,8 +629,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/sarve.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/sarve.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -661,8 +664,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/sluemege.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/sluemege.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -696,8 +699,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/tjetskie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/tjetskie.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -731,8 +734,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/r_aa_ase.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/r_aa_ase.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -766,8 +769,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/raante.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/raante.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -801,8 +804,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/snjeara.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/snjeara.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -836,8 +839,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/tjeavra.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/tjeavra.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -868,8 +871,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/svaale.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/svaale.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -903,8 +906,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/åeruve.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/åeruve.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -938,8 +941,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/ts_aa_aa_bpe.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/ts_aa_aa_bpe.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -973,8 +976,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/hievnie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/hievnie.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -1008,8 +1011,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/tjoejhke.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/tjoejhke.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -1043,8 +1046,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/_GoBack_GoBackimg/orig/tjovrege.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/_GoBack_GoBackimg/small/tjovrege.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -1078,8 +1081,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/giesiel_aa_bloe.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/giesiel_aa_bloe.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -1113,8 +1116,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/voerhtje.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/voerhtje.jpeg]]></path>
         </image>
       </images>
     </media>
@@ -1137,8 +1140,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/r_ii_eksege.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/r_ii_eksege.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -1172,8 +1175,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/sk_ae_rhtjoe.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/sk_ae_rhtjoe.jpeg]]></path>
         </image>
       </images>
     </media>
@@ -1196,8 +1199,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/tj_aa_ktja.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/tj_aa_ktja.jpeg]]></path>
         </image>
       </images>
       <sounds>
@@ -1231,8 +1234,8 @@
     </lg>
     <media>
       <images>
-        <image>
-          <path><![CDATA[/static/nature_animals/img/orig/aarhtse.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_animals/img/small/aarhtse.jpeg]]></path>
         </image>
       </images>
       <sounds>

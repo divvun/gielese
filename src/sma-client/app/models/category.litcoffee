@@ -19,6 +19,23 @@ Compatibility with old version of bootstrap
         else
           return (new Category c for c in cs)
 
+The category image is selected from media.
+      
+      hasThumbnail: (opts = {}) ->
+        if @get('thumbnail')
+          return @get('thumbnail')
+        
+        # cache result
+        sem = @get('semantics')
+        cats = app.conceptdb
+                  .where({semantics: sem, language: 'img'})
+                  .filter (c) -> c.hasThumbnail()
+        img = _.first _.first(cats).hasThumbnail()
+
+        @set('thumbnail', img.path)
+
+        return @hasThumbnail(opts)
+
       hasImage: (opts = {}) ->
         if not opts.device
           device = app.device_type

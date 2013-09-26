@@ -5,8 +5,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/aske.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/aske.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -40,8 +40,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/biejjie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/biejjie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -75,8 +75,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/balve.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/balve.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -110,8 +110,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/naestie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/naestie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -145,8 +145,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/gierkie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/gierkie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -180,8 +180,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/gaedtie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/gaedtie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -215,8 +215,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/baalka.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/baalka.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -247,8 +247,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/pluevie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/pluevie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -279,8 +279,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/sk_aa_ajje.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/sk_aa_ajje.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -311,8 +311,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/geajnoe.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/geajnoe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -346,8 +346,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/baaroe.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/baaroe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -381,8 +381,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/gaaltije.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/gaaltije.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -416,8 +416,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/garse.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/garse.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -451,8 +451,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/johke.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/johke.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -483,8 +483,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/jaevrie.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/jaevrie.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -515,8 +515,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/mearoe.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/mearoe.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -547,8 +547,8 @@
     </lg>
     <media>
       <images>
-        <image size="orig">
-          <path><![CDATA[/static/nature_world/img/orig/eatneme.jpg]]></path>
+        <image size="small" device="mobile">
+          <path><![CDATA[/static/nature_world/img/small/eatneme.jpg]]></path>
         </image>
       </images>
       <sounds>
@@ -582,8 +582,11 @@
     </lg>
     <media>
       <images>
-        <image size="orig" image_for_category="true">
-          <path><![CDATA[/static/nature_world/img/orig/elmie.jpg]]></path>
+        <image size="thumbnail" image_for_category="true">
+          <path><![CDATA[/static/nature_world/img/small/elmie.jpg]]></path>
+        </image>
+        <image size="small">
+          <path><![CDATA[/static/nature_world/img/small/elmie.jpg]]></path>
         </image>
       </images>
       <sounds>
