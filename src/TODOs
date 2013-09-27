@@ -3,11 +3,6 @@
 * bug: level sorting seems to be off somewhere , seeing three when two should
   be visible
 
-* next and prev buttons on concept list don't change highlight or list
-  orientation
-
-* new next and prev images based on images from designer
-
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart
 
@@ -42,8 +37,6 @@
  + TODO: audio doesn't play automatically on gielese.no / maybe just generally
 
  + TODO: missing image for mielhke 
-
- + TODO: wordlist - next button at end of line, cycle to first? 
 
  + TODO: lexicon view -- accuracy rate when viewing a word? 
 

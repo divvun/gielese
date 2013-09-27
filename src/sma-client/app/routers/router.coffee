@@ -15,7 +15,6 @@ CategoryGames = require 'views/category_games_view'
 FrontPage = require 'views/front_page'
 LeksaOptionsView = require 'views/leksa_options_view'
 ErrorView = require 'views/error_view'
-ConceptView = require 'views/concept_view'
 LoadingView = require 'views/loading'
 
 module.exports = class Router extends Backbone.Router
@@ -31,7 +30,6 @@ module.exports = class Router extends Backbone.Router
     app.categoryMenu = new CategoryMenu()
     app.categoryGames = new CategoryGames()
     app.errorView = new ErrorView()
-    app.conceptView = new ConceptView
     app.leksaOptionsView = new LeksaOptionsView()
     app.frontPage = new FrontPage()
     app.loadingView = new LoadingView()

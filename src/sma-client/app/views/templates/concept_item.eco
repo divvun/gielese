@@ -27,7 +27,11 @@
     <ul>
         <li>
             <a id="cycle-concept-prev"
-               href="#"><span class="text_icon">«</span></a>
+                href="#">
+                    <img width="32"
+                         height="32"
+                         src="/static/images/icons/left-arrow.png" />
+            </a>
         </li>
 
         <% if @model.hasAudio(): %>
@@ -44,7 +48,11 @@
 
         <li>
             <a id="cycle-concept-next"
-               href="#"><span class="text_icon">»</span></a>
+                href="#">
+                    <img width="32"
+                         height="32"
+                         src="/static/images/icons/right-arrow.png" />
+            </a>
        </li>
     </ul>
 
