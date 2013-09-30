@@ -72,13 +72,16 @@ module.exports = class LeksaView extends Backbone.View
   # # #  Answer logging
   # # #
 
-  correctAnswer: (question, user_input, user_answer_concept, correct_answer_concept) ->
+  correctAnswer: (q, user_input) ->
     # Give user feedback that they were correct, and show the set done options.
+
+    user_answer_concept = q.answer
+    correct_answer_concept = q.question
 
     $(user_input).addClass('correct')
     usr_msg = $("<a href='#' class='correct usr_msg'>Correct</a>")
     $(user_input).parent().append usr_msg
-    @logConcept(question, correct_answer_concept, true)
+    @logConcept(q.generator, correct_answer_concept, true)
     $('.set_done_options').show()
     fadeUp usr_msg
     setTimeout((() => @$el.find('#menu_next').click()), 1200)
@@ -86,16 +89,18 @@ module.exports = class LeksaView extends Backbone.View
     @$el.find('#points_for_question').fadeIn(100)
     return false
 
-  logConcept: (question, concept, correct) ->
-    # Log the concept that the user was prompted with, with a correct/incorrect value
+  logConcept: (question_generator, concept, correct) ->
+    # Log the concept that the user was prompted with, with a correct/incorrect
+    # value
 
     #
     # Use the concept_value, but if it's an image, then we want to find
     # translations that are words corresponding to the language of the question
     concept_name = concept.get('concept_value')
     if concept.get('concept_type') == 'img'
-      _to = question.get('filters').to_language
-      _transl = app.conceptdb.getTranslationsOf(concept).filter (c) -> c.get('language') == _to
+      _to = question_generator.get('filters').to_language
+      _lang_to_filt = (c) => c.get('language') == _to
+      _transl = app.conceptdb.getTranslationsOf(concept).filter _lang_to_filt
       if _transl.length > 0
         concept_name = _transl[0].get('concept_value')
 
@@ -110,14 +115,16 @@ module.exports = class LeksaView extends Backbone.View
       question_concept: concept.get('id')
       question_concept_value: concept_name
       question_correct: correct
-      question: question
+      question: question_generator
       points: points_given
+      cycle: question_generator.get('cycle')
 
     return true
 
-  incorrectAnswer: (question, user_input, user_answer_concept,
-                    correct_answer_concept) ->
+  incorrectAnswer: (q, user_input) ->
 
+    user_answer_concept = q.answer
+    correct_answer_concept = q.question
     # Give user visual feedback on incorrect, add user log.
 
     # TODO: generate incorrect log entry only on first incorrect attempt, not
@@ -126,7 +133,7 @@ module.exports = class LeksaView extends Backbone.View
     $(user_input).addClass('incorrect')
     usr_msg = $('<a href="#" class="incorrect usr_msg">Try again!</a>')
     $(user_input).parent().append usr_msg
-    @logConcept(question, correct_answer_concept, false)
+    @logConcept(q.generator, correct_answer_concept, false)
     fadeUp usr_msg
     false
 
@@ -154,7 +161,6 @@ module.exports = class LeksaView extends Backbone.View
     prog = @$el.find "#leksa_progress"
     prog.progressbar({value: (count/total)*100})
     return false
-
 
   # # #
   # # #  Question rendering
@@ -243,11 +249,9 @@ module.exports = class LeksaView extends Backbone.View
         # If user is correct, stop watching for additional clicks
         @$el.find('#leksa_question a.answerlink').unbind('click').click (evt) ->
           return false
-        @correctAnswer(@q.generator, answerlink,
-                        @q.answer, @q.question)
+        @correctAnswer(@q, answerlink)
       else
-        @incorrectAnswer(@q.generator, answerlink,
-                           @q.answer, @q.question)
+        @incorrectAnswer(@q, answerlink)
       #
       # rebind event to null result incase user clicks multiple times
       answerlink.unbind('click').click (evt) -> return false

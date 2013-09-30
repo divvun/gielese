@@ -20,7 +20,7 @@ So, let's get going... Define the module as a function expect a `question`,
 list of `concepts`, and the `userprogression`.
 
     module.exports = orderConceptsByProgression = (q, concepts, up) ->
-      
+
 Grab only the user progression for this question.
 
       userprogression = up.filter (u) =>
@@ -33,19 +33,30 @@ If there's nothing in the user progression, great, no need to sort!
 
       if userprogression.length == 0
         return concepts
-      
+
+      max_repeats = _.max (u.get('cycle') for u in userprogression)
+
+      if not max_repeats
+        max_repeats = false
+
+      if app.debug
+        console.log "Currently at cycle <#{max_repeats}>"
+
 For a user progression, figure out how many times this question concept has
 been answered as correct by the user.
 
       getProgressionCorrectCountForConcept = (c) =>
-        userprogression
+        zups = userprogression
           .filter (up) =>
             up.get('question') == q
           .filter (up) =>
             up.get('question_concept') == c.get('id')
           .filter (up) =>
             up.get('question_correct')
-          .length
+        if max_repeats
+          zups = zups.filter (up) =>
+            up.get('cycle') == max_repeats
+        return zups.length
 
 Remove a concept from the cycle once it has been displayed 4 times.
 

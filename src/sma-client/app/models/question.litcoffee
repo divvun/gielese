@@ -18,14 +18,21 @@ This is the only thing we need to export from this module.
 Determine whether the user has completed this question, here, defined as
 answering all concepts in level correctly at least once.
 
+      defaults:
+        cycle: 1
+
       user_completed_question: () ->
         userprogression = app.leksaUserProgression
         correct_count = 2
+        # TODO: include cycle
 
+        cycle = @get('cycle')
         if userprogression.length > 0
           logs_for_question = userprogression
               .filter (up) =>
                 up.get('question').cid == @cid
+              .filter (up) =>
+                up.get('cycle') == cycle
               .filter (up) ->
                 up.get('question_correct') == true
           concepts_for_question = logs_for_question
@@ -53,8 +60,10 @@ answering all concepts in level correctly at least once.
             corrects = correct_count
           counts.push corrects
 
+        # If all this results in true, then the question cycle is complete
         if _.uniq(counts).length == 1
           if _.max(counts) == correct_count and _.uniq(counts)[0] == correct_count
+            @set('cycle', @get('cycle') + 1)
             return true
 
         # For each concept, need to check that user has gotten it right three

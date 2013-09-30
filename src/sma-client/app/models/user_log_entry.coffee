@@ -6,6 +6,7 @@ module.exports = class UserLogEntry extends Backbone.Model
     game_name: false        # string
     question_concept: false # related?
     question_correct: false # boolean
+    cycle: false
 
   do_not_push: [
     "sid"

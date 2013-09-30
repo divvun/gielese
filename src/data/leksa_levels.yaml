@@ -390,6 +390,7 @@ Questions:
     answers: 1
     points: 20
     sound: true
+    repetitions: 1
 
     filters:
       from_language: "img"
@@ -409,6 +410,7 @@ Questions:
     answers: 2
     points: 100
     sound: true
+    repetitions: 1
 
     filters:
       from_language: "sma"

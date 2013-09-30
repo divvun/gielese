@@ -27,7 +27,6 @@
    * there may be some complexity to simplify now, which can be seen while
      adding new categories.
 
-
  + TODO: canvas stats graph doesn't work on android, maybe need an alternate
 
  + TODO: back button on create an account page -- accidental navigation
