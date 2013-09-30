@@ -1,7 +1,8 @@
 ## Today
 
-* bug: level sorting seems to be off somewhere , seeing three when two should
-  be visible
+* bug: saw prïhtjege twice on level 3, where the answer was one of them, but
+  one of them was marked as wrong. need to check removal of duplicate answers
+  again
 
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart

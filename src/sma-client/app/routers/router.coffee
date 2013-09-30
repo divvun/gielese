@@ -156,11 +156,13 @@ module.exports = class Router extends Backbone.Router
     level = parseInt level
     app.leksaView = new LeksaView()
     app.leksaView.leksa_category = category
-    app.leksaView.level_constraint = (question) =>
-      if level == 1
+    if level == 1
+      app.leksaView.level_constraint = (question) =>
         question.get('level') == level
-      else if level > 1
-        question.get('level') > level
+    else if level > 1
+      app.leksaView.level_constraint = (question) =>
+        question.get('level') >= level
+      
     app.leksaView.initialize()
 
     @changePage(app.leksaView)

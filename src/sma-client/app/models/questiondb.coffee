@@ -29,43 +29,24 @@ module.exports = class QuestionDB extends Backbone.Collection
         mod_count = app.questiondb.models.length
         console.log "fetched leksa_questions.json (#{mod_count})"
 
-  filterQuestionsByCategory: (category, qs) ->
-
-    if category
-      category_questions = qs.where({'category': category})
-    else
-      category_questions = qs
-
-    functioning_questions = category_questions.filter (c) ->
+  removeNonFunctioning: (qs) ->
+    return qs.filter (c) ->
       _fails = c.get('fails')
       if not _fails
         return true
       if _fails and _fails == false
         return false
-
-    functioning_questions
+    
+  filterQuestionsByCategory: (category) ->
+    @removeNonFunctioning @where({'category': category})
 
   orderQuestionsByProgression: (progression, qs) ->
-
-    category_questions = qs
-
-    functioning_questions = category_questions.filter (c) ->
-      _fails = c.get('fails')
-      if _fails?
-        if not _fails
-          return true
-        else
-          return false
-      return true
-
-    user_progression_questions = chooseQuestionbyProgression(
-      functioning_questions,
+    _.shuffle chooseQuestionbyProgression(
+      @removeNonFunctioning(qs),
       progression
     )
 
-    qs = _.shuffle(user_progression_questions)
-    return qs
-
+  ###
   filterQuestionsByProgression: (progression, category, qs) ->
 
     if category
@@ -73,12 +54,7 @@ module.exports = class QuestionDB extends Backbone.Collection
     else
       category_questions = qs
 
-    functioning_questions = category_questions.filter (c) ->
-      _fails = c.get('fails')
-      if not _fails
-        return true
-      if _fails and _fails == false
-        return false
+    functioning_questions = @removeNonFunctioning(category_questions)
 
     user_progression_questions = chooseQuestionbyProgression(
       functioning_questions,
@@ -87,8 +63,12 @@ module.exports = class QuestionDB extends Backbone.Collection
 
     qs = _.shuffle(user_progression_questions)
     return qs
+  ###
 
-  selectLeksaConcepts: (userprogression, category, level_constraint=false) ->
+  selectQuestionByProg: (category, level_constraint=false) ->
+    @selectQuestion(app.leksaUserProgression, category, level_constraint)
+
+  selectQuestion: (userprogression, category, level_constraint=false) ->
     #
     # Select a question
     #
@@ -100,12 +80,15 @@ module.exports = class QuestionDB extends Backbone.Collection
 
     [tries, max_tries] = [0, 5]
 
+    if level_constraint == false
+      level_constraint = (level) -> true
+
     # TODO: for now just ordering by progression and dispalying everything
     # anyway
 
     question_instance = false
     while not question_instance and tries <= max_tries
-      category_qs = @filterQuestionsByCategory(category, @)
+      category_qs = @filterQuestionsByCategory(category)
       level_constraint_qs = category_qs.filter(level_constraint)
       if level_constraint_qs.length > 0
         qs = level_constraint_qs

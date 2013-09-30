@@ -105,17 +105,16 @@ module.exports = class LeksaView extends Backbone.View
       points_given = 0
     #
     # Create the log entry in the user progression
-    log = window.app.leksaUserProgression.logActivity({
+    log = window.app.leksaUserProgression.logActivity
       game_name: "leksa"
       question_concept: concept.get('id')
       question_concept_value: concept_name
       question_correct: correct
       question: question
       points: points_given
-    })
 
     return true
-    
+
   incorrectAnswer: (question, user_input, user_answer_concept,
                     correct_answer_concept) ->
 
@@ -134,17 +133,17 @@ module.exports = class LeksaView extends Backbone.View
   updateLogPanel: (entry) ->
     # Collate results from window.app.leksaUserProgression collection, display
     # them.
-    $('#stat_block').html StatTemplate {
+    concept_prog = window.app.leksaUserProgression.collateConcepts app.conceptdb
+    $('#stat_block').html StatTemplate
       total: window.app.leksaUserProgression.models.length
       correct: window.app.leksaUserProgression.totalCorrect()
-      concept_progress: window.app.leksaUserProgression.collateConcepts(app.conceptdb)
+      concept_progress: concept_prog
       total_points: window.app.leksaUserProgression.countPoints()
-    }
 
   # # #
   # # #  Progress bar
   # # #
-  
+
   setIndividualAnswerProgress: (count, total, note) ->
     prog = @$el.find "#leksa_progress_indiv"
     prog.progressbar({value: (count/total)*100})
@@ -160,7 +159,7 @@ module.exports = class LeksaView extends Backbone.View
   # # #
   # # #  Question rendering
   # # #
-    
+
   renderQuestion: ->
     # Select a question, render it, bind event handlers to each possible
     # answer
@@ -183,52 +182,46 @@ module.exports = class LeksaView extends Backbone.View
       level_constraint = (level) -> true
 
     # TODO: category from user
-    q_instance = app.questiondb.selectLeksaConcepts(
-      window.app.leksaUserProgression,
+    @q = app.questiondb.selectQuestionByProg(
       @leksa_category,
       level_constraint
     )
-    @current_q = q_instance
 
     # TODO: feedback to user that they haven't completed this yet or have
     # already-- if already, repeat
-    if q_instance == false
+    if @q == false
       console.log "Complete!"
       finished_level = LevelCompleted()
       @$el.find('#leksa_question').html(finished_level)
       return false
 
-    level_note = "Level #{q_instance.generator.get('level')}"
-    @setProgress(q_instance.current_count, q_instance.question_total)
+    level_note = "Level #{@q.generator.get('level')}"
+    @setProgress(@q.current_count, @q.question_total)
     @setIndividualAnswerProgress(
-      q_instance.total_correct,
-      q_instance.question_total*3,
+      @q.total_correct,
+      @q.question_total*3,
       level_note
     )
 
-    if not q_instance.question
-      question_block = @leksa_error_template({
+    if not @q.question
+      @$el.find('#leksa_question').html @leksa_error_template
         error_msg: "A question could not be generated from these parameters"
-      })
-      @$el.find('#leksa_question').html(question_block)
       return false
 
     #
     # Render the template for the question
-    question_block = @question_template {
-      instance: q_instance
-      chunker: arrayChunk
-      audio: q_instance.question.hasAudio()
-      q_type: q_instance.generator.get('type')
-    }
 
-    @$el.find('#leksa_question').html(question_block)
-    @$el.find('#leksa_question a.answerlink.text').textfill({
+    @$el.find('#leksa_question').html @question_template
+      instance: @q
+      chunker: arrayChunk
+      audio: @q.question.hasAudio()
+      q_type: @q.generator.get('type')
+
+    @$el.find('#leksa_question a.answerlink.text').textfill
       minFontPixels: 18
       maxFontPixels: 36
-    })
 
-    @cur_points = q_instance.generator.get('points')
+    @cur_points = @q.generator.get('points')
     @$el.find('#points_for_question .points').html("+#{@cur_points}")
     @$el.find('#points_for_question').hide()
 
@@ -244,17 +237,17 @@ module.exports = class LeksaView extends Backbone.View
     @$el.find('#leksa_question a.answerlink').click (evt) =>
       answerlink = $(evt.target).parents('.answerlink')
       user_input = answerlink.attr('data-word')
-      answer_value = q_instance.answer.get('concept_value')
+      answer_value = @q.answer.get('concept_value')
       window.last_user_input = answerlink
       if user_input == answer_value
         # If user is correct, stop watching for additional clicks
         @$el.find('#leksa_question a.answerlink').unbind('click').click (evt) ->
           return false
-        @correctAnswer(q_instance.generator, answerlink,
-                        q_instance.answer, q_instance.question)
+        @correctAnswer(@q.generator, answerlink,
+                        @q.answer, @q.question)
       else
-        @incorrectAnswer(q_instance.generator, answerlink,
-                           q_instance.answer, q_instance.question)
+        @incorrectAnswer(@q.generator, answerlink,
+                           @q.answer, @q.question)
       #
       # rebind event to null result incase user clicks multiple times
       answerlink.unbind('click').click (evt) -> return false
@@ -262,35 +255,9 @@ module.exports = class LeksaView extends Backbone.View
 
     app.router.refreshCurrentPage()
 
-    # q_imgs = @$el.find('.question_prompt .img_concept')
-    # if q_imgs.length > 0
-    #   box = document.width - 40
-    #   if box/document.height > .5
-    #     box = 250
-    #   if box/document.height > .6
-    #     box = 200
-    #   q_imgs.css({
-    #     width: "#{box}px"
-    #     height: "#{box}px"
-    #   })
-      
-    # a_imgs = @$el.find('.image_set')
-    # if a_imgs.length > 0
-    #   box = document.width - 40
-    #   img = box / 2
-
-    #   @$el.find('.image-grid').css({
-    #     width: "#{box}px"
-    #     height: "#{box}px"
-    #   })
-    #   @$el.find('.image-grid .image-item').css({
-    #     width: "#{img}px"
-    #     height: "#{img}px"
-    #   })
-
     playFirst = =>
-      if app.options.getSetting('enable_audio') and q_instance.generator.get('sound')
-        q_instance.question.playAudio()
+      if app.options.getSetting('enable_audio') and @q.generator.get('sound')
+        @q.question.playAudio()
 
     # Delay first sound playing as leksa page renders
     if not @first
@@ -300,9 +267,9 @@ module.exports = class LeksaView extends Backbone.View
       playFirst()
 
     @$el.find('#question_play').click () =>
-      q_instance.question.playAudio('questionSound')
+      @q.question.playAudio('questionSound')
       return false
-      
+
     return true
 
   render: ->

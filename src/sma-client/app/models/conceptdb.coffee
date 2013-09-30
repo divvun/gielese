@@ -65,9 +65,9 @@ module.exports = class ConceptDB extends Backbone.Collection
         return new_coll.where(params)
       else
         return new_coll.models
-      
+
     super
-    
+
   getTranslationsOf: (concept) ->
     @models.filter (comp_concept) =>
       if _.contains( concept.get('translations')
@@ -76,4 +76,3 @@ module.exports = class ConceptDB extends Backbone.Collection
         return true
       else
         return false
-

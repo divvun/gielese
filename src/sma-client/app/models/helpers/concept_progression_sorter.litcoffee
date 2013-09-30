@@ -49,18 +49,30 @@ been answered as correct by the user.
 
 Remove a concept from the cycle once it has been displayed 4 times.
 
-      countLessThanFour = (c) =>
-        getProgressionCorrectCountForConcept(c) < 4
+      if q.get('repetitions')
+        reps = parseInt q.get('repetitions')
+        if window.app.debug
+          console.log "question repetition count:" + q.get('repetitions')
+      else
+        reps = 3
+        if window.app.debug
+          console.log "question repetition not specified, default 3"
+
+      countLessRepetitions = (c) =>
+        getProgressionCorrectCountForConcept(c) < reps + 1
 
 Try to avoid repeats by excluding the last concept from the progression.
-      
-      last_concept = up.last()
 
-      if up.models.length > 0
-        excluding_last_concept = _.filter(
-          concepts, (c) -> c.get('question_concept_value') != last_concept.id
-        )
-          
+      last_concept = up.last()
+      if window.app.debug
+        console.log "Last concept: "
+        console.log last_concept
+
+      if last_concept
+        notLast = (c) =>
+          c.get('concept_value') != last_concept.get('question_concept_value')
+        excluding_last_concept = _.filter(concepts, notLast)
+
         if excluding_last_concept.length == 0
           excluding_last_concept = concepts
       else
@@ -70,7 +82,7 @@ Now we sort by the amount of times the concept has been displayed-- giving
 preference to those that have been displayed less so far.
 
       ordered_by_frequency = _.sortBy(
-        _.filter(excluding_last_concept, countLessThanFour),
+        _.filter(excluding_last_concept, countLessRepetitions),
         getProgressionCorrectCountForConcept
       )
 
