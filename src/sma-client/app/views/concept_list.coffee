@@ -23,8 +23,14 @@ class ConceptView extends Backbone.View
 
     console.log [@next, @prev]
 
+    if app.user
+      success = @model.successRateInUserLog()
+    else
+      success = false
+
     @$el.html @template({
       model: @model
+      success_rate: success
       cid: @model.cid
       concept_value: @model.get('concept_value')
       concept_type: @model.get('concept_type')
@@ -178,10 +184,24 @@ module.exports = class ConceptList extends Backbone.View
 
     @concepts_in_order = category_concepts
 
+    get_success_color = (_float) ->
+      _class = ''
+      if (1 >= _float) && (_float >= .9)
+        _class = 'success-rate-green'
+      if (.9 > _float) && (_float > .7)
+        _class = 'success-rate-yellow'
+      if (.7 > _float) && (_float > .49)
+        _class = 'success-rate-orange'
+      if (.49 > _float) && (_float > .1)
+        _class = 'success-rate-red'
+      return _class
+
+    window.get_success_color = get_success_color
     @$el.html @template {
       category: @for_category
       models: category_concepts
       initial_model: initial.render().$el.html()
+      get_success_color: get_success_color
     }
 
     @$el.find('ul#concept-list li:first').addClass('ui-btn-active-d')

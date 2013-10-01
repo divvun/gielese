@@ -4,6 +4,20 @@ module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
   idAttribute: "c_id"
 
+  successRateInUserLog: () ->
+    log_entries_for_concept = app.leksaUserProgression.where
+      question_concept_value: @get('concept_value')
+    correct_values = app.leksaUserProgression.where
+      question_concept_value: @get('concept_value')
+      question_correct: true
+
+    total = log_entries_for_concept.length
+    count_correct = correct_values.length
+    if total > 0
+      return count_correct/total
+    else
+      return false
+
   hasThumbnail: () ->
     thumbs = false
     has_media = @.get('media')

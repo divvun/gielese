@@ -22,6 +22,7 @@
 
 </ul>
 
+
 <div id="nav_buttons">
 
     <ul>
@@ -57,6 +58,14 @@
     </ul>
 
 </div>
+
+<% if window.app.user and @success_rate: %>
+    <div id="concept_stats">
+        <ul>
+            <li>Success rate with this word: <%- @success_rate*100 %>%</li>
+        </ul>
+    </div>
+<% end %>
 
 <% if @fallback: %>
     <span class="error">No definition in db for <%- @userlang %> for word, falling back to nob.</span>

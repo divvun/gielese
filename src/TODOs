@@ -1,31 +1,29 @@
 ## Today
 
-* bug: saw prïhtjege twice on level 3, where the answer was one of them, but
-  one of them was marked as wrong. need to check removal of duplicate answers
-  again
+* working on mechanism for multiple repeats of levels, and tracking these in
+  user logs
 
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart
 
 * endringar i nivåa:
-** lv. 5 - 5
+  ** lv. 5 - 5 - plass på skjerm?
 
-* bilætestørrelse i ordlista - gjer det som gjerast no i spelet
 * underkategori: gjer ikonar større
 * manglar rullesjakt i ordlista når ein rullar (=vanskeleg å vita om ein har kome til slutten/starten, og kor lang lista er)
 
 * ipad: kategori side - no back button (?)
 
- + TODO: 
-    * lyden kjem ikkje av seg sjølv på iPhone (iOS 5) - berre etter at ein har trykt på lydlenka ein gong
-    * lyden er borte på iOS 6
++ TODO: 
+   * lyden kjem ikkje av seg sjølv på iPhone (iOS 5) - berre etter at ein har trykt på lydlenka ein gong
+   * lyden er borte på iOS 6
 
- + TODO:  new media sets: 
-   * create various image sizes
-   * define category images
-   * check that semantic sets match up with leksa level definition
-   * there may be some complexity to simplify now, which can be seen while
-     adding new categories.
++ TODO:  new media sets: 
+  * create various image sizes
+  * define category images
+  * check that semantic sets match up with leksa level definition
+  * there may be some complexity to simplify now, which can be seen while
+    adding new categories.
 
  + TODO: canvas stats graph doesn't work on android, maybe need an alternate
 
