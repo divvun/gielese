@@ -396,11 +396,11 @@ Questions:
       from_language: "img"
       to_language: "sma"
       semantics:
-        - "FOOD"
+        - "TEST"
 
     answer_similarity:
       semantics:
-        - "FOOD"
+        - "TEST"
 
   - type: "word_to_image"
     category: "TEST"
@@ -410,14 +410,34 @@ Questions:
     answers: 2
     points: 100
     sound: true
+    repetitions: 0
+
+    filters:
+      from_language: "sma"
+      to_language: "img"
+      semantics:
+        - "TEST"
+
+    answer_similarity:
+      semantics:
+        - "TEST"
+
+  - type: "word_to_image"
+    category: "TEST"
+    name: "Bodypart image to word"
+
+    level: 3
+    answers: 3
+    points: 100
+    sound: true
     repetitions: 1
 
     filters:
       from_language: "sma"
       to_language: "img"
       semantics:
-        - "FOOD"
+        - "TEST"
 
     answer_similarity:
       semantics:
-        - "FOOD"
+        - "TEST"

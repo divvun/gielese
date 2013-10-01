@@ -88,3 +88,12 @@ Categories:
       - *animals
       - *world
 
+  - category: "TEST"
+    name: "Test"
+    semantics: 
+      - "TEST"
+    main_menu: false
+    media:
+      image:
+        - path: "http://placekitten.com/g/500/600"
+          device: "mobile"

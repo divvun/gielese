@@ -7,6 +7,9 @@ This class is returned when a question is generated.
                     @question_total, @total_correct) ->
         if window.app.debug
           console.log "created instance"
+        if window.app.debug
+          console.log "cIDs for answer concepts:"
+          console.log (choice.cid for choice in @choices)
         @choices = _.shuffle(@choices)
 
 ## Question model
@@ -74,6 +77,9 @@ answering all concepts in level correctly at least once.
         _ms = "/#{media_size}/"
         filtered_concepts = _.filter concepts, (c) =>
           if c.get('language') == 'img'
+            ## imgs = c.get('media').image
+            ## imgs_fit = (i for i in imgs if i.size == media_size)
+            ## console.log imgs_fit
             return c.get('concept_value').search(_ms) > -1
           else
       	    return true
@@ -91,7 +97,7 @@ answering all concepts in level correctly at least once.
         orderConceptsByProgression = require './helpers/concept_progression_sorter'
         return orderConceptsByProgression(@,
           @filter_concepts_by_media(
-            @select_question_concepts(conceptdb), 'small'
+            @select_question_concepts(conceptdb), app.media_size
           ),
           userprog
         )
@@ -150,6 +156,10 @@ answering all concepts in level correctly at least once.
           _to = userlang
 
         question_concepts = @select_question_concepts(conceptdb)
+
+        if @attributes.type == 'word_to_image'
+          question_concepts = @filter_concepts_by_media(question_concepts, app.media_size)
+
         q_concepts = @select_question_concepts_by_progression(
           question_concepts,
           userprogression
@@ -182,7 +192,10 @@ answering all concepts in level correctly at least once.
         # TODO: if word has no translations, things break here.
         # TODO: also if there are multiple translations in a language, we'll only
         #       get the first in the DB
-        actual_answer_concepts = question.getTranslationsToLang(_to)
+        actual_answer_concepts = @filter_concepts_by_media(
+          question.getTranslationsToLang(_to),
+          app.media_size
+        )
 
         if actual_answer_concepts.length == 0
           console.log " * No translations to #{_to} for #{question.get('concept_value')}"
@@ -244,19 +257,30 @@ answering all concepts in level correctly at least once.
           uniq_for_concept_value potential_incorrect_answers
         )
 
+        answer_possibilities = @filter_concepts_by_media(answer_possibilities, app.media_size)
+
         answer_possibilities = answer_possibilities.slice(0, max_answers - 1)
 
         all_answer_poss = [actual_answer]
         all_answer_poss = all_answer_poss.concat answer_possibilities
         all_answer_poss = uniq_for_concept_value all_answer_poss
 
-        # Fill the array with missing answers if we have too few.
+Fill the array with missing answers if we have too few.
+
         if all_answer_poss.length < max_answers
+          if app.debug
+            console.log "Things came short, filling in..."
+          
           difference = max_answers - all_answer_poss.length
-          concept_values = (a.attributes.concept_value for a in all_answer_poss)
+          concept_values = (a.attributes.concept_value for a in all_answer_poss).map chop_concept
+
           for c in _.range(0, difference)
+            act_ans = chop_concept(actual_answer.attributes.concept_value)
+
             for a in _.shuffle(potential_incorrect_answers)
-              if (a != actual_answer) and !(a in all_answer_poss)
+              pot_ans = chop_concept(a.attributes.concept_value)
+
+              if (pot_ans != act_ans) and !(a in all_answer_poss)
                 all_answer_poss.push a
                 break
 

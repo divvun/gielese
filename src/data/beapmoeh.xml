@@ -27,6 +27,7 @@
     <mg>
       <semantics>
         <sem class="FOOD"/>
+        <sem class="TEST"/>
       </semantics>
       <tg xml:lang="nob">
        <t>brød</t>
@@ -63,6 +64,7 @@
     </media>
     <mg>
       <semantics>
+        <sem class="TEST"/>
         <sem class="FOOD"/>
       </semantics>
       <tg xml:lang="nob">
@@ -134,6 +136,7 @@
     </media>
     <mg>
       <semantics>
+        <sem class="TEST"/>
         <sem class="FOOD"/>
       </semantics>
       <tg xml:lang="nob">
@@ -245,6 +248,7 @@
     </media>
     <mg>
       <semantics>
+        <sem class="TEST"/>
         <sem class="FOOD"/>
       </semantics>
       <tg xml:lang="nob">
@@ -319,6 +323,7 @@
     </media>
     <mg>
       <semantics>
+        <sem class="TEST"/>
         <sem class="FOOD"/>
       </semantics>
       <tg xml:lang="nob">

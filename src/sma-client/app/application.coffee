@@ -79,6 +79,7 @@ module.exports = class Application
     # existing session?
     # TODO: device detection
     @device_type = "mobile"
+    @media_size = "small"
 
     @loadingTracker = new LoadingTracker({
       'concepts.json': false
