@@ -70,7 +70,7 @@ module.exports = class Application
               app.router.index()
               return e.preventDefault()
 
-          if window.app.options.getSetting('enable_cache')?
+          if app.options.getSetting('enable_cache')?
             initWindowCache()
 
   initialize: (options = {}) ->

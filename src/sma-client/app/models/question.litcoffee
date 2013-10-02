@@ -5,9 +5,9 @@ This class is returned when a question is generated.
     class QuestionInstance
       constructor: (@generator, @question, @choices, @answer, @current_count,
                     @question_total, @total_correct) ->
-        if window.app.debug
+        if app.debug
           console.log "created instance"
-        if window.app.debug
+        if app.debug
           console.log "cIDs for answer concepts:"
           console.log (choice.cid for choice in @choices)
         @choices = _.shuffle(@choices)
@@ -54,7 +54,7 @@ answering all concepts in level correctly at least once.
               up.get('question').cid == @cid
             .length
         
-        concepts = @select_question_concepts window.app.conceptdb
+        concepts = @select_question_concepts app.conceptdb
         
         counts = []
         for c in concepts
@@ -82,10 +82,10 @@ answering all concepts in level correctly at least once.
             ## console.log imgs_fit
             return c.get('concept_value').search(_ms) > -1
           else
-      	    return true
+            return true
 
         if filtered_concepts.length == 0
-          if window.app.debug
+          if app.debug
             console.log "* Unable to filter by media type because concepts do not"
             console.log "  have a media type that matches device. Falling back to"
             console.log "  whatever is available."

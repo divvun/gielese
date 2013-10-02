@@ -26,7 +26,7 @@ Grab only the user progression for this question.
       userprogression = up.filter (u) =>
         u.get('question').cid == q.cid
 
-      if window.app.debug
+      if app.debug
         console.log "#{q.cid} - #{userprogression.length} run-throughs"
 
 If there's nothing in the user progression, great, no need to sort!
@@ -62,11 +62,11 @@ Remove a concept from the cycle once it has been displayed 4 times.
 
       if q.get('repetitions')
         reps = parseInt q.get('repetitions')
-        if window.app.debug
+        if app.debug
           console.log "question repetition count:" + q.get('repetitions')
       else
         reps = 3
-        if window.app.debug
+        if app.debug
           console.log "question repetition not specified, default 3"
 
       countLessRepetitions = (c) =>
@@ -75,7 +75,7 @@ Remove a concept from the cycle once it has been displayed 4 times.
 Try to avoid repeats by excluding the last concept from the progression.
 
       last_concept = up.last()
-      if window.app.debug
+      if app.debug
         console.log "Last concept: "
         console.log last_concept
 
@@ -99,7 +99,7 @@ preference to those that have been displayed less so far.
 
 Useful debugging info...
 
-      if window.app.debug
+      if app.debug
         f_strings = ordered_by_frequency.map (f) ->
             "#{getProgressionCorrectCountForConcept(f)} - #{f.get('concept_value')}"
 
@@ -111,7 +111,7 @@ which means most likely that the user has completed the level. So, we return
 something anyway, but log an error.
 
       if ordered_by_frequency.length == 0
-        if window.app.debug
+        if app.debug
           console.log "No more concepts fitting progression"
         return concepts
 

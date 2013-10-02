@@ -22,8 +22,8 @@ module.exports = class Router extends Backbone.Router
   initialize: () ->
     # Handle back button throughout the application
     $('.back').live 'click', (event) ->
-        window.history.back()
-        return false
+      window.history.back()
+      return false
     @firstPage = true
 
     app.userStats = new UserStats()
@@ -40,7 +40,7 @@ module.exports = class Router extends Backbone.Router
     '': 'index'
     '#index': 'index'
 
-    # Misc 
+    # Misc
     
     'options': 'options'
     '#options': 'options'
@@ -68,7 +68,7 @@ module.exports = class Router extends Backbone.Router
     'category/:name':  'categoryGames'
     '#category/:name': 'categoryGames'
 
-    # 
+    #
 
     'leksa/:category': 'leksa'
     '#leksa/:category': 'leksa'
@@ -130,14 +130,14 @@ module.exports = class Router extends Backbone.Router
     @changePage(app.categoryGames)
 
   leksaOptions: ->
-    window.app.loadingTracker.checkDeps()
+    app.loadingTracker.checkDeps()
     @changePage(app.leksaOptionsView)
 
   leksa: (category) ->
     # $('content #content').html app.leksaView.render().el
     # ready = false
     # until ready
-    window.app.loadingTracker.checkDeps()
+    app.loadingTracker.checkDeps()
 
     app.leksaView = new LeksaView()
     app.leksaView.leksa_category = category
@@ -151,7 +151,7 @@ module.exports = class Router extends Backbone.Router
     # $('content #content').html app.leksaView.render().el
     # ready = false
     # until ready
-    window.app.loadingTracker.checkDeps()
+    app.loadingTracker.checkDeps()
 
     level = parseInt level
     app.leksaView = new LeksaView()
@@ -211,8 +211,8 @@ module.exports = class Router extends Backbone.Router
     
     # We don't want to slide the first page
     if @firstPage
-        transition = 'none'
-        @firstPage = false
+      transition = 'none'
+      @firstPage = false
 
     window.omg = page.el
     $.mobile.changePage($(page.el), {changeHash:false, transition:transition})

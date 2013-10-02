@@ -91,9 +91,9 @@ module.exports = class FrontPage extends Backbone.View
       console.log "success2"
       console.log "you were successful, but this doesn't work yet"
       app.auth.login({
-      	username: username
-      	password: password
-      	success: () =>
+        username: username
+        password: password
+        success: () =>
           $("#loginform_subsub").hide()
           $("#loginform_success").show()
       })
@@ -128,7 +128,7 @@ module.exports = class FrontPage extends Backbone.View
       DSt.set('gielese-configured', true)
       if app.user
         app.options.storage.sync.push()
-      window.app.router.index()
+      app.router.index()
 
 
   storeCurrentVisibleSetting: (current) ->
@@ -170,6 +170,7 @@ module.exports = class FrontPage extends Backbone.View
     # When the last one arrives, begin! also store that settings were viewed
     # TODO: shake next on no-answer
     @updateProgress((@questions_answered/@total_questions)*100)
+    @$el.find('#goBack').show()
 
     current = $ """ .question_blocks 
                     .question_block:visible 
@@ -200,7 +201,7 @@ module.exports = class FrontPage extends Backbone.View
     else
       if app.user
         app.options.storage.sync.push()
-      window.app.router.mainMenu()
+      app.router.mainMenu()
 
     return false
 

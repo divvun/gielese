@@ -1,7 +1,11 @@
 ## Today
 
+* for some reason changing UI lang doesn't reload translations
+
 * working on mechanism for multiple repeats of levels, and tracking these in
   user logs
+
+* TODO: maybe level one shouldn't log user answers since it's more or less a slideshow
 
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart
@@ -27,16 +31,9 @@
 
  + TODO: canvas stats graph doesn't work on android, maybe need an alternate
 
- + TODO: back button on create an account page -- accidental navigation
-
- + TODO: when sma is selected and user navigates to options, both language
-         selects are not visible
-
  + TODO: audio doesn't play automatically on gielese.no / maybe just generally
 
  + TODO: missing image for mielhke 
-
- + TODO: lexicon view -- accuracy rate when viewing a word? 
 
  + TODO: server-synced objects stored in localStorage sometimes are extra
    persistent, usersettings will have multiple objects for each setting,

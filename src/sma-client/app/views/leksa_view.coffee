@@ -13,14 +13,11 @@ LeksaQuestionWordToImage = require './templates/leksa_question_word_to_image'
 ## ##
 
 fadeUp = (elem) ->
-    elem.fadeOut(1500)
-        .queue (nxt) ->
-            $(this).remove()
-            nxt()
-
-    # .remove()
-    # elem.remove()
-    return false
+  elem.fadeOut(1500)
+    .queue (nxt) ->
+      $(this).remove()
+      nxt()
+  return false
 
 module.exports = class LeksaView extends Backbone.View
 
@@ -35,7 +32,7 @@ module.exports = class LeksaView extends Backbone.View
       when "word_to_word" then LeksaQuestionWordToWord
       when "word_to_image" then LeksaQuestionWordToImage
     return tpl context
-    
+
   leksa_error_template: require './templates/leksa_error_template'
 
   events:
@@ -110,7 +107,7 @@ module.exports = class LeksaView extends Backbone.View
       points_given = 0
     #
     # Create the log entry in the user progression
-    log = window.app.leksaUserProgression.logActivity
+    log = app.leksaUserProgression.logActivity
       game_name: "leksa"
       question_concept: concept.get('id')
       question_concept_value: concept_name
@@ -138,14 +135,14 @@ module.exports = class LeksaView extends Backbone.View
     false
 
   updateLogPanel: (entry) ->
-    # Collate results from window.app.leksaUserProgression collection, display
+    # Collate results from app.leksaUserProgression collection, display
     # them.
-    concept_prog = window.app.leksaUserProgression.collateConcepts app.conceptdb
+    concept_prog = app.leksaUserProgression.collateConcepts app.conceptdb
     $('#stat_block').html StatTemplate
-      total: window.app.leksaUserProgression.models.length
-      correct: window.app.leksaUserProgression.totalCorrect()
+      total: app.leksaUserProgression.models.length
+      correct: app.leksaUserProgression.totalCorrect()
       concept_progress: concept_prog
-      total_points: window.app.leksaUserProgression.countPoints()
+      total_points: app.leksaUserProgression.countPoints()
 
   # # #
   # # #  Progress bar
@@ -290,6 +287,6 @@ module.exports = class LeksaView extends Backbone.View
     @renderQuestion()
     @first = true
     # Bind an event to user progression-- TODO: move elsewhere
-    window.app.leksaUserProgression.on('add', @updateLogPanel)
+    app.leksaUserProgression.on('add', @updateLogPanel)
 
     return this

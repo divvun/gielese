@@ -10,7 +10,7 @@
                     <div data-role="fieldcontain" id="create_account">
                         <h2 class="legend"><%- gettext.gettext "Create an account?" %></h2>
                         <div class="ui-grid-a">
-	                        <div class="ui-block-a">
+                            <div class="ui-block-a">
                                 <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
                                     <input class="nextSection" type="radio" name="create-user-account-a" id="create-user-account-a" value="true" data-subquestion="true">
                                     <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
@@ -18,11 +18,11 @@
                                     <label for="create-user-account-b"><%- gettext.gettext "No" %></label>
                                 </fieldset>
                                 <br />
-	                        </div>
-	                        <div class="ui-block-b">
+                            </div>
+                            <div class="ui-block-b">
                                 <a data-role="button" id="displayLogin" data-mini="true" style="width: 7em;"><%- gettext.gettext "Log in" %></a>
                                 <br />
-	                        </div>
+                            </div>
                         </div>
                         <p class="help"><%- gettext.gettext "If you choose not to create an account, data will still be stored anonymously, however, it may be erased if you clear your browser's stored data." %></p>
                         <p class="help"><%- gettext.gettext "Having an account also allows you to compete with others, and integrates with courses." %></p>
@@ -32,32 +32,31 @@
                 <div class="sub_question_block" style="display: none;">
                     <div id="loginform_subsub">
                         <p class="lead"><%- gettext.gettext "Your progress will be stored online, and will syncronise when you connect if you play in offline mode." %></p>
-	                    <form id="user" action="">
+                        <form id="user" action="">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
                                   <div class="form_fields">
                                     <fieldset>
-		                                <input autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder="username">
-                                    </fieldset>	
-                                    <fieldset>	
-		                                <input type="password" name="password" id="pw" value="" placeholder="password">
-                                    </fieldset>	
+                                        <input autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder="username">
+                                    </fieldset> 
+                                    <fieldset>  
+                                        <input type="password" name="password" id="pw" value="" placeholder="password">
+                                    </fieldset> 
                                     <fieldset>
-		                                <input autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder="e-mail">
-                                    </fieldset>	
+                                        <input autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder="e-mail">
+                                    </fieldset> 
                                   </div>
                                 </div>
-		                    </div>
+                            </div>
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-		                            <div data-role="controlgroup" data-type="horizontal" data-position="right">
-		                                <input type="submit" value="Submit" data-inline="true" data-theme="b" data-position="right" />
-		                            </div>
-		                        </div>
-		                        <div id="loading_user" class="display: none;" />
-		                    </div>
-	                    </form>
-                        <p class="help"> * Probably need a small legal notice about data policy?</p>
+                                    <div data-role="controlgroup" data-type="horizontal" data-position="right">
+                                        <input type="submit" value="Submit" data-inline="true" data-theme="b" data-position="right" />
+                                    </div>
+                                </div>
+                                <div id="loading_user" class="display: none;" />
+                            </div>
+                        </form>
                     </div>
                     <div id="loginform_success" style="display:none;">
                         <p class="lead"><%- gettext.gettext "Great, your account was created, and you've been logged in. Now for some basic questions..." %></p>
@@ -76,10 +75,6 @@
                             <label for="radio-choice-2">Åarjelsaemien <img class="flag_ico" src="/static/images/flags/sma_20x15.png" /></label>
                             <input class="nextSection" type="radio" name="radio-choice-1" id="radio-choice-3" value="swe">
                             <label for="radio-choice-3">Svenska <img class="flag_ico" src="/static/images/flags/sv_20x15.png" /></label>
-                            <!--
-                            <input type="radio" name="radio-choice-1" id="radio-choice-4" value="eng">
-                            <label for="radio-choice-4">English</label>
-                            -->
                         </fieldset>
 
                         <p class="help"><%- gettext.gettext "This affects what language is displayed in options and in-game help, and also vocabulary quizzes." %></p>
@@ -103,6 +98,7 @@
                 </div>
             </div>
 
+        <a data-role="button" href="#reset" id="goBack" data-mini="true" style="width: 5em; display: none;"><%- gettext.gettext "Back" %></a>
         <div id="progressbar"></div>
     </div>
 

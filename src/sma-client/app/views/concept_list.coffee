@@ -23,10 +23,12 @@ class ConceptView extends Backbone.View
 
     console.log [@next, @prev]
 
+    success = false
     if app.user
       success = @model.successRateInUserLog()
     else
-      success = false
+      if app.leksaUserProgression.models.length > 0
+        success = @model.successRateInUserLog()
 
     @$el.html @template({
       model: @model

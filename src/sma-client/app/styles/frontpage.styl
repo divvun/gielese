@@ -1,13 +1,20 @@
 ﻿#frontPage
     background-color: #FFF
 
+    a#goBack
+        position: fixed
+        bottom: 5px
+        right: 15px
+        opacity: .6
+        z-index: 5
+
     #main_page_header, #main_page_content
         max-width: 450px
 
     #main_page_header
 
         margin: 0 auto 0 auto
-        padding: 0 0 10px 0 
+        padding: 0 0 10px 0
         // border-bottom: 1px solid #CCC
         width: 100%
         display: block
@@ -34,7 +41,7 @@
         color: #EEEEEE
         text-shadow: 0 0 3px #000
 
-    p 
+    p
         font-family: "Open Sans", sans-serif
 
     p.lead
@@ -55,7 +62,7 @@
         margin-right: .5em
         margin-bottom: 0
 
-    .question_block 
+    .question_block
         div[data-role="fieldcontain"]
             margin-top: 0
 
@@ -92,7 +99,7 @@
         span.error
             color: #900
             font-weight: bold
-            
+
     #progressbar
         height: 1.25em
 

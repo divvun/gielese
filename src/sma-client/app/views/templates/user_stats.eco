@@ -7,13 +7,11 @@
 </div>
 
 <div data-role="content">
-    <% if app.user is undefined: %>
+    <% if not app.user: %>
         <h3><%- gettext.gettext "Please log in first." %></h3>
     <% end %>
 
-    <% if app.user is undefined: %>
-        <h3><%- gettext.gettext("Points") %></h3>
-    <% else: %>
+    <% if app.user and @points_total: %>
         <h3><%- @points_total %> <%- gettext.gettext "points" %></h3>
     <% end %>
 
@@ -41,36 +39,38 @@
 
 <% end %>
 
-    <h3><%- gettext.gettext "High scores" %></h3>
-    <div id="high_scores">
-        <%- gettext.gettext "Loading..." %>
-    </div>
+    <% if app.user: %>
+        <h3><%- gettext.gettext "High scores" %></h3>
+        <div id="high_scores">
+            <%- gettext.gettext "Loading..." %>
+        </div>
 
-    <form id="display_stats">
-        <ul data-role="listview" data-inset="true">
-            <li data-role="fieldcontain">
-                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                    <legend><%- gettext.gettext "Show my score to everyone?" %></legend>
-                        <input type="radio" 
-                               name="radio-choice-b" 
-                               id="radio-choice-a"
-                               data-highscore-visible="true"
-                               <% if @highscore_visible: %>
-                               checked="checked"
-                               <% end %>
-                               >
-                        <label for="radio-choice-a"><%- gettext.gettext "Yes" %></label>
-                        <input type="radio"
-                               name="radio-choice-b"
-                               id="radio-choice-b"
-                               <% if not @highscore_visible: %>
-                               checked="checked"
-                               <% end %>
-                               data-highscore-visible="false">
-                        <label for="radio-choice-b"><%- gettext.gettext "No" %></label>
-                </fieldset>
-            </li>
-        </ul>
-    </form>
+        <form id="display_stats">
+            <ul data-role="listview" data-inset="true">
+                <li data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend><%- gettext.gettext "Show my score to everyone?" %></legend>
+                            <input type="radio" 
+                                   name="radio-choice-b" 
+                                   id="radio-choice-a"
+                                   data-highscore-visible="true"
+                                   <% if @highscore_visible: %>
+                                   checked="checked"
+                                   <% end %>
+                                   >
+                            <label for="radio-choice-a"><%- gettext.gettext "Yes" %></label>
+                            <input type="radio"
+                                   name="radio-choice-b"
+                                   id="radio-choice-b"
+                                   <% if not @highscore_visible: %>
+                                   checked="checked"
+                                   <% end %>
+                                   data-highscore-visible="false">
+                            <label for="radio-choice-b"><%- gettext.gettext "No" %></label>
+                    </fieldset>
+                </li>
+            </ul>
+        </form>
+    <% end %>
 
 </div>
