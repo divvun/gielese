@@ -1,4 +1,6 @@
-<div data-role="header" data-theme="c">
+<!-- h -->
+<!--
+<div data-role="header" data-theme="h">
     <a href="#options" data-transition="slide" id="show-panel" data-icon="gear"><%- gettext.gettext "Options" %></a>
     <h1>&nbsp;</h1>
     <% if app.user: %>
@@ -7,12 +9,45 @@
             <span class="user"> <%- app.user.username %> </span>
         </a>
     <% else: %>
-        <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="grid">
+        <a href="#" id="login_button"  data-transition="slide" id="show-panel" data-icon="grid" data-theme="h">
             <span class="action"><%- gettext.gettext "Log in" %></span>
             <span class="user"></span>
         </a>
     <% end %>
-</div> 
+</div>
+-->
+
+<div class="aajege-header">
+    <ul class="aajege-nav aajege-nav-left">
+        <li class="icon-aajege-home">
+            <a href="#options" id="show-panel">
+                <span class="label">
+                    <%- gettext.gettext "Options" %>
+                </span>
+            </a>
+        </li>
+    </ul>
+
+    <ul class="aajege-nav aajege-nav-right">
+        <li class="icon-aajege-bag">
+            <% if app.user: %>
+                <a href="#stats" id="userinfo_button">
+                    <span class="label">
+                        <span class="action"></span>
+                        <span class="user"> <%- app.user.username %> </span>
+                    </span>
+                </a>
+            <% else: %>
+                <a href="#" id="login_button">
+                    <span class="label">
+                        <span class="action"><%- gettext.gettext "Log in" %></span>
+                        <span class="user"></span>
+                    </span>
+                </a>
+            <% end %>
+        </li>
+    </ul>
+</div>
 
 <div data-role="content">
     <br />
@@ -22,28 +57,25 @@
         <div class="ui-grid-b">
         <% for group in @categories: %>
             <% for [category, label] in group: %>
-	            <% cat  = category.get('category') %>
-	            <% name = category.get('name') %>
-	            <% subcat = category.get('children').length > 0 %>
+                <% cat  = category.get('category') %>
+                <% name = category.get('name') %>
+                <% subcat = category.get('children').length > 0 %>
 
-	            <div class="ui-block-<%- label %>">
-                    <a class="square" 
-                       href="#category/<%- cat %>" 
+                <div class="ui-block-<%- label %>">
+                    <a class="square"
+                       href="#category/<%- cat %>"
                        data-transition="slide">
                         <% if app.conceptdb.titleImages(cat): %>
                             <% background_img = app.conceptdb.titleImages(cat)[0].path %>
-	                        <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
-	                    <% else: %>
-	                        <span class="link_image"></span>
-	                    <% end %>
-	                    <span class="link_word"><%- gettext.gettext name %></span>
-	                </a>
-	            </div>
-
-	        <% end %>
+                            <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
+                        <% else: %>
+                            <span class="link_image"></span>
+                        <% end %>
+                        <span class="link_word"><%- gettext.gettext name %></span>
+                    </a>
+                </div>
+            <% end %>
         <% end %>
-
     </div>
-
-</div> 
-
+</div>
+<% # vim: set ts=4 sw=4 tw=0 syntax=mason : %>

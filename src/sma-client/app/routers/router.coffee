@@ -198,7 +198,7 @@ module.exports = class Router extends Backbone.Router
   refreshCurrentPage: () ->
     $('[data-role="page"]').trigger("pagecreate")
     return true
-  
+
   changePage: (page) ->
     # Here we're creating new change page behavior so that backbone plays
     # nicely with jQuery mobile.
@@ -208,7 +208,7 @@ module.exports = class Router extends Backbone.Router
 
     $('body').append($(page.el))
     transition = $.mobile.defaultPageTransition
-    
+
     # We don't want to slide the first page
     if @firstPage
       transition = 'none'
