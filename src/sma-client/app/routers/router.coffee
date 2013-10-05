@@ -4,18 +4,18 @@
 #       in order for all events to be available again, as
 #       router.changePage destroys them for some reason.
 
-LeksaView = require 'views/leksa_view'
-CategoryGames = require 'views/category_games_view'
-ConceptList = require 'views/concept_list'
-GlobalOptionsView = require 'views/global_options'
+LeksaView = require 'views/games/leksa'
+CategoryMenu = require 'views/categories/categories'
+CategoryGames = require 'views/categories/category'
 
-UserStats = require 'views/user_stats'
-CategoryMenu = require 'views/category_view'
-CategoryGames = require 'views/category_games_view'
-FrontPage = require 'views/front_page'
-LeksaOptionsView = require 'views/leksa_options_view'
-ErrorView = require 'views/error_view'
-LoadingView = require 'views/loading'
+ConceptList = require 'views/concepts/list'
+GlobalOptionsView = require 'views/users/options'
+
+UserStats = require 'views/users/stats'
+FrontPage = require 'views/intro/view'
+LeksaOptionsView = require 'views/games/leksa_options_view'
+ErrorView = require 'views/error/view'
+LoadingView = require 'views/intro/loading'
 
 module.exports = class Router extends Backbone.Router
 

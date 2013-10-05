@@ -1,6 +1,8 @@
 # A front page view to ask users introductory questions about their experience.
 # Once this is set, need to skip this on further loads.
 
+FrontPageTemplate = require './templates/front_page'
+
 module.exports = class FrontPage extends Backbone.View
 
   # NB: some events need to be bound after the template is rendered, because
@@ -212,7 +214,7 @@ module.exports = class FrontPage extends Backbone.View
 
   id: "frontPage"
 
-  template: require './templates/front_page'
+  template: FrontPageTemplate
 
   render: ->
     @total_questions = 2

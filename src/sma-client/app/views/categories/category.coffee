@@ -1,10 +1,11 @@
 ﻿Category = require 'models/category'
+CategoryTemplate = require './templates/category'
 
 module.exports = class CategoryGames extends Backbone.View
 
   id: "category_games"
 
-  template: require './templates/category_games_menu'
+  template: CategoryTemplate
 
   render: ->
     cats = app.categories.where({category: @category})

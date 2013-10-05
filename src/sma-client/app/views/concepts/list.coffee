@@ -1,10 +1,14 @@
+ConceptItem = require './templates/item'
+ConceptListTemplate = require './templates/list'
+ConceptViewMain = require './templates/concepts'
+
 class ConceptView extends Backbone.View
 
   play: (evt) ->
     @model.playAudio()
     return false
 
-  template: require './templates/concept_item'
+  template: ConceptItem
 
   render: ->
     lang = app.options.getSetting('help_language')
@@ -156,7 +160,7 @@ module.exports = class ConceptList extends Backbone.View
 
   className: 'conceptlist'
 
-  template: require './templates/concept_list'
+  template: ConceptListTemplate
 
   render: ->
 

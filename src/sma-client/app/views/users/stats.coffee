@@ -1,8 +1,8 @@
 # TODO: if this view is called and someone isn't logged in, display login
 # but with a back button
 #
-CategoryLegend = require './templates/stats_category_legend'
-HighScoreList = require './templates/high_scores_block'
+CategoryLegend = require './templates/category_legend'
+HighScoreList = require './templates/high_scores'
 
 module.exports = class UserStats extends Backbone.View
 
@@ -22,7 +22,7 @@ module.exports = class UserStats extends Backbone.View
         window.location.hash = "#reset"
     return false
   
-  template: require './templates/user_stats'
+  template: require './templates/stats'
 
   categoryChart: () ->
     # POINTS or amount of times played?

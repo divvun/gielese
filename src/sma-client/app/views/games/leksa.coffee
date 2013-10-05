@@ -1,12 +1,14 @@
-
-StatTemplate = require 'views/templates/stat_block'
-LevelCompleted = require 'views/templates/leksa_level_completed'
-
 UserLog = require 'models/user_log_entry'
+
+LeksaTemplate = require './templates/leksa'
+LeksaErrorTemplate = require './templates/leksa_error_template'
 
 LeksaQuestionImageToWord = require './templates/leksa_question_image_to_word'
 LeksaQuestionWordToWord = require './templates/leksa_question_image_to_word'
 LeksaQuestionWordToImage = require './templates/leksa_question_word_to_image'
+StatTemplate = require './templates/stat_block'
+LevelCompleted = require './templates/leksa_level_completed'
+
 
 #
 ##
@@ -23,7 +25,7 @@ module.exports = class LeksaView extends Backbone.View
 
   id: "leksa"
 
-  template: require './templates/leksa'
+  template: LeksaTemplate
 
   question_template: (context) ->
     console.log context.q_type
@@ -33,7 +35,7 @@ module.exports = class LeksaView extends Backbone.View
       when "word_to_image" then LeksaQuestionWordToImage
     return tpl context
 
-  leksa_error_template: require './templates/leksa_error_template'
+  leksa_error_template: LeksaErrorTemplate
 
   events:
     'click #show-panel': "revealOptionsPanel"

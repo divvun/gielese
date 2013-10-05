@@ -1,3 +1,4 @@
+CategoriesList = require './templates/categories'
 
 module.exports = class CategoryMenu extends Backbone.View
 
@@ -24,7 +25,7 @@ module.exports = class CategoryMenu extends Backbone.View
         , 250)
     }
 
-  template: require './templates/category_menu'
+  template: CategoriesList
 
   render: ->
     categories = app.categories.where

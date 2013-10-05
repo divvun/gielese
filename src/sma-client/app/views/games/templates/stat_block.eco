@@ -15,3 +15,4 @@
       <dd><%- total_correct[0] %>/<%- total_correct[1] %></dd>
     <% end %>
 </dl>
+

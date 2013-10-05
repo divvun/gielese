@@ -1,3 +1,5 @@
+OptionsTemplate = require './templates/options'
+
 module.exports = class GlobalOptionsView extends Backbone.View
 
   # ? Multiple different manifests depending on what user wants to
@@ -65,7 +67,7 @@ module.exports = class GlobalOptionsView extends Backbone.View
     })
       
 
-  template: require './templates/global_options'
+  template: OptionsTemplate
 
   reloadSettings: ->
     _cache = @$el.find('select[name="data-storage"]')

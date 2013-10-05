@@ -1,4 +1,4 @@
-LoginTemplate = require '/views/templates/login_modal'
+LoginTemplate = require '/views/users/templates/login_modal'
 
 module.exports = class Authenticator
 
