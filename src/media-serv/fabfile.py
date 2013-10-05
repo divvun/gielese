@@ -44,6 +44,15 @@ def reinstall_local_db():
 def rsync_svn():
     local("cd ../ && sh rsync_the_things.sh")
 
+@task
+def svn_up_target():
+    host, _, path = staging_remote_host_and_path.partition(':')
+
+    media_db_path = path + '/src/media-serv/'
+    client_path = path + '/src/sma-client/'
+
+    with cd(path):
+        run("svn up")
 
 @task
 def update_target_envs():

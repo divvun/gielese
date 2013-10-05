@@ -58,6 +58,11 @@
 
  + TODO: how much question data needs to be stripped before sending to server? 
 
+ + TODO: bower, backbone and jquery mobile -- get these dependencies figured
+    out in `bower`, consider this documentation. brunch will automatically track
+    and install dependencies in bower, making less work for additional
+    developers to jump in
+
 #
 
 * offline workflow (TODO: test this) -- what happens with storage?

@@ -67,18 +67,18 @@
                 <fieldset data-role="controlgroup">
                     <legend>Debug</legend>
                     <div class="ui-grid-b">
-	                    <div class="ui-block-a">
-	                        <a class="square" href="#reset" data-transition="slide">
-	                            <span class="link_word">Reset App</span>
-	                        </a>
-	                    </div>
+                        <div class="ui-block-a">
+                            <a class="square" href="#reset" data-transition="slide">
+                                <span class="link_word">Reset App</span>
+                            </a>
+                        </div>
 
-	                    <div class="ui-block-b">
+                        <div class="ui-block-b">
                             <a class="square" href="#category/TEST" data-transition="slide">
-	                            <span class="link_image"></span>
-	                            <span class="link_word">Test Category</span>
-	                        </a>
-	                    </div>
+                                <span class="link_image"></span>
+                                <span class="link_word">Test Category</span>
+                            </a>
+                        </div>
                     </div>
                 </fieldset>
             </li>

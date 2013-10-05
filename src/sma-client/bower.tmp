@@ -1,0 +1,31 @@
+{
+  "name": "sma-client",
+  "version": "0.0.0",
+  "authors": [
+    "Ryan <ryan.txanson@gmail.com>"
+  ],
+  "license": "NO",
+  "private": true,
+  "directory": "vendor/components",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "1.3.3",
+    "Gettext-0.08.tar.gz": "http://prdownload.berlios.de/jsgettext/Gettext-0.08.tar.gz",
+    "soundmanager2": "https://github.com/scottschiller/SoundManager2/archive/V2.97a.20130512.tar.gz",
+    "Chart.js": "*"
+  },
+  "overrides": {
+    "soundmanager2": {
+      "main": "script/soundmanager2-jsmin.js"
+    },
+    "underscore": {
+      "main": "underscore-min.js"
+    }
+  }
+}

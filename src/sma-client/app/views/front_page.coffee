@@ -8,6 +8,8 @@ module.exports = class FrontPage extends Backbone.View
   events:
     "submit #user": "userForm"
     "click #displayLogin": "displayLogin"
+    "click #goBack": "backOne"
+    "click .nextSection": "nextQuestion"
 
   # TODO: action for after login?
   displayLogin: ->
@@ -165,6 +167,9 @@ module.exports = class FrontPage extends Backbone.View
     # Detect subsetting, return true if pass
 
     return false
+
+  backOne: (event) ->
+    # reset view
 
   nextQuestion: (event) =>
     # When the last one arrives, begin! also store that settings were viewed
