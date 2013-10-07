@@ -1,20 +1,29 @@
-<div data-role="header" data-theme="c">
-    <a href="#category/<%- @category %>" data-transition="slide" data-icon="arrow-l">Back</a>
+<div class="aajege-header">
+    <ul class="aajege-nav aajege-nav-left">
+        <li class="icon-aajege-left-arrow">
+            <a href="#category/<%- @category %>" data-transition="slide">
+                <span class="label">
+                    <%- gettext.gettext "Back" %>
+                </span>
+            </a>
+        </li>
+    </ul>
+
     <h2><%- @category %></h2>
 </div>
 
-<div data-role="content">
-    <div class="ui-grid-a twothirds" id="concept_list_view">
+<div data-role="content" id="concepts-content">
+    <div class="ui-grid-a twothirds" id="concept_content_block">
         <div class="ui-block-a" id="concept_content">
             <%- @initial_model %>
         </div>
         <div class="ui-block-b">
             <ul data-role="listview" 
-                data-theme="d" 
+                data-theme="i" 
                 data-divider-theme="c" 
                 data-split-icon=""
                 data-icon=""
-                id="concept-list"
+                id="concept_list"
                 class="ui-listview">
                 <% for concept, i in @models: %>
                     <% color = false %>

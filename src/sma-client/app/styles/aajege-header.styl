@@ -1,0 +1,83 @@
+border-image()
+    -webkit-border-image: arguments /* Safari 5 */
+    -o-border-image: arguments /* Opera */
+    border-image: arguments
+
+.aajege-header
+    position: relative
+    top: 0px
+
+    display: block
+    height: 100px
+
+    width: 100%
+
+    border-image: url("/static/images/icons/flette.png") 0 0 14 0 round
+
+    border-bottom: 12px solid transparent
+
+    h2 
+        width: 100%
+        text-align: center
+        position: absolute
+        top: 0
+        left: 0
+        font-weight: 100
+        font-size: 200%
+        color: rgba(150, 150, 150, 1)
+
+    hr.aajege-flette
+        display: block
+        position: relative
+        bottom: 0px
+
+        height: 12px
+        width: 100%
+
+        background-image: url("/static/images/icons/flette.png")
+        background-position: center
+
+    .aajege-nav
+        margin: 0 0 0 0
+        padding: 0 0 0 0
+        list-style-type: none
+
+        li
+            margin: 0 0 0 0
+            list-style-type: none
+            float: left
+            width: 74px
+            height: 74px
+            border-radius: 5px
+
+            a
+                display: block
+                height: 74px
+                width: 74px
+
+            a .label
+                position: absolute
+                bottom: 0px
+                width: 100%
+                text-shadow: none
+                text-align: center
+                color: #FFF
+                heavy-text-shadow()
+                opacity: .8
+
+        li.shadow
+            box-shadow: 1px 1px 1px #000
+
+    .aajege-nav-left
+        position: absolute
+        top: 2px
+        left: 2px
+
+    .aajege-nav-right
+        position: absolute
+        top: 2px
+        right: 2px
+
+
+// TODO: media queries for .aajege-header-shrinkable
+

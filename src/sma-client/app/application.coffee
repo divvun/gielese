@@ -41,6 +41,20 @@ class LeksaOptions
 
 module.exports = class Application
 
+  enable_webfonts: () ->
+    # TODO: include in vendor
+    $.when(() ->
+      script = $ '<script />'
+      script.attr 'src', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js'
+      $('body').append script
+    ).then () ->
+      if not WebFont?
+        console.log "ERROR: WebFont async loader not available."
+        return
+      WebFont.load
+        google:
+          families: ['Open Sans', 'Kaushan Script']
+
   switch_locale: (locale, options = {}) ->
     $.get "/data/translations/#{locale}/messages.json",
       (locale_data) =>
@@ -62,6 +76,8 @@ module.exports = class Application
             hashChange: true
             root: window.location.pathname
 
+          # There be dragons here...
+          # Webkit has issues with certain things.
           $(document).bind "pagechange", (e, data) ->
             webkit = $.browser.webkit
             not_string = data.toPage isnt "string"
@@ -72,6 +88,8 @@ module.exports = class Application
 
           if app.options.getSetting('enable_cache')?
             initWindowCache()
+
+          @enable_webfonts()
 
   initialize: (options = {}) ->
 

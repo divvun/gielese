@@ -1,4 +1,7 @@
-#conceptlistview
+#concept_view
+
+    .concept_content
+        position: relative
 
     .success-rate-green
         border-left: 5px solid #090
@@ -30,16 +33,11 @@
                 display: block
                 float: left
                 padding: 0 1px 0 0
-                
-                // span.text_icon
-                //     display: block
-                //     width: 32px
-                //     font-size: 32px
-                //     line-height: 32px
-                //     text-align: center
  
-   
-    #concept_list_view.twothirds ui-block-a
+    #concept_content_block
+        position: relative
+
+    #concept_content_block.twothirds ui-block-a
         width: 60% !important
     
     #concept_content
@@ -48,17 +46,17 @@
         width: 60%
         margin: 0 auto
     
-    #concept_list_view.twothirds ui-block-b
+    #concept_content_block.twothirds ui-block-b
         width: 40% !important
     
-    #concept_list_view.twothirds ul#concept-list
+    #concept_content_block.twothirds ul#concept_list
         overflow-y: scroll
-        position: fixed
+        position: absolute
         display: block
-        top: 4.30em
+        top: 0px
         right: 0em
-        height: 90%
-        background-color: none
+        height: 100%
+        background-color: transparent
     
         .concept_link
             font-family: "Open Sans"
@@ -131,7 +129,7 @@
             height: 150px
     
     
-        #concept-list
+        #concept_list
             width: 40%
     
             .concept_link
@@ -148,14 +146,14 @@
             width: 350px
             height: 350px
     
-        #concept_list_view.twothirds ui-block-a
+        #concept_content_block.twothirds ui-block-a
             width: 60% !important
     
         #concept_content
             width: 60%
             margin-top: 5em
     
-        #concept_list_view.twothirds ui-block-b
+        #concept_content_block.twothirds ui-block-b
             width: 30% !important
     
         h2.concept_definition
@@ -166,7 +164,7 @@
             font-weight: 500
             font-size: 230%
     
-        #concept-list
+        #concept_list
             width: 40%
     
             .concept_link
