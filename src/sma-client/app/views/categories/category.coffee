@@ -57,7 +57,7 @@ module.exports = class CategoryGames extends Backbone.View
     #   if c.hasImage()
     #       category_image = c.hasImage()
 
-    @$el.find('#category_content').css
+    @$el.find('#category_background').css
       "background-image": "url('#{category_image}')"
 
     this

@@ -3,29 +3,29 @@
     hr
         margin-bottom: .5em
         margin-top: .25em
-    
+
     .question_type h3
         font-weight: lighter
         font-size: 140%
         margin-bottom: 0
-    
+
     span.question_level
         float: right
         display: block
         border-radius: 90px
         background-color: #ccc
         color: #000
-    
-    .possible_answers 
+
+    .possible_answers
         position: relative
-    
+
         .ui-body, .ui-bar
             padding: 0
-    
+
         .ui-btn-inner
             padding-left: 0
             padding-right: 0
-    
+
         .usr_msg
             display: block
             position: relative
@@ -35,35 +35,35 @@
             text-decoration: none
             z-index: 5
             font-weight: bold
-    
+
         .usr_msg.correct
             color: #3A3
-    
+
         .usr_msg.incorrect
             color: #A33
-    
+
         a.answerlink:active, a.answerlink:hover
             text-decoration: none
             color: #000
-    
+
     .post_game_buttons
         position: relative
         float: right
         right: 10px
-    
-    .question_prompt 
+
+    .question_prompt
         display: block
         height: 100%
         width: 100%
         margin: 2em auto 0
         font-family: "Open Sans"
-    
+
         img.img_concept
             display: block
             margin: 0 auto
             width: 300px
             height: 300px
-    
+
         .word_concept
             height: 1.5em
             font-size: 170%
@@ -76,38 +76,38 @@
             text-shadow: none
             color: #FFF
             font-weight: lighter
-    
+
     .word_to_image
         .question_prompt
             margin: .5em 0 0 0
-    
+
         #question_play
             margin: 0 0 0 0
             padding: 0 0 0 0
-    
-    
+
+
     #question_play
         display: block
         width: 100%
         position: relative
         z-index: 5
-    
+
         text-decoration: none
         font-weight: lighter
         padding: 10px
         text-align: center
-    
+
         img
             margin: 0 auto
             opacity: .8
-    
+
     .one_image
-    
+
         a.answerlink
             width: 300px
             display: block
             margin: 0 auto 1em auto
-    
+
             color: #FFF
             font-size: 150%
             color: #FFF !important
@@ -116,92 +116,92 @@
             border-radius: 25px
             text-shadow: none
             font-weight: 100
-    
-    
+
+
     .word_to_image
-    
+
         .correct .img_concept
             border: 4px solid #090
-    
+
         .incorrect .img_concept
             border: 4px solid #900
-    
+
         ul.image-grid
             display: block
-            
+
             margin: 0 auto 0 auto
             padding: 0 0 0 0
-    
+
             list-style-type: none
-    
+
         .image-item
-    
+
             float: left
             display: block
-    
+
             margin-right: 5px
             margin-bottom: 5px
-    
-    
+
+
         .img_concept
-    
+
             display: block
             border: 4px double #555
             border-radius: 15px
-    
-    
-    
-    
-    .image_set 
-    
+
+
+
+
+    .image_set
+
         display: block
         margin: 0 auto
-    
+
         .correct
             color: #3A3
-    
+
             .tint img
               background-color: #090
-    
+
             .concept
               opacity: 1
-    
-    
+
+
         .incorrect
             color: #A33
-    
+
             .tint img
               background-color: #900
-    
+
             .concept
               opacity: 1
-    
-    
+
+
     .word_set
-    
+
         // background shading
         .answerlink.incorrect
             background-color: rgba(170, 51, 51, 0.7)
-    
+
         .answerlink.correct
             background-color: rgba(51, 170, 51, 0.7)
-    
+
         .correct
             color: #3A3
-    
+
             .concept
               color: #151
-    
+
         .incorrect
             color: #A33
-    
+
             .concept
               color: #311
-          
+
     // a.answerlink.incorrect:after
     //     content: " Incorrect!"
     //     background-color: transparent
-    
+
     #progress_container
         display: block
         position: fixed
@@ -209,38 +209,38 @@
         left: 0px
         height: 10px
         width: 100%
-    
+
         border-radius: 0px
         padding: 0 0 0 0
         margin: 0 0 0 0
-    
-        div 
+
+        div
             height: 1em
             background-color: transparent
-    
+
         .progress_label
             display: none
             float: right
             text-shadow: 0 0 3px #FFF
             font-size: 80%
-    
+
         #leksa_progress
             position: relative
             top: -1.15em
             border-radius: 0px
-    
+
             .ui-progressbar-value
                 background-color: #933
-    
+
         #leksa_progress_indiv
             position: relative
             top: 0em
             border-radius: 0px
-    
+
             .ui-progressbar-value
                 background-color: #339
-    
-    
+
+
     #points_for_question
         padding: 0 0 0 0
         position: fixed
@@ -250,15 +250,15 @@
         height: 50px
         background-color: #4C4
         box-shadow: 0px 0px 5px #FFF
-        
+
         border-radius: 90px
         display: block
         vertical-align: center
         text-align: center
         text-indent: none;
-    
+
         .points
-    
+
             color: #FFF
             font-weight: 300
             font-size: 22px
@@ -270,80 +270,95 @@
             text-align: center
             display: block
             text-shadow: none;
-    
-    
+
+
     // Now we need some responsive fixes for stuff
-    
+
     .one_image
         // Hopefully this will target iPhone widths
         @media only screen and (max-width: 390px)
             img.img_concept
                 width: 175px
                 height: 175px
-    
+
         @media only screen and (max-width: 420px)
             img.img_concept
                 width: 200px
                 height: 200px
-    
+
     @media only screen and (max-width: 390px)
         #leksa_question
             margin-top: 2.5em
-    
+
         ul.image-grid
             width:  260px
+
+        .grid-3, .grid-4
             height: 260px
-    
+
+        .grid-2
+            height: ((260/2)+15)px
+
         .image-item, .img_concept
             width: (240/2)px
             height: (240/2)px
-    
+
     @media only screen and (min-width: 400px)
-    
+
         ul.image-grid
             width: 400px !important
+
+        .grid-3, .grid-4
             height: 400px !important
-    
+
+        .grid-2
+            height: ((400/2)+15)px
+
         .image-item, .img_concept
             width: 190px !important
             height: 190px !important
-    
+
     @media only screen and (min-width: 500px)
-    
+
         ul.image-grid
             width: 500px !important
+
+        .grid-3, .grid-4
             height: 500px !important
-    
+
+        .grid-2
+            height: ((500/2)+15)px
+
         .image-item, .img_concept
             width: 240px !important
             height: 240px !important
-    
+
     // This will target iPhone-like widths
     // @media only screen and (max-width: 321px)
-    // 
+    //
     //     ul.image-grid
     //         display: block
-    //         
+    //     
     //         margin: 0 0 0 0
     //         padding: 0 0 0 0
-    // 
+    //
     //         width: 280px
     //         height: 280px
-    // 
+    //
     //     li.image-item img
-    // 
+    //
     //         width: 100px
     //         height: 100px
     //         margin-right: 10px
-    // 
-    
+    //
+
     // @media only screen and (min-width: 322px)
-    // 
+    //
     //     ul.image-grid
-    // 
+    //
     //         width: 300px
     //         height: 300px
-    // 
+    //
     //         li.image-item
     //             width: 130px
     //             height: 150px

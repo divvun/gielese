@@ -1,6 +1,7 @@
 <div class="word_to_image">
     <div class="possible_answers image_set">
-        <ul class="image-grid">
+        <% grid_count = 'grid-' + @instance.choices.length %>
+        <ul class="image-grid <%- grid_count %>">
         <% chars = 'abcdefghijklmnopqrstuvwxyz' %>
         <% for choice, idx in @instance.choices: %>
             <li class="image-item image-<%- chars.charAt(idx) %>">
