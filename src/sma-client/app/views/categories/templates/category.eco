@@ -1,71 +1,42 @@
-<% if @subcategory: %>
-
-    <% prev = "#categoryMenu" %>
-
-    <div data-role="header" data-theme="c">
-        <a href="<%- prev %>" data-transition="slide" data-icon="arrow-l">Back</a>
-        <h2>&nbsp;</h2>
-    </div>
-
-    <div data-role="content" id="main_menu">
-        <h1> <%- gettext.gettext @category.get('name') %> </h1>
-        <div class="ui-grid-b">
-            <% for group in @subcategory: %>
-                <% for [category, label] in group: %>
-	                <% cat  = category.get('category') %>
-	                <% name = category.get('name') %>
-	                <% subcat = category.get('children').length > 0 %>
-
-	                <div class="ui-block-<%- label %>">
-                        <a class="square" 
-                           href="#category/<%- cat %>" 
-                           data-transition="slide">
-                            <% if app.conceptdb.titleImages(cat): %>
-                                <% background_img = app.conceptdb.titleImages(cat)[0].path %>
-	                            <span class="link_image" 
-	                                  style="background-image: url('<%- background_img %>')">
-	                            </span>
-	                        <% else: %>
-	                            <span class="link_image"></span>
-	                        <% end %>
-	                        <span class="link_word"><%- gettext.gettext name %></span>
-	                    </a>
-	                </div>
-
-	            <% end %>
-            <% end %>
-        </div>
-    </div>
-
+<% if @category.get('parent'): %>
+    <% prev = "#category/" + @category.get('parent') %>
 <% else: %>
-
-    <% if @category.get('parent'): %>
-        <% prev = "#category/" + @category.get('parent') %>
-    <% else: %>
-        <% prev = "#categoryMenu" %>
-    <% end %>
-
-
-    <div data-role="content" id="category_content">
-
-        <a href="<%- prev %>" 
-           class="upper-left-bubble"
-           data-iconpos="notext"
-           data-icon="arrow-l">Back</a>
-
-        <h2 class="category_name"><%- gettext.gettext @category.get('name') %></h2>
-        <div data-role="controlgroup">
-	        <a data-role="button" 
-	           href="#conceptSet/<%- @category.get('category') %>" 
-	           data-transition="slide"><%- gettext.gettext "Wordlist" %></a>
-	        <a data-role="button" 
-	           href="#leksa/1/<%- @category.get('category')%>" 
-	           data-transition="slide"><%- gettext.gettext "Learn" %></a>
-	        <a data-role="button" 
-	           href="#leksa/2/<%- @category.get('category')%>" 
-	           data-transition="slide"><%- gettext.gettext "Practice" %></a>
-        </div>
-    </div> 
-
+    <% prev = "#categoryMenu" %>
 <% end %>
 
+<div class="aajege-header aajege-header-shrinkable">
+    <ul class="aajege-nav aajege-nav-left">
+        <li class="icon-aajege-left-arrow">
+            <a href="<%- prev %>" data-transition="slide">
+                <span class="label">
+                    <%- gettext.gettext "Back" %>
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div data-role="content" id="category_content">
+    <div id="category_background">
+        <div id="category_buttons">
+            <h2 class="category_name"><%- gettext.gettext @category.get('name') %></h2>
+            <ul class="aajege-buttons">
+	            <li>
+	            	<a class="aajege-button"
+	            	   href="#conceptSet/<%- @category.get('category') %>" 
+	            	   data-transition="slide"><%- gettext.gettext "Wordlist" %></a>
+	            </li>
+	            <li>
+	                <a class="aajege-button"
+	                   href="#leksa/1/<%- @category.get('category')%>" 
+	                   data-transition="slide"><%- gettext.gettext "Learn" %></a>
+	            </li>
+	            <li>
+	                <a class="aajege-button"
+	                   href="#leksa/2/<%- @category.get('category')%>" 
+	                   data-transition="slide"><%- gettext.gettext "Practice" %></a>
+	           </li>
+            </ul>
+        </div>
+    </div>
+</div> 

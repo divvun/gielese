@@ -1,0 +1,42 @@
+<div class="aajege-header aajege-header-shrinkable">
+    <ul class="aajege-nav aajege-nav-left">
+        <li class="icon-aajege-left-arrow">
+            <a href="#categoryMenu" data-transition="slide">
+                <span class="label">
+                    <%- gettext.gettext "Back" %>
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div data-role="content" id="main_menu">
+    <h1> <%- gettext.gettext @category.get('name') %> </h1>
+    <div class="ui-grid-b">
+        <% for group in @subcategory: %>
+            <% for [category, label] in group: %>
+	            <% cat  = category.get('category') %>
+	            <% name = category.get('name') %>
+	            <% subcat = category.get('children').length > 0 %>
+
+	            <div class="ui-block-<%- label %>">
+                    <a class="square" 
+                       href="#category/<%- cat %>" 
+                       data-transition="slide">
+                        <% if app.conceptdb.titleImages(cat): %>
+                            <% background_img = app.conceptdb.titleImages(cat)[0].path %>
+	                        <span class="link_image" 
+	                              style="background-image: url('<%- background_img %>')">
+	                        </span>
+	                    <% else: %>
+	                        <span class="link_image"></span>
+	                    <% end %>
+	                    <span class="link_word"><%- gettext.gettext name %></span>
+	                </a>
+	            </div>
+
+	        <% end %>
+        <% end %>
+    </div>
+</div>
+

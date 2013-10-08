@@ -6,8 +6,7 @@ module.exports = class CategoryMenu extends Backbone.View
     "click #login_button": 'displayLogin'
     "click #userinfo_button": 'displayUserInfo'
   
-  className: 'hello'
-  id: "hello"
+  id: "category_menu"
 
   displayLogin: (evt) ->
     # TODO: where did username go?

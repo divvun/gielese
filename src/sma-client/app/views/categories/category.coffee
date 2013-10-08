@@ -1,11 +1,16 @@
 ﻿Category = require 'models/category'
 CategoryTemplate = require './templates/category'
+SubcategoryTemplate = require './templates/subcategory'
 
 module.exports = class CategoryGames extends Backbone.View
 
-  id: "category_games"
+  id: "category_view"
 
-  template: CategoryTemplate
+  template: (params) ->
+    if params.subcategory
+      return SubcategoryTemplate params
+    else
+      return CategoryTemplate params
 
   render: ->
     cats = app.categories.where({category: @category})
@@ -50,9 +55,9 @@ module.exports = class CategoryGames extends Backbone.View
     # while count > 0 and category_image == false
     #   c = concepts.pop(0)
     #   if c.hasImage()
-    #   	category_image = c.hasImage()
+    #       category_image = c.hasImage()
 
-    @$el.css
+    @$el.find('#category_content').css
       "background-image": "url('#{category_image}')"
 
     this
