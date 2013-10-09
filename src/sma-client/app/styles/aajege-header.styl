@@ -3,9 +3,18 @@ border-image()
     -o-border-image: arguments /* Opera */
     border-image: arguments
 
+heavy-text-shadow(color)
+    text-shadow: 2px 0px 2px color, 
+        -2px 0px 2px color, 
+        0px 2px 2px color, 
+        0px -2px 2px color
+
+
 .aajege-header
     position: relative
     top: 0px
+    padding: 0 0 2px 0
+    margin: 0 0 0 0
 
     display: block
     height: 100px
@@ -48,8 +57,9 @@ border-image()
             list-style-type: none
             float: left
             width: 74px
-            height: 74px
+            height: 70px
             border-radius: 5px
+            padding-bottom: 5px
 
             a
                 display: block
@@ -59,11 +69,12 @@ border-image()
             a .label
                 position: absolute
                 bottom: 0px
+                margin-bottom: -14px
                 width: 100%
                 text-shadow: none
                 text-align: center
-                color: #FFF
-                heavy-text-shadow()
+                color: #333
+                heavy-text-shadow(#eee)
                 opacity: .8
 
         li.shadow
@@ -71,12 +82,12 @@ border-image()
 
     .aajege-nav-left
         position: absolute
-        top: 2px
+        top: 0px
         left: 2px
 
     .aajege-nav-right
         position: absolute
-        top: 2px
+        top: 0px
         right: 2px
 
 
@@ -91,7 +102,7 @@ border-image()
             margin-top: 2px
 
             li, li a
-                height: 32px
+                height: 38px
                 width: 32px
 
                 .label

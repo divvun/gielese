@@ -30,10 +30,9 @@
     </ul>
 </div>
 
-<div data-role="content">
-    <br />
+<div data-role="content" id="main_menu_content">
 
-    <div id="main_menu">
+    <div id="category_links">
 
         <div class="ui-grid-b">
         <% for group in @categories: %>
