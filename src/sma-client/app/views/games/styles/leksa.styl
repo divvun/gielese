@@ -1,5 +1,8 @@
 ﻿#leksa
 
+    #leksa_question
+        z-index: 5
+
     hr
         margin-bottom: .5em
         margin-top: .25em
@@ -287,21 +290,37 @@
                 height: 200px
 
     @media only screen and (max-width: 390px)
+        box_size = 260px
+        img_size = (240/2)px
+        third_padding = (240/2/2)px
+
         #leksa_question
-            margin-top: 2.5em
+            margin-top: .5em
+
+        .word_to_image
+            .question_prompt
+                margin: .75em auto .5em auto
+                font-family: "Open Sans"
+                height: 45px
 
         ul.image-grid
-            width:  260px
+            width:  box_size
 
         .grid-3, .grid-4
-            height: 260px
+            height: box_size
+
+        .grid-3
+            .image-c
+                position: relative
+                margin: 0 auto
+                padding-left: third_padding
 
         .grid-2
-            height: ((260/2)+15)px
+            height: ((box_size/2)+15)px
 
         .image-item, .img_concept
-            width: (240/2)px
-            height: (240/2)px
+            width: img_size
+            height: img_size
 
     @media only screen and (min-width: 400px)
 
@@ -332,33 +351,3 @@
         .image-item, .img_concept
             width: 240px !important
             height: 240px !important
-
-    // This will target iPhone-like widths
-    // @media only screen and (max-width: 321px)
-    //
-    //     ul.image-grid
-    //         display: block
-    //     
-    //         margin: 0 0 0 0
-    //         padding: 0 0 0 0
-    //
-    //         width: 280px
-    //         height: 280px
-    //
-    //     li.image-item img
-    //
-    //         width: 100px
-    //         height: 100px
-    //         margin-right: 10px
-    //
-
-    // @media only screen and (min-width: 322px)
-    //
-    //     ul.image-grid
-    //
-    //         width: 300px
-    //         height: 300px
-    //
-    //         li.image-item
-    //             width: 130px
-    //             height: 150px

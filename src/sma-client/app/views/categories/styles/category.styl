@@ -1,3 +1,10 @@
+heavy-shadow()
+    text-shadow: 2px 0px 2px #222, 
+        -2px 0px 2px #222, 
+        0px 2px 2px #222, 
+        0px -2px 2px #222
+
+
 #category_view
 
     #category_content, #main_menu
@@ -45,7 +52,7 @@
             text-align: right
             width: 80%
             color: #FFF
-            text-shadow: 2px 0px 2px #222, -2px 0px 2px #222, 0px 2px 2px #222, 0px -2px 2px #222
+            heavy-shadow()
 
     ul.aajege-buttons
         position: relative
@@ -61,8 +68,9 @@
             padding: 5px 17px
             margin-bottom: 15px
 
-            background-color: #555
-            border-radius: 12px
+            background-color: #333
+            border-radius: 25px
+            text-align: center
             width: 100%
 
             letter-spacing: 1px

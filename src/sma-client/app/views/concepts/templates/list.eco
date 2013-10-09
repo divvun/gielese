@@ -1,4 +1,4 @@
-<div class="aajege-header">
+<div class="aajege-header aajege-header-shrinkable">
     <ul class="aajege-nav aajege-nav-left">
         <li class="icon-aajege-left-arrow">
             <a href="#category/<%- @category %>" data-transition="slide">
@@ -12,7 +12,7 @@
     <h2><%- @category %></h2>
 </div>
 
-<div data-role="content" id="concepts-content">
+<div data-role="content" id="concepts_content">
     <div class="ui-grid-a twothirds" id="concept_content_block">
         <div class="ui-block-a" id="concept_content">
             <%- @initial_model %>

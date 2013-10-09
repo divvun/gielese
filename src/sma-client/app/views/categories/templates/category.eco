@@ -14,12 +14,12 @@
             </a>
         </li>
     </ul>
+    <h2><%- gettext.gettext @category.get('name') %></h2>
 </div>
 
 <div data-role="content" id="category_content">
     <div id="category_background">
         <div id="category_buttons">
-            <h2 class="category_name"><%- gettext.gettext @category.get('name') %></h2>
             <ul class="aajege-buttons">
 	            <li>
 	            	<a class="aajege-button"

@@ -62,7 +62,8 @@
 <% if @success_rate: %>
     <div id="concept_stats">
         <ul>
-            <li>Success rate with this word: <%- @success_rate*100 %>%</li>
+            <li>Success rate with this word: <%- Number(@success_rate*100).toFixed(1) %>%</li>
+
         </ul>
     </div>
 <% end %>

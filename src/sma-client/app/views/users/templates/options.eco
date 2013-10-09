@@ -41,7 +41,7 @@
 
             <li data-role="fieldcontain">
                 <fieldset data-role="controlgroup">
-                    <legend>Audio enabled?</legend>
+                    <legend><%- gettext.gettext "Play audio?" %></legend>
                     <select name="play-audio" 
                             id="play-audio" 
                             data-role="slider">

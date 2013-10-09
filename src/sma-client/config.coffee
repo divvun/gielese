@@ -15,6 +15,7 @@ exports.config =
           'vendor/scripts/Gettext.js'
           'vendor/scripts/DSt.js'
           'vendor/scripts/Chart.min.js'
+          'vendor/scripts/webfont.js'
           'vendor/scripts/jquery-1.7.2.js'
           'vendor/scripts/jquery.textfill.min.js'
           'vendor/scripts/jquery-ui-1.10.3.custom.min.js'
@@ -28,7 +29,7 @@ exports.config =
           # 'vendor/scripts/backbone.localStorage.js'
 
           ## https://github.com/ask11/backbone-offline/
-          'vendor/scripts/backbone_offline.js'
+          # 'vendor/scripts/backbone_offline.js'
         ]
     stylesheets:
       defaultExtension: 'styl'
@@ -36,6 +37,7 @@ exports.config =
       order:
         before: [
           'vendor/styles/normalize.css'
+          'app/styles/main.styl'
         ]
         after: [
           'vendor/styles/helpers.css'

@@ -42,18 +42,12 @@ class LeksaOptions
 module.exports = class Application
 
   enable_webfonts: () ->
-    # TODO: include in vendor
-    $.when(() ->
-      script = $ '<script />'
-      script.attr 'src', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js'
-      $('body').append script
-    ).then () ->
-      if not WebFont?
-        console.log "ERROR: WebFont async loader not available."
-        return
-      WebFont.load
-        google:
-          families: ['Open Sans', 'Kaushan Script']
+    if not WebFont?
+      console.log "ERROR: WebFont async loader not available."
+      return
+    WebFont.load
+      google:
+        families: ['Open Sans', 'Kaushan Script']
 
   switch_locale: (locale, options = {}) ->
     $.get "/data/translations/#{locale}/messages.json",
@@ -86,10 +80,10 @@ module.exports = class Application
               app.router.index()
               return e.preventDefault()
 
+          @enable_webfonts()
+
           if app.options.getSetting('enable_cache')?
             initWindowCache()
-
-          @enable_webfonts()
 
   initialize: (options = {}) ->
 
