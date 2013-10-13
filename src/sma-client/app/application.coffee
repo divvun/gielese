@@ -163,4 +163,11 @@ module.exports = class Application
       'help_language': ISOs.two_to_three initial_language
     })
 
+makeLogger = () ->
+  log = log4javascript.getLogger()
+  ajaxlogger = new log4javascript.AjaxAppender('/client_logger/')
+  log.addAppender(ajaxlogger)
+  return log
+
 window.app = new Application
+window.client_log = makeLogger()

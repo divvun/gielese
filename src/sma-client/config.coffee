@@ -11,6 +11,7 @@ exports.config =
       order:
         before: [
           'vendor/scripts/console-helper.js'
+          'vendor/scripts/log4javascript_production.js'
           'vendor/scripts/soundmanager2-jsmin.js'
           'vendor/scripts/Gettext.js'
           'vendor/scripts/DSt.js'

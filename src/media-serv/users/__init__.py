@@ -4,4 +4,5 @@ blueprint = Blueprint('users', __name__)
 
 from views import *
 from scores import *
+from client_logging import *
 
