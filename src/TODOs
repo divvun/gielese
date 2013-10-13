@@ -1,5 +1,13 @@
 ## Today
 
++ TODO: 
+   * lyden kjem ikkje av seg sjølv på iPhone (iOS 5) - berre etter at
+     ein har trykt på lydlenka ein gong 
+     -  diverre, er dette ein feature av iOS 5 (iOS 6?), iOS 5
+        kan berre spela etter ein klikk event. betyr då at eg må organisera
+        ein klikk event for første bilæte.
+   * lyden er (heilt?) borte på iOS 6
+
 * consider what client side events need logging
 
 * for some reason changing UI lang doesn't reload translations-- any way to refresh from gettext 
@@ -19,9 +27,6 @@
 
 * manglar rullesjakt i ordlista når ein rullar (=vanskeleg å vita om ein har kome til slutten/starten, og kor lang lista er)
 
-+ TODO: 
-   * lyden kjem ikkje av seg sjølv på iPhone (iOS 5) - berre etter at ein har trykt på lydlenka ein gong
-   * lyden er borte på iOS 6
 
 + TODO:  new media sets: 
   * create various image sizes
