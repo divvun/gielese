@@ -407,7 +407,7 @@ Questions:
     name: "Bodypart image to word"
 
     level: 2
-    answers: 2
+    answers: 3
     points: 100
     sound: true
     repetitions: 0

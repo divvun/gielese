@@ -55,6 +55,20 @@ def svn_up_target():
         run("svn up")
 
 @task
+def clear_node_modules_rebuild():
+    host, _, path = staging_remote_host_and_path.partition(':')
+
+    client_path = path + '/src/sma-client/'
+
+    with cd(path):
+        run("svn up")
+
+        with cd(client_path):
+            run("rm -rf node_modules/")
+            run("npm install")
+            run("brunch build")
+
+@task
 def update_target_envs():
     host, _, path = staging_remote_host_and_path.partition(':')
 
