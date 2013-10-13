@@ -198,6 +198,9 @@ module.exports = class LeksaView extends Backbone.View
       console.log "Complete!"
       finished_level = LevelCompleted()
       @$el.find('#leksa_question').html(finished_level)
+      _log_msg = "LeksaView.render_question: user completed all levels, unable to recover - "
+      _log_msg += "#{q.generator.get('category')}/#{q.generator.get('level')}"
+      window.client_log.error(_log_msg)
       return false
 
     level_note = "Level #{@q.generator.get('level')}"
@@ -209,8 +212,13 @@ module.exports = class LeksaView extends Backbone.View
     )
 
     if not @q.question
+      _log_msg = "LeksaView.render_question: ungeneratable question - "
+      _log_msg += "#{q.generator.get('category')}/#{q.generator.get('level')}"
+      window.client_log.error(_log_msg)
+
+      _err_msg = "A question could not be generated from these parameters"
       @$el.find('#leksa_question').html @leksa_error_template
-        error_msg: "A question could not be generated from these parameters"
+        error_msg: _err_msg
       return false
 
     #

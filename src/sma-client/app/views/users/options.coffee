@@ -12,6 +12,9 @@ module.exports = class GlobalOptionsView extends Backbone.View
     'click #save-options': 'saveOptions'
     'change #help_language': 'revealSubquestion'
     'change #help_language input': 'selectHelpLang'
+    'change #help_language_2 input': 'saveOptions'
+    'change #offline_fieldset select': 'saveOptions'
+    'change #audio_fieldset select': 'saveOptions'
 
   selectHelpLang: (evt) ->
     $fieldset = $(evt.target).parents('fieldset')
@@ -26,18 +29,26 @@ module.exports = class GlobalOptionsView extends Backbone.View
     $("[data-setting='#{target_fieldset}']").find("[value='#{target_value}']")
         .attr("checked",true).checkboxradio("refresh")
 
+    @saveOptions()
     return true
 
   revealSubquestion: (evt) ->
-    subs = ($(a).attr('data-reveal-subquestion') for a in $('[data-reveal-subquestion]'))
-    for a in subs
-      $("##{a}").slideUp()
-    sub = $(evt.target).attr('data-reveal-subquestion')
+    sub_q = 'data-reveal-subquestion'
+    subs = $("[#{sub_q}]").attr(sub_q)
+    $("##{subs}").slideUp()
+
+    sub = $(evt.target).attr(sub_q)
     if sub?
-      $("##{sub}").slideDown()
+      sub = $("##{sub}")
+      sub.slideDown()
+      first = sub.find(".ui-radio:first")
+      first.find('input').attr('checked', true).checkboxradio("refresh")
+
     return true
   
   saveOptions: (evt) ->
+    if app.debug == true
+      console.log evt
     toBool = (v) ->
       switch v
         when "true"  then return true

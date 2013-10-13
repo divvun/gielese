@@ -1,12 +1,19 @@
-<div data-role="header" data-theme="c">
-    <a href="#mainMenu" data-transition="slide" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
+<div class="aajege-header aajege-header-shrinkable">
+    <ul class="aajege-nav aajege-nav-left">
+        <li class="icon-aajege-left-arrow">
+            <a href="#mainMenu" data-transition="slide">
+                <span class="label">
+                    <%- gettext.gettext "Back" %>
+                </span>
+            </a>
+        </li>
+    </ul>
     <h2>Options</h2>
-    <a id="save-options" data-icon="gear">Save</a>
 </div>
 
 <div data-role="content">
     <form>
-        <ul data-role="listview" data-inset="true">
+        <ul data-role="listview" data-theme="j">
             <li data-role="fieldcontain">
                 <fieldset id="help_language" data-role="controlgroup"  data-setting="interface_language" data-copy-to="help_language">
                     <legend><%- gettext.gettext "Help language" %></legend>
@@ -28,7 +35,7 @@
             <% else: %>
             <li data-role="fieldcontain" id="help_language_sub">
             <% end %>
-                <fieldset data-role="controlgroup"  data-setting="help_language">
+                <fieldset id="help_language_2" data-role="controlgroup"  data-setting="help_language">
                     <legend><%- gettext.gettext "Translation language" %></legend>
                     <input class="nextSection" type="radio" name="radio-choice-2" id="radio-choice-1" value="nob" checked="checked">
                     <label for="radio-choice-1">Norsk <img class="flag_ico" src="/static/images/flags/no_20x15.png" /></label>
@@ -40,25 +47,29 @@
             </li>
 
             <li data-role="fieldcontain">
-                <fieldset data-role="controlgroup">
+                <fieldset data-role="controlgroup" id="audio_fieldset">
                     <legend><%- gettext.gettext "Play audio?" %></legend>
                     <select name="play-audio" 
                             id="play-audio" 
+                            data-theme="d"
+                            data-track-theme="d"
                             data-role="slider">
-                        <option value="false">No</option>
-                        <option value="true">Yes</option>
+                        <option value="false"><%- gettext.gettext "No" %></option>
+                        <option value="true"><%- gettext.gettext "Yes" %></option>
                     </select>
                 </fieldset>
             </li>
 
             <li data-role="fieldcontain">
-                <fieldset data-role="controlgroup">
+                <fieldset data-role="controlgroup" id="offline_fieldset">
                     <legend>Store data offline</legend>
                     <select name="data-storage" 
                             id="data-storage" 
+                            data-theme="d"
+                            data-track-theme="d"
                             data-role="slider">
-                        <option value="false">No</option>
-                        <option value="true">Yes</option>
+                        <option value="false"><%- gettext.gettext "No" %></option>
+                        <option value="true"><%- gettext.gettext "Yes" %></option>
                     </select>
                 </fieldset>
             </li>

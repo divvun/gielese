@@ -34,7 +34,9 @@ exports.config =
         ]
     stylesheets:
       defaultExtension: 'styl'
-      joinTo: 'stylesheets/app.css'
+      joinTo:
+        'stylesheets/app.css': /^app/
+        'stylesheets/vendor.css': /^vendor/
       order:
         before: [
           'vendor/styles/normalize.css'
@@ -44,8 +46,6 @@ exports.config =
           'vendor/styles/helpers.css'
           'vendor/styles/jquery.mobile-1.3.1.min.css'
           'vendor/styles/jquery.mobile.theme-1.3.1.min.css'
-          # 'vendor/styles/jquery.mobile.flatui.css'
-          # 'vendor/styles/jquery-ui-1.10.3.custom.min.css'
           'vendor/styles/flashblock.css'
         ]
     templates:
