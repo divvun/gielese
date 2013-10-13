@@ -2,10 +2,16 @@
 
 + TODO: 
    * lyden kjem ikkje av seg sjølv på iPhone (iOS 5) - berre etter at
-     ein har trykt på lydlenka ein gong 
-     -  diverre, er dette ein feature av iOS 5 (iOS 6?), iOS 5
+     ein har trykt på lydlenka ein gong. kanskje dette problemet er
+     ikkje med om ein vil laga ein sjølvstendig app 
+     -  diverre, er dette ein feature av iOS Safari (5, og kanskje 6), iOS Safari
         kan berre spela etter ein klikk event. betyr då at eg må organisera
         ein klikk event for første bilæte.
+
+         - generer spursmålet når brukaren står på category-sida
+         - spel ljod etter trykk på lenkja til spelet, eller
+           lag ei første 'start'-side i spelet
+
    * lyden er (heilt?) borte på iOS 6
 
 * consider what client side events need logging
