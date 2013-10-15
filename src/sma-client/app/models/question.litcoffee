@@ -24,14 +24,20 @@ answering all concepts in level correctly at least once.
       defaults:
         cycle: 1
 
+Here we find out if the user completed the question.
+
       user_completed_question: () ->
         userprogression = app.leksaUserProgression
         correct_count = 2
-        # TODO: include cycle
+
+Filter user progression models for the current cycle, question ID, whether it
+was correct. Then return all the question concepts for these logs.
 
         cycle = @get('cycle')
         if userprogression.length > 0
           logs_for_question = userprogression
+              .filter (up) =>
+               up?
               .filter (up) =>
                 up.get('question').cid == @cid
               .filter (up) =>
@@ -44,6 +50,8 @@ answering all concepts in level correctly at least once.
         else
           return false
 
+How many times was the concept correct for each question?
+
         getProgressionCorrectCountForConcept = (c) =>
           userprogression
             .filter (up) =>
@@ -55,6 +63,9 @@ answering all concepts in level correctly at least once.
             .length
         
         concepts = @select_question_concepts app.conceptdb
+
+For each question concept, determine what amount the user correctly,
+if the amount is greater, append the correct amount to counts.
         
         counts = []
         for c in concepts
@@ -63,14 +74,14 @@ answering all concepts in level correctly at least once.
             corrects = correct_count
           counts.push corrects
 
-        # If all this results in true, then the question cycle is complete
+If the sum of uniq'd counts is 1, then the level/question has been completed,
+and we increment the cycle one.
+
         if _.uniq(counts).length == 1
           if _.max(counts) == correct_count and _.uniq(counts)[0] == correct_count
             @set('cycle', @get('cycle') + 1)
             return true
 
-        # For each concept, need to check that user has gotten it right three
-        # times.
         return false
 
       filter_concepts_by_media: (concepts, media_size) ->

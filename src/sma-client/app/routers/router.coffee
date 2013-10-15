@@ -156,6 +156,7 @@ module.exports = class Router extends Backbone.Router
     level = parseInt level
     app.leksaView = new LeksaView()
     app.leksaView.leksa_category = category
+
     if level == 1
       app.leksaView.level_constraint = (question) =>
         question.get('level') == level
@@ -163,6 +164,13 @@ module.exports = class Router extends Backbone.Router
       app.leksaView.level_constraint = (question) =>
         question.get('level') >= level
       
+    app.leksaView.preselected_q = app.leksaView.selectQuestionForRendering()
+    #
+    # Hopefully we're still in the click event here, in which case we need to
+    # play now. 
+    app.leksaView.pregenerated = false
+    app.leksaView.preselected_q.question.playAudio('questionSound')
+
     app.leksaView.initialize()
 
     @changePage(app.leksaView)

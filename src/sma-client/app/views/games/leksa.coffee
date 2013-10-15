@@ -165,6 +165,24 @@ module.exports = class LeksaView extends Backbone.View
   # # #  Question rendering
   # # #
 
+  selectQuestionForRendering: ->
+    # TODO: wait for ready if not
+    if app.questiondb.length == 0 and app.conceptdb.length == 0
+      window.last_error = "Question DB and Concept DB not ready."
+      app.router.navigate('error')
+
+    if @level_constraint
+      level_constraint = @level_constraint
+    else
+      level_constraint = (level) -> true
+
+    q = app.questiondb.selectQuestionByProg(
+      @leksa_category,
+      level_constraint
+    )
+
+    return q
+
   renderQuestion: ->
     # Select a question, render it, bind event handlers to each possible
     # answer
@@ -176,21 +194,18 @@ module.exports = class LeksaView extends Backbone.View
     # TODO: smooth scroll
     window.scrollTo(0,0)
 
-    # TODO: wait for ready if not
-    if app.questiondb.length == 0 and app.conceptdb.length == 0
-      window.last_error = "Question DB and Concept DB not ready."
-      app.router.navigate('error')
-
-    if @level_constraint
-      level_constraint = @level_constraint
-    else
-      level_constraint = (level) -> true
-
     # TODO: category from user
-    @q = app.questiondb.selectQuestionByProg(
-      @leksa_category,
-      level_constraint
-    )
+    #
+
+    # check if the question has been preselected by the click event in the
+    # router
+    if @preselected_q?
+      if app.debug
+        console.log "Pregenerated for click event."
+      @q = @preselected_q
+      delete @preselected_q
+    else
+      @q = @selectQuestionForRendering()
 
     # TODO: feedback to user that they haven't completed this yet or have
     # already-- if already, repeat
@@ -271,11 +286,14 @@ module.exports = class LeksaView extends Backbone.View
         @q.question.playAudio()
 
     # Delay first sound playing as leksa page renders
-    if not @first
-      setTimeout(playFirst, 1500)
-      @first = false
+    if @pregenerated?
+      delete @pregenerated
     else
-      playFirst()
+      if not @first
+        setTimeout(playFirst, 1500)
+        @first = false
+      else
+        playFirst()
 
     @$el.find('#question_play').click () =>
       @q.question.playAudio('questionSound')
