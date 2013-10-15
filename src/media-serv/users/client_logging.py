@@ -31,6 +31,7 @@ class ClientLoggerAPI(MethodView, SessionCheck):
             un = 'anonymous'
 
         # TODO: is this sufficient?
+        _uastring = request.headers.get('User-Agent')
 
         # TODO: client log Logging.logger
 
@@ -41,11 +42,12 @@ class ClientLoggerAPI(MethodView, SessionCheck):
             def fmt_time(t_str):
                 return t_str
 
-            return ' '.join([
+            return '\t'.join([
                 form.get('logger'),
                 fmt_time(form.get('timestamp')),
-                form.get('level'),
                 "user:" + un,
+                form.get('level'),
+                _uastring,
                 form.get('url'),
                 form.get('message'),
             ])
@@ -54,12 +56,9 @@ class ClientLoggerAPI(MethodView, SessionCheck):
             _level = form.get('level').lower()
             return getattr(self.logger, _level)
 
-        print request.form.keys()
         get_logger(request.form)(
             fmt_log(request.form)
         )
-
-        print fmt_log(request.form)
 
         # TODO: can user create record?
         return Response( simplejson.dumps({'success': True})

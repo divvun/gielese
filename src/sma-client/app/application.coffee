@@ -135,12 +135,16 @@ module.exports = class Application
     soundManager.setup
       url: "/static/client/swf/"
       debugMode: false
+      defaultOptions:
+        volume: 50
       useConsole: true
       preferFlash: false
       useHTML5Audio: true
       useFlashBlock: true
       onready: () ->
         console.log "SoundManager ready"
+      ontimeout: () ->
+        window.client_log.error('SM2 init failed!')
 
     # usually ISO 639-1, excepting languages that don't have them but the trick
     # is that we want to store ISO 639-2, because the lexicon has special needs
@@ -171,3 +175,8 @@ makeLogger = () ->
 
 window.app = new Application
 window.client_log = makeLogger()
+
+window.onerror = (errorMsg, url, lineNumber) ->
+  window.client_log.fatal(
+    "Uncaught error #{errorMsg} in #{url}, line #{lineNumber}"
+  )
