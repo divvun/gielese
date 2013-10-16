@@ -10,7 +10,7 @@ DefaultActivities: &ACTIVITIES
 Subcategories:
   - &animals
     category: "ANIMALS"
-    semantics: 
+    semantics:
       - "ANIMALS"
     name: "Animals"
     activities: *ACTIVITIES
@@ -24,7 +24,7 @@ Subcategories:
   - &world
     category: "WORLD"
     name: "World"
-    semantics: 
+    semantics:
       - "WORLD"
     activities: *ACTIVITIES
     main_menu: false
@@ -41,31 +41,31 @@ Categories:
 
   - category: "BODYPART"
     name: "Face"
-    semantics: 
+    semantics:
       - "BODYPART"
     activities: *ACTIVITIES
     children: []
     main_menu: true
     media:
       image:
-        - path: "http://placekitten.com/g/500/600"
+        - path: "/static/images/ansikt/orig/aa_aa_red_ae_jja.jpg"
           device: "mobile"
 
   - category: "GREETINGS"
     name: "Greetings"
-    semantics: 
+    semantics:
       - "GREETINGS"
     activities: *ACTIVITIES
     children: []
     main_menu: true
     media:
       image:
-        - path: "http://placekitten.com/g/300/500"
+        - path: "/static/images/heelsedh/orig/buarastehtedh.jpg"
           device: "mobile"
 
   - category: "FOOD"
     name: "Food"
-    semantics: 
+    semantics:
       - "FOOD"
     activities: *ACTIVITIES
     children: []
@@ -77,20 +77,20 @@ Categories:
 
   - category: "NATURE"
     name: "Nature"
-    semantics: 
+    semantics:
       - "NATURE"
     main_menu: true
     media:
       image:
         - path: "/static/nature_world/img/small_background/elmie.jpg"
           device: "mobile"
-    children: 
+    children:
       - *animals
       - *world
 
   - category: "TEST"
     name: "Test"
-    semantics: 
+    semantics:
       - "TEST"
     main_menu: false
     media:
