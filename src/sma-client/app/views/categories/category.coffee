@@ -1,4 +1,4 @@
-﻿Category = require 'models/category'
+Category = require 'models/category'
 CategoryTemplate = require './templates/category'
 SubcategoryTemplate = require './templates/subcategory'
 

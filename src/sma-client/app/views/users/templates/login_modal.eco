@@ -1,4 +1,4 @@
-﻿<div id="loginPopup" style="display: none;" data-transition="pop" data-theme="a">
+<div id="loginPopup" style="display: none;" data-transition="pop" data-theme="a">
     <% if @logout: %>
 
         <div id="loading" style="display: none;">

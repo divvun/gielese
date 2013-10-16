@@ -1,4 +1,4 @@
-﻿module.exports = class LoadingView extends Backbone.View
+module.exports = class LoadingView extends Backbone.View
 
   className: 'loading'
   id: "loading"

@@ -1,4 +1,4 @@
-﻿UserLogEntry = require 'models/user_log_entry'
+UserLogEntry = require 'models/user_log_entry'
 
 module.exports = class UserProgression extends Backbone.Collection
 

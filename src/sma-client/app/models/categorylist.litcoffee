@@ -1,4 +1,4 @@
-﻿The category list maintains all the dependencies of the main word categories,
+The category list maintains all the dependencies of the main word categories,
 and uses them to generate the main menu.
 
     Category = require 'models/category'

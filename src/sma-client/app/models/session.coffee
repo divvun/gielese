@@ -1,4 +1,4 @@
-﻿module.exports = class Session extends Backbone.Model
+module.exports = class Session extends Backbone.Model
   # http://whatcodecraves.com/articles/2012/01/11/backbonejs-sessions-and-authentication
   defaults:
     access_token: null,
