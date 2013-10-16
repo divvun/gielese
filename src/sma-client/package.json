@@ -21,12 +21,13 @@
     "stylus-brunch": ">= 1.0 < 1.8",
     "eco-brunch": ">= 1.0 < 1.8",
     "uglify-js-brunch": ">= 1.0 < 1.8",
-    "clean-css-brunch": ">= 1.0 < 1.8"
+    "clean-css-brunch": ">= 1.0 < 1.8",
   },
   "devDependencies": {
     "mocha": "0.14.0",
     "expect.js": "0.1.2",
     "brunch": "1.7.7",
+    "bower": "1.2.7",
     "nib": "1.0.1"
   }
 }
