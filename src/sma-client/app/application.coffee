@@ -84,6 +84,12 @@ module.exports = class Application
 
           if app.options.getSetting('enable_cache')?
             initWindowCache()
+          
+          if window.location.hostname == 'localhost'
+            console.log "Appending debug watcher"
+            debug_watch = $ "<script />"
+            debug_watch.attr('src',"http://localhost:9001/ws")
+            debug_watch.appendTo 'head'
 
   initialize: (options = {}) ->
 

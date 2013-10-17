@@ -82,17 +82,21 @@ def update_media_db():
             run("sh install_db.sh")
 
 @task
-def brunch_build_target():
+def brunch_build_target(production=False):
     host, _, path = staging_remote_host_and_path.partition(':')
 
     client_path = path + '/src/sma-client/'
+    if production:
+        production = ' --production'
+    else:
+        production = ''
 
     with cd(client_path):
         run("svn up")
 
         # recompile client
         with cd(client_path):
-            run("brunch build")
+            run("brunch build" + production)
 
 @task
 def deploy():
