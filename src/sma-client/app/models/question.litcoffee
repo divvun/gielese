@@ -37,9 +37,9 @@ was correct. Then return all the question concepts for these logs.
         if userprogression.length > 0
           logs_for_question = userprogression
               .filter (up) =>
-               up?
+                up?
               .filter (up) =>
-                up.get('question').cid == @cid
+                up.get('question') and (up.get('question').cid == @cid)
               .filter (up) =>
                 up.get('cycle') == cycle
               .filter (up) ->
