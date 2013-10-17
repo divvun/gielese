@@ -99,6 +99,10 @@ def brunch_build_target(production=False):
             run("brunch build" + production)
 
 @task
+def brunch_build_target_prod(production=False):
+    brunch_build_target(production=True)
+
+@task
 def deploy():
     """ everything: svn up, rebuild everything, recompile database and json
     """

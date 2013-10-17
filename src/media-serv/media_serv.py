@@ -35,8 +35,6 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-app.jinja_env.line_statement_prefix = '#'
-
 # Using caveman for validation, but note, there is a django project for
 # automatically producing manifests, when integration with smaoahpa
 # happens
@@ -176,6 +174,7 @@ def get_messages_for(locale):
                    , status=200
                    , mimetype="application/json"
                    )
+
 
 @app.route('/offline.media.appcache', methods=['GET'])
 def cache_manifest():
@@ -348,6 +347,11 @@ def landing():
 def client():
     from flask import Response
     return render_template('index.html')
+
+@app.route('/play/offline/', methods=['GET'])
+def client():
+    from flask import Response
+    return render_template('offline_index.html')
 
 app.debug = True
 
