@@ -84,22 +84,24 @@ module.exports = class Concept extends Backbone.Model
     has_audio_file = @hasAudio()
     if has_audio_file and soundManager.enabled
       sound_id = "concept_audio"
-      # if opts.sound_id?
-      #   sound_id = opts.sound_id
-      # else
-      #   sound_id = "concept-audio-#{@.get('c_id')}"
-      #
-      #
-      # TODO: safari? destroy & create, or possible to retarget with new URL?
-      soundManager.destroySound(sound_id)
-      s = soundManager.createSound({
-        id: sound_id
-        url: has_audio_file
-      })
-      if s.isHTML5
-        s._a.playbackRate = opts.rate
-      s.play()
-      return s
+
+      sound_obj = soundManager.getSoundById(sound_id)
+      if not sound_obj
+        sound_obj = soundManager.createSound
+          id: sound_id
+          url: has_audio_file
+      
+      if sound_obj.url == has_audio_file
+        console.log "repeat"
+        sound_obj.stop()
+      else
+        sound_obj.url = has_audio_file
+        sound_obj.load()
+
+      if sound_obj.isHTML5
+        sound_obj._a.playbackRate = opts.rate
+      sound_obj.play({position:0})
+      return sound_obj
 
     return false
 
