@@ -213,7 +213,8 @@ module.exports = class LeksaView extends Backbone.View
       console.log "Complete!"
       finished_level = LevelCompleted()
       @$el.find('#leksa_question').html(finished_level)
-      _log_msg = "LeksaView.render_question: user completed all levels, unable to recover - "
+      _log_msg = "LeksaView.render_question: user completed all levels, "
+      _log_msg += "unable to recover -"
       _log_msg += "#{q.generator.get('category')}/#{q.generator.get('level')}"
       window.client_log.error(_log_msg)
       return false
@@ -296,6 +297,9 @@ module.exports = class LeksaView extends Backbone.View
         playFirst()
 
     @$el.find('#question_play').click () =>
+      if app.debug?
+        console.log "Play:"
+        console.log @q.question
       @q.question.playAudio('questionSound')
       return false
 
