@@ -300,7 +300,7 @@ module.exports = class LeksaView extends Backbone.View
       if app.debug?
         console.log "Play:"
         console.log @q.question
-      @q.question.playAudio('questionSound')
+      @q.question.playAudio()
       return false
 
     return true
