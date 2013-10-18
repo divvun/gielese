@@ -1,18 +1,12 @@
 ## Today
 
+
 + TODO: 
-   * lyden kjem ikkje av seg sjølv på iPhone (iOS 5) - berre etter at
-     ein har trykt på lydlenka ein gong. kanskje dette problemet er
-     ikkje med om ein vil laga ein sjølvstendig app 
-     -  diverre, er dette ein feature av iOS Safari (5, og kanskje 6), iOS Safari
-        kan berre spela etter ein klikk event. betyr då at eg må organisera
-        ein klikk event for første bilæte.
+   * audio now works in mobile safari, however i's another question
+   whether it will work iva the net, seems like slow downloads can
+   prevent playing in some cases
 
-         - generer spursmålet når brukaren står på category-sida
-         - spel ljod etter trykk på lenkja til spelet, eller
-           lag ei første 'start'-side i spelet
-
-   * lyden er (heilt?) borte på iOS 6
+   * http://creativejs.com/resources/web-audio-api-getting-started/
 
 * consider what client side events need logging
 
