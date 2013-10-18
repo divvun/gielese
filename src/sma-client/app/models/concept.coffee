@@ -81,27 +81,37 @@ module.exports = class Concept extends Backbone.Model
     return false
   
   playAudio: (opts={}) ->
+    # TODO: user feedback about whether audio is downloaded or not.
+
     has_audio_file = @hasAudio()
     if has_audio_file and soundManager.enabled
       sound_id = "concept_audio"
 
-      sound_obj = soundManager.getSoundById(sound_id)
-      if not sound_obj
-        sound_obj = soundManager.createSound
+      # Have to have different behavior for html5-only, because of iOS
+      # limitations
+      if soundManager.html5Only
+        sound_obj = soundManager.getSoundById(sound_id)
+        # grab sound obj if it hasn't been created yet
+        if not sound_obj
+          sound_obj = soundManager.createSound
+            id: sound_id
+            url: has_audio_file
+          sound_obj._a.playbackRate = opts.rate
+        if sound_obj.url == has_audio_file
+          console.log "repeat"
+        else
+          console.log "no repeat"
+          sound_obj.url = has_audio_file
+
+        sound_obj.play({position:0})
+      else
+        soundManager.destroySound(sound_id)
+        s = soundManager.createSound({
           id: sound_id
           url: has_audio_file
-      
-      if sound_obj.url == has_audio_file
-        console.log "repeat"
-        sound_obj.stop()
-      else
-        sound_obj.url = has_audio_file
-        sound_obj.load()
-
-      if sound_obj.isHTML5
-        sound_obj._a.playbackRate = opts.rate
-      sound_obj.play({position:0})
-      return sound_obj
+        })
+        s.play()
+      return s
 
     return false
 
