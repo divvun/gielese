@@ -349,7 +349,7 @@ def client():
     return render_template('index.html')
 
 @app.route('/play/offline/', methods=['GET'])
-def client():
+def client_offline():
     from flask import Response
     return render_template('offline_index.html')
 
