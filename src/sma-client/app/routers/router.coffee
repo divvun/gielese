@@ -16,6 +16,7 @@ FrontPage = require 'views/intro/view'
 LeksaOptionsView = require 'views/games/leksa_options_view'
 ErrorView = require 'views/error/view'
 LoadingView = require 'views/intro/loading'
+SplashView = require 'views/splash/splash'
 
 module.exports = class Router extends Backbone.Router
 
@@ -33,11 +34,15 @@ module.exports = class Router extends Backbone.Router
     app.leksaOptionsView = new LeksaOptionsView()
     app.frontPage = new FrontPage()
     app.loadingView = new LoadingView()
+    app.splashView = new SplashView()
 
   # Seems to be no way to avoid the double listing for now, because of hash
   # option, which does some funky redirecting.
   routes:
-    '': 'index'
+    '': 'splash'
+    '#splash': 'splash'
+
+    'index': 'index'
     '#index': 'index'
 
     # Misc
@@ -91,13 +96,6 @@ module.exports = class Router extends Backbone.Router
     '#conceptSet/:category': 'conceptSet'
 
   index: ->
-    c = 0
-    # while not app.loadingTracker.isReady()
-    #   console.log c
-    #   c += 1
-
-    # app.loadingTracker.hideLoading()
-
     configured_already = DSt.get('gielese-configured')
     if configured_already
       @changePage(app.categoryMenu)
@@ -106,6 +104,17 @@ module.exports = class Router extends Backbone.Router
   
   loading: ->
     @changePage(app.loadingView)
+
+  splash: ->
+    @changePage(app.splashView)
+
+    setTimeout(() =>
+      configured_already = DSt.get('gielese-configured')
+      if configured_already
+        @fadePage(app.categoryMenu)
+      else
+        @fadePage(app.frontPage)
+    , 5000)
 
   reset: ->
     DSt.set('gielese-configured', false)
@@ -222,7 +231,21 @@ module.exports = class Router extends Backbone.Router
       transition = 'none'
       @firstPage = false
 
-    window.omg = page.el
+    $.mobile.changePage($(page.el), {changeHash:false, transition:transition})
+    return false
+
+  fadePage: (page) ->
+    # Here we're creating new change page behavior so that backbone plays
+    # nicely with jQuery mobile.
+    #
+    $(page.el).attr('data-role', 'page')
+    page.render()
+
+    $('body').append($(page.el))
+    transition = $.mobile.defaultPageTransition
+
+    transition = 'fade'
+
     $.mobile.changePage($(page.el), {changeHash:false, transition:transition})
     return false
 

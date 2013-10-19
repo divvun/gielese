@@ -1,0 +1,25 @@
+<div data-role="content">
+    <div id="splash_content">
+
+        <div id="big_logo">
+            <a href="#index">
+                <img src="/static/images/gielese_logo_liten.png" />
+            </a>
+        </div>
+
+        <div id="splash_footer">
+            <div id="footer_version">
+                <span class="version">v. 0.1.0</span>
+            </div>
+            <div id="footer_logo">
+                <div id="logo">
+                    <img src="/static/images/aajege.png" />
+                    <span class="aajege">Aajege</span>
+                </div>
+                <div id="copy">
+                    <span class="copyright">&copy; 2013</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
