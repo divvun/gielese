@@ -28,7 +28,6 @@ module.exports = class LeksaView extends Backbone.View
   template: LeksaTemplate
 
   question_template: (context) ->
-    console.log context.q_type
     tpl = switch context.q_type
       when "image_to_word" then LeksaQuestionImageToWord
       when "word_to_word" then LeksaQuestionWordToWord
@@ -191,11 +190,7 @@ module.exports = class LeksaView extends Backbone.View
     # Hide the question-end options
     $('.set_done_options').hide()
 
-    # TODO: smooth scroll
     window.scrollTo(0,0)
-
-    # TODO: category from user
-    #
 
     # check if the question has been preselected by the click event in the
     # router
@@ -221,9 +216,12 @@ module.exports = class LeksaView extends Backbone.View
 
     level_note = "Level #{@q.generator.get('level')}"
     @setProgress(@q.current_count, @q.question_total)
+    _repeats = @q.generator.get('repetitions')
+    if _repeats == 0
+      _repeats = 1
     @setIndividualAnswerProgress(
       @q.total_correct,
-      @q.question_total*3,
+      @q.question_total*_repeats,
       level_note
     )
 
@@ -231,7 +229,6 @@ module.exports = class LeksaView extends Backbone.View
       _log_msg = "LeksaView.render_question: ungeneratable question - "
       _log_msg += "#{q.generator.get('category')}/#{q.generator.get('level')}"
       window.client_log.error(_log_msg)
-
       _err_msg = "A question could not be generated from these parameters"
       @$el.find('#leksa_question').html @leksa_error_template
         error_msg: _err_msg
@@ -317,7 +314,9 @@ module.exports = class LeksaView extends Backbone.View
     @$el.find('#points_for_question').hide()
 
     @renderQuestion()
+
     @first = true
+
     # Bind an event to user progression-- TODO: move elsewhere
     app.leksaUserProgression.on('add', @updateLogPanel)
 

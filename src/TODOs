@@ -1,5 +1,11 @@
 ## Today
 
++ TODO: grab highest cycle from log and apply to all questions
+        when user logs in
++ TODO: CID on question for user logs goes missing on login
+* selection of question progression ignores cycles. need to move to next level
+  when cycle completes (probably somewhere in questiondb.selectProgetc)
+
 
 + TODO: 
    * audio now works in mobile safari, however i's another question

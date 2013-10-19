@@ -66,6 +66,7 @@ Remove a concept from the cycle once it has been displayed 4 times.
           console.log "question repetition count:" + q.get('repetitions')
       else
         reps = 3
+        q.set('repetitions', reps)
         if app.debug
           console.log "question repetition not specified, default 3"
 

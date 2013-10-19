@@ -26,14 +26,30 @@ answering all concepts in level correctly at least once.
 
 Here we find out if the user completed the question.
 
-      user_completed_question: () ->
+      find_cycle_for_progression: (userprog) ->
+        logs_for_question = userprog
+            .filter (up) =>
+              up? and up.get('question').cid?
+            .filter (up) =>
+              up.get('question') and (up.get('question').cid == @cid)
+        return _.max(
+          (p.get('cycle') for p in logs_for_question)
+        )
+        
+      user_completed_question: (opts={}) ->
         userprogression = app.leksaUserProgression
         correct_count = 2
+
+        if opts.cycle
+          cycle = opts.cycle
+        else
+          cycle = @get('cycle')
 
 Filter user progression models for the current cycle, question ID, whether it
 was correct. Then return all the question concepts for these logs.
 
-        cycle = @get('cycle')
+        # this only checks the current cycle, which should be incremented
+        # and stored unless user logs back in again
         if userprogression.length > 0
           logs_for_question = userprogression
               .filter (up) =>
@@ -57,6 +73,8 @@ How many times was the concept correct for each question?
             .filter (up) =>
               up.get('question_concept') == c.get('id')
             .filter (up) =>
+              up.get('cycle') == cycle
+            .filter (up) =>
               up.get('question_correct')
             .filter (up) =>
               up.get('question').cid == @cid
@@ -79,7 +97,9 @@ and we increment the cycle one.
 
         if _.uniq(counts).length == 1
           if _.max(counts) == correct_count and _.uniq(counts)[0] == correct_count
-            @set('cycle', @get('cycle') + 1)
+            if not opts.cycle
+              console.log "incrementing cycle"
+              @set('cycle', @get('cycle') + 1)
             return true
 
         return false
@@ -176,11 +196,11 @@ and we increment the cycle one.
           userprogression
         )
 
-        # Concepts left (probably need to multiple by display count)
         total_correct_answers_for_question = userprogression.where({
-            game_name: "leksa",
-            question_correct: true,
-            question: @,
+            game_name: "leksa"
+            question_correct: true
+            question: @
+            cycle: @.get('cycle')
         }).length
 
         concepts_total = question_concepts.length
