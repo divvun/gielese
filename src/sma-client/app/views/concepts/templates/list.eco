@@ -14,10 +14,10 @@
 
 <div data-role="content" id="concepts_content">
     <div class="ui-grid-a twothirds" id="concept_content_block">
-        <div class="ui-block-a" id="concept_content">
+        <div class="ui-block-a left-block" id="concept_content">
             <%- @initial_model %>
         </div>
-        <div class="ui-block-b">
+        <div class="ui-block-b right-block">
             <ul data-role="listview" 
                 data-theme="i" 
                 data-divider-theme="c" 
@@ -47,6 +47,9 @@
                     </li>
                 <% end %>
             </ul>
+            <div class="scroll-arrow">
+                <i class="icon-aajege-down-arrow" />
+            </div>
         </div>
     </div>
 </div>

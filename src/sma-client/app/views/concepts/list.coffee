@@ -157,6 +157,16 @@ module.exports = class ConceptList extends Backbone.View
 
   template: ConceptListTemplate
 
+  calculateContentHeight: ->
+    header_height = $('.aajege-header').height()
+    window_height = $(window).height()
+
+    @$el.find('#concepts_content').css('height',
+      "#{window_height - header_height - 10}px"
+    )
+
+    return false
+
   render: ->
 
     @_conceptViews = []
@@ -206,5 +216,6 @@ module.exports = class ConceptList extends Backbone.View
     }
 
     @$el.find('ul#concept-list li:first').addClass('ui-btn-active-d')
+    @calculateContentHeight()
 
     this

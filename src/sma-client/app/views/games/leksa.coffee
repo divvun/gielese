@@ -330,7 +330,7 @@ module.exports = class LeksaView extends Backbone.View
       @renderQuestion()
       console.log @current_audio
 
-    if @auto_advance
+    if @auto_advance?
       # TODO: delete this when user navigates away
       @auto_advance_handler = setInterval( autoAdvance, 7000)
 

@@ -15,10 +15,9 @@
 
 * for some reason changing UI lang doesn't reload translations-- any way to refresh from gettext 
 
-* working on mechanism for multiple repeats of levels, and tracking these in
-  user logs
-
-* TODO: maybe level one shouldn't track user answers since it's more or less a slideshow
+* TODO: level one shouldn't track user answers since it's more or less a
+  slideshow, but need to have this represented in source somehow so that
+  level cycling doesn't get messed with.
 
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart
