@@ -1,6 +1,13 @@
 <% if @concept_type == 'img': %>
 
-    <img class='concept img_concept' src='<%- @concept_value %>' />
+    <% classes = 'concept img_concept ' %>
+    <% if @additional_class: %>
+        <% classes += @additional_class %>
+    <% end %>
+
+    <div class='<%- classes %>'>
+        <img src='<%- @concept_value %>' />
+    </div>
 
 <% else if @concept_type == 'text': %>
 

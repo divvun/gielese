@@ -165,6 +165,7 @@ module.exports = class Router extends Backbone.Router
     level = parseInt level
     app.leksaView = new LeksaView()
     app.leksaView.leksa_category = category
+    app.leksaView.auto_advance = true
 
     if level == 1
       app.leksaView.level_constraint = (question) =>

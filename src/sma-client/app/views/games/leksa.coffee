@@ -8,7 +8,7 @@ LeksaQuestionWordToWord = require './templates/leksa_question_image_to_word'
 LeksaQuestionWordToImage = require './templates/leksa_question_word_to_image'
 StatTemplate = require './templates/stat_block'
 LevelCompleted = require './templates/leksa_level_completed'
-
+LeksaConceptTemplate = require '/views/templates/leksa_concept'
 
 #
 ##
@@ -237,6 +237,33 @@ module.exports = class LeksaView extends Backbone.View
     #
     # Render the template for the question
 
+    class DummyConcept extends Backbone.Model
+      render_concept: () ->
+        LeksaConceptTemplate({
+          concept: @
+          concept_type: @.get('concept_type')
+          concept_value: @.get('concept_value')
+          additional_class: "no_frame"
+        })
+
+    if @q.choices.length == 3 and @q.generator.get('type') == "word_to_image"
+      @q.choices.push new DummyConcept
+        concept_value: "/static/images/bakgrunn-spill.png"
+        concept_type: "img"
+      
+      @q.choices = _.shuffle @q.choices
+
+    if @q.choices.length == 2 and @q.generator.get('type') == "word_to_image"
+      @q.choices.push new DummyConcept
+        concept_value: "/static/images/bakgrunn-spill.png"
+        concept_type: "img"
+
+      @q.choices.push new DummyConcept
+        concept_value: "/static/images/bakgrunn-spill.png"
+        concept_type: "img"
+      
+      @q.choices = _.shuffle @q.choices
+
     @$el.find('#leksa_question').html @question_template
       instance: @q
       chunker: arrayChunk
@@ -297,7 +324,7 @@ module.exports = class LeksaView extends Backbone.View
       if app.debug?
         console.log "Play:"
         console.log @q.question
-      @q.question.playAudio()
+      @current_audio = @q.question.playAudio()
       return false
 
     return true
@@ -314,6 +341,14 @@ module.exports = class LeksaView extends Backbone.View
     @$el.find('#points_for_question').hide()
 
     @renderQuestion()
+
+    autoAdvance = () =>
+      # TODO: check if audio has played first
+      @renderQuestion()
+      console.log @current_audio
+
+    if @auto_advance
+      setInterval( autoAdvance, 7000)
 
     @first = true
 

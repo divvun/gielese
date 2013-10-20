@@ -106,6 +106,20 @@
 
     .one_image
 
+        .img_concept
+            border-radius: 25px
+            border: 3px double #555
+            overflow: hidden
+
+            position: relative
+            margin: 0 auto
+            width: 100%
+            height: 100%
+
+            img
+                width: 100%
+                height: 100%
+
         a.answerlink
             width: 300px
             display: block
@@ -147,10 +161,24 @@
 
 
         .img_concept
-
             display: block
-            border: 4px double #555
+            padding: 2px
+
             border-radius: 15px
+
+            img
+                border: 3px double #555
+                border-radius: 20px
+                width: 100%
+                height: 100%
+
+        .img_concept.no_frame
+            border: none
+            background-image: none
+
+            img
+                border: none
+
 
     .image_set
 
@@ -279,14 +307,26 @@
     .one_image
         // Hopefully this will target iPhone widths
         @media only screen and (max-width: 390px)
-            img.img_concept
-                width: 175px
-                height: 175px
+            w = 175px
+
+            .img_concept
+                width: w
+                height: w
+
+                img
+                    width: w
+                    height: w
 
         @media only screen and (max-width: 420px)
-            img.img_concept
-                width: 200px
-                height: 200px
+            w = 200px
+
+            .img_concept
+                width: w
+                height: w
+
+                img
+                    width: w
+                    height: w
 
     @media only screen and (max-width: 390px)
         box_size = 260px
