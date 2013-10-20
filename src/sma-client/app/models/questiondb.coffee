@@ -1,12 +1,12 @@
 Question = require 'models/question'
 
-chooseQuestionbyProgression = (questions, userprogression) ->
+chooseQuestionbyProgression = (questions, userprogression, user_cycle) ->
 
   if app.debug
     console.log "choosing question by progression"
   _filtered_questions = questions.filter (q) =>
     # TODO: for highest cycle available
-    return not q.user_completed_question(userprogression)
+    return not q.user_completed_question({cycle: user_cycle})
 
   filtered_questions = _filtered_questions.map (q) ->
     {'question': q, 'level': q.get('level')}
@@ -41,10 +41,11 @@ module.exports = class QuestionDB extends Backbone.Collection
   filterQuestionsByCategory: (category) ->
     @removeNonFunctioning @where({'category': category})
 
-  orderQuestionsByProgression: (progression, qs) ->
+  orderQuestionsByProgression: (progression, qs, user_cycle) ->
     _.shuffle chooseQuestionbyProgression(
       @removeNonFunctioning(qs),
-      progression
+      progression,
+      user_cycle
     )
 
   selectQuestionByProg: (category, level_constraint=false) ->
@@ -77,7 +78,11 @@ module.exports = class QuestionDB extends Backbone.Collection
       else
         qs = category_qs
 
-      progression_qs = @orderQuestionsByProgression(userprogression, qs)
+      # TODO: find user's current cycle on category from progression
+      # ... by looking at max cycle for each question, +1 of which shouldn't be
+      # available unless the cycle has been completed 
+      user_cycle = 1
+      progression_qs = @orderQuestionsByProgression(userprogression, qs, user_cycle)
 
       if progression_qs
         qs = progression_qs
@@ -89,19 +94,20 @@ module.exports = class QuestionDB extends Backbone.Collection
 
       q = qs[0]
 
-      current_cycle = q.find_cycle_for_progression(
+      current_question_cycle = q.find_cycle_for_progression(
         app.leksaUserProgression
       )
       if not isFinite(current_cycle)
         console.log "wasnt finite"
         current_cycle = 1
-      console.log "initial progression cycle: #{current_cycle}"
+      console.log "question level: #{q.get('level')}"
+      console.log "user's cycle for category: #{current_cycle}"
       # q.set('cycle', current_cycle)
 
       question_instance = q.find_concepts( app.conceptdb
                                          , app.leksaUserProgression
                                          )
-      console.log "instance cycle: #{question_instance.generator.get('cycle')}"
+      console.log "question cycle: #{question_instance.generator.get('cycle')}"
       tries += 1
 
     return question_instance

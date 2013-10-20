@@ -95,14 +95,84 @@ if the amount is greater, append the correct amount to counts.
 If the sum of uniq'd counts is 1, then the level/question has been completed,
 and we increment the cycle one.
 
+        # this may need to move out of here, and to somewhere else, i.e.,
+        # checking whether the answer to an individual concept is correct, if
+        # it is then check whether incrementing can happen, and if so return
+        # about next level
         if _.uniq(counts).length == 1
           if _.max(counts) == correct_count and _.uniq(counts)[0] == correct_count
             if not opts.cycle
-              console.log "incrementing cycle"
+              console.log "incrementing cycle."
               @set('cycle', @get('cycle') + 1)
             return true
 
         return false
+
+      user_completed_cycle: () ->
+        userprogression = app.leksaUserProgression
+        correct_count = 2
+
+        if opts.cycle
+          cycle = opts.cycle
+        else
+          cycle = @get('cycle')
+
+Filter user progression models for the current cycle, question ID, whether it
+was correct. Then return all the question concepts for these logs.
+
+        # this only checks the current cycle, which should be incremented
+        # and stored unless user logs back in again
+        if userprogression.length > 0
+          logs_for_question = userprogression
+              .filter (up) =>
+                up?
+              .filter (up) =>
+                up.get('question') and (up.get('question').cid == @cid)
+              .filter (up) =>
+                up.get('cycle') == cycle
+              .filter (up) ->
+                up.get('question_correct') == true
+          concepts_for_question = logs_for_question
+              .map (up) ->
+                up.get('question_concept')
+        else
+          return false
+
+How many times was the concept correct for each question?
+
+        getProgressionCorrectCountForConcept = (c) =>
+          userprogression
+            .filter (up) =>
+              up.get('question_concept') == c.get('id')
+            .filter (up) =>
+              up.get('cycle') == cycle
+            .filter (up) =>
+              up.get('question_correct')
+            .filter (up) =>
+              up.get('question').cid == @cid
+            .length
+        
+        concepts = @select_question_concepts app.conceptdb
+
+For each question concept, determine what amount the user correctly,
+if the amount is greater, append the correct amount to counts.
+        
+        counts = []
+        for c in concepts
+          corrects = getProgressionCorrectCountForConcept(c)
+          if corrects > correct_count
+            corrects = correct_count
+          counts.push corrects
+
+Here we increment the cycle if the current question is compelte
+
+        if _.uniq(counts).length == 1
+          if _.max(counts) == correct_count and _.uniq(counts)[0] == correct_count
+            @set('cycle', @get('cycle') + 1)
+            return true
+
+        return false
+
 
       filter_concepts_by_media: (concepts, media_size) ->
         _ms = "/#{media_size}/"
