@@ -1,7 +1,7 @@
 <div class="aajege-header aajege-header-shrinkable">
     <ul class="aajege-nav aajege-nav-left">
         <li class="icon-aajege-left-arrow">
-            <a href="#category/<%- @leksa_category %>">
+            <a href="#category/<%- @leksa_category %>" class="disable_auto_handler">
                 <span class="label">
                     <%- gettext.gettext "Back" %>
                 </span>

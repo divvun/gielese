@@ -37,35 +37,18 @@ module.exports = class LeksaView extends Backbone.View
   leksa_error_template: LeksaErrorTemplate
 
   events:
-    'click #show-panel': "revealOptionsPanel"
-    'click #show-user-panel': "revealUserPanel"
     # TODO: test swiping
-    'swiperight body': "revealOptionsPanel"
-    'swipeleft body': "revealUserPanel"
     'click #menu_next': "newQuestionSameGroup"
+    'click .disable_auto_handler': "reset_auto_event"
+
+  reset_auto_event: () ->
+    clearInterval @auto_advance_handler
+    return true
 
   newQuestionSameGroup: (evt) ->
     @renderQuestion()
     return false
     
-  # # #
-  # # #  Panels
-  # # #
-  
-  # Left panel
-  revealOptionsPanel: (evt) ->
-    panel_options =
-      position: "left"
-    $('#leksa-options').panel('open', panel_options)
-    return false
-
-  # Right panel
-  revealUserPanel: (evt) ->
-    panel_options =
-      position: "right"
-    $('#user-options').panel('open', panel_options)
-    return false
-
   # # #
   # # #  Answer logging
   # # #
@@ -348,7 +331,8 @@ module.exports = class LeksaView extends Backbone.View
       console.log @current_audio
 
     if @auto_advance
-      setInterval( autoAdvance, 7000)
+      # TODO: delete this when user navigates away
+      @auto_advance_handler = setInterval( autoAdvance, 7000)
 
     @first = true
 
