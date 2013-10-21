@@ -5,15 +5,41 @@ FrontPageTemplate = require './templates/front_page'
 
 module.exports = class FrontPage extends Backbone.View
 
+  id: "frontPage"
+
+  template: FrontPageTemplate
+
   # NB: some events need to be bound after the template is rendered, because
   # jQuery mobile and Backbone events don't play well together.
   events:
     "submit #user": "userForm"
     "click #displayLogin": "displayLogin"
-    "click #goBack": "backOne"
-    "click .nextSection": "nextQuestion"
+    "click #end a": "begin"
+    
+    "change input[type='radio']": "changeInput"
+    "change [data-subquestion]": "revealSubquestion"
+    "change [data-hide-subquestion]": "hideSubquestion"
+      
+      
+  begin: (evt) ->
+    DSt.set('gielese-configured', true)
 
-  # TODO: action for after login?
+  changeInput: (evt) ->
+    console.log evt.target
+    fieldset = $(evt.target).parents('fieldset')
+    @storeCurrentVisibleSetting fieldset
+    return true
+
+  revealSubquestion: (evt) ->
+    sub = $(evt.target).attr('data-subquestion')
+    @$el.find("##{sub}").slideDown()
+    return true
+
+  hideSubquestion: (evt) ->
+    sub = $(evt.target).attr('data-hide-subquestion')
+    @$el.find("##{sub}").slideUp()
+    return true
+
   displayLogin: ->
     app.auth.render_authentication_popup @$el, {
       success: () =>
@@ -24,7 +50,6 @@ module.exports = class FrontPage extends Backbone.View
         # TODO: check if user has configured stuff-- if not (for instance, they
         # created a username and account, but got thrown out of the process for
         # some reason), need to resume for them.
-        #
     }
     return false
 
@@ -119,34 +144,10 @@ module.exports = class FrontPage extends Backbone.View
 
     return false
 
-  userSelectsSma: (event) ->
-    console.log "omg"
-    $('#help_language').fadeOut()
-    $('#auxiliary_language').fadeIn()
-    return false
-  
-  updateProgress: (count) ->
-    @$el.find('#progressbar').progressbar({value: count})
-    if count == 100
-      # TODO: change this to be whether user has authed 
-      DSt.set('gielese-configured', true)
-      if app.user
-        app.options.storage.sync.push()
-      app.router.index()
-
-
-  storeCurrentVisibleSetting: (current) ->
-    # TODO: check if in subquestion block?
-    window.current = current
-    console.log current
-
-    fieldset = current.find('fieldset')
-
-    if not fieldset
-      return false
+  storeCurrentVisibleSetting: (fieldset) ->
 
     # TODO: user settings model
-    checked_setting = current.find('fieldset input[type="radio"]:checked')
+    checked_setting = fieldset.find('input[type="radio"]:checked')
     setting_target = fieldset.attr('data-setting')
     setting_value = checked_setting.val()
 
@@ -154,79 +155,15 @@ module.exports = class FrontPage extends Backbone.View
       for key in setting_target.split(',')
         app.options.setSetting(key, setting_value)
 
-    # may not be subquestion, also 
-    next_subquestion = current.next('.sub_question_block')[0]
-    allow_next = checked_setting.attr('data-subquestion')
-
-    if next_subquestion and allow_next
-      current.hide()
-      $(next_subquestion).show()
-      @questions_answered += 1
-      @total_questions += 1
-      @updateProgress((@questions_answered/@total_questions)*100)
-      return true
-
-    # Detect subsetting, return true if pass
-
-    return false
-
-  backOne: (event) ->
-    # reset view
-
-  nextQuestion: (event) =>
-    # When the last one arrives, begin! also store that settings were viewed
-    # TODO: shake next on no-answer
-    @updateProgress((@questions_answered/@total_questions)*100)
-    @$el.find('#goBack').show()
-
-    current = $ """ .question_blocks 
-                    .question_block:visible 
-                    .sub_question_block:visible
-                """
-
-    last = $ """ .question_blocks 
-                 .question_block:last
-             """
-
-    if current == last
-      next = false
-    else
-      next = $('.question_blocks .question_block:visible')
-             .next('.question_block')[0]
-
-    subquestion = @storeCurrentVisibleSetting(current)
-
-    if subquestion
-      next_subquestion = true
-      return false
-
-    if next
-      current.hide()
-      $(next).show()
-      @questions_answered += 1
-      @updateProgress((@questions_answered/@total_questions)*100)
-    else
-      if app.user
-        app.options.storage.sync.push()
-      app.router.mainMenu()
-
-    return false
-
-  id: "frontPage"
-
-  template: FrontPageTemplate
-
   render: ->
     @total_questions = 2
     @questions_answered = 0
     @process_complete = false
 
     @$el.html @template
-    @updateProgress((@questions_answered/@total_questions)*100)
 
     # Need to bind events here; jQuery mobile creates elements that messes with
     # backbone events.
-    @$el.find('.nextSection').bind('click', @nextQuestion)
 
     this
 

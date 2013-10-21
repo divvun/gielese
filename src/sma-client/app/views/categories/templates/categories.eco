@@ -11,21 +11,12 @@
 
     <ul class="aajege-nav aajege-nav-right">
         <li class="icon-aajege-bag">
-            <% if app.user: %>
-                <a href="#stats" id="userinfo_button">
-                    <span class="label">
-                        <span class="action"></span>
-                        <span class="user"> <%- app.user.username %> </span>
-                    </span>
-                </a>
-            <% else: %>
-                <a href="#" id="login_button">
-                    <span class="label">
-                        <span class="action"><%- gettext.gettext "Log in" %></span>
-                        <span class="user"></span>
-                    </span>
-                </a>
-            <% end %>
+            <a href="#stats" id="userinfo_button">
+                <span class="label">
+                    <span class="action"></span>
+                    <span class="user"> <%- gettext.gettext "Points" %></span>
+                </span>
+            </a>
         </li>
     </ul>
 </div>

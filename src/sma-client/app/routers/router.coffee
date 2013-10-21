@@ -107,6 +107,10 @@ module.exports = class Router extends Backbone.Router
 
   splash: ->
     @changePage(app.splashView)
+    if DSt.get('skip-splash')?
+      time = 500
+    else
+      time = 5000
 
     setTimeout(() =>
       configured_already = DSt.get('gielese-configured')
@@ -114,7 +118,7 @@ module.exports = class Router extends Backbone.Router
         @fadePage(app.categoryMenu)
       else
         @fadePage(app.frontPage)
-    , 5000)
+    , time)
 
   reset: ->
     DSt.set('gielese-configured', false)

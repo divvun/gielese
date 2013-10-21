@@ -6,7 +6,7 @@
 
 <div class="aajege-header aajege-header-shrinkable">
     <ul class="aajege-nav aajege-nav-left">
-        <li class="icon-aajege-left-arrow">
+        <li class="icon-aajege-home">
             <a href="<%- prev %>" data-transition="slide">
                 <span class="label">
                     <%- gettext.gettext "Back" %>
@@ -15,6 +15,16 @@
         </li>
     </ul>
     <h2><%- gettext.gettext @category.get('name') %></h2>
+    <ul class="aajege-nav aajege-nav-right">
+        <li class="icon-aajege-bag">
+            <a href="#stats" id="userinfo_button">
+                <span class="label">
+                    <span class="action"></span>
+                    <span class="user"> <%- gettext.gettext "Points" %></span>
+                </span>
+            </a>
+        </li>
+    </ul>
 </div>
 
 <div data-role="content" id="category_content">

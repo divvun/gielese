@@ -1,34 +1,18 @@
 #frontPage
     background-color: #FFF
 
-    a#goBack
-        position: fixed
-        bottom: 5px
-        right: 15px
-        opacity: .6
-        z-index: 5
+    [data-mini="true"]
+        label
+            line-height: 1.5em
+            padding-bottom: 10px
+            height: 40px
 
-    #main_page_header, #main_page_content
-        max-width: 450px
+            .ui-btn-inner
+                height: 40px
+                line-height: 1.5em
 
-    #main_page_header
-
-        margin: 0 auto 0 auto
-        padding: 0 0 10px 0
-        // border-bottom: 1px solid #CCC
-        width: 100%
-        display: block
-
-    #main_page_content
-        margin: 0 auto 0 auto
-        display: block
-        background-color: #eee
-        padding: 5px 8px
-        border-radius: 5px
-
-    img#logo
-        width: 60%
-        margin-left: 4em
+                .ui-btn-text
+                    margin-top: 10px
 
     h1
         font-family: "Kaushan Script", "Bello Pro", "Bello-Pro"
@@ -63,19 +47,6 @@
         margin-bottom: 0
 
     .question_block
-        div[data-role="fieldcontain"]
-            margin-top: 0
-
-        legend
-            font-family: "Open Sans", sans-serif
-            font-weight: 700
-            font-size: 85%
-
-        label
-            font-family: "Open Sans", sans-serif
-            font-weight: 300
-            font-size: 125%
-
         h2.legend
             font-family: "Open Sans", sans-serif
             font-weight: 300
@@ -89,9 +60,6 @@
             float: right
 
     form#user
-        fieldset legend
-            font-size: 85%
-
         input.error
             border-color: #900
             outline: none
@@ -100,15 +68,3 @@
             color: #900
             font-weight: bold
 
-    #progressbar
-        height: 1.25em
-
-    @media only screen and (min-width: 399px)
-        p.help
-            font-size: 12pt
-            line-height: 1.3em
-
-    @media only screen and (min-width: 500px)
-        p.help
-            font-size: 14pt
-            line-height: 1.5em
