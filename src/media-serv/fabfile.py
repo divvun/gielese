@@ -96,6 +96,24 @@ def update_media_db():
             run("sh install_db.sh")
 
 @task
+def npm_update_target(production=False):
+    host, _, path = staging_remote_host_and_path.partition(':')
+
+    client_path = path + '/src/sma-client/'
+    if production:
+        production = ' --production'
+    else:
+        production = ''
+
+    with cd(client_path):
+        run("svn up")
+
+        # recompile client
+        with cd(client_path):
+            run("npm update")
+
+
+@task
 def brunch_build_target(production=False):
     host, _, path = staging_remote_host_and_path.partition(':')
 
@@ -120,28 +138,13 @@ def brunch_build_target_prod(production=False):
 def deploy():
     """ everything: svn up, rebuild everything, recompile database and json
     """
-    host, _, path = staging_remote_host_and_path.partition(':')
 
-    media_db_path = path + '/src/media-serv/'
-    client_path = path + '/src/sma-client/'
-
-    with cd(path):
-        run("svn up")
-
-        # reinstall db
-        with cd(media_db_path):
-            run("rm ./data/*.json")
-            run("mv media_serv.db media_serv.db.bak")
-            run("sh install_db.sh")
-
-        # recompile client
-        with cd(client_path):
-            run("npm update")
-            run("brunch build")
-
-        # hup hup hup
-        with cd(media_db_path):
-            run("kill -HUP `cat pidfile`")
+    svn_up_target()
+    compile_translation_strings()
+    update_media_db()
+    npm_update_target()
+    brunch_build_target()
+    hup()
 
 @task
 def hup():
