@@ -17,6 +17,7 @@ LeksaOptionsView = require 'views/games/leksa_options_view'
 ErrorView = require 'views/error/view'
 LoadingView = require 'views/intro/loading'
 SplashView = require 'views/splash/splash'
+InfoView = require 'views/info/info'
 
 module.exports = class Router extends Backbone.Router
 
@@ -35,6 +36,7 @@ module.exports = class Router extends Backbone.Router
     app.frontPage = new FrontPage()
     app.loadingView = new LoadingView()
     app.splashView = new SplashView()
+    app.infoView = new InfoView()
 
   # Seems to be no way to avoid the double listing for now, because of hash
   # option, which does some funky redirecting.
@@ -61,6 +63,9 @@ module.exports = class Router extends Backbone.Router
 
     'stats':  'userStats'
     '#stats': 'userStats'
+
+    'infoPage': 'infoPage'
+    '#infoPage': 'infoPage'
 
     # First step
 
@@ -105,6 +110,9 @@ module.exports = class Router extends Backbone.Router
   
   loading: ->
     @changePage(app.loadingView)
+
+  infoPage: ->
+    @changePage(app.infoView)
 
   splash: ->
     @changePage(app.splashView)

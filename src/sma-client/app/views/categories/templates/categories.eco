@@ -1,9 +1,5 @@
-<div class="aajege-header">
+<div class="aajege-header aajege-header-notext">
     <ul class="aajege-nav aajege-nav-left">
-        <li class="icon-aajege-home">
-            <a href="#options" id="show-panel">
-            </a>
-        </li>
         <li class="icon-aajege-left-arrow">
             <a href="#" id="log-out">
             </a>

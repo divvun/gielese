@@ -1,17 +1,15 @@
-<div data-role="header">
-    <a href="#mainMenu" data-transition="slide" data-icon="arrow-l"><%- gettext.gettext "Back" %></a>
-    <h2>Progress / User Info</h2>
-    <% if app.user: %>
-    <a id="logout" href="#" data-iconpos="right" data-icon="delete"><%- gettext.gettext "Log out" %></a>
-    <% end %>
+<div class="aajege-header aajege-header-shrinkable">
+    <ul class="aajege-nav aajege-nav-left">
+        <li class="icon-aajege-left-arrow">
+            <a href="#mainMenu">
+            </a>
+        </li>
+    </ul>
+    <h2><%- gettext.gettext "Points" %></h2>
 </div>
 
 <div data-role="content">
-    <% if not app.user: %>
-        <h3><%- gettext.gettext "Please log in first." %></h3>
-    <% end %>
-
-    <% if app.user and @points_total: %>
+    <% if @points_total: %>
         <h3><%- @points_total %> <%- gettext.gettext "points" %></h3>
     <% end %>
 
@@ -35,7 +33,7 @@
 
 <% else: %>
 
-    <h3>Learn some words to see stats!</h3>
+    <h3><%- gettext.gettext "Learn some words to see stats!" %></h3>
 
 <% end %>
 

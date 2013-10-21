@@ -1,3 +1,11 @@
+<div class="aajege-header aajege-header-shrinkable">
+    <ul class="aajege-nav aajege-nav-right">
+        <li class="icon-aajege-info">
+            <a href="#infoPage">
+            </a>
+        </li>
+    </ul>
+</div>
 <div data-role="content">
     <div data-role="fieldcontain" id="create_account">
         <h2 class="legend"><%- gettext.gettext "Create an account?" %></h2>
