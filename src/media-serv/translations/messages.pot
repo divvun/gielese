@@ -1,147 +1,122 @@
 # Translations template for PROJECT.
 # Copyright (C) 2013 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
-#
-#, fuzzy
+# 
+# Translators:
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
+"Project-Id-Version: Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-10-09 15:53-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-10-20 21:55-0500\n"
+"PO-Revision-Date: 2013-10-21 03:00+0000\n"
+"Last-Translator: rtxanson <ryan.txanson@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../sma-client/public/javascripts/app.js:3125
-msgid "Options"
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:3135
-#: ../sma-client/public/javascripts/app.js:5026
-msgid "Log in"
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:3253
-#: ../sma-client/public/javascripts/app.js:3346
-#: ../sma-client/public/javascripts/app.js:3680
-#: ../sma-client/public/javascripts/app.js:3884
-#: ../sma-client/public/javascripts/app.js:4457
-#: ../sma-client/public/javascripts/app.js:4650
-#: ../sma-client/public/javascripts/app.js:5068
-#: ../sma-client/public/javascripts/app.js:6117
-#: ../sma-client/public/javascripts/app.js:6200
+#: ../sma-client/public/javascripts/app.js:3411
+#: ../sma-client/public/javascripts/app.js:3508
+#: ../sma-client/public/javascripts/app.js:3851
+#: ../sma-client/public/javascripts/app.js:4059
+#: ../sma-client/public/javascripts/app.js:4706
+#: ../sma-client/public/javascripts/app.js:4903
+#: ../sma-client/public/javascripts/app.js:6512
 msgid "Back"
-msgstr ""
+msgstr "Back"
 
-#: ../sma-client/public/javascripts/app.js:3265
+#: ../sma-client/public/javascripts/app.js:3419
+#: ../sma-client/public/javascripts/app.js:4067
+#: ../sma-client/public/javascripts/app.js:4710
+#: ../sma-client/public/javascripts/app.js:6611
+msgid "Points"
+msgstr "Points"
+
+#: ../sma-client/public/javascripts/app.js:3427
 msgid "Wordlist"
-msgstr ""
+msgstr "Wordlist"
 
-#: ../sma-client/public/javascripts/app.js:3273
+#: ../sma-client/public/javascripts/app.js:3435
 msgid "Learn"
-msgstr ""
+msgstr "Learn"
 
-#: ../sma-client/public/javascripts/app.js:3281
+#: ../sma-client/public/javascripts/app.js:3443
 msgid "Practice"
-msgstr ""
+msgstr "Practice"
 
-#: ../sma-client/public/javascripts/app.js:5014
+#: ../sma-client/public/javascripts/app.js:4051
+#: ../sma-client/public/javascripts/app.js:4698
+msgid "Home"
+msgstr "Home"
+
+#: ../sma-client/public/javascripts/app.js:5355
 msgid "Create an account?"
-msgstr ""
+msgstr "Create an account?"
 
-#: ../sma-client/public/javascripts/app.js:5018
-#: ../sma-client/public/javascripts/app.js:6250
+#: ../sma-client/public/javascripts/app.js:5359
+#: ../sma-client/public/javascripts/app.js:6540
+#: ../sma-client/public/javascripts/app.js:6548
+#: ../sma-client/public/javascripts/app.js:6647
 msgid "Yes"
-msgstr ""
+msgstr "Yes"
 
-#: ../sma-client/public/javascripts/app.js:5022
-#: ../sma-client/public/javascripts/app.js:6256
+#: ../sma-client/public/javascripts/app.js:5363
+#: ../sma-client/public/javascripts/app.js:6536
+#: ../sma-client/public/javascripts/app.js:6544
+#: ../sma-client/public/javascripts/app.js:6653
 msgid "No"
-msgstr ""
+msgstr "No"
 
-#: ../sma-client/public/javascripts/app.js:5030
-msgid ""
-"If you choose not to create an account, data will still be stored "
-"anonymously, however, it may be erased if you clear your browser's stored"
-" data."
-msgstr ""
+#: ../sma-client/public/javascripts/app.js:5367
+msgid "Log in"
+msgstr "Log in"
 
-#: ../sma-client/public/javascripts/app.js:5034
-msgid ""
-"Having an account also allows you to compete with others, and integrates "
-"with courses."
-msgstr ""
+#: ../sma-client/public/javascripts/app.js:5373
+msgid "Great, your account was created, and you've been logged in."
+msgstr "Great, your account was created, and you've been logged in."
 
-#: ../sma-client/public/javascripts/app.js:5040
-msgid ""
-"Your progress will be stored online, and will syncronise when you connect"
-" if you play in offline mode."
-msgstr ""
+#: ../sma-client/public/javascripts/app.js:5377
+msgid "Help language for menus"
+msgstr "Help language for menus"
 
-#: ../sma-client/public/javascripts/app.js:5044
-msgid ""
-"Great, your account was created, and you've been logged in. Now for some "
-"basic questions..."
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:5048
-msgid "Got it!"
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:5052
-#: ../sma-client/public/javascripts/app.js:6121
-msgid "Help language"
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:5056
-msgid ""
-"This affects what language is displayed in options and in-game help, and "
-"also vocabulary quizzes."
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:5060
-#: ../sma-client/public/javascripts/app.js:6133
+#: ../sma-client/public/javascripts/app.js:5381
+#: ../sma-client/public/javascripts/app.js:6528
 msgid "Translation language"
-msgstr ""
+msgstr "Translation language"
 
-#: ../sma-client/public/javascripts/app.js:5064
-msgid ""
-"You selected South Saami as your help language, but you will still need a"
-" language to learn words. Note, you can change this at any time in the "
-"settings."
-msgstr ""
+#: ../sma-client/public/javascripts/app.js:5385
+msgid "Begin!"
+msgstr "Begin!"
 
-#: ../sma-client/public/javascripts/app.js:5985
-#: ../sma-client/public/javascripts/app.js:6224
+#: ../sma-client/public/javascripts/app.js:6380
+#: ../sma-client/public/javascripts/app.js:6619
 msgid "points"
-msgstr ""
+msgstr "points"
 
-#: ../sma-client/public/javascripts/app.js:6137
+#: ../sma-client/public/javascripts/app.js:6516
+msgid "Help language"
+msgstr "Help language"
+
+#: ../sma-client/public/javascripts/app.js:6532
 msgid "Play audio?"
-msgstr ""
+msgstr "Play audio?"
 
-#: ../sma-client/public/javascripts/app.js:6206
-msgid "Log out"
-msgstr ""
+#: ../sma-client/public/javascripts/app.js:6629
+msgid "Learn some words to see stats!"
+msgstr "Learn some words to see stats!"
 
-#: ../sma-client/public/javascripts/app.js:6214
-msgid "Please log in first."
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:6240
+#: ../sma-client/public/javascripts/app.js:6637
 msgid "High scores"
-msgstr ""
+msgstr "High scores"
 
-#: ../sma-client/public/javascripts/app.js:6242
+#: ../sma-client/public/javascripts/app.js:6639
 msgid "Loading..."
-msgstr ""
+msgstr "Loading..."
 
-#: ../sma-client/public/javascripts/app.js:6244
+#: ../sma-client/public/javascripts/app.js:6641
 msgid "Show my score to everyone?"
-msgstr ""
-
+msgstr "Show my score to everyone?"

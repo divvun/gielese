@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-08-08 14:15-0500\n"
-"PO-Revision-Date: 2013-08-08 19:15+0000\n"
-"Last-Translator: aajegebot <ryan.txanson+aajegebot@gmail.com>\n"
+"POT-Creation-Date: 2013-10-20 21:55-0500\n"
+"PO-Revision-Date: 2013-10-21 03:00+0000\n"
+"Last-Translator: rtxanson <ryan.txanson@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/aajege/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,99 +20,104 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../sma-client/public/javascripts/app.js:3715
-msgid "Options"
+#: ../sma-client/public/javascripts/app.js:3411
+#: ../sma-client/public/javascripts/app.js:3508
+#: ../sma-client/public/javascripts/app.js:3851
+#: ../sma-client/public/javascripts/app.js:4059
+#: ../sma-client/public/javascripts/app.js:4706
+#: ../sma-client/public/javascripts/app.js:4903
+#: ../sma-client/public/javascripts/app.js:6512
+msgid "Back"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3725
-#: ../sma-client/public/javascripts/app.js:4144
-msgid "Log in"
-msgstr "Logga in"
-
-#: ../sma-client/public/javascripts/app.js:3731
-msgid "Categories"
+#: ../sma-client/public/javascripts/app.js:3419
+#: ../sma-client/public/javascripts/app.js:4067
+#: ../sma-client/public/javascripts/app.js:4710
+#: ../sma-client/public/javascripts/app.js:6611
+msgid "Points"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3747
-msgid "Face"
+#: ../sma-client/public/javascripts/app.js:3427
+msgid "Wordlist"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:3763
-msgid "Greetings"
+#: ../sma-client/public/javascripts/app.js:3435
+msgid "Learn"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4128
+#: ../sma-client/public/javascripts/app.js:3443
+msgid "Practice"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:4051
+#: ../sma-client/public/javascripts/app.js:4698
+msgid "Home"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:5355
 msgid "Create an account?"
 msgstr "Skapa ett konto?"
 
-#: ../sma-client/public/javascripts/app.js:4132
+#: ../sma-client/public/javascripts/app.js:5359
+#: ../sma-client/public/javascripts/app.js:6540
+#: ../sma-client/public/javascripts/app.js:6548
+#: ../sma-client/public/javascripts/app.js:6647
 msgid "Yes"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4136
+#: ../sma-client/public/javascripts/app.js:5363
+#: ../sma-client/public/javascripts/app.js:6536
+#: ../sma-client/public/javascripts/app.js:6544
+#: ../sma-client/public/javascripts/app.js:6653
 msgid "No"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4140
-msgid "or..."
+#: ../sma-client/public/javascripts/app.js:5367
+msgid "Log in"
+msgstr "Logga in"
+
+#: ../sma-client/public/javascripts/app.js:5373
+msgid "Great, your account was created, and you've been logged in."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4148
-msgid ""
-"If you choose not to create an account, data will still be stored "
-"anonymously, however, it may be erased if you clear your browser's stored "
-"data."
-msgstr "Om du väljer att inte skapa ett konto, sparas data anonymt, fast då vill de försvinna om du tömmer din nätläsares datalager."
-
-#: ../sma-client/public/javascripts/app.js:4152
-msgid ""
-"Having an account also allows you to compete with others, and integrates "
-"with courses."
-msgstr "Att ha ett konto låter dig också konkurrera med andra, og är integrerat med kurser."
-
-#: ../sma-client/public/javascripts/app.js:4158
-msgid ""
-"Your progress will be stored online, and will syncronise when you connect if"
-" you play in offline mode."
-msgstr "Din progression kommer att sparas på nätet, och vill bli synkroniserad nästa gång du har nätkontakt om du spelar i offline-modus."
-
-#: ../sma-client/public/javascripts/app.js:4162
-msgid ""
-"Great, your account was created, and you've been logged in. Now for some "
-"basic questions..."
+#: ../sma-client/public/javascripts/app.js:5377
+msgid "Help language for menus"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4166
-msgid "Got it!"
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:4170
-#: ../sma-client/public/javascripts/app.js:4235
-msgid "Help language"
-msgstr "Hjälpspråk"
-
-#: ../sma-client/public/javascripts/app.js:4174
-msgid ""
-"This affects what language is displayed in options and in-game help, and "
-"also vocabulary quizzes."
-msgstr "Detta bestämmer vilket språk som används för inställningar och hjälp, och också översättningsspråk i ordförrådsspel."
-
-#: ../sma-client/public/javascripts/app.js:4178
-#: ../sma-client/public/javascripts/app.js:4239
+#: ../sma-client/public/javascripts/app.js:5381
+#: ../sma-client/public/javascripts/app.js:6528
 msgid "Translation language"
 msgstr "Översättningsspråk"
 
-#: ../sma-client/public/javascripts/app.js:4182
-msgid ""
-"You selected South Saami as your help language, but you will still need a "
-"language to learn words. Note, you can change this at any time in the "
-"settings."
-msgstr "Du valde sydsamiska som ditt hjälpspråk, men du behöver fortfarande ett översättningsspråk för att lära ord. Observera att du kan ändra denna inställning när som helst  i programinställningarna."
-
-#: ../sma-client/public/javascripts/app.js:4873
-msgid "Log out"
+#: ../sma-client/public/javascripts/app.js:5385
+msgid "Begin!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4881
-msgid "Please log in first."
+#: ../sma-client/public/javascripts/app.js:6380
+#: ../sma-client/public/javascripts/app.js:6619
+msgid "points"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6516
+msgid "Help language"
+msgstr "Hjälpspråk"
+
+#: ../sma-client/public/javascripts/app.js:6532
+msgid "Play audio?"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6629
+msgid "Learn some words to see stats!"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6637
+msgid "High scores"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6639
+msgid "Loading..."
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6641
+msgid "Show my score to everyone?"
 msgstr ""
