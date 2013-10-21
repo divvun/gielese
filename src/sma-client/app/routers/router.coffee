@@ -47,6 +47,9 @@ module.exports = class Router extends Backbone.Router
     'index': 'index'
     '#index': 'index'
 
+    'frontPage': 'frontPage'
+    '#frontPage': 'frontPage'
+
     # Misc
     
     'options': 'options'
@@ -107,6 +110,10 @@ module.exports = class Router extends Backbone.Router
     else
       app.frontPage = new FrontPage()
       @changePage(app.frontPage)
+
+  frontPage: ->
+    app.frontPage = new FrontPage()
+    @changePage(app.frontPage)
   
   loading: ->
     @changePage(app.loadingView)

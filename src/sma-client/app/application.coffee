@@ -50,6 +50,9 @@ module.exports = class Application
         families: ['Open Sans', 'Kaushan Script']
 
   switch_locale: (locale, options = {}) ->
+    conv_l = ISOs.three_to_two locale
+    if conv_l != locale
+      locale = conv_l
     $.get "/data/translations/#{locale}/messages.json",
       (locale_data) =>
         gettext = new Gettext({

@@ -14,6 +14,7 @@ module.exports = class FrontPage extends Backbone.View
   events:
     "submit #user": "userForm"
     "click #displayLogin": "displayLogin"
+    "change #create-user-account-c": "displayLogin"
     "click #end a": "begin"
     
     "change input[type='radio']": "changeInput"
@@ -151,9 +152,44 @@ module.exports = class FrontPage extends Backbone.View
     setting_target = fieldset.attr('data-setting')
     setting_value = checked_setting.val()
 
+    refresh_template = false
+
     if setting_target and setting_value
       for key in setting_target.split(',')
-        app.options.setSetting(key, setting_value)
+        if key == "interface_language"
+          refresh_template = true
+        app.options.setSetting key, setting_value
+
+    if refresh_template
+      setTimeout(@refreshTemplate, 500)
+
+    return true
+
+  refreshTemplate: () =>
+    # Refresh the template when language setting is changed
+    #
+
+    # TODO: store form values to reload
+    DSt.store_form($('form#user')[0])
+    @$el.html @template
+    $('[data-role=page]').trigger('pagecreate')
+    @loadSettings()
+    DSt.recall_form($('form#user')[0])
+
+  loadSettings: ->
+    help_lang = app.options.getSetting('help_language')
+    h_value = "[value=#{help_lang}]"
+
+    resetCheck = (vs, val) ->
+      vs.attr('checked', val).checkboxradio().checkboxradio('refresh')
+
+    resetCheck $("#help_language [type=radio]"), false
+    resetCheck $("#help_language #{h_value}"), true
+    if h_value == 'sma'
+      sub = $("#help_language").attr('data-subquestion')
+      setTimeout( () ->
+        @$el.find("##{sub}").slideDown()
+      , 500)
 
   render: ->
     @total_questions = 2
@@ -161,6 +197,8 @@ module.exports = class FrontPage extends Backbone.View
     @process_complete = false
 
     @$el.html @template
+
+    @loadSettings()
 
     # Need to bind events here; jQuery mobile creates elements that messes with
     # backbone events.

@@ -9,50 +9,53 @@
 <div data-role="content">
     <div data-role="fieldcontain" id="create_account">
         <h2 class="legend"><%- gettext.gettext "Create an account?" %></h2>
+        <!--
         <div class="ui-grid-a">
             <div class="ui-block-a">
-                <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
-                    <input class="nextSection" type="radio" name="create-user-account" id="create-user-account-a" value="true" data-subquestion="user_account_block">
+            -->
+                <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account" data-mini="true">
+                    <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-a" value="true" data-subquestion="user_account_block">
                     <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
-                    <input class="nextSection" type="radio" name="create-user-account" id="create-user-account-b" value="false" data-hide-subquestion="user_account_block">
+                    <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-b" value="false" data-hide-subquestion="user_account_block">
                     <label for="create-user-account-b"><%- gettext.gettext "No" %></label>
+                    <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-c" value="false" data-hide-subquestion="user_account_block">
+                    <label for="create-user-account-c"><%- gettext.gettext "Log in" %></label>
                 </fieldset>
+                <!--
                 <br />
             </div>
+            -->
+            <!--
             <div class="ui-block-b">
-                <a data-role="button" id="displayLogin" data-mini="true" style="width: 7em;"><%- gettext.gettext "Log in" %></a>
+                <a data-role="button" data-theme="a" id="displayLogin" data-mini="true" style="width: 7em;"><%- gettext.gettext "Log in" %></a>
                 <br />
             </div>
         </div>
+            -->
     </div>
 
     <% # TODO: maybe leave this to last step, because having a different view for this would be much better. %>
     <div style="display: none;" id="user_account_block">
         <div id="loginform_subsub">
             <form id="user" action="">
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                      <div class="form_fields">
-                        <fieldset>
-                            <input autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder="username">
-                        </fieldset> 
-                        <fieldset>  
-                            <input type="password" name="password" id="pw" value="" placeholder="password">
-                        </fieldset> 
-                        <fieldset>
-                            <input autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder="e-mail">
-                        </fieldset> 
-                      </div>
+                <div class="form_fields">
+                    <fieldset>
+                        <label for="username"><%- gettext.gettext "Username" %></label>
+                        <input autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder=".......">
+                    </fieldset> 
+                    <fieldset>  
+                        <label for="password"><%- gettext.gettext "Password" %></label>
+                        <input type="password" name="password" id="pw" value="" placeholder=".......">
+                    </fieldset> 
+                    <fieldset>
+                        <label for="email"><%- gettext.gettext "E-mail" %></label>
+                        <input autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder="......">
+                    </fieldset> 
+                    <div data-role="controlgroup" data-type="horizontal" data-position="right">
+                        <input type="submit" value="Submit" data-inline="true" data-theme="a" data-position="right" />
                     </div>
                 </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <div data-role="controlgroup" data-type="horizontal" data-position="right">
-                            <input type="submit" value="Submit" data-inline="true" data-theme="b" data-position="right" />
-                        </div>
-                    </div>
-                    <div id="loading_user" class="display: none;" />
-                </div>
+              <div id="loading_user" class="display: none;" />
             </form>
         </div>
         <div id="loginform_success" style="display:none;">
@@ -60,15 +63,15 @@
         </div>
     </div>
 
-    <div class="sub_question_block">
+    <div class="sub_question_block smaller">
         <div data-role="fieldcontain" id="help_language">
-            <h2 class="legend"><%- gettext.gettext "Help language for menus" %></h2>
+            <h2 class="legend"><%- gettext.gettext "Help language" %></h2>
             <fieldset data-role="controlgroup" data-setting="help_language,interface_language" data-type="horizontal" data-mini="true">
-                <input class="nextSection" type="radio" name="both-choice" id="both-choice-1" value="nob" data-hide-subquestion="translation_language" checked>
+                <input class="nextSection" type="radio" data-theme="a" name="both-choice" id="both-choice-1" value="nob" data-hide-subquestion="translation_language" checked>
                 <label for="both-choice-1">Norsk</label>
-                <input class="nextSection" type="radio" name="both-choice" id="both-choice-2" value="sma" data-subquestion="translation_language">
+                <input class="nextSection" type="radio" data-theme="a" name="both-choice" id="both-choice-2" value="sma" data-subquestion="translation_language">
                 <label for="both-choice-2">Åarjelsaemien</label>
-                <input class="nextSection" type="radio" name="both-choice" id="both-choice-3" value="swe" data-hide-subquestion="translation_language">
+                <input class="nextSection" type="radio" data-theme="a" name="both-choice" id="both-choice-3" value="swe" data-hide-subquestion="translation_language">
                 <label for="both-choice-3">Svenska</label>
             </fieldset>
         </div>
@@ -78,11 +81,11 @@
         <div data-role="fieldcontain">
             <h2 class="legend"><%- gettext.gettext "Translation language" %></h2>
             <fieldset data-role="controlgroup" data-setting="help_language" data-type="horizontal" data-mini="true">
-                <input class="nextSection" type="radio" name="help-lang-choice" id="help-lang-choice-1" value="nob" checked="checked">
+                <input class="nextSection" type="radio" data-theme="a" name="help-lang-choice" id="help-lang-choice-1" value="nob" checked="checked">
                 <label for="help-lang-choice-1">Norsk</label>
-                <input class="nextSection" type="radio" name="help-lang-choice" id="help-lang-choice-2" value="swe">
+                <input class="nextSection" type="radio" data-theme="a" name="help-lang-choice" id="help-lang-choice-2" value="swe">
                 <label for="help-lang-choice-2">Svenska</label>
-                <input class="nextSection" type="radio" name="help-lang-choice" id="help-lang-choice-3" value="eng">
+                <input class="nextSection" type="radio" data-theme="a" name="help-lang-choice" id="help-lang-choice-3" value="eng">
                 <label for="help-lang-choice-3">English</label>
             </fieldset>
         </div>

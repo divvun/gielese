@@ -1,40 +1,42 @@
 ## Today
 
+* redo the login and account creation page
+   - almost
+
 * reload internationalization strings immediately when user changes setting
 
 * overhaul the nav bar, things are wrong.
-* redo the login and account creation page
 
-    registreringsside:
-    * omorganisera det som er på plass no, til:
-    ** alternativ for brukarnamn&passord / anonym
-    ** klårare organisering av login vs anonym
-    ** laga konto ved å berre skriva inn brukarnamn og passord, og trykka login
-    *** stadfestingsdialog der ein seier ok - ny konto, eller nei - det var feil
-    *** sjekka at brukaren ikkje finst frå før
-    *** sjekka at passordet stemmer
-    * moglegheit til å få attende passord/brukarnamn viss dei er gløymde
+* kategori-side: responsive
+* concept list: buttons
+* kategoribilde: sjå på mappa
+* font consistency?
+
+registreringsside:
+ * omorganisera det som er på plass no, til:
+
+ ** alternativ for brukarnamn&passord / anonym
+ ** klårare organisering av login vs anonym
+
+ ** laga konto ved å berre skriva inn brukarnamn og passord, og trykka login
+ *** stadfestingsdialog der ein seier ok - ny konto, eller nei - det var feil
+ *** sjekka at brukaren ikkje finst frå før
+ *** sjekka at passordet stemmer
+
+ * moglegheit til å få attende passord/brukarnamn viss dei er gløymde
+   - tek ein del tid.
 
 
 Ting å fiksa:
-** dukkar opp etter å ha bytta til ei anna side, og deretter gå attende
-* bakgrunnen på toppen er litt for dominerande (striper istf einsfarga) - det er ikkje meininga, skal vera einsfarga
 * symbola på framsida:
-** gamma er "heim", dvs framsida, ikkje innstillingar
-** sekken er der du samlar poenga dine
+
 * hjelpespråk norsk gjev ikkje knapptekst osb. på norsk
-* knappane på kategori-menyen er for smale, ifylgje PDF burde dei vera større; ogso slik at ein kan klikke på deim
-* lyden kjem ikkje av seg sjølv før ein har trykt ein gong på ein lydknapp
-* knappane på kategoriframsida (ordliste, lær, praktiser) er ikkje bunde til app-sida, men til høgrekanten av nettlesaren, slik at knappane flyt utanfor app-sida dersom nettlesarvindauget er breidt
 * kornete bilete / treng å nytta dei større versjonar på større skjermstørrelse
-* største skjermstorleik - safari - ordlistmeny / ikonar og ordlista er delvis borte
 * høgre pil på ordlista - bugg
-* knappane på framsida er av og til gråe/utan bilete
 
 ting som gjeld media:
 * kattebilder bort
 * buaregh - to ulike bilde for samme ord; med/utan boble. fjern den utan boble. 
-* kategoribilde til natur (nye kategoribilæteforslag kjem frå aajege)
 
 
 
@@ -63,11 +65,6 @@ ting som gjeld media:
 
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart
-
-* endringar i nivåa:
-  ** lv. 5 - 5 - plass på skjerm?
-
-* underkategori: gjer ikonar større
 
 * manglar rullesjakt i ordlista når ein rullar (=vanskeleg å vita om ein har kome til slutten/starten, og kor lang lista er)
   - problem, CSS and scrolling is really awkwardly suported across browsers. 

@@ -36,7 +36,7 @@ module.exports = class UserSettings extends Backbone.Collection
     if opts.store?
       @storage.sync.push()
 
-  setSetting: (key, val) ->
+  setSetting: (key, val, opts = {}) ->
     setting = @where({setting_key: key})
 
     if setting.length > 0
@@ -48,7 +48,8 @@ module.exports = class UserSettings extends Backbone.Collection
     if key == 'interface_language'
       @setLanguage(val)
 
-    # TODO: full sync?
+    opts.success() if opts.success
+
     return new_setting
 
   setDefaults: (opts) ->
