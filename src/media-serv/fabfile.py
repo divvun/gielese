@@ -5,6 +5,7 @@ import sys
 from fabric.api import local, task, cd, settings, abort, run
 from fabric.api import env
 from fabric.contrib.console import confirm
+from fabvenv import virtualenv
 
 staging_remote_host_and_path = os.environ.get("GTLAB_AAJEGE_STAGING_HOST")
 if staging_remote_host_and_path is None:
@@ -35,6 +36,19 @@ def svn_up_target():
 
     with cd(path):
         run("svn up")
+
+@task
+def compile_translation_strings():
+    host, _, path = staging_remote_host_and_path.partition(':')
+
+    media_db_path = path + '/src/media-serv/'
+    client_path = path + '/src/sma-client/'
+
+    with virtualenv(media_db_path + '/env/'):
+        with cd(media_db_path):
+            run("svn up")
+            run("tx pull")
+            run("pybabel compile -d translations")
 
 @task
 def clear_node_modules_rebuild():
