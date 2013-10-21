@@ -12,7 +12,7 @@ module.exports = class CategoryMenu extends Backbone.View
   logout: (evt) ->
     DSt.set('gielese-configured', false)
     app.auth.logout
-      complete: () ->
+      success: () ->
         window.location.hash = "#mainMenu"
 
   displayLogin: (evt) ->
