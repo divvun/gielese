@@ -100,6 +100,7 @@ module.exports = class Router extends Backbone.Router
     if configured_already
       @changePage(app.categoryMenu)
     else
+      app.frontPage = new FrontPage()
       @changePage(app.frontPage)
   
   loading: ->
@@ -117,6 +118,7 @@ module.exports = class Router extends Backbone.Router
       if configured_already
         @fadePage(app.categoryMenu)
       else
+        app.frontPage = new FrontPage()
         @fadePage(app.frontPage)
     , time)
 

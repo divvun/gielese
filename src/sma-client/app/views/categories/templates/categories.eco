@@ -2,9 +2,10 @@
     <ul class="aajege-nav aajege-nav-left">
         <li class="icon-aajege-home">
             <a href="#options" id="show-panel">
-                <span class="label">
-                    <%- gettext.gettext "Options" %>
-                </span>
+            </a>
+        </li>
+        <li class="icon-aajege-left-arrow">
+            <a href="#" id="log-out">
             </a>
         </li>
     </ul>
@@ -12,10 +13,6 @@
     <ul class="aajege-nav aajege-nav-right">
         <li class="icon-aajege-bag">
             <a href="#stats" id="userinfo_button">
-                <span class="label">
-                    <span class="action"></span>
-                    <span class="user"> <%- gettext.gettext "Points" %></span>
-                </span>
             </a>
         </li>
     </ul>

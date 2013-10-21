@@ -56,7 +56,7 @@
         <div data-role="fieldcontain" id="help_language">
             <h2 class="legend"><%- gettext.gettext "Help language for menus" %></h2>
             <fieldset data-role="controlgroup" data-setting="help_language,interface_language" data-type="horizontal" data-mini="true">
-                <input class="nextSection" type="radio" name="both-choice" id="both-choice-1" value="nob" data-hide-subquestion="translation_language">
+                <input class="nextSection" type="radio" name="both-choice" id="both-choice-1" value="nob" data-hide-subquestion="translation_language" checked>
                 <label for="both-choice-1">Norsk</label>
                 <input class="nextSection" type="radio" name="both-choice" id="both-choice-2" value="sma" data-subquestion="translation_language">
                 <label for="both-choice-2">Åarjelsaemien</label>

@@ -4,9 +4,16 @@ module.exports = class CategoryMenu extends Backbone.View
 
   events:
     "click #login_button": 'displayLogin'
+    "click #log-out": 'logout'
     "click #userinfo_button": 'displayUserInfo'
   
   id: "category_menu"
+
+  logout: (evt) ->
+    DSt.set('gielese-configured', false)
+    app.auth.logout
+      complete: () ->
+        window.location.hash = "#mainMenu"
 
   displayLogin: (evt) ->
     # TODO: where did username go?
