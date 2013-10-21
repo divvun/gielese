@@ -6,7 +6,7 @@
         </li>
     </ul>
 </div>
-<div data-role="content">
+<div data-role="content" id="front_page_content">
     <div data-role="fieldcontain" id="create_account">
         <h2 class="legend"><%- gettext.gettext "Create an account?" %></h2>
         <!--
@@ -41,15 +41,15 @@
                 <div class="form_fields">
                     <fieldset>
                         <label for="username"><%- gettext.gettext "Username" %></label>
-                        <input autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder=".......">
+                        <input data-theme="a" autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder=".......">
                     </fieldset> 
                     <fieldset>  
                         <label for="password"><%- gettext.gettext "Password" %></label>
-                        <input type="password" name="password" id="pw" value="" placeholder=".......">
+                        <input data-theme="a" type="password" name="password" id="pw" value="" placeholder=".......">
                     </fieldset> 
                     <fieldset>
                         <label for="email"><%- gettext.gettext "E-mail" %></label>
-                        <input autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder="......">
+                        <input data-theme="a" autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder="......">
                     </fieldset> 
                     <div data-role="controlgroup" data-type="horizontal" data-position="right">
                         <input type="submit" value="Submit" data-inline="true" data-theme="a" data-position="right" />

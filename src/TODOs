@@ -2,8 +2,7 @@
 
 * redo the login and account creation page
    - almost
-
-* reload internationalization strings immediately when user changes setting
+   - menu hides
 
 * overhaul the nav bar, things are wrong.
 

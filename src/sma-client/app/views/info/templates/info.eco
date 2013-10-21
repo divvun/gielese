@@ -5,9 +5,54 @@
             </a>
         </li>
     </ul>
-   <h2>About</h2> 
+   <h2><%- gettext.gettext "About this app" %></h2>
 </div>
-<div data-role="content">
-   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-   <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+
+<div data-role="content" id="info_text_content">
+
+    <h3>Formål</h3>
+
+    <p> Hovedmålet med prosjektet er å fremme sørsamisk språkbruk på flere og nye
+    arenaer, samt utvikle hjelpemidler som bidrar i prosessen med vitalisering av
+    sørsamisk språk.  </p>
+
+    <h3> Resultatmål </h3>
+
+    <ul>
+        <li>Utvikle en sørsamisk språkapplikasjon for iPhone og iPad som
+        kombinerer sørsamisk lyd, skrift og bilde. </li>
+        <li>Bruke ny teknologi til å fremme bruk av sørsamisk
+        hverdagsspråk.</li>
+        <li>Synliggjøre sørsamisk på nye språkarenaer. </li>
+    </ul>
+
+    <h3> Målgruppe </h3>
+    <p>Den primære målgruppen er barn, ungdom og voksne som ønsker å lære,
+    repetere og/eller videreutvikle sine sørsamiske språkferdigheter.
+    Språknivået for brukeren vil kunne variere fra de som har liten kunnskap om
+    sørsamisk til de som kan snakke.</p> <p>Verktøyet kan brukes selvstendig av
+    enkeltpersoner, eller integreres som et hjelpemiddel i eksisterende
+    språkopplæring eller språkstimulering. Hjelpemidlet vil kunne være aktuelt
+    for alle som ønsker å arbeide med det sørsamiske språket.</p>
+
+    <h3> Medarbeidere </h3>
+    <dl>
+        <dt>Planlegging</dt>
+        <dd>Sissel Jåma, Helen Blind Brandsfjell, Toini Bergstrøm, Sjur Moshagen</dd>
+        <dt>Tekst</dt>
+        <dd>Sissel Jåma, Aino Danielsen, Helen Blind Brandsfjell</dd>
+        <dt>Foto</dt>
+        <dd>Vg2 Medier og kommunikasjon ved Røros videregående skole 2012/2013, Bente Haarstad, Aino Danielsen</dd>
+        <dt>Lyd</dt>
+        <dd>Peder Kristian Bientie Aasvold, Emmi Danielsen, Aino Danielsen</dd>
+        <dt>Illustrasjoner og layout</dt>
+        <dd>Anne Rustad</dd>
+        <dt>Programmerer</dt>
+        <dd>Ryan Johnson</dd>
+    </dl>
+
+    <p> Appen er produsert med støtte fra Sametinget, Fornyings-, administrasjons-
+    og kirkedepartementet og Aajege – samisk språk- og
+    kompetansesenter, Divvun-gruppa ved Universitetet i Tromsø </p>
+
 </div>
