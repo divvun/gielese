@@ -12,7 +12,7 @@ Subcategories:
     category: "ANIMALS"
     semantics:
       - "ANIMALS"
-    name: "Animals"
+    name: "Dyjreh"
     activities: *ACTIVITIES
     main_menu: false
     parent: "NATURE"
@@ -23,7 +23,7 @@ Subcategories:
 
   - &world
     category: "WORLD"
-    name: "World"
+    name: "Eatneme"
     semantics:
       - "WORLD"
     activities: *ACTIVITIES
@@ -40,7 +40,7 @@ Subcategories:
 Categories:
 
   - category: "BODYPART"
-    name: "Face"
+    name: "Ååredæjja"
     semantics:
       - "BODYPART"
     activities: *ACTIVITIES
@@ -52,7 +52,7 @@ Categories:
           device: "mobile"
 
   - category: "GREETINGS"
-    name: "Greetings"
+    name: "Heelsedh"
     semantics:
       - "GREETINGS"
     activities: *ACTIVITIES
@@ -64,7 +64,7 @@ Categories:
           device: "mobile"
 
   - category: "FOOD"
-    name: "Food"
+    name: "Beapmoe"
     semantics:
       - "FOOD"
     activities: *ACTIVITIES
@@ -76,7 +76,7 @@ Categories:
           device: "mobile"
 
   - category: "NATURE"
-    name: "Nature"
+    name: "Natur"
     semantics:
       - "NATURE"
     main_menu: true
