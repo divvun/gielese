@@ -9,7 +9,7 @@
 <div data-role="content" id="front_page_content">
     <div data-role="fieldcontain" id="create_account">
         <h2 class="legend"><%- gettext.gettext "Create an account?" %></h2>
-        <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
+        <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account" data-mini="true">
             <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-a" value="true" data-subquestion="user_account_block" checked>
             <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
             <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-b" value="false" data-hide-subquestion="user_account_block">
@@ -24,15 +24,15 @@
                 <div class="form_fields grouped_fields">
                     <div class="grouped_field">
                         <label for="un"><%- gettext.gettext "Username" %></label>
-                        <input data-role="none" autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder=".......">
+                        <input data-role="none" autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder=".....................................">
                     </div>
                     <div class="grouped_field">
                         <label for="pw"><%- gettext.gettext "Password" %></label>
-                        <input data-role="none" type="password" name="password" id="pw" value="" placeholder=".......">
+                        <input data-role="none" type="password" name="password" id="pw" value="" placeholder=".....................................">
                     </div>
                     <div class="grouped_field">
                         <label for="em"><%- gettext.gettext "E-mail" %></label>
-                        <input data-role="none" autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder="......">
+                        <input data-role="none" autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder=".....................................">
                     </div>
                 </div>
             </form>
@@ -42,18 +42,36 @@
         </div>
     </div>
 
-    <div class="sub_question_block smaller">
+    <div class="sub_question_block">
         <div data-role="fieldcontain" id="help_language">
-            <h2 class="legend"><%- gettext.gettext "Translation language" %></h2>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <h2 class="legend"><%- gettext.gettext "Translation language" %></h2>
+                </div>
+                <div class="ui-block-b">&nbsp;</div>
+            </div>
             <fieldset data-role="none" data-setting="help_language,interface_language,translation_language">
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
-                        <input class="nextSection" type="radio" data-theme="a" name="both-choice" id="both-choice-1" value="nob" checked>
-                        <label for="both-choice-1">Norsk</label>
+                        <a class="active"
+                           type="button"
+                           data-theme="b"
+                           name="both-choice"
+                           id="both-choice-1"
+                           data-value="nob"
+                           data-mini="true">
+                        Norsk
+                        </a>
                     </div>
                     <div class="ui-block-b">
-                        <input class="nextSection" type="radio" data-theme="a" name="both-choice" id="both-choice-3" value="swe">
-                        <label for="both-choice-3">Svenska</label>
+                        <a type="button"
+                           data-theme="a"
+                           name="both-choice"
+                           id="both-choice-3"
+                           data-value="swe"
+                           data-mini="true">
+                        Svenska
+                        </a>
                     </div>
                 </div>
                 <!--
@@ -65,7 +83,7 @@
     </div>
 
     <div id="end">
-        <a href="#categoryMenu" data-role="button" data-theme="b" id="start">
+        <a href="#categoryMenu" data-role="button" data-theme="b" id="start" data-mini="true">
             <span class="login_text"><%- gettext.gettext "Log in" %></span>
             <span class="begin_text" style="display: none;"><%- gettext.gettext "Begin!" %></span>
         </a>
