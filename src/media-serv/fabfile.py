@@ -143,7 +143,7 @@ def deploy():
     compile_translation_strings()
     update_media_db()
     npm_update_target()
-    brunch_build_target()
+    brunch_build_target_prod()
     hup()
 
 @task
