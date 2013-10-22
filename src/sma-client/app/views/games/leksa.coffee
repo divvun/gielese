@@ -233,7 +233,7 @@ module.exports = class LeksaView extends Backbone.View
       @q.choices.push new DummyConcept
         concept_value: "/static/images/bakgrunn-spill.png"
         concept_type: "img"
-      
+
       @q.choices = _.shuffle @q.choices
 
     @$el.find('#leksa_question').html @question_template

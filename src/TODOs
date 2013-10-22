@@ -1,5 +1,30 @@
 ## Today
 
+!!!Saker som må fiksast til presentasjonen
+
+I prioritert rekkjefølgje:
+* innloggingssida må fungera (mest mogleg i samsvar med design)
+    - yes|no only
+    - login switches with begin
+    - sma no longer UI language (for now)
+
+* det må vera mogleg å klikka seg tilbake til innloggingssida frå kategorioversikten (funkar av og til, men ikkje alltid - må fungera heile tida)
+* minst ein kategori må fungera som han skal (alt i ååredæjja)
+** Ryan konsentrerer seg berre om å få til denne (Aino kjem seg ikkje inn
+   der no på iPad)
+* bakgrunnsbiletet på kategorisida må vera litt nedtona, slik at det ikkje blir så påtrengande og dominerande
+  - midlertidig fix med opacity.
+
+* poenga som ein får bør visast nære det korrekte bilete (no er dei alltid til
+  venstre, rett under gamma, og det er litt missvisande)
+
+* ingen tekst når ein trykkjer rett/feil (no: correct!/try again!)
+
+
+-----
+
+
+
 * redo the login and account creation page
    - almost
    - menu hides

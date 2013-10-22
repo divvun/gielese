@@ -16,12 +16,11 @@ module.exports = class FrontPage extends Backbone.View
     "click #displayLogin": "displayLogin"
     "change #create-user-account-c": "displayLogin"
     "click #end a": "begin"
-    
+
     "change input[type='radio']": "changeInput"
     "change [data-subquestion]": "revealSubquestion"
     "change [data-hide-subquestion]": "hideSubquestion"
-      
-      
+
   begin: (evt) ->
     DSt.set('gielese-configured', true)
 
