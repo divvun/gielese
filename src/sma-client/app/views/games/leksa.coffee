@@ -236,17 +236,6 @@ module.exports = class LeksaView extends Backbone.View
       
       @q.choices = _.shuffle @q.choices
 
-    if @q.choices.length == 2 and @q.generator.get('type') == "word_to_image"
-      @q.choices.push new DummyConcept
-        concept_value: "/static/images/bakgrunn-spill.png"
-        concept_type: "img"
-
-      @q.choices.push new DummyConcept
-        concept_value: "/static/images/bakgrunn-spill.png"
-        concept_type: "img"
-      
-      @q.choices = _.shuffle @q.choices
-
     @$el.find('#leksa_question').html @question_template
       instance: @q
       chunker: arrayChunk
