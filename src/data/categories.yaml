@@ -17,9 +17,17 @@ Subcategories:
     main_menu: false
     parent: "NATURE"
     media:
-      image:
-        - path: "/static/nature_animals/img/orig/gaahtoe.jpg"
+      icon:
+        - path: "/static/nature_animals/img/category-icon.jpg"
           device: "mobile"
+          size: "small"
+        - path: "/static/nature_animals/img/category-icon-large.jpg"
+          device: "tablet"
+          size: "medium"
+      image:
+        - path: "/static/nature_animals/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
 
   - &world
     category: "WORLD"
@@ -30,9 +38,17 @@ Subcategories:
     main_menu: false
     parent: "NATURE"
     media:
-      image:
-        - path: "/static/nature_world/img/small_background/elmie.jpg"
+      icon:
+        - path: "/static/nature_world/img/category-icon.jpg"
           device: "mobile"
+          size: "small"
+        - path: "/static/nature_world/img/category-icon-large.jpg"
+          device: "tablet"
+          size: "medium"
+      image:
+        - path: "/static/nature_world/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
 
 # These are displayed in the main list.
 #
@@ -47,9 +63,14 @@ Categories:
     children: []
     main_menu: true
     media:
-      image:
-        - path: "/static/images/ansikt/orig/aa_aa_red_ae_jja.jpg"
+      icon:
+        - path: "/static/ansikt/img/category-icon.jpg"
           device: "mobile"
+          size: "small"
+      image:
+        - path: "/static/ansikt/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
 
   - category: "GREETINGS"
     name: "Heelsedh"
@@ -59,9 +80,14 @@ Categories:
     children: []
     main_menu: true
     media:
-      image:
-        - path: "/static/images/heelsedh/orig/buarastehtedh.jpg"
+      icon:
+        - path: "/static/heelsedh/img/category-icon.jpg"
           device: "mobile"
+          size: "small"
+      image:
+        - path: "/static/heelsedh/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
 
   - category: "FOOD"
     name: "Beapmoe"
@@ -71,9 +97,90 @@ Categories:
     children: []
     main_menu: true
     media:
-      image:
-        - path: "/static/images/food/large/beapmoe.jpg"
+      icon:
+        - path: "/static/beapmoe/img/category-icon.jpg"
           device: "mobile"
+          size: "small"
+      image:
+        - path: "/static/beapmoe/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
+
+  - category: "HOUSE"
+    name: "Gåetesne"
+    semantics:
+      - "HOUSE"
+    activities: *ACTIVITIES
+    children: []
+    main_menu: true
+    # TODO: not ready yet, but we want to show icons
+    grayed_out: true
+    media:
+      icon:
+        - path: "/static/house/img/category-icon.jpg"
+          device: "mobile"
+          size: "small"
+      image:
+        - path: "/static/house/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
+
+  - category: "NUMBERS"
+    name: "Taalh"
+    semantics:
+      - "NUMBERS"
+    activities: *ACTIVITIES
+    children: []
+    main_menu: true
+    # TODO: not ready yet, but we want to show icons
+    grayed_out: true
+    media:
+      icon:
+        - path: "/static/numbers/img/category-icon.jpg"
+          device: "mobile"
+          size: "small"
+      image:
+        - path: "/static/numbers/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
+
+  - category: "TIME"
+    name: "Tsåahka"
+    semantics:
+      - "TIME"
+    activities: *ACTIVITIES
+    children: []
+    main_menu: true
+    # TODO: not ready yet, but we want to show icons
+    grayed_out: true
+    media:
+      icon:
+        - path: "/static/time/img/category-icon.jpg"
+          device: "mobile"
+          size: "small"
+      image:
+        - path: "/static/time/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
+
+  - category: "BODY"
+    name: "Kråahpe"
+    semantics:
+      - "BODY"
+    activities: *ACTIVITIES
+    children: []
+    main_menu: true
+    # TODO: not ready yet, but we want to show icons
+    grayed_out: true
+    media:
+      icon:
+        - path: "/static/body/img/category-icon.jpg"
+          device: "mobile"
+          size: "small"
+      image:
+        - path: "/static/body/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
 
   - category: "NATURE"
     name: "Natur"
@@ -81,9 +188,17 @@ Categories:
       - "NATURE"
     main_menu: true
     media:
-      image:
-        - path: "/static/nature_world/img/small_background/elmie.jpg"
+      icon:
+        - path: "/static/nature/img/category-icon.jpg"
           device: "mobile"
+          size: "small"
+        - path: "/static/nature/img/category-icon-large.jpg"
+          device: "tablet"
+          size: "medium"
+      image:
+        - path: "/static/nature/img/category-background.jpg"
+          device: "mobile"
+          size: "small"
     children:
       - *animals
       - *world
@@ -94,6 +209,11 @@ Categories:
       - "TEST"
     main_menu: false
     media:
+      icon:
+        - path: "http://placekitten.com/g/500/600"
+          device: "mobile"
+          size: "small"
       image:
         - path: "http://placekitten.com/g/500/600"
           device: "mobile"
+          size: "small"
