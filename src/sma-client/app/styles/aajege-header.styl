@@ -17,7 +17,8 @@ heavy-text-shadow(color)
     margin: 0 0 0 0
 
     display: block
-    height: 100px
+    height: 94px
+
 
     width: 100%
 
@@ -71,6 +72,7 @@ heavy-text-shadow(color)
                 width: 74px
 
                 .label
+                    display: none
                     position: absolute
                     bottom: 0px
                     margin-bottom: -14px
@@ -94,31 +96,36 @@ heavy-text-shadow(color)
         top: 0px
         right: 6px
 
-.aajege-header-notext
-    height: 84px
-
 // but don't shrink on iPad: 768 x 927
-// TODO: @media only screen and (max: 766px)
-.aajege-header-shrinkable
+@media only screen and (max-width: 766px)
+    .aajege-header-shrinkable
 
-    height: 62px
-    padding-top: 8px
+        height: 62px
+        padding-top: 8px
 
-    .aajege-nav
-        margin-top: 2px
+        .aajege-nav
+            margin-top: 2px
 
-        li, li a
-            height: 38px
-            width: 32px
+            li, li a
+                height: 38px
+                width: 32px
 
-            .label
-                display: none
-    h2 
-        position: absolute
-        text-align: center
-        font-size: 150%
-        margin: 0 0 0 0
-        margin-top: .33em
-        letter-spacing: 1px
+                .label
+                    display: none
+        h2 
+            position: absolute
+            text-align: center
+            font-size: 150%
+            margin: 0 0 0 0
+            margin-top: .33em
+            letter-spacing: 1px
 
+    .aajege-header-shrinkable
+        .icon-aajege-down-arrow, .icon-aajege-info, .icon-aajege-home
+            background-size: 32px 32px
 
+        .icon-aajege-bag
+            background-size: 40px 32px
+
+        .icon-aajege-left-arrow
+            background-size: 24px 24px

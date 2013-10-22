@@ -22,19 +22,38 @@ Compatibility with old version of bootstrap
 The category image is selected from media.
       
       hasThumbnail: (opts = {}) ->
-        if @get('thumbnail')
-          return @get('thumbnail')
+        if not opts.device
+          device = app.device_type
+        else
+          device = opts.device
+    
+        if not opts.size
+          size = "small"
+        else
+          size = opts.size
         
-        # cache result
-        sem = @get('semantics')
-        cats = app.conceptdb
-                  .where({semantics: sem, language: 'img'})
-                  .filter (c) -> c.hasThumbnail()
-        img = _.first _.first(cats).hasThumbnail()
+        console.log [device, size]
+        # TODO: maybe preference to image size over device? i.e., if large/tablet
+        # doesn't exist, but large/mobile does, take that one
+        has_media = @.get('media')
 
-        @set('thumbnail', img.path)
+        if not has_media?
+          return false
 
-        return @hasThumbnail(opts)
+        if 'icon' of has_media
+          if has_media.icon.length > 0
+    
+            images_for_device = _.filter has_media.icon, (i) ->
+              return i.size == size and i.device == device
+    
+            if images_for_device.length == 0
+              return has_media.icon[0].path
+    
+            if images_for_device.length > 0
+              return images_for_device[0].path
+    
+            return images_for_device
+        return false
 
       hasImage: (opts = {}) ->
         if not opts.device
