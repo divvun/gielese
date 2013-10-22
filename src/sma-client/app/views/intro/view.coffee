@@ -13,31 +13,50 @@ module.exports = class FrontPage extends Backbone.View
   # jQuery mobile and Backbone events don't play well together.
   events:
     "submit #user": "userForm"
+    "click #submit": "userForm"
+
     "click #displayLogin": "displayLogin"
     "change #create-user-account-c": "displayLogin"
     "click #end a": "begin"
 
-    "change input[type='radio']": "changeInput"
-    "change [data-subquestion]": "revealSubquestion"
-    "change [data-hide-subquestion]": "hideSubquestion"
+    "click #help_language [type='button']": "changeLanguage"
+    "change #help_language [type='button']": "changeLanguage"
+    "change #create_account [data-subquestion]": "revealUser"
+    "change #create_account [data-hide-subquestion]": "hideUser"
 
   begin: (evt) ->
     DSt.set('gielese-configured', true)
 
-  changeInput: (evt) ->
+  changeLanguage: (evt) ->
     console.log evt.target
+
+    target_btn = $(evt.target).parents('[type="button"]')
+
+    console.log target_btn
+
+    active = 'b'
+    inactive = 'a'
+
     fieldset = $(evt.target).parents('fieldset')
-    @storeCurrentVisibleSetting fieldset
+
+    @storeCurrentVisibleSetting fieldset, target_btn
+    
     return true
 
-  revealSubquestion: (evt) ->
+  revealUser: (evt) ->
     sub = $(evt.target).attr('data-subquestion')
     @$el.find("##{sub}").slideDown()
+    $('.login_text').show()
+    $('.begin_text').hide()
+    DSt.set('anonymous_selected', false)
     return true
 
-  hideSubquestion: (evt) ->
+  hideUser: (evt) ->
     sub = $(evt.target).attr('data-hide-subquestion')
     @$el.find("##{sub}").slideUp()
+    $('.login_text').hide()
+    $('.begin_text').show()
+    DSt.set('anonymous_selected', true)
     return true
 
   displayLogin: ->
@@ -90,12 +109,15 @@ module.exports = class FrontPage extends Backbone.View
     # TODO: maybe submit json instead? do something so it can't be sniffed?
     #
 
+    # TODO: check user first
+
     opts.fail = (resp) =>
       error_json = JSON.parse(resp.responseText)
       console.log "fail2"
       fields = error_json.reasons
       $("form#user input").removeClass("error")
       $("form#user span.error").remove()
+      $("form .grouped_field.error").removeClass("error")
 
       # Can't rely on schematics to return consistent data. Sometimes this is
       # a list, sometimes an Object
@@ -110,11 +132,12 @@ module.exports = class FrontPage extends Backbone.View
         for key, error of fields
           input = $("input[name=#{key}]")
           input.addClass("error")
-          fieldset = input.parents('fieldset')
+          fieldset = input.parents('.grouped_field')
+          fieldset.addClass('error')
 
           error_msg = $("<span class='error'>")
           error_msg.html(error.join(', '))
-          fieldset.append error_msg
+          # fieldset.append error_msg
 
     opts.success = (resp) =>
       console.log "success2"
@@ -144,12 +167,12 @@ module.exports = class FrontPage extends Backbone.View
 
     return false
 
-  storeCurrentVisibleSetting: (fieldset) ->
+  storeCurrentVisibleSetting: (fieldset, btn) ->
 
     # TODO: user settings model
     checked_setting = fieldset.find('input[type="radio"]:checked')
     setting_target = fieldset.attr('data-setting')
-    setting_value = checked_setting.val()
+    setting_value = btn.attr('data-value')
 
     refresh_template = false
 
@@ -177,18 +200,31 @@ module.exports = class FrontPage extends Backbone.View
 
   loadSettings: ->
     help_lang = app.options.getSetting('help_language')
-    h_value = "[value=#{help_lang}]"
+    h_value = "[data-value=#{help_lang}]"
+
+    active = 'b'
+    inactive = 'a'
 
     resetCheck = (vs, val) ->
-      vs.attr('checked', val).checkboxradio().checkboxradio('refresh')
+      vs.attr('data-theme', val)
 
-    resetCheck $("#help_language [type=radio]"), false
-    resetCheck $("#help_language #{h_value}"), true
-    if h_value == 'sma'
-      sub = $("#help_language").attr('data-subquestion')
-      setTimeout( () ->
-        @$el.find("##{sub}").slideDown()
-      , 500)
+    anon = DSt.get('anonymous_selected')
+    if anon
+      $('#user_account_block').hide()
+      $('#create-user-account-b').attr('checked', true).checkboxradio('refresh')
+      $('#create-user-account-a').attr('checked', false).checkboxradio('refresh')
+     
+
+    # resetCheck $("#help_language [type=button]"), inactive
+    # resetCheck $("#help_language #{h_value}"), active
+    
+    # $('#help_language [type=button]').button('refresh')
+
+    # if h_value == 'sma'
+    #   sub = $("#help_language").attr('data-subquestion')
+    #   setTimeout( () ->
+    #     @$el.find("##{sub}").slideDown()
+    #   , 500)
 
   render: ->
     @total_questions = 2

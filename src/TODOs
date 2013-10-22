@@ -4,9 +4,12 @@
 
 I prioritert rekkjefølgje:
 * innloggingssida må fungera (mest mogleg i samsvar med design)
-    - yes|no only
-    - login switches with begin
     - sma no longer UI language (for now)
+    - select no, then choose language-- page refreshes, but other settings
+      reset
+    - login process code needs lots of changes / form validation etc. must
+      work: maybe try logging in first, if can't and user doesn't exist, then
+      create account 
 
 * det må vera mogleg å klikka seg tilbake til innloggingssida frå kategorioversikten (funkar av og til, men ikkje alltid - må fungera heile tida)
 * minst ein kategori må fungera som han skal (alt i ååredæjja)
