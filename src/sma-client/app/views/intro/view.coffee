@@ -148,6 +148,7 @@ module.exports = class FrontPage extends Backbone.View
         success: () =>
           $("#loginform_subsub").hide()
           $("#loginform_success").show()
+          window.location.hash = "index"
       })
       # TODO: authenticate created user, and show feedback that this is going on
 
@@ -213,6 +214,8 @@ module.exports = class FrontPage extends Backbone.View
       $('#user_account_block').hide()
       $('#create-user-account-b').attr('checked', true).checkboxradio('refresh')
       $('#create-user-account-a').attr('checked', false).checkboxradio('refresh')
+      $('.login_text').hide()
+      $('.begin_text').show()
      
 
     # resetCheck $("#help_language [type=button]"), inactive

@@ -4,12 +4,17 @@
 
 I prioritert rekkjefølgje:
 * innloggingssida må fungera (mest mogleg i samsvar med design)
-    - sma no longer UI language (for now)
-    - select no, then choose language-- page refreshes, but other settings
-      reset
-    - login process code needs lots of changes / form validation etc. must
-      work: maybe try logging in first, if can't and user doesn't exist, then
-      create account 
+    - account created works -> go automatically to front
+    - account creation + login process
+        - username + email exists & password wrong
+            -> prompt user to check details
+            -> did you forget? email me link
+
+        - username + email doesn't exist
+            -> create account
+
+    - store data in form between UI language changes
+    - after login+account creation, make sure user language setting is stored
 
 * det må vera mogleg å klikka seg tilbake til innloggingssida frå kategorioversikten (funkar av og til, men ikkje alltid - må fungera heile tida)
 * minst ein kategori må fungera som han skal (alt i ååredæjja)
