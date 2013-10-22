@@ -24,39 +24,15 @@
 
 
 <div id="nav_buttons">
-
-    <ul>
-        <li>
-            <a id="cycle-concept-prev"
-                href="#">
-                    <img width="32"
-                         height="32"
-                         src="/static/images/icons/left-arrow.png" />
+    <% if @model.hasAudio(): %>
+            <a href="#"
+               class="audio_link"
+               data-concept-cid="<%- @cid %>">
+                <img width="48"
+                     height="48"
+                     src="/static/client/images/speaker.png" />
             </a>
-        </li>
-
-        <% if @model.hasAudio(): %>
-            <li>
-                <a href="#"
-                   class="audio_link"
-                   data-concept-cid="<%- @cid %>">
-                    <img width="32"
-                         height="32"
-                         src="/static/client/images/speaker.png" />
-                </a>
-            </li>
-        <% end %>
-
-        <li>
-            <a id="cycle-concept-next"
-                href="#">
-                    <img width="32"
-                         height="32"
-                         src="/static/images/icons/right-arrow.png" />
-            </a>
-       </li>
-    </ul>
-
+    <% end %>
 </div>
 
 <% if @success_rate: %>

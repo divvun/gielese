@@ -21,21 +21,18 @@
 
         #nav_buttons
             display: block
-            width: 60%
+            width: 100%
             margin: 2em auto 0 auto
 
-            ul
+            a
+                position: relative
+                display: block
+                margin: 0 auto
                 padding: 0 0 0 0
                 height: 40px
+                width: 40px
                 list-style-type: none
-                width: 100%
-                display: block
 
-                li
-                    display: block
-                    float: left
-                    padding: 0 1px 0 0
- 
     #concept_content_block
         display: block
         position: relative
@@ -75,6 +72,15 @@
             line-height: 1.2em
             font-size: 130%
             text-align: center
+
+            margin-bottom: .5em
+
+            padding: 5px 0px
+            color: #FFF !important
+            background-color: #444
+            border-radius: 25px
+            text-shadow: none
+            font-weight: 100
     
     .scroll-arrow
         position: fixed
@@ -144,13 +150,15 @@
     
     ul#concept_definitions
     
-        margin-left: 0
+        display: block
+        margin: 0 auto
         padding-left: .5em
         list-style-type: none
+        width: 80%
     
         li
             list-style-type: none
-            margin: 0 0
+            margin: 0 auto
             line-height: 1.2em
     
     @media only screen and (max-width: 390px)
@@ -168,11 +176,11 @@
     
         h2.concept_definition
             font-weight: 300
-            font-size: 230%
+            font-size: 230% !important
     
         h2.concept_value
             font-weight: 500
-            font-size: 230%
+            font-size: 230% !important
     
         ul#concept_list
             .concept_link
