@@ -85,9 +85,6 @@
         <image size="small" device="mobile">
           <path><![CDATA[/static/images/heelsedh/small/buaregh.jpg]]></path>
         </image>
-        <image size="small" device="mobile">
-          <path><![CDATA[/static/images/heelsedh/small/buaregh.2.jpg]]></path>
-        </image>
       </images>
       <sounds>
         <sound>
