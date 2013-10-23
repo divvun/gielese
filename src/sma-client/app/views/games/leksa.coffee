@@ -53,24 +53,29 @@ module.exports = class LeksaView extends Backbone.View
   # # #  Answer logging
   # # #
 
+  repositionBubble: (element) ->
+    answer_offset = $(element).offset()
+    width_offset = ($(element).width() / 2) - (@pts_bubble.width() / 2)
+    height_offset = @pts_bubble.height() / 2
+
+    @pts_bubble.css('top',  "#{answer_offset.top-height_offset}px")
+    @pts_bubble.css('left', "#{answer_offset.left+width_offset}px")
+    
+    return
+  
   correctAnswer: (q, user_input) ->
     # Give user feedback that they were correct, and show the set done options.
 
     user_answer_concept = q.answer
     correct_answer_concept = q.question
 
-    answer_offset = $(user_input).offset()
-    width_offset = ($(user_input).width() / 2) - (@pts_bubble.width() / 2)
-    height_offset = @pts_bubble.height() / 2
+    @repositionBubble(user_input)
 
     $(user_input).addClass('correct')
     @logConcept(q.generator, correct_answer_concept, true)
     $('.set_done_options').show()
     setTimeout((() => @$el.find('#menu_next').click()), 1200)
     clearInterval(@countdown_handle)
-
-    @pts_bubble.css('top',  "#{answer_offset.top-height_offset}px")
-    @pts_bubble.css('left', "#{answer_offset.left+width_offset}px")
 
     @pts_bubble.fadeIn(100)
     return false

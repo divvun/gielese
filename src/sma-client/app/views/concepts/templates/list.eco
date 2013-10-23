@@ -53,7 +53,11 @@
                       <% end %>
                     <% end %>
                       
+                    <% if i == 0: %>
+                    <li class='ui-btn-active-d'>
+                    <% else: %>
                     <li>
+                    <% end %>
                        <% if color: %>
                         <a class="concept_link <%- color %>"
                        <% else: %>
