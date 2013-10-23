@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2013-10-20 21:55-0500\n"
-"PO-Revision-Date: 2013-10-21 03:00+0000\n"
+"PO-Revision-Date: 2013-10-23 01:18+0000\n"
 "Last-Translator: rtxanson <ryan.txanson@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/aajege/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -28,31 +28,31 @@ msgstr ""
 #: ../sma-client/public/javascripts/app.js:4903
 #: ../sma-client/public/javascripts/app.js:6512
 msgid "Back"
-msgstr ""
+msgstr "Tillbaka"
 
 #: ../sma-client/public/javascripts/app.js:3419
 #: ../sma-client/public/javascripts/app.js:4067
 #: ../sma-client/public/javascripts/app.js:4710
 #: ../sma-client/public/javascripts/app.js:6611
 msgid "Points"
-msgstr ""
+msgstr "Poäng"
 
 #: ../sma-client/public/javascripts/app.js:3427
 msgid "Wordlist"
-msgstr ""
+msgstr "Ordlista"
 
 #: ../sma-client/public/javascripts/app.js:3435
 msgid "Learn"
-msgstr ""
+msgstr "Lär"
 
 #: ../sma-client/public/javascripts/app.js:3443
 msgid "Practice"
-msgstr ""
+msgstr "Öva"
 
 #: ../sma-client/public/javascripts/app.js:4051
 #: ../sma-client/public/javascripts/app.js:4698
 msgid "Home"
-msgstr ""
+msgstr "Hem"
 
 #: ../sma-client/public/javascripts/app.js:5355
 msgid "Create an account?"
@@ -63,14 +63,14 @@ msgstr "Skapa ett konto?"
 #: ../sma-client/public/javascripts/app.js:6548
 #: ../sma-client/public/javascripts/app.js:6647
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: ../sma-client/public/javascripts/app.js:5363
 #: ../sma-client/public/javascripts/app.js:6536
 #: ../sma-client/public/javascripts/app.js:6544
 #: ../sma-client/public/javascripts/app.js:6653
 msgid "No"
-msgstr ""
+msgstr "Nej"
 
 #: ../sma-client/public/javascripts/app.js:5367
 msgid "Log in"
@@ -91,12 +91,12 @@ msgstr "Översättningsspråk"
 
 #: ../sma-client/public/javascripts/app.js:5385
 msgid "Begin!"
-msgstr ""
+msgstr "Börja"
 
 #: ../sma-client/public/javascripts/app.js:6380
 #: ../sma-client/public/javascripts/app.js:6619
 msgid "points"
-msgstr ""
+msgstr "poäng"
 
 #: ../sma-client/public/javascripts/app.js:6516
 msgid "Help language"
@@ -104,7 +104,7 @@ msgstr "Hjälpspråk"
 
 #: ../sma-client/public/javascripts/app.js:6532
 msgid "Play audio?"
-msgstr ""
+msgstr "Spela audio?"
 
 #: ../sma-client/public/javascripts/app.js:6629
 msgid "Learn some words to see stats!"
@@ -120,4 +120,4 @@ msgstr ""
 
 #: ../sma-client/public/javascripts/app.js:6641
 msgid "Show my score to everyone?"
-msgstr ""
+msgstr "Visa mina poäng til andra?"
