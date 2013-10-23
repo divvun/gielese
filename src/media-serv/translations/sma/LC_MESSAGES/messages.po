@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-10-20 21:55-0500\n"
-"PO-Revision-Date: 2013-10-21 09:06+0000\n"
+"POT-Creation-Date: 2013-10-22 20:40-0500\n"
+"PO-Revision-Date: 2013-10-23 07:05+0000\n"
 "Last-Translator: helenbb <helen.blind.brandsfjell@stfk.no>\n"
 "Language-Team: Southern Sami (http://www.transifex.com/projects/p/aajege/language/sma/)\n"
 "MIME-Version: 1.0\n"
@@ -19,104 +19,128 @@ msgstr ""
 "Language: sma\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==2 ? 1 : 2);\n"
 
-#: ../sma-client/public/javascripts/app.js:3411
-#: ../sma-client/public/javascripts/app.js:3508
-#: ../sma-client/public/javascripts/app.js:3851
-#: ../sma-client/public/javascripts/app.js:4059
-#: ../sma-client/public/javascripts/app.js:4706
-#: ../sma-client/public/javascripts/app.js:4903
-#: ../sma-client/public/javascripts/app.js:6512
+#: ../sma-client/public/javascripts/app.js:3456
+#: ../sma-client/public/javascripts/app.js:3553
+#: ../sma-client/public/javascripts/app.js:3920
+#: ../sma-client/public/javascripts/app.js:4128
+#: ../sma-client/public/javascripts/app.js:4758
+#: ../sma-client/public/javascripts/app.js:4955
+#: ../sma-client/public/javascripts/app.js:6678
 msgid "Back"
 msgstr "Bååstide"
 
-#: ../sma-client/public/javascripts/app.js:3419
-#: ../sma-client/public/javascripts/app.js:4067
-#: ../sma-client/public/javascripts/app.js:4710
-#: ../sma-client/public/javascripts/app.js:6611
+#: ../sma-client/public/javascripts/app.js:3464
+#: ../sma-client/public/javascripts/app.js:4136
+#: ../sma-client/public/javascripts/app.js:4762
+#: ../sma-client/public/javascripts/app.js:6777
 msgid "Points"
 msgstr "Poengh "
 
-#: ../sma-client/public/javascripts/app.js:3427
+#: ../sma-client/public/javascripts/app.js:3472
 msgid "Wordlist"
 msgstr "Baakoelæstoe "
 
-#: ../sma-client/public/javascripts/app.js:3435
+#: ../sma-client/public/javascripts/app.js:3480
 msgid "Learn"
 msgstr "Lïerh "
 
-#: ../sma-client/public/javascripts/app.js:3443
+#: ../sma-client/public/javascripts/app.js:3488
 msgid "Practice"
 msgstr "Heerjehtallieh"
 
-#: ../sma-client/public/javascripts/app.js:4051
-#: ../sma-client/public/javascripts/app.js:4698
+#: ../sma-client/public/javascripts/app.js:4120
+#: ../sma-client/public/javascripts/app.js:4750
 msgid "Home"
 msgstr "Hïejme "
 
-#: ../sma-client/public/javascripts/app.js:5355
-msgid "Create an account?"
-msgstr "Darjoeh sijjiem?"
+#: ../sma-client/public/javascripts/app.js:5314
+msgid "About this app"
+msgstr "Daan appen bïjre"
 
-#: ../sma-client/public/javascripts/app.js:5359
-#: ../sma-client/public/javascripts/app.js:6540
-#: ../sma-client/public/javascripts/app.js:6548
-#: ../sma-client/public/javascripts/app.js:6647
+#: ../sma-client/public/javascripts/app.js:5411
+msgid "Use an account?"
+msgstr "Kontoem nåhtedh?"
+
+#: ../sma-client/public/javascripts/app.js:5415
+#: ../sma-client/public/javascripts/app.js:6706
+#: ../sma-client/public/javascripts/app.js:6714
+#: ../sma-client/public/javascripts/app.js:6813
 msgid "Yes"
 msgstr "Jaavoe"
 
-#: ../sma-client/public/javascripts/app.js:5363
-#: ../sma-client/public/javascripts/app.js:6536
-#: ../sma-client/public/javascripts/app.js:6544
-#: ../sma-client/public/javascripts/app.js:6653
+#: ../sma-client/public/javascripts/app.js:5419
+#: ../sma-client/public/javascripts/app.js:6702
+#: ../sma-client/public/javascripts/app.js:6710
+#: ../sma-client/public/javascripts/app.js:6819
 msgid "No"
 msgstr "Ijje"
 
-#: ../sma-client/public/javascripts/app.js:5367
-msgid "Log in"
-msgstr "Tjaangh sïjse "
+#: ../sma-client/public/javascripts/app.js:5425
+msgid "Username"
+msgstr "Åtnoenomme"
 
-#: ../sma-client/public/javascripts/app.js:5373
-msgid "Great, your account was created, and you've been logged in."
-msgstr "Hijven, dov "
+#: ../sma-client/public/javascripts/app.js:5429
+msgid "Password"
+msgstr "Tjeakoesbaakoe"
 
-#: ../sma-client/public/javascripts/app.js:5377
-msgid "Help language for menus"
-msgstr "Viehkiegïele menyijh åvteste"
+#: ../sma-client/public/javascripts/app.js:5433
+msgid "E-mail"
+msgstr "E-påaste"
 
-#: ../sma-client/public/javascripts/app.js:5381
-#: ../sma-client/public/javascripts/app.js:6528
+#: ../sma-client/public/javascripts/app.js:5437
+msgid "Did you forget your password?"
+msgstr "Dov tjeakoesbaakoem åajaldehteme?"
+
+#: ../sma-client/public/javascripts/app.js:5441
+msgid "Reset your password"
+msgstr "Orresth dov tjeakoesbaakoem"
+
+#: ../sma-client/public/javascripts/app.js:5445
+#: ../sma-client/public/javascripts/app.js:6694
 msgid "Translation language"
 msgstr "Jarkoestimmie gïele "
 
-#: ../sma-client/public/javascripts/app.js:5385
+#: ../sma-client/public/javascripts/app.js:5449
+msgid "Your account was created, you may now begin!"
+msgstr "Dov kontoem lea dorjeme, aelkieh!"
+
+#: ../sma-client/public/javascripts/app.js:5453
+msgid "You are logged in, and may now begin!"
+msgstr "Datne leah dan sïjse loggeme, aelkieh!"
+
+#: ../sma-client/public/javascripts/app.js:5457
 msgid "Begin!"
 msgstr "Aelkieh!"
 
-#: ../sma-client/public/javascripts/app.js:6380
-#: ../sma-client/public/javascripts/app.js:6619
+#: ../sma-client/public/javascripts/app.js:5461
+msgid "Log in"
+msgstr "Tjaangh sïjse "
+
+#: ../sma-client/public/javascripts/app.js:6546
+#: ../sma-client/public/javascripts/app.js:6785
 msgid "points"
 msgstr "Poengh"
 
-#: ../sma-client/public/javascripts/app.js:6516
+#: ../sma-client/public/javascripts/app.js:6682
 msgid "Help language"
 msgstr "Viehkiegïele"
 
-#: ../sma-client/public/javascripts/app.js:6532
+#: ../sma-client/public/javascripts/app.js:6698
 msgid "Play audio?"
 msgstr "Tjoejem spealede?"
 
-#: ../sma-client/public/javascripts/app.js:6629
+#: ../sma-client/public/javascripts/app.js:6795
 msgid "Learn some words to see stats!"
 msgstr "Lïerh naan baakoeh guktie statistihkem vuejnieh!"
 
-#: ../sma-client/public/javascripts/app.js:6637
+#: ../sma-client/public/javascripts/app.js:6803
 msgid "High scores"
 msgstr "Jolle illedahkh"
 
-#: ../sma-client/public/javascripts/app.js:6639
+#: ../sma-client/public/javascripts/app.js:6805
 msgid "Loading..."
 msgstr "Leesseminie ..."
 
-#: ../sma-client/public/javascripts/app.js:6641
+#: ../sma-client/public/javascripts/app.js:6807
 msgid "Show my score to everyone?"
 msgstr "Mov poengh gaajhkide vuesehte?"

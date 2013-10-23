@@ -10,6 +10,7 @@
         <h2 class="concept_definition concept_value"><%- @model.get('concept_value') %></h2>
     </li>
 
+    <!--
     <% if @fallback: %>
         <li>
              <h2 class="concept_definition"><%- @txl_string %> <span class="concept_language">(<%- tx.get('language') %>)</span></h2>
@@ -19,6 +20,7 @@
             <h2 class="concept_definition"><%- @txl_string %></h2>
         </li>
     <% end %>
+    -->
 
 </ul>
 

@@ -38,6 +38,11 @@ def svn_up_target():
         run("svn up")
 
 @task
+def compile_translation_strings_local():
+    local("tx pull")
+    local("pybabel compile -d translations")
+
+@task
 def compile_translation_strings():
     host, _, path = staging_remote_host_and_path.partition(':')
 

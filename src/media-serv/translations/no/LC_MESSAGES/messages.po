@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PROJECT project.
 # 
 # Translators:
+# helenbb <helen.blind.brandsfjell@stfk.no>, 2013
 # Trondtr <trond.trosterud@uit.no>, 2013
 # rtxanson <ryan.txanson@gmail.com>, 2013
+# sjirdi <sjur.n.moshagen@uit.no>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-10-20 21:55-0500\n"
-"PO-Revision-Date: 2013-10-22 20:36+0000\n"
-"Last-Translator: rtxanson <ryan.txanson@gmail.com>\n"
+"POT-Creation-Date: 2013-10-22 20:40-0500\n"
+"PO-Revision-Date: 2013-10-23 07:16+0000\n"
+"Last-Translator: sjirdi <sjur.n.moshagen@uit.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/aajege/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,104 +22,128 @@ msgstr ""
 "Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../sma-client/public/javascripts/app.js:3411
-#: ../sma-client/public/javascripts/app.js:3508
-#: ../sma-client/public/javascripts/app.js:3851
-#: ../sma-client/public/javascripts/app.js:4059
-#: ../sma-client/public/javascripts/app.js:4706
-#: ../sma-client/public/javascripts/app.js:4903
-#: ../sma-client/public/javascripts/app.js:6512
+#: ../sma-client/public/javascripts/app.js:3456
+#: ../sma-client/public/javascripts/app.js:3553
+#: ../sma-client/public/javascripts/app.js:3920
+#: ../sma-client/public/javascripts/app.js:4128
+#: ../sma-client/public/javascripts/app.js:4758
+#: ../sma-client/public/javascripts/app.js:4955
+#: ../sma-client/public/javascripts/app.js:6678
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../sma-client/public/javascripts/app.js:3419
-#: ../sma-client/public/javascripts/app.js:4067
-#: ../sma-client/public/javascripts/app.js:4710
-#: ../sma-client/public/javascripts/app.js:6611
+#: ../sma-client/public/javascripts/app.js:3464
+#: ../sma-client/public/javascripts/app.js:4136
+#: ../sma-client/public/javascripts/app.js:4762
+#: ../sma-client/public/javascripts/app.js:6777
 msgid "Points"
 msgstr "Poeng"
 
-#: ../sma-client/public/javascripts/app.js:3427
+#: ../sma-client/public/javascripts/app.js:3472
 msgid "Wordlist"
 msgstr "Ordliste"
 
-#: ../sma-client/public/javascripts/app.js:3435
+#: ../sma-client/public/javascripts/app.js:3480
 msgid "Learn"
 msgstr "Lær"
 
-#: ../sma-client/public/javascripts/app.js:3443
+#: ../sma-client/public/javascripts/app.js:3488
 msgid "Practice"
 msgstr "Øv"
 
-#: ../sma-client/public/javascripts/app.js:4051
-#: ../sma-client/public/javascripts/app.js:4698
+#: ../sma-client/public/javascripts/app.js:4120
+#: ../sma-client/public/javascripts/app.js:4750
 msgid "Home"
 msgstr "Hjem"
 
-#: ../sma-client/public/javascripts/app.js:5355
-msgid "Create an account?"
-msgstr "Lag en konto?"
+#: ../sma-client/public/javascripts/app.js:5314
+msgid "About this app"
+msgstr "Om denne appen"
 
-#: ../sma-client/public/javascripts/app.js:5359
-#: ../sma-client/public/javascripts/app.js:6540
-#: ../sma-client/public/javascripts/app.js:6548
-#: ../sma-client/public/javascripts/app.js:6647
+#: ../sma-client/public/javascripts/app.js:5411
+msgid "Use an account?"
+msgstr "Bruk en konto?"
+
+#: ../sma-client/public/javascripts/app.js:5415
+#: ../sma-client/public/javascripts/app.js:6706
+#: ../sma-client/public/javascripts/app.js:6714
+#: ../sma-client/public/javascripts/app.js:6813
 msgid "Yes"
 msgstr "Ja"
 
-#: ../sma-client/public/javascripts/app.js:5363
-#: ../sma-client/public/javascripts/app.js:6536
-#: ../sma-client/public/javascripts/app.js:6544
-#: ../sma-client/public/javascripts/app.js:6653
+#: ../sma-client/public/javascripts/app.js:5419
+#: ../sma-client/public/javascripts/app.js:6702
+#: ../sma-client/public/javascripts/app.js:6710
+#: ../sma-client/public/javascripts/app.js:6819
 msgid "No"
 msgstr "Nei"
 
-#: ../sma-client/public/javascripts/app.js:5367
+#: ../sma-client/public/javascripts/app.js:5425
+msgid "Username"
+msgstr "Brukernavn"
+
+#: ../sma-client/public/javascripts/app.js:5429
+msgid "Password"
+msgstr "Passord"
+
+#: ../sma-client/public/javascripts/app.js:5433
+msgid "E-mail"
+msgstr "E-post"
+
+#: ../sma-client/public/javascripts/app.js:5437
+msgid "Did you forget your password?"
+msgstr "Har du glemt passordet ditt?"
+
+#: ../sma-client/public/javascripts/app.js:5441
+msgid "Reset your password"
+msgstr "Tilbakestill passordet"
+
+#: ../sma-client/public/javascripts/app.js:5445
+#: ../sma-client/public/javascripts/app.js:6694
+msgid "Translation language"
+msgstr "Oversettingsspråk"
+
+#: ../sma-client/public/javascripts/app.js:5449
+msgid "Your account was created, you may now begin!"
+msgstr "Kontoen din ble laget, du kan begynne!"
+
+#: ../sma-client/public/javascripts/app.js:5453
+msgid "You are logged in, and may now begin!"
+msgstr "Du er innlogget, og kan begynne nå!"
+
+#: ../sma-client/public/javascripts/app.js:5457
+msgid "Begin!"
+msgstr "Begynn!"
+
+#: ../sma-client/public/javascripts/app.js:5461
 msgid "Log in"
 msgstr "Logg inn"
 
-#: ../sma-client/public/javascripts/app.js:5373
-msgid "Great, your account was created, and you've been logged in."
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:5377
-msgid "Help language for menus"
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:5381
-#: ../sma-client/public/javascripts/app.js:6528
-msgid "Translation language"
-msgstr "Oversetterspråk"
-
-#: ../sma-client/public/javascripts/app.js:5385
-msgid "Begin!"
-msgstr ""
-
-#: ../sma-client/public/javascripts/app.js:6380
-#: ../sma-client/public/javascripts/app.js:6619
+#: ../sma-client/public/javascripts/app.js:6546
+#: ../sma-client/public/javascripts/app.js:6785
 msgid "points"
 msgstr "poeng"
 
-#: ../sma-client/public/javascripts/app.js:6516
+#: ../sma-client/public/javascripts/app.js:6682
 msgid "Help language"
 msgstr "Hjelpespråk"
 
-#: ../sma-client/public/javascripts/app.js:6532
+#: ../sma-client/public/javascripts/app.js:6698
 msgid "Play audio?"
 msgstr "Spill lyd?"
 
-#: ../sma-client/public/javascripts/app.js:6629
+#: ../sma-client/public/javascripts/app.js:6795
 msgid "Learn some words to see stats!"
 msgstr "Lær deg ord for å se på poengene dine."
 
-#: ../sma-client/public/javascripts/app.js:6637
+#: ../sma-client/public/javascripts/app.js:6803
 msgid "High scores"
-msgstr ""
+msgstr "Topp-poeng"
 
-#: ../sma-client/public/javascripts/app.js:6639
+#: ../sma-client/public/javascripts/app.js:6805
 msgid "Loading..."
-msgstr ""
+msgstr "laster inn..."
 
-#: ../sma-client/public/javascripts/app.js:6641
+#: ../sma-client/public/javascripts/app.js:6807
 msgid "Show my score to everyone?"
 msgstr "Vis poengene mine til andre?"
