@@ -184,16 +184,24 @@ module.exports = class ConceptList extends Backbone.View
     category_concepts = _.sortBy category_concepts,
       (c) -> c.get('concept_value')
 
+    @next = 1
+    @prev = null
+
+    lang = app.options.getSetting('help_language')
+    getTxl = (m) =>
+      translations = m.getTranslationsToLang lang
+      txl_string = (a.get('concept_value') for a in translations).join(', ')
+      m.set('txl_string', txl_string)
+    sortTxl = (m) -> return m.get('txl_string')
+    category_concepts = _.sortBy category_concepts.map(getTxl), sortTxl
+
+    @concepts_in_order = category_concepts
+
     initial = new ConceptView {
       model: category_concepts[0]
     }
 
     @current_concept_view = initial
-
-    @next = 1
-    @prev = null
-
-    @concepts_in_order = category_concepts
 
     get_success_color = (_float) ->
       _class = ''
@@ -211,18 +219,11 @@ module.exports = class ConceptList extends Backbone.View
     if not lang
       lang = "nob"
 
-    lang = app.options.getSetting('help_language')
-    getTxl = (m) =>
-      translations = m.getTranslationsToLang lang
-      txl_string = (a.get('concept_value') for a in translations).join(', ')
-      m.set('txl_string', txl_string)
-    sortTxl = (m) -> return m.get('txl_string')
 
     window.get_success_color = get_success_color
-    category_concepts = _.sortBy category_concepts.map(getTxl), sortTxl
     @$el.html @template {
       category: @for_category
-      models: category_concepts
+      models: @concepts_in_order
       initial_model: initial.render().$el.html()
       get_success_color: get_success_color
       getTxl: getTxl
