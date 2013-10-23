@@ -66,6 +66,7 @@ module.exports = class Application
 
   constructor: ->
     $ =>
+      @enable_webfonts()
       @initialize
         complete: () =>
           Backbone.history.start
@@ -82,8 +83,6 @@ module.exports = class Application
             if webkit and not_string and root_page
               app.router.index()
               return e.preventDefault()
-
-          @enable_webfonts()
 
           if app.options.getSetting('enable_cache')?
             initWindowCache()

@@ -52,7 +52,8 @@ module.exports = class FrontPage extends Backbone.View
     return true
 
   hideUser: (evt) ->
-    app.auth.logout()
+    if app.user
+      app.auth.logout()
     sub = $(evt.target).attr('data-hide-subquestion')
     @$el.find("##{sub}").slideUp()
     $('.login_text').hide()

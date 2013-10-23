@@ -11,15 +11,14 @@ I prioritert rekkjefølgje:
       3.) choose "no" (logged out)
       4.) choose "yes" 
 
-    - store data in form between UI language changes
+    - store data in form between UI language changes if user selects language
+      before logging in 
+
     - after login+account creation, make sure user language setting is stored
 
-* det må vera mogleg å klikka seg tilbake til innloggingssida frå kategorioversikten (funkar av og til, men ikkje alltid - må fungera heile tida)
 * minst ein kategori må fungera som han skal (alt i ååredæjja)
 ** Ryan konsentrerer seg berre om å få til denne (Aino kjem seg ikkje inn
    der no på iPad)
-* bakgrunnsbiletet på kategorisida må vera litt nedtona, slik at det ikkje blir så påtrengande og dominerande
-  - midlertidig fix med opacity.
 
 * poenga som ein får bør visast nære det korrekte bilete (no er dei alltid til
   venstre, rett under gamma, og det er litt missvisande)

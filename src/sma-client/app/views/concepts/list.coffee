@@ -207,12 +207,25 @@ module.exports = class ConceptList extends Backbone.View
         _class = 'success-rate-red'
       return _class
 
+
+    if not lang
+      lang = "nob"
+
+    lang = app.options.getSetting('help_language')
+    getTxl = (m) =>
+      translations = m.getTranslationsToLang lang
+      txl_string = (a.get('concept_value') for a in translations).join(', ')
+      m.set('txl_string', txl_string)
+    sortTxl = (m) -> return m.get('txl_string')
+
     window.get_success_color = get_success_color
+    category_concepts = _.sortBy category_concepts.map(getTxl), sortTxl
     @$el.html @template {
       category: @for_category
       models: category_concepts
       initial_model: initial.render().$el.html()
       get_success_color: get_success_color
+      getTxl: getTxl
     }
 
     @$el.find('ul#concept-list li:first').addClass('ui-btn-active-d')

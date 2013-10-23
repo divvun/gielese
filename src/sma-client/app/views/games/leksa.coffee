@@ -60,11 +60,8 @@ module.exports = class LeksaView extends Backbone.View
     correct_answer_concept = q.question
 
     $(user_input).addClass('correct')
-    usr_msg = $("<a href='#' class='correct usr_msg'>Correct</a>")
-    $(user_input).parent().append usr_msg
     @logConcept(q.generator, correct_answer_concept, true)
     $('.set_done_options').show()
-    fadeUp usr_msg
     setTimeout((() => @$el.find('#menu_next').click()), 1200)
     clearInterval(@countdown_handle)
     @$el.find('#points_for_question').fadeIn(100)
@@ -112,10 +109,7 @@ module.exports = class LeksaView extends Backbone.View
     # on each incorrect attempt, but log instance of user progression for word?
 
     $(user_input).addClass('incorrect')
-    usr_msg = $('<a href="#" class="incorrect usr_msg">Try again!</a>')
-    $(user_input).parent().append usr_msg
     @logConcept(q.generator, correct_answer_concept, false)
-    fadeUp usr_msg
     false
 
   updateLogPanel: (entry) ->

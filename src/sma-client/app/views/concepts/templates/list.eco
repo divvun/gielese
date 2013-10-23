@@ -60,7 +60,7 @@
                         <a class="concept_link"
                        <% end %>
                            data-concept-index="<%- i %>"
-                           href="#"><%- concept.get('concept_value') %></a>
+                           href="#"><%- concept.get('txl_string') %></a>
                     </li>
                 <% end %>
             </ul>
