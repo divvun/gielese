@@ -1,7 +1,7 @@
-<div class="aajege-header aajege-header-notext">
+<div class="aajege-header aajege-header-shrinkable">
     <ul class="aajege-nav aajege-nav-left">
         <li class="icon-aajege-left-arrow">
-            <a href="#" id="log-out">
+            <a href="#" id="log_out">
             </a>
         </li>
     </ul>

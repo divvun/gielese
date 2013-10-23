@@ -62,7 +62,7 @@ def create_user():
 
     def user_does_not_exist(value):
         if users.find_one({'username': value}):
-            raise ValidationError("User with that name exists already!")
+            raise ValidationError("exists")
         return value
 
     def email_does_not_exist(value):

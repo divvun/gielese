@@ -52,11 +52,14 @@ module.exports = class FrontPage extends Backbone.View
     return true
 
   hideUser: (evt) ->
+    app.auth.logout()
     sub = $(evt.target).attr('data-hide-subquestion')
     @$el.find("##{sub}").slideUp()
     $('.login_text').hide()
     $('.begin_text').show()
     DSt.set('anonymous_selected', true)
+    $('#account_exists').hide()
+    $('#account_created').hide()
     return true
 
   displayLogin: ->
@@ -101,7 +104,12 @@ module.exports = class FrontPage extends Backbone.View
     username = $("#user #un").val()
     password = $("#user #pw").val()
 
-    opts =
+    create_account_opts =
+      username: $("#user #un").val()
+      email:    $("#user #em").val()
+      password: $("#user #pw").val()
+
+    login_account_opts =
       username: $("#user #un").val()
       email:    $("#user #em").val()
       password: $("#user #pw").val()
@@ -111,7 +119,7 @@ module.exports = class FrontPage extends Backbone.View
 
     # TODO: check user first
 
-    opts.fail = (resp) =>
+    create_account_opts.fail = (resp) =>
       error_json = JSON.parse(resp.responseText)
       console.log "fail2"
       fields = error_json.reasons
@@ -124,6 +132,9 @@ module.exports = class FrontPage extends Backbone.View
       if fields.length?
         # Append errors to form
         for error in fields
+          if error == 'exists'
+            $('#account_exists_error').show()
+            continue
           error_msg = $("<span class='error'>")
           error_msg.html(error)
           $("form#user .form_fields").append(error_msg)
@@ -139,28 +150,44 @@ module.exports = class FrontPage extends Backbone.View
           error_msg.html(error.join(', '))
           # fieldset.append error_msg
 
-    opts.success = (resp) =>
+    create_account_opts.success = (resp) =>
       console.log "success2"
       console.log "you were successful, but this doesn't work yet"
       app.auth.login({
         username: username
         password: password
         success: () =>
-          $("#loginform_subsub").hide()
-          $("#loginform_success").show()
-          window.location.hash = "index"
+          setTimeout(@hideLoading, 500)
+          $('.login_text').hide()
+          $('.begin_text').show()
+          $('#loginform_subsub').slideUp()
+          $('#account_created').show()
       })
       # TODO: authenticate created user, and show feedback that this is going on
 
     @$el.find('#fakeSubmit').click (evt) ->
-      $("#loginform_subsub").hide()
+      $("#loginform_subsub").slideUp()
       $("#loginform_success").show()
 
-    opts.always = (resp) =>
+    create_account_opts.always = (resp) =>
       console.log "always2"
       setTimeout(@hideLoading, 500)
 
-    create_user = app.auth.create_user(opts)
+    login_account_opts.fail = (resp) =>
+      $('#account_exists').hide()
+      create_user = app.auth.create_user(create_account_opts)
+      setTimeout(@hideLoading, 500)
+
+    login_account_opts.success = (resp) =>
+      setTimeout(@hideLoading, 500)
+      $("#loginform_success").show()
+      $('#account_created').hide()
+      $('#account_exists').show()
+      $('#loginform_subsub').slideUp()
+      $('.login_text').hide()
+      $('.begin_text').show()
+
+    login_result = app.auth.login(login_account_opts)
 
     # ajax call to check that user can be created
     # if fail, display errors
@@ -211,11 +238,20 @@ module.exports = class FrontPage extends Backbone.View
 
     anon = DSt.get('anonymous_selected')
     if anon
-      $('#user_account_block').hide()
+      $('#user_account_block').slideUp()
       $('#create-user-account-b').attr('checked', true).checkboxradio('refresh')
       $('#create-user-account-a').attr('checked', false).checkboxradio('refresh')
       $('.login_text').hide()
       $('.begin_text').show()
+
+    if app.user
+      $('#user_account_block').slideUp()
+      $('#create-user-account-b').attr('checked', false).checkboxradio('refresh')
+      $('#create-user-account-a').attr('checked', true).checkboxradio('refresh')
+      $('.login_text').hide()
+      $('.begin_text').show()
+      $('#account_exists').show()
+    
      
 
     # resetCheck $("#help_language [type=button]"), inactive

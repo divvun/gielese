@@ -4,14 +4,12 @@
 
 I prioritert rekkjefølgje:
 * innloggingssida må fungera (mest mogleg i samsvar med design)
-    - account created works -> go automatically to front
-    - account creation + login process
-        - username + email exists & password wrong
-            -> prompt user to check details
-            -> did you forget? email me link
-
-        - username + email doesn't exist
-            -> create account
+    - did you forget? email me link
+    - form missing when
+      1.) start app
+      2.) log in with exiting account
+      3.) choose "no" (logged out)
+      4.) choose "yes" 
 
     - store data in form between UI language changes
     - after login+account creation, make sure user language setting is stored
