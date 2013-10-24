@@ -2,6 +2,18 @@
 
 !!!Saker som må fiksast til presentasjonen
 
+* conceptlist
+ - image border
+ - active link in list for first concept displayed
+
+* nature category background and images
+
+* check that nav bar is accurate now; things are wrong.
+ - icon width fix
+
+* poenga som ein får bør visast nære det korrekte bilete (no er dei alltid til
+  venstre, rett under gamma, og det er litt missvisande)
+
 I prioritert rekkjefølgje:
 * innloggingssida må fungera (mest mogleg i samsvar med design)
     - did you forget? email me link
@@ -16,25 +28,11 @@ I prioritert rekkjefølgje:
 
     - after login+account creation, make sure user language setting is stored
 
-* minst ein kategori må fungera som han skal (alt i ååredæjja)
-** Ryan konsentrerer seg berre om å få til denne (Aino kjem seg ikkje inn
-   der no på iPad)
-
-* poenga som ein får bør visast nære det korrekte bilete (no er dei alltid til
-  venstre, rett under gamma, og det er litt missvisande)
-
-* ingen tekst når ein trykkjer rett/feil (no: correct!/try again!)
-
 
 -----
 
 
 
-* redo the login and account creation page
-   - almost
-   - menu hides
-
-* overhaul the nav bar, things are wrong.
 
 * kategori-side: responsive
 * concept list: buttons

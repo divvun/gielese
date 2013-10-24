@@ -5,15 +5,6 @@
             </a>
         </li>
     </ul>
-
-    <!--
-    <ul class="aajege-nav aajege-nav-right">
-        <li class="icon-aajege-bag">
-            <a href="#stats" id="userinfo_button">
-            </a>
-        </li>
-    </ul>
-    -->
 </div>
 
 <div data-role="content" id="main_menu_content">
@@ -46,6 +37,7 @@
                 </div>
             <% end %>
         <% end %>
+        </div>
     </div>
 </div>
 <% # vim: set ts=4 sw=4 tw=0 syntax=mason : %>

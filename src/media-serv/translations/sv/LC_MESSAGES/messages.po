@@ -145,4 +145,4 @@ msgstr "Laddar..."
 
 #: ../sma-client/public/javascripts/app.js:6807
 msgid "Show my score to everyone?"
-msgstr "Visa mina poäng till andra?"
+msgstr "Visa mina poäng til andra?"

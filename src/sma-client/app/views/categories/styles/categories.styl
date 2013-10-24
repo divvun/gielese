@@ -3,7 +3,7 @@
     padding: 0 5px 0 5px
     margin: 2em 5px 0 5px
 
-#category_links, #subcategory_buttons
+#category_links, #subcategory_buttons, .category_buttons
 
     display: block
     margin: 0 auto
@@ -59,7 +59,7 @@
         opacity: .1
 
 @media only screen and (max-width: 320px)
-    #category_links
+    #category_links, #subcategory_buttons, .category_buttons
         width: 310px
 
     a.square, span.link_image
@@ -70,14 +70,15 @@
         font-size: 11pt !important
 
 @media only screen and (min-width: 400px)
-    #category_links
+    #category_links, #subcategory_buttons, .category_buttons
         width: 395px
+
     a.square, span.link_image
         width: 110px !important
         height: 110px !important
 
 @media only screen and (min-width: 500px)
-    #category_links
+    #category_links, #subcategory_buttons, .category_buttons
         width: 500px
 
     a.square, span.link_image
