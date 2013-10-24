@@ -204,6 +204,8 @@ module.exports = class LeksaView extends Backbone.View
     _repeats = @q.generator.get('repetitions')
     if _repeats == 0
       _repeats = 1
+    else
+      _repeats += 1
     @setIndividualAnswerProgress(
       @q.total_correct,
       @q.question_total*_repeats,
