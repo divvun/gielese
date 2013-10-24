@@ -59,12 +59,20 @@ module.exports = class LeksaView extends Backbone.View
     user_answer_concept = q.answer
     correct_answer_concept = q.question
 
+    answer_offset = $(user_input).offset()
+    width_offset = ($(user_input).width() / 2) - (@pts_bubble.width() / 2)
+    height_offset = @pts_bubble.height() / 2
+
     $(user_input).addClass('correct')
     @logConcept(q.generator, correct_answer_concept, true)
     $('.set_done_options').show()
     setTimeout((() => @$el.find('#menu_next').click()), 1200)
     clearInterval(@countdown_handle)
-    @$el.find('#points_for_question').fadeIn(100)
+
+    @pts_bubble.css('top',  "#{answer_offset.top-height_offset}px")
+    @pts_bubble.css('left', "#{answer_offset.left+width_offset}px")
+
+    @pts_bubble.fadeIn(100)
     return false
 
   logConcept: (question_generator, concept, correct) ->
@@ -241,13 +249,14 @@ module.exports = class LeksaView extends Backbone.View
       maxFontPixels: 36
 
     @cur_points = @q.generator.get('points')
-    @$el.find('#points_for_question .points').html("+#{@cur_points}")
-    @$el.find('#points_for_question').hide()
+
+    @pts_bubble.find('.points').html("+#{@cur_points}")
+    @pts_bubble.hide()
 
     countdownPoints = (evt) =>
       if @cur_points > 5
         @cur_points -= 1
-        @$el.find('#points_for_question .points').html("+#{@cur_points}")
+        @pts_bubble.find('.points').html("+#{@cur_points}")
 
     @countdown_handle = setInterval(countdownPoints, 1000)
 
@@ -304,7 +313,8 @@ module.exports = class LeksaView extends Backbone.View
       leksa_category: @leksa_category
     }
 
-    @$el.find('#points_for_question').hide()
+    @pts_bubble = @$el.find('#points_for_question')
+    @pts_bubble.hide()
 
     @renderQuestion()
 
