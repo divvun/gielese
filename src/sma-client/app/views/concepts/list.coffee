@@ -178,6 +178,9 @@ module.exports = class ConceptList extends Backbone.View
       'language': 'sma'
     })
 
+    category = _.first app.categories.where
+      category: @for_category
+
     # TODO: what is south sami alphabetical order?
 
     category_concepts = filtered_collection
@@ -222,7 +225,7 @@ module.exports = class ConceptList extends Backbone.View
 
     window.get_success_color = get_success_color
     @$el.html @template {
-      category: @for_category
+      category: category
       models: @concepts_in_order
       initial_model: initial.render().$el.html()
       get_success_color: get_success_color

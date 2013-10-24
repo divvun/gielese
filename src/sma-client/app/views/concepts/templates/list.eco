@@ -8,7 +8,7 @@
             </a>
         </li>
         <li class="icon-aajege-left-arrow">
-            <a href="#category/<%- @category %>" data-transition="slide">
+            <a href="#category/<%- @category.get('category') %>" data-transition="slide">
                 <span class="label">
                     <%- gettext.gettext "Back" %>
                 </span>
@@ -16,7 +16,8 @@
         </li>
     </ul>
 
-    <h2><%- @category %></h2>
+    <h2><%- @category.get('name') %></h2>
+
     <ul class="aajege-nav aajege-nav-right">
         <li class="icon-aajege-bag">
             <a href="#stats" id="userinfo_button">
