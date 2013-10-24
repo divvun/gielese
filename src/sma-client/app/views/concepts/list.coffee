@@ -162,7 +162,7 @@ module.exports = class ConceptList extends Backbone.View
     window_height = $(window).height()
 
     @$el.find('#concepts_content').css('height',
-      "#{window_height - header_height - 10}px"
+      "#{window_height - header_height - 50}px"
     )
 
     return false
