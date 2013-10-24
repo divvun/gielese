@@ -11,21 +11,11 @@ class ConceptView extends Backbone.View
   template: ConceptItem
 
   render: ->
-    lang = app.options.getSetting('help_language')
-
-    if not lang
-      lang = "nob"
+    translation_language = app.options.getSetting('help_language')
 
     fallback = false
-    translations = @model.getTranslationsToLang lang
+    translations = @model.getTranslationsToLang translation_language
     txl_string = (a.get('concept_value') for a in translations).join(', ')
-
-    if translations.length == 0
-      console.log "no translations found for #{lang}, defaulting..."
-      translations = @model.getTranslationsToLang "nob"
-      fallback = true
-
-    console.log [@next, @prev]
 
     success = false
     if app.user
@@ -43,7 +33,7 @@ class ConceptView extends Backbone.View
       translations: translations
       txl_string: txl_string
       fallback: fallback
-      userlang: lang
+      userlang: translation_language
       next: @next
       prev: @prev
     })
@@ -169,33 +159,27 @@ module.exports = class ConceptList extends Backbone.View
 
   render: ->
 
-    @_conceptViews = []
-    if @for_category
-      semantics = [@for_category]
-
-    filtered_collection = app.conceptdb.where({
-      'semantics': semantics
-      'language': 'sma'
-    })
+    translation_language = app.options.getSetting('help_language')
 
     category = _.first app.categories.where
       category: @for_category
 
-    # TODO: what is south sami alphabetical order?
+    category_concepts = category.getConcepts
+      language: 'sma'
 
-    category_concepts = filtered_collection
     category_concepts = _.sortBy category_concepts,
       (c) -> c.get('concept_value')
 
     @next = 1
     @prev = null
 
-    lang = app.options.getSetting('help_language')
     getTxl = (m) =>
-      translations = m.getTranslationsToLang lang
+      translations = m.getTranslationsToLang translation_language
       txl_string = (a.get('concept_value') for a in translations).join(', ')
       m.set('txl_string', txl_string)
+
     sortTxl = (m) -> return m.get('txl_string')
+
     category_concepts = _.sortBy category_concepts.map(getTxl), sortTxl
 
     @concepts_in_order = category_concepts
@@ -218,12 +202,6 @@ module.exports = class ConceptList extends Backbone.View
         _class = 'success-rate-red'
       return _class
 
-
-    if not lang
-      lang = "nob"
-
-
-    window.get_success_color = get_success_color
     @$el.html @template {
       category: category
       models: @concepts_in_order

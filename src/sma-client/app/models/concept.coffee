@@ -36,7 +36,7 @@ module.exports = class Concept extends Backbone.Model
       device = opts.device
 
     if not opts.size
-      size = "small"
+      size = app.media_size
     else
       size = opts.size
 

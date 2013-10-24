@@ -100,6 +100,9 @@ module.exports = class Application
     # TODO: device detection
     @device_type = "mobile"
     @media_size = "small"
+    if $(window).width() > 499
+      @device_type = "tablet"
+      @media_size = "medium"
 
     @loadingTracker = new LoadingTracker({
       'concepts.json': false

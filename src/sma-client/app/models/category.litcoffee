@@ -12,6 +12,10 @@ Compatibility with old version of bootstrap
 
       initialize: () ->
 
+      getConcepts: (args = {}) ->
+        query = _.extend {semantics: @get('semantics')}, args
+        app.conceptdb.where(query)
+
       children: () ->
         cs = @.get('children')
         if cs.length == 0
@@ -28,7 +32,7 @@ The category image is selected from media.
           device = opts.device
     
         if not opts.size
-          size = "small"
+          size = app.media_size
         else
           size = opts.size
         
@@ -62,7 +66,7 @@ The category image is selected from media.
           device = opts.device
     
         if not opts.size
-          size = "small"
+          size = app.media_size
         else
           size = opts.size
     
