@@ -24,7 +24,7 @@ class ConceptView extends Backbone.View
       if app.leksaUserProgression.models.length > 0
         success = @model.successRateInUserLog()
 
-    @$el.html @template({
+    @$el.html @template
       model: @model
       success_rate: success
       cid: @model.cid
@@ -36,7 +36,24 @@ class ConceptView extends Backbone.View
       userlang: translation_language
       next: @next
       prev: @prev
-    })
+    
+    if app.device_type == 'tablet'
+      minFontSize = "20px"
+      maxFontSize = "36px"
+      compress = 1.5
+
+    if app.device_type == 'mobile'
+      minFontSize = "14px"
+      maxFontSize = "22px"
+      compress = 1
+
+    # @$el.find('.concept_definition').fitText compress, {
+    #   minFontSize: minFontSize
+    #   maxFontSize: maxFontSize
+    # }
+
+    # @$el.find('.concept_definition').textfill
+    #   maxFontPixels: 36
 
     this
 
@@ -212,5 +229,20 @@ module.exports = class ConceptList extends Backbone.View
 
     @$el.find('ul#concept-list li:first').addClass('ui-btn-active-d')
     @calculateContentHeight()
+
+    # @$el.find('[data-textfill]').each (el) =>
+    #   _e = $(el)
+    #   _e.span = $(el).find('span')
+    #   _e.css('visibility', 'hidden')
+    #   console.log _e.span.css('font-size')
+
+    #   # if _e.span.width() > _e.width()
+        
+
+    #   # _font_size_px = $(el).css('font-size')
+    #   # _font_size = parseInt /^(\d*)px/.exec(_font_size_px)
+    #   # console.log _font_size
+    #   $(el).textfill
+    #     maxFontPixels: "16px"
 
     this

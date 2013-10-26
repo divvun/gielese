@@ -18,11 +18,11 @@ exports.config =
           'vendor/scripts/Chart.min.js'
           'vendor/scripts/webfont.js'
           'vendor/scripts/jquery-1.7.2.js'
-          'vendor/scripts/jquery.textfill.min.js'
           'vendor/scripts/jquery-ui-1.10.3.custom.min.js'
           'vendor/scripts/jquery.mobile.init.js'
           'vendor/scripts/jquery.mobile-1.3.1.min.js'
           'vendor/scripts/jquery.cookie.js'
+          'vendor/scripts/jquery.textfill.min.js'
           'vendor/scripts/underscore-1.3.3.js'
           'vendor/scripts/backbone.js'
           

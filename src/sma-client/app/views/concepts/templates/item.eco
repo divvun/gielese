@@ -7,7 +7,9 @@
 
 <ul id="concept_definitions">
     <li>
-        <h2 class="concept_definition concept_value"><%- @model.get('concept_value') %></h2>
+        <h2 data-textfill class="concept_definition concept_value">
+            <span><%- @model.get('concept_value') %></span>
+        </h2>
     </li>
 
     <!--
