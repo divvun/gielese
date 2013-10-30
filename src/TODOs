@@ -1,72 +1,33 @@
 ## Today
 
-!!!Saker som må fiksast til presentasjonen
+* converting media: 
 
-* conceptlist
- - image border
- - active link in list for first concept displayed
+  - body
+  - face
+  - house
+  - numbers
+  - TODO: time
+  - TODO: nature - animals
+  - TODO: nature - world
+  - TODO: food
+  - TODO: greetings
 
-* nature category background and images
+  - TODO: category generation from directory structure
+  - TODO: question logs need to be changed so that they store the category name
+  - TODO: make questions all follow one generic structure, leksa_questions.yaml is too much
+  - TODO: categories.yaml will be automatically constructed from media dir
 
-* check that nav bar is accurate now; things are wrong.
- - icon width fix
+* gaskebiejjiebeapmoe - concept list
+  - several means for resizing fonts, but they seem to be extremely cranky.
 
-* poenga som ein får bør visast nære det korrekte bilete (no er dei alltid til
-  venstre, rett under gamma, og det er litt missvisande)
-
-I prioritert rekkjefølgje:
-* innloggingssida må fungera (mest mogleg i samsvar med design)
-    - did you forget? email me link
-    - form missing when
-      1.) start app
-      2.) log in with exiting account
-      3.) choose "no" (logged out)
-      4.) choose "yes" 
-
-    - store data in form between UI language changes if user selects language
-      before logging in 
-
-    - after login+account creation, make sure user language setting is stored
-
-
------
-
-
-
-
-* kategori-side: responsive
-* concept list: buttons
-* kategoribilde: sjå på mappa
-* font consistency?
-
-registreringsside:
- * omorganisera det som er på plass no, til:
-
- ** alternativ for brukarnamn&passord / anonym
- ** klårare organisering av login vs anonym
-
- ** laga konto ved å berre skriva inn brukarnamn og passord, og trykka login
- *** stadfestingsdialog der ein seier ok - ny konto, eller nei - det var feil
- *** sjekka at brukaren ikkje finst frå før
- *** sjekka at passordet stemmer
-
- * moglegheit til å få attende passord/brukarnamn viss dei er gløymde
-   - tek ein del tid.
-
+* front page yes/no buttons
+  - use opacity for color probs maybe? 
 
 Ting å fiksa:
-* symbola på framsida:
+* larger version of logo for tablet
 
 * hjelpespråk norsk gjev ikkje knapptekst osb. på norsk
 * kornete bilete / treng å nytta dei større versjonar på større skjermstørrelse
-* høgre pil på ordlista - bugg
-
-ting som gjeld media:
-* kattebilder bort
-* buaregh - to ulike bilde for samme ord; med/utan boble. fjern den utan boble. 
-
-
-
 
 + multiple media sizes automatically-- need to figure this out. 
 
@@ -83,6 +44,10 @@ ting som gjeld media:
    * http://creativejs.com/resources/web-audio-api-getting-started/
 
 * consider what client side events need logging
+
+* simplify question concept fetching by just using the category-- no need to
+  define semantics etc., except for with answer similarity, but that can be a
+  filter off of the same category's concepts
 
 * for some reason changing UI lang doesn't reload translations-- any way to refresh from gettext 
 
