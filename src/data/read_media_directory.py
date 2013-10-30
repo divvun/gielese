@@ -21,6 +21,16 @@ The expected input format for the directory is as follows:
             face/
                 category.info
 
+The general overview is that:
+
+ * concepts are defined by their own directory and concept.info file
+ * lexical data is read from .info (.yaml) files
+ * media is found automatically by traversing each concept directory
+   - some media meta data is specified by filename (*-small-mobile.jpg,
+   etc.)
+
+## Details
+
 The structure may be fairly open, but the requirements are that concepts
 must be in the concepts directory and categories in categories. Each
 directory that should be treated specially has its own meta file:
@@ -64,11 +74,8 @@ The same idea follows for `categories`, where the directory may be
 structured however, but a `category.info` file is the trigger for this
 directory to be processed as a category.
 
-TODO: category needs a little more specific structure for media sizes,
-write more there.
-
-TODO: how to specify media sizes? additional meta, or rough guessing
-from image size?
+TODO: category needs a little more specific structure for media sizes
+for backgrounds, write more there.
 
 TODO: merge in stuff from make_xml, including an output directory, which
 then copies and transforms files to a format compatible with Gielese
@@ -88,7 +95,6 @@ Options:
   --output=format       Specifies the output format. XML, JSON, supported. [default: JSON]
   --absolute-paths      Use absolute paths instead of relative from `cwd`. [default: False]
   --media-path=URL      Specify the path relative to the web root for media. [default: False]
-
 """
 
 import os, sys
@@ -106,41 +112,6 @@ semantics:
   - FACE
   - BODY
 """
-
-# things like this should really happen at a different phase. maybe
-# build in conversion to an install process or something
-
-# concepts_media_transforms = """
-# media_transforms:
-#   - size: "orig"
-#     target:
-#       size: "medium"
-#       device: "tablet"
-#       max_width: 350
-#       max_height: 350
-#   - size: "orig"
-#     target:
-#       size: "small"
-#       device: "mobile"
-#       max_width: 200
-#       max_height: 200
-# 
-# media_matching:
-#   - file_pattern: "(small)"
-#     apply_attributes:
-#       size: "small"
-#       device: "mobile"
-# 
-#   - file_pattern: "(medium)"
-#     apply_attributes:
-#       size: "medium"
-#       device: "tablet"
-# 
-#   - file_pattern: "(orig)"
-#     apply_attributes:
-#       size: "original"
-#       device: ""
-# """
 
 concept_info_example = u"""
 lemma: ååredæjja
@@ -350,10 +321,9 @@ def walk_for_concepts_sets(concept_path):
 
 def replace_media_paths(concepts, replace_with):
 
-
     def replace_path(p):
         return replace_with + p[1::]
-    
+
     def get_replace(media):
         if 'path' in media:
             media['path'] = replace_path(media['path'])
@@ -378,6 +348,8 @@ def replace_media_paths(concepts, replace_with):
     return fixed
 
 def concepts_to_xml(concepts):
+    """ Export to XML, following GT format, with additional media.
+    """
 
     E = ElementMaker()
 
@@ -494,8 +466,9 @@ def concepts_to_xml(concepts):
 
     return etree.tostring(nodes, pretty_print=True, encoding=unicode)
 
-
 def concepts_to_json(concepts):
+    """ Export to JSON.
+    """
     return json.dumps(concepts, indent=' ' * 2)
 
 def read_concepts(arguments):
@@ -536,6 +509,8 @@ def read_concepts(arguments):
         print >> sys.stdout, serialized.encode('utf-8')
 
 def read_categories(arguments):
+    """ Read categories
+    """
 
     # TODO: consider subcategories -- need to find out if one category
     # is contained by another
@@ -560,6 +535,8 @@ def read_categories(arguments):
         print >> sys.stdout, serialized
 
 def main():
+    """ Parse arguments, and provide logic to major chunks of program.
+    """
     arguments = docopt.docopt(__doc__, version='Media parser 0.1.0')
 
     if arguments.get('read', False):

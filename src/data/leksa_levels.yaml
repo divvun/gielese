@@ -17,7 +17,7 @@ Examples:
     # A category name which determines what set the questions belong to
     # in the UI.
     #
-    category: "BODYPART"
+    category: "FACE"
 
     # A name for internal uses (this will not be displayed to users)
     #
@@ -56,7 +56,7 @@ Examples:
       from_language: "img"
       to_language: "sma"
       semantics:
-        - "BODYPART"
+        - "FACE"
 
     # For all additional answers that will be displayed to "fill in" the
     # answers when the number of answers displayed is greater than one,
@@ -66,7 +66,7 @@ Examples:
     #
     answer_similarity:
       semantics:
-        - "BODYPART"
+        - "FACE"
       # features:
       #   - "BISYL"
       #   - "HT"
@@ -74,9 +74,9 @@ Examples:
 
 # Some of my own shortcuts...
 
-BpImgWord: &BP_IMG_WORD
+BpImgWord: &FACE_IMG_WORD
   type: "image_to_word"
-  category: "BODYPART"
+  category: "FACE"
   name: "Face image to word"
 
   repetitions: 2
@@ -89,15 +89,15 @@ BpImgWord: &BP_IMG_WORD
     from_language: "img"
     to_language: "sma"
     semantics:
-      - "BODYPART"
+      - "FACE"
 
   answer_similarity:
     semantics:
-      - "BODYPART"
+      - "FACE"
 
-BpWordImg: &BP_WORD_IMG
+BpWordImg: &FACE_WORD_IMG
   type: "word_to_image"
-  category: "BODYPART"
+  category: "FACE"
   name: "Face image to word"
 
   repetitions: 2
@@ -110,11 +110,217 @@ BpWordImg: &BP_WORD_IMG
     from_language: "sma"
     to_language: "img"
     semantics:
-      - "BODYPART"
+      - "FACE"
 
   answer_similarity:
     semantics:
-      - "BODYPART"
+      - "FACE"
+
+BodyImgWord: &BODY_IMG_WORD
+  type: "image_to_word"
+  category: "BODY"
+  name: "Body image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "BODY"
+
+  answer_similarity:
+    semantics:
+      - "BODY"
+
+BodyWordImg: &BODY_WORD_IMG
+  type: "word_to_image"
+  category: "BODY"
+  name: "Body image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "BODY"
+
+  answer_similarity:
+    semantics:
+      - "BODY"
+
+HouseImgWord: &HOUSE_IMG_WORD
+  type: "image_to_word"
+  category: "HOUSE"
+  name: "House image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "HOUSE"
+
+  answer_similarity:
+    semantics:
+      - "HOUSE"
+
+HouseWordImg: &HOUSE_WORD_IMG
+  type: "word_to_image"
+  category: "HOUSE"
+  name: "House image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "HOUSE"
+
+  answer_similarity:
+    semantics:
+      - "HOUSE"
+
+NumbersImgWord: &NUMBERS_IMG_WORD
+  type: "image_to_word"
+  category: "NUMBERS"
+  name: "Numbers image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "NUMBERS"
+
+  answer_similarity:
+    semantics:
+      - "NUMBERS"
+
+NumbersWordImg: &NUMBERS_WORD_IMG
+  type: "word_to_image"
+  category: "NUMBERS"
+  name: "Numbers image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "NUMBERS"
+
+  answer_similarity:
+    semantics:
+      - "NUMBERS"
+
+TimeImgWord: &TIME_IMG_WORD
+  type: "image_to_word"
+  category: "TIME"
+  name: "Time image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "TIME"
+
+  answer_similarity:
+    semantics:
+      - "TIME"
+
+TimeWordImg: &TIME_WORD_IMG
+  type: "word_to_image"
+  category: "TIME"
+  name: "Time image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "TIME"
+
+  answer_similarity:
+    semantics:
+      - "TIME"
+
+DefaultImgWord: &DEFAULT_IMG_WORD
+  type: "image_to_word"
+  category: "DEFAULTS"
+  name: "Default image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics: False
+
+  answer_similarity:
+    semantics: False
+
+DefaultWordImg: &DEFAULT_WORD_IMG
+  type: "word_to_image"
+  category: "DEFAULTS"
+  name: "Default image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 20
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics: False
+
+  answer_similarity:
+    semantics: False
 
 GreetingImgWord: &GREETING_IMG_WORD
   type: "image_to_word"
@@ -287,19 +493,117 @@ WorldWordImg: &WORLD_WORD_IMG
 # For category definitions, see categories.yaml.
 
 Questions:
-  - <<: *BP_IMG_WORD
+  # -*- face -*- 
+  
+  - <<: *FACE_IMG_WORD
 
-  - <<: *BP_WORD_IMG
+  - <<: *FACE_WORD_IMG
     level: 2
     answers: 2
     points: 40
 
-  - <<: *BP_WORD_IMG
+  - <<: *FACE_WORD_IMG
     level: 3
     answers: 3
     points: 60
 
-  - <<: *BP_WORD_IMG
+  - <<: *FACE_WORD_IMG
+    level: 4
+    answers: 4
+    points: 80
+
+  # -*- body -*- 
+  
+  - <<: *BODY_IMG_WORD
+
+  - <<: *BODY_WORD_IMG
+    level: 2
+    answers: 2
+    points: 40
+
+  - <<: *BODY_WORD_IMG
+    level: 3
+    answers: 3
+    points: 60
+
+  - <<: *BODY_WORD_IMG
+    level: 4
+    answers: 4
+    points: 80
+
+  # -*- house -*- 
+  
+  - <<: *HOUSE_IMG_WORD
+
+  - <<: *HOUSE_WORD_IMG
+    level: 2
+    answers: 2
+    points: 40
+
+  - <<: *HOUSE_WORD_IMG
+    level: 3
+    answers: 3
+    points: 60
+
+  - <<: *HOUSE_WORD_IMG
+    level: 4
+    answers: 4
+    points: 80
+
+  # -*- numbers -*- 
+  
+  - <<: *NUMBERS_IMG_WORD
+
+  - <<: *NUMBERS_WORD_IMG
+    level: 2
+    answers: 2
+    points: 40
+
+  - <<: *NUMBERS_WORD_IMG
+    level: 3
+    answers: 3
+    points: 60
+
+  - <<: *NUMBERS_WORD_IMG
+    level: 4
+    answers: 4
+    points: 80
+
+  # -*- time -*- 
+  
+  - <<: *TIME_IMG_WORD
+
+  - <<: *TIME_WORD_IMG
+    level: 2
+    answers: 2
+    points: 40
+
+  - <<: *TIME_WORD_IMG
+    level: 3
+    answers: 3
+    points: 60
+
+  - <<: *TIME_WORD_IMG
+    level: 4
+    answers: 4
+    points: 80
+
+
+  # -*- default -*- 
+
+  - <<: *DEFAULT_IMG_WORD
+
+  - <<: *DEFAULT_WORD_IMG
+    level: 2
+    answers: 2
+    points: 40
+
+  - <<: *DEFAULT_WORD_IMG
+    level: 3
+    answers: 3
+    points: 60
+
+  - <<: *DEFAULT_WORD_IMG
     level: 4
     answers: 4
     points: 80

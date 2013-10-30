@@ -21,6 +21,8 @@ done
 find . \ -type file -name "*-small-mobile.jpg" | xargs -I {} mogrify -resize 200x200 {}
 find . \ -type file -name "*-medium-tablet.jpg" | xargs -I {} mogrify -resize 350x350 {}
 
+rm files.txt
+
 # Resize
 
 mogrify -resize 200x200 filename.jpg

@@ -55,10 +55,10 @@ Subcategories:
 
 Categories:
 
-  - category: "BODYPART"
+  - category: "FACE"
     name: "Ååredæjja"
     semantics:
-      - "BODYPART"
+      - "FACE"
     activities: *ACTIVITIES
     children: []
     main_menu: true
@@ -114,7 +114,6 @@ Categories:
     children: []
     main_menu: true
     # TODO: not ready yet, but we want to show icons
-    grayed_out: true
     media:
       icon:
         - path: "/static/house/img/category-icon.jpg"
@@ -132,8 +131,6 @@ Categories:
     activities: *ACTIVITIES
     children: []
     main_menu: true
-    # TODO: not ready yet, but we want to show icons
-    grayed_out: true
     media:
       icon:
         - path: "/static/numbers/img/category-icon.jpg"
@@ -151,8 +148,6 @@ Categories:
     activities: *ACTIVITIES
     children: []
     main_menu: true
-    # TODO: not ready yet, but we want to show icons
-    grayed_out: true
     media:
       icon:
         - path: "/static/time/img/category-icon.jpg"
@@ -170,8 +165,6 @@ Categories:
     activities: *ACTIVITIES
     children: []
     main_menu: true
-    # TODO: not ready yet, but we want to show icons
-    grayed_out: true
     media:
       icon:
         - path: "/static/body/img/category-icon.jpg"
