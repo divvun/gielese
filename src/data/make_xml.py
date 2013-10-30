@@ -68,7 +68,7 @@ def create_entry(row, semantics=['TODO'], rename_files=False, verbose=False):
     from lxml.etree import CDATA
 
     def wrapCDATA(str):
-        return "<![CDATAA[%s]]>" % str
+        return "<![CDATA[%s]]>" % str
 
     E = ElementMaker()
     XML_LANG = "{http://www.w3.org/XML/1998/namespace}lang"

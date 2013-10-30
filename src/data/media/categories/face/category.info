@@ -1,3 +1,4 @@
-name: Ååredæjja
+category: "BODYPART"
+name: "Ååredæjja"
 semantics:
-  - FACE
+  - "BODYPART"
