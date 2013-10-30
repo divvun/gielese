@@ -8,8 +8,10 @@ The expected input format for the directory is as follows:
             1/
                 concept.info
                 images/
-                    small.jpg
-                    medium.jpg
+                    filename.jpg
+                    filename2.jpg
+                    filename-small-mobile.jpg
+                    filename-medium-tablet.jpg
                 audio/
                     AD.mp3
             2/
@@ -26,6 +28,18 @@ concepts.info, concept.info, categories.info, category.info. This
 allows you to create some subdirectory structure and apply meta data
 to all subdirectories. Thus, maybe you want to organize concepts into
 sub directories relating to semantics, you might do the following:
+
+Image file names may be whatever, with two exceptions: to mark the size
+and intended device type, they must follow the pattern:
+
+    filename-small-mobile.jpg
+    filename-medium-tablet.jpg
+
+Or...
+
+    filename-size-device.jpg
+
+'Filename' may be replaced with anything, but avoid spaces.
 
     concepts/
         body/
@@ -73,6 +87,7 @@ Usage:
 Options:
   --output=format       Specifies the output format. XML, JSON, supported. [default: JSON]
   --absolute-paths      Use absolute paths instead of relative from `cwd`. [default: False]
+  --media-path=URL      Specify the path relative to the web root for media. [default: False]
 
 """
 
@@ -214,13 +229,50 @@ def find_concept_images(concept_dir):
     images = []
 
     for path in image_paths:
+        _file = os.path.basename(path)
+        _f, _, _suffix = _file.partition('.')
+        _ff = _f.split('-')
+        if len(_ff) == 3:
+            _, size, device = _ff
+        else:
+            size = 'orig'
+            device = ''
+
         images.append({
+            'path': path,
+            'size': size,
+            'device': device,
+        })
+
+    return images
+
+def find_concept_video(concept_dir):
+    """ Search a path, returning concepts matching image/ in the
+    mimetype.
+    """
+
+    import mimetypes
+
+    image_paths = []
+
+    for root, dirs, files in os.walk(concept_dir):
+        for _file in files:
+            _type, _enc = mimetypes.guess_type(_file)
+            if _type is not None and 'video/' in _type:
+                image_paths.append(
+                    os.path.join(root, _file)
+                )
+
+    video = []
+
+    for path in image_paths:
+        video.append({
             'path': path,
             'size': '',
             'device': '',
         })
 
-    return images
+    return video
 
 
 def read_concept_directory(concept_dir, concepts_meta={}):
@@ -229,18 +281,26 @@ def read_concept_directory(concept_dir, concepts_meta={}):
     audio to `media`.
     """
 
-    print "  Found concept:"
-    print "    " + concept_dir
+    print >> sys.stderr, "  Found concept:"
+    print >> sys.stderr, "    " + concept_dir
 
     _concept_yaml = os.path.join(concept_dir, 'concept.info')
 
-    with open(_concept_yaml) as F:
-        concept_yaml = yaml.load(F)
+    with open(_concept_yaml, 'r') as F:
+        try:
+            concept_yaml = yaml.load(F)
+        except Exception, e:
+            print >> sys.stderr, " Error parsing yaml at: " + _concept_yaml
+            sys.exit()
 
-    concepts_meta.update(concept_yaml)
+    if concept_yaml is None:
+        return
+
+    concept_yaml.update(concepts_meta)
 
     media = {
         'images': find_concept_images(concept_dir),
+        'video': find_concept_video(concept_dir),
         'audio': find_concept_audio(concept_dir)
     }
 
@@ -254,8 +314,8 @@ def read_concepts_directory(concept_dir):
     `concept.info` file, and then return parsed concepts.
     """
 
-    print "Found concept set: "
-    print "  " + concept_dir
+    print >> sys.stderr, "Found concept set: "
+    print >> sys.stderr, "  " + concept_dir
 
     concept_yaml = os.path.join(concept_dir, 'concepts.info')
 
@@ -267,9 +327,9 @@ def read_concepts_directory(concept_dir):
     concepts = []
 
     for c_dir in concept_directories:
-        concepts.append(
-            read_concept_directory(c_dir, concepts_meta=concept_set_yaml)
-        )
+        new_concept = read_concept_directory(c_dir, concepts_meta=concept_set_yaml)
+        if new_concept is not None:
+            concepts.append(new_concept)
 
     return concepts
 
@@ -287,6 +347,35 @@ def walk_for_concepts_sets(concept_path):
     )
 
     return concepts
+
+def replace_media_paths(concepts, replace_with):
+
+
+    def replace_path(p):
+        return replace_with + p[1::]
+    
+    def get_replace(media):
+        if 'path' in media:
+            media['path'] = replace_path(media['path'])
+        return media
+
+    fixed = []
+    for c in concepts:
+        media = c.get('media').copy()
+        if 'images' in media:
+            media['images'] = map(get_replace, media['images'])
+
+        if 'audio' in media:
+            media['audio'] = map(get_replace, media['audio'])
+
+        if 'video' in media:
+            media['video'] = map(get_replace, media['video'])
+
+        c['media'] = media
+
+        fixed.append(c)
+
+    return fixed
 
 def concepts_to_xml(concepts):
 
@@ -315,6 +404,7 @@ def concepts_to_xml(concepts):
 
         _meds = concept.get('media', {})
         _images = _meds.get('images', False)
+        _video = _meds.get('video', False)
         _audio = _meds.get('audio', False)
 
         lg_node = lg(l(lemma))
@@ -335,7 +425,14 @@ def concepts_to_xml(concepts):
         for tgroup in translations:
             _tg = []
             for lang, translation in tgroup.iteritems():
-                _tg.append( tg( t(translation), {XML_LANG: lang}))
+                try:
+                    _tg_node = tg( t(translation), {XML_LANG: lang})
+                except TypeError:
+                    print "Unable to build <tg /> node. Possible yaml formatting error."
+                    print translation, lang
+                    print concept
+                    sys.exit()
+                _tg.append(_tg_node)
             tgs.extend(_tg)
 
         medias = []
@@ -358,6 +455,26 @@ def concepts_to_xml(concepts):
                 )
 
             medias.append(E.images(*images))
+
+        if _video:
+            video = []
+            for i in _video:
+
+                style_kwargs = {}
+                if i.get('size', False):
+                    style_kwargs['size'] = i['size']
+                if i.get('device', False):
+                    style_kwargs['device'] = i['device']
+
+                file_path = rename_file(i.get('path'))
+                _p = path_node()
+                _p.text = CDATA(file_path)
+
+                video.append(
+                    E.video(_p, style_kwargs)
+                )
+
+            medias.append(E.video(*video))
 
         if _audio:
             audio = []
@@ -389,13 +506,24 @@ def read_concepts(arguments):
     _cwd = os.getcwd()
     media_dir = os.path.join(_cwd, arguments.get('<media_dir>'))
 
-    if not arguments.get('--absolute-paths', False):
+    # specify media path, requires relative paths
+    if arguments.get('--media-path', False):
+        replace_path = arguments.get('--media-path')
         common = os.path.commonprefix([_cwd, media_dir])
         media_dir = media_dir.replace(common, '.')
+    else:
+        replace_path = False
+
+        if not arguments.get('--absolute-paths', False):
+            common = os.path.commonprefix([_cwd, media_dir])
+            media_dir = media_dir.replace(common, '.')
 
     concept_dir = os.path.join(media_dir, 'concepts')
 
     concepts = walk_for_concepts_sets(concept_dir)
+
+    if replace_path:
+        concepts = replace_media_paths(concepts, replace_path)
 
     if arguments.get('--output', False):
 
@@ -405,7 +533,7 @@ def read_concepts(arguments):
             serializer = concepts_to_xml
 
         serialized = serializer(concepts)
-        print >> sys.stdout, serialized
+        print >> sys.stdout, serialized.encode('utf-8')
 
 def read_categories(arguments):
 
