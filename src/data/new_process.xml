@@ -1,0 +1,4441 @@
+<r>
+  <e>
+    <lg>
+      <l>gïete</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/1/images/g_ii_ete-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/1/images/g_ii_ete-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/1/images/g_ii_ete.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/1/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/1/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/1/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>hand</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>hånd</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>rudtje</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/10/images/rudtje-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/10/images/rudtje-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/10/images/rudtje.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/10/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/10/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/10/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>rygg</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>rygg</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>ravve</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/11/images/ravve-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/11/images/ravve-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/11/images/ravve.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/11/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/11/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/11/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>bak</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>bak</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>båetskie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/12/images/b_aa_etskie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/12/images/b_aa_etskie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/12/images/b_aa_etskie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/12/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/12/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/12/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>häl</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>hæl</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjiehtjere</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/13/images/tjiehtjere-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/13/images/tjiehtjere-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/13/images/tjiehtjere.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/13/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/13/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/13/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tå</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tå</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>njulhtjedh</l>
+    </lg>
+    <media>
+      <video>
+        <video>
+          <path><![CDATA[/static/media/concepts/body/14/video/njulhtjedh.mov]]></path>
+        </video>
+      </video>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/14/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/14/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/14/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>hoppa</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>hoppe</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>mojjehtidh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/15/images/mojjehtidh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/15/images/mojjehtidh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/15/images/mojjehtidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/15/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/15/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>le</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>smile</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gaetskedh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/16/images/gaetskedh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/16/images/gaetskedh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/16/images/gaetskedh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/16/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/16/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/16/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>bita</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>bite</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjåadtjodh</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/17/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/17/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/17/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>stå</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>stå</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>steeredh</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/18/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/18/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/18/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>hålla</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>holde</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjuvtjiedidh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/19/images/tjuvtjiedidh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/19/images/tjuvtjiedidh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/19/images/tjuvtjiedidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/19/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/19/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>peka</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>peke</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>soerme</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/2/images/soerme-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/2/images/soerme-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/2/images/soerme.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/2/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/2/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/2/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>finger</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>finger</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>vaeltedh</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/20/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/20/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/20/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>ta</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>ta</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>hepsedh</l>
+    </lg>
+    <media>
+      <video>
+        <video>
+          <path><![CDATA[/static/media/concepts/body/21/video/hepsedh.mov]]></path>
+        </video>
+      </video>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/21/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/21/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/21/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>lukta</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>lukte</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>govledh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/22/images/govledh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/22/images/govledh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/22/images/govledh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/22/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/22/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/22/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>höra</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>høre</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjuvliestidh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/23/images/tjuvliestidh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/23/images/tjuvliestidh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/23/images/tjuvliestidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/23/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/23/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/23/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kyssa</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kysse</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>vaedtsedh</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/24/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/24/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/24/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>gå</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>gå</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjahkasjidh</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/25/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/25/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/25/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sitta</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>sitte</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjihkedidh</l>
+    </lg>
+    <media>
+      <video>
+        <video>
+          <path><![CDATA[/static/media/concepts/body/26/video/tjihkedidh.mov]]></path>
+        </video>
+      </video>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/26/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/26/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/26/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sätta sig</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>sette seg</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjuedtjielidh</l>
+    </lg>
+    <media>
+      <video>
+        <video>
+          <path><![CDATA[/static/media/concepts/body/27/video/tjuedtjielidh.mov]]></path>
+        </video>
+      </video>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/27/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/27/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/27/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>resa sig</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>reise seg opp</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>guehpere</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/3/images/guehpere-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/3/images/guehpere-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/3/images/guehpere.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/3/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/3/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/3/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>nagel</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>negl</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>bielkie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/4/images/bielkie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/4/images/bielkie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/4/images/bielkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/4/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/4/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/4/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tumme</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tommel</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>kråahpe</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/5/images/kr_aa_ahpe-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/5/images/kr_aa_ahpe-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/5/images/kr_aa_ahpe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/5/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/5/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/5/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kropp</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kropp</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>åelkie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/6/images/aa_elkie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/6/images/aa_elkie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/6/images/aa_elkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/6/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/6/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/6/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>axel</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>skulder</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>mïelke</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/7/images/m_ii_elke-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/7/images/m_ii_elke-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/7/images/m_ii_elke.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/7/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/7/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/7/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>bröst</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>bryst</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjåejjie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/8/images/tj_aa_ejjie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/8/images/tj_aa_ejjie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/8/images/tj_aa_ejjie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/8/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/8/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/8/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>mage</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>mage</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>juelkie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/body/9/images/juelkie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/body/9/images/juelkie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/body/9/images/juelkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/9/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/9/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/body/9/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="BODY"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>fot</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>fot</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>åejjie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/1/images/aa_ejjie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/1/images/aa_ejjie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/1/images/aa_ejjie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/1/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>huvud</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>hode</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>baenie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/10/images/baenie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/10/images/baenie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/10/images/baenie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/10/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tand</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tann</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>njoektjeme</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/11/images/njoektjeme-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/11/images/njoektjeme-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/11/images/njoektjeme.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/11/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tunga</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tunge</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>searome</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/12/images/searome-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/12/images/searome-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/12/images/searome.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/12/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kind</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kinn</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>skaavtjoe</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/13/images/skaavtjoe-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/13/images/skaavtjoe-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/13/images/skaavtjoe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/13/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>skägg</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>skjegg</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gaejpie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/14/images/gaejpie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/14/images/gaejpie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/14/images/gaejpie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/14/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>haka</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>hake</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjeapohke</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/15/images/tjeapohke-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/15/images/tjeapohke-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/15/images/tjeapohke.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/15/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>hals</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>hals</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjovrese</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/16/images/tjovrese-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/16/images/tjovrese-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/16/images/tjovrese.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/16/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>nacke</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>nakke</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>ååredæjja</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/2/images/aa_aa_red_ae_jja-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/2/images/aa_aa_red_ae_jja-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/2/images/aa_aa_red_ae_jja.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/2/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>ansikte</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>ansikt</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>voepte</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/3/images/voepte-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/3/images/voepte-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/3/images/voepte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/3/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>hår</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>hår</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>bieljie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/4/images/bieljie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/4/images/bieljie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/4/images/bieljie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/4/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>öra</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>øre</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gaalloe</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/5/images/gaalloe-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/5/images/gaalloe-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/5/images/gaalloe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/5/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>panna</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>panne</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>haermie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/6/images/haermie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/6/images/haermie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/6/images/haermie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/6/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>ögonbryn</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>øyebryn</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjelmie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/7/images/tjelmie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/7/images/tjelmie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/7/images/tjelmie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/7/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>öga</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>øye</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>njuenie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/8/images/njuenie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/8/images/njuenie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/8/images/njuenie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/8/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>näsa</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>nese</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>njaelmie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/face/9/images/njaelmie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/face/9/images/njaelmie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/face/9/images/njaelmie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/face/9/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="FACE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>mun</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>munn</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gåetie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/1/images/g_aa_etie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/1/images/g_aa_etie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/1/images/g_aa_etie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/1/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/1/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/1/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>hus</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>hus</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gaamegh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/10/images/gaamegh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/10/images/gaamegh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/10/images/gaamegh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/10/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/10/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/10/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sko</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>sko</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>steeblegh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/11/images/steeblegh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/11/images/steeblegh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/11/images/steeblegh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/11/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/11/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/11/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>stövlar</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>støvler</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>vaarjoeh tsaekedh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/12/images/vaarjoeh__tsaekedh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/12/images/vaarjoeh__tsaekedh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/12/images/vaarjoeh__tsaekedh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/12/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/12/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/12/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>klä på sig</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kle på seg</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>vaarjoeh noeledh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/13/images/vaarjoeh__noeledh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/13/images/vaarjoeh__noeledh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/13/images/vaarjoeh__noeledh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/13/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/13/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>klä av sig</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kle av seg</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjööke</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/14/images/tj_oe_oe_ke-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/14/images/tj_oe_oe_ke-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/14/images/tj_oe_oe_ke.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/14/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/14/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/14/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kök</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kjøkken</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>jueskiedahke</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/15/images/jueskiedahke-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/15/images/jueskiedahke-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/15/images/jueskiedahke.jpg]]></path>
+        </image>
+      </images>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kylskåp</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kjøleskap</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>dealoe</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/16/images/dealoe-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/16/images/dealoe-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/16/images/dealoe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/16/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/16/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>duk</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>duk</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>stovle</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/17/images/stovle-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/17/images/stovle-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/17/images/stovle.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/17/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/17/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>stol</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>stol</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>kåahpe</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/18/images/k_aa_ahpe-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/18/images/k_aa_ahpe-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/18/images/k_aa_ahpe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/18/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/18/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/18/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kopp</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kopp</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>feete</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/19/images/feete-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/19/images/feete-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/19/images/feete.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/19/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/19/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/19/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>fat</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>fat</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>rïhpestidh</l>
+    </lg>
+    <media>
+      <video>
+        <video>
+          <path><![CDATA[/static/media/concepts/house/2/video/r_ii_hpestidh.mov]]></path>
+        </video>
+      </video>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/2/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/2/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>öpna</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>åpne</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>klaase</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/20/images/klaase-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/20/images/klaase-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/20/images/klaase.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/20/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/20/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/20/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>glas</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>glass</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>nejpie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/21/images/nejpie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/21/images/nejpie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/21/images/nejpie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/21/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/21/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/21/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kniv</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kniv</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjåagka</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/22/images/tj_aa_agka-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/22/images/tj_aa_agka-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/22/images/tj_aa_agka.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/22/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/22/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>gaffel</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>gaffel</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>buste</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/23/images/buste-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/23/images/buste-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/23/images/buste.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/23/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/23/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/23/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sked</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>skje</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>bustetje</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/24/images/bustetje-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/24/images/bustetje-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/24/images/bustetje.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/24/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/24/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/24/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tesked</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>teskje</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjihkedidh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/25/images/tjihkedidh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/25/images/tjihkedidh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/25/images/tjihkedidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/25/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/25/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/25/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sätta sig</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>sette seg</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjahkasjidh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/26/images/tjahkasjidh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/26/images/tjahkasjidh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/26/images/tjahkasjidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/26/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sitta</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>sitte</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>ståapoe</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/27/images/st_aa_apoe-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/27/images/st_aa_apoe-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/27/images/st_aa_apoe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/27/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/27/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/27/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>vardagsrum</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>stue</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>buertie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/28/images/buertie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/28/images/buertie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/28/images/buertie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/28/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/28/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/28/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>bord</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>bord</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>blåamma</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/29/images/bl_aa_amma-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/29/images/bl_aa_amma-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/29/images/bl_aa_amma.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/29/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/29/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/29/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>blomma</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>blomst</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gaptjedh</l>
+    </lg>
+    <media>
+      <video>
+        <video>
+          <path><![CDATA[/static/media/concepts/house/3/video/gaptjedh.mov]]></path>
+        </video>
+      </video>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/3/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/3/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/3/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>stänga</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>stenge</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>guvvie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/30/images/guvvie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/30/images/guvvie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/30/images/guvvie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/30/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/30/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/30/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>bild</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>bilde</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gællasjidh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/31/images/g_ae_llasjidh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/31/images/g_ae_llasjidh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/31/images/g_ae_llasjidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/31/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/31/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/31/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>ligga</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>ligge</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>veartasjidh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/32/images/veartasjidh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/32/images/veartasjidh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/32/images/veartasjidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/32/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/32/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/32/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>se på</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>se på</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>laavkometjïehtjele</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/33/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/33/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/33/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>badrum</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>bad</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>onnegåetie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/34/images/onneg_aa_etie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/34/images/onneg_aa_etie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/34/images/onneg_aa_etie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/34/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/34/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/34/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>toalett</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>toalett</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>bïssemelihtie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/35/images/b_ii_ssemelihtie-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/35/images/b_ii_ssemelihtie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/35/images/b_ii_ssemelihtie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/35/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/35/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tvättfat</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>vaskefat</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>guelmiedahke</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/36/images/guelmiedahke-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/36/images/guelmiedahke-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/36/images/guelmiedahke.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/36/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/36/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>spegel</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>speil</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>bïsselidh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/37/images/b_ii_sselidh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/37/images/b_ii_sselidh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/37/images/b_ii_sselidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/37/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/37/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/37/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tvätta sig</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>vaske seg</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gadtjedh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/38/images/gadtjedh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/38/images/gadtjedh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/38/images/gadtjedh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/38/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/38/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/38/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kissa</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tisse</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>laavkodh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/39/images/laavkodh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/39/images/laavkodh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/39/images/laavkodh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/39/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/39/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>bada</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>bade</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjaangedh</l>
+    </lg>
+    <media>
+      <video>
+        <video>
+          <path><![CDATA[/static/media/concepts/house/4/video/tjaangedh.mov]]></path>
+        </video>
+      </video>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/4/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/4/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/4/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>gå in</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>gå inn</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>stratjkedh</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/40/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>duscha</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>dusje</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>åeremetjïehtjele</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/41/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/41/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sovrum</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>soverom</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>seangkoe</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/42/images/seangkoe-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/42/images/seangkoe-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/42/images/seangkoe.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/42/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/42/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/42/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>säng</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>seng</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gaptjese</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/43/images/gaptjese-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/43/images/gaptjese-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/43/images/gaptjese.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/43/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/43/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/43/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>täcke</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>dyne</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>dåvna</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/44/images/d_aa_vna-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/44/images/d_aa_vna-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/44/images/d_aa_vna.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/44/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/44/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/44/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kudde</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>pute</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>åeredh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/45/images/aa_eredh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/45/images/aa_eredh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/45/images/aa_eredh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/45/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/45/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/45/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sova</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>sove</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>fahkedh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/46/images/fahkedh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/46/images/fahkedh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/46/images/fahkedh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/46/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/46/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>vakna</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>våkne</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gaavestidh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/47/images/gaavestidh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/47/images/gaavestidh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/47/images/gaavestidh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/47/audio/AD.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>gäspa</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>gjespe</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjeallere</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/48/images/tjeallere-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/48/images/tjeallere-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/48/images/tjeallere.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/48/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/48/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>källare</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>kjeller</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjïehtjele</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/5/images/tj_ii_ehtjele-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/5/images/tj_ii_ehtjele-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/5/images/tj_ii_ehtjele.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/5/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/5/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/5/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>rum</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>rom</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>kåava</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/6/images/k_aa_ava-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/6/images/k_aa_ava-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/6/images/k_aa_ava.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/6/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/6/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>hall</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>gang</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>skåape</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/7/images/sk_aa_ape-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/7/images/sk_aa_ape-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/7/images/sk_aa_ape.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/7/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/7/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/7/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>skåp</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>skap</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>vaarjoeh</l>
+    </lg>
+    <media>
+      <images>
+        <image device="tablet" size="medium">
+          <path><![CDATA[/static/media/concepts/house/8/images/vaarjoeh-medium-tablet.jpg]]></path>
+        </image>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/house/8/images/vaarjoeh-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/house/8/images/vaarjoeh.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/8/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/8/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/8/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>kläder</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>klær</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>bæjngoldsvaarjoeh</l>
+    </lg>
+    <media>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/9/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/house/9/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="HOUSE"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>ytterkläder</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>ytterklær</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>nulle</l>
+    </lg>
+    <media/>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>noll</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>null</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>uktsie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/10/images/uktsie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/10/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/10/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/10/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>nio</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>ni</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/11/images/luhkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/11/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/11/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/11/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tio</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>ti</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkieakte</l>
+    </lg>
+    <media/>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>elva</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>elleve</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkiegöökte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/13/images/luhkieg_oe_oe_kte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/13/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/13/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/13/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tolv</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tolv</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkiegolme</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/14/images/luhkiegolme.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/14/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/14/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/14/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tretton</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tretten</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkienjieljie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/15/images/luhkienjieljie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/15/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/15/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>fjorton</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>fjorten</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkievïjhte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/16/images/luhkiev_ii_jhte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/16/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/16/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/16/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>femton</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>femten</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkiegovhte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/17/images/luhkiegovhte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/17/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/17/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/17/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sexton</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>seksten</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkietjïjhtje</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/18/images/luhkietj_ii_jhtje.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/18/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/18/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sjutton</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>sytten</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkiegaektsie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/19/images/luhkiegaektsie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/19/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/19/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/19/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>arton</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>atten</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>akte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/2/images/akte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/2/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/2/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>en, ett</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>en, ett</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>luhkieuktsie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/20/images/luhkieuktsie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/20/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/20/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/20/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>nitton</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>nitten</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>göökteluhkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/21/images/g_oe_oe_kteluhkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/21/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/21/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/21/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tjugo</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tyve</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>göökteluhkieakte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/22/images/g_oe_oe_kteluhkieakte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/22/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/22/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tjugoen, tjugoett</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tjueen, tjueett</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>göökteluhkiegöökte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/23/images/g_oe_oe_kteluhkieg_oe_oe_kte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/23/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/23/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tjugotvå</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tjueto</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>göökteluhkiegolme</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/24/images/g_oe_oe_kteluhkiegolme.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/24/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/24/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/24/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tjugotre</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tjuetre</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>göökteluhkienjieljie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/25/images/g_oe_oe_kteluhkienjieljie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/25/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/25/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tjugofyra</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tjuefire</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>göökteluhkievïjhte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/26/images/g_oe_oe_kteluhkiev_ii_jhte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/26/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tjugofem</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tjuefem</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>golmeluhkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/27/images/golmeluhkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/27/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/27/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/27/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>trettio</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tretti</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>njieljieluhkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/28/images/njieljieluhkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/28/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/28/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/28/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>fyrtio</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>førti</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>vïjhteluhkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/29/images/v_ii_jhteluhkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/29/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/29/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/29/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>femtio</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>femti</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>göökte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/3/images/g_oe_oe_kte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/3/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/3/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>två</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>to</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>govhteluhkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/30/images/govhteluhkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/30/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/30/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/30/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sextio</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>seksti</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjïjhtjeluhkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/31/images/tj_ii_jhtjeluhkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/31/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/31/audio/ED.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sjuttio</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>sytti</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gaektsieluhkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/32/images/gaektsieluhkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/32/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/32/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/32/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>åttio</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>åtti</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>uktsieluhkie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/33/images/uktsieluhkie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/33/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/33/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>nittio</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>nitti</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>stoerreluhkie, tjuetie</l>
+    </lg>
+    <media/>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>hundra</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>hundre</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>golme</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/4/images/golme.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/4/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/4/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/4/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>tre</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>tre</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>njieljie</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/5/images/njieljie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/5/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/5/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/5/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>fyra</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>fire</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>vïjhte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/6/images/v_ii_jhte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/6/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/6/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/6/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>fem</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>fem</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>govhte</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/7/images/govhte.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/7/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/7/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/7/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sex</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>seks</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>tjïjhtje</l>
+    </lg>
+    <media>
+      <images>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/8/images/tj_ii_jhtje.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/8/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/8/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/8/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>sju</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>syv</t>
+      </tg>
+    </mg>
+  </e>
+  <e>
+    <lg>
+      <l>gaektsie</l>
+    </lg>
+    <media>
+      <images>
+        <image device="mobile" size="small">
+          <path><![CDATA[/static/media/concepts/numbers/9/images/gaektsie-small-mobile.jpg]]></path>
+        </image>
+        <image size="orig">
+          <path><![CDATA[/static/media/concepts/numbers/9/images/gaektsie.jpg]]></path>
+        </image>
+      </images>
+      <sounds>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/9/audio/AD.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/9/audio/ED.mp3]]></path>
+        </sound>
+        <sound>
+          <path><![CDATA[/static/media/concepts/numbers/9/audio/KB.mp3]]></path>
+        </sound>
+      </sounds>
+    </media>
+    <mg>
+      <semantics>
+        <sem class="NUMERALS"/>
+        <sem class="NUMBERS"/>
+      </semantics>
+      <tg xml:lang="swe">
+        <t>åtta</t>
+      </tg>
+      <tg xml:lang="nob">
+        <t>åtte</t>
+      </tg>
+    </mg>
+  </e>
+</r>
+
