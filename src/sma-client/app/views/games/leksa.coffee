@@ -96,12 +96,14 @@ module.exports = class LeksaView extends Backbone.View
       points_given = 0
     #
     # Create the log entry in the user progression
+    # TODO: remove question, rely only on question_category and ..._level
     log = app.leksaUserProgression.logActivity
       game_name: "leksa"
       question_concept: concept.get('id')
       question_concept_value: concept_name
       question_correct: correct
-      question: question_generator
+      question_category: question_generator.get('category')
+      question_category_level: question_generator.get('level')
       points: points_given
       cycle: question_generator.get('cycle')
 
@@ -119,16 +121,6 @@ module.exports = class LeksaView extends Backbone.View
     $(user_input).addClass('incorrect')
     @logConcept(q.generator, correct_answer_concept, false)
     false
-
-  updateLogPanel: (entry) ->
-    # Collate results from app.leksaUserProgression collection, display
-    # them.
-    concept_prog = app.leksaUserProgression.collateConcepts app.conceptdb
-    $('#stat_block').html StatTemplate
-      total: app.leksaUserProgression.models.length
-      correct: app.leksaUserProgression.totalCorrect()
-      concept_progress: concept_prog
-      total_points: app.leksaUserProgression.countPoints()
 
   # # #
   # # #  Progress bar
@@ -330,8 +322,5 @@ module.exports = class LeksaView extends Backbone.View
       @auto_advance_handler = setInterval( autoAdvance, 7000)
 
     @first = true
-
-    # Bind an event to user progression-- TODO: move elsewhere
-    app.leksaUserProgression.on('add', @updateLogPanel)
 
     return this

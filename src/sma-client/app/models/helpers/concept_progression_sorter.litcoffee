@@ -24,7 +24,8 @@ list of `concepts`, and the `userprogression`.
 Grab only the user progression for this question.
 
       userprogression = up.filter (u) =>
-        u.get('question').cid == q.cid
+        u.get('question_category') == q.get('category') and
+        u.get('question_category_level') == q.get('level')
 
       if app.debug
         console.log "#{q.cid} - #{userprogression.length} run-throughs"
@@ -48,7 +49,8 @@ been answered as correct by the user.
       getProgressionCorrectCountForConcept = (c) =>
         zups = userprogression
           .filter (up) =>
-            up.get('question') == q
+            up.get('question_category') == q.get('category') and
+            up.get('question_category_level') == q.get('level')
           .filter (up) =>
             up.get('question_concept') == c.get('id')
           .filter (up) =>
