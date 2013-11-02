@@ -20,14 +20,17 @@ The expected input format for the directory is as follows:
             categories.info
             face/
                 category.info
+                images/
 
 The general overview is that:
 
  * concepts are defined by their own directory and concept.info file
  * lexical data is read from .info (.yaml) files
- * media is found automatically by traversing each concept directory
+ * concept media is found automatically by traversing each concept directory
    - some media meta data is specified by filename (*-small-mobile.jpg,
    etc.)
+ * category media must reside in images/, but categories can contain
+   subcategories in their own directories marked with `category.info`.
 
 ## Details
 
@@ -304,6 +307,118 @@ def read_concepts_directory(concept_dir):
 
     return concepts
 
+def read_category_media(category, category_dir):
+    """ Search a path, returning concepts matching image/ in the
+    mimetype.
+    """
+
+    import mimetypes
+
+    image_paths = []
+
+    for root, dirs, files in os.walk(category_dir):
+        for _file in files:
+            _type, _enc = mimetypes.guess_type(_file)
+            if _type is not None and 'image/' in _type:
+                image_paths.append(
+                    os.path.join(root, _file)
+                )
+
+    icons = []
+    backgrounds = []
+
+    for path in image_paths:
+        _file = os.path.basename(path)
+
+        _size = 'small'
+        _device = 'mobile'
+
+        if '-large' in _file:
+            _size = 'medium'
+            _device = 'tablet'
+
+        media_item = {
+            'path': path,
+            'size': _size,
+            'device': _device,
+        }
+        if _file.startswith('category-icon'):
+            icons.append(media_item)
+        if _file.startswith('category-background'):
+            backgrounds.append(media_item)
+
+    medias = {
+        'icons': icons,
+        'image': backgrounds
+    }
+
+    return medias
+
+def read_category_directory(category_dir):
+    """ Search a concepts directory for directories containing a
+    `category.info` file, and then return parsed concepts.
+    """
+
+    print >> sys.stderr, "Found category: "
+    print >> sys.stderr, "  " + category_dir
+
+    category_yaml_path = os.path.join(category_dir, 'category.info')
+
+    with open(category_yaml_path) as F:
+        category_yaml = yaml.load(F)
+
+    category = category_yaml.copy()
+
+    # Apply some defaults...
+
+    if 'main_menu' not in category:
+        category['main_menu'] = True
+
+    if 'activities' not in category:
+        category['activities'] = [
+             "wordlist",
+             "learn",
+             "practice",
+        ]
+
+    if 'media' not in category:
+        category['media'] = read_category_media(category, os.path.join(category_dir, 'images'))
+
+    # Read children, and apply some default values
+
+    category['children'] = walk_for_categories_sets(category_dir).get('Categories')
+
+    for subcat in category.get('children'):
+        subcat['main_menu'] = False
+        subcat['parent'] = category.get('category')
+
+    return category
+
+def walk_for_categories_sets(concept_path):
+    """ Find all the directories that are marked as being concepts
+    directories: containing a `category.info` file.
+    """
+
+    category_directories = find_directories_with(concept_path, 'category.info')
+
+    not_subcats = set()
+    # first, just exclude things that are contained
+    for category in category_directories:
+        for c in category_directories[:]:
+            if category.startswith(c) or c.startswith(category):
+                continue
+            else:
+                not_subcats.add(c)
+
+    not_subcategories = list(not_subcats)
+
+    # Flatten and read all concepts
+    categories = {
+        'Categories': map(read_category_directory, not_subcategories),
+    }
+
+    return categories
+
 def walk_for_concepts_sets(concept_path):
     """ Find all the directories that are marked as being concepts
     directories: containing a `concepts.info` file.
@@ -512,9 +627,6 @@ def read_categories(arguments):
     """ Read categories
     """
 
-    # TODO: consider subcategories -- need to find out if one category
-    # is contained by another
-
     _cwd = os.getcwd()
     media_dir = os.path.join(_cwd, arguments.get('<media_dir>'))
 
@@ -522,7 +634,9 @@ def read_categories(arguments):
         common = os.path.commonprefix([_cwd, media_dir])
         media_dir = media_dir.replace(common, '.')
 
-    categories = walk_for_categories_sets(concept_dir)
+    category_dir = os.path.join(media_dir, 'categories')
+
+    categories = walk_for_categories_sets(category_dir)
 
     if arguments.get('--output', False):
 

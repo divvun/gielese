@@ -1,16 +1,35 @@
 ## Today
 
+* user logs
+
+    - category
+    - level
+    
+    - test while logged in, test syncing
+
+* clean up media-serv code a littl
+
+* incorporate media dir reading into manage.py / database install process (can
+  probably skip generating XML, just build right from directory)
+
+* big media - rsync process
+
+* find any hardcoded 'sma' stuff ; generalize.
+
 * converting media: 
 
-  - body
+  - body 
   - face
   - house
   - numbers
-  - TODO: time
-  - TODO: nature - animals
-  - TODO: nature - world
-  - TODO: food
-  - TODO: greetings
+  - food
+  - phrases
+
+  - TODO: new media - time
+  - TODO: new media - nature - animals
+  - TODO: new media - nature - world
+  - TODO: new media - greetings
+  - TODO: new voices - body
 
   - TODO: category generation from directory structure
   - TODO: question logs need to be changed so that they store the category name
