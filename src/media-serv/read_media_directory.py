@@ -463,7 +463,7 @@ def replace_media_paths(concepts, replace_with):
 
     return fixed
 
-def replace_category_media_paths(category_set, replace_with):
+def replace_category_media_paths(categories, replace_with):
 
     def replace_path(p):
         new_path = replace_with + p[1::]
@@ -474,11 +474,12 @@ def replace_category_media_paths(category_set, replace_with):
             media['path'] = replace_path(media['path'])
         return media
 
-    categories = category_set.get('categories')
-
     fixed = []
     for c in categories:
         media = c.get('media').copy()
+
+        if 'children' in c:
+            c['children'] = replace_category_media_paths(c['children'], replace_with)
 
         if 'icon' in media:
             media['icon'] = map(get_replace, media['icon'])
@@ -490,7 +491,7 @@ def replace_category_media_paths(category_set, replace_with):
 
         fixed.append(c)
 
-    return {'categories': fixed}
+    return fixed
 
 def concepts_to_xml(concepts):
     """ Export to XML, following GT format, with additional media.
@@ -678,8 +679,10 @@ def read_categories(arguments):
     categories = walk_for_categories_sets(category_dir)
 
     if replace_path:
-        categories = replace_category_media_paths(categories,
-                                                  replace_path)
+        categories = {'categories': replace_category_media_paths(
+                        categories.get('categories'),
+                        replace_path)
+                     }
 
     if arguments.get('--output', False):
 
@@ -705,8 +708,6 @@ def main():
     if arguments.get('show', False):
         if arguments.get('example', False):
             extra_doc(arguments)
-
-    # print arguments
 
 if __name__ == "__main__":
     sys.exit(main())

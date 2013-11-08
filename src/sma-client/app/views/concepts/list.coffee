@@ -192,7 +192,7 @@ module.exports = class ConceptList extends Backbone.View
 
     getTxl = (m) =>
       translations = m.getTranslationsToLang translation_language
-      txl_string = (a.get('concept_value') for a in translations).join(', ')
+      txl_string = _.uniq((a.get('concept_value') for a in translations)).join(', ')
       m.set('txl_string', txl_string)
 
     sortTxl = (m) -> return m.get('txl_string')
@@ -224,25 +224,9 @@ module.exports = class ConceptList extends Backbone.View
       models: @concepts_in_order
       initial_model: initial.render().$el.html()
       get_success_color: get_success_color
-      getTxl: getTxl
     }
 
     @$el.find('ul#concept-list li:first').addClass('ui-btn-active-d')
     @calculateContentHeight()
-
-    # @$el.find('[data-textfill]').each (el) =>
-    #   _e = $(el)
-    #   _e.span = $(el).find('span')
-    #   _e.css('visibility', 'hidden')
-    #   console.log _e.span.css('font-size')
-
-    #   # if _e.span.width() > _e.width()
-        
-
-    #   # _font_size_px = $(el).css('font-size')
-    #   # _font_size = parseInt /^(\d*)px/.exec(_font_size_px)
-    #   # console.log _font_size
-    #   $(el).textfill
-    #     maxFontPixels: "16px"
 
     this

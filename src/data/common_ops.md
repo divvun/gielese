@@ -30,3 +30,12 @@ mogrify -resize 200x200 filename.jpg
 
 for file in `find . \ -type file -name "*.jpg"`;
     mogrify -resize 200x200 filename.jpg
+
+
+# Make category backgrounds
+
+find . \ -type file -name "*background-in.jpg" > files.txt
+
+for file in `cat files.txt`;
+    do echo "${file}" "${${file##*/}%-in.jpg}.jpg"  ;
+done
