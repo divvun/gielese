@@ -18,14 +18,14 @@ Subcategories:
     parent: "NATURE"
     media:
       icon:
-        - path: "/static/nature_animals/img/category-icon.jpg"
+        - path: "/static/media/categories/nature/animals/images/category-icon.jpg"
           device: "mobile"
           size: "small"
-        - path: "/static/nature_animals/img/category-icon-large.jpg"
+        - path: "/static/media/categories/nature/animals/images/category-icon-large.jpg"
           device: "tablet"
           size: "medium"
       image:
-        - path: "/static/nature_animals/img/category-background.jpg"
+        - path: "/static/media/categories/nature/animals/images/category-background.jpg"
           device: "mobile"
           size: "small"
 
@@ -39,14 +39,14 @@ Subcategories:
     parent: "NATURE"
     media:
       icon:
-        - path: "/static/nature_world/img/category-icon.jpg"
+        - path: "/static/media/categories/nature/world/images/category-icon.jpg"
           device: "mobile"
           size: "small"
-        - path: "/static/nature_world/img/category-icon-large.jpg"
+        - path: "/static/media/categories/nature/world/images/category-icon-large.jpg"
           device: "tablet"
           size: "medium"
       image:
-        - path: "/static/nature_world/img/category-background.jpg"
+        - path: "/static/media/categories/nature/world/images/category-background.jpg"
           device: "mobile"
           size: "small"
 
@@ -64,11 +64,11 @@ Categories:
     main_menu: true
     media:
       icon:
-        - path: "/static/ansikt/img/category-icon.jpg"
+        - path: "/static/media/categories/face/images/category-icon.jpg"
           device: "mobile"
           size: "small"
       image:
-        - path: "/static/ansikt/img/category-background.jpg"
+        - path: "/static/media/categories/face/images/category-background.jpg"
           device: "mobile"
           size: "small"
 
@@ -81,11 +81,28 @@ Categories:
     main_menu: true
     media:
       icon:
-        - path: "/static/heelsedh/img/category-icon.jpg"
+        - path: "/static/media/categories/greetings/images/category-icon.jpg"
           device: "mobile"
           size: "small"
       image:
-        - path: "/static/heelsedh/img/category-background.jpg"
+        - path: "/static/media/categories/greetings/images/category-background.jpg"
+          device: "mobile"
+          size: "small"
+  
+  - category: "PHRASES"
+    name: "Fraser"
+    semantics:
+      - "PHRASES"
+    activities: *ACTIVITIES
+    children: []
+    main_menu: true
+    media:
+      icon:
+        - path: "/static/media/categories/phrases/images/category-icon.jpg"
+          device: "mobile"
+          size: "small"
+      image:
+        - path: "/static/media/categories/phrases/images/category-background.jpg"
           device: "mobile"
           size: "small"
 
@@ -98,11 +115,11 @@ Categories:
     main_menu: true
     media:
       icon:
-        - path: "/static/beapmoe/img/category-icon.jpg"
+        - path: "/static/media/categories/food/images/category-icon.jpg"
           device: "mobile"
           size: "small"
       image:
-        - path: "/static/beapmoe/img/category-background.jpg"
+        - path: "/static/media/categories/food/images/category-background.jpg"
           device: "mobile"
           size: "small"
 
@@ -116,11 +133,11 @@ Categories:
     # TODO: not ready yet, but we want to show icons
     media:
       icon:
-        - path: "/static/house/img/category-icon.jpg"
+        - path: "/static/media/categories/house/images/category-icon.jpg"
           device: "mobile"
           size: "small"
       image:
-        - path: "/static/house/img/category-background.jpg"
+        - path: "/static/media/categories/house/images/category-background.jpg"
           device: "mobile"
           size: "small"
 
@@ -133,11 +150,11 @@ Categories:
     main_menu: true
     media:
       icon:
-        - path: "/static/numbers/img/category-icon.jpg"
+        - path: "/static/media/categories/numbers/images/category-icon.jpg"
           device: "mobile"
           size: "small"
       image:
-        - path: "/static/numbers/img/category-background.jpg"
+        - path: "/static/media/categories/numbers/images/category-background.jpg"
           device: "mobile"
           size: "small"
 
@@ -150,11 +167,11 @@ Categories:
     main_menu: true
     media:
       icon:
-        - path: "/static/time/img/category-icon.jpg"
+        - path: "/static/media/categories/time/images/category-icon.jpg"
           device: "mobile"
           size: "small"
       image:
-        - path: "/static/time/img/category-background.jpg"
+        - path: "/static/media/categories/time/images/category-background.jpg"
           device: "mobile"
           size: "small"
 
@@ -167,29 +184,29 @@ Categories:
     main_menu: true
     media:
       icon:
-        - path: "/static/body/img/category-icon.jpg"
+        - path: "/static/media/categories/body/images/category-icon.jpg"
           device: "mobile"
           size: "small"
       image:
-        - path: "/static/body/img/category-background.jpg"
+        - path: "/static/media/categories/body/images/category-background.jpg"
           device: "mobile"
           size: "small"
 
   - category: "NATURE"
-    name: "Natur"
+    name: "Dyjrh jïh eatneme"
     semantics:
       - "NATURE"
     main_menu: true
     media:
       icon:
-        - path: "/static/nature/img/category-icon.jpg"
+        - path: "/static/media/categories/nature/images/category-icon.jpg"
           device: "mobile"
           size: "small"
-        - path: "/static/nature/img/category-icon-large.jpg"
+        - path: "/static/media/categories/nature/images/category-icon-large.jpg"
           device: "tablet"
           size: "medium"
       image:
-        - path: "/static/nature/img/category-background.jpg"
+        - path: "/static/media/categories/nature/images/category-background.jpg"
           device: "mobile"
           size: "small"
     children:

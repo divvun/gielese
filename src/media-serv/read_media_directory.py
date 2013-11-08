@@ -97,7 +97,7 @@ Usage:
 Options:
   --output=format       Specifies the output format. XML, JSON, supported. [default: JSON]
   --absolute-paths      Use absolute paths instead of relative from `cwd`. [default: False]
-  --media-path=URL      Specify the path relative to the web root for media. [default: False]
+  --server-media-uri=URL      Specify the path relative to the web root for media. [default: False]
 """
 
 import os, sys
@@ -348,7 +348,7 @@ def read_category_media(category, category_dir):
             backgrounds.append(media_item)
 
     medias = {
-        'icons': icons,
+        'icon': icons,
         'image': backgrounds
     }
 
@@ -386,7 +386,7 @@ def read_category_directory(category_dir):
 
     # Read children, and apply some default values
 
-    category['children'] = walk_for_categories_sets(category_dir).get('Categories')
+    category['children'] = walk_for_categories_sets(category_dir).get('categories')
 
     for subcat in category.get('children'):
         subcat['main_menu'] = False
@@ -414,7 +414,7 @@ def walk_for_categories_sets(concept_path):
 
     # Flatten and read all concepts
     categories = {
-        'Categories': map(read_category_directory, not_subcategories),
+        'categories': map(read_category_directory, not_subcategories),
     }
 
     return categories
@@ -437,7 +437,8 @@ def walk_for_concepts_sets(concept_path):
 def replace_media_paths(concepts, replace_with):
 
     def replace_path(p):
-        return replace_with + p[1::]
+        new_path = replace_with + p[1::]
+        return new_path.replace('//', '/')
 
     def get_replace(media):
         if 'path' in media:
@@ -461,6 +462,35 @@ def replace_media_paths(concepts, replace_with):
         fixed.append(c)
 
     return fixed
+
+def replace_category_media_paths(category_set, replace_with):
+
+    def replace_path(p):
+        new_path = replace_with + p[1::]
+        return new_path.replace('//', '/')
+
+    def get_replace(media):
+        if 'path' in media:
+            media['path'] = replace_path(media['path'])
+        return media
+
+    categories = category_set.get('categories')
+
+    fixed = []
+    for c in categories:
+        media = c.get('media').copy()
+
+        if 'icon' in media:
+            media['icon'] = map(get_replace, media['icon'])
+
+        if 'image' in media:
+            media['image'] = map(get_replace, media['image'])
+
+        c['media'] = media
+
+        fixed.append(c)
+
+    return {'categories': fixed}
 
 def concepts_to_xml(concepts):
     """ Export to XML, following GT format, with additional media.
@@ -595,8 +625,8 @@ def read_concepts(arguments):
     media_dir = os.path.join(_cwd, arguments.get('<media_dir>'))
 
     # specify media path, requires relative paths
-    if arguments.get('--media-path', False):
-        replace_path = arguments.get('--media-path')
+    if arguments.get('--server-media-uri', False):
+        replace_path = arguments.get('--server-media-uri')
         common = os.path.commonprefix([_cwd, media_dir])
         media_dir = media_dir.replace(common, '.')
     else:
@@ -630,13 +660,26 @@ def read_categories(arguments):
     _cwd = os.getcwd()
     media_dir = os.path.join(_cwd, arguments.get('<media_dir>'))
 
-    if not arguments.get('--absolute-paths', False):
+    # specify media path, requires relative paths
+    if arguments.get('--server-media-uri', False):
+        replace_path = arguments.get('--server-media-uri')
         common = os.path.commonprefix([_cwd, media_dir])
         media_dir = media_dir.replace(common, '.')
+    else:
+        replace_path = False
+
+        if not arguments.get('--absolute-paths', False):
+            common = os.path.commonprefix([_cwd, media_dir])
+            media_dir = media_dir.replace(common, '.')
+
 
     category_dir = os.path.join(media_dir, 'categories')
 
     categories = walk_for_categories_sets(category_dir)
+
+    if replace_path:
+        categories = replace_category_media_paths(categories,
+                                                  replace_path)
 
     if arguments.get('--output', False):
 

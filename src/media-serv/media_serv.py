@@ -276,13 +276,16 @@ def concepts():
                        , mimetype="application/json"
                        )
 
-def prepare_categories(db):
-    import yaml
-    with open('../data/categories.yaml', 'r') as F:
-        data = yaml.load(F.read())
-    categories = data.get('Categories') + \
-                 data.get('Subcategories')
-    return categories
+def read_categories():
+    """ Minify.
+    """
+    from flask import json
+
+    with open('data/categories.json', 'r') as F:
+        json_data = json.loads(F.read().strip())
+        json = json.dumps(json_data)
+
+    return json
 
 # TODO: merge this with the above concept thing, it's basically the
 # same.
@@ -294,9 +297,7 @@ def categories():
 
     if not reprepare:
         try:
-            with open('data/categories.json', 'r') as F:
-                json_data = F.read().strip()
-            return Response( response=json_data
+            return Response( response=read_categories()
                            , status=200
                            , mimetype="application/json"
                            )
@@ -307,7 +308,7 @@ def categories():
     pretty = bool(request.args.get('pretty', False))
 
     if not cached:
-        categories = prepare_categories(db)
+        categories = read_categories(db)
         cache.set('categories.json', categories)
     else:
         categories = cached

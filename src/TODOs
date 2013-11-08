@@ -16,6 +16,12 @@
 
 * find any hardcoded 'sma' stuff ; generalize.
 
+* global config for app instance: 
+  - specifies media directory to parse
+  - activity settings (can get rid of leksa_questions, etc.)
+  - localization languages to use
+  - which language is the language to learn ('sma')
+
 * converting media: 
 
   - body 

@@ -8,7 +8,7 @@ find . \ -type file -name "*.mp3" | xargs -I {} ffmpeg -y -i {} -ab 96 {}
 
 
 # Find all files and copy appending suffix
-find . \ -type file -name "*.jpg" > files.txt
+find . \ -type file -name "*.jpg" | grep -v "mobile" | grep -v "tablet" > files.txt
 
 for file in `cat files.txt`;
     do cp "${file}" "${file:0:${#file} - ${#file##*/}}${${file##*/}%.jpg}-medium-tablet.jpg"  ;
