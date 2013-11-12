@@ -29,9 +29,10 @@ Here we find out if the user completed the question.
       find_cycle_for_progression: (userprog) ->
         logs_for_question = userprog
             .filter (up) =>
-              up? and up.get('question_category')? and up.get('question_level')
+              up? and up.get('question_category')? and up.get('question_level')?
             .filter (up) =>
-              up.get('question_category') and (up.get('question_category') == @get('question_category'))
+              up.get('question_category') and (up.get('question_category') == @get('question_category')) \
+                                          and (up.get('question_level') == @get('question_level'))
         return _.max(
           (p.get('cycle') for p in logs_for_question)
         )
@@ -55,7 +56,8 @@ was correct. Then return all the question concepts for these logs.
               .filter (up) =>
                 up?
               .filter (up) =>
-                up.get('question_category') and (up.get('question_level') == @get('question_level'))
+                up.get('question_category') and (up.get('question_category') == @get('question_category')) \
+                                            and (up.get('question_level') == @get('question_level'))
               .filter (up) =>
                 up.get('cycle') == cycle
               .filter (up) ->
@@ -77,8 +79,8 @@ How many times was the concept correct for each question?
             .filter (up) =>
               up.get('question_correct')
             .filter (up) =>
-              up.get('question_category') == @get('question_category') &&
-              up.get('question_level') == @get('question_level')
+              up.get('question_category') and (up.get('question_category') == @get('question_category')) \
+                                          and (up.get('question_level') == @get('question_level'))
             .length
         
         concepts = @select_question_concepts app.conceptdb
@@ -128,7 +130,8 @@ was correct. Then return all the question concepts for these logs.
               .filter (up) =>
                 up?
               .filter (up) =>
-                up.get('question') and (up.get('question').cid == @cid)
+                up.get('question_category') and (up.get('question_category') == @get('question_category')) \
+                                            and (up.get('question_level') == @get('question_level'))
               .filter (up) =>
                 up.get('cycle') == cycle
               .filter (up) ->
@@ -150,7 +153,8 @@ How many times was the concept correct for each question?
             .filter (up) =>
               up.get('question_correct')
             .filter (up) =>
-              up.get('question').cid == @cid
+              up.get('question_category') and (up.get('question_category') == @get('question_category')) \
+                                          and (up.get('question_level') == @get('question_level'))
             .length
         
         concepts = @select_question_concepts app.conceptdb
@@ -348,6 +352,10 @@ Here we increment the cycle if the current question is compelte
           _cs = []
           _cvs = []
           for c in cs
+            if not c?
+              continue
+            if not c.attributes?
+              continue
             _cv = chop_concept c.attributes.concept_value
             if _cv in _cvs
               continue

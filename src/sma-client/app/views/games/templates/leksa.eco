@@ -18,9 +18,8 @@
     <ul class="aajege-nav aajege-nav-right">
         <li class="icon-aajege-bag">
             <a href="#stats" id="userinfo_button" class="disable_auto_handler">
-                <span class="label">
-                    <span class="action"></span>
-                    <span class="user"> <%- gettext.gettext "Points" %></span>
+                <span class="label display-small">
+                    <span id="point_total"></span>
                 </span>
             </a>
         </li>

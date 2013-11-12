@@ -34,7 +34,7 @@ Examples:
     # Full amount of points awarded. (Points decrease for each second of
     # inactivity)
     #
-    points: 20
+    points: 50
 
     # Play a sound if associated with the question concept that is
     # displayed.
@@ -82,7 +82,7 @@ BpImgWord: &FACE_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -103,7 +103,7 @@ BpWordImg: &FACE_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -124,7 +124,7 @@ BodyImgWord: &BODY_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -145,7 +145,7 @@ BodyWordImg: &BODY_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -166,7 +166,7 @@ HouseImgWord: &HOUSE_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -187,7 +187,7 @@ HouseWordImg: &HOUSE_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -208,7 +208,7 @@ NumbersImgWord: &NUMBERS_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -229,7 +229,7 @@ NumbersWordImg: &NUMBERS_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -250,7 +250,7 @@ TimeImgWord: &TIME_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -271,7 +271,7 @@ TimeWordImg: &TIME_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -292,7 +292,7 @@ DefaultImgWord: &DEFAULT_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -311,7 +311,7 @@ DefaultWordImg: &DEFAULT_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -330,7 +330,7 @@ GreetingImgWord: &GREETING_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -351,7 +351,7 @@ GreetingWordImg: &GREETING_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -364,6 +364,48 @@ GreetingWordImg: &GREETING_WORD_IMG
     semantics:
       - "GREETINGS"
 
+PhrasesImgWord: &PHRASES_IMG_WORD
+  type: "image_to_word"
+  category: "PHRASES"
+  name: "Phrasess image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 50
+  sound: true
+
+  filters:
+    from_language: "img"
+    to_language: "sma"
+    semantics:
+      - "PHRASE"
+
+  answer_similarity:
+    semantics:
+      - "PHRASE"
+
+PhrasesWordImg: &PHRASES_WORD_IMG
+  type: "word_to_image"
+  category: "PHRASES"
+  name: "Phrasess image to word"
+
+  repetitions: 2
+  level: 1
+  answers: 1
+  points: 50
+  sound: true
+
+  filters:
+    from_language: "sma"
+    to_language: "img"
+    semantics:
+      - "PHRASE"
+
+  answer_similarity:
+    semantics:
+      - "PHRASE"
+
 FoodImgWord: &FOOD_IMG_WORD
   type: "image_to_word"
   category: "FOOD"
@@ -372,7 +414,7 @@ FoodImgWord: &FOOD_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -393,7 +435,7 @@ FoodWordImg: &FOOD_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -414,7 +456,7 @@ AnimalsImgWord: &ANIMALS_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -435,7 +477,7 @@ AnimalsWordImg: &ANIMALS_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -456,7 +498,7 @@ WorldImgWord: &WORLD_IMG_WORD
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -477,7 +519,7 @@ WorldWordImg: &WORLD_WORD_IMG
   repetitions: 2
   level: 1
   answers: 1
-  points: 20
+  points: 50
   sound: true
 
   filters:
@@ -500,17 +542,17 @@ Questions:
   - <<: *FACE_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *FACE_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *FACE_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
 
   # -*- body -*- 
   
@@ -519,17 +561,17 @@ Questions:
   - <<: *BODY_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *BODY_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *BODY_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
 
   # -*- house -*- 
   
@@ -538,17 +580,17 @@ Questions:
   - <<: *HOUSE_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *HOUSE_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *HOUSE_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
 
   # -*- numbers -*- 
   
@@ -557,17 +599,17 @@ Questions:
   - <<: *NUMBERS_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *NUMBERS_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *NUMBERS_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
 
   # -*- time -*- 
   
@@ -576,17 +618,17 @@ Questions:
   - <<: *TIME_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *TIME_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *TIME_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
 
 
   # -*- default -*- 
@@ -596,17 +638,17 @@ Questions:
   - <<: *DEFAULT_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *DEFAULT_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *DEFAULT_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
 
 
   # -*- heelsedh -*- 
@@ -616,17 +658,36 @@ Questions:
   - <<: *GREETING_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *GREETING_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *GREETING_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
+ 
+  # -*- heelsedh -*- 
+
+  - <<: *PHRASES_IMG_WORD
+
+  - <<: *PHRASES_WORD_IMG
+    level: 2
+    answers: 2
+    points: 50
+
+  - <<: *PHRASES_WORD_IMG
+    level: 3
+    answers: 3
+    points: 50
+
+  - <<: *PHRASES_WORD_IMG
+    level: 4
+    answers: 4
+    points: 50
 
   # -*- food -*- 
 
@@ -635,17 +696,17 @@ Questions:
   - <<: *FOOD_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *FOOD_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *FOOD_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
 
   # -*- nature-world -*- 
 
@@ -654,17 +715,17 @@ Questions:
   - <<: *WORLD_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *WORLD_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *WORLD_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
 
   # -*- nature-animals -*- 
 
@@ -673,17 +734,17 @@ Questions:
   - <<: *ANIMALS_WORD_IMG
     level: 2
     answers: 2
-    points: 40
+    points: 50
 
   - <<: *ANIMALS_WORD_IMG
     level: 3
     answers: 3
-    points: 60
+    points: 50
 
   - <<: *ANIMALS_WORD_IMG
     level: 4
     answers: 4
-    points: 80
+    points: 50
 
   # -*- test -*-
   - type: "image_to_word"
@@ -692,7 +753,7 @@ Questions:
 
     level: 1
     answers: 1
-    points: 20
+    points: 50
     sound: true
     repetitions: 1
 
@@ -712,7 +773,7 @@ Questions:
 
     level: 2
     answers: 3
-    points: 100
+    points: 50
     sound: true
     repetitions: 0
 
@@ -732,7 +793,7 @@ Questions:
 
     level: 3
     answers: 3
-    points: 100
+    points: 50
     sound: true
     repetitions: 1
 

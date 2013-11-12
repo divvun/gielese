@@ -43,6 +43,7 @@ module.exports = class LeksaView extends Backbone.View
 
   reset_auto_event: () ->
     clearInterval @auto_advance_handler
+    clearInterval @countdown_handle
     return true
 
   newQuestionSameGroup: (evt) ->
@@ -92,6 +93,8 @@ module.exports = class LeksaView extends Backbone.View
 
     if correct
       points_given = @cur_points
+      if points_given < 0
+        points_given = 0
     else
       points_given = 0
     #
@@ -110,6 +113,9 @@ module.exports = class LeksaView extends Backbone.View
     return true
 
   incorrectAnswer: (q, user_input) ->
+
+    if @cur_points > 10
+      @cur_points -= 10
 
     user_answer_concept = q.answer
     correct_answer_concept = q.question
@@ -159,6 +165,12 @@ module.exports = class LeksaView extends Backbone.View
 
     return q
 
+  displayUserPoints: ->
+    count = app.leksaUserProgression.countPoints()
+    @$el.find('#point_total').html count
+    return
+
+
   renderQuestion: ->
     # Select a question, render it, bind event handlers to each possible
     # answer
@@ -168,6 +180,8 @@ module.exports = class LeksaView extends Backbone.View
     $('.set_done_options').hide()
 
     window.scrollTo(0,0)
+
+    @displayUserPoints()
 
     # check if the question has been preselected by the click event in the
     # router
@@ -249,8 +263,10 @@ module.exports = class LeksaView extends Backbone.View
 
     countdownPoints = (evt) =>
       if @cur_points > 5
-        @cur_points -= 1
+        @cur_points -= 5
         @pts_bubble.find('.points').html("+#{@cur_points}")
+        if app.debug
+          console.log "available points: #{@cur_points}"
 
     @countdown_handle = setInterval(countdownPoints, 1000)
 
