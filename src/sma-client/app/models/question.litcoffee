@@ -29,9 +29,9 @@ Here we find out if the user completed the question.
       find_cycle_for_progression: (userprog) ->
         logs_for_question = userprog
             .filter (up) =>
-              up? and up.get('question').cid?
+              up? and up.get('question_category')? and up.get('question_level')
             .filter (up) =>
-              up.get('question') and (up.get('question').cid == @cid)
+              up.get('question_category') and (up.get('question_category') == @get('question_category'))
         return _.max(
           (p.get('cycle') for p in logs_for_question)
         )
@@ -55,7 +55,7 @@ was correct. Then return all the question concepts for these logs.
               .filter (up) =>
                 up?
               .filter (up) =>
-                up.get('question') and (up.get('question').cid == @cid)
+                up.get('question_category') and (up.get('question_level') == @get('question_level'))
               .filter (up) =>
                 up.get('cycle') == cycle
               .filter (up) ->
@@ -71,13 +71,14 @@ How many times was the concept correct for each question?
         getProgressionCorrectCountForConcept = (c) =>
           userprogression
             .filter (up) =>
-              up.get('question_concept') == c.get('id')
+              up.get('question_concept') == c.get('concept_value')
             .filter (up) =>
               up.get('cycle') == cycle
             .filter (up) =>
               up.get('question_correct')
             .filter (up) =>
-              up.get('question').cid == @cid
+              up.get('question_category') == @get('question_category') &&
+              up.get('question_level') == @get('question_level')
             .length
         
         concepts = @select_question_concepts app.conceptdb
@@ -143,7 +144,7 @@ How many times was the concept correct for each question?
         getProgressionCorrectCountForConcept = (c) =>
           userprogression
             .filter (up) =>
-              up.get('question_concept') == c.get('id')
+              up.get('question_concept') == c.get('concept_value')
             .filter (up) =>
               up.get('cycle') == cycle
             .filter (up) =>

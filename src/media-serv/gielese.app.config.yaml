@@ -1,0 +1,29 @@
+﻿# access via:
+#   app.config.services.sqlite3.file
+#   NB: root keys are transformed to lowercase
+
+# Define service paths
+Services:
+  sqlite3:
+    file: "media_serv.db"
+  mongodb:
+    host: "127.0.0.1"
+
+# This is the languagey stuff. 
+Languages:
+  target_language: 
+    iso: "sma"
+    name: "Åarjelsaemien"
+
+  # Track localizations for...
+  # NB: this doesn't control generating localization
+  #     files, simply certain endpoints for providing
+  #     localization data
+  localization_languages:
+    - "no"
+    - "sv"
+    - "en"
+
+Games:
+  leksa:
+    file: 'gielese.leksa_levels.config.yaml'

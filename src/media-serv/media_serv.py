@@ -1,4 +1,6 @@
 # -*- encoding: utf-8 -*-
+import os, sys
+
 from flask import ( Flask, request, redirect, session, json,
                     render_template, Response, url_for)
 
@@ -8,9 +10,43 @@ from database import db
 
 from flask.ext.pymongo import PyMongo
 
+class YamlConf(object):
+    def __repr__(self):
+        settings = dict([(k, self.__getattribute__(k)) for k in self.keys])
+        return "<YamlConfig: %s>" % repr(settings)
+
+    def __init__(self, *args, **kwargs):
+        self.keys = set()
+
+        for k, v in kwargs.iteritems():
+            self.keys.add(k)
+            if isinstance(v, dict):
+                self.__setattr__(k, YamlConf(**v))
+            else:
+                self.__setattr__(k, v)
+
+def apply_yaml_config(app, _yamlfile):
+    import yaml
+
+    with open(_yamlfile, 'r') as F:
+        yaml_confs = yaml.load(F.read())
+
+    for section, confs in yaml_confs.iteritems():
+        if hasattr(app.config, section):
+            print 'Renaming %s, key already exists in Flask config' % section
+            sys.exit()
+        setattr(app.config, section.lower(), YamlConf(**confs))
+
+    return app
+
+
+
 def create_app():
-    import os
+    _yamlfile = os.environ.get('MEDIA_SERV_CONF_PATH')
+
     app = Flask(__name__, static_url_path='/static',)
+
+    app = apply_yaml_config(app, _yamlfile)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////%s/media_serv.db' % os.getcwd()
     db.init_app(app)
     mongo = PyMongo(app)
@@ -31,7 +67,6 @@ app.config['cache'] = cache
 @app.route('/favicon.ico')
 def favicon():
     from flask import send_from_directory
-    import os
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
@@ -48,7 +83,6 @@ def favicon():
 # something.
 
 def format_as_gettextjs(locale):
-    import os, sys
     import polib
     import json
     from operator import itemgetter
@@ -92,7 +126,7 @@ def format_as_gettextjs(locale):
 
         out_json.update(**messages)
 
-        return {domain: out_json} 
+        return {domain: out_json}
 
     _pofile = fmt_pofile('translations/%s/LC_MESSAGES/messages.po' % locale)
 
@@ -112,13 +146,10 @@ def fetch_messages(locale):
 
     return dict( [(e.msgid, e.msgstr or False) for e in jsentries] )
 
-
 def prepare_translations(db):
-    translations = ['sma', 'no', 'sv', 'en']
     data = [ {'locale': lx, 'messages': fetch_messages(lx)}
-             for lx in translations ]
+             for lx in app.config.languages.localization_languages ]
     return data
-
 
 ##
 ### JSON data files endpoints
@@ -175,7 +206,6 @@ def get_messages_for(locale):
                    , mimetype="application/json"
                    )
 
-
 @app.route('/offline.media.appcache', methods=['GET'])
 def cache_manifest():
     from flask import Response
@@ -186,7 +216,7 @@ def cache_manifest():
 
 def prepare_leksa_questions(db):
     import yaml
-    with open('../data/leksa_levels.yaml', 'r') as F:
+    with open(app.config.games.leksa.file, 'r') as F:
         data = yaml.load(F.read())
 
     questions = data.get('Questions')
@@ -343,7 +373,6 @@ def landing():
     from flask import Response
     return render_template('landing.html')
 
-
 @app.route('/play/', methods=['GET'])
 def client():
     from flask import Response
@@ -355,9 +384,6 @@ def client_offline():
     return render_template('offline_index.html')
 
 app.debug = True
-
-import sys
-
 
 with open('secret_key', 'r') as F:
     app.secret_key = F.read().strip()

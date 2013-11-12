@@ -99,7 +99,7 @@ module.exports = class LeksaView extends Backbone.View
     # TODO: remove question, rely only on question_category and ..._level
     log = app.leksaUserProgression.logActivity
       game_name: "leksa"
-      question_concept: concept.get('id')
+      question_concept: concept.get('concept_value')
       question_concept_value: concept_name
       question_correct: correct
       question_category: question_generator.get('category')

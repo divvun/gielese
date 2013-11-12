@@ -37,5 +37,14 @@ for file in `find . \ -type file -name "*.jpg"`;
 find . \ -type file -name "*background-in.jpg" > files.txt
 
 for file in `cat files.txt`;
-    do echo "${file}" "${${file##*/}%-in.jpg}.jpg"  ;
+    do cp "${file}" "${file:0:${#file} - ${#file##*/}}${${file##*/}%-in.jpg}-large.jpg"  ;
 done
+
+for file in `cat files.txt`;
+    do cp "${file}" "${file:0:${#file} - ${#file##*/}}${${file##*/}%-in.jpg}.jpg"  ;
+done
+
+find . \ -type file -name "*-background.jpg" | xargs -I {} mogrify -resize 440x440 {}
+find . \ -type file -name "*-background-large.jpg" | xargs -I {} mogrify -resize 768x768 {}
+
+rm files.txt

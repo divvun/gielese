@@ -52,7 +52,7 @@ been answered as correct by the user.
             up.get('question_category') == q.get('category') and
             up.get('question_category_level') == q.get('level')
           .filter (up) =>
-            up.get('question_concept') == c.get('id')
+            up.get('question_concept') == c.get('concept_value')
           .filter (up) =>
             up.get('question_correct')
         if max_repeats

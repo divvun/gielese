@@ -34,12 +34,11 @@
   - numbers
   - food
   - phrases
+  - nature - animals
+  - nature - world
+  - greetings
 
   - TODO: new media - time
-  - TODO: new media - nature - animals
-  - TODO: new media - nature - world
-  - TODO: new media - greetings
-  - TODO: new voices - body
 
   - TODO: category generation from directory structure
   - TODO: question logs need to be changed so that they store the category name
