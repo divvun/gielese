@@ -1,10 +1,11 @@
-# done
-
 ## Today
 
-* TODO: https://github.com/okamototk/jqm-mobile-bookmark-bubble
+* Sjur: send skjermbilete av talordsbileta som går utanfor ramma
 
-* safari favorite icon
+* innloggingssida blir av og til mykje større på iPhone 4S, slik at delar av
+  sida hamnar utanfor skjermen; det skjer typisk etter at ein har trykt på
+  knappar på innlogginssida, men før ein trykkjer på "Spel"
+
 
 * login form needs more work
  - error fields not highlighted, just text
@@ -15,24 +16,13 @@
 
 * Tsåahka - missing words - missing concept directory
 
-** manglar poppup om ein skriv feil passord
+* TODO: https://github.com/okamototk/jqm-mobile-bookmark-bubble
 
-* det må vera mogleg å klikka seg tilbake til innloggingssida - det var eit problem i Östersund, men har ikkje hendt etterpå
-  - test various situations for going back
+* safari favorite icon
 
 ** funksjonalitet med video
-* Sjur: send skjermbilete av talordsbileta som går utanfor ramma
-* Design: iPhone 4S vs. 5; skjermhøgde
-* poenggjevinga meir konsistent
 
-    * poenga verkar tilfeldige, og dermed ikkje oppmuntrande
-    *** går raskare ned for meir avanserte nivå (5 poeng per halv? kanskje, meir om det seinare) sekund?)
-
-* innloggingssida blir av og til mykje større på iPhone 4S, slik at delar av
-  sida hamnar utanfor skjermen; det skjer typisk etter at ein har trykt på
-  knappar på innlogginssida, men før ein trykkjer på "Spel"
-
-** send skjermbilete av dette problemet
+* poeng: går raskare ned for meir avanserte nivå (5 poeng per halv? kanskje, meir om det seinare) sekund?)
 
 * betre tilbakemelding til brukaren på poengsida når ein er innlogga anonymt
 * ordlista rullar ikkje no

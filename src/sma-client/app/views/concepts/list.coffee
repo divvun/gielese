@@ -165,11 +165,11 @@ module.exports = class ConceptList extends Backbone.View
   template: ConceptListTemplate
 
   calculateContentHeight: ->
-    header_height = $('.aajege-header').height()
+    header_height = $('.aajege-header').outerHeight()
     window_height = $(window).height()
 
     @$el.find('#concepts_content').css('height',
-      "#{window_height - header_height - 50}px"
+      "#{window_height - header_height}px"
     )
 
     return false
