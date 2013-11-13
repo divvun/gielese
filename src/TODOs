@@ -20,16 +20,11 @@
 ** funksjonalitet med video
 
 * login form needs more work
- - error fields not highlighted, just text
- - text needs to be translated to localization langs.
+ - error fields not highlighted in certain instances?
+ - enter login info, then choose a language ; data deleted - must store
+   temporarily until form is submitted, then delete
 
 * poeng: går raskare ned for meir avanserte nivå (5 poeng per halv? kanskje, meir om det seinare) sekund?)
-
-* betre tilbakemelding til brukaren på poengsida når ein er innlogga anonymt
-* ordlista rullar ikkje no
-* høgtalarknappen er kappa på ordlistesida
-
-** nokre små problem med atferd av skjemaet, viss man skriv inn og so vel språk, og går attende til anonymt; sjekk at alt fungerar, og prøv å bryte skjemaet
 
 * chart doesn't work on mobile: http://bl.ocks.org/mbostock/5682158
 
