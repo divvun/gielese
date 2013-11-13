@@ -56,7 +56,7 @@ module.exports = class UserStats extends Backbone.View
     for [cat, col] in _.zip(catego, colors)
       logs = app.leksaUserProgression
                 .filter (q) =>
-                  q.get("question").category is cat if q.get("question")?
+                  q.get("question_category") is cat if q.get("question_category")?
 
       _points = logs.map (l) -> l.get('points')
       points = _.reduce(_points, ((memo, num) -> memo + num), 0)
@@ -134,16 +134,21 @@ module.exports = class UserStats extends Backbone.View
           'percent': (total_questions_correct/total_questions_tried)*100
         }
 
-    if app.user
+    if app.leksaUserProgression.length > 0
       points = app.leksaUserProgression.countPoints()
     else
       points = false
+
+    user = false
+    if app.user
+      user = true
 
     @$el.html @template
       logs: models
       category_scores: correct_for_category
       highscore_visible: app.options.getSetting('highscore_visible')
       points_total: points
+      user: user
 
     if app.leksaUserProgression.length > 0
       @categoryChart()

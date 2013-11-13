@@ -14,36 +14,36 @@
         <h3><%- @points_total %> <%- gettext.gettext "points" %></h3>
     <% end %>
 
-<% if @logs.length > 0: %>
+    <% if @logs.length > 0: %>
 
-    <div class="seventy_thirty_grid">
-        <div class="row">
-            <div class="item">
-                <canvas id="category_use" width="150" height="150">
-                </canvas>
+        <div class="seventy_thirty_grid">
+            <div class="row">
+                <div class="item">
+                    <canvas id="category_use" width="150" height="150">
+                    </canvas>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="item">
-                <div id="categories">
-                    <!-- stats_category_legend.eco -->
+            <div class="row">
+                <div class="item">
+                    <div id="categories">
+                        <!-- stats_category_legend.eco -->
+                    </div>
                 </div>
             </div>
         </div>
+
+    <% else: %>
+
+        <h3><%- gettext.gettext "Learn some words to see stats!" %></h3>
+
+    <% end %>
+
+    <h3><%- gettext.gettext "High scores" %></h3>
+    <div id="high_scores">
+        <%- gettext.gettext "Loading..." %>
     </div>
 
-<% else: %>
-
-    <h3><%- gettext.gettext "Learn some words to see stats!" %></h3>
-
-<% end %>
-
-    <% if app.user: %>
-        <h3><%- gettext.gettext "High scores" %></h3>
-        <div id="high_scores">
-            <%- gettext.gettext "Loading..." %>
-        </div>
-
+    <% if @user: %>
         <form id="display_stats">
             <ul data-role="listview" data-inset="true">
                 <li data-role="fieldcontain">
@@ -70,6 +70,8 @@
                 </li>
             </ul>
         </form>
+    <% else: %>
+        <p><%- gettext.gettext "You are playing anonymously, so your points may not be stored if you leave the app." %></p>
     <% end %>
 
 </div>

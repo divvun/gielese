@@ -1,18 +1,15 @@
 ## Today
 
-* Sjur: send skjermbilete av talordsbileta som går utanfor ramma
+* disable link on level one auto-advance, users can get points with no work by
+  clicking answers
 
-* innloggingssida blir av og til mykje større på iPhone 4S, slik at delar av
-  sida hamnar utanfor skjermen; det skjer typisk etter at ein har trykt på
-  knappar på innlogginssida, men før ein trykkjer på "Spel"
+* high scores endpoint for anonymous users?
 
+* stats link visible everywhere
 
-* login form needs more work
- - error fields not highlighted, just text
- - text needs to be translated to localization langs.
-
-* duplicates appearing again?
+* duplicates appearing again
   - some problem in question.litcoffee that also makes a question unrenderable
+
 
 * Tsåahka - missing words - missing concept directory
 
@@ -22,6 +19,10 @@
 
 ** funksjonalitet med video
 
+* login form needs more work
+ - error fields not highlighted, just text
+ - text needs to be translated to localization langs.
+
 * poeng: går raskare ned for meir avanserte nivå (5 poeng per halv? kanskje, meir om det seinare) sekund?)
 
 * betre tilbakemelding til brukaren på poengsida når ein er innlogga anonymt
@@ -30,6 +31,7 @@
 
 ** nokre små problem med atferd av skjemaet, viss man skriv inn og so vel språk, og går attende til anonymt; sjekk at alt fungerar, og prøv å bryte skjemaet
 
+* chart doesn't work on mobile: http://bl.ocks.org/mbostock/5682158
 
 * user logs
 
