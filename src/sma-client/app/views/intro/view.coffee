@@ -186,6 +186,7 @@ module.exports = class FrontPage extends Backbone.View
       setTimeout(@hideLoading, 500)
       $("#loginform_success").show()
       $('#account_created').hide()
+      $('#account_exists').show()
       $('#loginform_subsub').slideUp()
       $('.login_text').hide()
       $('.begin_text').show()

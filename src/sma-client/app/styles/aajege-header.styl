@@ -1,7 +1,7 @@
-border-image()
-    -webkit-border-image: arguments /* Safari 5 */
-    -o-border-image: arguments /* Opera */
-    border-image: arguments
+border-image-bottom()
+    -webkit-border-image: arguments repeat round /* Safari 5 */
+    -o-border-image: arguments round /* Opera */
+    border-image: arguments round
 
 heavy-text-shadow(color)
     text-shadow: 2px 0px 2px color, 
@@ -23,7 +23,8 @@ heavy-text-shadow(color)
     width: 100%
 
     background-color: #dac9b6
-    border-image: url("/static/images/icons/flette.png") 0 0 14 0 round
+    // TODO: repeat_x? 
+    // border-image-bottom: url("/static/images/icons/flette.png") 0 0 14 0
 
     border-bottom: 12px solid transparent
 
@@ -41,6 +42,7 @@ heavy-text-shadow(color)
     hr.aajege-flette
         display: block
         position: relative
+        margin-top: 40px
         bottom: 0px
 
         height: 12px
@@ -126,8 +128,15 @@ heavy-text-shadow(color)
 
                 .display-small
                     display: inherit !important
+
             li a#userinfo_button
                 width: 38px
+
+            li a#userinfo_button.user_points
+                width: 38px
+
+                .label
+                    display: inherit !important
 
         h2 
             position: absolute

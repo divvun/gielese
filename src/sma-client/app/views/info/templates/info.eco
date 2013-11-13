@@ -6,6 +6,7 @@
         </li>
     </ul>
    <h2><%- gettext.gettext "About this app" %></h2>
+   <hr class="aajege-flette" />
 </div>
 
 <div data-role="content" id="info_text_content">

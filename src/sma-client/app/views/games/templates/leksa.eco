@@ -17,13 +17,14 @@
     </ul>
     <ul class="aajege-nav aajege-nav-right">
         <li class="icon-aajege-bag">
-            <a href="#stats" id="userinfo_button" class="disable_auto_handler">
-                <span class="label display-small">
+            <a href="#stats" id="userinfo_button" class="disable_auto_handler user_points">
+                <span class="label">
                     <span id="point_total"></span>
                 </span>
             </a>
         </li>
     </ul>
+    <hr class="aajege-flette" />
 </div>
 
 <div data-role="content">

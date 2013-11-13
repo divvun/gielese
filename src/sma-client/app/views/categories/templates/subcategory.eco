@@ -9,6 +9,7 @@
         </li>
     </ul>
     <h2> <%- gettext.gettext @category.get('name') %> </h2>
+    <hr class="aajege-flette" />
 </div>
 
 <div data-role="content" id="subcategory_menu">

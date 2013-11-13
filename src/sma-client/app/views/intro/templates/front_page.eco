@@ -5,6 +5,7 @@
             </a>
         </li>
     </ul>
+    <hr class="aajege-flette" />
 </div>
 <div data-role="content" id="front_page_content">
     <div data-role="fieldcontain" id="create_account">
@@ -36,12 +37,6 @@
                     </div>
                 </div>
                 <div class="validation_errors" />
-                <p style="display: none;" class="message error" id="account_exists_error">
-                    <%- gettext.gettext "Did you forget your password?" %>
-                    <!--
-                      <a type="button" data-theme="b" data-mini="true" href="#" id="remind"><%- gettext.gettext "Reset your password" %></a>
-                    -->
-                </p>
             </form>
         </div>
     </div>
