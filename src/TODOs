@@ -37,11 +37,6 @@
 
 * clean up media-serv code a littl
 
-* incorporate media dir reading into manage.py / database install process (can
-  probably skip generating XML, just build right from directory)
-
-* big media - rsync process
-
 * find any hardcoded 'sma' stuff ; generalize.
 
 * global config for app instance: 
@@ -52,48 +47,16 @@
 
 * converting media: 
 
-  - body 
-  - face
-  - house
-  - numbers
-  - food
-  - phrases
-  - nature - animals
-  - nature - world
-  - greetings
-
   - TODO: new media - time
-
-  - TODO: category generation from directory structure
-  - TODO: question logs need to be changed so that they store the category name
   - TODO: make questions all follow one generic structure, leksa_questions.yaml is too much
-  - TODO: categories.yaml will be automatically constructed from media dir
-
-* gaskebiejjiebeapmoe - concept list
-  - several means for resizing fonts, but they seem to be extremely cranky.
 
 * front page yes/no buttons
   - use opacity for color probs maybe? 
 
-Ting å fiksa:
 * larger version of logo for tablet
-
-* hjelpespråk norsk gjev ikkje knapptekst osb. på norsk
-* kornete bilete / treng å nytta dei større versjonar på større skjermstørrelse
-
-+ multiple media sizes automatically-- need to figure this out. 
 
 + question cycle tracking ready, now just user question cycle.
 
-+ TODO: CID on question for user logs goes missing on login -- or it's
-       there, but just incorrectly parsed.
-
-+ TODO: 
-   * audio now works in mobile safari, however i's another question
-   whether it will work iva the net, seems like slow downloads can
-   prevent playing in some cases
-
-   * http://creativejs.com/resources/web-audio-api-getting-started/
 
 * consider what client side events need logging
 
@@ -159,76 +122,18 @@ Ting å fiksa:
 
 #
 
-* offline workflow (TODO: test this) -- what happens with storage?
-
-  1. login
-  2. set options
-  3. internet disconnects / server not available
-  4. refresh
-  5. check settings
-  6. check log entries
-
-* how will the user progression work when a user has learned a lot of things,
-  and nothing is left to learn? maybe just have leksa construct things based on
-  log entries for the day, and then when nothing can be done, start showing
-  random items from the set? 
-
-* google analytics
-
-* password reset forms
-
-* email verification?
-
-* user flows to think about:
-
-  - user has cookie stored in browser, is online, and comes back to app which
-    needs to reload from the beginning. Session detection + localStorage +
-    download stuff that's changed.
-
-  - user plays anonymously for a while, then creates an account, where does data go?
-
-  - user plays anonymously offline, connects, and wants to send in data
-
-  - this one: 
-
-     (1) play in anonymous mode
-     (2) log in
-     (3) log out
-     (4) play in anonymous mode
-     (5) log in to a separate account?
-     
-       -> solution: delete existing history if user wants to log into separate
-          account than they previously did, but warn them first and tell them
-          they can cancel.
+* email verification? pw reset
 
 * need a means of forcing the app to work offline, independently of whatever
   browser reports
 
    - online/offline detection in chrome seems to work when wireless turns off.
 
-* working out offline sync of models in preparation for user stuff
-
-  - appCache - concepts, questions, translations
-  - localStorage - user log entries
-
-  - may be some success callbacks to fix, yet, but Sync.full, Sync.pull,
-    Sync.push seem to work
-
-* use user progression to remove possibility that a word is repeated twice in a
-  row, unless it is all that can be shown
-
-    - seems to work sometimes but not always
-
-* ï words - audio
-
-* test repeat avoidance in other types.
-
 * things to document: 
 
   - http://api.mongodb.org/python/current/tutorial.html
   - auth situation
-
-* TODO: wordlist - redo design
+  - html5 audio issues
 
 # Next
 
@@ -239,67 +144,11 @@ Ting å fiksa:
      localStorage, such that models will be used from that first when present
      and when the page loads... Then trigger sync and fetch later.
 
-
- * points
- * i18n
-
- * TODO: i18n / i10n - need to have all resources loaded first
-
- * TODO: 4 images type
-
- * TODO: wordlist
-   - one page not separate pages; different types for different screen
-     widths
-
- * TODO: intro page - download or not? 
-   - use time on intro page to figure out what device to download images
-   for, then fetch resources accordingly
-
- * TODO: store all options in some central place
-
- * FEATURE: visual map of levels
-   * FEATURE: description of question sets
-
- * FEATURE: UI in three languages: sma, nob, swe.
-   - existing code in NDS could be used to extract strings from .js, and manage
-     translations with pybabel in typical .po files.
-
-   - translation of concept words should go based on interface language, except
-   for when the language is sma, which then requires selection of nob or swe
-
- * level progression map, once we get more levels designed
-
- * what about a sound matching game, where you get a board of miscellaneous
-   cards, and you have to match the same word but in multiple voices
-
- * FEATURE: level-by-level enable sound feature, f.eks., in image->sma word,
-   may want to have sound off because it's a harder test
-
- * FEATURE: more points for faster answer
-
- * FEATURE: each level gets its own amount of points awarded for correct
-
- * FEATURE: progression of level sets
-
- * FEATURE: sessions
-   * send user progressions, receive from server
-   * load session before making games available
-
- * FEATURE: high scores list
-
- * BUG: no sound on iPhone 4S, iOS 5.1.1
-   - check that SoundManager supports this, and what to do when not 
-
-
 # Getting going
 
  * http://jquerymobile.com/
  * http://backbonejs.com/
  * http://brunch.io/
-
-## Misc
-
-TODO: switch to http://html5boilerplate.com/ for markup
 
 ## Things to read
 
@@ -312,184 +161,3 @@ The offline aspect of this app will need to be covered in two ways:
 
 TODO: write readme section about all the dependencies/things synced for offline
       mode
-
-#### Offline media storage
-
- * applicationCache - good for mobile, and desktop dev.
-   - http://caniuse.com/offline-apps
-   - should allow for easy discovery of new media files, and will use the cache
-     when the user is offline. May be some way to allow the user to force a
-     check, or manually set the application into offline mode for when they are
-     connected but just don't want the app to update.
-
-
-#### local DB storage stuff
-
- * overall, good idea seems to be: get the application working well first, then
-   figure out the storage scheme. Backbone.sync handles syncing of online and
-   offline data, so this should be fairly easy to override with one or another
-   local service when it is detected.
-
-   so far, persistencejs.org looks like a really nice thing to use, but just
-   needs some time testing out.
-
-##### Other notes...
-
- * No real need for indexeddb and SQL storage-- JSON formats seem to suffice.
-
- * Lots of entertaining BS involving choice in indexeddb and SQL storage:
-    http://caniuse.com/sql-storage
-     - supported in iOS browser, mobile chrome and android 
-     - not supported in FF (which is nice for mobile development)
-     - supported in chrome 
-     - deprecated spec
-
-    http://caniuse.com/indexeddb
-     - not deprecated
-     - supported in chrome, firefox
-     - not supported in mobile browsers
-
-   helpful comparison:
-     http://www.html5rocks.com/en/tutorials/webdatabase/websql-indexeddb/
-
-   backbone: 
-     websql - https://github.com/MarrLiss/backbone-websql
-     indexeddb - https://github.com/superfeedr/indexeddb-backbonejs-adapter
-
-   backbone.sync
-     http://backbonejs.org/docs/backbone.html#section-162
-
-   migrating websql to indexedb
-     http://www.html5rocks.com/en/tutorials/webdatabase/websql-indexeddb/
-
-   phonegap has own implementation for devices without local SQL
-   storage, which is compatible with spec
-
-     http://docs.phonegap.com/en/1.2.0/phonegap_storage_storage.md.html
-
-   also: http://persistencejs.org/
-
- * So, needs for offline storage: 
-   - storing user progression/details between sessions (trying to solve
-     this before something like phonegap comes in) 
-
-   - storing individual exercises and concept data
-     ALTERNATIVES:
-     - create .js file for static things like concepts and questions, include
-       in applicationCache, generate on server for sync, store user data in 
-       localStorage
-
-### game name
-
-? 
-
-### Lexical, sound, and image data
-
- * Use existing Oahpa source files for words
-
- * create extension .xml files for related images and sounds, lemma can be 
-   as detailed as it needs to be, and matching will go with most detailed first, 
-   so that we don't need to spend too much time duplicating info, but if
-   we need to match class="IV" vs class="TV", or hid="1" (govledh vs
-   govledh, svieredh, etc), we can.
-
- 
-   <e>
-      <lg>
-         <l>guelie</l>
-      </lg>
-      <media>
-        <!-- Paths are relative to this file, must be stored in CDATA tag
-             <![CDATA[stuff goes here]]>
-        -->
-        <img color="brown" texture="fuzzy"><![CDATA[images/img.jpg]]></img>
-        <sound gender="fem" age="young"><![CDATA[sounds/sound.wav]]></sound>
-      </media>
-      <mg>
-         <!-- 
-         if this is present, we can use it for including any additional
-         meanings that need to be included, otherwise, just use
-         additional data that was specified in previously installed
-         lexicon files, n_smanob.xml, v_smanob.xml, etc.
-         -->
-      </mg>
-  </e>
-
- * 
-
-
-
-### Module formats
-
-#### Database planning
-
- * Concepts 
-   - language (sma, img)
-   - type (word, img, sound)
-   - semantic tags (family, animate, animal, etc.)
-   - feature tags (bisyl, umlaut, round obj, etc.)
-     - will use these to produce examples that are similar in sound or
-       appearance
-   - translations (related objects in other lang)
-
- * Progression
-   - track user history, accuracy rate for game, game type, Concept success
-     rate; 
-   - try to determine whether users need to work on a specific concept, game
-     type, or game
-
- * Questions
-
-#### Wordlist
-
-##### Word model
-
- * semantic info
- * basic word / peripheral
- * frequency
- * difficult wordpairs / oppositions (td rj vs jr, etc)
- * image files
-   - different resolutions
- * sound files
-
-#### Leksa
-
-##### Simple words
-
- * Q: individual image
-   A: one of several words (sma)
- 
- * Q: individual word (sma)
-   A: one of several images
- 
- * Q: sma word
-   A: 1 of nob words
- 
- * Q: nob word
-   A: 1 of sma words
-
-###### UI
-
- - question
- - answers
- - Sound button(s) for printed words
- 
- - show learning progression, or progress on exercise? Progress bar, 1/10, 2/10, 3/10, etc.,?
-
-###### Features
-
- - wrong words from either similar semantic words, or similar orthographic form
-   (edit distance 2)
- 
- - progression: word -> image - show first one image, then two, then four 
- - keep track of individual user/word learning progression
- 
- - be able to clear learning progression
- - store in oahpa
- 
- - need to track: 
-   * times word has been shown as a correct answer (?)
-   * times user has guessed word correctly/incorrectly
-   * times user has played game
-
-

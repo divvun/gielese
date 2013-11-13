@@ -95,3 +95,29 @@ Further documentation on the command line tool's various options is [here](txopt
  * http://support.transifex.com/customer/portal/topics/440187-transifex-client/articles
  * `tx --help`
 
+### Developer notes:
+
+
+* HTML5 audio troubleshooting: http://creativejs.com/resources/web-audio-api-getting-started/
+
+ * Lots of entertaining BS involving choice in indexeddb and SQL storage:
+   backbone.sync
+     http://backbonejs.org/docs/backbone.html#section-162
+
+   phonegap has own implementation for devices without local SQL
+   storage, which is compatible with spec
+
+     http://docs.phonegap.com/en/1.2.0/phonegap_storage_storage.md.html
+
+   also: http://persistencejs.org/
+
+ * So, needs for offline storage: 
+   - storing user progression/details between sessions (trying to solve
+     this before something like phonegap comes in) 
+
+   - storing individual exercises and concept data
+     ALTERNATIVES:
+     - create .js file for static things like concepts and questions, include
+       in applicationCache, generate on server for sync, store user data in 
+       localStorage
+
