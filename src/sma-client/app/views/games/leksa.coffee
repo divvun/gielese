@@ -273,21 +273,24 @@ module.exports = class LeksaView extends Backbone.View
     #
     # Register answer click handlers
     @$el.find('#leksa_question a.answerlink').click (evt) =>
-      answerlink = $(evt.target).parents('.answerlink')
-      user_input = answerlink.attr('data-word')
-      answer_value = @q.answer.get('concept_value')
-      window.last_user_input = answerlink
-      if user_input == answer_value
-        # If user is correct, stop watching for additional clicks
-        @$el.find('#leksa_question a.answerlink').unbind('click').click (evt) ->
-          return false
-        @correctAnswer(@q, answerlink)
+      if @auto_advance?
+        return false
       else
-        @incorrectAnswer(@q, answerlink)
-      #
-      # rebind event to null result incase user clicks multiple times
-      answerlink.unbind('click').click (evt) -> return false
-      return false
+        answerlink = $(evt.target).parents('.answerlink')
+        user_input = answerlink.attr('data-word')
+        answer_value = @q.answer.get('concept_value')
+        window.last_user_input = answerlink
+        if user_input == answer_value
+          # If user is correct, stop watching for additional clicks
+          @$el.find('#leksa_question a.answerlink').unbind('click').click (evt) ->
+            return false
+          @correctAnswer(@q, answerlink)
+        else
+          @incorrectAnswer(@q, answerlink)
+        #
+        # rebind event to null result incase user clicks multiple times
+        answerlink.unbind('click').click (evt) -> return false
+        return false
 
     app.router.refreshCurrentPage()
 

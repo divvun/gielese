@@ -123,6 +123,8 @@ module.exports = class Router extends Backbone.Router
 
   splash: ->
     @changePage(app.splashView)
+    # testing
+    # return false
     if DSt.get('skip-splash')?
       time = 500
     else

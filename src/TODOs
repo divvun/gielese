@@ -1,23 +1,28 @@
-## Today
+## Done
 
 * disable link on level one auto-advance, users can get points with no work by
   clicking answers
 
+* splash page banner resize for tablet
+  - do better centering
+
+## Today
+
 * high scores endpoint for anonymous users?
 
-* stats link visible everywhere
+* banner seems to have a 1px grey border-- unsure of origin?
+
+* stats link visible on:
+  - game
+  - concept lists (text: "Poeng")
+  - category item (text: "Poeng")
 
 * duplicates appearing again
   - some problem in question.litcoffee that also makes a question unrenderable
 
-
 * Tsåahka - missing words - missing concept directory
 
-* TODO: https://github.com/okamototk/jqm-mobile-bookmark-bubble
-
-* safari favorite icon
-
-** funksjonalitet med video
+* funksjonalitet med video
 
 * login form needs more work
  - error fields not highlighted in certain instances?
@@ -26,13 +31,15 @@
 
 * poeng: går raskare ned for meir avanserte nivå (5 poeng per halv? kanskje, meir om det seinare) sekund?)
 
+* TODO: https://github.com/okamototk/jqm-mobile-bookmark-bubble
+** safari favorite icon
+
 * chart doesn't work on mobile: http://bl.ocks.org/mbostock/5682158
 
 * user logs
 
     - category
     - level
-    
     - test while logged in, test syncing
 
 * clean up media-serv code a littl

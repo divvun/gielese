@@ -2,9 +2,7 @@
     <div id="splash_content">
 
         <div id="big_logo">
-            <a href="#index">
-                <img src="/static/images/gielese_logo_liten.png" />
-            </a>
+            <img  />
         </div>
 
         <div id="splash_footer">
