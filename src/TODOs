@@ -1,11 +1,3 @@
-## Done
-
-* disable link on level one auto-advance, users can get points with no work by
-  clicking answers
-
-* splash page banner resize for tablet
-  - do better centering
-
 ## Today
 
 * high scores endpoint for anonymous users?
@@ -31,13 +23,9 @@
 
 * poeng: går raskare ned for meir avanserte nivå (5 poeng per halv? kanskje, meir om det seinare) sekund?)
 
-* TODO: https://github.com/okamototk/jqm-mobile-bookmark-bubble
-** safari favorite icon
-
 * chart doesn't work on mobile: http://bl.ocks.org/mbostock/5682158
 
 * user logs
-
     - category
     - level
     - test while logged in, test syncing
@@ -52,18 +40,12 @@
   - localization languages to use
   - which language is the language to learn ('sma')
 
-* converting media: 
+* bookmark bubble https://github.com/okamototk/jqm-mobile-bookmark-bubble
+** safari favorite icon
 
-  - TODO: new media - time
-  - TODO: make questions all follow one generic structure, leksa_questions.yaml is too much
-
-* front page yes/no buttons
-  - use opacity for color probs maybe? 
-
-* larger version of logo for tablet
+*  make questions all follow one generic structure, leksa_questions.yaml is too much
 
 + question cycle tracking ready, now just user question cycle.
-
 
 * consider what client side events need logging
 
@@ -71,61 +53,9 @@
   define semantics etc., except for with answer similarity, but that can be a
   filter off of the same category's concepts
 
-* for some reason changing UI lang doesn't reload translations-- any way to refresh from gettext 
-
-* TODO: level one shouldn't track user answers since it's more or less a
-  slideshow, but need to have this represented in source somehow so that
-  level cycling doesn't get messed with.
-
 * make user progression go based on a repetition count of the lessons,
   thus onece you hit end you can restart
 
-* manglar rullesjakt i ordlista når ein rullar (=vanskeleg å vita om ein har kome til slutten/starten, og kor lang lista er)
-  - problem, CSS and scrolling is really awkwardly suported across browsers. 
-
-
-+ TODO:  new media sets: 
-  * create various image sizes
-  * define category images
-  * check that semantic sets match up with leksa level definition
-  * there may be some complexity to simplify now, which can be seen while
-    adding new categories.
-
- + TODO: canvas stats graph doesn't work on android, maybe need an alternate
-
- + TODO: audio doesn't play automatically on gielese.no / maybe just
-   generally -- likely a problem with being able to download resources in
-   time.
-
- + TODO: missing image for mielhke 
-
- + TODO: server-synced objects stored in localStorage sometimes are extra
-   persistent, usersettings will have multiple objects for each setting,
-   matching revisions. Need to clear these things from localstorage. 
-
-    ? when in various workflows should Collection.storage.clear() be called?
-      only destroys storage, not local models stored in memory.
-
-      localStorage appears to be synced when synced with server as well, but 
-      what happens when there's no connection?
-
-    ? might be an issue of not clearing on login before settings are
-      downloaded-- check that.
-
- + TODO: all media sizes need to be available for the frontend to select and
-   download, but need to figure out:
-
-     + added device and size attributes to image files and image concepts
-
-     * how many files is this, and will they all need to
-       be downloaded, or designate one concept as the "title" concept
-
- + TODO: how much question data needs to be stripped before sending to server? 
-
- + TODO: bower, backbone and jquery mobile -- get these dependencies figured
-    out in `bower`, consider this documentation. brunch will automatically track
-    and install dependencies in bower, making less work for additional
-    developers to jump in
 
 #
 

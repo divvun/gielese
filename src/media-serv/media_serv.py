@@ -42,7 +42,7 @@ def apply_yaml_config(app, _yamlfile):
 
 
 def create_app():
-    _yamlfile = os.environ.get('MEDIA_SERV_CONF_PATH')
+    _yamlfile = os.environ.get('MEDIA_SERV_CONF_PATH', 'gielese.app.config.yaml')
 
     app = Flask(__name__, static_url_path='/static',)
 

@@ -90,6 +90,10 @@ def update_media_db():
     host, _, path = staging_remote_host_and_path.partition(':')
 
     media_db_path = path + '/src/media-serv/'
+    media_dir_path = path + '/src/media-serv/static/media/'
+
+    with cd(media_dir_path):
+        run("svn up")
 
     with cd(path):
         run("svn up")

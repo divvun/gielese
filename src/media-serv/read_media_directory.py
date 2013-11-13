@@ -330,8 +330,8 @@ def read_category_media(category, category_dir):
     for path in image_paths:
         _file = os.path.basename(path)
 
-        _size = 'small'
-        _device = 'mobile'
+        _size = 'original'
+        _device = 'desktop'
 
         if '-large' in _file:
             _size = 'medium'
