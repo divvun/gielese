@@ -57,7 +57,7 @@ module.exports = class Concept extends Backbone.Model
           return images_for_device[0].path
 
         return images_for_device
-    return false
+    return "/static/images/missing_concept_image.jpg"
 
   getTranslationsToLang: (lang) ->
     @getTranslations().filter (c) =>

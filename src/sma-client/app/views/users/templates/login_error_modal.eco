@@ -1,0 +1,12 @@
+<div id="loginErrorPopup" 
+     data-transition="pop" 
+     data-theme="a">
+
+    <div id="loginPopupPadding">
+        <div id="fail">
+            <%- @error_msg %>
+        </div>
+        <a data-role="button" data-rel="back" type="submit" data-theme="b"><%- gettext.gettext "Try again" %></a>
+    </div>
+
+</div>

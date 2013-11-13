@@ -2,6 +2,9 @@
 # Once this is set, need to skip this on further loads.
 
 FrontPageTemplate = require './templates/front_page'
+LoginErrorTemplate = require '/views/users/templates/login_error_modal'
+
+
 
 module.exports = class FrontPage extends Backbone.View
 
@@ -134,7 +137,7 @@ module.exports = class FrontPage extends Backbone.View
         # Append errors to form
         for error in fields
           if error == 'exists'
-            $('#account_exists_error').show()
+            @show_login_error(@_LOGIN_ACCOUNT_ERROR_EXISTS)
             continue
           error_msg = $("<span class='error'>")
           error_msg.html(error)
@@ -183,7 +186,6 @@ module.exports = class FrontPage extends Backbone.View
       setTimeout(@hideLoading, 500)
       $("#loginform_success").show()
       $('#account_created').hide()
-      $('#account_exists').show()
       $('#loginform_subsub').slideUp()
       $('.login_text').hide()
       $('.begin_text').show()
@@ -266,12 +268,30 @@ module.exports = class FrontPage extends Backbone.View
     #     @$el.find("##{sub}").slideDown()
     #   , 500)
 
+  show_login_error: (msg) ->
+    if @login_error_popup?
+      @login_error_popup.remove()
+
+    login_template = LoginErrorTemplate({error_msg: msg})
+
+    @$el.append(login_template)
+
+    @login_error_popup = @$el.find('#loginErrorPopup')
+    @login_error_popup.trigger('create')
+    @login_error_popup.popup().show().popup('open')
+
+    return 
+
+
   render: ->
     @total_questions = 2
     @questions_answered = 0
     @process_complete = false
 
     @$el.html @template
+    @_LOGIN_ACCOUNT_ERROR_EXISTS = gettext.gettext "Did you forget your password?"
+
+    # Initialize error template
 
     @loadSettings()
 

@@ -1,16 +1,11 @@
 # done
 
-* Dyjrh jïh ... - title sizing
-* max points for each level - 50
-* down 5 points per second
-* wrong answer: down 10
-* fix question/category sorting
-* clear point interval handler when exiting game
-* phrases - questions now work
-
-
 ## Today
 
+
+* login form needs more work
+ - error fields not highlighted, just text
+ - text needs to be translated to localization langs.
 
 * duplicates appearing again?
   - some problem in question.litcoffee that also makes a question unrenderable
@@ -28,13 +23,14 @@
 * poenggjevinga meir konsistent
 
     * poenga verkar tilfeldige, og dermed ikkje oppmuntrande
-    ** det må vera systematiske og konsistente poeng - ein fast minus for kvar feil, konsistent reduksjon i samsvar med tida
     *** går raskare ned for meir avanserte nivå (5 poeng per halv? kanskje, meir om det seinare) sekund?)
-    *** sekken skal visa samla poeng i det spelet du held på med
-    *** tala på sekken bør ha ein stil/grafisk form meir i stil med resten av utforminga
 
-* innloggingssida blir av og til mykje større på iPhone 4S, slik at delar av sida hamnar utanfor skjermen; det skjer typisk etter at ein har trykt på knappar på innlogginssida, men før ein trykkjer på "Spel"
+* innloggingssida blir av og til mykje større på iPhone 4S, slik at delar av
+  sida hamnar utanfor skjermen; det skjer typisk etter at ein har trykt på
+  knappar på innlogginssida, men før ein trykkjer på "Spel"
+
 ** send skjermbilete av dette problemet
+
 * betre tilbakemelding til brukaren på poengsida når ein er innlogga anonymt
 * ordlista rullar ikkje no
 * høgtalarknappen er kappa på ordlistesida
