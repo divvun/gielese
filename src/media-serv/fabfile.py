@@ -2,6 +2,7 @@
 import os
 import sys
 
+from fabric.colors import red, green, cyan
 from fabric.api import local, task, cd, settings, abort, run
 from fabric.api import env
 from fabric.contrib.console import confirm
@@ -49,11 +50,16 @@ def compile_translation_strings():
     media_db_path = path + '/src/media-serv/'
     client_path = path + '/src/sma-client/'
 
+    print(cyan("Compiling translation strings ..."))
     with virtualenv(media_db_path + '/env/'):
+        print(cyan("virtualenv ..."))
         with cd(media_db_path):
             run("svn up")
+            print(cyan("Pulling from transifex ..."))
             run("tx pull")
             run("pybabel compile -d translations")
+
+    print(cyan("Compiled translation strings ..."))
 
 @task
 def clear_node_modules_rebuild():
@@ -75,6 +81,7 @@ def update_target_envs():
 
     media_db_path = path + '/src/media-serv/'
     client_path = path + '/src/sma-client/'
+    print(cyan("Updating python and node environment packages ..."))
 
     with cd(path):
         run("svn up")
@@ -84,6 +91,7 @@ def update_target_envs():
 
         with cd(client_path):
             local("npm update")
+    print(cyan("Updated python and node environment packages ..."))
 
 @task
 def update_media_db():
@@ -92,7 +100,9 @@ def update_media_db():
     media_db_path = path + '/src/media-serv/'
     media_dir_path = path + '/src/media-serv/static/media/'
 
+    print(cyan("Installing media db..."))
     with cd(media_dir_path):
+        print(cyan("Concept media directory..."))
         run("svn up")
 
     with cd(path):
@@ -103,6 +113,7 @@ def update_media_db():
             run("rm data/*.json")
             run("mv media_serv.db media_serv.db.bak")
             run("sh install_db.sh")
+    print(cyan("Successfully installed media db..."))
 
 @task
 def npm_update_target(production=False):
@@ -114,18 +125,22 @@ def npm_update_target(production=False):
     else:
         production = ''
 
+    print(cyan("Updating npm..."))
+
     with cd(client_path):
         run("svn up")
 
         # recompile client
         with cd(client_path):
             run("npm update")
+    print(cyan("Updated npm..."))
 
 
 @task
 def brunch_build_target(production=False):
     host, _, path = staging_remote_host_and_path.partition(':')
 
+    print(cyan("Rebuilding client src ..."))
     client_path = path + '/src/sma-client/'
     if production:
         production = ' --production'
@@ -138,6 +153,7 @@ def brunch_build_target(production=False):
         # recompile client
         with cd(client_path):
             run("brunch build" + production)
+    print(cyan("Rebuilt client src ..."))
 
 @task
 def brunch_build_target_prod(production=False):
@@ -148,12 +164,14 @@ def deploy():
     """ everything: svn up, rebuild everything, recompile database and json
     """
 
+    print(cyan("Beginning deploy..."))
     svn_up_target()
     compile_translation_strings()
     update_media_db()
     npm_update_target()
     brunch_build_target_prod()
     hup()
+    print(cyan("Deploy process complete."))
 
 @task
 def hup():
@@ -162,6 +180,9 @@ def hup():
     media_db_path = path + '/src/media-serv/'
     client_path = path + '/src/sma-client/'
 
+    print(cyan(" Hup'ing media serv ..."))
     # hup hup hup
     with cd(media_db_path):
         run("kill -HUP `cat pidfile`")
+    print(cyan(" Hup'd media serv ..."))
+
