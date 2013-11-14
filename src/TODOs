@@ -1,13 +1,13 @@
-## Today
+* recover when concept is missing images in DB
+* notify media server with error msg
 
-* high scores endpoint for anonymous users?
+
+## Today
 
 * banner seems to have a 1px grey border-- unsure of origin?
 
 * stats link visible on:
-  - game
-  - concept lists (text: "Poeng")
-  - category item (text: "Poeng")
+  - poeng in small version?
 
 * duplicates appearing again
   - some problem in question.litcoffee that also makes a question unrenderable

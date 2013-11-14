@@ -17,10 +17,9 @@
     <h2><%- @category.get('name') %></h2>
     <ul class="aajege-nav aajege-nav-right">
         <li class="icon-aajege-bag">
-            <a href="#stats" id="userinfo_button">
+            <a href="#stats" id="userinfo_button" class="user_points">
                 <span class="label">
-                    <span class="action"></span>
-                    <span class="user"> <%- gettext.gettext "Points" %></span>
+                    <span class="point_name"><%- gettext.gettext "Points" %></span>
                 </span>
             </a>
         </li>

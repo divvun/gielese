@@ -23,16 +23,17 @@ answering all concepts in level correctly at least once.
 
       defaults:
         cycle: 1
+        tries: 0
 
 Here we find out if the user completed the question.
 
       find_cycle_for_progression: (userprog) ->
         logs_for_question = userprog
             .filter (up) =>
-              up? and up.get('question_category')? and up.get('question_level')?
+              up? and up.get('question_category')? and up.get('question_category_level')?
             .filter (up) =>
-              up.get('question_category') and (up.get('question_category') == @get('question_category')) \
-                                          and (up.get('question_level') == @get('question_level'))
+              up.get('question_category') and (up.get('question_category') == @get('category')) \
+                                          and (up.get('question_category_level') == @get('level'))
         return _.max(
           (p.get('cycle') for p in logs_for_question)
         )
@@ -56,8 +57,8 @@ was correct. Then return all the question concepts for these logs.
               .filter (up) =>
                 up?
               .filter (up) =>
-                up.get('question_category') and (up.get('question_category') == @get('question_category')) \
-                                            and (up.get('question_level') == @get('question_level'))
+                up.get('question_category') and (up.get('question_category') == @get('category')) \
+                                            and (up.get('question_category_level') == @get('level'))
               .filter (up) =>
                 up.get('cycle') == cycle
               .filter (up) ->
@@ -71,17 +72,15 @@ was correct. Then return all the question concepts for these logs.
 How many times was the concept correct for each question?
 
         getProgressionCorrectCountForConcept = (c) =>
-          userprogression
-            .filter (up) =>
-              up.get('question_concept') == c.get('concept_value')
-            .filter (up) =>
-              up.get('cycle') == cycle
-            .filter (up) =>
-              up.get('question_correct')
-            .filter (up) =>
-              up.get('question_category') and (up.get('question_category') == @get('question_category')) \
-                                          and (up.get('question_level') == @get('question_level'))
-            .length
+          cat = @get('category')
+          lev = @get('level')
+          userprogression.where({
+            question_concept: c.get('concept_value')
+            cycle: cycle
+            question_correct: true
+            question_category: cat
+            question_category_level: lev
+          }).length
         
         concepts = @select_question_concepts app.conceptdb
 
@@ -126,12 +125,13 @@ was correct. Then return all the question concepts for these logs.
         # this only checks the current cycle, which should be incremented
         # and stored unless user logs back in again
         if userprogression.length > 0
+          # TODO: rewrite to .where() once everything else is stable
           logs_for_question = userprogression
               .filter (up) =>
                 up?
               .filter (up) =>
-                up.get('question_category') and (up.get('question_category') == @get('question_category')) \
-                                            and (up.get('question_level') == @get('question_level'))
+                up.get('question_category') and (up.get('question_category') == @get('category')) \
+                                            and (up.get('question_category_level') == @get('level'))
               .filter (up) =>
                 up.get('cycle') == cycle
               .filter (up) ->
@@ -145,17 +145,15 @@ was correct. Then return all the question concepts for these logs.
 How many times was the concept correct for each question?
 
         getProgressionCorrectCountForConcept = (c) =>
-          userprogression
-            .filter (up) =>
-              up.get('question_concept') == c.get('concept_value')
-            .filter (up) =>
-              up.get('cycle') == cycle
-            .filter (up) =>
-              up.get('question_correct')
-            .filter (up) =>
-              up.get('question_category') and (up.get('question_category') == @get('question_category')) \
-                                          and (up.get('question_level') == @get('question_level'))
-            .length
+          cat = @get('category')
+          lev = @get('level')
+          userprogression.where({
+            question_concept: c.get('concept_value')
+            cycle: cycle
+            question_correct: true
+            question_category: cat
+            question_category_level: lev
+          }).length
         
         concepts = @select_question_concepts app.conceptdb
 
@@ -222,6 +220,9 @@ Here we increment the cycle if the current question is compelte
 
         # Possible question prompts matching filters
         q_concepts = conceptdb.filter (concept) =>
+          # remove concepts that have failed before
+          if concept.get('fails') == true
+            return false
           semantics  =  _.intersection( concept.get('semantics')
                                       , _filters.semantics
                                       )
@@ -234,6 +235,16 @@ Here we increment the cycle if the current question is compelte
         return q_concepts
 
       find_concepts: (conceptdb, userprogression) ->
+        # handle edge case for tail call immediately.
+        # somehow this has failed several times, so...
+        if @tries > 3
+          _error_msg = "Failed generating question #{@get('category')} - #{@get('level')}"
+          console.log _error_msg
+          window.client_log.error(_error_msg)
+          @set('fails', true)
+          # TODO: recover and regenerate
+          return false
+
         userlang = ISOs.two_to_three app.options.getSetting('help_language')
 
         # TODO: include userprogression
@@ -274,7 +285,8 @@ Here we increment the cycle if the current question is compelte
         total_correct_answers_for_question = userprogression.where({
             game_name: "leksa"
             question_correct: true
-            question: @
+            question_category: @get('category')
+            question_category_level: @get('level')
             cycle: @.get('cycle')
         }).length
 
@@ -287,10 +299,7 @@ Here we increment the cycle if the current question is compelte
           # Alternate question concepts that match the question criteria
           alternates = _.shuffle(q_concepts).slice(1)
         else
-          # TODO: better obvious error
-          # TODO: mark question as producing a fail so it is removed from
-          # cycle
-          console.log "No concepts found for question."
+          console.log "No concepts left for question."
           console.log _filters
           return false
 
@@ -304,9 +313,14 @@ Here we increment the cycle if the current question is compelte
         )
 
         if actual_answer_concepts.length == 0
-          console.log " * No translations to #{_to} for #{question.get('concept_value')}"
-          inst = false
-          @.set('fails', true)
+          # skåajje
+          _error_msg = " * No translations to #{_to} for #{question.get('concept_value')}"
+          console.log _error_msg
+          window.client_log.error(_error_msg)
+          question.set('fails', true)
+          # TODO: recover and regenerate
+          @tries += 1
+          return @find_concepts(conceptdb, userprogression)
 
         filterByLang = (lang, concepts) ->
           concepts.filter (o) => o.get('language') == lang
@@ -352,10 +366,6 @@ Here we increment the cycle if the current question is compelte
           _cs = []
           _cvs = []
           for c in cs
-            if not c?
-              continue
-            if not c.attributes?
-              continue
             _cv = chop_concept c.attributes.concept_value
             if _cv in _cvs
               continue
