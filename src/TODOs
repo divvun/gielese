@@ -2,12 +2,6 @@
 
 * banner seems to have a 1px grey border-- unsure of origin?
 
-* stats link visible on:
-  - poeng in small version?
-
-* duplicates appearing again
-  - some problem in question.litcoffee that also makes a question unrenderable
-
 * Tsåahka - missing words - missing concept directory
 
 * funksjonalitet med video
@@ -21,10 +15,7 @@
 
 * chart doesn't work on mobile: http://bl.ocks.org/mbostock/5682158
 
-* user logs
-    - category
-    - level
-    - test while logged in, test syncing
+* question.litcoffee needs much simplification, but now i understand better how to test it 
 
 * clean up media-serv code a littl
 
