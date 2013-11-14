@@ -178,6 +178,7 @@ Here we increment the cycle if the current question is compelte
 
 
       filter_concepts_by_media: (concepts, media_size) ->
+        # TODO: fix -- use media.size, somehow
         _ms = "/#{media_size}/"
         filtered_concepts = _.filter concepts, (c) =>
           if c.get('language') == 'img'
@@ -304,9 +305,6 @@ Here we increment the cycle if the current question is compelte
           return false
 
         # Here are the direct translations of our question prompt
-        # TODO: if word has no translations, things break here.
-        # TODO: also if there are multiple translations in a language, we'll only
-        #       get the first in the DB
         actual_answer_concepts = @filter_concepts_by_media(
           question.getTranslationsToLang(_to),
           app.media_size
@@ -337,7 +335,6 @@ Here we increment the cycle if the current question is compelte
         
         # Make some potential incorrect answers to fill things in.
 
-        # TODO: feature intersection
         # here we get answers that are similar as described in the answer similarity
         potential_incorrect_answers = conceptdb.filter (concept) =>
 
@@ -359,14 +356,24 @@ Here we increment the cycle if the current question is compelte
 
         if @attributes.type == 'word_to_image'
           chop_concept = (a) -> a.split('/').slice(-1)[0]
+          get_canonical_concept_value = (c) =>
+            question_concept_value = question.get('concept_value')
+            question_lang = question.get('language')
+            txls = _.first c.getTranslationsToLang(question_lang)
+            return txls.get('concept_value')
         else
           chop_concept = (a) -> a
+          get_canonical_concept_value = (c) -> c.get('concept_value')
+
+
+        # TODO: this results in problems, image names are no longer the same, so need to
+        # see if it's unique by the original concept word; if word in image translations,
 
         uniq_for_concept_value = (cs) =>
           _cs = []
           _cvs = []
           for c in cs
-            _cv = chop_concept c.attributes.concept_value
+            _cv = get_canonical_concept_value c
             if _cv in _cvs
               continue
             _cs.push c

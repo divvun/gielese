@@ -1,7 +1,3 @@
-* recover when concept is missing images in DB
-* notify media server with error msg
-
-
 ## Today
 
 * banner seems to have a 1px grey border-- unsure of origin?
