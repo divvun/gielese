@@ -48,8 +48,9 @@ def get_highscores():
     from operator import itemgetter
 
     un, user_id = session_user()
+    anonymize = False
     if not un:
-        return plz_can_haz_auth()
+        anonymize = True
 
     logs_table = current_app.mongodb.db.user_logs
     settings = current_app.mongodb.db.user_settings
@@ -93,6 +94,16 @@ def get_highscores():
             _r['username'] = user_names[_r['_id']]
             _r.pop('_id')
             users_and_points.append(_r)
+
+    # If user is anonymous, we'll obscure usernames just a bit...
+
+    def anonymize_name(score):
+        _un = score['username']
+        score['username'] =  _un[0] + ((len(_un) - 1) * u'.')
+        return score
+
+    if anonymize:
+        users_and_points = map(anonymize_name, users_and_points)
 
     # sort
     users_and_points = sorted( users_and_points

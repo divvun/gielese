@@ -1,9 +1,10 @@
 <ul id="point_list">
     <% for entry in @highscores: %>
-        <% if app.user.username == entry.username: %>
-            <% cur_class = "this_is_you" %>
-        <% else: %>
-            <% cur_class = "" %>
+        <% cur_class = "" %>
+        <% if app.user?: %>
+            <% if app.user.username == entry.username: %>
+                <% cur_class = "this_is_you" %>
+            <% end %>
         <% end %>
         <li class="<%- cur_class %>">
             <span class="username"><%- entry.username %></span>&nbsp;
