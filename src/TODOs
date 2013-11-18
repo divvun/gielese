@@ -1,31 +1,74 @@
 ## Today
 
-* banner seems to have a 1px grey border-- unsure of origin?
+* MECHANICS: automatisk lyd i ordlista, ikkje berre når ein trykkjer på knappen
 
-* Tsåahka - missing words - missing concept directory
+* MECHANICS: sometimes slow audio download results in multiple sound files
+  playing. do not auto advance until audio has played
 
-* funksjonalitet med video
+* MECHANICS: 
+  - learn - same word pops up from time to time
+  - see all words in order once, no repeats until whole set has been shown
 
-* login form needs more work
- - error fields not highlighted in certain instances?
- - enter login info, then choose a language ; data deleted - must store
-   temporarily until form is submitted, then delete
+  - don't use user progression for learn, just do a temporary view instance-specific thing
+  - maybe make a separate view for learn? subclass of practice.
 
-* poeng: går raskare ned for meir avanserte nivå (5 poeng per halv? kanskje, meir om det seinare) sekund?)
-
-* chart doesn't work on mobile: http://bl.ocks.org/mbostock/5682158
-
-* question.litcoffee needs much simplification, but now i understand better how to test it 
-
-* clean up media-serv code a littl
-
-* find any hardcoded 'sma' stuff ; generalize.
+* MECHANICS:
+  - numerals - order by number in the wordlist
+  - store sort feature in category.info for individual categories?
 
 * global config for app instance: 
   - specifies media directory to parse
   - activity settings (can get rid of leksa_questions, etc.)
   - localization languages to use
   - which language is the language to learn ('sma')
+
+* MEDIA: funksjonalitet med video
+  - what compression is necessary? maybe need to autodownload these whenever a user loads a category
+
+* DESIGN: fyrstesida med Play-knappen skal heilt bort
+
+* DESIGN: Gïelese-logoen har vorte større, for stor på iPad/nettbrett
+
+* DESIGN: border messed up on some pages in iOS5 and 6
+
+* MEDIA: numbers - add new images
+
+* DESIGN: learn page - image is sneaking out of frame sometimes still on iOS 5.1, but not 6 or 7
+
+* DESIGN: dyjreh -> dyjrh på sida "Dyjrh jïh eatneme"
+
+* DESIGN: lesebrett - større bilæte (mykje luft i lær-oppgåva) og litt meir plass
+  gjennom deim i "øv"; gjennomgang i alt på lesebrett.
+
+* DESIGN: android/nexus4 - chrome: må justera kategorieknappar, no er det litt meir
+  plass på høgre sida enn på venstre. ser fint ut på ca. 320x440, men litt
+  kleint på større skjerm
+
+* DESIGN: tekst på ikonar må flyttast opp dersom han er lengre enn ei line, slik at
+  teksten ikkje hamnar nedanfor ikonet
+
+* DESIGN: mogleg problem med borden oppe på sida
+
+* INFRA: change cache header temporarily so everything is reloaded 
+  - remember to change back
+
+* DESIGN: speaker icon still clipped in iOS 5 in Safari (outside bookmark-versjon) 
+
+
+* MEDIA: Tsåahka - missing words - missing concept directory
+
+* login form needs more work
+ - error fields not highlighted in certain instances?
+ - enter login info, then choose a language ; data deleted - must store
+   temporarily until form is submitted, then delete
+
+* MISC: chart doesn't work on mobile: http://bl.ocks.org/mbostock/5682158
+
+* MISC: clean up media-serv code a littl
+
+* MISC: find any hardcoded 'sma' stuff ; generalize.
+
+--
 
 * bookmark bubble https://github.com/okamototk/jqm-mobile-bookmark-bubble
 ** safari favorite icon
