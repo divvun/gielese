@@ -3,6 +3,7 @@ LeksaConceptTemplate = require '../views/templates/leksa_concept'
 module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
   idAttribute: "c_id"
+
   defaults:
     fails: false
 

@@ -17,25 +17,23 @@ things:
 4.) Is the user done with all of the concepts in the progression?
 
 So, let's get going... Define the module as a function expect a `question`,
-list of `concepts`, and the `userprogression`.
+list of `concepts`, and the `user_prog_for_question`.
 
-    module.exports = orderConceptsByProgression = (q, concepts, up) ->
+    module.exports = orderConceptsByProgression = (q, concepts) ->
 
 Grab only the user progression for this question.
 
-      userprogression = up.filter (u) =>
-        u.get('question_category') == q.get('category') and
-        u.get('question_category_level') == q.get('level')
+      user_prog_for_question = app.leksaUserProgression.logs_for_question(q)
 
       if app.debug
-        console.log "#{q.cid} - #{userprogression.length} run-throughs"
+        console.log "#{q.cid} - #{user_prog_for_question.length} run-throughs"
 
 If there's nothing in the user progression, great, no need to sort!
 
-      if userprogression.length == 0
+      if user_prog_for_question.length == 0
         return concepts
 
-      max_repeats = _.max (u.get('cycle') for u in userprogression)
+      max_repeats = _.max (u.get('cycle') for u in user_prog_for_question)
 
       if not max_repeats
         max_repeats = false
@@ -46,15 +44,8 @@ If there's nothing in the user progression, great, no need to sort!
 For a user progression, figure out how many times this question concept has
 been answered as correct by the user.
 
-      getProgressionCorrectCountForConcept = (c) =>
-        zups = userprogression
-          .filter (up) =>
-            up.get('question_category') == q.get('category') and
-            up.get('question_category_level') == q.get('level')
-          .filter (up) =>
-            up.get('question_concept') == c.get('concept_value')
-          .filter (up) =>
-            up.get('question_correct')
+      progressionCorrectCountForConcept = (c) =>
+        zups = app.leksaUserProgression.correctLogsForConceptInQuestion(c, q)
         if max_repeats
           zups = zups.filter (up) =>
             up.get('cycle') == max_repeats
@@ -73,11 +64,11 @@ Remove a concept from the cycle once it has been displayed 4 times.
           console.log "question repetition not specified, default 3"
 
       countLessRepetitions = (c) =>
-        getProgressionCorrectCountForConcept(c) < reps + 1
+        progressionCorrectCountForConcept(c) < reps + 1
 
 Try to avoid repeats by excluding the last concept from the progression.
 
-      last_concept = up.last()
+      last_concept = app.leksaUserProgression.last()
       if app.debug
         console.log "Last concept: "
         console.log last_concept
@@ -97,14 +88,14 @@ preference to those that have been displayed less so far.
 
       ordered_by_frequency = _.sortBy(
         _.filter(excluding_last_concept, countLessRepetitions),
-        getProgressionCorrectCountForConcept
+        progressionCorrectCountForConcept
       )
 
 Useful debugging info...
 
       if app.debug
         f_strings = ordered_by_frequency.map (f) ->
-            "#{getProgressionCorrectCountForConcept(f)} - #{f.get('concept_value')}"
+            "#{progressionCorrectCountForConcept(f)} - #{f.get('concept_value')}"
 
         if f_strings.length > 0
           console.log f_strings.join('\n')

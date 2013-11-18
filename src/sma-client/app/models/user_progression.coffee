@@ -9,12 +9,38 @@ module.exports = class UserProgression extends Backbone.Collection
   parse: (resp) ->
     return resp.data
 
+  logs_for_question: (q) ->
+    @where
+      question_category: q.get('category')
+      question_category_level: q.get('level')
+
+  correct_logs_for_question: (q) ->
+    @where
+      question_category: q.get('category')
+      question_category_level: q.get('level')
+      question_correct: true
+
+  correctLogsForConceptInQuestion: (c, q) ->
+    @where
+      question_category: q.get('category')
+      question_category_level: q.get('level')
+      question_concept: c.get('concept_value')
+      question_correct: true
+
+  correctLogsForConceptInQuestionInCycle: (c, q, w) ->
+    @where
+      question_category: q.get('category')
+      question_category_level: q.get('level')
+      question_concept: c.get('concept_value')
+      question_correct: true
+      cycle: w
+
   initialize: () ->
     @storage = new Offline.Storage('leksa-user-progression', @)
     # set after the user successfully authenticates
     if app.has_user
       if navigator.onLine
-      	@fetch()
+        @fetch()
 
   countPoints: () ->
     points = (m.get('points') for m in @models)

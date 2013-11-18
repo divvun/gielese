@@ -1,23 +1,5 @@
 Question = require 'models/question'
 
-chooseQuestionbyProgression = (questions, userprogression, user_cycle) ->
-
-  if app.debug
-    console.log "choosing question by progression"
-  _filtered_questions = questions.filter (q) =>
-    # TODO: for highest cycle available
-    return not q.user_completed_question({cycle: user_cycle})
-
-  filtered_questions = _filtered_questions.map (q) ->
-    {'question': q, 'level': q.get('level')}
-
-  filtered_questions = _.sortBy(filtered_questions, 'level')
-
-  if filtered_questions.length > 0
-    return [filtered_questions[0].question]
-  else
-    return false
-
 module.exports = class QuestionDB extends Backbone.Collection
   model: Question
 
@@ -41,17 +23,38 @@ module.exports = class QuestionDB extends Backbone.Collection
   filterQuestionsByCategory: (category) ->
     @removeNonFunctioning @where({'category': category})
 
-  orderQuestionsByProgression: (progression, qs, user_cycle) ->
-    _.shuffle chooseQuestionbyProgression(
+  orderQuestionsByProgression: (qs, user_cycle) ->
+    userprogression = app.leksaUserProgression
+
+    questionbyProg = (questions, user_cycle) =>
+    
+      if app.debug
+        console.log "choosing question by progression"
+    
+      _filtered_questions = questions.filter (q) =>
+        # TODO: for highest cycle available
+        return not q.user_completed_question({cycle: user_cycle})
+    
+      filtered_questions = _filtered_questions.map (q) ->
+        {'question': q, 'level': q.get('level')}
+    
+      filtered_questions = _.sortBy(filtered_questions, 'level')
+    
+      if filtered_questions.length > 0
+        return [filtered_questions[0].question]
+      else
+        return false
+
+    _.shuffle questionbyProg(
       @removeNonFunctioning(qs),
-      progression,
+      userprogression,
       user_cycle
     )
 
   selectQuestionByProg: (category, level_constraint=false) ->
-    @selectQuestion(app.leksaUserProgression, category, level_constraint)
+    @selectQuestion(category, level_constraint)
 
-  selectQuestion: (userprogression, category, level_constraint=false) ->
+  selectQuestion: (category, level_constraint=false) ->
     #
     # Select a question
     #
@@ -82,7 +85,7 @@ module.exports = class QuestionDB extends Backbone.Collection
       # ... by looking at max cycle for each question, +1 of which shouldn't be
       # available unless the cycle has been completed 
       user_cycle = 1
-      progression_qs = @orderQuestionsByProgression(userprogression, qs, user_cycle)
+      progression_qs = @orderQuestionsByProgression(qs, user_cycle)
 
       if progression_qs
         qs = progression_qs
@@ -94,9 +97,8 @@ module.exports = class QuestionDB extends Backbone.Collection
 
       q = qs[0]
 
-      current_question_cycle = q.find_cycle_for_progression(
-        app.leksaUserProgression
-      )
+      current_question_cycle = q.cycle_for_progression()
+
       if not isFinite(current_cycle)
         console.log "wasnt finite"
         current_cycle = 1
@@ -104,9 +106,7 @@ module.exports = class QuestionDB extends Backbone.Collection
       console.log "user's cycle for category: #{current_cycle}"
       # q.set('cycle', current_cycle)
 
-      question_instance = q.find_concepts( app.conceptdb
-                                         , app.leksaUserProgression
-                                         )
+      question_instance = q.find_concepts(app.conceptdb)
       console.log "question cycle: #{question_instance.generator.get('cycle')}"
       tries += 1
 

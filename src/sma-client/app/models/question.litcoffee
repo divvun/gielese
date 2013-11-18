@@ -27,17 +27,21 @@ answering all concepts in level correctly at least once.
 
 Here we find out if the user completed the question.
 
-      find_cycle_for_progression: (userprog) ->
-        logs_for_question = userprog
-            .filter (up) =>
-              up? and up.get('question_category')? and up.get('question_category_level')?
-            .filter (up) =>
-              up.get('question_category') and (up.get('question_category') == @get('category')) \
-                                          and (up.get('question_category_level') == @get('level'))
-        return _.max(
-          (p.get('cycle') for p in logs_for_question)
+      cycle_for_progression: () ->
+        _.max(
+          (p.get('cycle') for p in app.leksaUserProgression.logs_for_question(@))
         )
-        
+
+How many correct answers are there for this question?
+
+      total_correct_answers_for_question: () ->
+        app.leksaUserProgression.where({
+          question_correct: true
+          question_category: @get('category')
+          question_category_level: @get('level')
+          cycle: @.get('cycle')
+        }).length
+
       user_completed_question: (opts={}) ->
         userprogression = app.leksaUserProgression
         correct_count = 2
@@ -53,43 +57,28 @@ was correct. Then return all the question concepts for these logs.
         # this only checks the current cycle, which should be incremented
         # and stored unless user logs back in again
         if userprogression.length > 0
-          logs_for_question = userprogression
-              .filter (up) =>
-                up?
-              .filter (up) =>
-                up.get('question_category') and (up.get('question_category') == @get('category')) \
-                                            and (up.get('question_category_level') == @get('level'))
-              .filter (up) =>
-                up.get('cycle') == cycle
-              .filter (up) ->
-                up.get('question_correct') == true
+          logs_for_question = userprogression.correct_logs_for_question(@)
+            .filter (up) =>
+              up.get('cycle') == cycle
           concepts_for_question = logs_for_question
-              .map (up) ->
-                up.get('question_concept')
+            .map (up) ->
+              up.get('question_concept')
         else
           return false
 
 How many times was the concept correct for each question?
 
-        getProgressionCorrectCountForConcept = (c) =>
-          cat = @get('category')
-          lev = @get('level')
-          userprogression.where({
-            question_concept: c.get('concept_value')
-            cycle: cycle
-            question_correct: true
-            question_category: cat
-            question_category_level: lev
-          }).length
-        
         concepts = @select_question_concepts app.conceptdb
 
 For each question concept, determine what amount the user correctly,
 if the amount is greater, append the correct amount to counts.
         
+        correctsForCQW = (c, q, w) ->
+          app.leksaUserProgression.correctLogsForConceptInQuestionInCycle(c, q, cycle).length
+
         counts = []
         for c in concepts
-          corrects = getProgressionCorrectCountForConcept(c)
+          corrects = correctsForCQW(c, @, cycle)
           if corrects > correct_count
             corrects = correct_count
           counts.push corrects
@@ -126,43 +115,28 @@ was correct. Then return all the question concepts for these logs.
         # and stored unless user logs back in again
         if userprogression.length > 0
           # TODO: rewrite to .where() once everything else is stable
-          logs_for_question = userprogression
-              .filter (up) =>
-                up?
-              .filter (up) =>
-                up.get('question_category') and (up.get('question_category') == @get('category')) \
-                                            and (up.get('question_category_level') == @get('level'))
-              .filter (up) =>
-                up.get('cycle') == cycle
-              .filter (up) ->
-                up.get('question_correct') == true
+          logs_for_question = userprogression.correct_logs_for_question(@)
+            .filter (up) =>
+              up.get('cycle') == cycle
           concepts_for_question = logs_for_question
-              .map (up) ->
-                up.get('question_concept')
+            .map (up) ->
+              up.get('question_concept')
         else
           return false
 
 How many times was the concept correct for each question?
 
-        getProgressionCorrectCountForConcept = (c) =>
-          cat = @get('category')
-          lev = @get('level')
-          userprogression.where({
-            question_concept: c.get('concept_value')
-            cycle: cycle
-            question_correct: true
-            question_category: cat
-            question_category_level: lev
-          }).length
-        
         concepts = @select_question_concepts app.conceptdb
 
 For each question concept, determine what amount the user correctly,
 if the amount is greater, append the correct amount to counts.
         
+        correctsForCQW = (c, q, w) ->
+          app.leksaUserProgression.correctLogsForConceptInQuestionInCycle(c, q, cycle).length
+          
         counts = []
         for c in concepts
-          corrects = getProgressionCorrectCountForConcept(c)
+          corrects = correctsForCQW(c, @, cycle)
           if corrects > correct_count
             corrects = correct_count
           counts.push corrects
@@ -175,7 +149,6 @@ Here we increment the cycle if the current question is compelte
             return true
 
         return false
-
 
       filter_concepts_by_media: (concepts, media_size) ->
         # TODO: fix -- use media.size, somehow
@@ -198,13 +171,13 @@ Here we increment the cycle if the current question is compelte
 
         return filtered_concepts
 
-      select_question_concepts_by_progression: (conceptdb, userprog) ->
+      select_question_concepts_by_progression: (conceptdb) ->
+        userprog = app.leksaUserProgression
         orderConceptsByProgression = require './helpers/concept_progression_sorter'
         return orderConceptsByProgression(@,
           @filter_concepts_by_media(
             @select_question_concepts(conceptdb), app.media_size
-          ),
-          userprog
+          )
         )
 
       select_question_concepts: (conceptdb) ->
@@ -235,7 +208,8 @@ Here we increment the cycle if the current question is compelte
             return false
         return q_concepts
 
-      find_concepts: (conceptdb, userprogression) ->
+      find_concepts: (conceptdb) ->
+        userprogression = app.leksaUserProgression
         # handle edge case for tail call immediately.
         # somehow this has failed several times, so...
         if @tries > 3
@@ -278,21 +252,7 @@ Here we increment the cycle if the current question is compelte
         if @attributes.type == 'word_to_image'
           question_concepts = @filter_concepts_by_media(question_concepts, app.media_size)
 
-        q_concepts = @select_question_concepts_by_progression(
-          question_concepts,
-          userprogression
-        )
-
-        total_correct_answers_for_question = userprogression.where({
-            game_name: "leksa"
-            question_correct: true
-            question_category: @get('category')
-            question_category_level: @get('level')
-            cycle: @.get('cycle')
-        }).length
-
-        concepts_total = question_concepts.length
-        concepts_left = concepts_total - q_concepts.length
+        q_concepts = @select_question_concepts_by_progression(question_concepts)
 
         # Select a question concept
         if q_concepts.length > 0
@@ -318,7 +278,7 @@ Here we increment the cycle if the current question is compelte
           question.set('fails', true)
           # TODO: recover and regenerate
           @tries += 1
-          return @find_concepts(conceptdb, userprogression)
+          return @find_concepts(conceptdb)
 
         filterByLang = (lang, concepts) ->
           concepts.filter (o) => o.get('language') == lang
@@ -412,13 +372,15 @@ Fill the array with missing answers if we have too few.
                 break
 
         if question and all_answer_poss.length > 0 and actual_answer
+          concepts_left = concepts_total - q_concepts.length
+          concepts_total = question_concepts.length
           inst = new QuestionInstance( @
                                      , question
                                      , all_answer_poss
                                      , actual_answer
                                      , concepts_left
                                      , concepts_total
-                                     , total_correct_answers_for_question
+                                     , @total_correct_answers_for_question()
                                      )
 
         else
