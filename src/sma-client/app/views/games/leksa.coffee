@@ -27,6 +27,11 @@ module.exports = class LeksaView extends Backbone.View
 
   template: LeksaTemplate
 
+  auto_advance: false
+
+  level_constraint: (question) =>
+    question.get('level') >= @attributes.level_constraint
+
   question_template: (context) ->
     tpl = switch context.q_type
       when "image_to_word" then LeksaQuestionImageToWord
@@ -153,13 +158,13 @@ module.exports = class LeksaView extends Backbone.View
       window.last_error = "Question DB and Concept DB not ready."
       app.router.navigate('error')
 
-    if @level_constraint
+    if @attributes.level_constraint
       level_constraint = @level_constraint
     else
       level_constraint = (level) -> true
 
     q = app.questiondb.selectQuestionByProg(
-      @leksa_category,
+      @attributes.leksa_category,
       level_constraint
     )
 
@@ -273,7 +278,7 @@ module.exports = class LeksaView extends Backbone.View
     #
     # Register answer click handlers
     @$el.find('#leksa_question a.answerlink').click (evt) =>
-      if @auto_advance?
+      if @auto_advance
         return false
       else
         answerlink = $(evt.target).parents('.answerlink')
@@ -323,22 +328,13 @@ module.exports = class LeksaView extends Backbone.View
     # Render template and insert a question
 
     @$el.html @template {
-      leksa_category: @leksa_category
+      leksa_category: @attributes.leksa_category
     }
 
     @pts_bubble = @$el.find('#points_for_question')
     @pts_bubble.hide()
 
     @renderQuestion()
-
-    autoAdvance = () =>
-      # TODO: check if audio has played first
-      @renderQuestion()
-      console.log @current_audio
-
-    if @auto_advance?
-      # TODO: delete this when user navigates away
-      @auto_advance_handler = setInterval( autoAdvance, 7000)
 
     @first = true
 

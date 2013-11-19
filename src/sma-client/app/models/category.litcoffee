@@ -14,7 +14,21 @@ Compatibility with old version of bootstrap
 
       getConcepts: (args = {}) ->
         query = _.extend {semantics: @get('semantics')}, args
-        app.conceptdb.where(query)
+        concepts = app.conceptdb.where(query)
+
+        if @attributes.order_by?
+          _order = @attributes.order_by
+          sorter = (a) =>
+            _a_attr = a.attributes || {}
+            _a_ext = _a_attr.extra_attributes || {}
+            _a_ord = _a_ext[_order]
+            return _a_ord
+        else
+          sorter = (c) -> c.get('concept_value')
+
+        sorted = _.sortBy concepts, sorter
+
+        return sorted
 
       children: () ->
         cs = @.get('children')

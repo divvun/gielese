@@ -85,6 +85,11 @@ module.exports = class Concept extends Backbone.Model
   
   playAudio: (opts={}) ->
     # TODO: user feedback about whether audio is downloaded or not.
+    
+    if opts.finished
+      finished_event = opts.finished
+    else
+      finished_event = () -> return false
 
     has_audio_file = @hasAudio()
     if has_audio_file and soundManager.enabled
@@ -99,6 +104,7 @@ module.exports = class Concept extends Backbone.Model
           sound_obj = soundManager.createSound
             id: sound_id
             url: has_audio_file
+            onfinish: finished_event
           sound_obj._a.playbackRate = opts.rate
         if sound_obj.url == has_audio_file
           console.log "repeat"
@@ -112,6 +118,7 @@ module.exports = class Concept extends Backbone.Model
         s = soundManager.createSound({
           id: sound_id
           url: has_audio_file
+          onfinish: finished_event
         })
         s.play()
       return s

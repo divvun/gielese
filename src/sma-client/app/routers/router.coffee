@@ -5,6 +5,8 @@
 #       router.changePage destroys them for some reason.
 
 LeksaView = require 'views/games/leksa'
+LearnView = require 'views/games/learn'
+
 CategoryMenu = require 'views/categories/categories'
 CategoryGames = require 'views/categories/category'
 
@@ -186,23 +188,25 @@ module.exports = class Router extends Backbone.Router
     app.loadingTracker.checkDeps()
 
     level = parseInt level
-    app.leksaView = new LeksaView()
-    app.leksaView.leksa_category = category
 
     if level == 1
-      app.leksaView.auto_advance = true
-      app.leksaView.level_constraint = (question) =>
-        question.get('level') == level
+      app.leksaView = new LearnView
+        attributes:
+          leksa_category: category
+          level_constraint: level
     else if level > 1
-      app.leksaView.level_constraint = (question) =>
-        question.get('level') >= level
-      
+      app.leksaView = new LeksaView
+        attributes:
+          leksa_category: category
+          level_constraint: level
+     
     app.leksaView.preselected_q = app.leksaView.selectQuestionForRendering()
     #
     # Hopefully we're still in the click event here, in which case we need to
     # play now. 
     app.leksaView.pregenerated = false
-    app.leksaView.preselected_q.question.playAudio()
+    app.leksaView.preselected_q.question.playAudio
+      finished: app.leksaView.soundFinished
 
     app.leksaView.initialize()
 

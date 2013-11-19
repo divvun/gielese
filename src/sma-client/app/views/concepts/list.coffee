@@ -54,6 +54,9 @@ class ConceptView extends Backbone.View
 
     # @$el.find('.concept_definition').textfill
     #   maxFontPixels: 36
+    #
+
+    @model.playAudio()
 
     this
 
@@ -184,9 +187,6 @@ module.exports = class ConceptList extends Backbone.View
     category_concepts = category.getConcepts
       language: 'sma'
 
-    category_concepts = _.sortBy category_concepts,
-      (c) -> c.get('concept_value')
-
     @next = 1
     @prev = null
 
@@ -197,7 +197,10 @@ module.exports = class ConceptList extends Backbone.View
 
     sortTxl = (m) -> return m.get('txl_string')
 
-    category_concepts = _.sortBy category_concepts.map(getTxl), sortTxl
+    # sort by translation if no sorting method is provided by user
+    category_concepts = category_concepts.map(getTxl)
+    if not category.attributes.order_by?
+      category_concepts = _.sortBy category_concepts, sortTxl
 
     @concepts_in_order = category_concepts
 
