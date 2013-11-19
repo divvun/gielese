@@ -3,6 +3,8 @@
 from database import db
 from sqlalchemy import UniqueConstraint
 
+import simplejson
+
 __all__ = [
     'Semtype',
     'Source',
@@ -174,6 +176,7 @@ class Concept(db.Model, TimestampMixin):
     attrsuffix = db.Column(db.String(20))
     soggi = db.Column(db.String(10))
     compare = db.Column(db.String(5))
+    attributes = db.Column(db.Text, nullable=True)
 
     tcomm = db.Column(db.Boolean, default=False)
     tcomm_pref = db.Column(db.Boolean, default=False)
@@ -273,7 +276,7 @@ class Concept(db.Model, TimestampMixin):
 
         semantics = list(set(semantics))
 
-        return { "c_id": self.id
+        to_j = { "c_id": self.id
                , "id":  self.id
                , "concept_type": _type
                , "concept_value": self._getTrans()
@@ -285,6 +288,11 @@ class Concept(db.Model, TimestampMixin):
                , "translations": list(set(translations)) + media_ids
                , "media": concept_media
                }
+
+        if self.attributes:
+            to_j['attributes'] = simplejson.loads(self.attributes)
+
+        return to_j
 
 class Tagset(db.Model):
     __tablename__ = 'tagset'

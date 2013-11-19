@@ -520,12 +520,16 @@ def concepts_to_xml(concepts):
         lemma = concept.get('lemma', False)
         translations = concept.get('translations', [])
 
+        # Apply attribtues to lemma node
+        _attributes = concept.get('attributes', {})
+        attributes = dict([(k, unicode(v)) for k, v in _attributes.iteritems()])
+
         _meds = concept.get('media', {})
         _images = _meds.get('images', False)
         _video = _meds.get('video', False)
         _audio = _meds.get('audio', False)
 
-        lg_node = lg(l(lemma))
+        lg_node = lg(l(lemma, **attributes))
 
         def rename_file(_p):
             if rename_files:

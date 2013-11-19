@@ -2,6 +2,8 @@
 """
 
 import sys
+import simplejson
+
 from lxml import etree
 regexpNS = "http://exslt.org/regular-expressions"
 
@@ -265,6 +267,7 @@ class MediaSimpleJSON(EntryNodeIterator):
 
         lemma, lemma_pos, lemma_context, _, lemma_hid = self.l_node(e)
         tgs, ts = self.tg_nodes(e)
+        attributes = e.find('lg/l').attrib
 
         translations = map(self.find_translation_text, tgs)
 
@@ -301,6 +304,7 @@ class MediaSimpleJSON(EntryNodeIterator):
                , 'lang': media_type
                , 'hid': lemma_hid
                , 'media': media_defs
+               , 'attributes': attributes
                , 'semantics': semantics
                , 'translations': translations
                }
@@ -387,6 +391,8 @@ class LexiconSimpleJSON(EntryNodeIterator):
 
         gen_constraint = lemma_features.get('gen_only', False)
 
+        attributes = lemma_features.copy()
+
         try:
             lemma_features.pop('gen_only')
         except KeyError:
@@ -401,6 +407,7 @@ class LexiconSimpleJSON(EntryNodeIterator):
                , 'translations': translations
                , 'hid': lemma_hid
                , 'features': lemma_features
+               , 'attributes': attributes
                , 'generation_constraint': gen_constraint
                , 'semantics': semantics
                }
@@ -434,6 +441,10 @@ def install_media_references(_d, filename):
 
         if media_defs.get('hid', False):
             wkws['pos'] = media_defs.get('pos')
+
+        if media_defs.get('attributes'):
+            _attributes = dict(media_defs.get('attributes'))
+            wkws['attributes'] = simplejson.dumps(_attributes)
 
         word = _get_or_create(Concept, **wkws)
 
@@ -489,7 +500,7 @@ def install_media_references(_d, filename):
             for _sem in media_defs.get('semantics', []):
                 s = _get_or_create(Semtype, semtype=_sem)
                 word.semtype.append(s)
-        
+
         # TODO: a bit more complex...
         for _tx in media_defs.get('translations', []):
             for _t in _tx:
@@ -549,6 +560,10 @@ def install_lexical_data(_d, filename):
             except:
                 pass
             wkws.update(w.get('features'))
+
+        if w.get('attributes'):
+            _attributes = dict(w.get('attributes'))
+            wkws['attributes'] = simplejson.dumps(_attributes)
 
         word = _get_or_create(Concept, **wkws)
 
