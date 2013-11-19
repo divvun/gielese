@@ -369,11 +369,6 @@ def categories():
 ##
 
 @app.route('/', methods=['GET'])
-def landing():
-    from flask import Response
-    return render_template('landing.html')
-
-@app.route('/play/', methods=['GET'])
 def client():
     from flask import Response
     return render_template('index.html')
