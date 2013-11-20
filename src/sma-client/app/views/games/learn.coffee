@@ -20,6 +20,14 @@ module.exports = class LearnView extends LeksaView
   auto_advance: true
   level_constraint: (question) -> question.get('level') == 1
 
+  reset_auto_event: () ->
+    if app.wait_handler?
+      clearTimeout app.wait_handler
+    clearInterval @auto_advance_handler
+    clearInterval @countdown_handle
+    return true
+
+
   # # #
   # # #  Question rendering
   # # #
@@ -108,7 +116,7 @@ module.exports = class LearnView extends LeksaView
       delete @pregenerated
     else
       if not @first
-        setTimeout(playFirst, 1500)
+        app.wait_handler = setTimeout(playFirst, 1500)
         @first = false
       else
         playFirst()
@@ -126,7 +134,7 @@ module.exports = class LearnView extends LeksaView
   soundFinished: () ->
     if app.debug
       console.log "View got sound finished."
-    setTimeout(() =>
+    app.wait_handler = setTimeout(() =>
       app.leksaView.renderQuestion()
     , 4000)
 

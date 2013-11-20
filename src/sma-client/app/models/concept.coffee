@@ -123,7 +123,10 @@ module.exports = class Concept extends Backbone.Model
         s.play()
       return s
 
-    return false
+    if opts.finished
+      opts.finished()
+    else
+      return false
 
   render_concept: () ->
     LeksaConceptTemplate({
