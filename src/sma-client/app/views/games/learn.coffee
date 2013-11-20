@@ -126,7 +126,7 @@ module.exports = class LearnView extends LeksaView
   soundFinished: () ->
     if app.debug
       console.log "View got sound finished."
-    setTimeout(() ->
+    setTimeout(() =>
       app.leksaView.renderQuestion()
     , 4000)
 

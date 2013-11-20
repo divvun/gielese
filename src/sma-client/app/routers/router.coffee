@@ -125,7 +125,7 @@ module.exports = class Router extends Backbone.Router
 
   splash: ->
     @changePage(app.splashView)
-    # testing
+    # for testing
     # return false
     if DSt.get('skip-splash')?
       time = 500
@@ -203,7 +203,7 @@ module.exports = class Router extends Backbone.Router
     app.leksaView.preselected_q = app.leksaView.selectQuestionForRendering()
     #
     # Hopefully we're still in the click event here, in which case we need to
-    # play now. 
+    # play now.
     app.leksaView.pregenerated = false
     app.leksaView.preselected_q.question.playAudio
       finished: app.leksaView.soundFinished

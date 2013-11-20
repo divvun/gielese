@@ -6,7 +6,7 @@
     <% end %>
 
     <div class='<%- classes %>'>
-        <img style='background-image: url(<%- @concept_value %>)' />
+        <span class="concept_img_span" style='background-image: url(<%- @concept_value %>)' />
     </div>
 
 <% else if @concept_type == 'text': %>

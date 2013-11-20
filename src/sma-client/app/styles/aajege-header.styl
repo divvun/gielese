@@ -17,14 +17,10 @@ heavy-text-shadow(color)
     margin: 0 0 0 0
 
     display: block
-    height: 94px
-
-
+    // height: 94px
     width: 100%
 
     background-color: #dac9b6
-    // TODO: repeat_x? 
-    // border-image-bottom: url("/static/images/icons/flette.png") 0 0 14 0
 
     border-bottom: 12px solid transparent
 
@@ -110,7 +106,7 @@ heavy-text-shadow(color)
     .aajege-nav-left
         position: absolute
         top: 0px
-        left: 2px
+        left: 5px
 
     .aajege-nav-right
         position: absolute
@@ -118,49 +114,48 @@ heavy-text-shadow(color)
         right: 6px
 
 // but don't shrink on iPad: 768 x 927
-@media only screen and (max-width: 766px)
-    .aajege-header-shrinkable
+.aajege-header-shrinkable
 
-        height: 62px
-        padding-top: 8px
+    height: 62px
+    padding-top: 8px
 
-        .aajege-nav
-            margin-top: 2px
+    .aajege-nav
+        margin-top: 2px
 
-            li, li a
-                height: 38px
-                width: 32px
+        li, li a
+            height: 38px
+            width: 32px
 
-                .label
-                    display: none
+            .label
+                display: none
 
-                .display-small
-                    display: inherit !important
+            .display-small
+                display: inherit !important
 
-            li a#userinfo_button
-                width: 38px
+        li a#userinfo_button
+            width: 38px
 
-            li a#userinfo_button.user_points
-                width: 38px
+        li a#userinfo_button.user_points
+            width: 38px
 
-                .label
-                    display: inherit !important
+            .label
+                display: inherit !important
 
-        h2 
-            position: absolute
-            text-align: center
-            font-size: 150%
-            margin: 0 0 0 0
-            margin-top: .33em
-            letter-spacing: 1px
+    h2 
+        position: absolute
+        text-align: center
+        font-size: 150%
+        margin: 0 0 0 0
+        margin-top: .33em
+        letter-spacing: 1px
 
-    .aajege-header-shrinkable
-        .icon-aajege-down-arrow, .icon-aajege-info, .icon-aajege-home
-            background-size: 32px 32px
+.aajege-header-shrinkable
+    .icon-aajege-down-arrow, .icon-aajege-info, .icon-aajege-home
+        background-size: 32px 32px
 
-        li.icon-aajege-bag
-            background-size: 40px 32px
-            width: 48px !important
+    li.icon-aajege-bag
+        background-size: 40px 32px
+        width: 48px !important
 
-        .icon-aajege-left-arrow
-            background-size: 24px 24px
+    .icon-aajege-left-arrow
+        background-size: 24px 24px

@@ -3,7 +3,7 @@
         <%- @instance.question.render_concept() %>
     </div>
 
-    <hr />
+    <br />
 
     <div class="possible_answers word_set">
         <% for choice, idx in @instance.choices: %>
