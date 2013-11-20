@@ -72,6 +72,18 @@ class EntryNodeIterator(object):
 
         return lemma, pos, context, type, hid
 
+    def guess_types(self, _dict):
+        from ast import literal_eval
+        _n_dict = {}
+        for k, v in _dict.iteritems():
+            _v = v
+            try:
+                _v = literal_eval(v)
+            except ValueError:
+                _v = v
+            _n_dict[k] = _v
+        return _n_dict
+
     def tg_nodes(self, entry):
         target_lang = self.query_kwargs.get('target_lang', False)
 
@@ -267,7 +279,8 @@ class MediaSimpleJSON(EntryNodeIterator):
 
         lemma, lemma_pos, lemma_context, _, lemma_hid = self.l_node(e)
         tgs, ts = self.tg_nodes(e)
-        attributes = e.find('lg/l').attrib
+
+        attributes = self.guess_types(e.find('lg/l').attrib)
 
         translations = map(self.find_translation_text, tgs)
 
@@ -391,7 +404,7 @@ class LexiconSimpleJSON(EntryNodeIterator):
 
         gen_constraint = lemma_features.get('gen_only', False)
 
-        attributes = lemma_features.copy()
+        attributes = self.guess_types(lemma_features.copy())
 
         try:
             lemma_features.pop('gen_only')

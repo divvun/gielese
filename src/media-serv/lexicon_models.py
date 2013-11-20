@@ -290,7 +290,7 @@ class Concept(db.Model, TimestampMixin):
                }
 
         if self.attributes:
-            to_j['attributes'] = simplejson.loads(self.attributes)
+            to_j['extra_attributes'] = simplejson.loads(self.attributes)
 
         return to_j
 

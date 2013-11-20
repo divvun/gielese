@@ -18,4 +18,4 @@ MEDIA_SERV_CONF_PATH=gielese.app.config.yaml python manage.py init_db
 MEDIA_SERV_CONF_PATH=gielese.app.config.yaml python manage.py install_media -f data/concepts.tmp.xml
 MEDIA_SERV_CONF_PATH=gielese.app.config.yaml python manage.py prepare_json
 
-# rm data/concepts.tmp.xml
+rm data/concepts.tmp.xml

@@ -20,8 +20,8 @@ env.use_ssh_config = True
 @task
 def reinstall_local_db():
     """Wipe the db, and reinstall"""
-    local("rm ./data/*.json")
-    local("rm ./data/*.xml")
+    local("rm -rf ./data/*.json")
+    local("rm -rf ./data/*.xml")
     local("mv media_serv.db media_serv.db.bak")
     local("sh install_db.sh")
 

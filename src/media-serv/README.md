@@ -97,7 +97,6 @@ Further documentation on the command line tool's various options is [here](txopt
 
 ### Developer notes:
 
-
 * HTML5 audio troubleshooting: http://creativejs.com/resources/web-audio-api-getting-started/
 
  * Lots of entertaining BS involving choice in indexeddb and SQL storage:
@@ -120,4 +119,16 @@ Further documentation on the command line tool's various options is [here](txopt
      - create .js file for static things like concepts and questions, include
        in applicationCache, generate on server for sync, store user data in 
        localStorage
+
+## Media notes
+
+These things need documentation...
+
+ * concept.info
+   - attributes
+
+ * concepts.info
+
+ * category.info
+   - order_by
 
