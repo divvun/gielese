@@ -1,5 +1,10 @@
 #leksa
 
+    #question_play
+        img
+            width: 32px
+            height: 32px
+
     .concept_img_span
         display: block
         overflow: hidden
@@ -321,32 +326,6 @@
 
     // Now we need some responsive fixes for stuff
 
-    .one_image
-        // Hopefully this will target iPhone widths
-        @media only screen and (max-width: 390px)
-            w = 175px
-
-            .img_concept
-                width: w
-                height: w
-
-                .concept_img_span
-                    width: w
-                    height: w
-                    background-size: w w
-
-        @media only screen and (max-width: 420px)
-            w = 200px
-
-            .img_concept
-                width: w
-                height: w
-
-                .concept_img_span
-                    width: w
-                    height: w
-                    background-size: w w
-
     @media only screen and (max-width: 390px)
         box_size = 260px
         img_size = (240/2)px
@@ -383,6 +362,19 @@
             height: img_size
             background-size: @width @width
 
+        .one_image
+
+            w = 175px
+
+            .img_concept
+                width: w
+                height: w
+
+                .concept_img_span
+                    width: w
+                    height: w
+                    background-size: w w
+
     @media only screen and (min-width: 400px)
 
         ul.image-grid
@@ -395,9 +387,22 @@
             height: ((400/2)+15)px
 
         .image-item, .img_concept
-            width: 190px !important
+            width: 190px
             height: @width
             background-size: @width @width
+
+        .one_image
+            w = 200px
+
+            .img_concept
+                width: w
+                height: w
+
+                .concept_img_span
+                    width: w
+                    height: w
+                    background-size: w w
+
 
     @media only screen and (min-width: 500px)
 
@@ -411,14 +416,42 @@
             height: ((500/2)+15)px
 
         .image-item, .img_concept
-            width: 240px !important
+            width: 240px
             height: @width
             background-size: @width @width
 
-    // iPad: 768 x 927
-    @media only screen and (min-width: 766px)
+        .one_image
+            w = 300px
 
-        .grid-2, .grid-1, .one_image .question_prompt
+            .img_concept
+                width: w
+                height: w
+
+                .concept_img_span
+                    width: w
+                    height: w
+                    background-size: w w
+
+    // iPad: 768 x 927
+    @media only screen and (min-width: 750px)
+
+        #question_play
+            img
+                width: 64px
+                height: 64px
+
+        #question_play.highlight
+            img
+                padding: 7px
+                border-radius: 50%
+                border: 3px solid #FFF
+                background-color: #3A3
+
+
+        .one_image .question_prompt
+            margin-bottom: 3em
+
+        .grid-2, .grid-1
             margin-top: 100px !important
             margin-bottom: @margin-top
 
@@ -439,3 +472,22 @@
             .concept_img_span
                 height: 64px !important
                 width: @height
+
+        .one_image
+            a.answerlink
+                font-size: 375%
+                padding-top: 7px
+                padding-bottom: 7px
+                border-radius: 50px
+
+        .one_image
+            w = 400px
+
+            .img_concept
+                width: w
+                height: w
+
+                .concept_img_span
+                    width: w
+                    height: w
+                    background-size: w w
