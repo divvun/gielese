@@ -359,13 +359,13 @@ Fill the array with missing answers if we have too few.
             console.log "Things came short, filling in..."
           
           difference = max_answers - all_answer_poss.length
-          concept_values = (a.attributes.concept_value for a in all_answer_poss).map chop_concept
+          concept_values = all_answer_poss.map get_canonical_concept_value
 
           for c in _.range(0, difference)
-            act_ans = chop_concept(actual_answer.attributes.concept_value)
+            act_ans = get_canonical_concept_value(actual_answer)
 
             for a in _.shuffle(potential_incorrect_answers)
-              pot_ans = chop_concept(a.attributes.concept_value)
+              pot_ans = get_canonical_concept_value(a)
 
               if (pot_ans != act_ans) and !(a in all_answer_poss)
                 all_answer_poss.push a

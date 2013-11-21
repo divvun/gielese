@@ -68,7 +68,7 @@
     span.link_word
         font-size: 11pt !important
 
-@media only screen and (min-width: 400px)
+@media only screen and (min-width: 400px) and (max-width: 499px)
     #category_links, #subcategory_buttons, .category_buttons
         width: 395px
 
@@ -76,7 +76,7 @@
         width: 110px !important
         height: 110px !important
 
-@media only screen and (min-width: 500px)
+@media only screen and (min-width: 500px) and (max-width: 766px)
     #category_links, #subcategory_buttons, .category_buttons
         width: 500px
 
@@ -86,7 +86,16 @@
 
 @media only screen and (min-width: 767px)
 
+    #category_links, #subcategory_buttons, .category_buttons
+        margin-top: 2.5em
+        width: 610px
+
     span.link_word
         height: 1.5em !important
         line-height: 1.5em !important
         font-size: 130% !important
+
+    a.square, span.link_image
+        width: 180px !important
+        height: 180px !important
+        margin-bottom: 26px !important

@@ -29,35 +29,6 @@
         background-color: #ccc
         color: #000
 
-    .possible_answers
-        position: relative
-
-        .ui-body, .ui-bar
-            padding: 0
-
-        .ui-btn-inner
-            padding-left: 0
-            padding-right: 0
-
-        .usr_msg
-            display: block
-            position: relative
-            top: -60px
-            left: 20px
-            height: 0px
-            text-decoration: none
-            z-index: 5
-            font-weight: bold
-
-        .usr_msg.correct
-            color: #3A3
-
-        .usr_msg.incorrect
-            color: #A33
-
-        a.answerlink:active, a.answerlink:hover
-            text-decoration: none
-            color: #000
 
     .post_game_buttons
         position: relative
@@ -375,10 +346,10 @@
                     height: w
                     background-size: w w
 
-    @media only screen and (min-width: 400px)
+    @media only screen and (min-width: 391px) and (max-width: 499px)
 
         ul.image-grid
-            width: 400px !important
+            width: 400px
 
         .grid-3, .grid-4
             height: 400px !important
@@ -404,13 +375,13 @@
                     background-size: w w
 
 
-    @media only screen and (min-width: 500px)
+    @media only screen and (min-width: 500px) and (max-width: 749px)
 
         ul.image-grid
-            width: 500px !important
+            width: 500px
 
         .grid-3, .grid-4
-            height: 500px !important
+            height: 500px
 
         .grid-2
             height: ((500/2)+15)px
@@ -447,38 +418,43 @@
                 border: 3px solid #FFF
                 background-color: #3A3
 
-        // .word_to_image
-        //     .image-item
-        //         margin-right: 15px
-        //         margin-bottom: 15px
-
         .one_image .question_prompt
             margin-bottom: 3em
 
         ul.image-grid
-            width: 500px !important
+            width: 610px
+            position: relative
 
         .grid-3, .grid-4
-            height: 500px !important
+            height: 610px
 
         .grid-2
-            height: ((500/2)+15)px
+            height: ((610/2)+15)px
 
+        .image-item
+            width: 300px
+            height: @width
+
+        .img_concept
+            display: block
+            margin: 0 auto
+            width: 280px
+            height: @width
+            background-size: @width @width
 
         .grid-2, .grid-1
             margin-top: 100px !important
-            margin-bottom: @margin-top
+            margin-bottom: 85px
 
-        .grid-3, .grid-4
-            margin-top: 50px !important
-            margin-bottom: @margin-bottom
+        //.grid-3, .grid-4
+        //    margin-top: 50px !important
+        //    margin-bottom: @margin-bottom
 
         .question_prompt
 
             .word_concept
-
-                margin: 0 auto
-                width: 500px
+                font-size: 300%
+                border-radius: 50px
 
         #question_play
             padding-top: 20px !important

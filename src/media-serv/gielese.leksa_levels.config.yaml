@@ -761,11 +761,11 @@ Questions:
       from_language: "img"
       to_language: "sma"
       semantics:
-        - "TEST"
+        - "NUMBER_TEST"
 
     answer_similarity:
       semantics:
-        - "TEST"
+        - "NUMBER_TEST"
 
   - type: "word_to_image"
     category: "TEST"
@@ -781,11 +781,11 @@ Questions:
       from_language: "sma"
       to_language: "img"
       semantics:
-        - "TEST"
+        - "NUMBER_TEST"
 
     answer_similarity:
       semantics:
-        - "TEST"
+        - "NUMBER_TEST"
 
   - type: "word_to_image"
     category: "TEST"
@@ -801,8 +801,8 @@ Questions:
       from_language: "sma"
       to_language: "img"
       semantics:
-        - "TEST"
+        - "NUMBER_TEST"
 
     answer_similarity:
       semantics:
-        - "TEST"
+        - "NUMBER_TEST"
