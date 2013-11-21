@@ -36,10 +36,11 @@
         right: 10px
 
     .question_prompt
+        position: relative
         display: block
         height: 100%
         width: 100%
-        margin: 2em auto 0
+        margin: 2em auto 0 auto
         font-family: "Open Sans"
 
         .concept_img_span.img_concept
@@ -50,13 +51,15 @@
             background-size: 300px 300px
 
         .word_concept
-            height: 1.5em
-            font-size: 170%
             display: block
-            margin: auto 0
-            margin-bottom: 1em
+            width: 100%
+            margin: 0 auto
+            height: 1.5em
+            font-size: 200%
+            margin: 0 auto 1em auto
             text-align: center
             background-color: #444
+            padding-bottom: 7px
             border-radius: 25px
             text-shadow: none
             color: #FFF
@@ -112,7 +115,7 @@
                 background-repeat: no-repeat
 
         a.answerlink
-            width: 300px
+            width: 70%
             display: block
             margin: 0 auto 1em auto
 
@@ -313,6 +316,7 @@
 
         ul.image-grid
             width:  box_size
+            margin-bottom: 2em
 
         .grid-3, .grid-4
             height: box_size
@@ -326,12 +330,19 @@
         .grid-2
             height: ((box_size/2)+15)px
             margin-top: 35px !important
-            margin-bottom: @margin-top
+            margin-bottom: 25px
 
-        .image-item, .img_concept
+        .image-item
+            width: img_size
+            height: img_size
+
+        .img_concept
+            display: block
+            margin: 0 auto
             width: img_size
             height: img_size
             background-size: @width @width
+            padding: 0 10px
 
         .one_image
 
@@ -405,6 +416,9 @@
 
     // iPad: 768 x 927
     @media only screen and (min-width: 750px)
+    
+        .question_prompt .word_concept
+            width: 70%
 
         #question_play
             img
@@ -465,9 +479,9 @@
 
         .one_image
             a.answerlink
-                font-size: 375%
-                padding-top: 7px
-                padding-bottom: 7px
+                font-size: 250%
+                padding-top: 5px
+                padding-bottom: 6px
                 border-radius: 50px
 
         .one_image

@@ -104,6 +104,10 @@ module.exports = class LearnView extends LeksaView
 
     @countdown_handle = setInterval(countdownPoints, 1000)
 
+    # Do not advance
+    @$el.find('#leksa_question a.answerlink').click (evt) =>
+      return false
+
     app.router.refreshCurrentPage()
 
     playFirst = =>
