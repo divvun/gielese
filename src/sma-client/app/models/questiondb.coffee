@@ -42,7 +42,7 @@ module.exports = class QuestionDB extends Backbone.Collection
       filtered_questions = _.sortBy(filtered_questions, 'level')
     
       if filtered_questions.length > 0
-        return [filtered_questions[0].question]
+        return [_.first(filtered_questions).question]
       else
         return false
 
@@ -83,7 +83,7 @@ module.exports = class QuestionDB extends Backbone.Collection
 
       # TODO: find user's current cycle on category from progression
       # ... by looking at max cycle for each question, +1 of which shouldn't be
-      # available unless the cycle has been completed 
+      # available unless the cycle has been completed
       user_cycle = 1
       progression_qs = @orderQuestionsByProgression(qs, user_cycle)
 
@@ -95,24 +95,28 @@ module.exports = class QuestionDB extends Backbone.Collection
       if qs.length == 0
         return false
 
-      q = qs[0]
+      q = _.first qs
 
       current_question_cycle = q.cycle_for_progression()
 
       if not isFinite(current_cycle)
         console.log "wasnt finite"
         current_cycle = 1
-      console.log "question level: #{q.get('level')}"
-      console.log "user's cycle for category: #{current_cycle}"
-      # q.set('cycle', current_cycle)
+
+      if app.debug
+        console.log "question level: #{q.get('level')}"
+        console.log "user's cycle for category: #{current_cycle}"
 
       try
         question_instance = q.find_concepts(app.conceptdb)
-        console.log "question cycle: #{question_instance.generator.get('cycle')}"
+        if app.debug
+          _msg_q_cycle = question_instance.generator.get('cycle')
+          console.log "question cycle: #{_msg_q_cycle}"
       catch e
         if e instanceof LevelComplete
           question_instance = false
-          console.log "question cycle complete for: #{q}"
+          if app.debug
+            console.log "question cycle complete for: #{q}"
 
       tries += 1
 

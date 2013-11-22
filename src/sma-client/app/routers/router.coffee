@@ -85,22 +85,11 @@ module.exports = class Router extends Backbone.Router
 
     #
 
-    'leksa/:category': 'leksa'
-    '#leksa/:category': 'leksa'
-
-    'leksa/:level/:category': 'leksa_first'
-    '#leksa/:level/:category': 'leksa_first'
+    'leksa/:level/:category': 'learn_and_practice'
+    '#leksa/:level/:category': 'learn_and_practice'
 
     'leksaOptions': 'leksaOptions'
     '#leksaOptions': 'leksaOptions'
-
-    'wordlist': 'wordlist'
-    '#wordlist': 'wordlist'
-
-    # omg.
-
-    'concept/:id': 'conceptView'
-    '#concept/:id': 'conceptView'
 
     'conceptSet/:category': 'conceptSet'
     '#conceptSet/:category': 'conceptSet'
@@ -164,56 +153,49 @@ module.exports = class Router extends Backbone.Router
     @changePage(app.categoryGames)
 
   leksaOptions: ->
-    app.loadingTracker.checkDeps()
+    app.loadingTracker.waitForDeps()
     @changePage(app.leksaOptionsView)
 
-  leksa: (category) ->
+  learn_and_practice: (level, category) ->
     # $('content #content').html app.leksaView.render().el
     # ready = false
     # until ready
-    # TODO: this doesn't seem to be waiting 
-    app.loadingTracker.checkDeps()
+    app.loadingTracker.waitForDeps
+      extra_test: () =>
+        app.conceptdb.models.length > 0 \
+          and app.questiondb.models.length > 0 \
+          and app.categories.models.length > 0
+      failed: () =>
+        # TODO: error view / caching problem or server not up
+        console.log "Uh oh!"
+      ready: () =>
 
-    app.leksaView = new LeksaView()
-    app.leksaView.leksa_category = category
-    app.leksaView.initialize()
-
-    @changePage(app.leksaView)
-
-    app.leksaView.viewedOnce = true
+        level = parseInt level
     
-  leksa_first: (level, category) ->
-    # $('content #content').html app.leksaView.render().el
-    # ready = false
-    # until ready
-    app.loadingTracker.checkDeps()
-
-    level = parseInt level
-
-    if level == 1
-      app.leksaView = new LearnView
-        attributes:
-          leksa_category: category
-          level_constraint: level
-    else if level > 1
-      app.leksaView = new LeksaView
-        attributes:
-          leksa_category: category
-          level_constraint: level
-     
-    app.leksaView.preselected_q = app.leksaView.selectQuestionForRendering()
-    #
-    # Hopefully we're still in the click event here, in which case we need to
-    # play now.
-    app.leksaView.pregenerated = false
-    app.leksaView.preselected_q.question.playAudio
-      finished: app.leksaView.soundFinished
-
-    app.leksaView.initialize()
-
-    @changePage(app.leksaView)
-
-    app.leksaView.viewedOnce = true
+        if level == 1
+          app.leksaView = new LearnView
+            attributes:
+              leksa_category: category
+              level_constraint: level
+        else if level > 1
+          app.leksaView = new LeksaView
+            attributes:
+              leksa_category: category
+              level_constraint: level
+         
+        app.leksaView.preselected_q = app.leksaView.selectQuestionForRendering()
+        #
+        # Hopefully we're still in the click event here, in which case we need
+        # to play now.
+        app.leksaView.pregenerated = false
+        app.leksaView.preselected_q.question.playAudio
+          finished: app.leksaView.soundFinished
+    
+        app.leksaView.initialize()
+    
+        @changePage(app.leksaView)
+    
+        app.leksaView.viewedOnce = true
 
   errorPage: ->
     # $('content #content').html app.errorView.render().el
@@ -225,21 +207,17 @@ module.exports = class Router extends Backbone.Router
 
   conceptSet: (category) ->
     # $('content #content').html app.leksaView.render().el
-    app.conceptList = new ConceptList()
-    app.conceptList.for_category = category
-    app.conceptList.initialize()
-    @changePage(app.conceptList)
-
-  wordlist: ->
-    # $('content #content').html app.leksaView.render().el
-    app.conceptList = new ConceptList()
-    app.conceptList.for_category = "BODYPART"
-    app.conceptList.initialize()
-    @changePage(app.conceptList)
-
-  conceptView: (id) ->
-    app.conceptView.initialize(id)
-    @changePage(app.conceptView)
+    app.loadingTracker.waitForDeps
+      extra_test: () =>
+        app.conceptdb.models.length > 0
+      ready: () =>
+        app.conceptList = new ConceptList()
+        app.conceptList.for_category = category
+        app.conceptList.initialize()
+        @changePage(app.conceptList)
+      failed: () =>
+        # TODO: error view / caching problem or server not up
+        console.log "Oh craapp"
 
   refreshCurrentPage: () ->
     $('[data-role="page"]').trigger("pagecreate")
