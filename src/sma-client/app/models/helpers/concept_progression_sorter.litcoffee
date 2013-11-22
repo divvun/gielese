@@ -19,11 +19,13 @@ things:
 So, let's get going... Define the module as a function expect a `question`,
 list of `concepts`, and the `user_prog_for_question`.
 
+    NoMoreProgression = require '/models/exceptions/progression_cycle_done'
+
     module.exports = orderConceptsByProgression = (q, concepts) ->
 
 Grab only the user progression for this question.
 
-      user_prog_for_question = app.leksaUserProgression.logs_for_question(q)
+      user_prog_for_question = app.leksaUserProgression.logs_for_question_in_cycle(q, q.get('cycle'))
 
       if app.debug
         console.log "#{q.cid} - #{user_prog_for_question.length} run-throughs"
@@ -107,7 +109,8 @@ something anyway, but log an error.
       if ordered_by_frequency.length == 0
         if app.debug
           console.log "No more concepts fitting progression"
-        return concepts
+        err = new NoMoreProgression()
+        throw err
 
       ordered_by_frequency
 

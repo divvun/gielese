@@ -17,6 +17,15 @@ module.exports = class UserProgression extends Backbone.Collection
       question_category: q.get('category')
       question_category_level: q.get('level')
 
+  logs_for_question_in_cycle: (q, w) ->
+    # Prefer @where, because syntax is cleaner. Where also doesn't
+    # return collections, so otherwise you have to .filter() everything,
+    # thus, avoid simplifying these to additional functions.
+    @where
+      question_category: q.get('category')
+      question_category_level: q.get('level')
+      cycle: w
+
   correct_logs_for_question: (q) ->
     @where
       question_category: q.get('category')

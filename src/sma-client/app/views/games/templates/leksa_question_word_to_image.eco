@@ -1,6 +1,6 @@
 <div class="word_to_image">
     <div class="possible_answers image_set">
-        <div class="image-grid-group">
+        <div class="image-grid-group grid-total-<%- @instance.choices.length %>">
             <% for choice_group in @chunker(@instance.choices, 2): %>
                 <% grid_count = 'grid-' + choice_group.length %>
                 <ul class="image-grid <%- grid_count %>">

@@ -1,3 +1,6 @@
+    NoMoreProgression = require '/models/exceptions/progression_cycle_done'
+    LevelComplete = require '/models/exceptions/level_complete'
+
 This module is somewhat complex, thus it is written in Literate Coffeescript.
 
 This class is returned when a question is generated.
@@ -208,7 +211,16 @@ Here we increment the cycle if the current question is compelte
             return false
         return q_concepts
 
-      find_concepts: (conceptdb) ->
+      find_concepts: (conceptdb, opts={}) ->
+
+        if not opts.repeat_count?
+          repeat_count = 0
+
+        if repeat_count > 5
+          _err = new Error()
+          console.log "Uh oh"
+          throw _err
+
         userprogression = app.leksaUserProgression
         # handle edge case for tail call immediately.
         # somehow this has failed several times, so...
@@ -252,7 +264,22 @@ Here we increment the cycle if the current question is compelte
         if @attributes.type == 'word_to_image'
           question_concepts = @filter_concepts_by_media(question_concepts, app.media_size)
 
-        q_concepts = @select_question_concepts_by_progression(question_concepts)
+        try
+          q_concepts = @select_question_concepts_by_progression(question_concepts)
+        catch err
+          if err instanceof NoMoreProgression
+            # check if user completed the question-- if so, then we need the
+            # next level
+            # increment cycle
+            # go again
+            if app.debug
+              console.log "got NoMoreProgression..."
+            if @user_completed_question()
+              # next question
+              throw new LevelComplete
+            else
+              # keep going
+              return @find_concepts(conceptdb, {repeat_count: repeat_count+1})
 
         # Select a question concept
         if q_concepts.length > 0

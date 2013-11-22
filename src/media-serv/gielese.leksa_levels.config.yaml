@@ -769,7 +769,7 @@ Questions:
 
   - type: "word_to_image"
     category: "TEST"
-    name: "Bodypart image to word"
+    name: "test image to word"
 
     level: 2
     answers: 3
@@ -801,8 +801,9 @@ Questions:
       from_language: "sma"
       to_language: "img"
       semantics:
-        - "NUMBER_TEST"
+        - "ANIMALS"
 
     answer_similarity:
       semantics:
-        - "NUMBER_TEST"
+        - "ANIMALS"
+

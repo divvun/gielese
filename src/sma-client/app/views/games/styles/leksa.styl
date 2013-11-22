@@ -388,20 +388,30 @@
 
 
     @media only screen and (min-width: 500px) and (max-width: 749px)
+        box_size = 500
+        img_box_size = (box_size/2)px
+        img_padding = 25
+        img_size = ((box_size - img_padding)/2)px
 
         ul.image-grid
-            width: 500px
-
-        .grid-3, .grid-4
-            height: 500px
+            width: 100%
 
         .grid-2
-            height: ((500/2)+15)px
+            height: (box_size/2)px
 
-        .image-item, .img_concept
-            width: 240px
-            height: @width
-            background-size: @width @width
+        .image-item
+            width: 50%
+            height: inherit
+            box-sizing: border-box
+            background-size: 100% 100%
+
+        .img_concept
+            display: block
+            margin: 0 auto
+            width: 90%
+            height: 90%
+            background-size: 100% 100%
+            padding: 0
 
         .one_image
             w = 300px
@@ -436,34 +446,43 @@
         .one_image .question_prompt
             margin-bottom: 3em
 
-        ul.image-grid
-            width: 610px
-            position: relative
+        box_size = 600
+        img_box_size = (box_size/2)px
+        img_padding = 25
+        img_size = ((box_size - img_padding)/2)px
 
-        .grid-3, .grid-4
-            height: 610px
+        .image-grid-group
+            margin-top: 15px
+
+        .image-grid-group.grid-total-2
+            margin-top: 50px
+            margin-bottom: 50px
+
+        ul.image-grid
+            display: block
+            width: (box_size)px
+            margin: 0 auto
 
         .grid-2
-            height: ((610/2)+15)px
+            height: ((box_size/2))px
 
         .image-item
             width: 300px
-            height: @width
+            height: 300px
+            box-sizing: border-box
+            background-size: 100% 100%
 
         .img_concept
             display: block
             margin: 0 auto
-            width: 280px
-            height: @width
-            background-size: @width @width
+            width: 90%
+            height: 90%
+            background-size: 100% 100%
+            padding: 0
 
-        .grid-2, .grid-1
+        .grid-1
             margin-top: 100px !important
             margin-bottom: 85px
-
-        //.grid-3, .grid-4
-        //    margin-top: 50px !important
-        //    margin-bottom: @margin-bottom
 
         .question_prompt
 

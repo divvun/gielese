@@ -171,6 +171,7 @@ module.exports = class Router extends Backbone.Router
     # $('content #content').html app.leksaView.render().el
     # ready = false
     # until ready
+    # TODO: this doesn't seem to be waiting 
     app.loadingTracker.checkDeps()
 
     app.leksaView = new LeksaView()

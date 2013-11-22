@@ -1,4 +1,5 @@
 Question = require 'models/question'
+LevelComplete = require '/models/exceptions/level_complete'
 
 module.exports = class QuestionDB extends Backbone.Collection
   model: Question
@@ -26,7 +27,7 @@ module.exports = class QuestionDB extends Backbone.Collection
   orderQuestionsByProgression: (qs, user_cycle) ->
     userprogression = app.leksaUserProgression
 
-    questionbyProg = (questions, user_cycle) =>
+    questionByProg = (questions, user_cycle) =>
     
       if app.debug
         console.log "choosing question by progression"
@@ -45,9 +46,8 @@ module.exports = class QuestionDB extends Backbone.Collection
       else
         return false
 
-    _.shuffle questionbyProg(
+    _.shuffle questionByProg(
       @removeNonFunctioning(qs),
-      userprogression,
       user_cycle
     )
 
@@ -106,8 +106,14 @@ module.exports = class QuestionDB extends Backbone.Collection
       console.log "user's cycle for category: #{current_cycle}"
       # q.set('cycle', current_cycle)
 
-      question_instance = q.find_concepts(app.conceptdb)
-      console.log "question cycle: #{question_instance.generator.get('cycle')}"
+      try
+        question_instance = q.find_concepts(app.conceptdb)
+        console.log "question cycle: #{question_instance.generator.get('cycle')}"
+      catch e
+        if e instanceof LevelComplete
+          question_instance = false
+          console.log "question cycle complete for: #{q}"
+
       tries += 1
 
     return question_instance
