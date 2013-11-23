@@ -14,13 +14,13 @@
         <h3><%- @points_total %> <%- gettext.gettext "points" %></h3>
     <% end %>
 
-    <% if @logs.length > 0: %>
+    <% if @logs.length > 0 or window.app.debug: %>
 
         <div class="seventy_thirty_grid">
             <div class="row">
                 <div class="item">
-                    <canvas id="category_use" width="150" height="150">
-                    </canvas>
+                    <div id="category_use" width="150" height="150">
+                    </div>
                 </div>
             </div>
             <div class="row">
