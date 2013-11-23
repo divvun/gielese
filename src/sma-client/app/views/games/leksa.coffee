@@ -326,6 +326,9 @@ module.exports = class LeksaView extends Backbone.View
     # if user ends up on front page due to error and comes back here, events
     # are not registered
     # Render template and insert a question
+    if app.wait_handler?
+      console.log "Clearing old wait handler"
+      clearTimeout app.wait_handler
 
     @$el.html @template {
       leksa_category: @attributes.leksa_category

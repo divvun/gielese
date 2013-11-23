@@ -16,6 +16,11 @@ fadeUp = (elem) ->
 
 module.exports = class LearnView extends LeksaView
 
+  events:
+    # TODO: test swiping
+    'click #menu_next': "newQuestionSameGroup"
+    'click .disable_auto_handler': "reset_auto_event"
+
   id: "leksa"
   auto_advance: true
   level_constraint: (question) -> question.get('level') == 1
@@ -26,7 +31,6 @@ module.exports = class LearnView extends LeksaView
     clearInterval @auto_advance_handler
     clearInterval @countdown_handle
     return true
-
 
   # # #
   # # #  Question rendering

@@ -52,29 +52,36 @@ module.exports = class UserStats extends Backbone.View
 
   categoryChart: () ->
     # POINTS or amount of times played?
-    catego = app.categories.pluck('category')
+    catego = _.zip(
+      app.categories.pluck('category'),
+      app.categories.pluck('name'),
+    )
+
     color_range = [ "#F7464A" ,
                     "#E2EAE9" ,
                     "#D4CCC5" ,
                     "#949FB1" ,
                     "#4D5360" ]
 
-    test_data = [ { points: 30,  color:"#F7464A", category: "omg" },
-                  { points: 50,  color: "#E2EAE9", category: "bbq" },
-                  { points: 100, color: "#D4CCC5", category: "lol" },
-                  { points: 40,  color: "#949FB1", category: "foo" },
-                  { points: 120, color: "#4D5360", category: "bar" }]
+    test_data = [
+      { points: 30,  color: "#F7464A", category: "omg", pretty_name: "Omg" },
+      { points: 50,  color: "#E2EAE9", category: "bbq", pretty_name: "Bbq" },
+      { points: 100, color: "#D4CCC5", category: "lol", pretty_name: "löl" },
+      { points: 40,  color: "#949FB1", category: "foo", pretty_name: "föö" },
+      { points: 120, color: "#4D5360", category: "bar", pretty_name: "bär" }
+    ]
 
     category_colors = []
     for [cat, col] in _.zip(catego, color_range)
+      [title, pretty_name] = cat
       logs = app.leksaUserProgression
-                .filter (q) =>
-                  q.get("question_category") is cat if q.get("question_category")?
+           .filter (q) =>
+             q.get("question_category") is title if q.get("question_category")?
 
       _points = logs.map (l) -> l.get('points')
       points = _.reduce(_points, ((memo, num) -> memo + num), 0)
 
-      category_colors.push {category: cat, color: col, points: points}
+      category_colors.push {category: pretty_name, color: col, points: points}
 
     if app.debug
       console.log category_colors
@@ -102,6 +109,8 @@ module.exports = class UserStats extends Backbone.View
     if $(_el).find('svg')
       $(_el).find('svg').remove()
 
+    # Create an SVG, and translate the viewport to relate to the height and
+    # width
     svg = d3.select(_el)
         .append("svg")
         .attr("width", width)
@@ -109,22 +118,28 @@ module.exports = class UserStats extends Backbone.View
         .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
 
+    # Plot categories
     plotCategories = (data) ->
 
+      # Make sure that the points field is converted to an integer.
       data.forEach (d) ->
         d.points = +d.points
 
+      # Add an arc, projecting to pie() layout
       g = svg.selectAll(".arc")
              .data(pie(data))
              .enter().append("g").attr("class", "arc")
 
+      # Set the color according to the preselected color field
       g.append("path").attr("d", arc).style "fill", (d) ->
         color d.data.category
 
+      # Put a text label on the category's center
       g.append("text").attr("transform", (d) ->
         "translate(" + arc.centroid(d) + ")"
       ).attr("dy", ".35em").style("text-anchor", "middle").text (d) ->
-        d.data.category
+        # NB: not pretty_name here
+        d.data.category if d.data.points > 0
 
     plotCategories(category_colors)
     return true
