@@ -4,8 +4,6 @@
 FrontPageTemplate = require './templates/front_page'
 LoginErrorTemplate = require '/views/users/templates/login_error_modal'
 
-
-
 module.exports = class FrontPage extends Backbone.View
 
   id: "frontPage"
@@ -31,11 +29,10 @@ module.exports = class FrontPage extends Backbone.View
     DSt.set('gielese-configured', true)
 
   changeLanguage: (evt) ->
-    console.log evt.target
-
+    anon = DSt.get('anonymous_selected')
+    if anon
+      @language_switched = true
     target_btn = $(evt.target).parents('[type="button"]')
-
-    console.log target_btn
 
     active = 'b'
     inactive = 'a'
@@ -43,7 +40,7 @@ module.exports = class FrontPage extends Backbone.View
     fieldset = $(evt.target).parents('fieldset')
 
     @storeCurrentVisibleSetting fieldset, target_btn
-    
+
     return true
 
   revealUser: (evt) ->
@@ -225,7 +222,16 @@ module.exports = class FrontPage extends Backbone.View
 
     # TODO: store form values to reload
     DSt.store_form($('form#user')[0])
-    @$el.html @template
+    if @language_switched?
+      console.log "rendering with switched lang"
+      hide_form = true
+    else
+      hide_form = false
+
+    @$el.html @template {
+      hide_form: hide_form
+    }
+    delete @language_switched
     $('[data-role=page]').trigger('pagecreate')
     @loadSettings()
     DSt.recall_form($('form#user')[0])
@@ -243,32 +249,29 @@ module.exports = class FrontPage extends Backbone.View
     anon = DSt.get('anonymous_selected')
     if anon
       $('#user_account_block').slideUp()
-      $('#create-user-account-b').attr('checked', true).checkboxradio('refresh')
-      $('#create-user-account-a').attr('checked', false).checkboxradio('refresh')
+
+      $('#create-user-account-b').attr('checked', true)
+                                 .checkboxradio('refresh')
+
+      $('#create-user-account-a').attr('checked', false)
+                                 .checkboxradio('refresh')
+
       $('.login_text').hide()
       $('.begin_text').show()
 
     if app.user
       $('#user_account_block').slideUp()
-      $('#create-user-account-b').attr('checked', false).checkboxradio('refresh')
-      $('#create-user-account-a').attr('checked', true).checkboxradio('refresh')
+
+      $('#create-user-account-b').attr('checked', false)
+                                 .checkboxradio('refresh')
+
+      $('#create-user-account-a').attr('checked', true)
+                                 .checkboxradio('refresh')
+
       $('.login_text').hide()
       $('.begin_text').show()
       $('#account_exists').show()
     
-     
-
-    # resetCheck $("#help_language [type=button]"), inactive
-    # resetCheck $("#help_language #{h_value}"), active
-    
-    # $('#help_language [type=button]').button('refresh')
-
-    # if h_value == 'sma'
-    #   sub = $("#help_language").attr('data-subquestion')
-    #   setTimeout( () ->
-    #     @$el.find("##{sub}").slideDown()
-    #   , 500)
-
   show_login_error: (msg) ->
     if @login_error_popup?
       @login_error_popup.remove()
@@ -281,7 +284,7 @@ module.exports = class FrontPage extends Backbone.View
     @login_error_popup.trigger('create')
     @login_error_popup.popup().show().popup('open')
 
-    return 
+    return
 
 
   render: ->
@@ -289,8 +292,20 @@ module.exports = class FrontPage extends Backbone.View
     @questions_answered = 0
     @process_complete = false
 
-    @$el.html @template
-    @_LOGIN_ACCOUNT_ERROR_EXISTS = gettext.gettext "Did you forget your password?"
+    if @language_switched?
+      console.log "rendering with switched lang"
+      hide_form = true
+    else
+      hide_form = false
+
+    @$el.html @template {
+      hide_form: hide_form
+    }
+
+    delete @language_switched
+
+    _FORGET = gettext.gettext "Did you forget your password?"
+    @_LOGIN_ACCOUNT_ERROR_EXISTS = _FORGET
 
     # Initialize error template
 

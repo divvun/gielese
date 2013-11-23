@@ -19,7 +19,11 @@
     </div>
 
     <% # TODO: maybe leave this to last step, because having a different view for this would be much better. %>
-    <div id="user_account_block">
+    <% disp = '' %>
+    <% if @hide_form: %>
+    <% disp = 'style="display: none;"' %>
+    <% end %>
+    <div id="user_account_block" <%- disp %>>
         <div id="loginform_subsub">
             <form id="user" action="">
                 <div class="form_fields grouped_fields">

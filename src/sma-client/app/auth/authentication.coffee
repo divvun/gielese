@@ -104,11 +104,18 @@ module.exports = class Authenticator
       opts.success(data, textStatus, jqXHR) if opts.success
 
   clearUserData: ->
-    console.log "Authenticator.clearUserData()"
+    if app.debug
+      console.log "Authenticator.clearUserData()"
+
     window.localStorage.clear()
     app.options.reset()
     app.leksaUserProgression.reset()
-    console.log [app.leksaUserProgression.length, app.options.length, window.localStorage]
+
+    if app.debug
+      console.log "Cleared user data."
+      console.log [ app.leksaUserProgression.length
+                  , app.options.length, window.localStorage
+                  ]
 
   login: (opts = {}) ->
     # TODO: when to clear user data before login?
