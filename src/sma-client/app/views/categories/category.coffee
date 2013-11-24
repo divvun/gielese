@@ -6,6 +6,13 @@ module.exports = class CategoryGames extends Backbone.View
 
   id: "category_view"
 
+  events:
+    "click a": "clickSound"
+
+  clickSound: (evt) ->
+    app.soundEffects.click()
+    return true
+
   template: (params) ->
     if params.subcategory
       return SubcategoryTemplate params

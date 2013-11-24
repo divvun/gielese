@@ -23,7 +23,12 @@
                     <% if category.get('grayed_out'): %>
                     <a class="square grayed"
                     <% else: %>
-                    <a class="square"
+                        <% if subcat: %>
+                            <a class="square"
+                        <% else: %>
+                            <a class="square category_name_play"
+                               data-lemma="<%- name %>"
+                        <% end %>
                     <% end %>
                        href="#category/<%- cat %>"
                        data-transition="slide">

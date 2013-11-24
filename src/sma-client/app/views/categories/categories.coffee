@@ -6,8 +6,22 @@ module.exports = class CategoryMenu extends Backbone.View
     "click #login_button": 'displayLogin'
     "click #log_out": 'logout'
     "click #userinfo_button": 'displayUserInfo'
+    "click .category_name_play": 'playAudioBefore'
+    "click a.square": "clickSound"
   
   id: "category_menu"
+
+  clickSound: (evt) ->
+    app.soundEffects.click()
+    return true
+
+  playAudioBefore: (evt) ->
+    # _link = $(evt.target).parents('a.category_name_play')
+    # lem = _link.attr('data-lemma').toLowerCase()
+    # concept = _.first app.conceptdb.where({concept_value: lem})
+    # console.log concept
+    # concept.playAudio()
+    return true
 
   logout: (evt) ->
     DSt.set('gielese-configured', false)
