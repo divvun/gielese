@@ -58,10 +58,19 @@ module.exports = class UserStats extends Backbone.View
     )
 
     color_range = [ "#F7464A" ,
-                    "#E2EAE9" ,
-                    "#D4CCC5" ,
-                    "#949FB1" ,
-                    "#4D5360" ]
+                    "#437FEB" ,
+                    "#48CC92" ,
+                    "#DDD46D" ,
+                    "#E49247" ]
+
+    # light grey (1)
+    # "#E2EAE9" ,
+    # tan (3)
+    # "#D4CCC5" ,
+    # mid grey (4)
+    # "#949FB1" ,
+    # dark grey (2)
+    # "#4D5360"
 
     test_data = [
       { points: 30,  color: "#F7464A", category: "omg", pretty_name: "Omg" },

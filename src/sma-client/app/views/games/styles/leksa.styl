@@ -1,3 +1,40 @@
+@-webkit-keyframes red_flash
+    0% 
+        box-shadow: 0px 0px 0px #F00
+    22% 
+        box-shadow: 0px 0px 4px #F00
+    22% 
+        box-shadow: 0px 0px 30px #F00
+    77% 
+        box-shadow: 0px 0px 4px #F00
+    100% 
+        box-shadow: 0px 0px 0px #F00
+
+@-webkit-keyframes green_flash
+    0% 
+        box-shadow: 0px 0px 0px #0F0
+    22% 
+        box-shadow: 0px 0px 4px #0F0
+    22% 
+        box-shadow: 0px 0px 30px #0F0
+    77% 
+        box-shadow: 0px 0px 4px #0F0
+    100% 
+        box-shadow: 0px 0px 0px #0F0
+
+
+red-flash-animation()
+    -webkit-animation-name: red_flash
+    -webkit-animation-duration: 1500ms
+    -webkit-animation-iteration-count: 1
+    -webkit-animation-timing-function: ease-in-out
+
+green-flash-animation()
+    -webkit-animation-name: green_flash
+    -webkit-animation-duration: 1500ms
+    -webkit-animation-iteration-count: 1
+    -webkit-animation-timing-function: ease-in-out
+    
 #leksa
 
     #question_play
@@ -132,10 +169,12 @@
     .word_to_image
 
         .correct .img_concept .concept_img_span
-            border: 3px double #090
+            border: 3px solid #090
+            green-flash-animation()
 
         .incorrect .img_concept .concept_img_span
-            border: 3px double #900
+            border: 3px solid #900
+            red-flash-animation()
 
         ul.image-grid
             display: block

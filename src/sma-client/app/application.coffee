@@ -152,6 +152,9 @@ module.exports = class Application
       @device_type = "tablet"
       @media_size = "medium"
 
+    @screen_width = $(window).width()
+    @screen_height = $(window).height()
+
     @loadingTracker = new LoadingTracker({
       'concepts.json': false
       'leksa_questions.json': false

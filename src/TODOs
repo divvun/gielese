@@ -1,5 +1,12 @@
 ## Today
 
+* category colors -- first two are grey and grey-- nasty
+
+* TODO: points view needs a tablet-friendly view, because now there's room for
+  multiple columns and such 
+
+* category complete marking?
+
 * MECHANICS:  learn issue
   - don't use user progression for learn, just do a temporary view instance-specific thing
   - maybe make a separate view for learn? subclass of practice.
@@ -8,8 +15,6 @@
  - error fields not highlighted in certain instances?
  - enter login info, then choose a language ; data deleted - must store
    temporarily until form is submitted, then delete
-
-* MISC: chart doesn't work on mobile: http://bl.ocks.org/mbostock/5682158
 
 -- 
 
@@ -22,6 +27,7 @@
   - activity settings (can get rid of leksa_questions, etc.)
   - localization languages to use
   - which language is the language to learn ('sma')
+
 --
 
 * make questions all follow one generic structure, leksa_questions.yaml is too much
