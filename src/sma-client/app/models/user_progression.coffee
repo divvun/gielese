@@ -9,6 +9,18 @@ module.exports = class UserProgression extends Backbone.Collection
   parse: (resp) ->
     return resp.data
 
+  logs_for_category_name: (c_name) ->
+    # Prefer @where, because syntax is cleaner. Where also doesn't
+    # return collections, so otherwise you have to .filter() everything,
+    # thus, avoid simplifying these to additional functions.
+    @where
+      question_category: c_name
+
+  points_for_category_name: (c_name) ->
+    points = @logs_for_category_name(c_name).map (l) -> l.get('points')
+    return _.reduce(points, ((memo, num) -> memo + num), 0)
+    
+
   logs_for_question: (q) ->
     # Prefer @where, because syntax is cleaner. Where also doesn't
     # return collections, so otherwise you have to .filter() everything,

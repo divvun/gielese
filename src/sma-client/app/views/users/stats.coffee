@@ -83,14 +83,9 @@ module.exports = class UserStats extends Backbone.View
     category_colors = []
     for [cat, col] in _.zip(catego, color_range)
       [title, pretty_name] = cat
-      logs = app.leksaUserProgression
-           .filter (q) =>
-             q.get("question_category") is title if q.get("question_category")?
-
-      _points = logs.map (l) -> l.get('points')
-      points = _.reduce(_points, ((memo, num) -> memo + num), 0)
-
-      category_colors.push {category: pretty_name, color: col, points: points}
+      points = app.leksaUserProgression.points_for_category_name title
+      if points > 0
+        category_colors.push {category: pretty_name, color: col, points: points}
 
     if app.debug
       console.log category_colors

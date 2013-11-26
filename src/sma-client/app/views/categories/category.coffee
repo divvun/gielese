@@ -54,13 +54,15 @@ module.exports = class CategoryGames extends Backbone.View
     @$el.html @template {
       category: cat
       subcategory: subcategory
-      background_image: "url('#{category_image}')"
-      background_size:  "#{app.screen_width-2}px #{app.screen_height-2}px"
     }
 
     @$el.css
-      "background-size":  "#{app.screen_width-2}px #{app.screen_height-2}px"
       "background-image": "url('#{category_image}')"
+      "background-size": "cover"
+      "background-repeat": "no-repeat"
+      "background-position": "center"
+
+    #   "background-size":  "#{app.screen_width-2}px #{app.screen_height-2}px"
 
     this
 

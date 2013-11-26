@@ -22,33 +22,36 @@
 </div>
 
 <div data-role="content" id="subcategory_menu">
-    <div class="category_buttons">
-        <div class="ui-grid-b">
-        <% for group in @subcategory: %>
-            <% for [category, label] in group: %>
-                <% cat  = category.get('category') %>
-                <% name = category.get('name') %>
+    <div id="category_background">
+        <div class="category_buttons">
+            <div class="ui-grid-b">
+            <% for group in @subcategory: %>
+                <% for [category, label] in group: %>
+                    <% cat  = category.get('category') %>
+                    <% name = category.get('name') %>
 
-                <div class="ui-block-<%- label %>">
-                    <% if category.get('grayed_out'): %>
-                    <a class="square grayed"
-                    <% else: %>
-                    <a class="square"
-                    <% end %>
-                       href="#category/<%- cat %>"
-                       data-transition="slide">
-                        <% if category.hasThumbnail(): %>
-                            <% background_img = category.hasThumbnail() %>
-                            <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
+                    <div class="ui-block-<%- label %>">
+                        <% if category.get('grayed_out'): %>
+                        <a class="square grayed"
                         <% else: %>
-                            <span class="link_image"></span>
+                        <a class="square"
                         <% end %>
-                        <span class="link_word"><%- gettext.gettext name %></span>
-                    </a>
-                </div>
+                           href="#category/<%- cat %>"
+                           data-transition="slide">
+                            <% if category.hasThumbnail(): %>
+                                <% background_img = category.hasThumbnail() %>
+                                <span class="link_image" style="background-image: url('<%- background_img %>')"></span>
+                            <% else: %>
+                                <span class="link_image"></span>
+                            <% end %>
+                            <span class="link_word"><%- gettext.gettext name %></span>
+                        </a>
+                    </div>
+                <% end %>
             <% end %>
-        <% end %>
+            </div>
         </div>
     </div>
 </div>
 
+<% # vim: set ts=4 sw=4 tw=0 syntax=mason : %>
