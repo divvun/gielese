@@ -1,3 +1,62 @@
+#
+##
+## ## Notes and stuff
+##
+#
+#  There's a lot of annoying and complex stuff involving the following:
+#
+#    * sound events
+#      - different browsers have different restrictions
+#
+#      - different browsers result in onfinished event getting handled
+#        differently
+#
+#      - mobile browsers only allow sounds to be played via HTML5 when a click
+#        event has triggered them, so the first sound must be 'pregenerated',
+#        otherwise relying on the typical .render() -> .renderQuestion()
+#        process will result in nothing playing
+#
+#      - HTML5 audio on mobile devices generally has a constraint of only one
+#        sound object per tab. It's the best idea to keep the same one around,
+#        and just retarget with a new URL and onfinish handler, rather than
+#        destroying the handler. The latter may not work, and if it actually does
+#        it may be really slow for certain browsers.
+#
+#      - Mobile browsers must have 'audio focus', i.e., you must have tapped a
+#        link to play audio, so that future audio events will work. For now I've
+#        tried to trick peoples' browsers in receiving focus for the more
+#        important learning events by having a sound associated with menu
+#        navigation
+#
+#    * point decrementing events
+#      - potential for overlapping decrements (make sure to delete handlers!)
+#
+#    * rendering new questinos
+#      - delete handlers
+#
+#    * removing timeout/interval handlers when moving to other pages/new
+#      questions
+#      - yep
+#
+#    * timetout/interval support across browsers
+#      - safari and android seem to sometimes prefer setTimeout, but setInterval
+#        support across browsers is worse, so it's better to use this.
+#      - some browsers (ahem, iOS Safari) may prefer that the setTimeout function
+#        be bound to this/@.
+#
+#           someFunction = () ->
+#             console.log "Did something"
+#           handler = setTimeout(someFunction.bind(@), 1000)
+#
+#        ... but I've had bad luck getting this to actually work in Safari.
+#        It seems to be doing fine so far, but maybe that will change.
+#
+#
+##
+## ## Now to start doing things.
+##
+#
+
 UserLog = require 'models/user_log_entry'
 
 LeksaTemplate = require './templates/leksa'
@@ -13,13 +72,6 @@ LeksaConceptTemplate = require '/views/templates/leksa_concept'
 #
 ##
 ## ##
-
-fadeUp = (elem) ->
-  elem.fadeOut(1500)
-    .queue (nxt) ->
-      $(this).remove()
-      nxt()
-  return false
 
 module.exports = class LeksaView extends Backbone.View
 

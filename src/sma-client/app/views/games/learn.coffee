@@ -1,4 +1,14 @@
-﻿LevelCompleted = require './templates/leksa_level_completed'
+﻿#
+##
+## ## Notes and stuff
+##
+#
+#  There is some helpful documentation on potential problems and gotchas with a
+#  lot of the javascript problems one might encounter. See `leksa.coffee`.
+#
+#
+
+LevelCompleted = require './templates/leksa_level_completed'
 LeksaConceptTemplate = require '/views/templates/leksa_concept'
 
 LeksaView = require '/views/games/leksa'
@@ -6,13 +16,6 @@ LeksaView = require '/views/games/leksa'
 #
 ##
 ## ##
-
-fadeUp = (elem) ->
-  elem.fadeOut(1500)
-    .queue (nxt) ->
-      $(this).remove()
-      nxt()
-  return false
 
 module.exports = class LearnView extends LeksaView
 
