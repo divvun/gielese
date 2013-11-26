@@ -301,6 +301,7 @@ module.exports = class LeksaView extends Backbone.View
 
     # Delay first sound playing as leksa page renders
     if @pregenerated?
+      setTimeout(playFirst, 1500)
       delete @pregenerated
     else
       if not @first
@@ -339,6 +340,7 @@ module.exports = class LeksaView extends Backbone.View
     if app.debug
       console.log "View got sound finished."
     app.leksaView.countdownPoints()
+    return false
 
   render: ->
     # if user ends up on front page due to error and comes back here, events
