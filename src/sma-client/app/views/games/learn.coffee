@@ -29,7 +29,7 @@ module.exports = class LearnView extends LeksaView
     if app.wait_handler?
       clearTimeout app.wait_handler
     clearInterval @auto_advance_handler
-    clearInterval @countdown_handle
+    # clearInterval @countdown_handle
     return true
 
   # # #
@@ -100,13 +100,13 @@ module.exports = class LearnView extends LeksaView
       minFontPixels: 18
       maxFontPixels: 36
 
-    countdownPoints = (evt) =>
-      if @cur_points > 5
-        @cur_points -= 5
-        if app.debug
-          console.log "available points: #{@cur_points}"
+    # countdownPoints = (evt) =>
+    #   if @cur_points > 5
+    #     @cur_points -= 5
+    #     if app.debug
+    #       console.log "available points: #{@cur_points}"
 
-    @countdown_handle = setInterval(countdownPoints, 1000)
+    # @countdown_handle = setInterval(countdownPoints, 1000)
 
     # Do not advance
     @$el.find('#leksa_question a.answerlink').click (evt) =>

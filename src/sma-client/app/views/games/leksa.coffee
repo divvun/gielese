@@ -54,7 +54,7 @@ module.exports = class LeksaView extends Backbone.View
   newQuestionSameGroup: (evt) ->
     @renderQuestion()
     return false
-    
+ 
   # # #
   # # #  Answer logging
   # # #
@@ -176,7 +176,6 @@ module.exports = class LeksaView extends Backbone.View
     @$el.find('#point_total').html count
     return
 
-
   renderQuestion: ->
     # Select a question, render it, bind event handlers to each possible
     # answer
@@ -221,6 +220,7 @@ module.exports = class LeksaView extends Backbone.View
       _repeats = 1
     else
       _repeats += 1
+
     @setIndividualAnswerProgress(
       @q.total_correct,
       @q.question_total*_repeats,
@@ -313,6 +313,8 @@ module.exports = class LeksaView extends Backbone.View
       if app.debug?
         console.log "Play:"
         console.log @q.question
+      # TODO: don't reinitialize countdown if one is already going for this
+      # question
       @current_audio = @q.question.playAudio
         finished: app.leksaView.soundFinished
       return false
@@ -320,23 +322,23 @@ module.exports = class LeksaView extends Backbone.View
     return true
 
   countdownPoints: () ->
-    if @cur_points > 5
-      @cur_points -= 5
-      @pts_bubble.find('.points').html("+#{@cur_points}")
+    # these parts need to be written with reference to app, because setting
+    # them as an interval or timeout breaks scope
+    if app.leksaView.cur_points > 5
+      app.leksaView.cur_points -= 5
+      app.leksaView.pts_bubble.find('.points').html("+#{app.leksaView.cur_points}")
       if app.debug
-        console.log "available points: #{@cur_points}"
+        console.log "available points: #{app.leksaView.cur_points}"
+
+    # need to tail call or something with setTimeout
+    app.wait_handler = setTimeout(app.leksaView.countdownPoints, 1000)
+    return false
 
   soundFinished: () ->
     # Begin point degrading after the sound has finished
     if app.debug
       console.log "View got sound finished."
-    app.wait_handler = setInterval( () =>
-      if app.leksaView.cur_points and /leksa/.exec window.location.hash
-        app.leksaView.countdownPoints()
-      else
-        clearTimeout app.wait_handler
-        return false
-    , 1000)
+    app.leksaView.countdownPoints()
 
   render: ->
     # if user ends up on front page due to error and comes back here, events

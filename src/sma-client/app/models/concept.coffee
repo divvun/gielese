@@ -86,6 +86,7 @@ module.exports = class Concept extends Backbone.Model
   playAudio: (opts={}) ->
     # TODO: user feedback about whether audio is downloaded or not.
     
+    console.log opts
     if opts.finished
       finished_event = opts.finished
     else
@@ -98,6 +99,8 @@ module.exports = class Concept extends Backbone.Model
       # Have to have different behavior for html5-only, because of iOS
       # limitations
       if soundManager.html5Only
+        if app.debug
+          console.log "creating sound with html5"
         sound_obj = soundManager.getSoundById(sound_id)
         # grab sound obj if it hasn't been created yet
         if not sound_obj
@@ -106,14 +109,22 @@ module.exports = class Concept extends Backbone.Model
             url: has_audio_file
             onfinish: finished_event
           sound_obj._a.playbackRate = opts.rate
+        else
+          # update the onfinished event
+          sound_obj.options.onfinish = finished_event
+
         if sound_obj.url == has_audio_file
           console.log "repeat"
         else
           console.log "no repeat"
           sound_obj.url = has_audio_file
+          window.so = sound_obj
+          console.log sound_obj.onfinished
 
         sound_obj.play({position:0})
       else
+        if app.debug
+          console.log "creating sound with flash"
         soundManager.destroySound(sound_id)
         s = soundManager.createSound({
           id: sound_id
@@ -123,6 +134,7 @@ module.exports = class Concept extends Backbone.Model
         s.play()
       return s
 
+    # here's what to do if there was no sound or sound manager failed somehow
     if opts.finished
       opts.finished()
     else

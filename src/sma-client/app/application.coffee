@@ -36,6 +36,20 @@ arrayChunk = (a, s) ->
 
 window.arrayChunk = arrayChunk
 
+Function::bind = (parent) ->
+  f = this
+  args = []
+  a = 1
+
+  while a < args.length
+    args[args.length] = args[a]
+    a++
+
+  temp = ->
+    f.apply parent, args
+
+  temp
+
 class LeksaOptions
   constructor: ->
 
