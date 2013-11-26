@@ -73,7 +73,7 @@ module.exports = class LeksaView extends Backbone.View
     @logConcept(q.generator, correct_answer_concept, true)
     $('.set_done_options').show()
     setTimeout((() => @$el.find('#menu_next').click()), 1200)
-    clearInterval(@countdown_handle)
+    clearInterval(app.wait_handler)
 
     @pts_bubble.css('top',  "#{answer_offset.top-height_offset}px")
     @pts_bubble.css('left', "#{answer_offset.left+width_offset}px")
@@ -118,6 +118,7 @@ module.exports = class LeksaView extends Backbone.View
     return true
 
   incorrectAnswer: (q, user_input) ->
+    # NB: do not clear the point countdown handler here
 
     if @cur_points > 10
       @cur_points -= 10
@@ -184,6 +185,9 @@ module.exports = class LeksaView extends Backbone.View
     # Hide the question-end options
     $('.set_done_options').hide()
 
+    if app.wait_handler?
+      clearInterval app.wait_handler
+    
     window.scrollTo(0,0)
 
     @displayUserPoints()
@@ -266,15 +270,6 @@ module.exports = class LeksaView extends Backbone.View
     @pts_bubble.find('.points').html("+#{@cur_points}")
     @pts_bubble.hide()
 
-    countdownPoints = (evt) =>
-      if @cur_points > 5
-        @cur_points -= 5
-        @pts_bubble.find('.points').html("+#{@cur_points}")
-        if app.debug
-          console.log "available points: #{@cur_points}"
-
-    @countdown_handle = setInterval(countdownPoints, 1000)
-
     #
     # Register answer click handlers
     @$el.find('#leksa_question a.answerlink').click (evt) =>
@@ -301,7 +296,8 @@ module.exports = class LeksaView extends Backbone.View
 
     playFirst = =>
       if app.options.getSetting('enable_audio') and @q.generator.get('sound')
-        @q.question.playAudio()
+        @q.question.playAudio
+          finished: app.leksaView.soundFinished
 
     # Delay first sound playing as leksa page renders
     if @pregenerated?
@@ -317,10 +313,30 @@ module.exports = class LeksaView extends Backbone.View
       if app.debug?
         console.log "Play:"
         console.log @q.question
-      @current_audio = @q.question.playAudio()
+      @current_audio = @q.question.playAudio
+        finished: app.leksaView.soundFinished
       return false
 
     return true
+
+  countdownPoints: () ->
+    if @cur_points > 5
+      @cur_points -= 5
+      @pts_bubble.find('.points').html("+#{@cur_points}")
+      if app.debug
+        console.log "available points: #{@cur_points}"
+
+  soundFinished: () ->
+    # Begin point degrading after the sound has finished
+    if app.debug
+      console.log "View got sound finished."
+    app.wait_handler = setInterval( () =>
+      if app.leksaView.cur_points and /leksa/.exec window.location.hash
+        app.leksaView.countdownPoints()
+      else
+        clearTimeout app.wait_handler
+        return false
+    , 1000)
 
   render: ->
     # if user ends up on front page due to error and comes back here, events
