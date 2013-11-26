@@ -1,6 +1,19 @@
+##
+#
+
+* new interval thing seems to work on iOS, but Android is still kind of
+  problematic-- first event doesn't always trigger, and also deleting of
+  handler seems a bit questionable.
+
+* background no longer repositions on iOS/Tablet size -- may need to recrop a
+  couple images
+
 ## Today
 
-* category colors -- first two are grey and grey-- nasty
+* TODO: positioning of user account/non-user account label for swedish text
+  - maybe need to switch display format-- put label somewhere else.
+  - maybe only on tablet? don't see anymore.
+  - yes
 
 * TODO: points view needs a tablet-friendly view, because now there's room for
   multiple columns and such 
