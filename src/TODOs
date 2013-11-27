@@ -1,10 +1,15 @@
 ##
 #
 
+* iOS 3.5" display is tricky, definitely need to recommend bookmark install.
+  maybe include an additional note about how it improves screen experience
+
+  - category icons need shrinking 
+
+* iPad login form could be a bit bigger yet 
+
 * stop countdown on correct answer -- sometimes bubble pops up and is still
   updating
-
-* iPad seems to be cranky about dropping points
 
 * background no longer repositions on iOS/Tablet size -- may need to recrop a
   couple images

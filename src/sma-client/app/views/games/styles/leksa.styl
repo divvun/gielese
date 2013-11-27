@@ -336,6 +336,7 @@ green-flash-animation()
 
     // Now we need some responsive fixes for stuff
 
+
     @media only screen and (max-width: 390px)
         box_size = 275
         img_box_size = (275/2)px
@@ -388,6 +389,13 @@ green-flash-animation()
                     width: w
                     height: w
                     background-size: w w
+
+    // Some exceptional things for iOS on 3.5in devices
+    @media only screen and (max-height: 400px)
+        .image-grid-group.grid-total-2
+            margin-top: 12%
+
+        // TODO: 4-image view needs to be shrunk tons
 
     @media only screen and (min-width: 391px) and (max-width: 499px)
         box_size = 400
