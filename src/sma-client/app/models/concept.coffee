@@ -86,7 +86,6 @@ module.exports = class Concept extends Backbone.Model
   playAudio: (opts={}) ->
     # TODO: user feedback about whether audio is downloaded or not.
     
-    console.log opts
     if opts.finished
       finished_event = opts.finished
     else

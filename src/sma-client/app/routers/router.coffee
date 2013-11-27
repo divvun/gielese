@@ -15,7 +15,6 @@ GlobalOptionsView = require 'views/users/options'
 
 UserStats = require 'views/users/stats'
 FrontPage = require 'views/intro/view'
-LeksaOptionsView = require 'views/games/leksa_options_view'
 ErrorView = require 'views/error/view'
 LoadingView = require 'views/intro/loading'
 SplashView = require 'views/splash/splash'
@@ -34,7 +33,6 @@ module.exports = class Router extends Backbone.Router
     app.categoryMenu = new CategoryMenu()
     app.categoryGames = new CategoryGames()
     app.errorView = new ErrorView()
-    app.leksaOptionsView = new LeksaOptionsView()
     app.frontPage = new FrontPage()
     app.loadingView = new LoadingView()
     app.splashView = new SplashView()
@@ -87,9 +85,6 @@ module.exports = class Router extends Backbone.Router
 
     'leksa/:level/:category': 'learn_and_practice'
     '#leksa/:level/:category': 'learn_and_practice'
-
-    'leksaOptions': 'leksaOptions'
-    '#leksaOptions': 'leksaOptions'
 
     'conceptSet/:category': 'conceptSet'
     '#conceptSet/:category': 'conceptSet'
@@ -151,10 +146,6 @@ module.exports = class Router extends Backbone.Router
     app.categoryGames.initialize()
 
     @changePage(app.categoryGames)
-
-  leksaOptions: ->
-    app.loadingTracker.waitForDeps()
-    @changePage(app.leksaOptionsView)
 
   learn_and_practice: (level, category) ->
     # $('content #content').html app.leksaView.render().el

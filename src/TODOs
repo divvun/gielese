@@ -14,7 +14,11 @@
 * background no longer repositions on iOS/Tablet size -- may need to recrop a
   couple images
 
+* concept success rate highlighting 
+
 ## Today
+
+* app-cache for certain assets: click sounds, UI icons, etc.
 
 * TODO: positioning of user account/non-user account label for swedish text
   - maybe need to switch display format-- put label somewhere else.

@@ -39,6 +39,31 @@ module.exports = class LearnView extends LeksaView
   # # #  Question rendering
   # # #
 
+  selectQuestionForRendering: ->
+    # TODO: wait for ready if not
+    if app.questiondb.length == 0 and app.conceptdb.length == 0
+      window.last_error = "Question DB and Concept DB not ready."
+      app.router.navigate('error')
+
+    if @attributes.level_constraint
+      level_constraint = @level_constraint
+    else
+      level_constraint = (level) -> true
+
+    # TODO: ordering
+    if @ordering?
+      q = app.questiondb.selectQuestion(
+        @attributes.leksa_category,
+        false,
+        @ordering
+      )
+    else
+      q = app.questiondb.selectQuestionByProg(
+        @attributes.leksa_category,
+        level_constraint,
+      )
+    return q
+
   renderQuestion: ->
     # Select a question, render it, bind event handlers to each possible
     # answer
@@ -59,15 +84,31 @@ module.exports = class LearnView extends LeksaView
     else
       @q = @selectQuestionForRendering()
 
-    _repeats = @q.generator.get('repetitions')
-    if _repeats == 0
-      _repeats = 1
+    if not @ordering?
+      if app.debug
+        console.log "choosing ordering"
+
+      @cat = _.first app.categories.where
+        category: @attributes.leksa_category
+      concepts = @cat.getConcepts
+        language: @q.generator.attributes.filters.to_language
+      @ordering = (c.get('concept_value') for c in concepts)
+      @ordering = _.shuffle @ordering.filter (c) =>
+        c isnt @q.answer.attributes.concept_value
+
+      # @ordering.push "THIS_IS_THE_LAST"
+      @ordering.push @q.answer.attributes.concept_value
     else
-      _repeats += 1
+      last = @ordering.shift(0)
+      @ordering.push(last)
+
+    if app.debug
+      console.log @ordering
 
     if not @q.question
-      _log_msg = "LearnView.render_question: ungeneratable question - "
-      _log_msg += "#{q.generator.get('category')}/#{q.generator.get('level')}"
+      _log_msg = "LearnView.render_question: ungeneratable question in ordering"
+      _log_msg += " " + @ordering.join(', ')
+      console.log @ordering
       window.client_log.error(_log_msg)
       _err_msg = "A question could not be generated from these parameters"
       @$el.find('#leksa_question').html @leksa_error_template

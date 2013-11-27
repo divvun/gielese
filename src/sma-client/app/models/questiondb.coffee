@@ -54,7 +54,7 @@ module.exports = class QuestionDB extends Backbone.Collection
   selectQuestionByProg: (category, level_constraint=false) ->
     @selectQuestion(category, level_constraint)
 
-  selectQuestion: (category, level_constraint=false) ->
+  selectQuestion: (category, level_constraint=false, ordering=false) ->
     #
     # Select a question
     #
@@ -100,7 +100,8 @@ module.exports = class QuestionDB extends Backbone.Collection
       current_question_cycle = q.cycle_for_progression()
 
       if not isFinite(current_cycle)
-        console.log "wasnt finite"
+        if app.debug
+          console.log "wasnt finite"
         current_cycle = 1
 
       if app.debug
@@ -108,7 +109,7 @@ module.exports = class QuestionDB extends Backbone.Collection
         console.log "user's cycle for category: #{current_cycle}"
 
       try
-        question_instance = q.find_concepts(app.conceptdb)
+        question_instance = q.find_concepts(app.conceptdb, {ordering: ordering})
         if app.debug
           _msg_q_cycle = question_instance.generator.get('cycle')
           console.log "question cycle: #{_msg_q_cycle}"

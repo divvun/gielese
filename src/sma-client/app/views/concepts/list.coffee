@@ -123,6 +123,9 @@ module.exports = class ConceptList extends Backbone.View
       (link_li.height()/2)
     )
 
+    # reveal and hide arrows on scroll to bottom
+    # $(window).height() - $('.aajege-header').outerHeight()
+
     # if link_li.position().top > concept_list.height()
     #   concept_list.animate({
     #     scrollTop: new_position
@@ -143,7 +146,6 @@ module.exports = class ConceptList extends Backbone.View
       prev = concept_index - 1
 
     next = concept_index + 1
-
 
     concept_template = new ConceptView {
       model: concept

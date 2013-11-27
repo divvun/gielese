@@ -183,6 +183,15 @@ Here we increment the cycle if the current question is compelte
           )
         )
 
+      select_question_concepts_by_ordering: (conceptdb, ordering) ->
+        orderConceptsByList = require './helpers/concept_by_ordering'
+        return orderConceptsByList(@,
+          @filter_concepts_by_media(
+            @select_question_concepts(conceptdb), app.media_size
+          ),
+          ordering
+        )
+
       select_question_concepts: (conceptdb) ->
         default_similarity = {
           'features': false
@@ -265,7 +274,12 @@ Here we increment the cycle if the current question is compelte
           question_concepts = @filter_concepts_by_media(question_concepts, app.media_size)
 
         try
-          q_concepts = @select_question_concepts_by_progression(question_concepts)
+          if opts.ordering? and opts.ordering
+            q_concepts = @select_question_concepts_by_ordering(question_concepts, opts.ordering)
+          else
+            q_concepts = @select_question_concepts_by_progression(question_concepts)
+          if app.debug
+            console.log q_concepts
         catch err
           if err instanceof NoMoreProgression
             # check if user completed the question-- if so, then we need the
@@ -283,9 +297,13 @@ Here we increment the cycle if the current question is compelte
 
         # Select a question concept
         if q_concepts.length > 0
-          question = _.shuffle(q_concepts)[0]
+          if not opts.ordering?
+            question = _.shuffle(q_concepts)[0]
+            alternates = _.shuffle(q_concepts).slice(1)
+          else
+            question = _.first q_concepts
+            alternates = _.shuffle(q_concepts).slice(1)
           # Alternate question concepts that match the question criteria
-          alternates = _.shuffle(q_concepts).slice(1)
         else
           console.log "No concepts left for question."
           console.log _filters
