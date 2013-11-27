@@ -1,6 +1,11 @@
 ##
 #
 
+* stop countdown on correct answer -- sometimes bubble pops up and is still
+  updating
+
+* iPad seems to be cranky about dropping points
+
 * background no longer repositions on iOS/Tablet size -- may need to recrop a
   couple images
 
@@ -65,7 +70,7 @@
 
   - http://api.mongodb.org/python/current/tutorial.html
   - auth situation
-  - html5 audio issues
+  - html5 audio issues (leksa.coffee -- need to move this elsewhere) 
 
 # Next
 

@@ -41,8 +41,23 @@
 #    * timetout/interval support across browsers
 #      - safari and android seem to sometimes prefer setTimeout, but setInterval
 #        support across browsers is worse, so it's better to use this.
-#      - some browsers (ahem, iOS Safari) may prefer that the setTimeout function
-#        be bound to this/@.
+#      - some browsers (ahem, iOS Safari) may prefer that the setTimeout
+#        function be bound to this/@.
+#
+#          Function::bind = (parent) ->
+#            f = this
+#            args = []
+#            a = 1
+#
+#            while a < args.length
+#              args[args.length] = args[a]
+#              a++
+#
+#            temp = ->
+#              f.apply parent, args
+#
+#            temp
+#
 #
 #           someFunction = () ->
 #             console.log "Did something"
@@ -157,7 +172,7 @@ module.exports = class LeksaView extends Backbone.View
     #
     # Create the log entry in the user progression
     # TODO: remove question, rely only on question_category and ..._level
-    log = app.leksaUserProgression.logActivity
+    log = app.userprogression.logActivity
       game_name: "leksa"
       question_concept: concept.get('concept_value')
       question_concept_value: concept_name
@@ -224,7 +239,7 @@ module.exports = class LeksaView extends Backbone.View
     return q
 
   displayUserPoints: ->
-    count = app.leksaUserProgression.countPoints()
+    count = app.userprogression.countPoints()
     @$el.find('#point_total').html count
     return
 

@@ -36,6 +36,7 @@ arrayChunk = (a, s) ->
 
 window.arrayChunk = arrayChunk
 
+# Mobile Safari fix
 Function::bind = (parent) ->
   f = this
   args = []
@@ -203,7 +204,7 @@ module.exports = class Application
 
     @questiondb = new QuestionDB()
 
-    @leksaUserProgression = new UserProgression()
+    @userprogression = new UserProgression()
     @leksaOptions = new LeksaOptions()
 
     @router = new Router()

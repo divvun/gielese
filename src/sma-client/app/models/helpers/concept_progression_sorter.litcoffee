@@ -25,7 +25,7 @@ list of `concepts`, and the `user_prog_for_question`.
 
 Grab only the user progression for this question.
 
-      user_prog_for_question = app.leksaUserProgression.logs_for_question_in_cycle(q, q.get('cycle'))
+      user_prog_for_question = app.userprogression.logs_for_question_in_cycle(q, q.get('cycle'))
 
       if app.debug
         console.log "#{q.cid} - #{user_prog_for_question.length} run-throughs"
@@ -47,7 +47,7 @@ For a user progression, figure out how many times this question concept has
 been answered as correct by the user.
 
       progressionCorrectCountForConcept = (c) =>
-        zups = app.leksaUserProgression.correctLogsForConceptInQuestion(c, q)
+        zups = app.userprogression.correctLogsForConceptInQuestion(c, q)
         if max_repeats
           zups = zups.filter (up) =>
             up.get('cycle') == max_repeats
@@ -70,7 +70,7 @@ Remove a concept from the cycle once it has been displayed 4 times.
 
 Try to avoid repeats by excluding the last concept from the progression.
 
-      last_concept = app.leksaUserProgression.last()
+      last_concept = app.userprogression.last()
       if app.debug
         console.log "Last concept: "
         console.log last_concept

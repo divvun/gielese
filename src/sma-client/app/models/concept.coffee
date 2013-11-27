@@ -8,9 +8,9 @@ module.exports = class Concept extends Backbone.Model
     fails: false
 
   successRateInUserLog: () ->
-    log_entries_for_concept = app.leksaUserProgression.where
+    log_entries_for_concept = app.userprogression.where
       question_concept_value: @get('concept_value')
-    correct_values = app.leksaUserProgression.where
+    correct_values = app.userprogression.where
       question_concept_value: @get('concept_value')
       question_correct: true
 

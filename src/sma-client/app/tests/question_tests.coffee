@@ -25,7 +25,7 @@ module.exports = class QuestionTests
     success = true
 
     vs = db.where({type: "word_to_image", category: "TEST"})[0]
-      .find_concepts(app.conceptdb, app.leksaUserProgression)
+      .find_concepts(app.conceptdb, app.userprogression)
       .choices
       .map (o) -> o.attributes.concept_value
 

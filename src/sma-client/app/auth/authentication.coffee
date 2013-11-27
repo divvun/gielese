@@ -109,11 +109,11 @@ module.exports = class Authenticator
 
     window.localStorage.clear()
     app.options.reset()
-    app.leksaUserProgression.reset()
+    app.userprogression.reset()
 
     if app.debug
       console.log "Cleared user data."
-      console.log [ app.leksaUserProgression.length
+      console.log [ app.userprogression.length
                   , app.options.length, window.localStorage
                   ]
 
@@ -156,7 +156,7 @@ module.exports = class Authenticator
 
       console.log "User logged in, syncing progression"
       $.when(
-        app.leksaUserProgression.storage.sync.full({
+        app.userprogression.storage.sync.full({
           success: (data) ->
             console.log "userlog.full.success"
         }),

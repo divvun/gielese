@@ -32,13 +32,13 @@ Here we find out if the user completed the question.
 
       cycle_for_progression: () ->
         _.max(
-          (p.get('cycle') for p in app.leksaUserProgression.logs_for_question(@))
+          (p.get('cycle') for p in app.userprogression.logs_for_question(@))
         )
 
 How many correct answers are there for this question?
 
       total_correct_answers_for_question: () ->
-        app.leksaUserProgression.where({
+        app.userprogression.where({
           question_correct: true
           question_category: @get('category')
           question_category_level: @get('level')
@@ -46,7 +46,7 @@ How many correct answers are there for this question?
         }).length
 
       user_completed_question: (opts={}) ->
-        userprogression = app.leksaUserProgression
+        userprogression = app.userprogression
         correct_count = 2
 
         if opts.cycle
@@ -77,7 +77,7 @@ For each question concept, determine what amount the user correctly,
 if the amount is greater, append the correct amount to counts.
         
         correctsForCQW = (c, q, w) ->
-          app.leksaUserProgression.correctLogsForConceptInQuestionInCycle(c, q, cycle).length
+          app.userprogression.correctLogsForConceptInQuestionInCycle(c, q, cycle).length
 
         counts = []
         for c in concepts
@@ -103,7 +103,7 @@ and we increment the cycle one.
         return false
 
       user_completed_cycle: () ->
-        userprogression = app.leksaUserProgression
+        userprogression = app.userprogression
         correct_count = 2
 
         if opts.cycle
@@ -135,7 +135,7 @@ For each question concept, determine what amount the user correctly,
 if the amount is greater, append the correct amount to counts.
         
         correctsForCQW = (c, q, w) ->
-          app.leksaUserProgression.correctLogsForConceptInQuestionInCycle(c, q, cycle).length
+          app.userprogression.correctLogsForConceptInQuestionInCycle(c, q, cycle).length
           
         counts = []
         for c in concepts
@@ -175,7 +175,7 @@ Here we increment the cycle if the current question is compelte
         return filtered_concepts
 
       select_question_concepts_by_progression: (conceptdb) ->
-        userprog = app.leksaUserProgression
+        userprog = app.userprogression
         orderConceptsByProgression = require './helpers/concept_progression_sorter'
         return orderConceptsByProgression(@,
           @filter_concepts_by_media(
@@ -221,7 +221,7 @@ Here we increment the cycle if the current question is compelte
           console.log "Uh oh"
           throw _err
 
-        userprogression = app.leksaUserProgression
+        userprogression = app.userprogression
         # handle edge case for tail call immediately.
         # somehow this has failed several times, so...
         if @tries > 3

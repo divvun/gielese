@@ -25,7 +25,7 @@ module.exports = class QuestionDB extends Backbone.Collection
     @removeNonFunctioning @where({'category': category})
 
   orderQuestionsByProgression: (qs, user_cycle) ->
-    userprogression = app.leksaUserProgression
+    userprogression = app.userprogression
 
     questionByProg = (questions, user_cycle) =>
     

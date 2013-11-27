@@ -83,13 +83,13 @@ module.exports = class UserStats extends Backbone.View
     category_colors = []
     for [cat, col] in _.zip(catego, color_range)
       [title, pretty_name] = cat
-      points = app.leksaUserProgression.points_for_category_name title
+      points = app.userprogression.points_for_category_name title
       if points > 0
         category_colors.push {category: pretty_name, color: col, points: points}
 
     if app.debug
       console.log category_colors
-    if app.debug and app.leksaUserProgression.models.length == 0
+    if app.debug and app.userprogression.models.length == 0
       category_colors = test_data
       console.log category_colors
 
@@ -171,12 +171,12 @@ module.exports = class UserStats extends Backbone.View
     #   pie chart?)
     #
     # but for now, just a list of objects
-    models = app.leksaUserProgression.models
+    models = app.userprogression.models
 
     correct_for_category = {}
-    if app.leksaUserProgression.length > 0
+    if app.userprogression.length > 0
       # problem here
-      questions = app.leksaUserProgression
+      questions = app.userprogression
                      .pluck('question')
                      .filter (q) ->
                        q != null
@@ -188,7 +188,7 @@ module.exports = class UserStats extends Backbone.View
       categories = _.uniq cats
 
       for c in categories
-        questions_for_category = app.leksaUserProgression.filter (l) =>
+        questions_for_category = app.userprogression.filter (l) =>
           l.get('question').category == c
         questions_correct_for_category = questions_for_category.filter (l) =>
           l.get('question_correct') == true
@@ -202,8 +202,8 @@ module.exports = class UserStats extends Backbone.View
           'percent': (total_questions_correct/total_questions_tried)*100
         }
 
-    if app.leksaUserProgression.length > 0
-      points = app.leksaUserProgression.countPoints()
+    if app.userprogression.length > 0
+      points = app.userprogression.countPoints()
     else
       points = false
 
@@ -218,7 +218,7 @@ module.exports = class UserStats extends Backbone.View
       points_total: points
       user: user
 
-    if app.leksaUserProgression.length > 0 or app.debug
+    if app.userprogression.length > 0 or app.debug
       @categoryChart()
 
     @$el.find('#display_stats input[type=radio]').on(
