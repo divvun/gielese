@@ -128,6 +128,9 @@ module.exports = class LeksaView extends Backbone.View
 
   correctAnswer: (q, user_input) ->
     # Give user feedback that they were correct, and show the set done options.
+    if app.wait_handler?
+      clearInterval app.wait_handler
+      @answer_in = true
 
     user_answer_concept = q.answer
     correct_answer_concept = q.question
@@ -250,6 +253,7 @@ module.exports = class LeksaView extends Backbone.View
     #
     # Hide the question-end options
     $('.set_done_options').hide()
+    @answer_in = false
 
     if app.wait_handler?
       clearInterval app.wait_handler
@@ -406,7 +410,13 @@ module.exports = class LeksaView extends Backbone.View
     # Begin point degrading after the sound has finished
     if app.debug
       console.log "View got sound finished."
-    app.leksaView.countdownPoints()
+      if app.leksaView.answer_in
+        console.log "Sound finished, but user answered first."
+
+    # handle the situation where the user clicks the answer before the sound
+    # finishes; do not continue counting points.
+    if not app.leksaView.answer_in
+      app.leksaView.countdownPoints()
     return false
 
   render: ->

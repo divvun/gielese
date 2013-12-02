@@ -1,40 +1,6 @@
 ##
 #
 
-* clean up level definition thing -- use defaults unless overridden. decide
-  where to store overrides later. later: maybe just fetch concepts by category, not by specific semantic info
-
-* missing media:
-  * mangla (korrekt) bilete i nokre tilfelle ved øvinga til Hus/Gåetie
-
-  ** hugsar ikkje
-  ** steeblegh
-  ** stovle
-  ** gåetie
-
-  * Heelsedh - funkar ikkje på «øv» og «lær»
-    - ordi til stadar, problem med nivåar
-
-  * klokka
-
---
-Nye ting:
-* når ein går ut av poengsida, kjem ein ikkje tilbake til der ein var, men til framsida
-* på første spursmålet byrjar poeng på 5 av og til (iPad)
-* raudt og grønt flæsj har kanskje for langsam animering
-* mangla (korrekt) bilete i nokre tilfelle ved øvinga til Hus/Gåetie
-** hugsar ikkje
-** steeblegh
-** stovle
-** gåetie
-* Heelsedh - funkar ikkje på «øv» og «lær»
-* av og til startar lyden to gonger (første ord på øv som regel - iPad)
-* den gråe stripen på ikonar i kategorilista kan kanskje vera litt mørkare no, med dusete bilæte
-* poeng-sekken - litt meir detaljert oppsumering av poeng frå visse ord (ta bort det i ordlista)
-* tjueen, tjueett -> tjueen 
-* tell poeng akkurat når ein hev trykt på svaret -- av og til ser man at poeng går ned når dei står i bobla.
---
-
 * mobileinit seems to not be loading, which prevents tweaking any of the settings
   to fix the container stuff.
 
@@ -48,14 +14,6 @@ Nye ting:
   - category icons need shrinking 
 
 * iPad login form could be a bit bigger yet 
-
-* stop countdown on correct answer -- sometimes bubble pops up and is still
-  updating
-
-* background no longer repositions on iOS/Tablet size -- may need to recrop a
-  couple images
-
-* concept success rate highlighting 
 
 ## Today
 

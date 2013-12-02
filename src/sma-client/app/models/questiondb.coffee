@@ -22,6 +22,10 @@ module.exports = class QuestionDB extends Backbone.Collection
         return false
     
   filterQuestionsByCategory: (category) ->
+    # If a category does not have any questions, create the questions from the
+    # default templates.
+    #
+
     qs = @removeNonFunctioning @where({'category': category})
     if qs.length == 0
       # TODO: need to replace filter semantics-- store in local db for user?
