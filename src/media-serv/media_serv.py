@@ -214,12 +214,13 @@ def cache_manifest():
     return Response( create_manifest('http://%s/' % request.host)
                    , mimetype='text/cache-manifest')
 
-def prepare_leksa_questions(db):
+def prepare_leksa_questions():
     import yaml
     with open(app.config.games.leksa.file, 'r') as F:
         data = yaml.load(F.read())
 
-    questions = data.get('Questions')
+    questions = data.get('DefaultQuestions') + data.get('Questions')
+
     return questions
 
 @app.route('/data/leksa_questions.json', methods=['GET'])
@@ -238,7 +239,7 @@ def leksa_questions():
                        , mimetype="application/json"
                        )
     else:
-        leksa_questions = prepare_leksa_questions(db)
+        leksa_questions = prepare_leksa_questions()
 
         if pretty:
             data = json.dumps( leksa_questions

@@ -50,7 +50,6 @@ The category image is selected from media.
         else
           size = opts.size
         
-        console.log [device, size]
         # TODO: maybe preference to image size over device? i.e., if large/tablet
         # doesn't exist, but large/mobile does, take that one
         has_media = @.get('media')

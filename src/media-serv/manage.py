@@ -54,7 +54,7 @@ def prepare_json(app):
         print " * Dumped %d concepts to %s" % (len(concepts), _file)
 
         _file = "data/leksa_questions.json"
-        leksa_questions = prepare_leksa_questions(db)
+        leksa_questions = prepare_leksa_questions()
         l_data = json.dumps(leksa_questions)
         store_cache_file(l_data, _file)
         print " * Dumped %d questions to %s" % (len(leksa_questions), _file)

@@ -71,222 +71,10 @@ Examples:
       #   - "BISYL"
       #   - "HT"
 
-
-# Some of my own shortcuts...
-
-BpImgWord: &FACE_IMG_WORD
-  type: "image_to_word"
-  category: "FACE"
-  name: "Face image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "FACE"
-
-  answer_similarity:
-    semantics:
-      - "FACE"
-
-BpWordImg: &FACE_WORD_IMG
-  type: "word_to_image"
-  category: "FACE"
-  name: "Face image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "FACE"
-
-  answer_similarity:
-    semantics:
-      - "FACE"
-
-BodyImgWord: &BODY_IMG_WORD
-  type: "image_to_word"
-  category: "BODY"
-  name: "Body image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "BODY"
-
-  answer_similarity:
-    semantics:
-      - "BODY"
-
-BodyWordImg: &BODY_WORD_IMG
-  type: "word_to_image"
-  category: "BODY"
-  name: "Body image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "BODY"
-
-  answer_similarity:
-    semantics:
-      - "BODY"
-
-HouseImgWord: &HOUSE_IMG_WORD
-  type: "image_to_word"
-  category: "HOUSE"
-  name: "House image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "HOUSE"
-
-  answer_similarity:
-    semantics:
-      - "HOUSE"
-
-HouseWordImg: &HOUSE_WORD_IMG
-  type: "word_to_image"
-  category: "HOUSE"
-  name: "House image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "HOUSE"
-
-  answer_similarity:
-    semantics:
-      - "HOUSE"
-
-NumbersImgWord: &NUMBERS_IMG_WORD
-  type: "image_to_word"
-  category: "NUMBERS"
-  name: "Numbers image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "NUMBERS"
-
-  answer_similarity:
-    semantics:
-      - "NUMBERS"
-
-NumbersWordImg: &NUMBERS_WORD_IMG
-  type: "word_to_image"
-  category: "NUMBERS"
-  name: "Numbers image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "NUMBERS"
-
-  answer_similarity:
-    semantics:
-      - "NUMBERS"
-
-TimeImgWord: &TIME_IMG_WORD
-  type: "image_to_word"
-  category: "TIME"
-  name: "Time image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "TIME"
-
-  answer_similarity:
-    semantics:
-      - "TIME"
-
-TimeWordImg: &TIME_WORD_IMG
-  type: "word_to_image"
-  category: "TIME"
-  name: "Time image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "TIME"
-
-  answer_similarity:
-    semantics:
-      - "TIME"
-
+# Default levels to be used for every category unless overridden
 DefaultImgWord: &DEFAULT_IMG_WORD
   type: "image_to_word"
-  category: "DEFAULTS"
+  category: "DEFAULT_GROUP"
   name: "Default image to word"
 
   repetitions: 2
@@ -299,13 +87,15 @@ DefaultImgWord: &DEFAULT_IMG_WORD
     from_language: "img"
     to_language: "sma"
     semantics: False
+    use_category: True
 
   answer_similarity:
     semantics: False
+    use_category: True
 
 DefaultWordImg: &DEFAULT_WORD_IMG
   type: "word_to_image"
-  category: "DEFAULTS"
+  category: "DEFAULT_GROUP"
   name: "Default image to word"
 
   repetitions: 2
@@ -318,321 +108,102 @@ DefaultWordImg: &DEFAULT_WORD_IMG
     from_language: "sma"
     to_language: "img"
     semantics: False
+    use_category: True
 
   answer_similarity:
     semantics: False
+    use_category: True
 
-GreetingImgWord: &GREETING_IMG_WORD
-  type: "image_to_word"
-  category: "GREETINGS"
-  name: "Greetings image to word"
+# Example question structure if there's a need to override settings to not
+# apply to all questions
 
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
+# AnimalsImgWord: &ANIMALS_IMG_WORD
+#   type: "image_to_word"
+#   category: "ANIMALS"
+#   name: "Animals image to word"
+# 
+#   repetitions: 2
+#   level: 1
+#   answers: 1
+#   points: 50
+#   sound: true
+# 
+#   filters:
+#     from_language: "img"
+#     to_language: "sma"
+#     semantics:
+#       - "ANIMALS"
+# 
+#   answer_similarity:
+#     semantics:
+#       - "ANIMALS"
+# 
+# AnimalsWordImg: &ANIMALS_WORD_IMG
+#   type: "word_to_image"
+#   category: "ANIMALS"
+#   name: "Animals image to word"
+# 
+#   repetitions: 2
+#   level: 1
+#   answers: 1
+#   points: 50
+#   sound: true
+# 
+#   filters:
+#     from_language: "sma"
+#     to_language: "img"
+#     semantics:
+#       - "ANIMALS"
+# 
+#   answer_similarity:
+#     semantics:
+#       - "ANIMALS"
 
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "GREETINGS"
-
-  answer_similarity:
-    semantics:
-      - "GREETINGS"
-
-GreetingWordImg: &GREETING_WORD_IMG
-  type: "word_to_image"
-  category: "GREETINGS"
-  name: "Greetings image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "GREETINGS"
-
-  answer_similarity:
-    semantics:
-      - "GREETINGS"
-
-PhrasesImgWord: &PHRASES_IMG_WORD
-  type: "image_to_word"
-  category: "PHRASES"
-  name: "Phrasess image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "PHRASE"
-
-  answer_similarity:
-    semantics:
-      - "PHRASE"
-
-PhrasesWordImg: &PHRASES_WORD_IMG
-  type: "word_to_image"
-  category: "PHRASES"
-  name: "Phrasess image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "PHRASE"
-
-  answer_similarity:
-    semantics:
-      - "PHRASE"
-
-FoodImgWord: &FOOD_IMG_WORD
-  type: "image_to_word"
-  category: "FOOD"
-  name: "Food image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "FOOD"
-
-  answer_similarity:
-    semantics:
-      - "FOOD"
-
-FoodWordImg: &FOOD_WORD_IMG
-  type: "word_to_image"
-  category: "FOOD"
-  name: "Food image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "FOOD"
-
-  answer_similarity:
-    semantics:
-      - "FOOD"
-
-AnimalsImgWord: &ANIMALS_IMG_WORD
-  type: "image_to_word"
-  category: "ANIMALS"
-  name: "Animals image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "ANIMALS"
-
-  answer_similarity:
-    semantics:
-      - "ANIMALS"
-
-AnimalsWordImg: &ANIMALS_WORD_IMG
-  type: "word_to_image"
-  category: "ANIMALS"
-  name: "Animals image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "ANIMALS"
-
-  answer_similarity:
-    semantics:
-      - "ANIMALS"
-
-WorldImgWord: &WORLD_IMG_WORD
-  type: "image_to_word"
-  category: "WORLD"
-  name: "World image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "img"
-    to_language: "sma"
-    semantics:
-      - "WORLD"
-
-  answer_similarity:
-    semantics:
-      - "WORLD"
-
-WorldWordImg: &WORLD_WORD_IMG
-  type: "word_to_image"
-  category: "WORLD"
-  name: "World image to word"
-
-  repetitions: 2
-  level: 1
-  answers: 1
-  points: 50
-  sound: true
-
-  filters:
-    from_language: "sma"
-    to_language: "img"
-    semantics:
-      - "WORLD"
-
-  answer_similarity:
-    semantics:
-      - "WORLD"
+# WorldImgWord: &WORLD_IMG_WORD
+#   type: "image_to_word"
+#   category: "WORLD"
+#   name: "World image to word"
+# 
+#   repetitions: 2
+#   level: 1
+#   answers: 1
+#   points: 50
+#   sound: true
+# 
+#   filters:
+#     from_language: "img"
+#     to_language: "sma"
+#     semantics:
+#       - "WORLD"
+# 
+#   answer_similarity:
+#     semantics:
+#       - "WORLD"
+# 
+# WorldWordImg: &WORLD_WORD_IMG
+#   type: "word_to_image"
+#   category: "WORLD"
+#   name: "World image to word"
+# 
+#   repetitions: 2
+#   level: 1
+#   answers: 1
+#   points: 50
+#   sound: true
+# 
+#   filters:
+#     from_language: "sma"
+#     to_language: "img"
+#     semantics:
+#       - "WORLD"
+# 
+#   answer_similarity:
+#     semantics:
+#       - "WORLD"
 
 # For category definitions, see categories.yaml.
 
-Questions:
-  # -*- face -*- 
-  
-  - <<: *FACE_IMG_WORD
-
-  - <<: *FACE_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
-
-  - <<: *FACE_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
-
-  - <<: *FACE_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
-
-  # -*- body -*- 
-  
-  - <<: *BODY_IMG_WORD
-
-  - <<: *BODY_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
-
-  - <<: *BODY_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
-
-  - <<: *BODY_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
-
-  # -*- house -*- 
-  
-  - <<: *HOUSE_IMG_WORD
-
-  - <<: *HOUSE_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
-
-  - <<: *HOUSE_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
-
-  - <<: *HOUSE_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
-
-  # -*- numbers -*- 
-  
-  - <<: *NUMBERS_IMG_WORD
-
-  - <<: *NUMBERS_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
-
-  - <<: *NUMBERS_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
-
-  - <<: *NUMBERS_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
-
-  # -*- time -*- 
-  
-  - <<: *TIME_IMG_WORD
-
-  - <<: *TIME_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
-
-  - <<: *TIME_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
-
-  - <<: *TIME_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
-
-
-  # -*- default -*- 
-
+DefaultQuestions:
   - <<: *DEFAULT_IMG_WORD
 
   - <<: *DEFAULT_WORD_IMG
@@ -650,101 +221,49 @@ Questions:
     answers: 4
     points: 50
 
+Questions:
 
-  # -*- heelsedh -*- 
-
-  - <<: *GREETING_IMG_WORD
-
-  - <<: *GREETING_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
-
-  - <<: *GREETING_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
-
-  - <<: *GREETING_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
- 
-  # -*- heelsedh -*- 
-
-  - <<: *PHRASES_IMG_WORD
-
-  - <<: *PHRASES_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
-
-  - <<: *PHRASES_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
-
-  - <<: *PHRASES_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
-
-  # -*- food -*- 
-
-  - <<: *FOOD_IMG_WORD
-
-  - <<: *FOOD_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
-
-  - <<: *FOOD_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
-
-  - <<: *FOOD_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
+  # These all come from the default category-- simplifying for now. Leaving as
+  # an example of how to override, but ideally overriding questions will be
+  # done somewhere else
 
   # -*- nature-world -*- 
 
-  - <<: *WORLD_IMG_WORD
+  # - <<: *WORLD_IMG_WORD
 
-  - <<: *WORLD_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
+  # - <<: *WORLD_WORD_IMG
+  #   level: 2
+  #   answers: 2
+  #   points: 50
 
-  - <<: *WORLD_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
+  # - <<: *WORLD_WORD_IMG
+  #   level: 3
+  #   answers: 3
+  #   points: 50
 
-  - <<: *WORLD_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
+  # - <<: *WORLD_WORD_IMG
+  #   level: 4
+  #   answers: 4
+  #   points: 50
 
   # -*- nature-animals -*- 
 
-  - <<: *ANIMALS_IMG_WORD
+  # - <<: *ANIMALS_IMG_WORD
 
-  - <<: *ANIMALS_WORD_IMG
-    level: 2
-    answers: 2
-    points: 50
+  # - <<: *ANIMALS_WORD_IMG
+  #   level: 2
+  #   answers: 2
+  #   points: 50
 
-  - <<: *ANIMALS_WORD_IMG
-    level: 3
-    answers: 3
-    points: 50
+  # - <<: *ANIMALS_WORD_IMG
+  #   level: 3
+  #   answers: 3
+  #   points: 50
 
-  - <<: *ANIMALS_WORD_IMG
-    level: 4
-    answers: 4
-    points: 50
+  # - <<: *ANIMALS_WORD_IMG
+  #   level: 4
+  #   answers: 4
+  #   points: 50
 
   # -*- test -*-
   - type: "image_to_word"

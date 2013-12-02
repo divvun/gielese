@@ -22,7 +22,25 @@ module.exports = class QuestionDB extends Backbone.Collection
         return false
     
   filterQuestionsByCategory: (category) ->
-    @removeNonFunctioning @where({'category': category})
+    qs = @removeNonFunctioning @where({'category': category})
+    if qs.length == 0
+      # TODO: need to replace filter semantics-- store in local db for user?
+      qs = @removeNonFunctioning @where({'category': 'DEFAULT_GROUP'})
+      cat = _.first app.categories.where({category: category})
+      cat_semantics = cat.get('semantics')
+      adjusted_qs = []
+      for q in qs
+        new_q = q.clone()
+        new_q.set('category', category)
+        _filters = new_q.get('filters')
+        _sims = new_q.get('answer_similarity')
+        # copy, so this saves to obj
+        _filters.semantics = cat_semantics
+        _sims.semantics = cat_semantics
+
+        adjusted_qs.push new_q
+      qs = adjusted_qs
+    return qs
 
   orderQuestionsByProgression: (qs, user_cycle) ->
     userprogression = app.userprogression
