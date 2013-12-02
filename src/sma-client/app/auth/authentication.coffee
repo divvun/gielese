@@ -10,7 +10,8 @@ module.exports = class Authenticator
     # same IDs, fix
     auth_popup_form_submit = (event) =>
       # TODO: disable form
-      console.log "Authenticator.login: submitted"
+      if app.debug
+        console.log "Authenticator.login: submitted"
       el.find('#loginPopup #loading').fadeIn()
   
       @login
@@ -68,15 +69,18 @@ module.exports = class Authenticator
     _create_user = $.post("/user/create/", data)
 
     _create_user.fail (response) =>
-        console.log "auth.create_user: fail"
+        if app.debug
+          console.log "auth.create_user: fail"
         opts.fail(response) if opts.fail
 
     _create_user.success (response) =>
-        console.log "auth.create_user: success"
+        if app.debug
+          console.log "auth.create_user: success"
         opts.success(response) if opts.success
 
     _create_user.always (response) =>
-        console.log "auth.create_user: always"
+        if app.debug
+          console.log "auth.create_user: always"
         opts.always(response) if opts.always
 
     return opts
@@ -91,6 +95,7 @@ module.exports = class Authenticator
     # TODO: sync everything left over in user collections
 
     logout_request.fail (resp) ->
+      # TODO: post log to server
       console.log "Authenticator.logout.logout_request.fail: fail"
       console.log JSON.parse resp.responseText
       app.user = null
@@ -98,7 +103,8 @@ module.exports = class Authenticator
 
     logout_request.success (data, textStatus, jqXHR) =>
       app.user = false
-      console.log "Authenticator.logout.logout_request.success"
+      if app.debug
+        console.log "Authenticator.logout.logout_request.success"
       @clearUserData()
 
       opts.success(data, textStatus, jqXHR) if opts.success
@@ -131,17 +137,20 @@ module.exports = class Authenticator
         withCredentials: true
 
     login_request.fail (resp) =>
+      # TODO: log error to server?
       console.log "fail"
       console.log JSON.parse resp.responseText
       app.user = null
       opts.fail(resp) if opts.fail
 
     login_request.success (data, textStatus, jqXHR) ->
-      console.log "Authenticator.login.success: Should be logged in..."
+      if app.debug
+        console.log "Authenticator.login.success: Should be logged in..."
       test_authed_request = $.getJSON('/user/data/log')
       test_authed_request.success (resp) ->
-        console.log "Authenticator.login.success.tesst_authed_request: "
-        console.log resp
+        if app.debug
+          console.log "Authenticator.login.success.tesst_authed_request: "
+          console.log resp
 
       app.user = {
         username: data.user.username
@@ -154,17 +163,21 @@ module.exports = class Authenticator
       # called when everything else is done, or create a separate opts.finished
       # method or something.
 
-      console.log "User logged in, syncing progression"
+      if app.debug
+        console.log "User logged in, syncing progression"
       $.when(
         app.userprogression.storage.sync.full({
           success: (data) ->
-            console.log "userlog.full.success"
+            if app.debug
+              console.log "userlog.full.success"
         }),
         app.options.storage.sync.full({
           success: (data) ->
-            console.log "storage.full.success"
+            if app.debug
+              console.log "storage.full.success"
         })
       ).then () =>
-        console.log "all login requests complete"
+        if app.debug
+          console.log "all login requests complete"
         opts.success() if opts.success
 

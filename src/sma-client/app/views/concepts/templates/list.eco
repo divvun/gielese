@@ -45,25 +45,13 @@
                 class="ui-listview">
                 <% for concept, i in @models: %>
                     <% color = false %>
-                    <% if app.user: %>
-                      <% rate = concept.successRateInUserLog() %>
-                      <% if rate: %>
-                        <% color = @get_success_color(rate) %>
-                        <% console.log color %>
-                        <% console.log rate %>
-                      <% end %>
-                    <% end %>
                       
                     <% if i == 0: %>
                     <li class='ui-btn-active-d'>
                     <% else: %>
                     <li>
                     <% end %>
-                       <% if color: %>
-                        <a class="concept_link <%- color %>"
-                       <% else: %>
                         <a class="concept_link"
-                       <% end %>
                            data-concept-index="<%- i %>"
                            href="#"><%- concept.get('txl_string') %></a>
                     </li>

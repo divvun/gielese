@@ -212,23 +212,22 @@ module.exports = class ConceptList extends Backbone.View
 
     @current_concept_view = initial
 
-    get_success_color = (_float) ->
-      _class = ''
-      if (1 >= _float) && (_float >= .9)
-        _class = 'success-rate-green'
-      if (.9 > _float) && (_float > .7)
-        _class = 'success-rate-yellow'
-      if (.7 > _float) && (_float > .49)
-        _class = 'success-rate-orange'
-      if (.49 > _float) && (_float > .1)
-        _class = 'success-rate-red'
-      return _class
+    # get_success_color = (_float) ->
+    #   _class = ''
+    #   if (1 >= _float) && (_float >= .9)
+    #     _class = 'success-rate-green'
+    #   if (.9 > _float) && (_float > .7)
+    #     _class = 'success-rate-yellow'
+    #   if (.7 > _float) && (_float > .49)
+    #     _class = 'success-rate-orange'
+    #   if (.49 > _float) && (_float > .1)
+    #     _class = 'success-rate-red'
+    #   return _class
 
     @$el.html @template {
       category: category
       models: @concepts_in_order
       initial_model: initial.render().$el.html()
-      get_success_color: get_success_color
     }
 
     @$el.find('ul#concept-list li:first').addClass('ui-btn-active-d')

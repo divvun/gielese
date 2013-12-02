@@ -41,7 +41,6 @@ module.exports = class CategoryGames extends Backbone.View
         3
       )
       subcategory = chunks
-      console.log "omgchildren"
     else
       children = false
 

@@ -67,9 +67,11 @@ module.exports = class UserProgression extends Backbone.Collection
         @fetch()
 
   countPoints: () ->
-    points = (m.get('points') for m in @models)
-    sum = (memo, num) -> memo + num
-    return _.reduce(points, sum, 0)
+    total = 0
+    for a in @pluck('points')
+      if a and a isnt undefined
+        total += a
+    return total
 
   logActivity: (opts) ->
     log = @create(opts)
