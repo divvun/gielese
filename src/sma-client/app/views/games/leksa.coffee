@@ -367,6 +367,8 @@ module.exports = class LeksaView extends Backbone.View
 
     playFirst = =>
       if app.options.getSetting('enable_audio') and @q.generator.get('sound')
+        speaker = $(document).find('img.play_speaker')
+        speaker.addClass('playing')
         @q.question.playAudio
           finished: app.leksaView.soundFinished
 
@@ -385,8 +387,7 @@ module.exports = class LeksaView extends Backbone.View
       if app.debug?
         console.log "Play:"
         console.log @q.question
-      # TODO: don't reinitialize countdown if one is already going for this
-      # question
+      speaker = $(document).find('img.play_speaker').addClass('playing')
       @current_audio = @q.question.playAudio
         finished: app.leksaView.soundFinished
       return false
@@ -407,6 +408,8 @@ module.exports = class LeksaView extends Backbone.View
     return false
 
   soundFinished: () ->
+    speaker = $(document).find('img.play_speaker').removeClass('playing')
+    
     # Begin point degrading after the sound has finished
     if app.debug
       console.log "View got sound finished."

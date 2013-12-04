@@ -20,6 +20,6 @@
     </div>
 
     <% if @audio and @instance.generator.get('sound'): %>
-        <a href="#" id="question_play"><img src="/static/client/images/speaker.png" /></a>
+        <a href="#" id="question_play"><img src="/static/client/images/speaker.png" class="play_speaker" /></a>
     <% end %>
 </div>

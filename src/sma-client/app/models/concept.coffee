@@ -1,4 +1,5 @@
 LeksaConceptTemplate = require '../views/templates/leksa_concept'
+SoundLoadingTemplate = require '../views/templates/sound_loading'
 
 module.exports = class Concept extends Backbone.Model
   # Compatibility with old version of bootstrap
@@ -85,11 +86,34 @@ module.exports = class Concept extends Backbone.Model
   
   playAudio: (opts={}) ->
     # TODO: user feedback about whether audio is downloaded or not.
+
+    loading = $(document).find('#sound_loading_bar')
+    if loading.length == 0
+      $('body').append SoundLoadingTemplate
+      loading = $('body').find('#sound_loading_bar')
     
-    if opts.finished
-      finished_event = opts.finished
-    else
-      finished_event = () -> return false
+    console.log loading
+
+    finished_event = () =>
+      loading.fadeOut()
+      opts.finished() if opts.finished?
+      return false
+
+    begin_event = () =>
+      loading.fadeOut()
+      opts.begin() if opts.begin?
+      return false
+
+    whileload_event = () ->
+      console.log this.duration
+      # show audio loading indicator
+      console.log "whileloading..."
+      console.log "#{this.bytesLoaded} / #{this.bytesTotal}"
+      if this.bytesTotal >= this.bytesLoaded
+        if loading.css('display') == 'none'
+          loading.fadeIn()
+      if this.bytesTotal == this.bytesLoaded
+        loading.fadeOut()
 
     has_audio_file = @hasAudio()
     if has_audio_file and soundManager.enabled
@@ -107,10 +131,14 @@ module.exports = class Concept extends Backbone.Model
             id: sound_id
             url: has_audio_file
             onfinish: finished_event
+            onplay: begin_event
+            whileloading: whileload_event
           sound_obj._a.playbackRate = opts.rate
         else
           # update the onfinished event
           sound_obj.options.onfinish = finished_event
+          sound_obj.options.onplay = begin_event
+          sound_obj.options.whileloading = whileload_event
 
         if sound_obj.url == has_audio_file
           console.log "repeat"
@@ -129,6 +157,8 @@ module.exports = class Concept extends Backbone.Model
           id: sound_id
           url: has_audio_file
           onfinish: finished_event
+          onplay: begin_event
+          whileloading: whileload_event
         })
         s.play()
       return s

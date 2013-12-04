@@ -4,8 +4,13 @@ ConceptViewMain = require './templates/concepts'
 
 class ConceptView extends Backbone.View
 
-  play: (evt) ->
-    @model.playAudio()
+  play: () ->
+    @model.playAudio
+      begin: () =>
+        @$el.find('.audio_link').children('img').addClass('playing')
+      finished: () =>
+        $(document).find('.audio_link .playing').removeClass('playing')
+
     return false
 
   template: ConceptItem
@@ -56,7 +61,7 @@ class ConceptView extends Backbone.View
     #   maxFontPixels: 36
     #
 
-    @model.playAudio()
+    @play()
 
     this
 
@@ -162,7 +167,12 @@ module.exports = class ConceptList extends Backbone.View
     return false
 
   findAudio: (event) ->
-    @current_concept_view.play()
+    image = $(document).find('.audio_link img')
+    $(image).addClass('playing')
+    @current_concept_view.model.playAudio
+      finished: () =>
+        image.removeClass('playing')
+
     return false
 
   className: 'conceptlist'
