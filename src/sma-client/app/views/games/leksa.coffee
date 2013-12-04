@@ -374,7 +374,7 @@ module.exports = class LeksaView extends Backbone.View
 
     # Delay first sound playing as leksa page renders
     if @pregenerated?
-      setTimeout(playFirst, 1500)
+      # setTimeout(playFirst, 1500)
       delete @pregenerated
     else
       if not @first
