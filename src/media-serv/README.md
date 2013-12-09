@@ -132,7 +132,7 @@ as the output quality is high enough.
 
 It should be easy to install, but if you're on mac, you probably want to
 install it on homebrew, however if 2.0 isn't available by default, run
-`brew update` and then install with `brew install ffmpeg --devel`.
+`brew update` and then install with `brew install ffmpeg --devel --with-theora`.
 
 According to the recipe, it may break some things if they depend on it,
 so be advised...
@@ -146,20 +146,25 @@ http://binaryjs.com/
 
 ### video scratch
 
-ffmpeg -i input.flv -vf scale=320:-1,format=rgb8,format=rgb24 -t 10 -r 10 output.gif
+#### make animated gif by exploding to frames first
 
-mkdir frames
-ffmpeg -pix_fmt rgb24 -i test.mov -vf scale=320:-1 -r 4 frames/ffout%03d.png
-convert -delay 28 -loop 0 frames/ffout*.png test.mov.gif
+    mkdir frames
+    ffmpeg -pix_fmt rgb24 -i test.mov -vf scale=320:-1 -r 4 frames/ffout%03d.png
+    convert -delay 28 -loop 0 frames/ffout*.png test.mov.gif
 
-convert -layers Optimize test.mov.gif test.min.gif
+optimization seems not to actually optimize all that much
+
+    convert -layers Optimize test.mov.gif test.min.gif
 
 
 # html5 h.264 codec
-ffmpeg -i video -vcodec libx264 -preset slow -crf 22 -acodec libmp3lame -aq 4 -r 28 -vf scale=320:-1 output.mkv
 
+    ffmpeg -i video.mov -vcodec libx264 -preset slow -crf 22 -acodec libmp3lame -aq 4 -r 28 -vf scale=320:-1 output.mkv
 
+Had good results with these settings
 
+    ffmpeg -i r_ii_hpestidh.mov -vcodec libx264 -preset slow -crf 32 -r 28 -vf scale=320:-1 output.mov
+    ffmpeg -i r_ii_hpestidh.mov -vcodec libtheora -preset slow -crf 32 -r 28 -vf scale=320:-1 output.ogg
 
 
 

@@ -375,7 +375,7 @@ def client():
     return render_template('index.html')
 
 @app.route('/video-test/', methods=['GET'])
-def client():
+def video_test():
     from flask import Response
     return render_template('video_test.html')
 
