@@ -120,6 +120,49 @@ Further documentation on the command line tool's various options is [here](txopt
        in applicationCache, generate on server for sync, store user data in 
        localStorage
 
+## Video format
+
+So, large video files are too much for the user to download. Thus, we
+need to compress things. For now, GIF seems to be a good format, as long
+as the output quality is high enough.
+
+[ffmpeg][ffmpeg_version] is great, but less than 2.0 has crappy GIF encoding.
+
+  [ffmpeg_version]: http://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality
+
+It should be easy to install, but if you're on mac, you probably want to
+install it on homebrew, however if 2.0 isn't available by default, run
+`brew update` and then install with `brew install ffmpeg --devel`.
+
+According to the recipe, it may break some things if they depend on it,
+so be advised...
+
+http://mergy.org/2013/01/ffmpeg-compile-and-encode-with-h-264mpeg-4/
+
+ - if h.264 doesn't pan out, switching to ogg theora?
+
+http://www.htmlgoodies.com/html5/client/how-to-embed-video-using-html5.html
+http://binaryjs.com/
+
+### video scratch
+
+ffmpeg -i input.flv -vf scale=320:-1,format=rgb8,format=rgb24 -t 10 -r 10 output.gif
+
+mkdir frames
+ffmpeg -pix_fmt rgb24 -i test.mov -vf scale=320:-1 -r 4 frames/ffout%03d.png
+convert -delay 28 -loop 0 frames/ffout*.png test.mov.gif
+
+convert -layers Optimize test.mov.gif test.min.gif
+
+
+# html5 h.264 codec
+ffmpeg -i video -vcodec libx264 -preset slow -crf 22 -acodec libmp3lame -aq 4 -r 28 -vf scale=320:-1 output.mkv
+
+
+
+
+
+
 ## Media notes
 
 These things need documentation...

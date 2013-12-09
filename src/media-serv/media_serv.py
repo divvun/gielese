@@ -374,6 +374,11 @@ def client():
     from flask import Response
     return render_template('index.html')
 
+@app.route('/video-test/', methods=['GET'])
+def client():
+    from flask import Response
+    return render_template('video_test.html')
+
 @app.route('/play/offline/', methods=['GET'])
 def client_offline():
     from flask import Response
