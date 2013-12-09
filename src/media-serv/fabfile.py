@@ -35,8 +35,12 @@ def svn_up_target():
 
     media_db_path = path + '/src/media-serv/'
     client_path = path + '/src/sma-client/'
+    media_dir_path = path + '/src/media-serv/static/media/'
 
     with cd(path):
+        run("svn up")
+
+    with cd(media_dir_path):
         run("svn up")
 
 @task
