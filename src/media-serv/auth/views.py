@@ -2,7 +2,7 @@ from . import blueprint
 from flask import current_app
 
 from bson import ObjectId
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask import Response, session, jsonify, request
 from flask import request
 from flask.views import MethodView
@@ -17,10 +17,35 @@ def plz_can_haz_auth():
                    , mimetype='application/json'
                    )
 
+from schematics.models import Model
+from schematics.types import EmailType, StringType
+from schematics.exceptions import ValidationError
+from schematics.serialize import blacklist
+
+from itsdangerous import ( TimestampSigner
+                         , URLSafeTimedSerializer
+                         , TimedSerializer
+                         , BadSignature
+                         , BadData
+                         , SignatureExpired
+                         )
 
 # TODO: actually authenticate
 # TODO: @auth_required views
 # TODO:
+
+def nope(error):
+    return Response( simplejson.dumps(dict(error=error))
+                   , status=500
+                   , mimetype='application/json'
+                   )
+
+def nopes(error, reasons):
+    return Response( simplejson.dumps(dict(error=error, reasons=reasons))
+                   , status=500
+                   , mimetype='application/json'
+                   )
+
 
 # TODO: validate, check that user exists, if not, nope
 @blueprint.route('/user/login/', methods=['POST'])
@@ -51,14 +76,163 @@ def login():
 
     return nope('You were not authenticated.')
 
+@blueprint.route('/user/reset/', methods=['POST'])
+def reset():
+    reset_tokens = current_app.mongodb.db.reset_tokens
+    reset_log = current_app.mongodb.db.reset_log
+
+    requester_ip = request.remote_addr
+
+    dangerous_unserializer = URLSafeTimedSerializer(current_app.secret_key)
+
+    def token_is_valid(value):
+        """ This unsigns the reset token, and checks the signature. In
+        addition, in order to prevent someone from resetting their
+        password more than once, the token is checked against currently
+        issued tokens, if it is not found, then the token has been used.
+        """
+
+        decoded_payload = None
+
+        try:
+            decoded_payload = dangerous_unserializer.loads(value,
+                                                           max_age=60*60)
+            # This payload is decoded and safe
+        except SignatureExpired, e:
+            raise ValidationError("The token has expired.")
+        except BadSignature, e:
+            encoded_payload = e.payload
+            if encoded_payload is not None:
+                try:
+                    decoded_payload = dangerous_unserializer.load_payload(encoded_payload)
+                except BadData:
+                    raise ValidationError("The signature was tampered with.")
+                    return False
+            # This payload is decoded but unsafe and has been tampered
+            # with.
+        if reset_tokens.find({ 'token': form.token }).count() == 0:
+            raise ValidationError("The token is no longer usable.")
+        return decoded_payload
+
+    class UserFormValidation(Model):
+        token = StringType(required=True, validators=[token_is_valid])
+        # new_password = StringType(required=True)
+
+    form = UserFormValidation(**request.form.to_dict())
+
+    try:
+        form.validate()
+    except ValidationError, e:
+        return nopes("Validation error(s)", e.messages)
+
+    print 'validated'
+    username = dangerous_unserializer.loads(form.token)
+
+    decoded_payload = None
+
+    # once user has reset the password, the token needs to be expired
+    # otherwise they'll be able to reset endlessly, which is fine, but
+    # may cause problems for them, or imply that someone watching has
+    # intercepted the request and has attempted to replay it.
+
+    reset_tokens.remove({ 'token': form.token })
+
+    # Also log the successful reset.
+
+    reset_log.insert({ 'email': email
+                     , 'requester_ip': requester_ip
+                     , 'request_type': 'password_reset_success'
+                     , 'datetime': datetime.now()
+                     })
+
+    return nope({"success": False})
+
+
+# TODO: validate, check that user exists, if not, nope
+@blueprint.route('/user/forgot/', methods=['POST'])
+def forgot():
+    dangerous_signer = URLSafeTimedSerializer(current_app.secret_key)
+
+    # http://pythonhosted.org/itsdangerous/
+    # app.secret_key
+    # TODO: s.unsign(string, max_age=60)
+
+    from flask import jsonify
+
+    users = current_app.mongodb.db.users
+    reset_log = current_app.mongodb.db.reset_log
+    reset_tokens = current_app.mongodb.db.reset_tokens
+
+    requester_ip = request.remote_addr
+
+    def nope(error):
+        return Response( simplejson.dumps(dict(error=error))
+                       , status=500
+                       , mimetype='application/json'
+                       )
+
+    def email_does_not_exist(value):
+        if not users.find_one({'email': value}):
+            raise ValidationError("This email does not exist.")
+        return value
+
+    def not_spamming(value):
+        # check that this hasn't been registered several times in the
+        # past 20 minutes
+
+        return value
+
+    # TODO: validate
+    class UserFormValidation(Model):
+        email_address = EmailType(required=True,
+                                  validators=[email_does_not_exist,
+                                              not_spamming])
+
+    form = UserFormValidation(**request.form.to_dict())
+
+    try:
+        form.validate()
+    except ValidationError, e:
+        return nopes("Validation error(s)", e.messages)
+
+    email = request.form['email_address']
+
+    # The form will all be valid here
+
+    u = users.find_one({'email': email})
+    print "Reset request received for %s" % repr(u)
+
+    reset_token = dangerous_signer.dumps(u.get('username'))
+
+    # log IP, and target email-- this will be used in validation of
+    # future requests
+
+    reset_log.insert({ 'email': email
+                     , 'requester_ip': requester_ip
+                     , 'request_type': 'email_submit'
+                     , 'datetime': datetime.now()
+                     })
+
+    # If user already has a token out, need to delete those first so
+    # that a new one is issued.
+    reset_tokens.remove({'email': email})
+
+    # expiration is encoded in the token
+    reset_tokens.insert({ 'email': email
+                        , 'token': reset_token
+                        })
+
+    print "reset token is %s" % reset_token
+
+    # TODO: send the email
+
+    return jsonify({'success': True})
+
+
+
 @blueprint.route('/user/create/', methods=['POST', 'CREATE'])
 def create_user():
     # TODO: send confirmation email
-
-    from schematics.models import Model
-    from schematics.types import EmailType, StringType
-    from schematics.exceptions import ValidationError
-    from schematics.serialize import blacklist
 
     def user_does_not_exist(value):
         if users.find_one({'username': value}):
@@ -76,18 +250,6 @@ def create_user():
         email = EmailType(required=True, validators=[email_does_not_exist])
 
     users = current_app.mongodb.db.users
-
-    def nope(error):
-        return Response( simplejson.dumps(dict(error=error))
-                       , status=500
-                       , mimetype='application/json'
-                       )
-
-    def nopes(error, reasons):
-        return Response( simplejson.dumps(dict(error=error, reasons=reasons))
-                       , status=500
-                       , mimetype='application/json'
-                       )
 
     form = UserFormValidation(**request.form.to_dict())
 

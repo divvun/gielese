@@ -409,7 +409,7 @@ module.exports = class LeksaView extends Backbone.View
 
   soundFinished: () ->
     speaker = $(document).find('img.play_speaker').removeClass('playing')
-    
+ 
     # Begin point degrading after the sound has finished
     if app.debug
       console.log "View got sound finished."

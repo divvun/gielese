@@ -123,6 +123,48 @@ module.exports = class Authenticator
                   , app.options.length, window.localStorage
                   ]
 
+  forgot: (opts = {}) ->
+    data =
+      email_address: opts.email
+
+    forgotten_request = $.ajax
+      type: "POST"
+      url: "/user/forgot/"
+      data: data
+      xhrFields:
+        withCredentials: true
+
+    forgotten_request.fail (resp) =>
+      # TODO: log to server?
+      console.log "fail"
+      console.log JSON.parse resp.responseText
+      app.user = null
+      opts.fail(resp) if opts.fail
+
+    forgotten_request.success (data, textStatus, jqXHR) ->
+      if app.debug
+        console.log "Authenticator.login.forgot: Request for token successfully submitted ..."
+
+    forgotten_request.complete () =>
+      opts.complete() if opts.complete
+
+  # change_password: (opts = {}) ->
+  #   data =
+  #     new_password: new_password
+
+  #   if opts.forgotten_token?
+  #     data.forgotten_token = forgotten_token
+
+  #   if opts.old_password?
+  #     data.old_password = old_password
+
+  #   change_request = $.ajax
+  #     type: "POST"
+  #     url: "/user/change/"
+  #     data: data
+  #     xhrFields:
+  #       withCredentials: true
+
   login: (opts = {}) ->
     # TODO: when to clear user data before login?
     data =

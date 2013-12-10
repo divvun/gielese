@@ -13,12 +13,12 @@ user_sessions = db.Table( 'user_sessions'
                                    , db.Integer
                                    , db.ForeignKey('session.id')
                                    )
- 
+
                         , db.Column( 'user_id'
                                    , db.Integer
                                    , db.ForeignKey('user.id')
                                    )
- 
+
                         )
 
 class Session(db.Model):
@@ -29,7 +29,6 @@ class Session(db.Model):
 
     def __repr__(self):
         return "<Session %d / %s>" % (self.id, self.access_token)
-
 
 class User(db.Model):
     __tablename__ = 'user'

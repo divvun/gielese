@@ -163,6 +163,9 @@ module.exports = class Application
     # TODO: device detection
     @device_type = "mobile"
     @media_size = "small"
+
+    # TODO: modernizr, check for preferred video format, fallback - gif?
+    #
     if $(window).width() > 499
       @device_type = "tablet"
       @media_size = "medium"

@@ -1,11 +1,14 @@
-
 ##
 #
 
-* mobileinit seems to not be loading, which prevents tweaking any of the settings
-  to fix the container stuff.
+* video support needs a fallback to exceptionally simple quality gif
+  - concept directory reader should check file type and mark these
+  - modernizr.js (http://modernizr.com/) for h.264 detection
+    - http://camendesign.com/code/video_for_everybody
 
 * page flicker probs: 
+  - mobileinit works, the settings do not
+
   - http://outof.me/fixing-flickers-jumps-of-jquery-mobile-transitions-in-phonegap-apps/
   - http://stackoverflow.com/questions/16981743/how-to-hide-ios-scrollbar-in-phonegap
 
@@ -28,18 +31,9 @@
 
 * category complete marking?
 
-* MECHANICS:  learn issue
-  - don't use user progression for learn, just do a temporary view instance-specific thing
-  - maybe make a separate view for learn? subclass of practice.
-
-* login form needs more work
- - error fields not highlighted in certain instances?
- - enter login info, then choose a language ; data deleted - must store
-   temporarily until form is submitted, then delete
-
 -- 
 
-* MISC: clean up media-serv code a littl
+* MISC: clean up media-serv code a little
 
 * MISC: find any hardcoded 'sma' stuff ; generalize.
 
@@ -78,15 +72,6 @@
   - http://api.mongodb.org/python/current/tutorial.html
   - auth situation
   - html5 audio issues (leksa.coffee -- need to move this elsewhere) 
-
-# Next
-
- * TODO: persistent storage of concepts in localStorage, block usage of
-   leksa, wordlist until they're ready
-
-   - need to be able to download and sync models from server, but rely on
-     localStorage, such that models will be used from that first when present
-     and when the page loads... Then trigger sync and fetch later.
 
 # Getting going
 

@@ -140,6 +140,14 @@ so be advised...
 http://mergy.org/2013/01/ffmpeg-compile-and-encode-with-h-264mpeg-4/
 
  - if h.264 doesn't pan out, switching to ogg theora?
+ - WebM also: http://michaelverdi.com/post/2812 ; chrome announced
+   they're dropping h.264, but this hasn't happened yet
+    
+     camendesign.com/code/video_for_everybody/test.html
+
+ - h.264 requires license for commercial use, but what we're doing is
+   free.
+
 
 http://www.htmlgoodies.com/html5/client/how-to-embed-video-using-html5.html
 http://binaryjs.com/
@@ -156,7 +164,6 @@ optimization seems not to actually optimize all that much
 
     convert -layers Optimize test.mov.gif test.min.gif
 
-
 # html5 h.264 codec
 
     ffmpeg -i video.mov -vcodec libx264 -preset slow -crf 22 -acodec libmp3lame -aq 4 -r 28 -vf scale=320:-1 output.mkv
@@ -165,7 +172,6 @@ Had good results with these settings
 
     ffmpeg -i r_ii_hpestidh.mov -vcodec libx264 -preset slow -crf 32 -r 28 -vf scale=320:-1 output.mov
     ffmpeg -i r_ii_hpestidh.mov -vcodec libtheora -preset slow -crf 32 -r 28 -vf scale=320:-1 output.ogg
-
 
 
 ## Media notes
