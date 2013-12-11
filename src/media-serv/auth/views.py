@@ -20,7 +20,6 @@ def plz_can_haz_auth():
 from schematics.models import Model
 from schematics.types import EmailType, StringType
 from schematics.exceptions import ValidationError
-from schematics.serialize import blacklist
 
 from itsdangerous import ( TimestampSigner
                          , URLSafeTimedSerializer
@@ -30,9 +29,7 @@ from itsdangerous import ( TimestampSigner
                          , SignatureExpired
                          )
 
-# TODO: actually authenticate
 # TODO: @auth_required views
-# TODO:
 
 def nope(error):
     return Response( simplejson.dumps(dict(error=error))
@@ -59,11 +56,21 @@ def login():
                        , mimetype='application/json'
                        )
 
-    # TODO: validate
+    class LoginFormValidator(Model):
+        username = StringType(required=True)
+        password = StringType(required=True)
 
-    user = request.form['username']
-    pw = request.form['password']
+    form = LoginFormValidator(request.form.to_dict())
 
+    try:
+        form.validate()
+    except ValidationError, e:
+        return nopes("Validation error(s)", e.messages)
+
+    user = form.username
+    pw = form.password
+
+    # TODO: switch this to a validator
     u = users.find_one({'username': user})
     if u:
         if pwd_context.verify(pw, u.get('password')):
@@ -78,11 +85,15 @@ def login():
 
 @blueprint.route('/user/reset/', methods=['POST'])
 def reset():
+    # mongodb tables needed
+    users = current_app.mongodb.db.users
     reset_tokens = current_app.mongodb.db.reset_tokens
     reset_log = current_app.mongodb.db.reset_log
 
+    # set this here for validation
     requester_ip = request.remote_addr
 
+    # signature validation
     dangerous_unserializer = URLSafeTimedSerializer(current_app.secret_key)
 
     def token_is_valid(value):
@@ -96,7 +107,7 @@ def reset():
 
         try:
             decoded_payload = dangerous_unserializer.loads(value,
-                                                           max_age=60*60)
+                                                           max_age=60*60*3)
             # This payload is decoded and safe
         except SignatureExpired, e:
             raise ValidationError("The token has expired.")
@@ -110,25 +121,37 @@ def reset():
                     return False
             # This payload is decoded but unsafe and has been tampered
             # with.
+
         if reset_tokens.find({ 'token': form.token }).count() == 0:
             raise ValidationError("The token is no longer usable.")
+
         return decoded_payload
 
-    class UserFormValidation(Model):
+    class PasswordResetValidator(Model):
         token = StringType(required=True, validators=[token_is_valid])
-        # new_password = StringType(required=True)
 
-    form = UserFormValidation(**request.form.to_dict())
+        new_password = StringType(required=True)
+        repeat_password = StringType(required=True)
+
+        def validate_new_password(self, data, value):
+            """ This unsigns the reset token, and checks the signature. In
+            addition, in order to prevent someone from resetting their
+            password more than once, the token is checked against currently
+            issued tokens, if it is not found, then the token has been used.
+            """
+            if data.get('new_password') != data.get('repeat_password'):
+                raise ValidationError("Passwords do not match.")
+            return value
+
+    form = PasswordResetValidator(request.form.to_dict())
 
     try:
         form.validate()
     except ValidationError, e:
         return nopes("Validation error(s)", e.messages)
 
-    print 'validated'
     username = dangerous_unserializer.loads(form.token)
-
-    decoded_payload = None
+    new_password = form.new_password
 
     # once user has reset the password, the token needs to be expired
     # otherwise they'll be able to reset endlessly, which is fine, but
@@ -136,6 +159,13 @@ def reset():
     # intercepted the request and has attempted to replay it.
 
     reset_tokens.remove({ 'token': form.token })
+
+    u = users.find_one({'username': username})
+    email = u.get('email')
+
+    u.update({
+        'password': pwd_context.encrypt(new_password),
+    })
 
     # Also log the successful reset.
 
@@ -145,7 +175,7 @@ def reset():
                      , 'datetime': datetime.now()
                      })
 
-    return nope({"success": False})
+    return nope({"success": True})
 
 
 # TODO: validate, check that user exists, if not, nope
@@ -183,12 +213,12 @@ def forgot():
         return value
 
     # TODO: validate
-    class UserFormValidation(Model):
+    class UserForgotValidation(Model):
         email_address = EmailType(required=True,
                                   validators=[email_does_not_exist,
                                               not_spamming])
 
-    form = UserFormValidation(**request.form.to_dict())
+    form = UserForgotValidation(request.form.to_dict())
 
     try:
         form.validate()
@@ -251,7 +281,7 @@ def create_user():
 
     users = current_app.mongodb.db.users
 
-    form = UserFormValidation(**request.form.to_dict())
+    form = UserFormValidation(request.form.to_dict())
 
     try:
         form.validate()
@@ -277,7 +307,6 @@ def create_user():
 @blueprint.route('/user/logout/')
 def logout():
     # remove the username from the session if it's there
-    # TODO: doesn't seem to kill the cookie 
 
     # TEST:
     # http -f POST http://localhost:5000/user/create/ username=boba password=bobbala email=boba@someplace.com
@@ -286,7 +315,9 @@ def logout():
     # http GET http://localhost:5000/user/logout/ --session=boba
     # http GET http://localhost:5000/user/data/log/ --session=boba
 
-    session.pop('username', None)
+    # TODO: session not invalidating
+    session.clear()
+    print help(session)
     return jsonify(success=True)
 
 @blueprint.route('/session/update/', methods=['POST'])

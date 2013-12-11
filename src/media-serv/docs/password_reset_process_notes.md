@@ -21,7 +21,7 @@ Use `httpie` to produce requests until actual tests are written
 2.) The backend sends an email with a reset token (itsdangerous). The
 token is cryptographically signed with the timestamp, and contains the
 username. The token is valid for 60 minutes.
-
+g 
 The backend also logs the attempt (tracking brute force attempts), and
 logs the token (to prevent duplicate uses). 
 
