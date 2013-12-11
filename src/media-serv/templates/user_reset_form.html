@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="ui-mobile">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+  <title>G&iuml;elese - password reset</title> 
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- iOS 7 only uses the last line -->
+  <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=yes" />
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/bootstrap-theme.min.css" rel="stylesheet">
+  <!--
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+    ga('create', 'UA-45176872-1', 'gielese.no');
+    ga('send', 'pageview');
+  
+  </script>
+  -->
+</head> 
+
+<body> 
+
+    {% if errors %}
+        {{ errors }}
+    {% endif %}
+
+    <div class="row">
+      <div class="col-md-12">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4"> </div>
+
+      <div class="col-md-6">
+        <h3>Reset your password</h3>
+
+        <form class="form-horizontal" role="form" action="/user/reset/" method="post">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+                <p>{{ username }}</p>
+                <input type="hidden" name="token" value="{{ token }}" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" name="new_password" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Repeat password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" name="repeat_password" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+</body>
+</html>
+

@@ -1,10 +1,12 @@
 from . import blueprint
-from flask import current_app
 
 from bson import ObjectId
 from datetime import datetime, timedelta
+
 from flask import Response, session, jsonify, request
+from flask import current_app, render_template
 from flask import request
+
 from flask.views import MethodView
 from functools import wraps
 import simplejson
@@ -83,8 +85,105 @@ def login():
 
     return nope('You were not authenticated.')
 
+@blueprint.route('/user/reset/form/', methods=['GET'])
+def reset_form():
+    """
+    ..  http:get::
+              /user/reset/
+
+        GET produces a form. This requires a cryptographic key in HTTP
+        parameters to generate the form. Here we just check that the key
+        is valid, and do not consume it.
+
+        TODO: prevent brute forcing by tracking IPs, if too many invalid
+        tokens submitted, block
+
+        :param token: the cryptographic key
+    """
+    # mongodb tables needed
+    users = current_app.mongodb.db.users
+    reset_tokens = current_app.mongodb.db.reset_tokens
+    reset_log = current_app.mongodb.db.reset_log
+
+    # set this here for validation
+    requester_ip = request.remote_addr
+
+    # signature validation
+    dangerous_unserializer = URLSafeTimedSerializer(current_app.secret_key)
+
+    def token_is_valid(value):
+        """ This unsigns the reset token, and checks the signature. In
+        addition, in order to prevent someone from resetting their
+        password more than once, the token is checked against currently
+        issued tokens, if it is not found, then the token has been used.
+        """
+
+        decoded_payload = None
+
+        try:
+            decoded_payload = dangerous_unserializer.loads(value,
+                                                           max_age=60*60*3)
+            # This payload is decoded and safe
+        except SignatureExpired, e:
+            raise ValidationError("The token has expired.")
+        except BadSignature, e:
+            encoded_payload = e.payload
+            if encoded_payload is not None:
+                try:
+                    decoded_payload = dangerous_unserializer.load_payload(encoded_payload)
+                except BadData:
+                    raise ValidationError("The signature was tampered with.")
+                    return False
+            # This payload is decoded but unsafe and has been tampered
+            # with.
+
+        if reset_tokens.find({ 'token': form.token }).count() == 0:
+            raise ValidationError("The token is no longer usable.")
+
+        return decoded_payload
+
+    class FollowedLinkValidator(Model):
+        token = StringType(required=True, validators=[token_is_valid])
+
+    form = FollowedLinkValidator(request.args.to_dict())
+
+    context = {}
+
+    try:
+        form.validate()
+    except ValidationError, e:
+        context['errors'] =  e.messages
+
+    username = dangerous_unserializer.loads(form.token)
+
+    context['username'] = username
+    context['token'] = form.token
+
+    return render_template('user_reset_form.html', **context)
+
 @blueprint.route('/user/reset/', methods=['POST'])
 def reset():
+    """
+    .. http:post::
+              /user/reset/
+
+        POST a form to this address. This requires a valid cryptographic
+        key, which hasn't yet expired as far as the MongoDB store is
+        concerned, and the date that the key was signed on.
+
+        If the token is used once to reset a password, it is removed
+        from the store.
+
+        TODO: password length validation
+
+        :param token: the cryptographic key
+        :param new_password: the new password
+        :param repeat_password: a repeat.
+
+        :returns:
+            JSON with {'success': True} or {'success': False}
+
+    """
     # mongodb tables needed
     users = current_app.mongodb.db.users
     reset_tokens = current_app.mongodb.db.reset_tokens
@@ -177,15 +276,35 @@ def reset():
 
     return nope({"success": True})
 
-
 # TODO: validate, check that user exists, if not, nope
 @blueprint.route('/user/forgot/', methods=['POST'])
 def forgot():
-    dangerous_signer = URLSafeTimedSerializer(current_app.secret_key)
+    """
+    .. http:post::
+              /user/forgot/
 
-    # http://pythonhosted.org/itsdangerous/
-    # app.secret_key
-    # TODO: s.unsign(string, max_age=60)
+        POST JSON to this address with one of the following parameters.
+        This will generate an email to be sent to the user, with a
+        cryptographically signed token that is valid for a few hours,
+        and usable once.
+
+        The token is signed for the date that it was produced, but is
+        also set in a MongoDB store and removed when used.
+
+        The view also tracks submission requests to prevent abuse.
+
+        TODO: generate the actual email
+        TODO: include abuse in validation functions.
+        TODO: accept username or email
+
+        :param email: the user's email address
+        :param username: the target language
+
+        :returns:
+            JSON with {'success': True} or {'success': False}
+
+    """
+    dangerous_signer = URLSafeTimedSerializer(current_app.secret_key)
 
     from flask import jsonify
 
