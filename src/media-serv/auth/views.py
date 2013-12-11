@@ -3,6 +3,9 @@ from . import blueprint
 from bson import ObjectId
 from datetime import datetime, timedelta
 
+from textwrap import dedent
+from flaskext.babel import gettext as _
+
 from flask import Response, session, jsonify, request
 from flask import current_app, render_template
 from flask import request
@@ -12,6 +15,16 @@ from functools import wraps
 import simplejson
 
 from passlib.apps import custom_app_context as pwd_context
+
+TOKEN_EXPIRED_ERROR = dedent(_(
+    """ You waited too long to reset your password. Please request to
+    have it reset again, and make sure you complete this in three hours.
+    """
+))
+
+TOKEN_TAMPERED = dedent(_("""
+    The token was tampered with.
+"""))
 
 def plz_can_haz_auth():
     return Response( simplejson.dumps(dict(error="no login"))
@@ -125,20 +138,20 @@ def reset_form():
                                                            max_age=60*60*3)
             # This payload is decoded and safe
         except SignatureExpired, e:
-            raise ValidationError("The token has expired.")
+            raise ValidationError(TOKEN_EXPIRED_ERROR)
         except BadSignature, e:
             encoded_payload = e.payload
             if encoded_payload is not None:
                 try:
                     decoded_payload = dangerous_unserializer.load_payload(encoded_payload)
                 except BadData:
-                    raise ValidationError("The signature was tampered with.")
+                    raise ValidationError(TOKEN_TAMPERED)
                     return False
             # This payload is decoded but unsafe and has been tampered
             # with.
 
         if reset_tokens.find({ 'token': form.token }).count() == 0:
-            raise ValidationError("The token is no longer usable.")
+            raise ValidationError(TOKEN_EXPIRED_ERROR)
 
         return decoded_payload
 
@@ -209,20 +222,20 @@ def reset():
                                                            max_age=60*60*3)
             # This payload is decoded and safe
         except SignatureExpired, e:
-            raise ValidationError("The token has expired.")
+            raise ValidationError(TOKEN_EXPIRED_ERROR)
         except BadSignature, e:
             encoded_payload = e.payload
             if encoded_payload is not None:
                 try:
                     decoded_payload = dangerous_unserializer.load_payload(encoded_payload)
                 except BadData:
-                    raise ValidationError("The signature was tampered with.")
+                    raise ValidationError(TOKEN_TAMPERED)
                     return False
             # This payload is decoded but unsafe and has been tampered
             # with.
 
         if reset_tokens.find({ 'token': form.token }).count() == 0:
-            raise ValidationError("The token is no longer usable.")
+            raise ValidationError(TOKEN_EXPIRED_ERROR)
 
         return decoded_payload
 
@@ -239,15 +252,28 @@ def reset():
             issued tokens, if it is not found, then the token has been used.
             """
             if data.get('new_password') != data.get('repeat_password'):
-                raise ValidationError("Passwords do not match.")
+                raise ValidationError(_("Passwords do not match."))
             return value
 
-    form = PasswordResetValidator(request.form.to_dict())
+    content_type = request.headers.get('Content-Type')
+
+    if 'json' in content_type:
+        json = True
+        input_data = request.json
+    else:
+        json = False
+        input_data = request.form.to_dict()
+
+    form = PasswordResetValidator(input_data)
+    context = {}
 
     try:
         form.validate()
     except ValidationError, e:
-        return nopes("Validation error(s)", e.messages)
+        if json:
+            return nopes("Validation error(s)", e.messages)
+        else:
+            context['errors'] = e.messages
 
     username = dangerous_unserializer.loads(form.token)
     new_password = form.new_password
@@ -274,7 +300,14 @@ def reset():
                      , 'datetime': datetime.now()
                      })
 
-    return nope({"success": True})
+    if json:
+        return nope({"success": True})
+    else:
+        if not 'errors' in context:
+            context['success'] = True
+        else:
+            context['success'] = False
+        return render_template('user_reset_form.html', **context)
 
 # TODO: validate, check that user exists, if not, nope
 @blueprint.route('/user/forgot/', methods=['POST'])
@@ -322,7 +355,7 @@ def forgot():
 
     def email_does_not_exist(value):
         if not users.find_one({'email': value}):
-            raise ValidationError("This email does not exist.")
+            raise ValidationError(_("This email does not exist."))
         return value
 
     def not_spamming(value):
@@ -376,7 +409,6 @@ def forgot():
     # TODO: send the email
 
     return jsonify({'success': True})
-
 
 
 @blueprint.route('/user/create/', methods=['POST', 'CREATE'])
@@ -434,9 +466,8 @@ def logout():
     # http GET http://localhost:5000/user/logout/ --session=boba
     # http GET http://localhost:5000/user/data/log/ --session=boba
 
-    # TODO: session not invalidating
-    session.clear()
-    print help(session)
+    # TODO: session not invalidating?
+    session.pop('username', None)
     return jsonify(success=True)
 
 @blueprint.route('/session/update/', methods=['POST'])
