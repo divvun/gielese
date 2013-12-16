@@ -448,7 +448,6 @@ def create_user():
                   , 'email': em
                   }
 
-
     # remove the username from the session if it's there
     session.pop('username', None)
     users.insert(user_kwargs)

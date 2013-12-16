@@ -9,7 +9,14 @@ from flask.views import MethodView
 from functools import wraps
 import simplejson
 
-# TODO: validate with schematics
+from schematics.models import Model
+from schematics.exceptions import ValidationError
+from schematics.types import ( EmailType
+                             , StringType
+                             , DateTimeType
+                             , IntType
+                             , BooleanType
+                             )
 
 # TODO: auth - get user data to store in db from session, and totes do
 #       not trust input
@@ -61,13 +68,54 @@ class SessionCheck(object):
 
         return un, user_id
 
+def date_format_valid(value):
+    import dateutil.parser
+    try:
+        d2 = dateutil.parser.parse(value)
+        d3 = d2.astimezone(dateutil.tz.tzutc())
+    except Exception, e:
+        raise ValidationError(_("Date format could not be validated."))
+    return value
+
 class LogsAPI(MethodView, SessionCheck):
+
+    class PostValidator(Model):
+        """ Validate the user log input.
+
+        { 'question_category_level': 2,
+          'question_concept': u'b\xefenje',
+          'updated_at': '2013-12-16T22:06:47.409Z',
+          'points': 50,
+          'game_name': 'leksa',
+          'question_category': 'ANIMALS',
+          'question_correct': True,
+          '_id': 'c1801',
+          'question_concept_value': u'b\xefenje',
+          'cycle': 1
+          }
+
+        """
+
+        question_category_level = IntType(required=True)
+        question_concept = StringType(required=True)
+        updated_at = StringType(required=True, validators=[date_format_valid])
+        points = IntType(required=True)
+        game_name = StringType(required=True)
+        question_category = StringType(required=True)
+        question_correct = BooleanType(required=True)
+        _id = StringType(required=True)
+        question_concept_value = StringType(required=True)
+        cycle = IntType(required=True)
+
 
     @property
     def table(self):
         return current_app.mongodb.db.user_logs
 
     def get(self, item_id):
+        """ Get all of the session user's logs, optionally specify a
+        particular item.  """
+
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
@@ -94,22 +142,32 @@ class LogsAPI(MethodView, SessionCheck):
         return mongodoc_jsonify(data=logs)
 
     def post(self):
+        """ Add an activity log, validating first.
+        """
+
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
 
-        # TODO: is this sufficient?
+        form = self.PostValidator(request.json)
+
+        try:
+            form.validate()
+        except ValidationError, e:
+            return mongodoc_jsonify(data={'success': False, errors: e.messages})
+
         request.json['user_id'] = user_id
-        # TODO: can user create record?
+
         def switch_id(model):
             if '_id' in model:
                 _id = model.get('_id')
                 model.pop('_id')
                 model['c_id'] = _id
-                # model['_id'] = ObjectId(_id)
             return model
+
         cleaned = switch_id(request.json)
         self.table.insert(cleaned)
+
         return mongodoc_jsonify(data=request.json)
 
     create = post
@@ -165,6 +223,8 @@ class SettingsAPI(MethodView, SessionCheck):
         return current_app.mongodb.db.user_settings
 
     def get(self):
+        """ Get an exhaustive list of the session user's settings. """
+
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
@@ -191,11 +251,15 @@ class SettingsAPI(MethodView, SessionCheck):
         # return mongodoc_jsonify(data=[pop_ids(self.table.find(query))])
 
     def post(self):
+        """ Set a specific setting key for the session user, deleting
+        the old value. """
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
 
-        # TODO: can user update record?
+        # TODO: validate form - here we have only specific settings that
+        # are allowed, prevent someone from spamming new settings.
+
         request.json['user_id'] = user_id
         setting_key = request.json.get('setting_key')
 
@@ -212,6 +276,9 @@ class SettingsAPI(MethodView, SessionCheck):
     create = post
 
     def delete(self, setting_key):
+        """ Delete a specific setting key for the session user.
+        """
+
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
@@ -222,6 +289,8 @@ class SettingsAPI(MethodView, SessionCheck):
         return ""
 
     def put(self):
+        """ Update a specific setting key for the session user, deleting
+        the old value.  """
         un, user_id = self.session_user()
         if not un:
             return plz_can_haz_auth()
