@@ -19,8 +19,8 @@
 #      - HTML5 audio on mobile devices generally has a constraint of only one
 #        sound object per tab. It's the best idea to keep the same one around,
 #        and just retarget with a new URL and onfinish handler, rather than
-#        destroying the handler. The latter may not work, and if it actually does
-#        it may be really slow for certain browsers.
+#        destroying the handler. The latter may not work, and if it actually
+#        does it may be really slow for certain browsers.
 #
 #      - Mobile browsers must have 'audio focus', i.e., you must have tapped a
 #        link to play audio, so that future audio events will work. For now I've
@@ -353,8 +353,8 @@ module.exports = class LeksaView extends Backbone.View
         window.last_user_input = answerlink
         if user_input == answer_value
           # If user is correct, stop watching for additional clicks
-          @$el.find('#leksa_question a.answerlink').unbind('click').click (evt) ->
-            return false
+          @$el.find('#leksa_question a.answerlink')
+              .unbind('click').click (evt) -> return false
           @correctAnswer(@q, answerlink)
         else
           @incorrectAnswer(@q, answerlink)
@@ -399,7 +399,9 @@ module.exports = class LeksaView extends Backbone.View
     # them as an interval or timeout breaks scope
     if app.leksaView.cur_points > 5
       app.leksaView.cur_points -= 5
-      app.leksaView.pts_bubble.find('.points').html("+#{app.leksaView.cur_points}")
+      app.leksaView.pts_bubble.find('.points').html(
+        "+#{app.leksaView.cur_points}"
+      )
       if app.debug
         console.log "available points: #{app.leksaView.cur_points}"
 
@@ -430,8 +432,12 @@ module.exports = class LeksaView extends Backbone.View
       console.log "Clearing old wait handler"
       clearTimeout app.wait_handler
 
+    @cat = _.first app.categories.where
+      category: @attributes.leksa_category
+
     @$el.html @template {
       leksa_category: @attributes.leksa_category
+      category: @cat.attributes.name
     }
 
     @pts_bubble = @$el.find('#points_for_question')

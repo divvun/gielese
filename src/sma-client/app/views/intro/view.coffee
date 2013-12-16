@@ -163,6 +163,8 @@ module.exports = class FrontPage extends Backbone.View
           $('.begin_text').show()
           $('#loginform_subsub').slideUp()
           $('#account_created').show()
+          # TODO: store form to another DSt variable.
+          DSt.store_form(app.frontPage.form[0])
       })
       # TODO: authenticate created user, and show feedback that this is going on
 
@@ -302,6 +304,8 @@ module.exports = class FrontPage extends Backbone.View
       hide_form: hide_form
     }
 
+    @form = @$el.find('form')
+
     delete @language_switched
 
     _FORGET = gettext.gettext "Did you forget your password?"
@@ -310,6 +314,9 @@ module.exports = class FrontPage extends Backbone.View
     # Initialize error template
 
     @loadSettings()
+    
+    # TODO: doesn't always work?
+    DSt.recall_form(app.frontPage.form[0])
 
     # Need to bind events here; jQuery mobile creates elements that messes with
     # backbone events.

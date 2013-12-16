@@ -199,8 +199,12 @@ module.exports = class LearnView extends LeksaView
     # are not registered
     # Render template and insert a question
 
+    @cat = _.first app.categories.where
+      category: @attributes.leksa_category
+
     @$el.html @template {
       leksa_category: @attributes.leksa_category
+      category: @cat.attributes.name
     }
 
     @pts_bubble = @$el.find('#points_for_question')
