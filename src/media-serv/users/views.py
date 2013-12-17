@@ -30,9 +30,13 @@ from schematics.types import ( EmailType
 
 # DOC: http://flask.pocoo.org/docs/views/ - class based view ideas
 # DOC: http://api.mongodb.org/python/current/api/pymongo/collection.html
+# DOC: https://schematics.readthedocs.org/
 
 
 class MongoDocumentEncoder(simplejson.JSONEncoder):
+    """ Some overrides are necessary for JSON encoding to work: right
+    now, just datetime and bson ObjectIds. """
+
     def default(self, o):
         if isinstance(o, datetime):
             return o.isoformat()
@@ -42,6 +46,9 @@ class MongoDocumentEncoder(simplejson.JSONEncoder):
 
 
 def mongodoc_jsonify(*args, **kwargs):
+    """ Return a JSON-encoded response, with the additional mongo
+    tweaks. """
+
     return Response( simplejson.dumps( dict(*args, **kwargs)
                                      , cls=MongoDocumentEncoder
                                      )
@@ -69,12 +76,18 @@ class SessionCheck(object):
         return un, user_id
 
 def date_format_valid(value):
+    """ Check that the JSON utc format is valid. The default python date
+    validator does not like this particular format, so we need this.
+    """
+
     import dateutil.parser
+
     try:
         d2 = dateutil.parser.parse(value)
         d3 = d2.astimezone(dateutil.tz.tzutc())
     except Exception, e:
         raise ValidationError(_("Date format could not be validated."))
+
     return value
 
 class LogsAPI(MethodView, SessionCheck):

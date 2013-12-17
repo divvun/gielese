@@ -16,6 +16,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link href="/static/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="/static/css/user_reset.css" rel="stylesheet">
   <!--
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,28 +31,28 @@
   -->
 </head> 
 
-<body> 
-
+<body class="gielese-background password_reset"> 
+    <div class="content_container">
 
     <div class="row">
       <div class="col-md-4 col-sm-2">
       </div>
       <div class="col-md-4 col-sm-6">
+        {% if errors %}
         <div class="errors">
             <div class="alert alert-danger">
                 <h4>Oops! We had some problems.</h4>
                 <br />
                 <ul>
-                    {% if errors %}
-                        {% for k, v in errors.iteritems() %}
-                            {% for err in v %}
-                                <li>{{ err }}</li>
-                            {% endfor %}
+                    {% for k, v in errors.iteritems() %}
+                        {% for err in v %}
+                            <li>{{ err }}</li>
                         {% endfor %}
-                    {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>
+        {% endif %}
       </div>
     </div>
 
@@ -60,42 +61,61 @@
 
       <div class="col-md-4 col-sm-6">
         {% if not success %}
-            <h3>G&iuml;elese: reset your password</h3>
+            <h3>Reset your password</h3>
 
-            <form class="form-horizontal" role="form" action="/user/reset/" method="post">
-              <div class="form-group">
+            <form class="grouped_fields reset_form" role="form" action="/user/reset/" method="post">
+              <div class="form-group grouped_field disabled">
                 <label for="inputEmail3" class="col-sm-3 control-label">Username</label>
-                <div class="col-sm-9">
-                    <p>{{ username }}</p>
+                <div class="col-sm-9 input_chunk">
+                    <input type="text" disabled class="form-control" placeholder="{{ username }}">
                     <input type="hidden" name="token" value="{{ token }}" />
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group grouped_field">
                 <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
-                <div class="col-sm-9">
-                  <input type="password" class="form-control" name="new_password" placeholder="Password">
+                <div class="col-sm-9 input_chunk">
+                  <input type="password" class="form-control" name="new_password" placeholder="................">
                 </div>
               </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-3 control-label">Repeat password</label>
-                <div class="col-sm-9">
-                  <input type="password" class="form-control" name="repeat_password" placeholder="Password">
+              <div class="form-group grouped_field">
+                <label for="inputPassword3" class="col-sm-3 control-label">Repeat</label>
+                <div class="col-sm-9 input_chunk">
+                  <input type="password" class="form-control" name="repeat_password" placeholder="................">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-9">
-                  <button type="submit" class="btn btn-default">Submit</button>
+                  <button type="submit" class="btn btn-default" id="submit_btn">Submit</button>
                 </div>
               </div>
             </form>
         {% else %}
         {# User has successfully reset #}
-            <h3>Your pasword has been reset.</h3>
+            <div id="success" class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <h3>Your pasword has been reset.</h3>
+                    <p>You may now start the app and log in.</p>
+                </div>
+            </div>
         {% endif %}
 
       </div>
+      
     </div>
 
+    <div class="row">
+      <div class="col-md-4 col-sm-2"> </div>
+
+      <div class="col-md-4 col-sm-6">
+          <img src="/static/images/gielese_logo_liten.png" id="logo" />
+      </div>
+    </div>
+
+</div>
 </body>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+  <!--
+  <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  -->
 </html>
 
