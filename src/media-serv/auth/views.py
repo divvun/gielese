@@ -408,10 +408,10 @@ def forgot():
     # TODO: internationalize
     reset_link = 'http://gielese.no/user/reset/form/?token=ImFzZGYi.BYpc8w.Q8JqHxKKFbTGKOVB3Dl2fQaRpko'
     # TODO: put this in a config
-    reply_address = 'admin@gielese.no'
+    reply_address = current_app.config.services.mail.reply_address
 
     msg = current_app.mailer.new()
-    msg.author = 'Gielese <noreply@gielese.no>'
+    msg.author = current_app.config.services.mail.author
     msg.to = [email]
     msg.subject = 'Reset your password'
     msg.render_template(

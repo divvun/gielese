@@ -8,6 +8,11 @@ Services:
     file: "media_serv.db"
   mongodb:
     host: "127.0.0.1"
+  mail:
+    smtp_host: "127.0.0.1"
+    smtp_port: false
+    author: "Gielese <noreply@gielese.no>"
+    reply_address: "admin@gielese.no"
 
 # This is the languagey stuff. 
 Languages:

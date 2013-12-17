@@ -11,6 +11,19 @@ from database import db
 from flask.ext.pymongo import PyMongo
 
 class YamlConf(object):
+    """ An object for storing Python-friendly configs, e.g.:
+
+    yaml file contains:
+        Services:
+          mail:
+            reply_address: "something"
+
+    access via:
+
+        conf_instance.services.mail.reply_address
+
+    """
+
     def __repr__(self):
         settings = dict([(k, self.__getattribute__(k)) for k in self.keys])
         return "<YamlConfig: %s>" % repr(settings)
@@ -26,6 +39,10 @@ class YamlConf(object):
                 self.__setattr__(k, v)
 
 def apply_yaml_config(app, _yamlfile):
+    """ Reads a YAML file, and applies the configs via `YamlConf` to the
+    app.config object. Warns if duplicate keys are encountered.
+    """
+
     import yaml
 
     with open(_yamlfile, 'r') as F:
@@ -52,7 +69,14 @@ def create_app():
     db.init_app(app)
     mongo = PyMongo(app)
     app.mongodb = mongo
-    # Mailer
+
+    # Mailer - if more is needed for configuration...
+    # DOC: http://flask-marrowmailer.readthedocs.org/en/latest/
+    app.config['MARROWMAILER_CONFIG'] = {
+        'manager.use': 'futures',
+        'transport.use': 'smtp',
+        'transport.host': app.config.services.mail.smtp_host
+    }
     mailer = Mailer(app)
     app.mailer = mailer
 
