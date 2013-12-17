@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-17 16:07-0600\n"
+"POT-Creation-Date: 2013-12-17 16:15-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,12 +151,25 @@ msgid ""
 "leave the app."
 msgstr ""
 
-#: templates/user_reset_form.html:44
-msgid "Oops! We had some problems."
+#: templates/forgot_password_email.html:1
+msgid ""
+"You requested to have your password reset. In order to do so, please\n"
+"click the following link and follow the instructions."
 msgstr ""
 
-#: templates/user_reset_form.html:64
+#: templates/forgot_password_email.html:4 templates/user_reset_form.html:64
 msgid "Reset your password"
+msgstr ""
+
+#: templates/forgot_password_email.html:6
+msgid ""
+"If you did not request to reset your password, you may disregard this\n"
+"    email. If you need to contact us, send an email to the following\n"
+"    address."
+msgstr ""
+
+#: templates/user_reset_form.html:44
+msgid "Oops! We had some problems."
 msgstr ""
 
 #: templates/user_reset_form.html:82

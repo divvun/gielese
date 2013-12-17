@@ -428,7 +428,7 @@ def forgot():
 
     print msg
     # TODO: send the email
-    # current_app.mailer.send(msg)
+    current_app.mailer.send(msg)
 
     return jsonify({'success': True})
 
