@@ -309,6 +309,8 @@ def reset():
             context['success'] = False
         return render_template('user_reset_form.html', **context)
 
+from flask_marrowmailer import Mailer
+
 # TODO: validate, check that user exists, if not, nope
 @blueprint.route('/user/forgot/', methods=['POST'])
 def forgot():
@@ -382,7 +384,6 @@ def forgot():
     # The form will all be valid here
 
     u = users.find_one({'email': email})
-    print "Reset request received for %s" % repr(u)
 
     reset_token = dangerous_signer.dumps(u.get('username'))
 
@@ -404,9 +405,23 @@ def forgot():
                         , 'token': reset_token
                         })
 
-    print "reset token is %s" % reset_token
+    # TODO: internationalize
+    reset_link = 'http://gielese.no/user/reset/form/?token=ImFzZGYi.BYpc8w.Q8JqHxKKFbTGKOVB3Dl2fQaRpko'
+    # TODO: put this in a config
+    reply_address = 'admin@gielese.no'
 
+    msg = current_app.mailer.new()
+    msg.author = 'Gielese <noreply@gielese.no>'
+    msg.to = [email]
+    msg.subject = 'Reset your password'
+    msg.render_template(
+        'forgot_password_email.html',
+        reset_link=reset_link,
+        reply_address=reply_address)
+
+    print msg
     # TODO: send the email
+    # current_app.mailer.send(msg)
 
     return jsonify({'success': True})
 

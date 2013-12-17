@@ -40,6 +40,7 @@ def apply_yaml_config(app, _yamlfile):
     return app
 
 
+from flask_marrowmailer import Mailer
 
 def create_app():
     _yamlfile = os.environ.get('MEDIA_SERV_CONF_PATH', 'gielese.app.config.yaml')
@@ -51,6 +52,9 @@ def create_app():
     db.init_app(app)
     mongo = PyMongo(app)
     app.mongodb = mongo
+    # Mailer
+    mailer = Mailer(app)
+    app.mailer = mailer
 
     # Blueprints
     import auth
