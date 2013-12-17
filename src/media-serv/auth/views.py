@@ -4,7 +4,7 @@ from bson import ObjectId
 from datetime import datetime, timedelta
 
 from textwrap import dedent
-from flaskext.babel import gettext as _
+from flask.ext.babel import gettext as _
 
 from flask import Response, session, jsonify, request
 from flask import current_app, render_template
