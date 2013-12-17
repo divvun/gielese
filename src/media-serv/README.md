@@ -19,11 +19,10 @@ Prepare JSON files.
 
 # Internationalisation
 
-    pybabel extract -F babel.cfg -k lazy_gettext -o translations/messages.pot .
+Extracting is a little tricky. Mind the dot at the end, as we need the
+current directory too.
 
-However, NB: can't traverse symlinks so need to be specific
-
-    pybabel extract -F babel.cfg -k lazy_gettext -o translations/messages.pot ../sma-client/
+    pybabel extract -F babel.cfg -o translations/messages.pot ../sma-client/ .
 
 ## initialising translations
 
@@ -34,7 +33,7 @@ However, NB: can't traverse symlinks so need to be specific
 
 ## updating
 
-    pybabel extract -F babel.cfg -k lazy_gettext -o translations/messages.pot .
+    pybabel extract -F babel.cfg -o translations/messages.pot ../sma-client/ .
     pybabel update -i translations/messages.pot -d translations
 
 ## compiling
