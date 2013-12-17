@@ -16,16 +16,6 @@ import simplejson
 
 from passlib.apps import custom_app_context as pwd_context
 
-TOKEN_EXPIRED_ERROR = dedent(_(
-    """ You waited too long to reset your password. Please request to
-    have it reset again, and make sure you complete this in three hours.
-    """
-))
-
-TOKEN_TAMPERED = dedent(_("""
-    The token was tampered with.
-"""))
-
 def plz_can_haz_auth():
     return Response( simplejson.dumps(dict(error="no login"))
                    , status=401
@@ -133,6 +123,15 @@ def reset_form():
 
         decoded_payload = None
 
+        TOKEN_EXPIRED_ERROR = _(dedent(
+            """ You waited too long to reset your password. Please
+            request to have it reset again, and make sure you complete
+            this in three hours.  """
+        ))
+
+        TOKEN_TAMPERED = _(dedent("The token was tampered with."))
+
+
         try:
             decoded_payload = dangerous_unserializer.loads(value,
                                                            max_age=60*60*3)
@@ -216,6 +215,14 @@ def reset():
         """
 
         decoded_payload = None
+
+        TOKEN_EXPIRED_ERROR = _(dedent(
+            """ You waited too long to reset your password. Please
+            request to have it reset again, and make sure you complete
+            this in three hours.  """
+        ))
+
+        TOKEN_TAMPERED = _(dedent("The token was tampered with."))
 
         try:
             decoded_payload = dangerous_unserializer.loads(value,
@@ -485,7 +492,7 @@ def logout():
     return jsonify(success=True)
 
 @blueprint.route('/session/update/', methods=['POST'])
-def generate_session():
+def update_session():
     from session_models import Session
 
     # TODO: get user id, user access token from form
@@ -518,7 +525,7 @@ def generate_session():
         return False
 
 @blueprint.route('/session/token/', methods=['POST'])
-def generate_session():
+def generate_session_token():
     from session_models import Session
 
     user_id = request.form.get('user_id', False)
@@ -539,7 +546,7 @@ def generate_session():
         return False
 
 @blueprint.route('/session/get/', methods=['POST'])
-def generate_session():
+def get_session():
     from session_models import Session
 
     user_id = request.form.get('user_id', False)

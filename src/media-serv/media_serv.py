@@ -9,6 +9,7 @@ from werkzeug.contrib.cache import SimpleCache
 from database import db
 
 from flask.ext.pymongo import PyMongo
+from flask.ext.babel   import Babel
 
 class YamlConf(object):
     """ An object for storing Python-friendly configs, e.g.:
@@ -69,6 +70,10 @@ def create_app():
     db.init_app(app)
     mongo = PyMongo(app)
     app.mongodb = mongo
+
+    # initialize babel
+    babel = Babel(app)
+    babel.init_app(app)
 
     # Mailer - if more is needed for configuration...
     # DOC: http://flask-marrowmailer.readthedocs.org/en/latest/

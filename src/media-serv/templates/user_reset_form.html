@@ -41,7 +41,7 @@
         {% if errors %}
         <div class="errors">
             <div class="alert alert-danger">
-                <h4>Oops! We had some problems.</h4>
+                <h4>{% trans %}Oops! We had some problems.{% endtrans %}</h4>
                 <br />
                 <ul>
                     {% for k, v in errors.iteritems() %}
@@ -61,31 +61,32 @@
 
       <div class="col-md-4 col-sm-6">
         {% if not success %}
-            <h3>Reset your password</h3>
+            <h3>{% trans %}Reset your password{% endtrans %}</h3>
 
             <form class="grouped_fields reset_form" role="form" action="/user/reset/" method="post">
               <div class="form-group grouped_field disabled">
-                <label for="inputEmail3" class="col-sm-3 control-label">Username</label>
+                <label for="inputEmail3" class="col-sm-3 control-label">{% trans %}Username{% endtrans %}</label>
                 <div class="col-sm-9 input_chunk">
                     <input type="text" disabled class="form-control" placeholder="{{ username }}">
                     <input type="hidden" name="token" value="{{ token }}" />
                 </div>
               </div>
               <div class="form-group grouped_field">
-                <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                <label for="inputPassword3" class="col-sm-3 control-label">{% trans %}Password{% endtrans %}</label>
                 <div class="col-sm-9 input_chunk">
                   <input type="password" class="form-control" name="new_password" placeholder="................">
                 </div>
               </div>
               <div class="form-group grouped_field">
-                <label for="inputPassword3" class="col-sm-3 control-label">Repeat</label>
+                {# NOTE: repeat is a verb, 'repeat the password' #}
+                <label for="inputPassword3" class="col-sm-3 control-label">{% trans %}Repeat{% endtrans %}</label>
                 <div class="col-sm-9 input_chunk">
                   <input type="password" class="form-control" name="repeat_password" placeholder="................">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-9">
-                  <button type="submit" class="btn btn-default" id="submit_btn">Submit</button>
+                <button type="submit" class="btn btn-default" id="submit_btn">{% trans %}Submit{% endtrans %}</button>
                 </div>
               </div>
             </form>
@@ -93,8 +94,8 @@
         {# User has successfully reset #}
             <div id="success" class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h3>Your password has been reset.</h3>
-                    <p>You may now start the app and log in.</p>
+                    <h3>{% trans %}Your password has been reset.{% endtrans %}</h3>
+                    <p>{% trans %}You may now start the app and log in.{% endtrans %}</p>
                 </div>
             </div>
         {% endif %}
