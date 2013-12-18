@@ -413,7 +413,7 @@ def forgot():
                         })
 
     # TODO: internationalize
-    reset_link = 'http://gielese.no/user/reset/form/?token=ImFzZGYi.BYpc8w.Q8JqHxKKFbTGKOVB3Dl2fQaRpko'
+    reset_link = 'http://gielese.no/user/reset/form/?token=%s' % reset_token
     # TODO: put this in a config
     reply_address = current_app.config.services.mail.reply_address
 
@@ -426,9 +426,12 @@ def forgot():
         reset_link=reset_link,
         reply_address=reply_address)
 
-    print msg
-    # TODO: send the email
-    current_app.mailer.send(msg)
+    if not current_app.debug:
+        current_app.mailer.send(msg)
+    else:
+        print msg
+        print '--'
+        print reset_link
 
     return jsonify({'success': True})
 

@@ -91,6 +91,12 @@ def create_app():
     app.register_blueprint(auth.blueprint)
     app.register_blueprint(users.blueprint)
 
+    app.debug = False
+    if hasattr(app.config.app, 'debug'):
+        app.debug = app.config.app.debug
+        if app.debug:
+            print " * Running in debug."
+
     return app, db
 
 cache = SimpleCache()
@@ -417,10 +423,8 @@ def client_offline():
     from flask import Response
     return render_template('offline_index.html')
 
-app.debug = True
-
 with open('secret_key', 'r') as F:
     app.secret_key = F.read().strip()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

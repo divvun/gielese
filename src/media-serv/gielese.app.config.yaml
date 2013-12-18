@@ -2,6 +2,9 @@
 #   app.config.services.sqlite3.file
 #   NB: root keys are transformed to lowercase
 
+App:
+  debug: True
+
 # Define service paths
 Services:
   sqlite3:
