@@ -422,7 +422,7 @@ def forgot():
     msg.to = [email]
     msg.subject = 'Reset your password'
     msg.render_template(
-        'forgot_password_email.html',
+        'forgot_password_email',
         reset_link=reset_link,
         reply_address=reply_address)
 
