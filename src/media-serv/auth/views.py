@@ -61,9 +61,14 @@ def login():
                        , mimetype='application/json'
                        )
 
+    def length_is_greater(value):
+        if len(value) < 7:
+            raise ValidationError("Your password must be at least 8 characters.")
+        return value
+
     class LoginFormValidator(Model):
         username = StringType(required=True)
-        password = StringType(required=True)
+        password = StringType(required=True, validators=[length_is_greater])
 
     form = LoginFormValidator(request.form.to_dict())
 
