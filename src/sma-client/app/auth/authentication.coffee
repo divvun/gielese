@@ -204,6 +204,7 @@ module.exports = class Authenticator
         username: data.user.username
         email: data.user.email
       }
+      opts.success() if opts.success
 
     login_request.complete () =>
 

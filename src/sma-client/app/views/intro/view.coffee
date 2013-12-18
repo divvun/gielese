@@ -176,7 +176,6 @@ module.exports = class FrontPage extends Backbone.View
       $("#loginform_success").show()
 
     create_account_opts.always = (resp) =>
-      console.log "always2"
       setTimeout(@hideLoading, 500)
 
     login_account_opts.fail = (resp) =>
@@ -186,12 +185,13 @@ module.exports = class FrontPage extends Backbone.View
 
     login_account_opts.success = (resp) =>
       setTimeout(@hideLoading, 500)
-      $("#loginform_success").show()
-      $('#account_created').hide()
-      $('#account_exists').show()
-      $('#loginform_subsub').slideUp()
-      $('.login_text').hide()
-      $('.begin_text').show()
+      if app.user
+        $("#loginform_success").show()
+        $('#account_created').hide()
+        $('#account_exists').show()
+        $('#loginform_subsub').slideUp()
+        $('.login_text').hide()
+        $('.begin_text').show()
 
     login_result = app.auth.login(login_account_opts)
 
