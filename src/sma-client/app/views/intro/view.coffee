@@ -139,11 +139,10 @@ module.exports = class FrontPage extends Backbone.View
           if 'exists' in error
             @show_login_error(@_LOGIN_ACCOUNT_ERROR_EXISTS, true, username)
             continue
-          error_msg = $("<span class='error'>")
-          error_msg.html(error)
-          $("form#user .form_fields").append(error_msg)
+          error_msg = $("<span class='error'>#{error}</span>")
+          @$el.find("form#user .form_fields").append(error_msg)
           console.log $("form#user .form_fields")
-      else
+
         # Highlight fields that have errors
         for key, error of fields
           input = $("input[name=#{key}]")
