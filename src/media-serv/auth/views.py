@@ -463,9 +463,14 @@ def create_user():
             raise ValidationError("This email is in use already, please use another.")
         return value
 
+    def length_is_greater(value):
+        if len(value) < 7:
+            raise ValidationError("Your password must be at least 8 characters.")
+        return value
+
     class UserFormValidation(Model):
         username = StringType(required=True, validators=[user_does_not_exist])
-        password = StringType(required=True)
+        password = StringType(required=True, validators=[length_is_greater])
         email = EmailType(required=True, validators=[email_does_not_exist])
 
     users = current_app.mongodb.db.users
