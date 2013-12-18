@@ -285,6 +285,7 @@ module.exports = class FrontPage extends Backbone.View
     login_template = LoginErrorTemplate
       error_msg: msg
       forgotten: forgotten
+      try_again: try_again
 
     @$el.append(login_template)
 
