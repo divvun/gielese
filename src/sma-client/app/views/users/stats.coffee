@@ -12,16 +12,12 @@ module.exports = class UserStats extends Backbone.View
     'click .audio_link': 'findAudio'
     'click #show-panel': "revealOptionsPanel"
     'click .concept_link': 'showConcept'
-    'click #logout': "logOut"
+    'click .history_back': 'goBack'
 
-  logOut: ->
-    app.loadingTracker.showLoading()
-    app.auth.logout
-      success: () =>
-        app.loadingTracker.hideLoading()
-        window.location.hash = "#reset"
+  goBack: () ->
+    window.history.back()
     return false
-  
+
   template: require './templates/stats'
 
   initChart: () ->
