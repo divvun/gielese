@@ -124,21 +124,25 @@ module.exports = class FrontPage extends Backbone.View
       error_json = JSON.parse(resp.responseText)
       console.log "fail2"
       fields = error_json.reasons
+      console.log error_json
       $("form#user input").removeClass("error")
       $("form#user span.error").remove()
       $("form .grouped_field.error").removeClass("error")
 
       # Can't rely on schematics to return consistent data. Sometimes this is
       # a list, sometimes an Object
-      if fields.length?
+      console.log fields
+      if fields
         # Append errors to form
-        for error in fields
-          if error == 'exists'
-            @show_login_error(@_LOGIN_ACCOUNT_ERROR_EXISTS)
+        for fieldname, error of fields
+          console.log error
+          if 'exists' in error
+            @show_login_error(@_LOGIN_ACCOUNT_ERROR_EXISTS, true, username)
             continue
           error_msg = $("<span class='error'>")
           error_msg.html(error)
           $("form#user .form_fields").append(error_msg)
+          console.log $("form#user .form_fields")
       else
         # Highlight fields that have errors
         for key, error of fields
@@ -274,17 +278,46 @@ module.exports = class FrontPage extends Backbone.View
       $('.begin_text').show()
       $('#account_exists').show()
     
-  show_login_error: (msg) ->
+  show_login_error: (msg, forgotten=false, username=false, try_again=true) ->
     if @login_error_popup?
       @login_error_popup.remove()
 
-    login_template = LoginErrorTemplate({error_msg: msg})
+    login_template = LoginErrorTemplate
+      error_msg: msg
+      forgotten: forgotten
 
     @$el.append(login_template)
 
     @login_error_popup = @$el.find('#loginErrorPopup')
     @login_error_popup.trigger('create')
     @login_error_popup.popup().show().popup('open')
+
+    if forgotten
+      @login_error_popup.find('a#forget_button').click (e) =>
+
+        if app.debug
+          console.log "forgot click evt"
+          
+        @login_error_popup.popup().popup('close')
+
+        app.auth.forgot
+          username: username
+          success: () =>
+            if app.debug
+              console.log "success"
+            app.frontPage.cur_msg = @_LOGIN_ACCOUNT_CHECK_EMAIL
+            setTimeout(() ->
+              app.frontPage.show_login_error(
+                app.frontPage.cur_msg, false, false, false)
+            , 500)
+          fail: () =>
+            if app.debug
+              console.log "fail"
+            app.frontPage.cur_msg = @_LOGIN_ACCOUNT_NETWORK_ERROR
+            setTimeout(() ->
+              app.frontPage.show_login_error(
+                app.frontPage.cur_msg, true, username)
+            , 500)
 
     return
 
@@ -309,7 +342,11 @@ module.exports = class FrontPage extends Backbone.View
     delete @language_switched
 
     _FORGET = gettext.gettext "Did you forget your password?"
+    _EMAIL = gettext.gettext "Check your email!"
+    _NETWORK = gettext.gettext "Check your network connection and try again"
     @_LOGIN_ACCOUNT_ERROR_EXISTS = _FORGET
+    @_LOGIN_ACCOUNT_CHECK_EMAIL = _EMAIL
+    @_LOGIN_ACCOUNT_NETWORK_ERROR = _NETWORK
 
     # Initialize error template
 

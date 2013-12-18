@@ -6,7 +6,15 @@
         <div id="fail">
             <%- @error_msg %>
         </div>
-        <a data-role="button" data-rel="back" type="submit" data-theme="b"><%- gettext.gettext "Try again" %></a>
+        <% if @try_again: %>
+            <a data-role="button" data-rel="back" type="submit" data-theme="b"><%- gettext.gettext "Try again" %></a>
+        <% else: %>
+            <a data-role="button" data-rel="back" type="submit" data-theme="b"><%- gettext.gettext "Close" %></a>
+        <% end %>
+
+        <%- if @forgotten: %>
+            <a data-role="button" data-rel="email" id="forget_button" type="" data-theme="a"><%- gettext.gettext "Email me" %></a>
+        <% end %>
     </div>
 
 </div>

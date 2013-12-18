@@ -124,8 +124,13 @@ module.exports = class Authenticator
                   ]
 
   forgot: (opts = {}) ->
-    data =
-      email_address: opts.email
+    data = {}
+
+    if opts.email
+      data.email_address = opts.email
+
+    if opts.username
+      data.username = opts.username
 
     forgotten_request = $.ajax
       type: "POST"
@@ -144,6 +149,7 @@ module.exports = class Authenticator
     forgotten_request.success (data, textStatus, jqXHR) ->
       if app.debug
         console.log "Authenticator.login.forgot: Request for token successfully submitted ..."
+      opts.success() if opts.success
 
     forgotten_request.complete () =>
       opts.complete() if opts.complete

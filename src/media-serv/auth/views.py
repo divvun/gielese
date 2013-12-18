@@ -367,6 +367,11 @@ def forgot():
             raise ValidationError(_("This email does not exist."))
         return value
 
+    def username_exists(value):
+        if not users.find_one({'username': value}):
+            raise ValidationError(_("This username does not exist."))
+        return value
+
     def not_spamming(value):
         # check that this hasn't been registered several times in the
         # past 20 minutes
@@ -375,9 +380,12 @@ def forgot():
 
     # TODO: validate
     class UserForgotValidation(Model):
-        email_address = EmailType(required=True,
+        username = StringType(validators=[username_exists,
+                                         not_spamming])
+        email_address = EmailType(required=False,
                                   validators=[email_does_not_exist,
                                               not_spamming])
+
 
     form = UserForgotValidation(request.form.to_dict())
 
@@ -386,13 +394,18 @@ def forgot():
     except ValidationError, e:
         return nopes("Validation error(s)", e.messages)
 
-    email = request.form['email_address']
+    email = request.form.get('email_address', False)
+    username = request.form.get('username', False)
 
     # The form will all be valid here
 
-    u = users.find_one({'email': email})
+    if email:
+        u = users.find_one({'email': email})
+    elif username:
+        u = users.find_one({'username': username})
 
     reset_token = dangerous_signer.dumps(u.get('username'))
+    email = u.get('email')
 
     # log IP, and target email-- this will be used in validation of
     # future requests
