@@ -90,6 +90,8 @@ def login():
             u_data.pop('_id')
             print u_data
             return jsonify(user=u_data)
+        else:
+            return nope('You were not authenticated.')
 
     return nope('You were not authenticated.')
 
@@ -303,6 +305,7 @@ def reset():
     u.update({
         'password': pwd_context.encrypt(new_password),
     })
+    users.save(u)
 
     # Also log the successful reset.
 
