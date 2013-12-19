@@ -287,8 +287,10 @@ def reset():
     context = {}
     context['token'] = form.token
 
+    valid = False
     try:
         form.validate()
+        valid = True
     except ValidationError, e:
         if json:
             return nopes("Validation error(s)", e.messages)
@@ -296,32 +298,33 @@ def reset():
             context['errors'] = e.messages
 
     username = dangerous_unserializer.loads(form.token)
-    new_password = form.new_password
-
     context['username'] = username
 
-    # once user has reset the password, the token needs to be expired
-    # otherwise they'll be able to reset endlessly, which is fine, but
-    # may cause problems for them, or imply that someone watching has
-    # intercepted the request and has attempted to replay it.
+    if valid:
+        new_password = form.new_password
 
-    reset_tokens.remove({ 'token': form.token })
+        # once user has reset the password, the token needs to be expired
+        # otherwise they'll be able to reset endlessly, which is fine, but
+        # may cause problems for them, or imply that someone watching has
+        # intercepted the request and has attempted to replay it.
 
-    u = users.find_one({'username': username})
-    email = u.get('email')
+        reset_tokens.remove({ 'token': form.token })
 
-    u.update({
-        'password': pwd_context.encrypt(new_password),
-    })
-    users.save(u)
+        u = users.find_one({'username': username})
+        email = u.get('email')
 
-    # Also log the successful reset.
+        u.update({
+            'password': pwd_context.encrypt(new_password),
+        })
+        users.save(u)
 
-    reset_log.insert({ 'email': email
-                     , 'requester_ip': requester_ip
-                     , 'request_type': 'password_reset_success'
-                     , 'datetime': datetime.now()
-                     })
+        # Also log the successful reset.
+
+        reset_log.insert({ 'email': email
+                         , 'requester_ip': requester_ip
+                         , 'request_type': 'password_reset_success'
+                         , 'datetime': datetime.now()
+                         })
 
     if json:
         return nope({"success": True})
