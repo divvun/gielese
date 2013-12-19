@@ -214,6 +214,11 @@ def reset():
     # signature validation
     dangerous_unserializer = URLSafeTimedSerializer(current_app.secret_key)
 
+    def length_is_greater(value):
+        if len(value) < 7:
+            raise ValidationError("Your password must be at least 8 characters.")
+        return value
+
     def token_is_valid(value):
         """ This unsigns the reset token, and checks the signature. In
         addition, in order to prevent someone from resetting their
@@ -256,8 +261,8 @@ def reset():
     class PasswordResetValidator(Model):
         token = StringType(required=True, validators=[token_is_valid])
 
-        new_password = StringType(required=True)
-        repeat_password = StringType(required=True)
+        new_password = StringType(required=True, validators=[length_is_greater])
+        repeat_password = StringType(required=True, validators=[length_is_greater])
 
         def validate_new_password(self, data, value):
             """ This unsigns the reset token, and checks the signature. In
@@ -280,6 +285,7 @@ def reset():
 
     form = PasswordResetValidator(input_data)
     context = {}
+    context['token'] = form.token
 
     try:
         form.validate()
@@ -291,6 +297,8 @@ def reset():
 
     username = dangerous_unserializer.loads(form.token)
     new_password = form.new_password
+
+    context['username'] = username
 
     # once user has reset the password, the token needs to be expired
     # otherwise they'll be able to reset endlessly, which is fine, but
