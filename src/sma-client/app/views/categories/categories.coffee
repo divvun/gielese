@@ -25,7 +25,7 @@ module.exports = class CategoryMenu extends Backbone.View
 
   logout: (evt) ->
     DSt.set('gielese-configured', false)
-    if app.user?
+    if app.user
       app.auth.logout()
       window.location.hash = "frontPage"
     else
