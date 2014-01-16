@@ -180,7 +180,6 @@ module.exports = class LearnView extends LeksaView
     # if complete, then move on.
 
     if @preselected_q
-      console.log "preselected"
       a = @preselected_q
     else
       a = @q
@@ -188,7 +187,6 @@ module.exports = class LearnView extends LeksaView
     window.current_audio = a.question.playAudio()
 
     checkPosition = () ->
-      console.log "polling"
       current_audio = window.current_audio
       if current_audio.position == current_audio.duration or \
          current_audio.position == current_audio.durationEstimate
