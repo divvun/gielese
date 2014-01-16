@@ -369,8 +369,7 @@ module.exports = class LeksaView extends Backbone.View
       if app.options.getSetting('enable_audio') and @q.generator.get('sound')
         speaker = $(document).find('img.play_speaker')
         speaker.addClass('playing')
-        @q.question.playAudio
-          finished: app.leksaView.soundFinished
+        @playQuestionSound()
 
     # Delay first sound playing as leksa page renders
     if @pregenerated?
@@ -388,11 +387,19 @@ module.exports = class LeksaView extends Backbone.View
         console.log "Play:"
         console.log @q.question
       speaker = $(document).find('img.play_speaker').addClass('playing')
-      @current_audio = @q.question.playAudio
-        finished: app.leksaView.soundFinished
+      @q.question.playAudio()
       return false
 
     return true
+
+  playQuestionSound: () ->
+    if @preselected_q
+      a = @preselected_q
+    else
+      a = @q
+
+    @current_audio = a.question.playAudio
+      finished: app.leksaView.soundFinished
 
   countdownPoints: () ->
     # these parts need to be written with reference to app, because setting
