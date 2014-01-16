@@ -1,6 +1,10 @@
 ##
 #
 
+* iOS 7 - error (eks. lær helsedh); kjem ikkje vidare til neste ord
+
+* vanskeleg å gå attende til login for anonyme brukarar
+
 * video support needs a fallback to exceptionally simple quality gif
   - concept directory reader should check file type and mark these
   - modernizr.js (http://modernizr.com/) for h.264 detection

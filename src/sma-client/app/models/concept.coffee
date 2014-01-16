@@ -94,6 +94,10 @@ module.exports = class Concept extends Backbone.Model
     
     console.log loading
 
+    error_event = () =>
+      console.log "Audio playing error"
+      return false
+
     finished_event = () =>
       loading.fadeOut()
       opts.finished() if opts.finished?
@@ -123,20 +127,26 @@ module.exports = class Concept extends Backbone.Model
       # limitations
       if soundManager.html5Only
         if app.debug
-          console.log "creating sound with html5"
+          console.log "html5 only"
         sound_obj = soundManager.getSoundById(sound_id)
         # grab sound obj if it hasn't been created yet
         if not sound_obj
+          if app.debug
+            console.log "creating sound obj"
           sound_obj = soundManager.createSound
             id: sound_id
             url: has_audio_file
             onfinish: finished_event
+            onerror: error_event
             onplay: begin_event
             whileloading: whileload_event
           sound_obj._a.playbackRate = opts.rate
         else
+          if app.debug
+            console.log "sound obj exists"
           # update the onfinished event
           sound_obj.options.onfinish = finished_event
+          sound_obj.options.onerror = error_event
           sound_obj.options.onplay = begin_event
           sound_obj.options.whileloading = whileload_event
 
@@ -157,6 +167,7 @@ module.exports = class Concept extends Backbone.Model
           id: sound_id
           url: has_audio_file
           onfinish: finished_event
+          onerror: error_event
           onplay: begin_event
           whileloading: whileload_event
         })

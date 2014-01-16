@@ -180,8 +180,7 @@ module.exports = class Router extends Backbone.Router
         # Hopefully we're still in the click event here, in which case we need
         # to play now.
         app.leksaView.pregenerated = true
-        app.leksaView.preselected_q.question.playAudio
-          finished: app.leksaView.soundFinished
+        app.leksaView.playQuestionSound()
     
         app.leksaView.initialize()
     

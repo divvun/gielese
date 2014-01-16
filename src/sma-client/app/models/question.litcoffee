@@ -154,14 +154,13 @@ Here we increment the cycle if the current question is compelte
         return false
 
       filter_concepts_by_media: (concepts, media_size) ->
-        # TODO: fix -- use media.size, somehow
-        _ms = "/#{media_size}/"
         filtered_concepts = _.filter concepts, (c) =>
           if c.get('language') == 'img'
-            ## imgs = c.get('media').image
-            ## imgs_fit = (i for i in imgs if i.size == media_size)
-            ## console.log imgs_fit
-            return c.get('concept_value').search(_ms) > -1
+            imgs = c.get('media').image
+            for i in imgs
+              if i.size == app.media_size
+                return true
+            return false
           else
             return true
 

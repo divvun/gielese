@@ -31,8 +31,10 @@ module.exports = class LearnView extends LeksaView
   reset_auto_event: () ->
     if app.wait_handler?
       clearTimeout app.wait_handler
-    clearInterval @auto_advance_handler
-    # clearInterval @countdown_handle
+    if app.leksaView.auto_advance_handler?
+      clearInterval @auto_advance_handler
+    if app.leksaView.countdown_handle?
+      clearInterval @countdown_handle
     return true
 
   # # #
@@ -144,14 +146,6 @@ module.exports = class LearnView extends LeksaView
       minFontPixels: 18
       maxFontPixels: 36
 
-    # countdownPoints = (evt) =>
-    #   if @cur_points > 5
-    #     @cur_points -= 5
-    #     if app.debug
-    #       console.log "available points: #{@cur_points}"
-
-    # @countdown_handle = setInterval(countdownPoints, 1000)
-
     # Do not advance
     @$el.find('#leksa_question a.answerlink').click (evt) =>
       return false
@@ -160,8 +154,7 @@ module.exports = class LearnView extends LeksaView
 
     playFirst = =>
       if app.options.getSetting('enable_audio') and @q.generator.get('sound')
-        @q.question.playAudio
-          finished: app.leksaView.soundFinished
+        @playQuestionSound()
 
     # Delay first sound playing as leksa page renders
     if @pregenerated?
@@ -177,12 +170,37 @@ module.exports = class LearnView extends LeksaView
       if app.debug?
         console.log "Play:"
         console.log @q.question
-      @current_audio = @q.question.playAudio
-        finished: app.leksaView.soundFinished
+      @q.question.playAudio()
       return false
 
     return true
 
+  playQuestionSound: () ->
+    # Play the audio, but periodically poll to see if it's completed
+    # if complete, then move on.
+
+    if @preselected_q
+      console.log "preselected"
+      a = @preselected_q
+    else
+      a = @q
+
+    window.current_audio = a.question.playAudio()
+
+    checkPosition = () ->
+      console.log "polling"
+      current_audio = window.current_audio
+      if current_audio.position == current_audio.duration or \
+         current_audio.position == current_audio.durationEstimate
+        app.leksaView.soundFinished()
+      else
+        setTimeout(checkPosition, 200)
+
+    if current_audio?
+      setTimeout(checkPosition, 200)
+    else
+      app.leksaView.soundFinished()
+    
   soundFinished: () ->
     if app.debug
       console.log "View got sound finished."
