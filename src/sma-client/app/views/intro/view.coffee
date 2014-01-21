@@ -95,6 +95,26 @@ module.exports = class FrontPage extends Backbone.View
     ,1)
     return false
 
+  storeForm: () ->
+    # This is different from the DSt.store_form method, intended for storing
+    # stuff between sessions.
+    #
+    form_data =
+      username: @$el.find("#user #un").val()
+      email:    @$el.find("#user #em").val()
+      password: @$el.find("#user #pw").val()
+    DSt.set('login-details', form_data)
+
+  recallForm: () ->
+    # TODO: access token
+
+    ds = DSt.get('login-details')
+    if ds
+      @$el.find("#user #un").val ds.username
+      @$el.find("#user #em").val ds.email
+      @$el.find("#user #pw").val ds.password
+    return true
+
   userForm: (event) ->
     # display loading
     #
@@ -186,6 +206,7 @@ module.exports = class FrontPage extends Backbone.View
     login_account_opts.success = (resp) =>
       setTimeout(@hideLoading, 500)
       if app.user
+        app.frontPage.storeForm()
         $("#loginform_success").show()
         $('#account_created').hide()
         $('#account_exists').show()
@@ -352,8 +373,7 @@ module.exports = class FrontPage extends Backbone.View
 
     @loadSettings()
     
-    # TODO: doesn't always work?
-    DSt.recall_form(app.frontPage.form[0])
+    @recallForm()
 
     # Need to bind events here; jQuery mobile creates elements that messes with
     # backbone events.

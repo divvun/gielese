@@ -113,9 +113,12 @@ module.exports = class Authenticator
     if app.debug
       console.log "Authenticator.clearUserData()"
 
+    # exception for login-details
+    deets = DSt.get('login-details')
     window.localStorage.clear()
     app.options.reset()
     app.userprogression.reset()
+    deets = DSt.set('login-details', deets)
 
     if app.debug
       console.log "Cleared user data."
