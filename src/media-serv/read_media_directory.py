@@ -240,10 +240,16 @@ def find_concept_video(concept_dir):
     video = []
 
     for path in image_paths:
+        size, device = '', ''
+
+        if '.min.' in path:
+            device = 'mobile'
+            size = 'small'
+
         video.append({
             'path': path,
-            'size': '',
-            'device': '',
+            'size': size,
+            'device': device,
         })
 
     return video
@@ -274,7 +280,7 @@ def read_concept_directory(concept_dir, concepts_meta={}):
 
     media = {
         'images': find_concept_images(concept_dir),
-        'video': find_concept_video(concept_dir),
+        'videos': find_concept_video(concept_dir),
         'audio': find_concept_audio(concept_dir)
     }
 
@@ -454,8 +460,8 @@ def replace_media_paths(concepts, replace_with):
         if 'audio' in media:
             media['audio'] = map(get_replace, media['audio'])
 
-        if 'video' in media:
-            media['video'] = map(get_replace, media['video'])
+        if 'videos' in media:
+            media['videos'] = map(get_replace, media['videos'])
 
         c['media'] = media
 
@@ -526,7 +532,7 @@ def concepts_to_xml(concepts):
 
         _meds = concept.get('media', {})
         _images = _meds.get('images', False)
-        _video = _meds.get('video', False)
+        _video = _meds.get('videos', False)
         _audio = _meds.get('audio', False)
 
         lg_node = lg(l(lemma, **attributes))
@@ -596,7 +602,7 @@ def concepts_to_xml(concepts):
                     E.video(_p, style_kwargs)
                 )
 
-            medias.append(E.video(*video))
+            medias.append(E.videos(*video))
 
         if _audio:
             audio = []

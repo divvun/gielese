@@ -252,6 +252,7 @@ class Concept(db.Model, TimestampMixin):
         concept_media = {}
         audio = self.translations_to.filter(Concept.language == 'mp3').all()
         image = self.translations_to.filter(Concept.language == 'img').all()
+        video = self.translations_to.filter(Concept.language == 'mov').all()
 
         media_ids = []
 
@@ -260,6 +261,10 @@ class Concept(db.Model, TimestampMixin):
 
         if len(image) > 0:
             concept_media['image'] = [{'path': a.lemma, 'device': a.device, 'size': a.size, 'image_for_category': a.image_for_category} for a in image]
+            media_ids.extend([a.id for a in image])
+
+        if len(video) > 0:
+            concept_media['videos'] = [{'path': a.lemma, 'device': a.device, 'size': a.size, 'image_for_category': a.image_for_category} for a in image]
             media_ids.extend([a.id for a in image])
 
         language = self.language

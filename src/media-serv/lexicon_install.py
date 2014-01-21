@@ -246,6 +246,15 @@ class MediaSimpleJSON(EntryNodeIterator):
                 device = "mobile"
             return device
 
+        def video_device(n):
+            device = n.attrib.get('device', False)
+            path = n.find('path').text
+            if not device:
+                print >> sys.stderr, "No device attribute for image with path %s. Using default value desktop" % path
+                device = "desktop"
+            return device
+
+
         def image_for_category(n):
             device = n.attrib.get('image_for_category', None)
             return device
@@ -257,6 +266,15 @@ class MediaSimpleJSON(EntryNodeIterator):
                 print >> sys.stderr, "No size attribute for image with path %s. Using default value mobile" % path
                 size = "mobile"
             return size
+
+        def video_size(n):
+            size = n.attrib.get('size', False)
+            path = n.find('path').text
+            if not size:
+                print >> sys.stderr, "No size attribute for image with path %s. Using default value mobile" % path
+                size = ""
+            return size
+
 
         def image_features(n):
             from collections import defaultdict
@@ -293,6 +311,7 @@ class MediaSimpleJSON(EntryNodeIterator):
         if media is not None:
             sounds = media.find('sounds')
             images = media.find('images')
+            videos = media.find('videos')
             if sounds is not None:
                 media_defs['sounds'] = [ {'path': _path(sound),
                                          'features': sound_features(sound)}
@@ -309,6 +328,15 @@ class MediaSimpleJSON(EntryNodeIterator):
                                          for image in images
                                        ]
                 media_type = 'img'
+
+            if videos is not None:
+                media_defs['videos'] = [ {'path': _path(video),
+                                          'features': image_features(video),
+                                          'device': video_device(video),
+                                          'size': video_size(video),}
+                                         for video in videos
+                                       ]
+                media_type = 'mov'
 
         # TODO: redo translations
         return { 'lemma': lemma
@@ -466,8 +494,8 @@ def install_media_references(_d, filename):
 
         # Create WordTranslations with media defs.
         medias = media_defs.get('media', False)
+        image_medias = []
         if 'images' in medias:
-            image_medias = []
             for image in medias.get('images'):
                 wt_kwargs = dict( language='img'
                                 , lemma=image.get('path')
@@ -483,8 +511,25 @@ def install_media_references(_d, filename):
                 image_medias.append(wt)
                 print " Added image path: %s" % wt.lemma
 
+        video_medias = []
+        if 'videos' in medias:
+            for image in medias.get('videos'):
+                wt_kwargs = dict( language='mov'
+                                , lemma=image.get('path')
+                                , device=image.get('device')
+                                , size=image.get('size')
+                                )
+                image_for_category = image.get('image_for_category')
+                if image_for_category is not None:
+                    wt_kwargs['image_for_category'] = True
+                # TODO: features / semantics, audio / voices
+                wt = Concept(**wt_kwargs)
+                word.translations_to.append(wt)
+                video_medias.append(wt)
+                print " Added video path: %s" % wt.lemma
+
+        audio_medias = []
         if 'sounds' in medias:
-            audio_medias = []
             for sound in medias.get('sounds'):
                 wt_kwargs = dict( language='mp3'
                                 , lemma=sound.get('path')
@@ -496,18 +541,14 @@ def install_media_references(_d, filename):
                 print " Added audio path: %s" % wt.lemma
 
         # TODO: this
-        if 'images' in medias and 'sounds' in medias:
-            all_medias = audio_medias + image_medias
-            for m in all_medias:
-                for x in all_medias[:]:
-                    if x != m:
-                        m.translations_to.append(x)
-                        m.translations_from.append(x)
-            # audio_media.translations_to.append(image_media)
-            # image_media.translations_to.append(audio_media)
-            # audio_media.translations_from.append(image_media)
-            # image_media.translations_from.append(audio_media)
-            print " Crosslinking media."
+        all_medias = audio_medias + image_medias + video_medias
+        for m in all_medias:
+            for x in all_medias[:]:
+                if x != m:
+                    m.translations_to.append(x)
+                    m.translations_from.append(x)
+
+        print " Crosslinking media."
 
         if 'semantics' in media_defs:
             for _sem in media_defs.get('semantics', []):

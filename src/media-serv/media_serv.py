@@ -2,14 +2,14 @@
 import os, sys
 
 from flask import ( Flask, request, redirect, session, json,
-                    render_template, Response, url_for)
+                    render_template, Response, url_for )
 
 from werkzeug.routing import BaseConverter
 from werkzeug.contrib.cache import SimpleCache
 from database import db
 
 from flask.ext.pymongo import PyMongo
-from flask.ext.babel   import Babel
+from flask.ext.babel   import Babel, get_locale
 
 class YamlConf(object):
     """ An object for storing Python-friendly configs, e.g.:
@@ -88,6 +88,7 @@ def create_app():
     # Blueprints
     import auth
     import users
+
     app.register_blueprint(auth.blueprint)
     app.register_blueprint(users.blueprint)
 
@@ -208,8 +209,6 @@ def bookmarklet_configs():
     """ Compile a JSON response containing dictionary pairs,
     and internationalization strings.
     """
-    from flaskext.babel import get_locale
-
     has_callback = request.args.get('callback', False)
 
     with open('data/translations.json', 'r') as F:
@@ -297,7 +296,7 @@ def leksa_questions():
 def prepare_concepts(db):
     from lexicon_models import Concept
 
-    langs = ["sma", "nob", "img", "swe"]
+    langs = ["sma", "nob", "img", "swe", "mov"]
     concept_set = db.session.query(Concept).filter(
         Concept.language.in_(langs)
     )
