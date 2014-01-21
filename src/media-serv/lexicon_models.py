@@ -264,14 +264,16 @@ class Concept(db.Model, TimestampMixin):
             media_ids.extend([a.id for a in image])
 
         if len(video) > 0:
-            concept_media['videos'] = [{'path': a.lemma, 'device': a.device, 'size': a.size, 'image_for_category': a.image_for_category} for a in image]
-            media_ids.extend([a.id for a in image])
+            concept_media['videos'] = [{'path': a.lemma, 'device': a.device, 'size': a.size, 'image_for_category': a.image_for_category} for a in video]
+            media_ids.extend([a.id for a in video])
 
         language = self.language
         if language == 'img':
             _type = 'img'
         elif language == 'mp3':
             _type = 'mp3'
+        elif language == 'mov':
+            _type = 'mov'
         else:
             _type = 'text'
 
