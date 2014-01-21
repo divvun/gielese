@@ -33,6 +33,40 @@ module.exports = class Concept extends Backbone.Model
           thumbs = false
     return thumbs
 
+  hasVideo: (opts = {}) ->
+    if not opts.device
+      device = app.device_type
+    else
+      device = opts.device
+
+    if not opts.size
+      size = app.media_size
+    else
+      size = opts.size
+
+    console.log [device, size]
+    # TODO: maybe preference to image size over device? i.e., if large/tablet
+    # doesn't exist, but large/mobile does, take that one
+    has_media = @.get('media')
+    if 'videos' of has_media
+      if has_media.videos.length > 0
+
+        videos_for_device = _.filter has_media.videos, (i) ->
+          return i.size == size and i.device == device
+
+        if videos_for_device.length == 0
+          return has_media.videos[0].path
+
+        if videos_for_device.length > 0
+          return videos_for_device[0].path
+
+        return videos_for_device
+
+    if opts.no_default
+      return false
+
+    return "/static/images/missing_concept_image.jpg"
+
   hasImage: (opts = {}) ->
     if not opts.device
       device = app.device_type
@@ -61,6 +95,10 @@ module.exports = class Concept extends Backbone.Model
           return images_for_device[0].path
 
         return images_for_device
+
+    if opts.no_default
+      return false
+
     return "/static/images/missing_concept_image.jpg"
 
   getTranslationsToLang: (lang) ->

@@ -1,7 +1,21 @@
-<% if @model.hasImage(): %>
+<% if @model.hasImage({no_default: true}): %>
     <div id="concept_img_frame">
         <img id="current_concept_img"
              style="background-image: url(<%- @model.hasImage() %>)" />
+     </div>
+<% else if @model.hasVideo({no_default: true}): %>
+    <div id="concept_video_frame">
+        <video 
+            class="conceptVideo"
+            id="current_concept_video"
+            src="<%- @model.hasVideo() %>"
+            autoplay
+            loop></video>
+     </div>
+<% else: %>
+    <div id="concept_img_frame">
+        <img id="current_concept_img"
+             style="background-image: url(/static/images/missing_concept_image.jpg)" />
      </div>
 <% end %>
 
