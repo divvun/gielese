@@ -173,7 +173,11 @@ and requires the profile 'baseline' and level '3.0' to be set.
 
 # Ogg
 
+    ffmpeg -i r_ii_hpestidh.in.mov -r 28 -g 30 -s 320x320 -vcodec libtheora r_ii_hpestidh.min.ogv
 
+Troubleshooting: make sure that the server is returning the proper
+mime/content-type in the header. Nginx didn't have a video/ogg type specified
+for ogv by default.
 
 ## Media notes
 
