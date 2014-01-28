@@ -184,6 +184,7 @@ class Concept(db.Model, TimestampMixin):
     # image media
     size = db.Column(db.String(12), nullable=True)
     device = db.Column(db.String(12), nullable=True)
+    format = db.Column(db.String(12), nullable=True)
     image_for_category = db.Column(db.Boolean, default=None, nullable=True)
 
     translations_to = db.relationship("Concept",
@@ -264,7 +265,7 @@ class Concept(db.Model, TimestampMixin):
             media_ids.extend([a.id for a in image])
 
         if len(video) > 0:
-            concept_media['videos'] = [{'path': a.lemma, 'device': a.device, 'size': a.size, 'image_for_category': a.image_for_category} for a in video]
+            concept_media['videos'] = [{'path': a.lemma, 'device': a.device, 'size': a.size, 'image_for_category': a.image_for_category, 'format': a.format} for a in video]
             media_ids.extend([a.id for a in video])
 
         language = self.language

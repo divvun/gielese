@@ -240,16 +240,23 @@ def find_concept_video(concept_dir):
     video = []
 
     for path in image_paths:
-        size, device = '', ''
+        size, device, _format = '', '', ''
 
         if '.min.' in path:
             device = 'mobile'
             size = 'small'
 
+        if '.ogv' in path or '.ogg' in path:
+            _format = 'ogg'
+
+        if '.mp4' in path:
+            _format = 'mp4'
+
         video.append({
             'path': path,
             'size': size,
             'device': device,
+            'format': _format
         })
 
     return video
@@ -593,6 +600,8 @@ def concepts_to_xml(concepts):
                     style_kwargs['size'] = i['size']
                 if i.get('device', False):
                     style_kwargs['device'] = i['device']
+                if i.get('format', False):
+                    style_kwargs['format'] = i['format']
 
                 file_path = rename_file(i.get('path'))
                 _p = path_node()

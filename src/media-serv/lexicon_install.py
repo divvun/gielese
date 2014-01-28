@@ -519,6 +519,7 @@ def install_media_references(_d, filename):
                                 , lemma=image.get('path')
                                 , device=image.get('device')
                                 , size=image.get('size')
+                                , format=image.get('format')
                                 )
                 image_for_category = image.get('image_for_category')
                 if image_for_category is not None:
