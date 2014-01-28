@@ -165,12 +165,14 @@ optimization seems not to actually optimize all that much
 
 # html5 h.264 codec
 
-    ffmpeg -i video.mov -vcodec libx264 -preset slow -crf 22 -acodec libmp3lame -aq 4 -r 28 -vf scale=320:-1 output.mkv
+    # This works on iOS and Android...
+    ffmpeg -i r_ii_hpestidh.in.mov -preset slow -crf 22 -r 28 -vcodec libx264 -profile:v baseline -level 3.0 -s 320x320 r_ii_hpestidh.min.mp4
 
-Had good results with these settings
+Finding the right encoding: iOS supports up to a certain bitrate,
+and requires the profile 'baseline' and level '3.0' to be set.
 
-    ffmpeg -i r_ii_hpestidh.mov -vcodec libx264 -preset slow -crf 32 -r 28 -vf scale=320:-1 output.mov
-    ffmpeg -i r_ii_hpestidh.mov -vcodec libtheora -preset slow -crf 32 -r 28 -vf scale=320:-1 output.ogg
+# Ogg
+
 
 
 ## Media notes

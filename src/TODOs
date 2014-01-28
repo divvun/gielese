@@ -1,9 +1,9 @@
 ##
 #
 
-* iOS 7 - error (eks. lær helsedh); kjem ikkje vidare til neste ord
+* iOS video autoplay must be triggered somehow by a click event:
+  - http://stackoverflow.com/questions/12496144/can-you-autoplay-html5-videos-on-the-ipad
 
-* vanskeleg å gå attende til login for anonyme brukarar
 
 * video support needs a fallback to exceptionally simple quality gif
   - concept directory reader should check file type and mark these
@@ -12,6 +12,9 @@
 
 * page flicker probs: 
   - mobileinit works, the settings do not
+
+  - https://github.com/jquery/jquery-mobile/issues/4024
+  - http://css-tricks.com/almanac/properties/b/backface-visibility/
 
   - http://outof.me/fixing-flickers-jumps-of-jquery-mobile-transitions-in-phonegap-apps/
   - http://stackoverflow.com/questions/16981743/how-to-hide-ios-scrollbar-in-phonegap
