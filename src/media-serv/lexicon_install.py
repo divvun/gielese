@@ -336,6 +336,7 @@ class MediaSimpleJSON(EntryNodeIterator):
                                           'size': video_size(video),}
                                          for video in videos
                                        ]
+                # This must be 'mov' always, regardless of file suffix
                 media_type = 'mov'
 
         # TODO: redo translations
