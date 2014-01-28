@@ -153,6 +153,7 @@ Here we increment the cycle if the current question is compelte
 
         return false
 
+      # TODO: something problematic going on here
       filter_concepts_by_media: (concepts, media_size) ->
         filtered_concepts = _.filter concepts, (c) =>
           if c.get('language') == 'img'

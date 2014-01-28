@@ -219,8 +219,13 @@ module.exports = class Concept extends Backbone.Model
       return false
 
   render_concept: () ->
+    concept_media_value = @.get('concept_value')
+
+    if @.get('concept_type') == 'img'
+      concept_media_value = @hasImage()
+    
     LeksaConceptTemplate({
       concept: @
       concept_type: @.get('concept_type')
-      concept_value: @.get('concept_value')
+      concept_value: concept_media_value
     })

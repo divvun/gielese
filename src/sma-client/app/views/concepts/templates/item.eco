@@ -54,15 +54,6 @@
     <% end %>
 </div>
 
-<% if @success_rate: %>
-    <div id="concept_stats">
-        <ul>
-            <li>Success rate with this word: <%- Number(@success_rate*100).toFixed(1) %>%</li>
-
-        </ul>
-    </div>
-<% end %>
-
 <% if @fallback: %>
     <span class="error">No definition in db for <%- @userlang %> for word, falling back to nob.</span>
 <% end %>
