@@ -8,7 +8,7 @@
         <video 
             class="conceptVideo"
             id="current_concept_video"
-            autoplay
+            poster preload="true"
             loop>
             <% for vid in @model.hasVideo(): %>
                 <source
