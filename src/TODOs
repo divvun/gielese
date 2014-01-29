@@ -3,6 +3,7 @@
 
 * iOS video autoplay must be triggered somehow by a click event:
   - http://stackoverflow.com/questions/12496144/can-you-autoplay-html5-videos-on-the-ipad
+  - consider situation where two videos are on screen simultaneously
 
 
 * video support needs a fallback to exceptionally simple quality gif

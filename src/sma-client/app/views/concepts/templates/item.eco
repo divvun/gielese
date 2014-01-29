@@ -8,6 +8,7 @@
         <video 
             class="conceptVideo"
             id="current_concept_video"
+            webkit-playsinline
             poster preload="true"
             loop>
             <% for vid in @model.hasVideo(): %>
