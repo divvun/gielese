@@ -68,6 +68,8 @@ module.exports = class Concept extends Backbone.Model
 
     return "/static/images/missing_concept_image.jpg"
 
+  hasGif: (opts = {}) ->
+    
   hasImage: (opts = {}) ->
     if not opts.device
       device = app.device_type
@@ -79,6 +81,11 @@ module.exports = class Concept extends Backbone.Model
     else
       size = opts.size
 
+    if not opts.gif
+      gif = false
+    else
+      gif = true
+
     console.log [device, size]
     # TODO: maybe preference to image size over device? i.e., if large/tablet
     # doesn't exist, but large/mobile does, take that one
@@ -88,6 +95,15 @@ module.exports = class Concept extends Backbone.Model
 
         images_for_device = _.filter has_media.image, (i) ->
           return i.size == size and i.device == device
+
+        if gif
+          gifs = _.filter images_for_device, (i) ->
+            return i.path.search('.gif') > -1
+          if gifs.length > 0
+            return gifs[0].path
+        else
+          images_for_device = _.filter images_for_device, (i) ->
+            return i.path.search('.gif') == -1
 
         if images_for_device.length == 0
           return has_media.image[0].path

@@ -176,6 +176,9 @@ and requires the profile 'baseline' and level '3.0' to be set.
     # This produces videos that work on android
     ffmpeg -i r_ii_hpestidh.in.mov -vcodec libvpx -s 320x320 -g 30 -r 24 r_ii_hpestidh.min.webm
 
+# gif
+
+gifsicle r_ii_hpestidh.gif --optimize --loop=3 -d 50 "#0" "#20" "#40" "#60" -o r_ii_hpestidh.min.gif
 
 # Gif fallback
 

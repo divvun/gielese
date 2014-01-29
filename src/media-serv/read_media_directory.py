@@ -252,6 +252,9 @@ def find_concept_video(concept_dir):
         if '.mp4' in path:
             _format = 'mp4'
 
+        if '.gif' in path:
+            _format = 'gif'
+
         if '.webm' in path:
             _format = 'webm'
 

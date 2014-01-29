@@ -4,6 +4,10 @@
 * iOS video autoplay must be triggered somehow by a click event:
   - http://stackoverflow.com/questions/12496144/can-you-autoplay-html5-videos-on-the-ipad
   - consider situation where two videos are on screen simultaneously
+  - inline video: http://stackoverflow.com/questions/5054560/can-i-avoid-the-native-fullscreen-video-player-with-html5-on-iphone-or-android
+     only works in an app with specific options, or 
+  - not possible on iOS: https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/Device-SpecificConsiderations/Device-SpecificConsiderations.html
+    time for animated gifs.
 
 
 * video support needs a fallback to exceptionally simple quality gif
