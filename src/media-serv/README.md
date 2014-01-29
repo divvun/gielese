@@ -131,7 +131,7 @@ as the output quality is high enough.
 
 It should be easy to install, but if you're on mac, you probably want to
 install it on homebrew, however if 2.0 isn't available by default, run
-`brew update` and then install with `brew install ffmpeg --devel --with-theora`.
+`brew update` and then install with `brew install ffmpeg --devel --with-theora --with-libvpx --with-libvorbis`.
 
 According to the recipe, it may break some things if they depend on it,
 so be advised...
@@ -171,13 +171,15 @@ optimization seems not to actually optimize all that much
 Finding the right encoding: iOS supports up to a certain bitrate,
 and requires the profile 'baseline' and level '3.0' to be set.
 
-# Ogg
+# WebM
 
-    ffmpeg -i r_ii_hpestidh.in.mov -r 28 -g 30 -s 320x320 -vcodec libtheora r_ii_hpestidh.min.ogv
+    # This produces videos that work on android
+    ffmpeg -i r_ii_hpestidh.in.mov -vcodec libvpx -s 320x320 -g 30 -r 24 r_ii_hpestidh.min.webm
 
-Troubleshooting: make sure that the server is returning the proper
-mime/content-type in the header. Nginx didn't have a video/ogg type specified
-for ogv by default.
+
+# Gif fallback
+
+http://zulko.github.io/blog/2014/01/23/making-animated-gifs-from-video-files-with-python/
 
 ## Media notes
 

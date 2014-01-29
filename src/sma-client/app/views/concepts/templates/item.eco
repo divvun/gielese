@@ -15,8 +15,8 @@
                 src="<%- vid.path %>"
                 <% if vid.path.search('mp4') > -1: %>
                 type="video/mp4">
-                <% else if vid.path.search('ogv') > -1: %>
-                type="video/ogg">
+                <% else if vid.path.search('webm') > -1: %>
+                type="video/webm">
                 <% end %>
             <% end %>
             </video>

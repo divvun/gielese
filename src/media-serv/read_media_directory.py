@@ -252,6 +252,9 @@ def find_concept_video(concept_dir):
         if '.mp4' in path:
             _format = 'mp4'
 
+        if '.webm' in path:
+            _format = 'webm'
+
         video.append({
             'path': path,
             'size': size,
