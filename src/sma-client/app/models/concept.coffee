@@ -44,6 +44,11 @@ module.exports = class Concept extends Backbone.Model
     else
       size = opts.size
 
+    if not opts.format
+      format = app.video_format
+    else
+      format = opts.format
+
     console.log [device, size]
     # TODO: maybe preference to image size over device? i.e., if large/tablet
     # doesn't exist, but large/mobile does, take that one
@@ -53,13 +58,13 @@ module.exports = class Concept extends Backbone.Model
       if has_media.videos.length > 0
 
         videos_for_device = _.filter has_media.videos, (i) ->
-          return i.size == size and i.device == device
+          return i.size == size and i.device == device and i.format == format
 
         if videos_for_device.length == 0
-          return has_media.videos
+          return false
 
         if videos_for_device.length > 0
-          return videos_for_device
+          return videos_for_device[0]
 
         return videos_for_device
 

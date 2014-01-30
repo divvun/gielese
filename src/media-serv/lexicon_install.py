@@ -254,6 +254,13 @@ class MediaSimpleJSON(EntryNodeIterator):
                 device = "desktop"
             return device
 
+        def video_format(n):
+            device = n.attrib.get('format', False)
+            path = n.find('path').text
+            if not device:
+                print >> sys.stderr, "No device attribute for image with path %s. Using none" % path
+                device = None
+            return device
 
         def image_for_category(n):
             device = n.attrib.get('image_for_category', None)
@@ -333,6 +340,7 @@ class MediaSimpleJSON(EntryNodeIterator):
                 media_defs['videos'] = [ {'path': _path(video),
                                           'features': image_features(video),
                                           'device': video_device(video),
+                                          'format': video_format(video),
                                           'size': video_size(video),}
                                          for video in videos
                                        ]
@@ -514,16 +522,14 @@ def install_media_references(_d, filename):
 
         video_medias = []
         if 'videos' in medias:
-            for image in medias.get('videos'):
+            for video in medias.get('videos'):
                 wt_kwargs = dict( language='mov'
-                                , lemma=image.get('path')
-                                , device=image.get('device')
-                                , size=image.get('size')
-                                , format=image.get('format')
+                                , lemma=video.get('path')
+                                , device=video.get('device')
+                                , size=video.get('size')
+                                , media_format=video.get('format')
                                 )
-                image_for_category = image.get('image_for_category')
-                if image_for_category is not None:
-                    wt_kwargs['image_for_category'] = True
+                video_for_category = video.get('video_for_category')
                 # TODO: features / semantics, audio / voices
                 wt = Concept(**wt_kwargs)
                 word.translations_to.append(wt)

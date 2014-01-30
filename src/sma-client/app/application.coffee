@@ -181,6 +181,7 @@ module.exports = class Application
     # TODO: device detection
     @device_type = "mobile"
     @media_size = "small"
+    @video_format = "gif"
 
     # TODO: modernizr, check for preferred video format, fallback - gif?
     #

@@ -1,6 +1,8 @@
 ##
 #
 
+media -r3100 works
+
 * page flicker probs: 
   - mobileinit works, the settings do not
 

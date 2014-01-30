@@ -97,6 +97,8 @@ def test_some_queries(app):
     def action():
         from lexicon_models import Concept, Semtype
         from lexicon_install import install_lexical_data
+        print db.session.query(Concept).filter(Concept.lemma == u"rïhpestidh").first().translations_to.filter(Concept.language == 'mov').all()[0].media_format
+        return
         print db.session.query(Concept).filter(Concept.lemma == u"rïhpestidh").first().toJSON()
         print db.session.query(Concept).filter(Concept.lemma == u"rïhpestidh").first().translations_to.all()
         print db.session.query(Concept).filter(Concept.lemma == u"rïhpestidh").first().translations_from.all()

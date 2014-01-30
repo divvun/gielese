@@ -195,7 +195,7 @@ def find_concept_images(concept_dir):
     for root, dirs, files in os.walk(concept_dir):
         for _file in files:
             _type, _enc = mimetypes.guess_type(_file)
-            if _type is not None and 'image/' in _type:
+            if _type is not None and 'image/' in _type and _type != 'image/gif':
                 image_paths.append(
                     os.path.join(root, _file)
                 )
@@ -232,7 +232,7 @@ def find_concept_video(concept_dir):
     for root, dirs, files in os.walk(concept_dir):
         for _file in files:
             _type, _enc = mimetypes.guess_type(_file)
-            if _type is not None and 'video/' in _type:
+            if _type is not None and 'video/' in _type or _type == 'image/gif':
                 image_paths.append(
                     os.path.join(root, _file)
                 )
@@ -241,6 +241,15 @@ def find_concept_video(concept_dir):
 
     for path in image_paths:
         size, device, _format = '', '', ''
+
+        _file = os.path.basename(path)
+        _f, _, _suffix = _file.partition('.')
+        _ff = _f.split('-')
+        if len(_ff) == 3:
+            _, size, device = _ff
+        else:
+            size = 'orig'
+            device = ''
 
         if '.min.' in path:
             device = 'mobile'
