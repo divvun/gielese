@@ -274,6 +274,8 @@ def read_concept_directory(concept_dir, concepts_meta={}):
     audio to `media`.
     """
 
+    # TODO: merge concepts_meta semantics, or override somehow
+
     print >> sys.stderr, "  Found concept:"
     print >> sys.stderr, "    " + concept_dir
 
@@ -289,7 +291,7 @@ def read_concept_directory(concept_dir, concepts_meta={}):
     if concept_yaml is None:
         return
 
-    concept_yaml.update(concepts_meta)
+    concepts_meta.update(concept_yaml)
 
     media = {
         'images': find_concept_images(concept_dir),
