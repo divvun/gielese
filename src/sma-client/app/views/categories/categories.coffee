@@ -7,7 +7,7 @@ module.exports = class CategoryMenu extends Backbone.View
     "click #log_out": 'logout'
     "click #userinfo_button": 'displayUserInfo'
     "click .category_name_play": 'playAudioBefore'
-    "click a.square": "clickSound"
+    "click a": "clickSound"
   
   id: "category_menu"
 

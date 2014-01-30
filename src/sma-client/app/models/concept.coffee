@@ -86,10 +86,8 @@ module.exports = class Concept extends Backbone.Model
     else
       gif = true
 
-    console.log [device, size]
-    # TODO: maybe preference to image size over device? i.e., if large/tablet
-    # doesn't exist, but large/mobile does, take that one
     has_media = @.get('media')
+
     if 'image' of has_media
       if has_media.image.length > 0
 
@@ -147,8 +145,6 @@ module.exports = class Concept extends Backbone.Model
       $('body').append SoundLoadingTemplate
       loading = $('body').find('#sound_loading_bar')
     
-    console.log loading
-
     error_event = () =>
       console.log "Audio playing error"
       return false
@@ -164,10 +160,10 @@ module.exports = class Concept extends Backbone.Model
       return false
 
     whileload_event = () ->
-      console.log this.duration
+      # console.log this.duration
       # show audio loading indicator
-      console.log "whileloading..."
-      console.log "#{this.bytesLoaded} / #{this.bytesTotal}"
+      # console.log "whileloading..."
+      # console.log "#{this.bytesLoaded} / #{this.bytesTotal}"
       if this.bytesTotal >= this.bytesLoaded
         if loading.css('display') == 'none'
           loading.fadeIn()

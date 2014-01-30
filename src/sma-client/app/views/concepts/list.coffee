@@ -78,13 +78,20 @@ class ConceptView extends Backbone.View
     this
 
 module.exports = class ConceptList extends Backbone.View
+
   id: "concept_view"
+
   events:
     'click .audio_link': 'findAudio'
     'click #show-panel': "revealWordsPanel"
     'click .concept_link': 'showConcept'
     'click #cycle-concept-prev': 'prevConcept'
     'click #cycle-concept-next': 'nextConcept'
+    "click .aajege-header a": "clickSound"
+
+  clickSound: (evt) ->
+    app.soundEffects.click()
+    return true
   
   clickTest: (evt) ->
     $(evt.target).get
