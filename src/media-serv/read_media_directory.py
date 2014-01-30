@@ -291,7 +291,13 @@ def read_concept_directory(concept_dir, concepts_meta={}):
     if concept_yaml is None:
         return
 
-    concepts_meta.update(concept_yaml)
+    # merge semantics
+    sem = concept_yaml.get('semantics', [])
+    c_sem = concepts_meta.get('semantics', [])
+    _sems = sem + c_sem
+    concept_yaml.update(concepts_meta)
+    if len(_sems) > 0:
+        concept_yaml['semantics'] = list(set(_sems))
 
     media = {
         'images': find_concept_images(concept_dir),
