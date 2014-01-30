@@ -132,9 +132,6 @@ module.exports = class LeksaView extends Backbone.View
       clearInterval app.wait_handler
       @answer_in = true
 
-    setTimeout( () ->
-      window.app.soundEffects.correct()
-    , 5)
 
     user_answer_concept = q.answer
     correct_answer_concept = q.question
@@ -153,6 +150,7 @@ module.exports = class LeksaView extends Backbone.View
     @pts_bubble.css('left', "#{answer_offset.left+width_offset}px")
 
     @pts_bubble.fadeIn(100)
+    window.app.soundEffects.correct()
     return false
 
   logConcept: (question_generator, concept, correct) ->
@@ -201,15 +199,13 @@ module.exports = class LeksaView extends Backbone.View
     correct_answer_concept = q.question
     # Give user visual feedback on incorrect, add user log.
 
-    setTimeout( () ->
-      window.app.soundEffects.incorrect()
-    , 5)
 
     # TODO: generate incorrect log entry only on first incorrect attempt, not
     # on each incorrect attempt, but log instance of user progression for word?
 
     $(user_input).addClass('incorrect')
     @logConcept(q.generator, correct_answer_concept, false)
+    window.app.soundEffects.incorrect()
     false
 
   # # #

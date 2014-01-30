@@ -5,17 +5,17 @@ ConceptViewMain = require './templates/concepts'
 class ConceptView extends Backbone.View
 
   play: () ->
-    if @model.hasVideo({no_default: true})
-      vid = @$el.find('video')
+    # if @model.hasVideo({no_default: true})
+    #   vid = @$el.find('video')
 
-      # TODO: replay on click
+    #   # TODO: replay on click
 
-      vid.bind 'loadeddata', () =>
-        console.log("video loaded")
-        setTimeout(() ->
-          console.log("play event")
-          $('video').get(0).play()
-        , 300)
+    #   vid.bind 'loadeddata', () =>
+    #     console.log("video loaded")
+    #     setTimeout(() ->
+    #       console.log("play event")
+    #       $('video').get(0).play()
+    #     , 300)
 
     @model.playAudio
       begin: () =>

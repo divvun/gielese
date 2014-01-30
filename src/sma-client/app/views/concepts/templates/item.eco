@@ -3,25 +3,6 @@
         <img id="current_concept_img"
              style="background-image: url(<%- @model.hasImage() %>)" />
      </div>
-<% else if @model.hasVideo({no_default: true}): %>
-    <div id="concept_video_frame">
-        <video 
-            class="conceptVideo"
-            id="current_concept_video"
-            webkit-playsinline
-            poster preload="true"
-            loop>
-            <% for vid in @model.hasVideo(): %>
-                <source
-                src="<%- vid.path %>"
-                <% if vid.path.search('mp4') > -1: %>
-                type="video/mp4">
-                <% else if vid.path.search('webm') > -1: %>
-                type="video/webm">
-                <% end %>
-            <% end %>
-            </video>
-     </div>
 <% else: %>
     <div id="concept_img_frame">
         <img id="current_concept_img"
