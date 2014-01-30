@@ -162,6 +162,12 @@ Here we increment the cycle if the current question is compelte
               if i.size == app.media_size
                 return true
             return false
+          else if c.get('language') == 'mov'
+            imgs = c.get('media').video
+            for i in imgs
+              if i.size == app.media_size
+                return true
+            return false
           else
             return true
 

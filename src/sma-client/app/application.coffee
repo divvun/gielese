@@ -80,27 +80,25 @@ module.exports = class Application
         options.complete() if options.complete
 
   soundEffectCorrect: () ->
-    if not @correct_concept?
-      @correct_concept = _.first @conceptdb.where
-        semantics: ["CORRECT"]
-        concept_value: "CORRECT"
-    else
+    @correct_concept = _.first @conceptdb.where
+      semantics: ["CORRECT"]
+      concept_value: "CORRECT"
+    if @correct_concept
       @correct_concept.playAudio()
     true
 
   soundEffectIncorrect: () ->
-    if not @incorrect_concept?
-      @incorrect_concept = _.first @conceptdb.where
-        semantics: ["INCORRECT"]
-        concept_value: "INCORRECT"
-    else
+    @incorrect_concept = _.first @conceptdb.where
+      semantics: ["INCORRECT"]
+      concept_value: "INCORRECT"
+    if @incorrect_concept
       @incorrect_concept.playAudio()
     true
     
   soundEffects:
     'click': () => app.playAudio('/static/audio/click.mp3')
-    # 'correct': () => app.soundEffectCorrect()
-    # 'incorrect': () =>  app.soundEffectIncorrect()
+    'correct': () => app.soundEffectCorrect()
+    'incorrect': () =>  app.soundEffectIncorrect()
     
   playAudio: (path, opts={}) ->
     # TODO: user feedback about whether audio is downloaded or not.
