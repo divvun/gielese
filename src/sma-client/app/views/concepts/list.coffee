@@ -21,7 +21,8 @@ class ConceptView extends Backbone.View
       begin: () =>
         @$el.find('.audio_link').children('img').addClass('playing')
       finished: () =>
-        $(document).find('.audio_link .playing').removeClass('playing')
+        console.log "finished event"
+        $(document).find('.audio_link img').removeClass('playing')
 
     return false
 
@@ -189,6 +190,8 @@ module.exports = class ConceptList extends Backbone.View
     image = $(document).find('.audio_link img')
     $(image).addClass('playing')
     @current_concept_view.model.playAudio
+      begin: () =>
+        $(image).addClass('playing')
       finished: () =>
         image.removeClass('playing')
 

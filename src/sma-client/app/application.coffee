@@ -12,6 +12,9 @@ ConceptDB = require 'models/conceptdb'
 CategoryList = require 'models/categorylist'
 QuestionDB = require 'models/questiondb'
 
+# Media
+AudioPlayer = require 'media/audio_player'
+
 # Tests
 
 Tests = require 'tests/tests'
@@ -96,55 +99,10 @@ module.exports = class Application
     true
     
   soundEffects:
-    'click': () => app.playAudio('/static/audio/click.mp3')
+    'click': () => app.audio.playPath('/static/audio/click.mp3')
     'correct': () => app.soundEffectCorrect()
     'incorrect': () =>  app.soundEffectIncorrect()
     
-  playAudio: (path, opts={}) ->
-    # TODO: user feedback about whether audio is downloaded or not.
-    
-    if opts.finished
-      finished_event = opts.finished
-    else
-      finished_event = () -> return false
-
-    has_audio_file = path
-    if has_audio_file and soundManager.enabled
-      sound_id = "concept_audio"
-
-      # Have to have different behavior for html5-only, because of iOS
-      # limitations
-      if soundManager.html5Only
-        sound_obj = soundManager.getSoundById(sound_id)
-        # grab sound obj if it hasn't been created yet
-        if not sound_obj
-          sound_obj = soundManager.createSound
-            id: sound_id
-            url: has_audio_file
-            onfinish: finished_event
-          sound_obj._a.playbackRate = opts.rate
-        if sound_obj.url == has_audio_file
-          console.log "repeat"
-        else
-          console.log "no repeat"
-          sound_obj.url = has_audio_file
-
-        sound_obj.play({position:0})
-      else
-        soundManager.destroySound(sound_id)
-        s = soundManager.createSound({
-          id: sound_id
-          url: has_audio_file
-          onfinish: finished_event
-        })
-        s.play()
-      return s
-
-    if opts.finished
-      opts.finished()
-    else
-      return false
-
   constructor: ->
     $ =>
       @enable_webfonts()
@@ -200,6 +158,8 @@ module.exports = class Application
     })
 
     @loadingTracker.showLoading()
+
+    @audio = new AudioPlayer()
 
     @gettext = new Gettext({
       domain: 'messages'

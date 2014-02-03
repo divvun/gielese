@@ -81,7 +81,8 @@ LeksaQuestionImageToWord = require './templates/leksa_question_image_to_word'
 LeksaQuestionWordToWord = require './templates/leksa_question_image_to_word'
 LeksaQuestionWordToImage = require './templates/leksa_question_word_to_image'
 StatTemplate = require './templates/stat_block'
-LevelCompleted = require './templates/leksa_level_completed'
+LevelCompleteTemplate = require './templates/leksa_level_completed'
+LevelComplete = require '/models/exceptions/level_complete'
 LeksaConceptTemplate = require '/views/templates/leksa_concept'
 
 #
@@ -150,7 +151,6 @@ module.exports = class LeksaView extends Backbone.View
     @pts_bubble.css('left', "#{answer_offset.left+width_offset}px")
 
     @pts_bubble.fadeIn(100)
-    window.app.soundEffects.correct()
     return false
 
   logConcept: (question_generator, concept, correct) ->
@@ -205,8 +205,15 @@ module.exports = class LeksaView extends Backbone.View
 
     $(user_input).addClass('incorrect')
     @logConcept(q.generator, correct_answer_concept, false)
-    window.app.soundEffects.incorrect()
     false
+
+  # # #
+  # # #  Level complete
+  # # #
+
+  levelComplete: () ->
+    # TODO:
+    return false
 
   # # #
   # # #  Progress bar
@@ -280,7 +287,7 @@ module.exports = class LeksaView extends Backbone.View
     # already-- if already, repeat
     if @q == false
       console.log "Complete!"
-      finished_level = LevelCompleted()
+      finished_level = LevelCompleteTemplate()
       @$el.find('#leksa_question').html(finished_level)
       _log_msg = "LeksaView.render_question: user completed all levels, "
       _log_msg += "unable to recover -"
