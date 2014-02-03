@@ -291,7 +291,7 @@ Questions:
     name: "test image to word"
 
     level: 2
-    answers: 3
+    answers: 2
     points: 50
     sound: true
     repetitions: 0
@@ -320,9 +320,28 @@ Questions:
       from_language: "sma"
       to_language: "img"
       semantics:
-        - "ANIMALS"
+        - "NUMBER_TEST"
 
     answer_similarity:
       semantics:
-        - "ANIMALS"
+        - "NUMBER_TEST"
 
+  - type: "word_to_image"
+    category: "TEST"
+    name: "Bodypart image to word"
+
+    level: 3
+    answers: 4
+    points: 50
+    sound: true
+    repetitions: 1
+
+    filters:
+      from_language: "sma"
+      to_language: "img"
+      semantics:
+        - "NUMBER_TEST"
+
+    answer_similarity:
+      semantics:
+        - "NUMBER_TEST"
