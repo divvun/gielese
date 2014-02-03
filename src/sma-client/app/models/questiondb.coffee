@@ -91,23 +91,47 @@ module.exports = class QuestionDB extends Backbone.Collection
     if level_constraint == false
       level_constraint = (level) -> true
 
-    # TODO: for now just ordering by progression and dispalying everything
-    # anyway
-
     question_instance = false
     while not question_instance and tries <= max_tries
       category_qs = @filterQuestionsByCategory(category)
       level_constraint_qs = category_qs.filter(level_constraint)
+
+      if app.debug
+        console.log "Level constraint questions: "
+        console.log ("#{q.get('category')}/#{q.get('level')}" for q in level_constraint_qs)
+
       if level_constraint_qs.length > 0
         qs = level_constraint_qs
       else
         qs = category_qs
 
-      # TODO: find user's current cycle on category from progression
-      # ... by looking at max cycle for each question, +1 of which shouldn't be
-      # available unless the cycle has been completed
-      user_cycle = 1
+      completed = false
+      user_cycle = app.userprogression.cycle_for_category(category)
+
+      if @needs_next
+        user_cycle += 1
       progression_qs = @orderQuestionsByProgression(qs, user_cycle)
+      if app.debug
+        console.log "Ordered by progression: "
+        console.log ("#{q.get('category')}/#{q.get('level')}" for q in progression_qs)
+      
+      # for testing only, so far.. 
+      if progression_qs.length == 0
+        progression_qs_next = @orderQuestionsByProgression(qs, user_cycle+1)
+        if app.debug
+          console.log "Ordered by progression plus one: "
+          console.log ("#{q.get('category')}/#{q.get('level')}" for q in progression_qs_next)
+      else
+        progression_qs_next = []
+
+      if progression_qs_next.length > 0 and progression_qs.length == 0 and not @needs_next
+        if app.debug
+          console.log "Uh oh, this."
+        user_cycle += 1
+        progression_qs = @orderQuestionsByProgression(qs, user_cycle)
+        completed = true
+
+      @needs_next = false
 
       if progression_qs
         qs = progression_qs
@@ -118,24 +142,30 @@ module.exports = class QuestionDB extends Backbone.Collection
         return false
 
       q = _.first qs
+      q.set('cycle', user_cycle)
 
+      # TODO: this gets the cycle, but nothing is incrementing when the level
+      # is completed
       current_question_cycle = q.cycle_for_progression()
 
-      if not isFinite(current_cycle)
-        if app.debug
-          console.log "wasnt finite"
-        current_cycle = 1
-
       if app.debug
+        console.log "current cycle: #{current_question_cycle}"
         console.log "question level: #{q.get('level')}"
-        console.log "user's cycle for category: #{current_cycle}"
+        console.log "user's cycle for category: #{current_question_cycle}"
 
       try
         question_instance = q.find_concepts(app.conceptdb, {ordering: ordering})
         if app.debug
           _msg_q_cycle = question_instance.generator.get('cycle')
           console.log "question cycle: #{_msg_q_cycle}"
+        if completed
+          if app.debug
+            console.log "question cycle complete for: #{q}"
+          question_instance = false
+          @needs_next = true
+          return question_instance
       catch e
+        console.log "TODO: caught LevelComplete"
         if e instanceof LevelComplete
           question_instance = false
           if app.debug

@@ -20,6 +20,11 @@ module.exports = class UserProgression extends Backbone.Collection
     points = @logs_for_category_name(c_name).map (l) -> l.get('points')
     return _.reduce(points, ((memo, num) -> memo + num), 0)
     
+  cycle_for_category: (c_name) ->
+    maximum = _.max(
+      (p.get('cycle') for p in @logs_for_category_name(c_name))
+    )
+    return _.max([maximum, 1])
 
   logs_for_question: (q) ->
     # Prefer @where, because syntax is cleaner. Where also doesn't

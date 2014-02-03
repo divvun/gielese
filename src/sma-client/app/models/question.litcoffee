@@ -31,9 +31,10 @@ answering all concepts in level correctly at least once.
 Here we find out if the user completed the question.
 
       cycle_for_progression: () ->
-        _.max(
+        maximum = _.max(
           (p.get('cycle') for p in app.userprogression.logs_for_question(@))
         )
+        return _.max([maximum, 1])
 
 How many correct answers are there for this question?
 
@@ -296,6 +297,7 @@ Here we increment the cycle if the current question is compelte
               console.log "got NoMoreProgression..."
             if @user_completed_question()
               # next question
+              console.log "level complete"
               throw new LevelComplete
             else
               # keep going

@@ -19,6 +19,7 @@ ErrorView = require 'views/error/view'
 LoadingView = require 'views/intro/loading'
 SplashView = require 'views/splash/splash'
 InfoView = require 'views/info/info'
+LevelComplete = require 'views/testing/level_complete'
 
 module.exports = class Router extends Backbone.Router
 
@@ -37,6 +38,7 @@ module.exports = class Router extends Backbone.Router
     app.loadingView = new LoadingView()
     app.splashView = new SplashView()
     app.infoView = new InfoView()
+    app.levelComplete = new LevelComplete()
 
   # Seems to be no way to avoid the double listing for now, because of hash
   # option, which does some funky redirecting.
@@ -86,6 +88,9 @@ module.exports = class Router extends Backbone.Router
     'leksa/:level/:category': 'learn_and_practice'
     '#leksa/:level/:category': 'learn_and_practice'
 
+    'leksa/test/complete': 'level_complete_test'
+    '#leksa/test/complete': 'level_complete_test'
+
     'conceptSet/:category': 'conceptSet'
     '#conceptSet/:category': 'conceptSet'
 
@@ -106,6 +111,9 @@ module.exports = class Router extends Backbone.Router
 
   infoPage: ->
     @changePage(app.infoView)
+
+  level_complete_test: ->
+    @changePage(app.levelComplete)
 
   splash: ->
     @changePage(app.splashView)
