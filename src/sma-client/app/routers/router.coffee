@@ -88,8 +88,8 @@ module.exports = class Router extends Backbone.Router
     'leksa/:level/:category': 'learn_and_practice'
     '#leksa/:level/:category': 'learn_and_practice'
 
-    'leksa/test/complete': 'level_complete_test'
-    '#leksa/test/complete': 'level_complete_test'
+    'test/complete': 'level_complete_test'
+    '#test/complete': 'level_complete_test'
 
     'conceptSet/:category': 'conceptSet'
     '#conceptSet/:category': 'conceptSet'

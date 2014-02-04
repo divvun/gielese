@@ -1,14 +1,40 @@
-<% # TODO: sound. %>
+<div class="aajege-header aajege-header-shrinkable">
+    <ul class="aajege-nav aajege-nav-left">
+        <li class="icon-aajege-home">
+            <a href="#index" data-transition="slide">
+                <span class="label">
+                    <%- gettext.gettext "Home" %>
+                </span>
+            </a>
+        </li>
+    </ul>
 
-<div class="question_prompt">
+    <h2>&nbsp;</h2>
+
+    <ul class="aajege-nav aajege-nav-right">
+        <li class="icon-aajege-bag">
+            <a href="#stats" id="userinfo_button" class="user_points">
+                <span class="label">
+                    <span class="point_name"><%- gettext.gettext "Points" %></span>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <hr class="aajege-flette" />
 </div>
-<hr />
 
-<% # TODO: sound. %>
-<div class="possible_answers">
-    <div class="ui-grid-a">
-        <h3>You must have completed the level, or something else broke that
-        will be fixed soon.</h3>
+<div data-role="content">
+    <div id="full_box">
+        <h1><%- gettext.gettext "Tjoho!" %></h1>
+        <h1 class="center-icon icon-is-too-big">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+            </span>
+        </h1>
     </div>
+    <p class="note"><%- gettext.gettext "You completed the level!" %></p>
+    <a href="#" data-role="button" data-theme="b" id="repeat" data-mini="true">
+        <%- gettext.gettext "Repeat" %>
+    </a>
 </div>
-
