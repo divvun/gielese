@@ -287,6 +287,7 @@ module.exports = class LeksaView extends Backbone.View
     # already-- if already, repeat
     # incement cycle once
     if @q == false
+      window.last_category = window.location.hash
       window.location.hash = '#complete'
       return false
 

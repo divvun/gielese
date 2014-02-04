@@ -11,10 +11,11 @@ module.exports = class LevelComplete extends Backbone.View
 
   navigateBack: (e) ->
     e.preventDefault()
-    window.history.back()
+    window.location.hash = window.last_category
+    delete window.last_category
 
   render: ->
     @$el.html @template
-
+    setTimeout( app.soundEffects.correct, 500 )
     this
 
