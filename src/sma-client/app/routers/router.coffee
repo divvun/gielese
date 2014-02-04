@@ -19,7 +19,7 @@ ErrorView = require 'views/error/view'
 LoadingView = require 'views/intro/loading'
 SplashView = require 'views/splash/splash'
 InfoView = require 'views/info/info'
-LevelComplete = require 'views/testing/level_complete'
+LevelComplete = require 'views/games/level_complete'
 
 module.exports = class Router extends Backbone.Router
 
@@ -85,11 +85,11 @@ module.exports = class Router extends Backbone.Router
 
     #
 
+    'complete': 'level_complete'
+    '#complete': 'level_complete'
+
     'leksa/:level/:category': 'learn_and_practice'
     '#leksa/:level/:category': 'learn_and_practice'
-
-    'test/complete': 'level_complete_test'
-    '#test/complete': 'level_complete_test'
 
     'conceptSet/:category': 'conceptSet'
     '#conceptSet/:category': 'conceptSet'
@@ -112,7 +112,7 @@ module.exports = class Router extends Backbone.Router
   infoPage: ->
     @changePage(app.infoView)
 
-  level_complete_test: ->
+  level_complete: ->
     @changePage(app.levelComplete)
 
   splash: ->

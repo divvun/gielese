@@ -287,13 +287,7 @@ module.exports = class LeksaView extends Backbone.View
     # already-- if already, repeat
     # incement cycle once
     if @q == false
-      console.log "Complete!"
-      finished_level = LevelCompleteTemplate()
-      @$el.find('#leksa_question').html(finished_level)
-      _log_msg = "LeksaView.render_question: user completed all levels, "
-      _log_msg += "unable to recover -"
-      _log_msg += "#{@q.generator.get('category')}/#{@q.generator.get('level')}"
-      window.client_log.error(_log_msg)
+      window.location.hash = '#complete'
       return false
 
     level_note = "Level #{@q.generator.get('level')}"
