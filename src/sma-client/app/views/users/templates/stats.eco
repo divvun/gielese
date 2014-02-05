@@ -38,7 +38,6 @@
 
     <% end %>
 
-    <h3><%- gettext.gettext "High scores" %></h3>
     <div id="high_scores">
         <%- gettext.gettext "Loading..." %>
     </div>

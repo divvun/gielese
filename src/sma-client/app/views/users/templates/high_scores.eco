@@ -1,5 +1,41 @@
+<h3><%- gettext.gettext "Top 10" %></h3>
+
+<ul id="top_three">
+    <li class="point_block second">
+        <ul class="score_set">
+            <li class="number">
+                <span class="circled-number"> 2 </span>
+            </li>
+            <li class="score_part username"><span class="txt"><%- @highscores[1].username %></span class="txt"></li>
+            <li class="score_part points"><span class="txt"><%- @highscores[1].points %></span class="txt"></li>
+        </ul>
+    </li>
+
+    <li class="point_block first">
+        <ul class="score_set">
+            <li class="number">
+                <span class="circled-number"> 1 </span>
+            </li>
+            <li class="score_part username"><span class="txt"><%- @highscores[0].username %></span class="txt"></li>
+            <li class="score_part points"><span class="txt"><%- @highscores[0].points %></span class="txt"></li>
+        </ul>
+    </li>
+
+    <li class="point_block third">
+        <ul class="score_set">
+            <li class="number">
+                <span class="circled-number"> 3 </span>
+            </li>
+            <li class="score_part username"><span class="txt"><%- @highscores[2].username %></span class="txt"></li>
+            <li class="score_part points"><span class="txt"><%- @highscores[2].points %></span class="txt"></li>
+        </ul>
+    </li>
+
+</ul>
+
+
 <ul id="point_list">
-    <% for entry in @highscores: %>
+    <% for entry in @highscores.slice(3): %>
         <% cur_class = "" %>
         <% if app.user?: %>
             <% if app.user.username == entry.username: %>
@@ -8,16 +44,8 @@
         <% end %>
         <li class="<%- cur_class %>">
             <span class="username"><%- entry.username %></span>&nbsp;
-            <span class="points"><%- entry.points %> <%- gettext.gettext "points" %></span>
+            <span class="points"><%- entry.points %></span>
         </li>
     <% end %>
 </ul>
 
-<!--
-<ul data-role="listview" data-count-theme="c" data-inset="true">
-    <li><a href="#">Inbox <span class="ui-li-count">12</span></a></li>
-    <li><a href="#">Outbox <span class="ui-li-count">0</span></a></li>
-    <li><a href="#">Drafts <span class="ui-li-count">4</span></a></li>
-    <li><a href="#">Sent <span class="ui-li-count">328</span></a></li>
-    <li><a href="#">Trash <span class="ui-li-count">62</span></a></li>
-</ul>

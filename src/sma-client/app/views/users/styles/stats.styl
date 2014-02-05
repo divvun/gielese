@@ -38,33 +38,143 @@
 
 
     #high_scores
-        ul, li
+        margin-bottom: 1em
+
+        h3
+            font-family: "Kaushan Script"
+            font-size: 190%
+            margin: .25em 0 .75em 0
+
+        #point_list, #point_list li
             list-style-type: none
             margin: 0 0 0 0
             padding: 0 0 0 0
-        li
+
+        #point_list li
             font-family: "Open Sans"
             position: relative
             display: block
             width: 100%
-            height: 1em
-            margin-bottom: 1em
-            padding-bottom: .75em
-            border-bottom: 1px dashed #999
+            height: 2em
+            line-height: 1.7em
+            padding: 3px 10px
+            background-color: #CCC
+            border-bottom: 1px solid #AAA
+            margin-bottom: .5em
 
-        li.this_is_you
+
+        #point_list li.this_is_you
             color: #099
 
-        ul li:last-child
+        #point_list li:last-child
             border-bottom: none
 
-        .username
+        #point_list .username
+            font-family: "Kaushan Script"
             position: absolute
-            left: 0px
+            left: 3px
             font-weight: bold
-            font-size: 12pt
-
-        .points
-            position: absolute
-            right: 0px
             font-size: 14pt
+
+        #point_list .points
+            position: absolute
+            right: 3px
+            font-size: 14pt
+
+    #top_three
+        display: block
+        width: 100%
+        height: 8em
+        margin: 0 0 4em 0
+        padding: 0 0 0 0
+        position: relative
+
+        li
+            list-style-type: none
+
+        .number
+            .circled-number
+                display: block
+                height: 90px
+                width: 90px
+                line-height: 84px
+                font-size: 50px
+
+                border-radius: 50%
+                border: 5px solid gold
+                background-image: linear-gradient(gold, goldenrod)
+                text-align: center
+                margin: 0 auto
+
+                text-shadow: none
+                color: #FFF
+
+        .second, .third
+            .circled-number
+                height: 60px
+                width: 60px
+                line-height: 54px
+                font-size: 40px
+
+        .second
+            .circled-number
+                border-color: #AAA
+                background-image: linear-gradient(#CCC, #AAA)
+
+        .third
+            .circled-number
+                border-color: #D6841C
+                background-image: linear-gradient(#E7AA5C, #D6841C)
+
+        // .second .number
+        //     font-size: 150%
+        //     color: rgb(114, 113, 113)
+
+        //     .txt
+        //         color: #FFF
+
+        // .first .number
+        //     font-size: 200%
+        //     color: #FF5200
+
+        //     .txt
+        //         color: #FFF
+
+        // .third .number
+        //     font-size: 150%
+        //     color: #0F0
+
+        //     .txt
+        //         color: #FFF
+
+        li.point_block
+            display: block
+            width: 33%
+            float: left
+
+            .fa-stack.fa-lg
+                margin: 0 auto 0 auto
+                display: block
+
+            .username
+                font-weight: bold
+                font-family: "Kaushan Script"
+                font-size: 130%
+                margin-top: 1em
+
+            ul.score_set
+                display: block
+                margin: 0 0 0 0
+                padding: 0 0 0 0
+                width: 100%
+
+                .score_part
+                    display: block
+                    width: 100%
+
+                    span.txt
+                        width: 100%
+                        margin: 0 auto
+                        display: block
+                        text-align: center
+
