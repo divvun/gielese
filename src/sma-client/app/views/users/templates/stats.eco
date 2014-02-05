@@ -16,21 +16,24 @@
 
     <% if @logs.length > 0 or window.app.debug: %>
 
+        <!--
         <div class="seventy_thirty_grid">
             <div class="row">
                 <div class="item">
-                    <div id="category_use" width="150" height="150">
+                -->
+                    <div id="category_use" width="300" height="300">
                     </div>
+        <!--
                 </div>
             </div>
             <div class="row">
                 <div class="item">
                     <div id="categories">
-                        <!-- stats_category_legend.eco -->
                     </div>
                 </div>
             </div>
         </div>
+        -->
 
     <% else: %>
 

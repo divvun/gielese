@@ -1,25 +1,25 @@
-# Swedish translations for .
-# Copyright (C) 2013 ORGANIZATION
-# This file is distributed under the same license as the  project.
-#
+# Translations template for PROJECT.
+# Copyright (C) 2014 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 
 # Translators:
 # helenbb <helen.blind.brandsfjell@stfk.no>, 2013
-# rtxanson <ryan.txanson@gmail.com>, 2013
+# rtxanson <ryan.txanson@gmail.com>, 2013-2014
 # sjirdi <sjur.n.moshagen@uit.no>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version:  Aajege\n"
+"Project-Id-Version: Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2014-02-04 19:40-0600\n"
-"PO-Revision-Date: 2013-10-23 06:59+0000\n"
-"Last-Translator: helenbb <helen.blind.brandsfjell@stfk.no>\n"
-"Language-Team: Swedish "
-"(http://www.transifex.com/projects/p/aajege/language/sv/)\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"PO-Revision-Date: 2014-02-05 01:51+0000\n"
+"Last-Translator: rtxanson <ryan.txanson@gmail.com>\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/aajege/language/sv/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../sma-client/public/javascripts/app.js:4222
 #: ../sma-client/public/javascripts/app.js:4319
@@ -144,7 +144,7 @@ msgstr ""
 
 #: ../sma-client/public/javascripts/app.js:7903
 msgid "Top 10"
-msgstr ""
+msgstr "Tio i topp"
 
 #: ../sma-client/public/javascripts/app.js:8022
 msgid "Try again"
@@ -180,12 +180,12 @@ msgstr "Laddar..."
 
 #: ../sma-client/public/javascripts/app.js:8291
 msgid "Show my score to everyone?"
-msgstr "Visa mina poäng til andra?"
+msgstr "Visa mina poäng till andra?"
 
 #: ../sma-client/public/javascripts/app.js:8307
 msgid ""
-"You are playing anonymously, so your points may not be stored if you "
-"leave the app."
+"You are playing anonymously, so your points may not be stored if you leave "
+"the app."
 msgstr ""
 
 #: templates/forgot_password_email.html:1
@@ -196,7 +196,7 @@ msgstr ""
 
 #: templates/forgot_password_email.html:4 templates/user_reset_form.html:64
 msgid "Reset your password"
-msgstr "Återställ ditt passord"
+msgstr ""
 
 #: templates/forgot_password_email.html:6
 msgid ""
@@ -224,7 +224,3 @@ msgstr ""
 #: templates/user_reset_form.html:98
 msgid "You may now start the app and log in."
 msgstr ""
-
-#~ msgid "High scores"
-#~ msgstr "Höga poäng"
-

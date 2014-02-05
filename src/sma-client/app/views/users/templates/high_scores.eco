@@ -1,7 +1,13 @@
 <h3><%- gettext.gettext "Top 10" %></h3>
 
 <ul id="top_three">
-    <li class="point_block second">
+    <% you_are_here_second = "" %>
+    <% if app.user?: %>
+        <% if app.user.username == @highscores[1].username: %>
+            <% you_are_here_second = "you_are_here" %>
+        <% end %>
+    <% end %>
+    <li class="point_block second <%- you_are_here_second %>">
         <ul class="score_set">
             <li class="number">
                 <span class="circled-number"> 2 </span>
@@ -11,7 +17,13 @@
         </ul>
     </li>
 
-    <li class="point_block first">
+    <% you_are_here_first = "" %>
+    <% if app.user?: %>
+        <% if app.user.username == @highscores[0].username: %>
+            <% you_are_here_first = "you_are_here" %>
+        <% end %>
+    <% end %>
+    <li class="point_block first <%- you_are_here_first %>">
         <ul class="score_set">
             <li class="number">
                 <span class="circled-number"> 1 </span>
@@ -21,7 +33,13 @@
         </ul>
     </li>
 
-    <li class="point_block third">
+    <% you_are_here_third = "" %>
+    <% if app.user?: %>
+        <% if app.user.username == @highscores[2].username: %>
+            <% you_are_here_third = "you_are_here" %>
+        <% end %>
+    <% end %>
+    <li class="point_block third <%- you_are_here_third %>">
         <ul class="score_set">
             <li class="number">
                 <span class="circled-number"> 3 </span>

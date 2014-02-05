@@ -1,3 +1,21 @@
+@-webkit-keyframes blue_flash
+    0% 
+        box-shadow: 0px 0px 0px #77F
+    22% 
+        box-shadow: 0px 0px 4px #77F
+    22% 
+        box-shadow: 0px 0px 30px #77F
+    77% 
+        box-shadow: 0px 0px 4px #77F
+    100% 
+        box-shadow: 0px 0px 0px #77F
+
+blue-flash-animation()
+    -webkit-animation-name: blue_flash
+    -webkit-animation-duration: 3000ms
+    -webkit-animation-iteration-count: 40
+    -webkit-animation-timing-function: ease-in-out
+
 #user_stats_page
     g text
         color: #FFF
@@ -44,6 +62,8 @@
             font-family: "Kaushan Script"
             font-size: 190%
             margin: .25em 0 .75em 0
+            width: 100%
+            text-align: center
 
         #point_list, #point_list li
             list-style-type: none
@@ -125,6 +145,10 @@
             .circled-number
                 border-color: #D6841C
                 background-image: linear-gradient(#E7AA5C, #D6841C)
+
+        .you_are_here
+            .circled-number
+                blue-flash-animation()
 
         li.point_block
             display: block
