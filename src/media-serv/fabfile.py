@@ -2,7 +2,7 @@
 import os
 import sys
 
-from fabric.colors import red, green, cyan
+from fabric.colors import red, green, cyan, yellow
 from fabric.api import local, task, cd, settings, abort, run
 from fabric.api import env
 from fabric.contrib.console import confirm
@@ -191,3 +191,23 @@ def hup():
         run("kill -HUP `cat pidfile`")
     print(cyan(" Hup'd media serv ..."))
 
+@task
+def extract_strings():
+    """ Extract all the translation strings to the template and *.po files. """
+
+    print(cyan("** Extracting strings"))
+    cmd = "pybabel extract -F babel.cfg -o translations/messages.pot ../sma-client/ ."
+    extract_cmd = local(cmd)
+    if extract_cmd.failed:
+        print(red("** Extraction failed, aborting."))
+    else:
+        print(cyan("** Extraction worked, updating files."))
+        cmd = "pybabel update -i translations/messages.pot -d translations"
+        update_cmd = local(cmd)
+        if update_cmd.failed:
+            print(red("** Update failed."))
+        else:
+            print(green("** Update worked. "))
+            print(yellow("** Now you should push these changes to transifex."))
+            print(yellow(""))
+            print(yellow("      $ tx push --source"))

@@ -1,7 +1,7 @@
-# Translations template for PROJECT.
+# Norwegian Bokmål (Norway) translations for .
 # Copyright (C) 2013 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-# 
+# This file is distributed under the same license as the  project.
+#
 # Translators:
 # helenbb <helen.blind.brandsfjell@stfk.no>, 2013
 # Trondtr <trond.trosterud@uit.no>, 2013
@@ -9,141 +9,223 @@
 # sjirdi <sjur.n.moshagen@uit.no>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: Aajege\n"
+"Project-Id-Version:  Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-10-22 20:40-0500\n"
+"POT-Creation-Date: 2014-02-04 19:40-0600\n"
 "PO-Revision-Date: 2013-10-23 07:16+0000\n"
 "Last-Translator: sjirdi <sjur.n.moshagen@uit.no>\n"
-"Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/aajege/language/nb/)\n"
+"Language-Team: Norwegian Bokmål "
+"(http://www.transifex.com/projects/p/aajege/language/nb/)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.6\n"
-"Language: nb\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 1.3\n"
 
-#: ../sma-client/public/javascripts/app.js:3456
-#: ../sma-client/public/javascripts/app.js:3553
-#: ../sma-client/public/javascripts/app.js:3920
-#: ../sma-client/public/javascripts/app.js:4128
-#: ../sma-client/public/javascripts/app.js:4758
-#: ../sma-client/public/javascripts/app.js:4955
-#: ../sma-client/public/javascripts/app.js:6678
+#: ../sma-client/public/javascripts/app.js:4222
+#: ../sma-client/public/javascripts/app.js:4319
+#: ../sma-client/public/javascripts/app.js:4698
+#: ../sma-client/public/javascripts/app.js:4930
+#: ../sma-client/public/javascripts/app.js:5889
+#: ../sma-client/public/javascripts/app.js:6110
+#: ../sma-client/public/javascripts/app.js:8162
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../sma-client/public/javascripts/app.js:3464
-#: ../sma-client/public/javascripts/app.js:4136
-#: ../sma-client/public/javascripts/app.js:4762
-#: ../sma-client/public/javascripts/app.js:6777
+#: ../sma-client/public/javascripts/app.js:4230
+#: ../sma-client/public/javascripts/app.js:4327
+#: ../sma-client/public/javascripts/app.js:4938
+#: ../sma-client/public/javascripts/app.js:6031
+#: ../sma-client/public/javascripts/app.js:8261
 msgid "Points"
 msgstr "Poeng"
 
-#: ../sma-client/public/javascripts/app.js:3472
+#: ../sma-client/public/javascripts/app.js:4238
 msgid "Wordlist"
 msgstr "Ordliste"
 
-#: ../sma-client/public/javascripts/app.js:3480
+#: ../sma-client/public/javascripts/app.js:4246
 msgid "Learn"
 msgstr "Lær"
 
-#: ../sma-client/public/javascripts/app.js:3488
+#: ../sma-client/public/javascripts/app.js:4254
 msgid "Practice"
 msgstr "Øv"
 
-#: ../sma-client/public/javascripts/app.js:4120
-#: ../sma-client/public/javascripts/app.js:4750
+#: ../sma-client/public/javascripts/app.js:4922
+#: ../sma-client/public/javascripts/app.js:5881
+#: ../sma-client/public/javascripts/app.js:6027
 msgid "Home"
 msgstr "Hjem"
 
-#: ../sma-client/public/javascripts/app.js:5314
+#: ../sma-client/public/javascripts/app.js:6035
+msgid "Tjoho!"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6039
+msgid "You completed the level!"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6043
+msgid "Play again"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6047
+msgid "Category list"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6472
 msgid "About this app"
 msgstr "Om denne appen"
 
-#: ../sma-client/public/javascripts/app.js:5411
+#: ../sma-client/public/javascripts/app.js:6571
 msgid "Use an account?"
 msgstr "Bruk en konto?"
 
-#: ../sma-client/public/javascripts/app.js:5415
-#: ../sma-client/public/javascripts/app.js:6706
-#: ../sma-client/public/javascripts/app.js:6714
-#: ../sma-client/public/javascripts/app.js:6813
+#: ../sma-client/public/javascripts/app.js:6575
+#: ../sma-client/public/javascripts/app.js:8190
+#: ../sma-client/public/javascripts/app.js:8198
+#: ../sma-client/public/javascripts/app.js:8297
 msgid "Yes"
 msgstr "Ja"
 
-#: ../sma-client/public/javascripts/app.js:5419
-#: ../sma-client/public/javascripts/app.js:6702
-#: ../sma-client/public/javascripts/app.js:6710
-#: ../sma-client/public/javascripts/app.js:6819
+#: ../sma-client/public/javascripts/app.js:6579
+#: ../sma-client/public/javascripts/app.js:8186
+#: ../sma-client/public/javascripts/app.js:8194
+#: ../sma-client/public/javascripts/app.js:8303
 msgid "No"
 msgstr "Nei"
 
-#: ../sma-client/public/javascripts/app.js:5425
+#: ../sma-client/public/javascripts/app.js:6601
+#: templates/user_reset_form.html:68
 msgid "Username"
 msgstr "Brukernavn"
 
-#: ../sma-client/public/javascripts/app.js:5429
+#: ../sma-client/public/javascripts/app.js:6605
+#: templates/user_reset_form.html:75
 msgid "Password"
 msgstr "Passord"
 
-#: ../sma-client/public/javascripts/app.js:5433
+#: ../sma-client/public/javascripts/app.js:6609
 msgid "E-mail"
 msgstr "E-post"
 
-#: ../sma-client/public/javascripts/app.js:5437
-msgid "Did you forget your password?"
-msgstr "Har du glemt passordet ditt?"
-
-#: ../sma-client/public/javascripts/app.js:5441
-msgid "Reset your password"
-msgstr "Tilbakestill passordet"
-
-#: ../sma-client/public/javascripts/app.js:5445
-#: ../sma-client/public/javascripts/app.js:6694
+#: ../sma-client/public/javascripts/app.js:6613
+#: ../sma-client/public/javascripts/app.js:8178
 msgid "Translation language"
 msgstr "Oversettingsspråk"
 
-#: ../sma-client/public/javascripts/app.js:5449
+#: ../sma-client/public/javascripts/app.js:6617
 msgid "Your account was created, you may now begin!"
 msgstr "Kontoen din ble laget, du kan begynne!"
 
-#: ../sma-client/public/javascripts/app.js:5453
+#: ../sma-client/public/javascripts/app.js:6621
 msgid "You are logged in, and may now begin!"
 msgstr "Du er innlogget, og kan begynne nå!"
 
-#: ../sma-client/public/javascripts/app.js:5457
+#: ../sma-client/public/javascripts/app.js:6625
 msgid "Begin!"
 msgstr "Begynn!"
 
-#: ../sma-client/public/javascripts/app.js:5461
+#: ../sma-client/public/javascripts/app.js:6629
 msgid "Log in"
 msgstr "Logg inn"
 
-#: ../sma-client/public/javascripts/app.js:6546
-#: ../sma-client/public/javascripts/app.js:6785
-msgid "points"
-msgstr "poeng"
+#: ../sma-client/public/javascripts/app.js:7080
+msgid "Did you forget your password?"
+msgstr "Har du glemt passordet ditt?"
 
-#: ../sma-client/public/javascripts/app.js:6682
+#: ../sma-client/public/javascripts/app.js:7081
+msgid "Check your email!"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:7082
+msgid "Check your network connection and try again"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:7903
+msgid "Top 10"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:8022
+msgid "Try again"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:8026
+msgid "Close"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:8032
+msgid "Email me"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:8166
 msgid "Help language"
 msgstr "Hjelpespråk"
 
-#: ../sma-client/public/javascripts/app.js:6698
+#: ../sma-client/public/javascripts/app.js:8182
 msgid "Play audio?"
 msgstr "Spill lyd?"
 
-#: ../sma-client/public/javascripts/app.js:6795
+#: ../sma-client/public/javascripts/app.js:8269
+msgid "points"
+msgstr "poeng"
+
+#: ../sma-client/public/javascripts/app.js:8279
 msgid "Learn some words to see stats!"
 msgstr "Lær deg ord for å se på poengene dine."
 
-#: ../sma-client/public/javascripts/app.js:6803
-msgid "High scores"
-msgstr "Topp-poeng"
-
-#: ../sma-client/public/javascripts/app.js:6805
+#: ../sma-client/public/javascripts/app.js:8285
 msgid "Loading..."
 msgstr "laster inn..."
 
-#: ../sma-client/public/javascripts/app.js:6807
+#: ../sma-client/public/javascripts/app.js:8291
 msgid "Show my score to everyone?"
 msgstr "Vis poengene mine til andre?"
+
+#: ../sma-client/public/javascripts/app.js:8307
+msgid ""
+"You are playing anonymously, so your points may not be stored if you "
+"leave the app."
+msgstr ""
+
+#: templates/forgot_password_email.html:1
+msgid ""
+"You requested to have your password reset. In order to do so, please\n"
+"click the following link and follow the instructions."
+msgstr ""
+
+#: templates/forgot_password_email.html:4 templates/user_reset_form.html:64
+msgid "Reset your password"
+msgstr "Tilbakestill passordet"
+
+#: templates/forgot_password_email.html:6
+msgid ""
+"If you did not request to reset your password, you may disregard this\n"
+"    email. If you need to contact us, send an email to the following\n"
+"    address."
+msgstr ""
+
+#: templates/user_reset_form.html:44
+msgid "Oops! We had some problems."
+msgstr ""
+
+#: templates/user_reset_form.html:82
+msgid "Repeat"
+msgstr ""
+
+#: templates/user_reset_form.html:89
+msgid "Submit"
+msgstr ""
+
+#: templates/user_reset_form.html:97
+msgid "Your password has been reset."
+msgstr ""
+
+#: templates/user_reset_form.html:98
+msgid "You may now start the app and log in."
+msgstr ""
+
+#~ msgid "High scores"
+#~ msgstr "Topp-poeng"
+

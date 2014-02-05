@@ -32,7 +32,7 @@ media -r3100 works
 
 * iPad login form could be a bit bigger yet 
 
-* app-cache for certain assets: click sounds, UI icons, etc.
+* app-cache for certain assets: click sounds, feedback sounds, UI icons, etc.
 
 * TODO: positioning of user account/non-user account label for swedish text
   - maybe need to switch display format-- put label somewhere else.
