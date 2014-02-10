@@ -5,41 +5,20 @@
             </a>
         </li>
     </ul>
-    <h2><%- gettext.gettext "Points" %></h2>
+    <h2 class="kaushan"><%- gettext.gettext "Top 10" %></h2>
     <hr class="aajege-flette" />
 </div>
 
 <div data-role="content">
-    <% if @points_total: %>
-        <h3><%- @points_total %> <%- gettext.gettext "points" %></h3>
-    <% end %>
 
-    <% if @logs.length > 0 or window.app.debug: %>
+    <fieldset data-role="controlgroup" data-type="horizontal" id="subnav-control">
+    	<input data-display-tab="high_scores" type="radio" data-theme="a" name="radio-mini" id="radio-mini-1" value="choice-1" checked="checked" />
+    	<label for="radio-mini-1"><%- gettext.gettext "Top 10" %></label>
 
-        <!--
-        <div class="seventy_thirty_grid">
-            <div class="row">
-                <div class="item">
-                -->
-                    <div id="category_use" width="300" height="300">
-                    </div>
-        <!--
-                </div>
-            </div>
-            <div class="row">
-                <div class="item">
-                    <div id="categories">
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
-
-    <% else: %>
-
-        <h3><%- gettext.gettext "Learn some words to see stats!" %></h3>
-
-    <% end %>
+	    <input data-display-tab="statistics" type="radio" data-theme="a" name="radio-mini" id="radio-mini-2" value="choice-2"  />
+    	<label for="radio-mini-2"><%- gettext.gettext "Statistics" %></label>
+    </fieldset>
+    
 
     <div id="high_scores">
         <%- gettext.gettext "Loading..." %>
@@ -76,4 +55,36 @@
         <p><%- gettext.gettext "You are playing anonymously, so your points may not be stored if you leave the app." %></p>
     <% end %>
 
+    <div id="statistics" style="display: none;">
+    <% if @points_total: %>
+        <h3><%- @points_total %> <%- gettext.gettext "points" %></h3>
+    <% end %>
+
+    <% if @logs.length > 0 or window.app.debug: %>
+
+        <!--
+        <div class="seventy_thirty_grid">
+            <div class="row">
+                <div class="item">
+                -->
+                    <div id="category_use" width="300" height="300">
+                    </div>
+        <!--
+                </div>
+            </div>
+            <div class="row">
+                <div class="item">
+                    <div id="categories">
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+    <% else: %>
+
+        <h3><%- gettext.gettext "Learn some words to see stats!" %></h3>
+
+    <% end %>
+    </div>
 </div>

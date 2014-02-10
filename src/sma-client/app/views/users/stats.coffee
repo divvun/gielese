@@ -4,6 +4,8 @@
 CategoryLegend = require './templates/category_legend'
 HighScoreList = require './templates/high_scores'
 
+# TODO: if user is anonymous, total points locally and include in result
+
 module.exports = class UserStats extends Backbone.View
 
   id: "user_stats_page"
@@ -13,6 +15,11 @@ module.exports = class UserStats extends Backbone.View
     'click #show-panel': "revealOptionsPanel"
     'click .concept_link': 'showConcept'
     'click .history_back': 'goBack'
+    'click input': 'displayTab'
+
+  dispayTab: (evt) ->
+    console.log $(evt.target)
+    console.log $(evt.target).attr('data-display-tab')
 
   goBack: () ->
     window.history.back()
