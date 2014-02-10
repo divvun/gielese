@@ -11,15 +11,16 @@ module.exports = class UserStats extends Backbone.View
   id: "user_stats_page"
 
   events:
-    'click .audio_link': 'findAudio'
-    'click #show-panel': "revealOptionsPanel"
-    'click .concept_link': 'showConcept'
     'click .history_back': 'goBack'
-    'click input': 'displayTab'
+    'change input': 'displayTab'
 
-  dispayTab: (evt) ->
-    console.log $(evt.target)
-    console.log $(evt.target).attr('data-display-tab')
+  displayTab: (evt) ->
+    new_tab = $(evt.target).attr('data-display-tab')
+
+    $('.stats-tab').fadeOut 300, () =>
+      $("##{new_tab}").fadeIn(300)
+      $('.aajege-header h2').html $("##{new_tab}").attr('data-tab-title')
+
 
   goBack: () ->
     window.history.back()
