@@ -69,30 +69,21 @@
 
 
     <div id="statistics" style="display: none;" class="stats-tab" data-tab-title="<%- gettext.gettext "Your stats" %>">
+
     <% if @points_total: %>
         <h3><%- @points_total %> <%- gettext.gettext "points" %></h3>
     <% end %>
 
     <% if @logs.length > 0 or window.app.debug: %>
 
-        <!--
-        <div class="seventy_thirty_grid">
-            <div class="row">
-                <div class="item">
-                -->
-                    <div id="category_use" width="300" height="300">
-                    </div>
-        <!--
-                </div>
-            </div>
-            <div class="row">
-                <div class="item">
-                    <div id="categories">
-                    </div>
-                </div>
-            </div>
+        <div id="category_use" width="300" height="300">
         </div>
-        -->
+
+        <div id="category_chart">
+        <!-- -->
+            <tabl
+
+        </div>
 
     <% else: %>
 
