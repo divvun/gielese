@@ -1,3 +1,20 @@
+@-webkit-keyframes rotate-lt
+    0%   
+        -webkit-transform: rotate(0deg)
+    30%  
+	     -webkit-transform: rotate(-30deg) 
+    60%  
+	     -webkit-transform: rotate(30deg) 
+    100% 
+	     -webkit-transform: rotate(0deg) 
+
+rotate-animation()
+    -webkit-animation-name: rotate-lt
+    -webkit-animation-delay: 900ms
+    -webkit-animation-duration: 400ms
+    -webkit-animation-iteration-count: 1
+    -webkit-animation-timing-function: ease-in-out
+
 #level_complete
     position: relative
     height: 420px
@@ -6,9 +23,13 @@
 
     h1, h1.center-icon
         font-weight: 100
-        font-size: 240%
+        font-size: 260%
         width: 100%
         text-align: center
+        font-family "Kaushan Script"
+
+    h1.tjoho
+        rotate-animation()
 
     .icon-is-too-big
         size: 120%

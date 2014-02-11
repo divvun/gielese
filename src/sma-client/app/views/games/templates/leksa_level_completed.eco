@@ -25,7 +25,7 @@
 
 <div data-role="content">
     <div id="full_box">
-        <h1><%- gettext.gettext "Tjoho!" %></h1>
+        <h1 class="tjoho"><%- gettext.gettext "Tjoho!" %></h1>
         <h1 class="center-icon icon-is-too-big">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>

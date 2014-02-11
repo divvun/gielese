@@ -8,14 +8,30 @@
     <hr class="aajege-flette" />
 </div>
 <div data-role="content" id="front_page_content">
-    <div data-role="fieldcontain" id="create_account">
-        <h2 class="legend"><%- gettext.gettext "Use an account?" %></h2>
-        <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
-            <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-a" value="true" data-subquestion="user_account_block" checked>
-            <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
-            <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-b" value="false" data-hide-subquestion="user_account_block">
-            <label for="create-user-account-b"><%- gettext.gettext "No" %></label>
-        </fieldset>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="fieldcontain" id="create_account">
+                <h2 class="legend"><%- gettext.gettext "Use an account?" %></h2>
+                <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
+                    <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-a" value="true" data-subquestion="user_account_block" checked>
+                    <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
+                    <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-b" value="false" data-hide-subquestion="user_account_block">
+                    <label for="create-user-account-b"><%- gettext.gettext "No" %></label>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="ui-block-b">
+            <div data-role="fieldcontain" id="create_account_or_login">
+                <h2 class="legend"><%- gettext.gettext "New account?" %></h2>
+                <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
+                    <input data-theme="a" type="radio" name="login-or-new" id="login-or-new-a" value="true" checked>
+                    <label for="login-or-new-a"><%- gettext.gettext "Yes" %></label>
+                    <input data-theme="a" type="radio" name="login-or-new" id="login-or-new-b" value="false">
+                    <label for="login-or-new-b"><%- gettext.gettext "No" %></label>
+                </fieldset>
+            </div>
+        </div>
     </div>
 
     <% # TODO: maybe leave this to last step, because having a different view for this would be much better. %>
@@ -25,19 +41,38 @@
     <% end %>
     <div id="user_account_block" <%- disp %>>
         <div id="loginform_subsub">
-            <form id="user" action="">
+            <form id="user" action="" data-use="create">
                 <div class="form_fields grouped_fields">
                     <div class="grouped_field">
                         <label for="un"><%- gettext.gettext "Username" %></label>
-                        <input data-role="none" autocapitalize="off" autocorrect="off" type="text" name="username" id="un" value="" placeholder=".....................................">
+                        <input data-role="none" 
+                               autocapitalize="off" 
+                               autocorrect="off" 
+                               type="text" 
+                               name="username" 
+                               id="un" 
+                               value="" 
+                               placeholder=".....................................">
                     </div>
                     <div class="grouped_field">
                         <label for="pw"><%- gettext.gettext "Password" %></label>
-                        <input data-role="none" type="password" name="password" id="pw" value="" placeholder=".....................................">
+                        <input data-role="none" 
+                               type="password" 
+                               name="password" 
+                               id="pw" 
+                               value="" 
+                               placeholder=".....................................">
                     </div>
-                    <div class="grouped_field">
+                    <div class="grouped_field" id="email_field">
                         <label for="em"><%- gettext.gettext "E-mail" %></label>
-                        <input data-role="none" autocapitalize="off" autocorrect="off" type="text" name="email" id="em" value="" placeholder=".....................................">
+                        <input data-role="none" 
+                               autocapitalize="off" 
+                               autocorrect="off" 
+                               type="text" 
+                               name="email" 
+                               id="em" 
+                               value="" 
+                               placeholder=".....................................">
                     </div>
                 </div>
                 <div class="validation_errors" />
@@ -99,3 +134,5 @@
     </div>
 
 </div>
+
+<% # vim: set ts=4 sw=4 tw=0 syntax=mason : %>

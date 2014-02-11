@@ -22,11 +22,23 @@ module.exports = class FrontPage extends Backbone.View
 
     "click #help_language [type='button']": "changeLanguage"
     "change #help_language [type='button']": "changeLanguage"
-    "change #create_account [data-subquestion]": "revealUser"
-    "change #create_account [data-hide-subquestion]": "hideUser"
+    "change #create_account [data-subquestion]": "revealUserForm"
+    "change #create_account [data-hide-subquestion]": "hideUserForm"
+
+    "change #create_account_or_login #login-or-new-a": "useCreateVariant"
+    "change #create_account_or_login #login-or-new-b": "useLoginVariant"
 
   begin: (evt) ->
     DSt.set('gielese-configured', true)
+
+  useCreateVariant: (evt) ->
+    @$el.find('#email_field').slideDown()
+    @$el.find('#user').attr('data-use', 'create')
+
+  useLoginVariant: (evt) ->
+    @$el.find('#email_field').slideUp()
+    @$el.find("#user #em").val('')
+    @$el.find('#user').attr('data-use', 'login')
 
   changeLanguage: (evt) ->
     anon = DSt.get('anonymous_selected')
@@ -43,7 +55,7 @@ module.exports = class FrontPage extends Backbone.View
 
     return true
 
-  revealUser: (evt) ->
+  revealUserForm: (evt) ->
     sub = $(evt.target).attr('data-subquestion')
     @$el.find("##{sub}").slideDown()
     $('.login_text').show()
@@ -51,7 +63,7 @@ module.exports = class FrontPage extends Backbone.View
     DSt.set('anonymous_selected', false)
     return true
 
-  hideUser: (evt) ->
+  hideUserForm: (evt) ->
     if app.user
       app.auth.logout()
     sub = $(evt.target).attr('data-hide-subquestion')
@@ -107,6 +119,8 @@ module.exports = class FrontPage extends Backbone.View
 
   recallForm: () ->
     # TODO: access token
+    # TODO: yes/no state on account create also: if username is
+    # recalled, automaticallhy set to 'no'
 
     ds = DSt.get('login-details')
     if ds
@@ -125,22 +139,26 @@ module.exports = class FrontPage extends Backbone.View
     username = $("#user #un").val()
     password = $("#user #pw").val()
 
-    create_account_opts =
-      username: $("#user #un").val()
-      email:    $("#user #em").val()
-      password: $("#user #pw").val()
+    form_sub_action = $('#user').attr('data-use')
 
-    login_account_opts =
-      username: $("#user #un").val()
-      email:    $("#user #em").val()
-      password: $("#user #pw").val()
+    if form_sub_action == 'create'
+      login_request =
+        username: $("#user #un").val()
+        email:    $("#user #em").val()
+        password: $("#user #pw").val()
+
+    if form_sub_action == 'login'
+      login_request =
+        username: $("#user #un").val()
+        email:    $("#user #em").val()
+        password: $("#user #pw").val()
 
     # TODO: maybe submit json instead? do something so it can't be sniffed?
     #
 
-    # TODO: check user first
-
-    create_account_opts.fail = (resp) =>
+    # TODO: login fail for create account -- error messages need to be a bit
+    # different ; account already exists error should be explicit now
+    login_request.fail = (resp) =>
       error_json = JSON.parse(resp.responseText)
       console.log "fail2"
       fields = error_json.reasons
@@ -174,51 +192,48 @@ module.exports = class FrontPage extends Backbone.View
           error_msg.html(error.join(', '))
           # fieldset.append error_msg
 
-    create_account_opts.success = (resp) =>
-      console.log "success2"
-      console.log "you were successful, but this doesn't work yet"
-      app.auth.login({
-        username: username
-        password: password
-        success: () =>
-          setTimeout(@hideLoading, 500)
-          $('.login_text').hide()
-          $('.begin_text').show()
-          $('#loginform_subsub').slideUp()
-          $('#account_created').show()
-          # TODO: store form to another DSt variable.
-          DSt.store_form(app.frontPage.form[0])
-      })
-      # TODO: authenticate created user, and show feedback that this is going on
+    if form_sub_action == 'create'
+      login_request.success = (resp) =>
+        console.log "success2"
+        console.log "you were successful, but this doesn't work yet"
+        app.auth.login({
+          username: username
+          password: password
+          success: () =>
+            setTimeout(@hideLoading, 500)
+            $('.login_text').hide()
+            $('.begin_text').show()
+            $('#loginform_subsub').slideUp()
+            $('#account_created').show()
+            # TODO: store form to another DSt variable.
+            DSt.store_form(app.frontPage.form[0])
+        })
 
     @$el.find('#fakeSubmit').click (evt) ->
       $("#loginform_subsub").slideUp()
       $("#loginform_success").show()
 
-    create_account_opts.always = (resp) =>
-      setTimeout(@hideLoading, 500)
+    if form_sub_action == 'create'
+      login_request.always = (resp) =>
+        setTimeout(@hideLoading, 500)
 
-    login_account_opts.fail = (resp) =>
-      $('#account_exists').hide()
-      create_user = app.auth.create_user(create_account_opts)
-      setTimeout(@hideLoading, 500)
+    if form_sub_action == 'login'
+      login_request.success = (resp) =>
+        setTimeout(@hideLoading, 500)
+        if app.user
+          app.frontPage.storeForm()
+          $("#loginform_success").show()
+          $('#account_created').hide()
+          $('#account_exists').show()
+          $('#loginform_subsub').slideUp()
+          $('.login_text').hide()
+          $('.begin_text').show()
 
-    login_account_opts.success = (resp) =>
-      setTimeout(@hideLoading, 500)
-      if app.user
-        app.frontPage.storeForm()
-        $("#loginform_success").show()
-        $('#account_created').hide()
-        $('#account_exists').show()
-        $('#loginform_subsub').slideUp()
-        $('.login_text').hide()
-        $('.begin_text').show()
+    if form_sub_action == 'login'
+      login_result = app.auth.login(login_request)
 
-    login_result = app.auth.login(login_account_opts)
-
-    # ajax call to check that user can be created
-    # if fail, display errors
-    # if success, store username, api key, etc., continue
+    if form_sub_action == 'create'
+      login_result = app.auth.create_user(login_request)
 
     return false
 
