@@ -34,11 +34,25 @@ module.exports = class FrontPage extends Backbone.View
   useCreateVariant: (evt) ->
     @$el.find('#email_field').slideDown()
     @$el.find('#user').attr('data-use', 'create')
+    DSt.set('form-create-or-not', 'create')
+
+    if evt?
+      if not $(evt.target).attr('checked')
+        $(evt.target).attr('checked', true)
+                     .checkboxradio('refresh')
+
 
   useLoginVariant: (evt) ->
     @$el.find('#email_field').slideUp()
     @$el.find("#user #em").val('')
     @$el.find('#user').attr('data-use', 'login')
+    DSt.set('form-create-or-not', 'login')
+
+    if evt?
+      if not $(evt.target).attr('checked')
+        $(evt.target).attr('checked', true)
+                     .checkboxradio('refresh')
+
 
   changeLanguage: (evt) ->
     anon = DSt.get('anonymous_selected')
@@ -125,8 +139,9 @@ module.exports = class FrontPage extends Backbone.View
     ds = DSt.get('login-details')
     if ds
       @$el.find("#user #un").val ds.username
-      @$el.find("#user #em").val ds.email
+      # @$el.find("#user #em").val ds.email
       @$el.find("#user #pw").val ds.password
+      @useLoginVariant()
     return true
 
   userForm: (event) ->
@@ -150,8 +165,8 @@ module.exports = class FrontPage extends Backbone.View
     if form_sub_action == 'login'
       login_request =
         username: $("#user #un").val()
-        email:    $("#user #em").val()
         password: $("#user #pw").val()
+        # TODO: un / em:    $("#user #em").val()
 
     # TODO: maybe submit json instead? do something so it can't be sniffed?
     #
@@ -287,6 +302,25 @@ module.exports = class FrontPage extends Backbone.View
     resetCheck = (vs, val) ->
       vs.attr('data-theme', val)
 
+    console.log "form create state"
+    create_or = DSt.get('form-create-or-not')
+    console.log create_or
+
+    if create_or == "create"
+      @$el.find('#email_field').show()
+
+    if create_or == "login"
+      @$el.find('#email_field').hide()
+      @$el.find("#user #em").val('')
+      @$el.find("#create_account_or_login #login-or-new-a")
+              .attr('checked', false)
+              .checkboxradio()
+              .checkboxradio('refresh')
+      @$el.find("#create_account_or_login #login-or-new-b")
+              .attr('checked', true)
+              .checkboxradio()
+              .checkboxradio('refresh')
+
     anon = DSt.get('anonymous_selected')
     if anon
       $('#user_account_block').slideUp()
@@ -312,7 +346,7 @@ module.exports = class FrontPage extends Backbone.View
       $('.login_text').hide()
       $('.begin_text').show()
       $('#account_exists').show()
-    
+
   show_login_error: (msg, forgotten=false, username=false, try_again=true) ->
     if @login_error_popup?
       @login_error_popup.remove()
@@ -362,6 +396,9 @@ module.exports = class FrontPage extends Backbone.View
     @total_questions = 2
     @questions_answered = 0
     @process_complete = false
+
+    if not DSt.get('form-create-or-not')
+      DSt.set('form-create-or-not', 'create')
 
     if @language_switched?
       console.log "rendering with switched lang"
