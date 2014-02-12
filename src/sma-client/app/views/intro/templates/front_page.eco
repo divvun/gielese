@@ -13,7 +13,7 @@
             <h2 class="legend"><%- gettext.gettext "Use an account?" %></h2>
         </div>
         <div class="ui-block-b">
-            <h2 class="legend"><%- gettext.gettext "New account?" %></h2>
+            <h2 id="create_account_or_login_legend" class="legend"><%- gettext.gettext "New account?" %></h2>
         </div>
         <div class="ui-block-a">
             <div data-role="fieldcontain" id="create_account">

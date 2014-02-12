@@ -179,6 +179,10 @@ def deploy():
     print(cyan("Deploy process complete."))
 
 @task
+def deploy_client(production=False):
+    brunch_build_target()
+
+@task
 def hup():
     host, _, path = staging_remote_host_and_path.partition(':')
 

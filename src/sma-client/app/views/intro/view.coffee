@@ -92,6 +92,7 @@ module.exports = class FrontPage extends Backbone.View
     $('.begin_text').hide()
     DSt.set('anonymous_selected', false)
     $('#create_account_or_login').fadeIn(200)
+    $('#create_account_or_login_legend').fadeIn()
     return true
 
   hideUserForm: (evt) ->
@@ -105,6 +106,7 @@ module.exports = class FrontPage extends Backbone.View
     $('#account_exists').hide()
     $('#account_created').hide()
     $('#create_account_or_login').fadeOut(200)
+    $('#create_account_or_login_legend').fadeOut(200)
     return true
 
   displayLogin: ->
@@ -362,6 +364,7 @@ module.exports = class FrontPage extends Backbone.View
 
     if anon
       $('#create_account_or_login').hide()
+      $('#create_account_or_login_legend').hide()
       $('#user_account_block').hide()
 
       $('#create-user-account-b').attr('checked', true)
