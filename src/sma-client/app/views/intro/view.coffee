@@ -69,12 +69,29 @@ module.exports = class FrontPage extends Backbone.View
 
     return true
 
+  disableForm: () ->
+    @$el.find('#create_account fieldset').checkboxradio()
+                                         .checkboxradio('disable')
+    @$el.find('#create_account_or_login fieldset').checkboxradio()
+                                                  .checkboxradio('disable')
+    @$el.find('h2.legend').addClass('disabled')
+    @form_disabled = true
+  
+  enableForm: () ->
+    @$el.find('#create_account fieldset').checkboxradio()
+                                         .checkboxradio('enable')
+    @$el.find('#create_account_or_login fieldset').checkboxradio()
+                                                  .checkboxradio('enable')
+    @$el.find('h2.legend').removeClass('disabled')
+    @form_disabled = false
+
   revealUserForm: (evt) ->
     sub = $(evt.target).attr('data-subquestion')
     @$el.find("##{sub}").slideDown()
     $('.login_text').show()
     $('.begin_text').hide()
     DSt.set('anonymous_selected', false)
+    $('#create_account_or_login').fadeIn(200)
     return true
 
   hideUserForm: (evt) ->
@@ -87,6 +104,7 @@ module.exports = class FrontPage extends Backbone.View
     DSt.set('anonymous_selected', true)
     $('#account_exists').hide()
     $('#account_created').hide()
+    $('#create_account_or_login').fadeOut(200)
     return true
 
   displayLogin: ->
@@ -142,6 +160,24 @@ module.exports = class FrontPage extends Backbone.View
       # @$el.find("#user #em").val ds.email
       @$el.find("#user #pw").val ds.password
       @useLoginVariant()
+
+    create_or = DSt.get('form-create-or-not')
+
+    if create_or == "create"
+      @$el.find('#email_field').show()
+
+    if create_or == "login"
+      @$el.find('#email_field').hide()
+      @$el.find("#user #em").val('')
+      @$el.find("#create_account_or_login #login-or-new-a")
+              .attr('checked', false)
+              .checkboxradio()
+              .checkboxradio('refresh')
+      @$el.find("#create_account_or_login #login-or-new-b")
+              .attr('checked', true)
+              .checkboxradio()
+              .checkboxradio('refresh')
+
     return true
 
   userForm: (event) ->
@@ -243,6 +279,7 @@ module.exports = class FrontPage extends Backbone.View
           $('#loginform_subsub').slideUp()
           $('.login_text').hide()
           $('.begin_text').show()
+          @disableForm()
 
     if form_sub_action == 'login'
       login_result = app.auth.login(login_request)
@@ -302,9 +339,7 @@ module.exports = class FrontPage extends Backbone.View
     resetCheck = (vs, val) ->
       vs.attr('data-theme', val)
 
-    console.log "form create state"
     create_or = DSt.get('form-create-or-not')
-    console.log create_or
 
     if create_or == "create"
       @$el.find('#email_field').show()
@@ -322,8 +357,12 @@ module.exports = class FrontPage extends Backbone.View
               .checkboxradio('refresh')
 
     anon = DSt.get('anonymous_selected')
+    if @form_disabled
+      @disableForm()
+
     if anon
-      $('#user_account_block').slideUp()
+      $('#create_account_or_login').hide()
+      $('#user_account_block').hide()
 
       $('#create-user-account-b').attr('checked', true)
                                  .checkboxradio('refresh')
@@ -335,7 +374,8 @@ module.exports = class FrontPage extends Backbone.View
       $('.begin_text').show()
 
     if app.user
-      $('#user_account_block').slideUp()
+      $('#create_account_or_login').show()
+      $('#user_account_block').hide()
 
       $('#create-user-account-b').attr('checked', false)
                                  .checkboxradio('refresh')
@@ -396,6 +436,7 @@ module.exports = class FrontPage extends Backbone.View
     @total_questions = 2
     @questions_answered = 0
     @process_complete = false
+    @enableForm()
 
     if not DSt.get('form-create-or-not')
       DSt.set('form-create-or-not', 'create')

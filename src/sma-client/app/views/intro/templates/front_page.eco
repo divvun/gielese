@@ -10,8 +10,13 @@
 <div data-role="content" id="front_page_content">
     <div class="ui-grid-a">
         <div class="ui-block-a">
+            <h2 class="legend"><%- gettext.gettext "Use an account?" %></h2>
+        </div>
+        <div class="ui-block-b">
+            <h2 class="legend"><%- gettext.gettext "New account?" %></h2>
+        </div>
+        <div class="ui-block-a">
             <div data-role="fieldcontain" id="create_account">
-                <h2 class="legend"><%- gettext.gettext "Use an account?" %></h2>
                 <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
                     <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-a" value="true" data-subquestion="user_account_block" checked>
                     <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
@@ -23,7 +28,6 @@
 
         <div class="ui-block-b">
             <div data-role="fieldcontain" id="create_account_or_login">
-                <h2 class="legend"><%- gettext.gettext "New account?" %></h2>
                 <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
                     <input data-theme="a" type="radio" name="login-or-new" id="login-or-new-a" value="true" checked>
                     <label for="login-or-new-a"><%- gettext.gettext "Yes" %></label>
@@ -84,7 +88,7 @@
         <div data-role="fieldcontain" id="help_language">
             <div class="ui-grid-a">
                 <div class="ui-block-a">
-                    <h2 class="legend"><%- gettext.gettext "Translation language" %></h2>
+                    <h2 class="legend no_disable"><%- gettext.gettext "Translation language" %></h2>
                 </div>
                 <div class="ui-block-b">&nbsp;</div>
             </div>
@@ -111,10 +115,6 @@
                         </a>
                     </div>
                 </div>
-                <!--
-                <input class="nextSection" type="radio" data-theme="a" name="both-choice" id="both-choice-2" value="sma">
-                <label for="both-choice-2">Åarjelsaemien</label>
-                -->
             </fieldset>
         </div>
     </div>
