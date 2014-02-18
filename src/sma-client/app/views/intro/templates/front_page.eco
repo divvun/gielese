@@ -72,7 +72,7 @@
                         <input data-role="none" 
                                autocapitalize="off" 
                                autocorrect="off" 
-                               type="text" 
+                               type="email" 
                                name="email" 
                                id="em" 
                                value="" 
