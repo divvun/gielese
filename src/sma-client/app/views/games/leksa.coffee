@@ -81,8 +81,6 @@ LeksaQuestionImageToWord = require './templates/leksa_question_image_to_word'
 LeksaQuestionWordToWord = require './templates/leksa_question_image_to_word'
 LeksaQuestionWordToImage = require './templates/leksa_question_word_to_image'
 StatTemplate = require './templates/stat_block'
-LevelCompleteTemplate = require './templates/leksa_level_completed'
-LevelComplete = require '/models/exceptions/level_complete'
 LeksaConceptTemplate = require '/views/templates/leksa_concept'
 
 #
@@ -219,16 +217,16 @@ module.exports = class LeksaView extends Backbone.View
   # # #  Progress bar
   # # #
 
-  setIndividualAnswerProgress: (count, total, note) ->
-    prog = @$el.find "#leksa_progress_indiv"
-    prog.progressbar({value: (count/total)*100})
-    prog.find('.progress_label').text(note)
-    return false
+  # setIndividualAnswerProgress: (count, total, note) ->
+  #   prog = @$el.find "#leksa_progress_indiv"
+  #   prog.progressbar({value: (count/total)*100})
+  #   prog.find('.progress_label').text(note)
+  #   return false
 
-  setProgress: (count, total) ->
-    prog = @$el.find "#leksa_progress"
-    prog.progressbar({value: (count/total)*100})
-    return false
+  # setProgress: (count, total) ->
+  #   prog = @$el.find "#leksa_progress"
+  #   prog.progressbar({value: (count/total)*100})
+  #   return false
 
   # # #
   # # #  Question rendering
@@ -288,22 +286,31 @@ module.exports = class LeksaView extends Backbone.View
     # incement cycle once
     if @q == false
       window.last_category = window.location.hash
-      window.location.hash = '#complete'
+      window.location.hash = '#category_complete'
       return false
 
+    if @last_level
+      if @q.generator.get('level') != @last_level
+        window.last_category = window.location.hash
+        window.location.hash = '#level_complete'
+        @last_level = false
+        return false
+
     level_note = "Level #{@q.generator.get('level')}"
-    @setProgress(@q.current_count, @q.question_total)
+    @last_level = @q.generator.get('level')
+
+    # @setProgress(@q.current_count, @q.question_total)
     _repeats = @q.generator.get('repetitions')
     if _repeats == 0
       _repeats = 1
     else
       _repeats += 1
 
-    @setIndividualAnswerProgress(
-      @q.total_correct,
-      @q.question_total*_repeats,
-      level_note
-    )
+    # @setIndividualAnswerProgress(
+    #   @q.total_correct,
+    #   @q.question_total_repeats,
+    #   level_note
+    # )
 
     if not @q.question
       _log_msg = "LeksaView.render_question: ungeneratable question - "
@@ -445,6 +452,8 @@ module.exports = class LeksaView extends Backbone.View
     if app.wait_handler?
       console.log "Clearing old wait handler"
       clearTimeout app.wait_handler
+
+    @last_level = false
 
     @cat = _.first app.categories.where
       category: @attributes.leksa_category

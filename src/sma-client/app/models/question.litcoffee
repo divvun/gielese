@@ -297,7 +297,6 @@ Here we increment the cycle if the current question is compelte
               console.log "got NoMoreProgression..."
             if @user_completed_question()
               # next question
-              console.log "level complete"
               throw new LevelComplete
             else
               # keep going

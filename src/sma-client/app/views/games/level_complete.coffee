@@ -14,8 +14,8 @@ module.exports = class LevelComplete extends Backbone.View
     window.location.hash = window.last_category
     delete window.last_category
 
-  render: ->
-    @$el.html @template
+  render: () ->
+    @$el.html @template {category: @category}
     setTimeout( app.soundEffects.correct, 500 )
     this
 

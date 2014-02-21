@@ -33,10 +33,20 @@
             </span>
         </h1>
     </div>
-    <p class="note"><%- gettext.gettext "You completed the level!" %></p>
+    <% if @category: %>
+        <p class="note"><%- gettext.gettext "You completed the category!" %></p>
+    <% else: %>
+        <p class="note"><%- gettext.gettext "You completed the level!" %></p>
+    <% end %>
+    <% if @category: %>
     <a href="#" data-role="button" data-theme="b" id="repeat" data-mini="true">
         <%- gettext.gettext "Play again" %> <i class="fa fa-arrow-circle-right"></i>
     </a>
+    <% else: %>
+    <a href="#" data-role="button" data-theme="b" id="repeat" data-mini="true">
+        <%- gettext.gettext "Next level" %> <i class="fa fa-arrow-circle-right"></i>
+    </a>
+    <% end %>
     <br />
     <a href="#categoryMenu" data-role="button" data-theme="b" id="back_to_categories" data-mini="true">
         <i class="fa fa-arrow-circle-left"></i> <%- gettext.gettext "Category list" %>

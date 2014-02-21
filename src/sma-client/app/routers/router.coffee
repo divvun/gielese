@@ -1,8 +1,5 @@
-# TODO: clean up all this.
-#
-# TODO: additional issue is that some views need to be reinstantiated
-#       in order for all events to be available again, as
-#       router.changePage destroys them for some reason.
+# NB:   some views need to be reinstantiated in order for all events to be
+#       available again, as router.changePage destroys them for some reason.
 
 LeksaView = require 'views/games/leksa'
 LearnView = require 'views/games/learn'
@@ -85,8 +82,11 @@ module.exports = class Router extends Backbone.Router
 
     #
 
-    'complete': 'level_complete'
-    '#complete': 'level_complete'
+    'level_complete': 'level_complete'
+    '#level_complete': 'level_complete'
+
+    'category_complete': 'category_complete'
+    '#category_complete': 'category_complete'
 
     'leksa/:level/:category': 'learn_and_practice'
     '#leksa/:level/:category': 'learn_and_practice'
@@ -113,6 +113,13 @@ module.exports = class Router extends Backbone.Router
     @changePage(app.infoView)
 
   level_complete: ->
+    app.levelComplete = new LevelComplete()
+    app.levelComplete.category = false
+    @changePage(app.levelComplete)
+
+  category_complete: ->
+    app.levelComplete = new LevelComplete()
+    app.levelComplete.category = true
     @changePage(app.levelComplete)
 
   splash: ->

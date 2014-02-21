@@ -209,8 +209,6 @@ module.exports = class FrontPage extends Backbone.View
     # TODO: maybe submit json instead? do something so it can't be sniffed?
     #
 
-    # TODO: login fail for create account -- error messages need to be a bit
-    # different ; account already exists error should be explicit now
     login_request.fail = (resp) =>
       error_json = JSON.parse(resp.responseText)
       fields = error_json.reasons
