@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-02-12 14:26-0600\n"
+"POT-Creation-Date: 2014-02-21 14:31-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,185 +17,185 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: ../sma-client/public/javascripts/app.js:4222
-#: ../sma-client/public/javascripts/app.js:4319
-#: ../sma-client/public/javascripts/app.js:4698
-#: ../sma-client/public/javascripts/app.js:4930
-#: ../sma-client/public/javascripts/app.js:5889
-#: ../sma-client/public/javascripts/app.js:6110
-#: ../sma-client/public/javascripts/app.js:8320
+#: ../sma-client/public/javascripts/app.js:4216
+#: ../sma-client/public/javascripts/app.js:4313
+#: ../sma-client/public/javascripts/app.js:4692
+#: ../sma-client/public/javascripts/app.js:4924
+#: ../sma-client/public/javascripts/app.js:5883
+#: ../sma-client/public/javascripts/app.js:6104
+#: ../sma-client/public/javascripts/app.js:8311
 msgid "Back"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4230
-#: ../sma-client/public/javascripts/app.js:4327
-#: ../sma-client/public/javascripts/app.js:4938
-#: ../sma-client/public/javascripts/app.js:6031
+#: ../sma-client/public/javascripts/app.js:4224
+#: ../sma-client/public/javascripts/app.js:4321
+#: ../sma-client/public/javascripts/app.js:4932
+#: ../sma-client/public/javascripts/app.js:6025
 msgid "Points"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4238
+#: ../sma-client/public/javascripts/app.js:4232
 msgid "Wordlist"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4246
+#: ../sma-client/public/javascripts/app.js:4240
 msgid "Learn"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4254
+#: ../sma-client/public/javascripts/app.js:4248
 msgid "Practice"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:4922
-#: ../sma-client/public/javascripts/app.js:5881
-#: ../sma-client/public/javascripts/app.js:6027
+#: ../sma-client/public/javascripts/app.js:4916
+#: ../sma-client/public/javascripts/app.js:5875
+#: ../sma-client/public/javascripts/app.js:6021
 msgid "Home"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6035
+#: ../sma-client/public/javascripts/app.js:6029
 msgid "Tjoho!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6039
+#: ../sma-client/public/javascripts/app.js:6033
 msgid "You completed the level!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6043
+#: ../sma-client/public/javascripts/app.js:6037
 msgid "Play again"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6047
+#: ../sma-client/public/javascripts/app.js:6041
 msgid "Category list"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6472
+#: ../sma-client/public/javascripts/app.js:6466
 msgid "About this app"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6571
+#: ../sma-client/public/javascripts/app.js:6565
 msgid "Use an account?"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6575
+#: ../sma-client/public/javascripts/app.js:6569
 msgid "New account?"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6579
-#: ../sma-client/public/javascripts/app.js:6587
-#: ../sma-client/public/javascripts/app.js:8348
-#: ../sma-client/public/javascripts/app.js:8356
-#: ../sma-client/public/javascripts/app.js:8447
+#: ../sma-client/public/javascripts/app.js:6573
+#: ../sma-client/public/javascripts/app.js:6581
+#: ../sma-client/public/javascripts/app.js:8339
+#: ../sma-client/public/javascripts/app.js:8347
+#: ../sma-client/public/javascripts/app.js:8438
 msgid "Yes"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6583
-#: ../sma-client/public/javascripts/app.js:6591
-#: ../sma-client/public/javascripts/app.js:8344
-#: ../sma-client/public/javascripts/app.js:8352
-#: ../sma-client/public/javascripts/app.js:8453
+#: ../sma-client/public/javascripts/app.js:6577
+#: ../sma-client/public/javascripts/app.js:6585
+#: ../sma-client/public/javascripts/app.js:8335
+#: ../sma-client/public/javascripts/app.js:8343
+#: ../sma-client/public/javascripts/app.js:8444
 msgid "No"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6613
+#: ../sma-client/public/javascripts/app.js:6605
 #: templates/user_reset_form.html:68
 msgid "Username"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6617
+#: ../sma-client/public/javascripts/app.js:6609
 #: templates/user_reset_form.html:75
 msgid "Password"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6621
+#: ../sma-client/public/javascripts/app.js:6613
 msgid "E-mail"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6625
-#: ../sma-client/public/javascripts/app.js:8336
+#: ../sma-client/public/javascripts/app.js:6617
+#: ../sma-client/public/javascripts/app.js:8327
 msgid "Translation language"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6629
+#: ../sma-client/public/javascripts/app.js:6621
 msgid "Your account was created, you may now begin!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6633
+#: ../sma-client/public/javascripts/app.js:6625
 msgid "You are logged in, and may now begin!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6637
+#: ../sma-client/public/javascripts/app.js:6629
 msgid "Begin!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6641
+#: ../sma-client/public/javascripts/app.js:6633
 msgid "Log in"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:7174
+#: ../sma-client/public/javascripts/app.js:7165
 msgid "Did you forget your password?"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:7175
+#: ../sma-client/public/javascripts/app.js:7166
 msgid "Check your email!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:7176
+#: ../sma-client/public/javascripts/app.js:7167
 msgid "Check your network connection and try again"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8180
+#: ../sma-client/public/javascripts/app.js:8171
 msgid "Try again"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8184
+#: ../sma-client/public/javascripts/app.js:8175
 msgid "Close"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8190
+#: ../sma-client/public/javascripts/app.js:8181
 msgid "Email me"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8324
+#: ../sma-client/public/javascripts/app.js:8315
 msgid "Help language"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8340
+#: ../sma-client/public/javascripts/app.js:8331
 msgid "Play audio?"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8419
-#: ../sma-client/public/javascripts/app.js:8423
-#: ../sma-client/public/javascripts/app.js:8431
+#: ../sma-client/public/javascripts/app.js:8410
+#: ../sma-client/public/javascripts/app.js:8414
+#: ../sma-client/public/javascripts/app.js:8422
 msgid "Top 10"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8427
+#: ../sma-client/public/javascripts/app.js:8418
 msgid "Statistics"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8435
+#: ../sma-client/public/javascripts/app.js:8426
 msgid "Loading..."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8441
+#: ../sma-client/public/javascripts/app.js:8432
 msgid "Show my score to everyone?"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8457
+#: ../sma-client/public/javascripts/app.js:8448
 msgid ""
 "You are playing anonymously, so your points may not be stored if you "
 "leave the app."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8463
+#: ../sma-client/public/javascripts/app.js:8454
 msgid "Your stats"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8471
+#: ../sma-client/public/javascripts/app.js:8462
 msgid "points"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8481
+#: ../sma-client/public/javascripts/app.js:8472
 msgid "Learn some words to see stats!"
 msgstr ""
 

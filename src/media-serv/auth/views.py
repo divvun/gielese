@@ -63,7 +63,7 @@ def login():
 
     def length_is_greater(value):
         if len(value) < 7:
-            raise ValidationError("Your password must be at least 8 characters.")
+            raise ValidationError(_("Your password must be at least 8 characters."))
         return value
 
     class LoginFormValidator(Model):
@@ -216,7 +216,7 @@ def reset():
 
     def length_is_greater(value):
         if len(value) < 7:
-            raise ValidationError("Your password must be at least 8 characters.")
+            raise ValidationError(_("Your password must be at least 8 characters."))
         return value
 
     def token_is_valid(value):
@@ -474,17 +474,17 @@ def create_user():
 
     def user_does_not_exist(value):
         if users.find_one({'username': value}):
-            raise ValidationError("exists")
+            raise ValidationError(_("This username is in use already, please use another."))
         return value
 
     def email_does_not_exist(value):
         if users.find_one({'email': value}):
-            raise ValidationError("This email is in use already, please use another.")
+            raise ValidationError(_("This email is in use already, please use another."))
         return value
 
     def length_is_greater(value):
         if len(value) < 7:
-            raise ValidationError("Your password must be at least 8 characters.")
+            raise ValidationError(_("Your password must be at least 8 characters."))
         return value
 
     class UserFormValidation(Model):
