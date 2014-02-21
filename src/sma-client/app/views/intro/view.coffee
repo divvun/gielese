@@ -213,26 +213,24 @@ module.exports = class FrontPage extends Backbone.View
     # different ; account already exists error should be explicit now
     login_request.fail = (resp) =>
       error_json = JSON.parse(resp.responseText)
-      console.log "fail2"
       fields = error_json.reasons
-      console.log error_json
       $("form#user input").removeClass("error")
       $("form#user span.error").remove()
       $("form .grouped_field.error").removeClass("error")
 
       # Can't rely on schematics to return consistent data. Sometimes this is
       # a list, sometimes an Object
-      console.log fields
       if fields
         # Append errors to form
         for fieldname, error of fields
-          console.log error
-          if 'exists' in error
-            @show_login_error(@_LOGIN_ACCOUNT_ERROR_EXISTS, true, username)
-            continue
-          error_msg = $("<span class='error'>#{error}</span>")
-          @$el.find("form#user .form_fields").append(error_msg)
-          console.log $("form#user .form_fields")
+          console.log [fieldname, error]
+          if form_sub_action == 'login'
+            if fieldname == 'username' or 'exists' in error
+              @show_login_error(@_LOGIN_ACCOUNT_ERROR_EXISTS, true, username)
+              continue
+          error_field = $("input[name=#{fieldname}]").parents('.grouped_field')
+          error_msg = $("<div class='grouped_field_error'><span class='error'>#{error}</span></div>")
+          error_field.after(error_msg)
 
         # Highlight fields that have errors
         for key, error of fields
@@ -244,11 +242,11 @@ module.exports = class FrontPage extends Backbone.View
           error_msg = $("<span class='error'>")
           error_msg.html(error.join(', '))
           # fieldset.append error_msg
+      else
+        @show_login_error(@_LOGIN_ACCOUNT_ERROR_EXISTS, true, username)
 
     if form_sub_action == 'create'
       login_request.success = (resp) =>
-        console.log "success2"
-        console.log "you were successful, but this doesn't work yet"
         app.auth.login({
           username: username
           password: password
@@ -318,7 +316,6 @@ module.exports = class FrontPage extends Backbone.View
     # TODO: store form values to reload
     DSt.store_form($('form#user')[0])
     if @language_switched?
-      console.log "rendering with switched lang"
       hide_form = true
     else
       hide_form = false
@@ -408,24 +405,17 @@ module.exports = class FrontPage extends Backbone.View
     if forgotten
       @login_error_popup.find('a#forget_button').click (e) =>
 
-        if app.debug
-          console.log "forgot click evt"
-          
         @login_error_popup.popup().popup('close')
 
         app.auth.forgot
           username: username
           success: () =>
-            if app.debug
-              console.log "success"
             app.frontPage.cur_msg = @_LOGIN_ACCOUNT_CHECK_EMAIL
             setTimeout(() ->
               app.frontPage.show_login_error(
                 app.frontPage.cur_msg, false, false, false)
             , 500)
           fail: () =>
-            if app.debug
-              console.log "fail"
             app.frontPage.cur_msg = @_LOGIN_ACCOUNT_NETWORK_ERROR
             setTimeout(() ->
               app.frontPage.show_login_error(
@@ -436,6 +426,11 @@ module.exports = class FrontPage extends Backbone.View
 
 
   render: ->
+    if history.length > 1
+      if app.user
+        app.auth.logout()
+      else
+        app.auth.clearUserData()
     @total_questions = 2
     @questions_answered = 0
     @process_complete = false

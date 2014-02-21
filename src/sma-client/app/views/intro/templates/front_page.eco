@@ -18,10 +18,23 @@
         <div class="ui-block-a">
             <div data-role="fieldcontain" id="create_account">
                 <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
-                    <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-a" value="true" data-subquestion="user_account_block" checked>
+
+                    <input data-theme="a" 
+                           type="radio" 
+                           name="create-user-account" 
+                           id="create-user-account-a" 
+                           value="true" 
+                           data-subquestion="user_account_block" checked>
                     <label for="create-user-account-a"><%- gettext.gettext "Yes" %></label>
-                    <input data-theme="a" type="radio" name="create-user-account" id="create-user-account-b" value="false" data-hide-subquestion="user_account_block">
+
+                    <input data-theme="a" 
+                           type="radio" 
+                           name="create-user-account" 
+                           id="create-user-account-b" 
+                           value="false" 
+                           data-hide-subquestion="user_account_block">
                     <label for="create-user-account-b"><%- gettext.gettext "No" %></label>
+
                 </fieldset>
             </div>
         </div>
@@ -29,16 +42,27 @@
         <div class="ui-block-b">
             <div data-role="fieldcontain" id="create_account_or_login">
                 <fieldset data-role="controlgroup" data-type="horizontal" data-setting="use_account">
-                    <input data-theme="a" type="radio" name="login-or-new" id="login-or-new-a" value="true" checked>
+
+                    <input data-theme="a" 
+                           type="radio" 
+                           name="login-or-new" 
+                           id="login-or-new-a" 
+                           value="true" 
+                           checked>
                     <label for="login-or-new-a"><%- gettext.gettext "Yes" %></label>
-                    <input data-theme="a" type="radio" name="login-or-new" id="login-or-new-b" value="false">
+
+                    <input data-theme="a" 
+                           type="radio" 
+                           name="login-or-new" 
+                           id="login-or-new-b" 
+                           value="false">
                     <label for="login-or-new-b"><%- gettext.gettext "No" %></label>
+
                 </fieldset>
             </div>
         </div>
     </div>
 
-    <% # TODO: maybe leave this to last step, because having a different view for this would be much better. %>
     <% disp = '' %>
     <% if @hide_form: %>
     <% disp = 'style="display: none;"' %>
