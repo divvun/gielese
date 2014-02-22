@@ -4,7 +4,8 @@ LevelComplete = require '/models/exceptions/level_complete'
 module.exports = class QuestionDB extends Backbone.Collection
   model: Question
 
-  url: "/data/leksa_questions.json"
+  url: () ->
+    return app.server.path + "/data/leksa_questions.json"
 
   initialize: () ->
     @fetch

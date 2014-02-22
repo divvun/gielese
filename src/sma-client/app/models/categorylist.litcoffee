@@ -6,7 +6,8 @@ and uses them to generate the main menu.
     module.exports = class CategoryList extends Backbone.Collection
       model: Category
 
-      url: "/data/categories.json"
+      url: () ->
+        return app.server.path + "/data/categories.json"
 
       parse: (response, opts) ->
         return response.categories

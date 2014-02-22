@@ -71,7 +71,7 @@ module.exports = class Application
     conv_l = ISOs.three_to_two locale
     if conv_l != locale
       locale = conv_l
-    $.get "/data/translations/#{locale}/messages.json",
+    $.get app.server.path + "/data/translations/#{locale}/messages.json",
       (locale_data) =>
         gettext = new Gettext({
           domain: 'messages'
@@ -141,6 +141,10 @@ module.exports = class Application
     @media_size = "small"
     @video_format = "gif"
 
+    # TODO: determine this based on whether cordova is present, etc.
+    @server =
+      path: "http://localhost:5000"
+    
     # TODO: modernizr, check for preferred video format, fallback - gif?
     #
     if $(window).width() > 499
