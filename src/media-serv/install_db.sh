@@ -5,12 +5,12 @@ rm data/*.json
 python read_media_directory.py read categories \
     static/media/ \
     --output=JSON \
-    --server-media-uri=/ > data/categories.json
+    --relative-paths > data/categories.json
 
 python read_media_directory.py read concepts \
     static/media/ \
     --output=XML \
-    --server-media-uri=/ > data/concepts.tmp.xml
+    --relative-paths > data/concepts.tmp.xml
 
 # Unfortunate requirement because manage.py handles arguments in an odd way
 

@@ -21,10 +21,22 @@ with simultaneous ability to build android and iOS apps.
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
 
+    - media paths need to be relative, but install script won't generate them
+      that way, only absolute -- but, everything should work on all platforms /
+      flavors with relative paths
+
+    - /static/client symlink might lead to some recursion in some build
+      process, so need to avoid this -- is it only for standalone web version?
+
  * Audio playing: No need for Soundmanager to handle this, use test on
-   phonegap's device API
+   phonegap's device API. for now it seems like soundmanager works just the
+   same, but it's probably not ideal.
+
+ ? What to do when server has new media, but app hasn't been updated? 
 
 # Installing
+
+NB: make sure this is phonegap 3.3.0 for now.
 
 You must have node and npm installed, then: 
 
@@ -83,6 +95,7 @@ update the emulator.
 
 ## Add plugins
 
+    cordova plugin add org.apache.cordova.device
     cordova plugin add org.apache.cordova.media
     cordova plugin add org.apache.cordova.inappbrowser
 

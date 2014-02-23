@@ -97,6 +97,7 @@ Usage:
 Options:
   --output=format       Specifies the output format. XML, JSON, supported. [default: JSON]
   --absolute-paths      Use absolute paths instead of relative from `cwd`. [default: False]
+  --relative-paths      Use relative paths from cwd
   --server-media-uri=URL      Specify the path relative to the web root for media. [default: False]
 """
 
@@ -470,11 +471,15 @@ def walk_for_concepts_sets(concept_path):
 
     return concepts
 
-def replace_media_paths(concepts, replace_with):
+def replace_media_paths(concepts, replace_with=False, relative=False):
 
     def replace_path(p):
-        new_path = replace_with + p[1::]
-        return new_path.replace('//', '/')
+        if relative:
+            new_path = p
+            return new_path.replace('./', '')
+        else:
+            new_path = replace_with + p[1::]
+            return new_path.replace('//', '/')
 
     def get_replace(media):
         if 'path' in media:
@@ -499,11 +504,15 @@ def replace_media_paths(concepts, replace_with):
 
     return fixed
 
-def replace_category_media_paths(categories, replace_with):
+def replace_category_media_paths(categories, replace_with=False, relative=False):
 
     def replace_path(p):
-        new_path = replace_with + p[1::]
-        return new_path.replace('//', '/')
+        if relative:
+            new_path = p
+            return new_path.replace('./', '')
+        else:
+            new_path = replace_with + p[1::]
+            return new_path.replace('//', '/')
 
     def get_replace(media):
         if 'path' in media:
@@ -515,7 +524,7 @@ def replace_category_media_paths(categories, replace_with):
         media = c.get('media').copy()
 
         if 'children' in c:
-            c['children'] = replace_category_media_paths(c['children'], replace_with)
+            c['children'] = replace_category_media_paths(c['children'], replace_with, relative)
 
         if 'icon' in media:
             media['icon'] = map(get_replace, media['icon'])
@@ -667,8 +676,9 @@ def read_concepts(arguments):
     _cwd = os.getcwd()
     media_dir = os.path.join(_cwd, arguments.get('<media_dir>'))
 
+    relative_path = False
     # specify media path, requires relative paths
-    if arguments.get('--server-media-uri', False):
+    if arguments.get('--server-media-uri', False) and arguments.get('--server-media-uri', False) != 'False':
         replace_path = arguments.get('--server-media-uri')
         common = os.path.commonprefix([_cwd, media_dir])
         media_dir = media_dir.replace(common, '.')
@@ -679,11 +689,16 @@ def read_concepts(arguments):
             common = os.path.commonprefix([_cwd, media_dir])
             media_dir = media_dir.replace(common, '.')
 
+        if arguments.get('--relative-paths', False):
+            relative_path = True
+
     concept_dir = os.path.join(media_dir, 'concepts')
 
     concepts = walk_for_concepts_sets(concept_dir)
 
-    if replace_path:
+    if relative_path:
+        concepts = replace_media_paths(concepts, relative=True)
+    elif replace_path:
         concepts = replace_media_paths(concepts, replace_path)
 
     if arguments.get('--output', False):
@@ -703,8 +718,10 @@ def read_categories(arguments):
     _cwd = os.getcwd()
     media_dir = os.path.join(_cwd, arguments.get('<media_dir>'))
 
+    relative_path = False
+
     # specify media path, requires relative paths
-    if arguments.get('--server-media-uri', False):
+    if arguments.get('--server-media-uri', False) and arguments.get('--server-media-uri', False) != 'False':
         replace_path = arguments.get('--server-media-uri')
         common = os.path.commonprefix([_cwd, media_dir])
         media_dir = media_dir.replace(common, '.')
@@ -715,12 +732,21 @@ def read_categories(arguments):
             common = os.path.commonprefix([_cwd, media_dir])
             media_dir = media_dir.replace(common, '.')
 
+        if arguments.get('--relative-paths', False):
+            relative_path = True
+            replace_path = False
+
 
     category_dir = os.path.join(media_dir, 'categories')
 
     categories = walk_for_categories_sets(category_dir)
 
-    if replace_path:
+    if relative_path:
+        categories = {'categories': replace_category_media_paths(
+                        categories.get('categories'),
+                        relative=True)
+                     }
+    elif replace_path:
         categories = {'categories': replace_category_media_paths(
                         categories.get('categories'),
                         replace_path)

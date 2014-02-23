@@ -2,7 +2,8 @@ UserLogEntry = require 'models/user_log_entry'
 
 module.exports = class UserProgression extends Backbone.Collection
 
-  url: "/user/data/log/"
+  url: () ->
+    return app.server.path + "/user/data/log/"
 
   model: UserLogEntry
 

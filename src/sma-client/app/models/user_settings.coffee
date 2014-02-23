@@ -4,7 +4,8 @@ module.exports = class UserSettings extends Backbone.Collection
   # For storing user configuration stuff and syncing with the server, keep it
   # simple.
 
-  url: "/user/settings/"
+  url: () ->
+    return app.server.path + "/user/settings/"
 
   model: UserSetting
 

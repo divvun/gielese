@@ -66,7 +66,7 @@ module.exports = class Authenticator
       email:    opts.email
       password: opts.password
       
-    _create_user = $.post("/user/create/", data)
+    _create_user = $.post(app.server.path + "/user/create/", data)
 
     _create_user.fail (response) =>
         if app.debug
@@ -88,7 +88,7 @@ module.exports = class Authenticator
   logout: (opts = {}) ->
     logout_request = $.ajax
       type: "GET"
-      url: "/user/logout/"
+      url: app.server.path + "/user/logout/"
       xhrFields:
         withCredentials: true
 
@@ -137,7 +137,7 @@ module.exports = class Authenticator
 
     forgotten_request = $.ajax
       type: "POST"
-      url: "/user/forgot/"
+      url: app.server.path + "/user/forgot/"
       data: data
       xhrFields:
         withCredentials: true
@@ -182,7 +182,7 @@ module.exports = class Authenticator
     
     login_request = $.ajax
       type: "POST"
-      url: "/user/login/"
+      url: app.server.path + "/user/login/"
       data: data
       xhrFields:
         withCredentials: true
@@ -197,7 +197,7 @@ module.exports = class Authenticator
     login_request.success (data, textStatus, jqXHR) ->
       if app.debug
         console.log "Authenticator.login.success: Should be logged in..."
-      test_authed_request = $.getJSON('/user/data/log')
+      test_authed_request = $.getJSON(app.server.path + '/user/data/log')
       test_authed_request.success (resp) ->
         if app.debug
           console.log "Authenticator.login.success.tesst_authed_request: "

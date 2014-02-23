@@ -231,7 +231,7 @@ module.exports = class UserStats extends Backbone.View
     )
 
     scores = @$el.find('div#high_scores')
-    $.get '/users/scores/',
+    $.get app.server.path + '/users/scores/',
       (resp) =>
         scores.html HighScoreList
           highscores: resp.highscores
