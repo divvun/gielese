@@ -18,8 +18,15 @@ with simultaneous ability to build android and iOS apps.
 
 ## Major TODOs:
 
+ * Device and other plugin APIs won't actually be available in iOS simulator? 
+   `http://docs.phonegap.com/en/edge/guide_platforms_ios_index.md.html`
+
+    - suggested to use ripple to figure this stuff out. : emulate.phonegap.com
+
  * Make sure that everything can run without a network connection.
     - currently app must phone home to be able to work.
+
+ * google fonts and fontawesome needs to have local cached versions
 
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
@@ -47,6 +54,11 @@ with simultaneous ability to build android and iOS apps.
 
  * cordova splash-screen instead? 
 
+# Troubleshooting
+
+ ? If during testing certain things are unavailable, try uninstalling plugins and reinstalling them
+ 
+ ? Try only using cordova instead of phonegap for building and installation
 
 # Installing
 
