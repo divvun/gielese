@@ -10,7 +10,7 @@
             </div>
             <div id="footer_logo">
                 <div id="logo">
-                    <img src="/static/images/aajege.png" />
+                    <img src="static/images/aajege.png" />
                     <span class="aajege">Aajege</span>
                 </div>
                 <div id="copy">

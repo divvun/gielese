@@ -99,7 +99,7 @@ module.exports = class Application
     true
     
   soundEffects:
-    'click': () => app.audio.playPath('/static/audio/click.mp3')
+    'click': () => app.audio.playPath('static/audio/click.mp3')
     'correct': () => app.soundEffectCorrect()
     'incorrect': () =>  app.soundEffectIncorrect()
     
@@ -195,8 +195,9 @@ module.exports = class Application
 
     @router = new Router()
 
+    # TODO: phonegapize
     soundManager.setup
-      url: "/static/client/swf/"
+      url: "static/client/swf/"
       debugMode: false
       defaultOptions:
         volume: 50

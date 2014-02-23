@@ -32,7 +32,7 @@
 <% else: %>
     <div id="concept_img_frame">
         <img id="current_concept_img"
-             style="background-image: url(/static/images/missing_concept_image.jpg)" />
+             style="background-image: url(static/images/missing_concept_image.jpg)" />
      </div>
 <% end %>
 
@@ -66,7 +66,7 @@
                 <img width="48"
                      height="48"
                      class="play_speaker"
-                     src="/static/client/images/speaker.png" />
+                     src="static/client/images/speaker.png" />
             </a>
     <% end %>
 </div>

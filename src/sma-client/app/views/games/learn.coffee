@@ -131,7 +131,7 @@ module.exports = class LearnView extends LeksaView
 
     if @q.choices.length == 3 and @q.generator.get('type') == "word_to_image"
       @q.choices.push new DummyConcept
-        concept_value: "/static/images/bakgrunn-spill.png"
+        concept_value: "static/images/bakgrunn-spill.png"
         concept_type: "img"
 
       @q.choices = _.shuffle @q.choices

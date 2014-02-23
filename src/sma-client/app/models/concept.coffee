@@ -71,7 +71,7 @@ module.exports = class Concept extends Backbone.Model
     if opts.no_default
       return false
 
-    return "/static/images/missing_concept_image.jpg"
+    return "static/images/missing_concept_image.jpg"
 
   hasGif: (opts = {}) ->
     
@@ -120,7 +120,7 @@ module.exports = class Concept extends Backbone.Model
     if opts.no_default
       return false
 
-    return "/static/images/missing_concept_image.jpg"
+    return "static/images/missing_concept_image.jpg"
 
   getTranslationsToLang: (lang) ->
     @getTranslations().filter (c) =>

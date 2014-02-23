@@ -1,4 +1,4 @@
 <div id="sound_loading_bar" style="display: none;">
-    <img src="/static/images/ajax-loader.gif" width="16" height="16" /> 
+    <img src="static/images/ajax-loader.gif" width="16" height="16" /> 
     <p>Downloading audio...</p>
 </div>

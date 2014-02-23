@@ -18,21 +18,35 @@ with simultaneous ability to build android and iOS apps.
 
 ## Major TODOs:
 
+ * Make sure that everything can run without a network connection.
+    - currently app must phone home to be able to work.
+
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
 
-    - media paths need to be relative, but install script won't generate them
-      that way, only absolute -- but, everything should work on all platforms /
-      flavors with relative paths
-
     - /static/client symlink might lead to some recursion in some build
       process, so need to avoid this -- is it only for standalone web version?
+
+    - Need to strip original media files from iOS compiled version, because
+      they're huuuuge. Perhaps only package platform-specific media files
+      (i.e., iPad only gets iPad sizes)
 
  * Audio playing: No need for Soundmanager to handle this, use test on
    phonegap's device API. for now it seems like soundmanager works just the
    same, but it's probably not ideal.
 
  ? What to do when server has new media, but app hasn't been updated? 
+
+ * status bar
+
+ * freeze orientation
+
+ * icons 
+
+ * rename app
+
+ * cordova splash-screen instead? 
+
 
 # Installing
 
