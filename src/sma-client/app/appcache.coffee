@@ -99,9 +99,11 @@ module.exports = AppCacheHandler = () ->
     window.addEventListener "online", (e) ->
       # TODO: things to do here
       console.log "you are online"
+      window.OnlineStatus = true
 
     window.addEventListener "offline", (e) ->
       # TODO: things to do here
       console.log "you are offline"
+      window.OnlineStatus = false
   else
     fadeOutLoader()

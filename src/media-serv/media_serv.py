@@ -186,6 +186,10 @@ def fetch_messages(locale):
 
     return dict( [(e.msgid, e.msgstr or False) for e in jsentries] )
 
+def prepare_locale(db, locale):
+    data = format_as_gettextjs(locale)
+    return data
+
 def prepare_translations(db):
     data = [ {'locale': lx, 'messages': fetch_messages(lx)}
              for lx in app.config.languages.localization_languages ]

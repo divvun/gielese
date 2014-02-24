@@ -16,6 +16,30 @@ with simultaneous ability to build android and iOS apps.
 
  * Build brunch first, then build phonegap apps.
 
+## Platform deployment steps: 
+
+ * Media directory needs to be pruned for media formats that aren't necessary,
+    eg:
+
+    # For iPhone and Android Phones
+
+    python deploy_media_directory.py copy media \
+            static/media \
+            ../sma-client/phonegap/gielese/www/static/media \
+            --strip-formats=original,orig,medium \
+            --keep-orphan-formats
+
+    # For Tablets
+
+    python deploy_media_directory.py copy media \
+            static/media \
+            ../sma-client/phonegap/gielese/www/static/media \
+            --strip-formats=original,orig,small \
+            --keep-orphan-formats
+
+ * Media DB install process needs to be run for these differnt platform types
+   so that different JSON platforms are available
+
 ## Major TODOs:
 
  * Phonegap media paths must be within the phonegap server thingy, but when
@@ -24,17 +48,14 @@ with simultaneous ability to build android and iOS apps.
     - /static/client symlink might lead to some recursion in some build
       process, so need to avoid this -- is it only for standalone web version?
 
-    - Need to strip original-sized media files from iOS compiled version, because
-      they're huuuuge. Perhaps only package platform-specific media files
-      (i.e., iPad only gets iPad sizes)
-
-    - Server should have separate media directories preprepared with pruned
-      file sizes, as well as separate API endpoints, or separate parameters to
-      request these types. Alt: have a prepackaged version that can be
-      overwritten from the server
+    - concepts.json works well with pruned media directories.
 
  * Make sure that everything can run without a network connection.
+
     - currently app must phone home to be able to work.
+
+    - need to have an offline version that is used if there is no connection,
+      but also be able to update this as needed.
 
  * Audio playing: No need for Soundmanager to handle this, use test on
    phonegap's device API. for now it seems like soundmanager works just the
@@ -63,6 +84,8 @@ with simultaneous ability to build android and iOS apps.
    	 nothing else is broken
 
  * cordova splash-screen instead? 
+
+ * contact info
 
 # Installing
 
@@ -129,6 +152,9 @@ update the emulator.
 
     cordova plugin add org.apache.cordova.device
     cordova plugin add org.apache.cordova.media
+
+This one doesn't work yet: 
+
     cordova plugin add https://github.com/jota-v/cordova-ios-statusbar.git
 
 ## Updating cordova, etc.

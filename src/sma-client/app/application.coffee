@@ -71,8 +71,10 @@ module.exports = class Application
     conv_l = ISOs.three_to_two locale
     if conv_l != locale
       locale = conv_l
-    $.get app.server.path + "/data/translations/#{locale}/messages.json",
-      (locale_data) =>
+
+    # TODO: error?
+    locale_request = $.get app.server.path + "/data/translations/#{locale}/messages.json"
+    locale_request.success = (locale_data, textStatus, jqXHR) =>
         gettext = new Gettext({
           domain: 'messages'
           locale_data: locale_data
@@ -81,6 +83,8 @@ module.exports = class Application
         window.gettext = @gettext
         @loadingTracker.markReady('translations.json')
         options.complete() if options.complete
+    locale_request.fail () =>
+      console.log "something goes here"
 
   soundEffectCorrect: () ->
     @correct_concept = _.first @conceptdb.where
@@ -133,27 +137,28 @@ module.exports = class Application
             debug_watch.appendTo 'head'
 
   initPhoneGap: () ->
+    if not window.PhoneGapIndex?
+      window.PhoneGapIndex = false
+
     # Annoying to have to do it this way, but there's no way to emulate this
-    if window.plugins?
-      if window.plugins.statusBar?
-        statusbar = window.plugins.statusBar
-        statusbar.hide()
+    if window.PhoneGapIndex
+      if window.plugins?
+        if window.plugins.statusBar?
+          statusbar = window.plugins.statusBar
+          statusbar.hide()
 
   initialize: (options = {}) ->
+    window.OnlineStatus = true
 
     @initPhoneGap()
 
     # TODO: when to automatically clear localstorage, and check for
     # existing session?
-    # TODO: device detection
-    @device_type = "mobile"
-    @media_size = "small"
-    @video_format = "gif"
 
     # TODO: determine this based on whether cordova is present, etc.
     @server =
       path: "http://localhost:5000"
-    
+
     # TODO: modernizr, check for preferred video format, fallback - gif?
     #
     if $(window).width() > 499
@@ -183,12 +188,28 @@ module.exports = class Application
 
     @tests = new Tests()
 
+    # TODO: categories, conceptdb - if offline, use local copy, otherwise,
+    # fetch and use PhoneGap API to store a new local copy.
+    # How often to check?
+    #
+    # TODO: offline mode - need to have an option for user to manually sync
+    # everything
+
     @conceptdb = new ConceptDB()
     @conceptdb.fetch
       success: () =>
         window.fetched_somewhere = true
         app.loadingTracker.markReady('concepts.json')
         console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+      error: () ->
+        if app.debug
+          console.log "Error fetching concepts.json, trying offline."
+        @fetch_tries += 1
+        if @fetch_tries < 3
+          @fetch(offline=true)
+        else
+          console.log "Tried fetching concepts.json too many times"
+
 
     @categories = new CategoryList()
     @categories.fetch
@@ -196,9 +217,18 @@ module.exports = class Application
         window.fetched_somewhere = true
         app.loadingTracker.markReady('categories.json')
         console.log "fetched categories.json (#{app.conceptdb.models.length})"
+      error: () ->
+        if app.debug
+          console.log "Error fetching categories.json, trying offline."
+        @fetch_tries += 1
+        if @fetch_tries < 3
+          @fetch(offline=true)
+        else
+          console.log "Tried fetching categories.json too many times"
 
     @questiondb = new QuestionDB()
 
+    # TODO: try these when app is offline
     @userprogression = new UserProgression()
     @leksaOptions = new LeksaOptions()
 

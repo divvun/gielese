@@ -25,7 +25,6 @@ compressed versions.
 
     # For Tablets
 
-
     python deploy_media_directory.py copy media \
             static/media \
             ../sma-client/phonegap/gielese/www/static/media \
@@ -35,8 +34,11 @@ compressed versions.
 TODO: this process should also be used for deploying the standalone version,
       so media needs to be stored in another location.
 
+TODO: copy json
+
 Usage:
   deploy_media_directory.py list sizes <target_dir>
+  deploy_media_directory.py copy json <source_dir> <target_dir> [options]
   deploy_media_directory.py copy media <source_dir> <target_dir> [options]
   deploy_media_directory.py -h | --help
 

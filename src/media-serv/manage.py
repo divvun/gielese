@@ -59,11 +59,17 @@ def prepare_json(app):
         store_cache_file(l_data, _file)
         print " * Dumped %d questions to %s" % (len(leksa_questions), _file)
 
-        _file = "data/translations.json"
-        translations = prepare_translations(db)
-        t_data = json.dumps(translations)
-        store_cache_file(t_data, _file)
-        print " * Dumped %d questions to %s" % (len(translations), _file)
+        # TODO: config file: Languages.localization_languages
+        locales = ['sv', 'no']
+
+        locale_path = "data/translations"
+        os.makedirs(locale_path)
+        for loc in locales:
+            _file = "data/translations/%s/messages.json"
+            translations = prepare_locale(db, loc)
+            t_data = json.dumps(translations)
+            store_cache_file(t_data, _file)
+            print " * Dumped locale %s strings to %s" % (loc, _file)
 
     return action
 
