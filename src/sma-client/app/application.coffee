@@ -132,7 +132,16 @@ module.exports = class Application
             debug_watch.attr('src',"http://localhost:9001/ws")
             debug_watch.appendTo 'head'
 
+  initPhoneGap: () ->
+    # Annoying to have to do it this way, but there's no way to emulate this
+    if window.plugins?
+      if window.plugins.statusBar?
+        statusbar = window.plugins.statusBar
+        statusbar.hide()
+
   initialize: (options = {}) ->
+
+    @initPhoneGap()
 
     # TODO: when to automatically clear localstorage, and check for
     # existing session?

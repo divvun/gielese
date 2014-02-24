@@ -9,9 +9,11 @@
     </author>
     <gap:plugin name="org.apache.cordova.core.device"/>
     <gap:plugin name="org.apache.cordova.core.media"/>
+    <preference name="phonegap-version" value="3.0.0" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
+    <preference name="presentationstyle" value="fullscreen" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
@@ -49,7 +51,7 @@
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance" overwrite="true">
-         <false/>
+         <NO/>
     </gap:config-file>
     <gap:config-file platform="ios" parent="UIStatusBarHidden" overwrite="true">
          <true/>

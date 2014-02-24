@@ -18,47 +18,51 @@ with simultaneous ability to build android and iOS apps.
 
 ## Major TODOs:
 
- * Device and other plugin APIs won't actually be available in iOS simulator? 
-   `http://docs.phonegap.com/en/edge/guide_platforms_ios_index.md.html`
-
-    - suggested to use ripple to figure this stuff out. : emulate.phonegap.com
-
- * Make sure that everything can run without a network connection.
-    - currently app must phone home to be able to work.
-
- * google fonts and fontawesome needs to have local cached versions
-
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
 
     - /static/client symlink might lead to some recursion in some build
       process, so need to avoid this -- is it only for standalone web version?
 
-    - Need to strip original media files from iOS compiled version, because
+    - Need to strip original-sized media files from iOS compiled version, because
       they're huuuuge. Perhaps only package platform-specific media files
       (i.e., iPad only gets iPad sizes)
+
+    - Server should have separate media directories preprepared with pruned
+      file sizes, as well as separate API endpoints, or separate parameters to
+      request these types. Alt: have a prepackaged version that can be
+      overwritten from the server
+
+ * Make sure that everything can run without a network connection.
+    - currently app must phone home to be able to work.
 
  * Audio playing: No need for Soundmanager to handle this, use test on
    phonegap's device API. for now it seems like soundmanager works just the
    same, but it's probably not ideal.
 
+ * Device and other plugin APIs won't actually be available in iOS simulator? 
+   `http://docs.phonegap.com/en/edge/guide_platforms_ios_index.md.html`
+
+    - suggested to use ripple to figure this stuff out. : emulate.phonegap.com
+
  ? What to do when server has new media, but app hasn't been updated? 
 
+ * google fonts and fontawesome needs to have local cached versions
+
  * status bar
+   - setting the settings seems not to have resulted in things workign
+     (UIViewControllerBasedStatusBarAppearance, UIStatusBarHidden)
 
  * freeze orientation
 
  * icons 
 
  * rename app
+   - the way phonegap sets things up depends on <widget> <name>, which has to
+   	 be changed in a few places, and need to confirm that in changing things,
+   	 nothing else is broken
 
  * cordova splash-screen instead? 
-
-# Troubleshooting
-
- ? If during testing certain things are unavailable, try uninstalling plugins and reinstalling them
- 
- ? Try only using cordova instead of phonegap for building and installation
 
 # Installing
 
@@ -96,6 +100,8 @@ it's specific and summarized well enough.
 
     cordova create hello com.example.hello HelloWorld
 
+NB: utf8 is a problem here
+
 ## Add platforms
     
     cordova platform add ios
@@ -123,7 +129,7 @@ update the emulator.
 
     cordova plugin add org.apache.cordova.device
     cordova plugin add org.apache.cordova.media
-    cordova plugin add org.apache.cordova.inappbrowser
+    cordova plugin add https://github.com/jota-v/cordova-ios-statusbar.git
 
 ## Updating cordova, etc.
 

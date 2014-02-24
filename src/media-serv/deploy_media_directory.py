@@ -8,12 +8,31 @@ PhoneGap source directories for the purpose of:
   * Removing original-sized media files that aren't in use in the
     application
 
+NB: sound is ignored from this process for now, because these are all
+expected to be compressed and not have much variance quality across
+platforms
+
 TODO: warn when the directory only contains an original size, and no
 compressed versions.
 
-TODO: list sizes
+    # For iPhone and Android Phones
 
-TODO: this step should also be used for deploying the standalone version,
+    python deploy_media_directory.py copy media \
+            static/media \
+            ../sma-client/phonegap/gielese/www/static/media \
+            --strip-formats=original,orig,medium \
+            --keep-orphan-formats
+
+    # For Tablets
+
+
+    python deploy_media_directory.py copy media \
+            static/media \
+            ../sma-client/phonegap/gielese/www/static/media \
+            --strip-formats=original,orig,small \
+            --keep-orphan-formats
+
+TODO: this process should also be used for deploying the standalone version,
       so media needs to be stored in another location.
 
 Usage:
