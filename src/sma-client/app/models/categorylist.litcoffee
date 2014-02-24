@@ -6,8 +6,8 @@ and uses them to generate the main menu.
     module.exports = class CategoryList extends Backbone.Collection
       model: Category
 
-      url: (offline = false) ->
-        if offline
+      url: () ->
+        if @offline
           return "data/categories.json"
         return app.server.path + "/data/categories.json"
 

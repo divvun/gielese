@@ -4,13 +4,14 @@ module.exports = class ConceptDB extends Backbone.Collection
   model: Concept
   idAttribute: "c_id"
 
-  url: (offline = false) ->
-    if offline
+  url: () ->
+    if @offline
       return "data/concepts.json"
     return app.server.path + "/data/concepts.json"
 
   initialize: () ->
     @fetch_tries = 0
+    @offline = false
     # @storage = new Offline.Storage('concepts', @)
     # if navigator.onLine
     #   @storage.sync.pull

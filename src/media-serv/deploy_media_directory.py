@@ -31,6 +31,12 @@ compressed versions.
             --strip-formats=original,orig,small \
             --keep-orphan-formats
 
+    # Then ...
+
+    python deploy_media_directory.py copy json \
+            data \
+            ../sma-client/phonegap/gielese/www/data
+
 TODO: this process should also be used for deploying the standalone version,
       so media needs to be stored in another location.
 
@@ -49,6 +55,18 @@ Options:
 """
 
 import os, sys
+
+def rm_directory(targ):
+    import shutil
+
+    print >> sys.stderr, " * Removing <%s>" % (targ)
+
+    # TODO: directory exists, overwrite prompt?
+
+    shutil.rmtree(targ)
+
+    print >> sys.stderr, " * Deleted"
+
 
 def copy_directory(src, targ):
     import shutil
@@ -229,9 +247,21 @@ def main():
     keep_orphans = arguments.get('--keep-orphan-formats')
 
     collect_media_sizes = arguments.get('list') and arguments.get('sizes')
+    copy_json = arguments.get('copy') and arguments.get('json')
 
     source = arguments.get('<source_dir>')
     target = arguments.get('<target_dir>')
+
+    if copy_json:
+        print >> sys.stderr, "Copying JSON"
+        try:
+            copy_directory(source, target)
+        except Exception, e:
+            print e
+            print 'deleting first'
+            rm_directory(target)
+            copy_directory(source, target)
+        sys.exit()
 
     target_path =  os.path.join( os.getcwd()
                                , target

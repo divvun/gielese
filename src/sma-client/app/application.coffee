@@ -68,23 +68,39 @@ module.exports = class Application
         families: ['Open Sans', 'Kaushan Script']
 
   switch_locale: (locale, options = {}) ->
+    if options.offline
+      offline = true
+      tries = options.tries
+    else
+      offline = false
+      tries = 0
+
     conv_l = ISOs.three_to_two locale
     if conv_l != locale
       locale = conv_l
 
+    if tries > 3
+      console.log "Tried to fetch locale too many times"
+      return false
+
+    if offline and window.PhoneGapIndex
+      locale_path = "data/translations/#{locale}/messages.json"
+    else
+      locale_path = app.server.path + "/data/translations/#{locale}/messages.json"
+    #
     # TODO: error?
-    locale_request = $.get app.server.path + "/data/translations/#{locale}/messages.json"
-    locale_request.success = (locale_data, textStatus, jqXHR) =>
-        gettext = new Gettext({
-          domain: 'messages'
-          locale_data: locale_data
-        })
-        @gettext = gettext
-        window.gettext = @gettext
-        @loadingTracker.markReady('translations.json')
-        options.complete() if options.complete
+    locale_request = $.get locale_path, (locale_data) =>
+      gettext = new Gettext({
+        domain: 'messages'
+        locale_data: locale_data
+      })
+      @gettext = gettext
+      window.gettext = @gettext
+      @loadingTracker.markReady('translations.json')
+      options.complete() if options.complete
     locale_request.fail () =>
-      console.log "something goes here"
+      tries += 1
+      app.switch_locale(locale, {offline: true, tries: tries})
 
   soundEffectCorrect: () ->
     @correct_concept = _.first @conceptdb.where
@@ -201,12 +217,14 @@ module.exports = class Application
         window.fetched_somewhere = true
         app.loadingTracker.markReady('concepts.json')
         console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+        app.conceptdb.offline = false
       error: () ->
         if app.debug
           console.log "Error fetching concepts.json, trying offline."
         @fetch_tries += 1
+        app.conceptdb.offline = true
         if @fetch_tries < 3
-          @fetch(offline=true)
+          @fetch()
         else
           console.log "Tried fetching concepts.json too many times"
 
@@ -217,12 +235,14 @@ module.exports = class Application
         window.fetched_somewhere = true
         app.loadingTracker.markReady('categories.json')
         console.log "fetched categories.json (#{app.conceptdb.models.length})"
+        app.categories.offline = false
       error: () ->
         if app.debug
           console.log "Error fetching categories.json, trying offline."
         @fetch_tries += 1
+        app.categories.offline = true
         if @fetch_tries < 3
-          @fetch(offline=true)
+          @fetch()
         else
           console.log "Tried fetching categories.json too many times"
 

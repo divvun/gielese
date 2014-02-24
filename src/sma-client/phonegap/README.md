@@ -37,6 +37,12 @@ with simultaneous ability to build android and iOS apps.
             --strip-formats=original,orig,small \
             --keep-orphan-formats
 
+ * Default offline JSON data needs to be copied.
+
+    python deploy_media_directory.py copy json \
+            data \
+            ../sma-client/phonegap/gielese/www/data
+
  * Media DB install process needs to be run for these differnt platform types
    so that different JSON platforms are available
 

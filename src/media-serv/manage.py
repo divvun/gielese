@@ -4,6 +4,8 @@ from flask import Flask
 from flaskext.actions import Manager
 from media_serv import create_app
 
+import os
+
 app, db = create_app()
 app.test_request_context().push()
 
@@ -43,29 +45,35 @@ def prepare_json(app):
 
     from media_serv import ( prepare_concepts
                            , prepare_leksa_questions
-                           , prepare_translations
+                           , prepare_locale
                            )
 
     def action():
-        _file = "data/concepts.json"
-        concepts = prepare_concepts(db)
-        data = json.dumps(concepts)
-        store_cache_file(data, _file)
-        print " * Dumped %d concepts to %s" % (len(concepts), _file)
+        # _file = "data/concepts.json"
+        # concepts = prepare_concepts(db)
+        # data = json.dumps(concepts)
+        # store_cache_file(data, _file)
+        # print " * Dumped %d concepts to %s" % (len(concepts), _file)
 
-        _file = "data/leksa_questions.json"
-        leksa_questions = prepare_leksa_questions()
-        l_data = json.dumps(leksa_questions)
-        store_cache_file(l_data, _file)
-        print " * Dumped %d questions to %s" % (len(leksa_questions), _file)
+        # _file = "data/leksa_questions.json"
+        # leksa_questions = prepare_leksa_questions()
+        # l_data = json.dumps(leksa_questions)
+        # store_cache_file(l_data, _file)
+        # print " * Dumped %d questions to %s" % (len(leksa_questions), _file)
 
         # TODO: config file: Languages.localization_languages
         locales = ['sv', 'no']
 
         locale_path = "data/translations"
-        os.makedirs(locale_path)
+        try:
+            os.makedirs(locale_path)
+        except OSError:
+            pass
         for loc in locales:
-            _file = "data/translations/%s/messages.json"
+            _loc_path = "data/translations/%s" % loc
+            try: os.makedirs(_loc_path)
+            except OSError: pass
+            _file = "data/translations/%s/messages.json" % loc
             translations = prepare_locale(db, loc)
             t_data = json.dumps(translations)
             store_cache_file(t_data, _file)

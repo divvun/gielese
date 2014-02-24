@@ -4,23 +4,26 @@ LevelComplete = require '/models/exceptions/level_complete'
 module.exports = class QuestionDB extends Backbone.Collection
   model: Question
 
-  url: (offline = false) ->
-    if offline
+  url: () ->
+    if @offline
       return "data/leksa_questions.json"
     return app.server.path + "/data/leksa_questions.json"
 
   initialize: () ->
     @fetch_tries += 1
+    @offline = false
 
     @fetch
       success: () =>
         app.loadingTracker.markReady('leksa_questions.json')
         mod_count = app.questiondb.models.length
         console.log "fetched leksa_questions.json (#{mod_count})"
+        @offline = true
       error: () ->
         if app.debug
           console.log "Error fetching leksa_questions.json, trying offline."
         @fetch_tries += 1
+        @offline = true
         if @fetch_tries < 3
           @fetch(offline=true)
         else
