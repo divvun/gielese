@@ -5,13 +5,12 @@ module.exports = class QuestionDB extends Backbone.Collection
   model: Question
 
   url: () ->
-    if @offline
+    if app.server.offline_media
       return "data/leksa_questions.json"
     return app.server.path + "/data/leksa_questions.json"
 
   initialize: () ->
-    @fetch_tries += 1
-    @offline = false
+    @fetch_tries = 0
 
     @fetch
       success: () =>
@@ -21,9 +20,8 @@ module.exports = class QuestionDB extends Backbone.Collection
         @offline = true
       error: () ->
         if app.debug
-          console.log "Error fetching leksa_questions.json, trying offline."
+          console.log "Error fetching leksa_questions.json."
         @fetch_tries += 1
-        @offline = true
         if @fetch_tries < 3
           @fetch(offline=true)
         else

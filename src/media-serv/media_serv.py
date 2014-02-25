@@ -172,27 +172,8 @@ def format_as_gettextjs(locale):
 
     return _pofile
 
-def fetch_messages(locale):
-    from polib import pofile
-
-    try:
-        _pofile = pofile('translations/%s/LC_MESSAGES/messages.po' % locale)
-    except:
-        return {}
-
-    jsentries = filter( lambda x: any(['.js' in a[0] for a in x.occurrences])
-                      , list(_pofile)
-                      )
-
-    return dict( [(e.msgid, e.msgstr or False) for e in jsentries] )
-
 def prepare_locale(db, locale):
     data = format_as_gettextjs(locale)
-    return data
-
-def prepare_translations(db):
-    data = [ {'locale': lx, 'messages': fetch_messages(lx)}
-             for lx in app.config.languages.localization_languages ]
     return data
 
 ##

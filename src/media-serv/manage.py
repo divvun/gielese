@@ -46,6 +46,7 @@ def prepare_json(app):
     from media_serv import ( prepare_concepts
                            , prepare_leksa_questions
                            , prepare_locale
+                           , format_as_gettextjs
                            )
 
     def action():
@@ -74,8 +75,8 @@ def prepare_json(app):
             try: os.makedirs(_loc_path)
             except OSError: pass
             _file = "data/translations/%s/messages.json" % loc
-            translations = prepare_locale(db, loc)
-            t_data = json.dumps(translations)
+            json_data = format_as_gettextjs(loc)
+            t_data = json.dumps(json_data)
             store_cache_file(t_data, _file)
             print " * Dumped locale %s strings to %s" % (loc, _file)
 

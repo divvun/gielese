@@ -5,19 +5,33 @@ module.exports = class ConceptDB extends Backbone.Collection
   idAttribute: "c_id"
 
   url: () ->
-    if @offline
+    if app.server.offline_media
       return "data/concepts.json"
     return app.server.path + "/data/concepts.json"
 
   initialize: () ->
     @fetch_tries = 0
-    @offline = false
     # @storage = new Offline.Storage('concepts', @)
     # if navigator.onLine
     #   @storage.sync.pull
     #     success: () =>
     #       app.loadingTracker.markReady('concepts.json')
     #       console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+    @fetch
+      success: () =>
+        window.fetched_somewhere = true
+        app.loadingTracker.markReady('concepts.json')
+        console.log "fetched concepts.json (#{app.conceptdb.models.length})"
+        app.conceptdb.offline = false
+      error: () ->
+        if app.debug
+          console.log "Error reading concepts.json"
+        @fetch_tries += 1
+        app.conceptdb.offline = true
+        if @fetch_tries < 3
+          @fetch()
+        else
+          console.log "Tried fetching concepts.json too many times"
   
   getByCid: (cid) ->
     ms = @models.filter (m) =>

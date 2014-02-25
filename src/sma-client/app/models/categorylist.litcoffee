@@ -7,7 +7,7 @@ and uses them to generate the main menu.
       model: Category
 
       url: () ->
-        if @offline
+        if app.server.offline_media
           return "data/categories.json"
         return app.server.path + "/data/categories.json"
 
@@ -15,4 +15,19 @@ and uses them to generate the main menu.
         return response.categories
 
       initialize: () ->
-          # @storage = new Offline.Storage('word-categories', @)
+        @fetch_tries = 0
+        # @storage = new Offline.Storage('word-categories', @)
+        @fetch
+          success: () =>
+            window.fetched_somewhere = true
+            app.loadingTracker.markReady('categories.json')
+            console.log "fetched categories.json (#{app.conceptdb.models.length})"
+            app.categories.offline = false
+          error: () ->
+            if app.debug
+              console.log "Error fetching categories.json"
+            @fetch_tries += 1
+            if @fetch_tries < 3
+              @fetch()
+            else
+              console.log "Tried fetching categories.json too many times"

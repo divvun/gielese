@@ -68,7 +68,7 @@ module.exports = class Application
         families: ['Open Sans', 'Kaushan Script']
 
   switch_locale: (locale, options = {}) ->
-    if options.offline
+    if options.offline or app.server.offline_media or window.PhoneGapIndex
       offline = true
       tries = options.tries
     else
@@ -83,13 +83,15 @@ module.exports = class Application
       console.log "Tried to fetch locale too many times"
       return false
 
-    if offline and window.PhoneGapIndex
+    if offline
       locale_path = "data/translations/#{locale}/messages.json"
     else
       locale_path = app.server.path + "/data/translations/#{locale}/messages.json"
     #
     # TODO: error?
-    locale_request = $.get locale_path, (locale_data) =>
+    locale_request = $.getJSON locale_path, (locale_data) =>
+      window.app.locale_path = locale_path
+      window.app.locale_data = locale_data
       gettext = new Gettext({
         domain: 'messages'
         locale_data: locale_data
@@ -162,21 +164,22 @@ module.exports = class Application
         if window.plugins.statusBar?
           statusbar = window.plugins.statusBar
           statusbar.hide()
+      # This controls where media db is read from.
+      @server.offline_media = true
 
   initialize: (options = {}) ->
     window.OnlineStatus = true
+
+    # TODO: determine this based on whether cordova is present, etc.
+    @server =
+      path: "http://localhost:5000"
+      offline_media: false
 
     @initPhoneGap()
 
     # TODO: when to automatically clear localstorage, and check for
     # existing session?
 
-    # TODO: determine this based on whether cordova is present, etc.
-    @server =
-      path: "http://localhost:5000"
-
-    # TODO: modernizr, check for preferred video format, fallback - gif?
-    #
     if $(window).width() > 499
       @device_type = "tablet"
       @media_size = "medium"
@@ -204,51 +207,13 @@ module.exports = class Application
 
     @tests = new Tests()
 
-    # TODO: categories, conceptdb - if offline, use local copy, otherwise,
-    # fetch and use PhoneGap API to store a new local copy.
-    # How often to check?
-    #
-    # TODO: offline mode - need to have an option for user to manually sync
-    # everything
-
+    # These are the media-related collections.
     @conceptdb = new ConceptDB()
-    @conceptdb.fetch
-      success: () =>
-        window.fetched_somewhere = true
-        app.loadingTracker.markReady('concepts.json')
-        console.log "fetched concepts.json (#{app.conceptdb.models.length})"
-        app.conceptdb.offline = false
-      error: () ->
-        if app.debug
-          console.log "Error fetching concepts.json, trying offline."
-        @fetch_tries += 1
-        app.conceptdb.offline = true
-        if @fetch_tries < 3
-          @fetch()
-        else
-          console.log "Tried fetching concepts.json too many times"
-
-
     @categories = new CategoryList()
-    @categories.fetch
-      success: () =>
-        window.fetched_somewhere = true
-        app.loadingTracker.markReady('categories.json')
-        console.log "fetched categories.json (#{app.conceptdb.models.length})"
-        app.categories.offline = false
-      error: () ->
-        if app.debug
-          console.log "Error fetching categories.json, trying offline."
-        @fetch_tries += 1
-        app.categories.offline = true
-        if @fetch_tries < 3
-          @fetch()
-        else
-          console.log "Tried fetching categories.json too many times"
-
     @questiondb = new QuestionDB()
 
-    # TODO: try these when app is offline
+    # TODO: userprogression should be stored offline using Backbone.Offline
+    #       however this needs to be tested obsessively.
     @userprogression = new UserProgression()
     @leksaOptions = new LeksaOptions()
 
@@ -284,22 +249,29 @@ module.exports = class Application
 
     # Convert the initial ISO settings
 
+    # TODO: usersettings should be stored offline using Backbone.Offline
+    #       however this needs to be tested obsessively.
     @options = new UserSettings()
     @options.setSettings({
       'interface_language': ISOs.two_to_three initial_language
       'help_language': ISOs.two_to_three initial_language
     })
+    @make_client_log()
 
 makeLogger = () ->
   log = log4javascript.getLogger()
-  ajaxlogger = new log4javascript.AjaxAppender('/client_logger/')
+  ajaxlogger = new log4javascript.AjaxAppender(
+    window.app.server.path + '/client_logger/'
+  )
+  ajaxlogger.setWaitForResponse true
   log.addAppender(ajaxlogger)
   return log
 
 window.app = new Application
-window.client_log = makeLogger()
+window.make_client_log = makeLogger
 
 window.onerror = (errorMsg, url, lineNumber) ->
-  window.client_log.fatal(
-    "Uncaught error #{errorMsg} in #{url}, line #{lineNumber}"
-  )
+  if navigator.onLine
+    window.client_log.fatal(
+      "Uncaught error #{errorMsg} in #{url}, line #{lineNumber}"
+    )

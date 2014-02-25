@@ -48,6 +48,8 @@ with simultaneous ability to build android and iOS apps.
 
 ## Major TODOs:
 
+ * Only offline media db in phonegap mode
+
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
 
