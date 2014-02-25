@@ -59,6 +59,11 @@ class LeksaOptions
 
 module.exports = class Application
 
+  # This will be overridden in init.
+  server:
+    path: "http://localhost:5000"
+    offline_media: false
+
   enable_webfonts: () ->
     if not WebFont?
       console.log "ERROR: WebFont async loader not available."
@@ -167,13 +172,15 @@ module.exports = class Application
       # This controls where media db is read from.
       @server.offline_media = true
 
+  initializeMediaModels: () ->
+    
   initialize: (options = {}) ->
     window.OnlineStatus = true
 
-    # TODO: determine this based on whether cordova is present, etc.
-    @server =
-      path: "http://localhost:5000"
-      offline_media: false
+    if window.location.hostname == 'gielese.no'
+      @server.path == window.location.hostname
+
+    # TODO: how to detect phonegap on live device, and choose correct hostname?
 
     @initPhoneGap()
 
@@ -256,7 +263,6 @@ module.exports = class Application
       'interface_language': ISOs.two_to_three initial_language
       'help_language': ISOs.two_to_three initial_language
     })
-    @make_client_log()
 
 makeLogger = () ->
   log = log4javascript.getLogger()
@@ -268,7 +274,7 @@ makeLogger = () ->
   return log
 
 window.app = new Application
-window.make_client_log = makeLogger
+makeLogger()
 
 window.onerror = (errorMsg, url, lineNumber) ->
   if navigator.onLine

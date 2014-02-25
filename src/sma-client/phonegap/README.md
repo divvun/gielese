@@ -48,13 +48,14 @@ with simultaneous ability to build android and iOS apps.
 
 ## Major TODOs:
 
- * Only offline media db in phonegap mode
+ * dev vs. live : using server
+
+ * Offline mode means that user login will need to return a token and session data
+   that can be stored, so if user tries to log in in offline mode and has been
+   kicked out for some reason, they can continue playing
 
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
-
-    - /static/client symlink might lead to some recursion in some build
-      process, so need to avoid this -- is it only for standalone web version?
 
     - concepts.json works well with pruned media directories.
 
