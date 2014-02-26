@@ -48,6 +48,8 @@ with simultaneous ability to build android and iOS apps.
 
 ## Major TODOs:
 
+ * some assets appear to be missing since reorg
+
  * dev vs. live: using server
 
  * localStorage -- does it need permissions for phonegap?
@@ -61,16 +63,18 @@ with simultaneous ability to build android and iOS apps.
      - when the browser connects again, need to have a login and sync button appear.
      - maybe: https://github.com/nilbus/Backbone.dualStorage
 
- * android troubleshooting: 
-
-   - android now works, but cannot find some assets for some reason
-
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
 
     - concepts.json works well with pruned media directories.
+    - or does it?
 
  * Make sure that everything can run without a network connection.
+
+    - TODO: show a message on ti-på-topp if user is offline and scores haven't
+      been downloaded yet (but store them in local storage just in case)
+
+    - app works without network connection, unless user wants to authenticate.
 
     - currently app must phone home to be able to work.
 
