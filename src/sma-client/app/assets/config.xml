@@ -7,6 +7,7 @@
     <author email="info@aajege.no" href="http://aajege.no">
         Aajege / Divvun
     </author>
+    <content src="index.html" />
     <gap:plugin name="org.apache.cordova.core.device"/>
     <gap:plugin name="org.apache.cordova.core.media"/>
     <!-- <gap:plugin name="org.apache.cordova.plugins.StatusBar"/> -->
