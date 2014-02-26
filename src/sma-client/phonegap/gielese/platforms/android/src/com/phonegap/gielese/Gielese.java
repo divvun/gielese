@@ -29,6 +29,7 @@ public class Gielese extends CordovaActivity
     {
         super.onCreate(savedInstanceState);
         super.init();
+        super.setIntegerProperty("loadUrlTimeoutValue", 70000);
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html");
