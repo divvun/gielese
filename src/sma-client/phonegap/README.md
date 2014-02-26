@@ -59,7 +59,11 @@ with simultaneous ability to build android and iOS apps.
      - offline works now, but
 
      - when the browser connects again, need to have a login and sync button appear.
+     - maybe: https://github.com/nilbus/Backbone.dualStorage
 
+ * android troubleshooting: 
+
+   - https://www.robertkehoe.com/2013/01/fix-for-phonegap-connection-to-server-was-unsuccessful/
 
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
@@ -156,10 +160,14 @@ Platform is optional, otherwise builds all platforms.
 ## Test
 
     cordova emulate ios
-    cordova emulate android
 
 This appears to also build the project before launching. Rerunning will
 update the emulator.
+
+For android you may need to do things via the following instead
+
+    phonegap run android
+
 
 ## Add plugins
 
