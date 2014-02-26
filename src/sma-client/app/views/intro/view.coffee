@@ -15,6 +15,7 @@ module.exports = class FrontPage extends Backbone.View
   events:
     "submit #user": "userForm"
     "click #submit": "userForm"
+    "click #log_out": "logOutReset"
 
     "click #displayLogin": "displayLogin"
     "change #create-user-account-c": "displayLogin"
@@ -28,6 +29,12 @@ module.exports = class FrontPage extends Backbone.View
     "change #create_account_or_login #login-or-new-a": "useCreateVariant"
     "change #create_account_or_login #login-or-new-b": "useLoginVariant"
 
+  logOutReset: (evt) ->
+    app.auth.logout
+      success: () ->
+        DSt.set('gielese-configured', false)
+        window.location.hash = "frontPage"
+        
   begin: (evt) ->
     DSt.set('gielese-configured', true)
 
@@ -95,10 +102,11 @@ module.exports = class FrontPage extends Backbone.View
     $('#create_account_or_login_legend').fadeIn()
     return true
 
-  hideUserForm: (evt) ->
+  hideUserForm: (evt = false) ->
     if app.user
       app.auth.logout()
-    sub = $(evt.target).attr('data-hide-subquestion')
+    if evt
+      sub = $(evt.target).attr('data-hide-subquestion')
     @$el.find("##{sub}").slideUp()
     $('.login_text').hide()
     $('.begin_text').show()
@@ -209,8 +217,21 @@ module.exports = class FrontPage extends Backbone.View
     # TODO: maybe submit json instead? do something so it can't be sniffed?
     #
 
-    login_request.fail = (resp) =>
-      error_json = JSON.parse(resp.responseText)
+    # TODO: when unable to connect, what goes here
+    login_request.fail = (resp, textStatus, errorThrown) =>
+      console.log "loginrequest fail"
+      console.log textStatus
+      console.log errorThrown
+      try
+        error_json = JSON.parse(resp.responseText)
+      catch e
+        error_json = false
+
+      if not error_json
+        setTimeout(@hideLoading, 500)
+        @show_server_error(gettext.gettext "Could not connect. Play offline?")
+        return
+    
       fields = error_json.reasons
       $("form#user input").removeClass("error")
       $("form#user span.error").remove()
@@ -385,6 +406,36 @@ module.exports = class FrontPage extends Backbone.View
       $('.begin_text').show()
       $('#account_exists').show()
 
+  play_in_offline: () ->
+    app.frontPage.disableForm()
+    $('.login_text').hide()
+    $('#start').show()
+    $('#loginform_subsub').hide()
+    $('#account_created').hide()
+    $('#offline_message_note').show()
+    
+  show_server_error: (msg) ->
+    if @login_error_popup?
+      @login_error_popup.remove()
+
+    login_template = LoginErrorTemplate
+      error_msg: msg
+      server_error: true
+      forgotten: false
+      try_again: true
+
+    @$el.append(login_template)
+
+    @login_error_popup = @$el.find('#loginErrorPopup')
+    @login_error_popup.trigger('create')
+    @login_error_popup.popup().show().popup('open')
+
+    @login_error_popup.find('a#play_offline').click (e) =>
+      app.frontPage.play_in_offline()
+      @login_error_popup.popup().popup('close')
+
+    return
+
   show_login_error: (msg, forgotten=false, username=false, try_again=true) ->
     if @login_error_popup?
       @login_error_popup.remove()
@@ -422,13 +473,26 @@ module.exports = class FrontPage extends Backbone.View
 
     return
 
+  userHasSession: () =>
+    app.frontPage.disableForm()
+    $('.login_text').hide()
+    $('#start').show()
+    $('#loginform_subsub').hide()
+    $('#account_created').hide()
+    $('#already_logged_in_text').show()
+    $('#log_out').show()
+
+  checkSession: ->
+    app.auth.get_session
+      success: @userHasSession
+      fail: () ->
 
   render: ->
-    if history.length > 1
-      if app.user
-        app.auth.logout()
-      else
-        app.auth.clearUserData()
+    # if history.length > 1
+    #   if app.user
+    #     app.auth.logout()
+    #   else
+    #     app.auth.clearUserData()
     @total_questions = 2
     @questions_answered = 0
     @process_complete = false
@@ -459,10 +523,13 @@ module.exports = class FrontPage extends Backbone.View
     @_LOGIN_ACCOUNT_NETWORK_ERROR = _NETWORK
 
     # Initialize error template
+    @$el.find('#log_out').hide()
 
     @loadSettings()
     
     @recallForm()
+
+    @checkSession()
 
     # Need to bind events here; jQuery mobile creates elements that messes with
     # backbone events.

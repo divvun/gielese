@@ -21,11 +21,11 @@ module.exports = class Authenticator
           el.find('#loginPopup #loading').fadeOut()
           el.find('#loginPopup #success').fadeIn()
           opts.success(data, textStatus, jqXHR) if opts.success
-        fail: (resp) =>
+        fail: (resp, textStatus, errorThrown) =>
           el.find('#loginPopup #loading').fadeOut()
           el.find('#loginPopup #fail').fadeIn()
           el.find('#loginPopup #login_error').html resp.error
-          opts.fail() if opts.fail
+          opts.fail(resp, textStatus, errorThrown) if opts.fail
       
       return false
 
@@ -68,10 +68,10 @@ module.exports = class Authenticator
       
     _create_user = $.post(app.server.path + "/user/create/", data)
 
-    _create_user.fail (response) =>
+    _create_user.fail (response, textStatus, errorThrown) =>
         if app.debug
           console.log "auth.create_user: fail"
-        opts.fail(response) if opts.fail
+        opts.fail(response, textStatus, errorThrown) if opts.fail
 
     _create_user.success (response) =>
         if app.debug
@@ -94,12 +94,11 @@ module.exports = class Authenticator
 
     # TODO: sync everything left over in user collections
 
-    logout_request.fail (resp) ->
+    logout_request.fail (resp, textStatus, errorThrown) ->
       # TODO: post log to server
       console.log "Authenticator.logout.logout_request.fail: fail"
-      console.log JSON.parse resp.responseText
       app.user = null
-      opts.fail(resp) if opts.fail
+      opts.fail(resp, textStatus, errorThrown) if opts.fail
 
     logout_request.success (data, textStatus, jqXHR) =>
       app.user = false
@@ -142,12 +141,10 @@ module.exports = class Authenticator
       xhrFields:
         withCredentials: true
 
-    forgotten_request.fail (resp) =>
+    forgotten_request.fail (resp, textStatus, errorThrown) =>
       # TODO: log to server?
-      console.log "fail"
-      console.log JSON.parse resp.responseText
       app.user = null
-      opts.fail(resp) if opts.fail
+      opts.fail(resp, textStatus, errorThrown) if opts.fail
 
     forgotten_request.success (data, textStatus, jqXHR) ->
       if app.debug
@@ -174,6 +171,46 @@ module.exports = class Authenticator
   #     xhrFields:
   #       withCredentials: true
 
+  get_session: (opts = {}) ->
+    session_check_request = $.ajax
+      type: "POST"
+      url: app.server.path + "/user/has_session/"
+      xhrFields:
+        withCredentials: true
+    session_check_request.success (data, textStatus, jqXHR) =>
+      window.app.user =
+        username: data.username
+        email: data.email
+      @sync_user_data(opts)
+
+    session_check_request.fail (resp, textStatus, errorThrown) ->
+      window.app.user = null
+      opts.fail(resp, textStatus, errorThrown) if opts.fail
+
+  sync_user_data: (opts = {}) ->
+    if opts.fail
+      fail = opts.fail
+    else
+      fail = () -> false
+
+    $.when(
+      app.userprogression.storage.sync.full({
+        success: (data) ->
+          if app.debug
+            console.log "userlog.full.success"
+        fail: fail
+      }),
+      app.options.storage.sync.full({
+        success: (data) ->
+          if app.debug
+            console.log "storage.full.success"
+        fail: fail
+      })
+    ).then () =>
+      if app.debug
+        console.log "all login requests complete"
+      opts.success() if opts.success
+
   login: (opts = {}) ->
     # TODO: when to clear user data before login?
     data =
@@ -187,12 +224,10 @@ module.exports = class Authenticator
       xhrFields:
         withCredentials: true
 
-    login_request.fail (resp) =>
+    login_request.fail (resp, textStatus, errorThrown) =>
       # TODO: log error to server?
-      console.log "fail"
-      console.log JSON.parse resp.responseText
       app.user = null
-      opts.fail(resp) if opts.fail
+      opts.fail(resp, textStatus, errorThrown) if opts.fail
 
     login_request.success (data, textStatus, jqXHR) ->
       if app.debug

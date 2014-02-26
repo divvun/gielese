@@ -15,6 +15,11 @@
         <%- if @forgotten: %>
             <a data-role="button" data-rel="email" id="forget_button" type="" data-theme="a"><%- gettext.gettext "Email me" %></a>
         <% end %>
+
+        <%- if @server_error: %>
+            <a data-role="button" data-rel="email" id="play_offline" type="" data-theme="a"><%- gettext.gettext "Play offline" %></a>
+        <% end %>
+
     </div>
 
 </div>

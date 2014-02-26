@@ -146,6 +146,8 @@
     <div id="account_feedback">
         <p style="display: none;" class="message" id="account_created"><%- gettext.gettext "Your account was created, you may now begin!" %></p>
         <p style="display: none;" class="message" id="account_exists"><%- gettext.gettext "You are logged in, and may now begin!" %></p>
+        <p style="display: none;" class="message" id="already_logged_in_text"><%- gettext.gettext "You are already logged in. You may begin or log out." %></p>
+        <p style="display: none;" class="message" id="offline_message_note"><%- gettext.gettext "You've chosen to play offline. Stats will sync when you are connected to the internet next." %></p>
     </div>
 
     <div id="end">
@@ -154,6 +156,10 @@
         </a>
         <a href="#" data-role="button" class="login_text" data-theme="b" id="submit" data-mini="true">
             <%- gettext.gettext "Log in" %>
+        </a>
+        <br />
+        <a href="#" id="log_out" class="login_text" data-role="button" data-theme="a" data-mini="true" style="display: none;">
+            <%- gettext.gettext "Log out" %>
         </a>
     </div>
 

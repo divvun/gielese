@@ -133,7 +133,7 @@ module.exports = class Router extends Backbone.Router
 
     setTimeout(() =>
       configured_already = DSt.get('gielese-configured', false)
-      if configured_already
+      if configured_already and app.user
         app.categoryMenu = new CategoryMenu()
         @fadePage(app.categoryMenu)
       else

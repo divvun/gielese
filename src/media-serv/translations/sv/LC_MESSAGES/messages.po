@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-02-21 14:31-0600\n"
+"POT-Creation-Date: 2014-02-25 18:04-0600\n"
 "PO-Revision-Date: 2014-02-05 01:51+0000\n"
 "Last-Translator: rtxanson <ryan.txanson@gmail.com>\n"
 "Language-Team: Swedish "
@@ -21,186 +21,194 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: ../sma-client/public/javascripts/app.js:4216
-#: ../sma-client/public/javascripts/app.js:4313
-#: ../sma-client/public/javascripts/app.js:4692
-#: ../sma-client/public/javascripts/app.js:4924
-#: ../sma-client/public/javascripts/app.js:5883
-#: ../sma-client/public/javascripts/app.js:6104
-#: ../sma-client/public/javascripts/app.js:8311
+#: ../sma-client/public/javascripts/app.js:4221
+#: ../sma-client/public/javascripts/app.js:4318
+#: ../sma-client/public/javascripts/app.js:4697
+#: ../sma-client/public/javascripts/app.js:4929
+#: ../sma-client/public/javascripts/app.js:5875
+#: ../sma-client/public/javascripts/app.js:6112
+#: ../sma-client/public/javascripts/app.js:8319
 msgid "Back"
 msgstr "Tillbaka"
 
-#: ../sma-client/public/javascripts/app.js:4224
-#: ../sma-client/public/javascripts/app.js:4321
-#: ../sma-client/public/javascripts/app.js:4932
-#: ../sma-client/public/javascripts/app.js:6025
+#: ../sma-client/public/javascripts/app.js:4229
+#: ../sma-client/public/javascripts/app.js:4326
+#: ../sma-client/public/javascripts/app.js:4937
+#: ../sma-client/public/javascripts/app.js:6017
 msgid "Points"
 msgstr "Poäng"
 
-#: ../sma-client/public/javascripts/app.js:4232
+#: ../sma-client/public/javascripts/app.js:4237
 msgid "Wordlist"
 msgstr "Ordlista"
 
-#: ../sma-client/public/javascripts/app.js:4240
+#: ../sma-client/public/javascripts/app.js:4245
 msgid "Learn"
 msgstr "Lär"
 
-#: ../sma-client/public/javascripts/app.js:4248
+#: ../sma-client/public/javascripts/app.js:4253
 msgid "Practice"
 msgstr "Öva"
 
-#: ../sma-client/public/javascripts/app.js:4916
-#: ../sma-client/public/javascripts/app.js:5875
-#: ../sma-client/public/javascripts/app.js:6021
+#: ../sma-client/public/javascripts/app.js:4921
+#: ../sma-client/public/javascripts/app.js:5867
+#: ../sma-client/public/javascripts/app.js:6013
 msgid "Home"
 msgstr "Hem"
 
-#: ../sma-client/public/javascripts/app.js:6029
+#: ../sma-client/public/javascripts/app.js:6021
 msgid "Tjoho!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6033
+#: ../sma-client/public/javascripts/app.js:6027
+msgid "You completed the category!"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6031
 msgid "You completed the level!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6037
+#: ../sma-client/public/javascripts/app.js:6039
 msgid "Play again"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6041
+#: ../sma-client/public/javascripts/app.js:6043
+msgid "Next level"
+msgstr ""
+
+#: ../sma-client/public/javascripts/app.js:6049
 msgid "Category list"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:6466
+#: ../sma-client/public/javascripts/app.js:6474
 msgid "About this app"
 msgstr "Om denna app"
 
-#: ../sma-client/public/javascripts/app.js:6565
+#: ../sma-client/public/javascripts/app.js:6573
 msgid "Use an account?"
 msgstr "Vill du använda ett konto?"
 
-#: ../sma-client/public/javascripts/app.js:6569
+#: ../sma-client/public/javascripts/app.js:6577
 #, fuzzy
 msgid "New account?"
 msgstr "Vill du använda ett konto?"
 
-#: ../sma-client/public/javascripts/app.js:6573
 #: ../sma-client/public/javascripts/app.js:6581
-#: ../sma-client/public/javascripts/app.js:8339
+#: ../sma-client/public/javascripts/app.js:6589
 #: ../sma-client/public/javascripts/app.js:8347
-#: ../sma-client/public/javascripts/app.js:8438
+#: ../sma-client/public/javascripts/app.js:8355
+#: ../sma-client/public/javascripts/app.js:8446
 msgid "Yes"
 msgstr "Ja"
 
-#: ../sma-client/public/javascripts/app.js:6577
 #: ../sma-client/public/javascripts/app.js:6585
-#: ../sma-client/public/javascripts/app.js:8335
+#: ../sma-client/public/javascripts/app.js:6593
 #: ../sma-client/public/javascripts/app.js:8343
-#: ../sma-client/public/javascripts/app.js:8444
+#: ../sma-client/public/javascripts/app.js:8351
+#: ../sma-client/public/javascripts/app.js:8452
 msgid "No"
 msgstr "Nej"
 
-#: ../sma-client/public/javascripts/app.js:6605
+#: ../sma-client/public/javascripts/app.js:6613
 #: templates/user_reset_form.html:68
 msgid "Username"
 msgstr "användarnamn"
 
-#: ../sma-client/public/javascripts/app.js:6609
+#: ../sma-client/public/javascripts/app.js:6617
 #: templates/user_reset_form.html:75
 msgid "Password"
 msgstr "Passord"
 
-#: ../sma-client/public/javascripts/app.js:6613
+#: ../sma-client/public/javascripts/app.js:6621
 msgid "E-mail"
 msgstr "E-post"
 
-#: ../sma-client/public/javascripts/app.js:6617
-#: ../sma-client/public/javascripts/app.js:8327
+#: ../sma-client/public/javascripts/app.js:6625
+#: ../sma-client/public/javascripts/app.js:8335
 msgid "Translation language"
 msgstr "Översättningsspråk"
 
-#: ../sma-client/public/javascripts/app.js:6621
+#: ../sma-client/public/javascripts/app.js:6629
 msgid "Your account was created, you may now begin!"
 msgstr "Ditt konto är skapat, du kan börja!"
 
-#: ../sma-client/public/javascripts/app.js:6625
+#: ../sma-client/public/javascripts/app.js:6633
 msgid "You are logged in, and may now begin!"
 msgstr "Du är inloggad och kan börja!"
 
-#: ../sma-client/public/javascripts/app.js:6629
+#: ../sma-client/public/javascripts/app.js:6637
 msgid "Begin!"
 msgstr "Börja"
 
-#: ../sma-client/public/javascripts/app.js:6633
+#: ../sma-client/public/javascripts/app.js:6641
 msgid "Log in"
 msgstr "Logga in"
 
-#: ../sma-client/public/javascripts/app.js:7165
+#: ../sma-client/public/javascripts/app.js:7173
 msgid "Did you forget your password?"
 msgstr "Har du glömt ditt passord?"
 
-#: ../sma-client/public/javascripts/app.js:7166
+#: ../sma-client/public/javascripts/app.js:7174
 msgid "Check your email!"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:7167
+#: ../sma-client/public/javascripts/app.js:7175
 msgid "Check your network connection and try again"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8171
+#: ../sma-client/public/javascripts/app.js:8179
 msgid "Try again"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8175
+#: ../sma-client/public/javascripts/app.js:8183
 msgid "Close"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8181
+#: ../sma-client/public/javascripts/app.js:8189
 msgid "Email me"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8315
+#: ../sma-client/public/javascripts/app.js:8323
 msgid "Help language"
 msgstr "Hjälpspråk"
 
-#: ../sma-client/public/javascripts/app.js:8331
+#: ../sma-client/public/javascripts/app.js:8339
 msgid "Play audio?"
 msgstr "Spela audio?"
 
-#: ../sma-client/public/javascripts/app.js:8410
-#: ../sma-client/public/javascripts/app.js:8414
+#: ../sma-client/public/javascripts/app.js:8418
 #: ../sma-client/public/javascripts/app.js:8422
+#: ../sma-client/public/javascripts/app.js:8430
 msgid "Top 10"
 msgstr "Tio i topp"
 
-#: ../sma-client/public/javascripts/app.js:8418
+#: ../sma-client/public/javascripts/app.js:8426
 msgid "Statistics"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8426
+#: ../sma-client/public/javascripts/app.js:8434
 msgid "Loading..."
 msgstr "Laddar..."
 
-#: ../sma-client/public/javascripts/app.js:8432
+#: ../sma-client/public/javascripts/app.js:8440
 msgid "Show my score to everyone?"
 msgstr "Visa mina poäng till andra?"
 
-#: ../sma-client/public/javascripts/app.js:8448
+#: ../sma-client/public/javascripts/app.js:8456
 msgid ""
 "You are playing anonymously, so your points may not be stored if you "
 "leave the app."
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8454
+#: ../sma-client/public/javascripts/app.js:8462
 msgid "Your stats"
 msgstr ""
 
-#: ../sma-client/public/javascripts/app.js:8462
+#: ../sma-client/public/javascripts/app.js:8470
 msgid "points"
 msgstr "poäng"
 
-#: ../sma-client/public/javascripts/app.js:8472
+#: ../sma-client/public/javascripts/app.js:8480
 msgid "Learn some words to see stats!"
 msgstr "Lär några ord för att se status!"
 

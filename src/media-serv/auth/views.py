@@ -49,7 +49,9 @@ def nopes(error, reasons):
                    )
 
 
-# TODO: validate, check that user exists, if not, nope
+# TODO: store a randomized user login token that is valid until the user
+# logs out, and return this to the client.
+
 @blueprint.route('/user/login/', methods=['POST'])
 def login():
     from flask import jsonify
@@ -515,6 +517,30 @@ def create_user():
     users.insert(user_kwargs)
 
     return jsonify(success=True)
+
+@blueprint.route('/user/has_session/', methods=['POST'])
+def user_has_session():
+    users = current_app.mongodb.db.users
+
+    un = None
+    user_id = None
+    username = False
+    email = False
+    success = False
+
+    if 'username' in session:
+        un = session['username']
+        if un:
+            user = users.find_one({"username": un})
+            user_id = user.get('_id')
+            email = user.get('email')
+            username = user.get('username')
+            success = True
+
+    print "session: %s, %s" % (str(un), str(user_id))
+
+    return jsonify(success=success, username=username, email=email)
+
 
 @blueprint.route('/user/logout/')
 def logout():

@@ -172,8 +172,6 @@ module.exports = class Application
       # This controls where media db is read from.
       @server.offline_media = true
 
-  initializeMediaModels: () ->
-    
   initialize: (options = {}) ->
     window.OnlineStatus = true
 
@@ -203,6 +201,7 @@ module.exports = class Application
 
     @loadingTracker.showLoading()
 
+    # TODO: use phonegap APIs in AudioPlayer if available.
     @audio = new AudioPlayer()
 
     @gettext = new Gettext({
@@ -274,7 +273,7 @@ makeLogger = () ->
   return log
 
 window.app = new Application
-makeLogger()
+window.client_log = makeLogger()
 
 window.onerror = (errorMsg, url, lineNumber) ->
   if navigator.onLine

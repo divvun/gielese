@@ -48,11 +48,18 @@ with simultaneous ability to build android and iOS apps.
 
 ## Major TODOs:
 
- * dev vs. live : using server
+ * dev vs. live: using server
+
+ * localStorage -- does it need permissions for phonegap?
 
  * Offline mode means that user login will need to return a token and session data
    that can be stored, so if user tries to log in in offline mode and has been
    kicked out for some reason, they can continue playing
+
+     - offline works now, but
+
+     - when the browser connects again, need to have a login and sync button appear.
+
 
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
@@ -62,9 +69,6 @@ with simultaneous ability to build android and iOS apps.
  * Make sure that everything can run without a network connection.
 
     - currently app must phone home to be able to work.
-
-    - need to have an offline version that is used if there is no connection,
-      but also be able to update this as needed.
 
  * Audio playing: No need for Soundmanager to handle this, use test on
    phonegap's device API. for now it seems like soundmanager works just the
