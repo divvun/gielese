@@ -179,11 +179,16 @@ module.exports = class Application
       @server.path == window.location.hostname
 
     # TODO: how to detect phonegap on live device, and choose correct hostname?
+    @device_type = "mobile"
+    @media_size = "small"
+    @video_format = "gif"
 
     @initPhoneGap()
 
     # TODO: when to automatically clear localstorage, and check for
     # existing session?
+    @device_type = "mobile"
+    @media_size = "small"
 
     if $(window).width() > 499
       @device_type = "tablet"

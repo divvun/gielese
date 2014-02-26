@@ -64,18 +64,27 @@ The file will be generated in `bin`. This should be enough for building Android
 
 http://stackoverflow.com/questions/17316910/phonegap-run-from-cli-with-release-and-self-signed-app-requires-me-to-patch-co
 
+Other relevant docs:
+
+ * http://developer.android.com/tools/device.html
+ * http://developer.android.com/tools/publishing/app-signing.html
+
+
 ## Major TODOs:
 
  * publishing in app store: 
-   + android
-     - debug mode not allowed for upload: 
-        http://developer.android.com/tools/device.html
-     - must be signed:
-        http://developer.android.com/tools/publishing/app-signing.html
+   iOS: ? 
 
-    
+ * building for mobile vs. tablet
+   http://developer.android.com/guide/practices/screens_support.html#range
+   http://developer.android.com/guide/topics/manifest/compatible-screens-element.html
+   http://blog.blundell-apps.com/list-of-android-devices-with-pixel-density-buckets/
 
- * some assets appear to be missing since reorg
+
+   expansion file: 
+
+   http://developer.android.com/google/play/expansion-files.html
+
 
  * dev vs. live: using server
 

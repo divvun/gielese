@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.gielese" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.gielese" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Gielese</name>
     <description>
         Gïelese is a language learning application for South Saami.
@@ -23,7 +23,7 @@
     <preference name="phonegap-version" value="3.0.0" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
-    <preference name="target-device" value="universal" />
+    <preference name="target-device" value="handset" />
     <preference name="presentationstyle" value="fullscreen" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
