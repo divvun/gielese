@@ -17,12 +17,12 @@
        under the License.
  */
 
-package com.phonegap.helloworld;
+package com.phonegap.gielese;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
 
-public class HelloWorld extends CordovaActivity 
+public class Gielese extends CordovaActivity 
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -30,9 +30,8 @@ public class HelloWorld extends CordovaActivity
         super.onCreate(savedInstanceState);
         super.init();
         // Set by <content src="index.html" /> in config.xml
-        super.setIntegerProperty("loadUrlTimeoutValue", 70000);
         super.loadUrl(Config.getStartUrl());
-        // super.loadUrl("file:///android_asset/www/main.html");
+        //super.loadUrl("file:///android_asset/www/index.html");
     }
 }
 

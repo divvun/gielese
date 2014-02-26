@@ -63,7 +63,7 @@ with simultaneous ability to build android and iOS apps.
 
  * android troubleshooting: 
 
-   - https://www.robertkehoe.com/2013/01/fix-for-phonegap-connection-to-server-was-unsuccessful/
+   - android now works, but cannot find some assets for some reason
 
  * Phonegap media paths must be within the phonegap server thingy, but when
    running standalone, they need to instead be coming from the media server.
