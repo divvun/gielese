@@ -46,7 +46,34 @@ with simultaneous ability to build android and iOS apps.
  * Media DB install process needs to be run for these differnt platform types
    so that different JSON platforms are available
 
+
+### Release process
+
+http://stackoverflow.com/questions/17316910/phonegap-run-from-cli-with-release-and-self-signed-app-requires-me-to-patch-co
+
+#### Building release
+
+    phonegap build android
+    cd PATH_TO_RELEASE/platforms/android
+    ant release
+
+NB: you will be prompted for the keystore password (twice). This is in priv too.
+
+The file will be generated in `bin`. This should be enough for building Android
+.apk files for release, but but if this is not enough see further steps in the following document.
+
+http://stackoverflow.com/questions/17316910/phonegap-run-from-cli-with-release-and-self-signed-app-requires-me-to-patch-co
+
 ## Major TODOs:
+
+ * publishing in app store: 
+   + android
+     - debug mode not allowed for upload: 
+        http://developer.android.com/tools/device.html
+     - must be signed:
+        http://developer.android.com/tools/publishing/app-signing.html
+
+    
 
  * some assets appear to be missing since reorg
 
