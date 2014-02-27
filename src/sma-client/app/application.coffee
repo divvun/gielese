@@ -60,9 +60,12 @@ class LeksaOptions
 module.exports = class Application
 
   # This will be overridden in init.
+
   server:
-    path: "http://localhost:5000"
+    path: "http://gielese.no"
     offline_media: false
+
+  # TODO: override server.path in specific development modes
 
   enable_webfonts: () ->
     if not WebFont?

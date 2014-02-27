@@ -5,6 +5,7 @@ module.exports = class UserSettings extends Backbone.Collection
   # simple.
 
   url: () ->
+    # This must always use the server path
     return app.server.path + "/user/settings/"
 
   model: UserSetting

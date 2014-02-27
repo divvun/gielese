@@ -46,6 +46,12 @@ with simultaneous ability to build android and iOS apps.
  * Media DB install process needs to be run for these differnt platform types
    so that different JSON platforms are available
 
+ * Brunch build process must include --production
+
+    brunch build --production
+
+TODO: maybe make a fab process to make this easier
+ - include removing of `*.map` files and whatnot
 
 ### Release process
 
@@ -80,11 +86,9 @@ Other relevant docs:
    http://developer.android.com/guide/topics/manifest/compatible-screens-element.html
    http://blog.blundell-apps.com/list-of-android-devices-with-pixel-density-buckets/
 
-
    expansion file: 
 
    http://developer.android.com/google/play/expansion-files.html
-
 
  * dev vs. live: using server
 
@@ -133,14 +137,7 @@ Other relevant docs:
 
  * freeze orientation
 
- * icons 
-
- * rename app
-   - the way phonegap sets things up depends on <widget> <name>, which has to
-   	 be changed in a few places, and need to confirm that in changing things,
-   	 nothing else is broken
-
- * cordova splash-screen instead? 
+ * phonegap-based splash instead
 
  * contact info
 
