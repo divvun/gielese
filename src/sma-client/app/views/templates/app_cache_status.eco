@@ -1,5 +1,5 @@
 <div id="loading_float">
-  <img src="static/client/images/icon_loading_spinner.gif"/>
+  <img src="images/icon_loading_spinner.gif"/>
   <span id="status">
     <span id="message">Initializing offline cache ... </span>  
     <span id="cache_count">&nbsp;</span>/<span id="cache_total"><%- @obj_count %></span>

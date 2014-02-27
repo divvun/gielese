@@ -232,7 +232,7 @@ module.exports = class Application
 
     # TODO: phonegapize
     soundManager.setup
-      url: "static/client/swf/"
+      url: "swf/"
       debugMode: false
       defaultOptions:
         volume: 50
