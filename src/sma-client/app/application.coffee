@@ -237,19 +237,20 @@ module.exports = class Application
     @router = new Router()
 
     # TODO: phonegapize
-    soundManager.setup
-      url: "static/swf/"
-      debugMode: false
-      defaultOptions:
-        volume: 50
-      useConsole: true
-      preferFlash: false
-      useHTML5Audio: true
-      useFlashBlock: true
-      onready: () ->
-        console.log "SoundManager ready"
-      ontimeout: () ->
-        window.client_log.error('SM2 init failed!')
+    if not window.PhoneGapIndex
+      soundManager.setup
+        url: "static/swf/"
+        debugMode: false
+        defaultOptions:
+          volume: 50
+        useConsole: true
+        preferFlash: false
+        useHTML5Audio: true
+        useFlashBlock: true
+        onready: () ->
+          console.log "SoundManager ready"
+        ontimeout: () ->
+          window.client_log.error('SM2 init failed!')
 
     # usually ISO 639-1, excepting languages that don't have them but the trick
     # is that we want to store ISO 639-2, because the lexicon has special needs

@@ -2,18 +2,22 @@ SoundLoadingTemplate = require '../views/templates/sound_loading'
 
 module.exports = class AudioPlayer
 
-  playAndroid: (path) ->
-    # TODO: may need to update path to be relative to whatever storage
-    window.media_obj = new Media('file:///android_asset/www/' + path)
+  # TODO: integrate these with success / finish events, but good for now.
+  playPhoneGap: (path, opts = {}) ->
+    opts.begin()
+    window.media_obj = new Media(path, opts.finished, opts.error)
+    opts.whileloading()
     window.media_obj.play()
     return true
 
+  playiOS: (path, opts = {}) ->
+    @playPhoneGap(path, opts)
+
+  playAndroid: (path, opts = {}) ->
+    path = 'file:///android_asset/www/' + path
+    @playPhoneGap(path, opts)
+
   playPath: (path, opts={}) ->
-    # TODO: user feedback about whether audio is downloaded or not.
-    if window.PhoneGapIndex
-      if window.device.platform == "Android"
-        @playAndroid(path)
-        return true
 
     loading = $(document).find('#sound_loading_bar')
     if loading.length == 0
@@ -40,6 +44,21 @@ module.exports = class AudioPlayer
           loading.fadeIn()
       if this.bytesTotal == this.bytesLoaded
         loading.fadeOut()
+
+    # TODO: user feedback about whether audio is downloaded or not.
+    if window.PhoneGapIndex
+      phonegap_audio_opts =
+        begin: begin_event
+        error: error_event
+        finished: finished_event
+        whileloading: whileload_event
+
+      if window.device.platform == "Android"
+        @playAndroid(path, phonegap_audio_opts)
+        return true
+      if window.device.platform == "iOS"
+        @playiOS(path, phonegap_audio_opts)
+        return true
 
     if soundManager.enabled
       sound_id = "concept_audio"
