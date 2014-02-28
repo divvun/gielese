@@ -403,6 +403,11 @@ def landing():
     from flask import Response
     return render_template('landing.html')
 
+@app.route('/privacy/', methods=['GET'])
+def privacy():
+    from flask import Response
+    return render_template('privacy.html')
+
 @app.route('/video-test/', methods=['GET'])
 def video_test():
     from flask import Response
