@@ -18,8 +18,6 @@ with simultaneous ability to build android and iOS apps.
 
 ## Platform deployment steps: 
 
- * hostname: dev.gielese.no also needs to be accounted for
-
  * Media directory needs to be pruned for media formats that aren't necessary,
     eg:
 
@@ -118,6 +116,8 @@ This will open a debugger for the emulator instance.
 
  * publishing in app store: 
    iOS: ? 
+
+ * misc resource path issues due to path stuff on standalone version
 
  * Offline mode means that user login will need to return a token and session data
    that can be stored, so if user tries to log in in offline mode and has been

@@ -270,7 +270,7 @@ module.exports = class FrontPage extends Backbone.View
           username: username
           password: password
           success: () =>
-            setTimeout(@hideLoading, 500)
+            setTimeout(app.frontPage.hideLoading, 500)
             $('.login_text').hide()
             $('.begin_text').show()
             $('#loginform_subsub').slideUp()
@@ -285,11 +285,11 @@ module.exports = class FrontPage extends Backbone.View
 
     if form_sub_action == 'create'
       login_request.always = (resp) =>
-        setTimeout(@hideLoading, 500)
+        setTimeout(app.frontPage.hideLoading, 500)
 
     if form_sub_action == 'login'
       login_request.success = (resp) =>
-        setTimeout(@hideLoading, 500)
+        setTimeout(app.frontPage.hideLoading, 500)
         if app.user
           app.frontPage.storeForm()
           $("#loginform_success").show()
@@ -437,6 +437,7 @@ module.exports = class FrontPage extends Backbone.View
     return
 
   show_login_error: (msg, forgotten=false, username=false, try_again=true) ->
+    @hideLoading()
     if @login_error_popup?
       @login_error_popup.remove()
 
