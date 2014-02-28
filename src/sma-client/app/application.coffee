@@ -194,8 +194,6 @@ module.exports = class Application
 
     if window.location.hostname == 'gielese.no'
       @server.path == 'http://gielese.no'
-    else if window.location.pathname.search('play')
-      @server.path == 'http://localhost:5000'
 
     # TODO: how to detect phonegap on live device, and choose correct hostname?
     @device_type = "mobile"
