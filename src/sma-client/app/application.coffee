@@ -58,13 +58,6 @@ class LeksaOptions
   constructor: ->
 
 module.exports = class Application
-
-  # This will be overridden in init.
-
-  server:
-    path: "http://localhost:5000"
-    offline_media: false
-
   # TODO: override server.path in specific development modes
 
   enable_webfonts: () ->
@@ -191,6 +184,10 @@ module.exports = class Application
 
   initialize: (options = {}) ->
     window.OnlineStatus = true
+
+    @server =
+      path: "http://localhost:5000"
+      offline_media: false
 
     if window.location.hostname == 'gielese.no'
       @server.path == 'http://gielese.no'
