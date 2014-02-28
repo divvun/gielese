@@ -2,18 +2,28 @@ SoundLoadingTemplate = require '../views/templates/sound_loading'
 
 module.exports = class AudioPlayer
 
-  # TODO: integrate these with success / finish events, but good for now.
-  playPhoneGap: (path, opts = {}) ->
+  playPhoneGap: (path, opts) ->
+    # TODO: android has a limited amount of media objects it can use per app,
+    #   so need to stop and release
+    # http://docs.phonegap.com/en/3.3.0/cordova_media_media.md.html#media.release
+    # TODO: how to check if media status is Media.MEDIA_RUNNING, stop existing sound 
+    #  - seems like going too fast can prevent audio playing
+    phonegap_finish = () =>
+        window.media_obj.stop()
+        window.media_obj.release()
+        opts.finished()
+
     opts.begin()
-    window.media_obj = new Media(path, opts.finished, opts.error)
+    window.media_obj = new Media(path, phonegap_finish, opts.error)
     opts.whileloading()
     window.media_obj.play()
+    # opts.finished()
     return true
 
-  playiOS: (path, opts = {}) ->
+  playiOS: (path, opts) ->
     @playPhoneGap(path, opts)
 
-  playAndroid: (path, opts = {}) ->
+  playAndroid: (path, opts) ->
     path = 'file:///android_asset/www/' + path
     @playPhoneGap(path, opts)
 

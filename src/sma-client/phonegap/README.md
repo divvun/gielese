@@ -117,6 +117,16 @@ This will open a debugger for the emulator instance.
  * publishing in app store: 
    iOS: ? 
 
+ * Offline mode means that user login will need to return a token and session data
+   that can be stored, so if user tries to log in in offline mode and has been
+   kicked out for some reason, they can continue playing
+
+     - offline works now, but
+
+     - when the browser connects again, need to have a login and sync button appear.
+
+     - maybe: https://github.com/nilbus/Backbone.dualStorage
+
  * building for mobile vs. tablet
        http://developer.android.com/guide/practices/screens_support.html#range
        http://developer.android.com/guide/topics/manifest/compatible-screens-element.html
@@ -126,42 +136,10 @@ This will open a debugger for the emulator instance.
 
    http://developer.android.com/google/play/expansion-files.html
 
- * dev vs. live: using server
-
- * localStorage -- does it need permissions for phonegap?
-
- * Offline mode means that user login will need to return a token and session data
-   that can be stored, so if user tries to log in in offline mode and has been
-   kicked out for some reason, they can continue playing
-
-     - offline works now, but
-
-     - when the browser connects again, need to have a login and sync button appear.
-     - maybe: https://github.com/nilbus/Backbone.dualStorage
-
- * Phonegap media paths must be within the phonegap server thingy, but when
-   running standalone, they need to instead be coming from the media server.
-
-    - concepts.json works well with pruned media directories.
-    - or does it?
-
  * Make sure that everything can run without a network connection.
 
     - TODO: show a message on ti-på-topp if user is offline and scores haven't
       been downloaded yet (but store them in local storage just in case)
-
-    - app works without network connection, unless user wants to authenticate.
-
-    - currently app must phone home to be able to work.
-
- * Audio playing: No need for Soundmanager to handle this, use test on
-   phonegap's device API. for now it seems like soundmanager works just the
-   same, but it's probably not ideal.
-
- * Device and other plugin APIs won't actually be available in iOS simulator? 
-   `http://docs.phonegap.com/en/edge/guide_platforms_ios_index.md.html`
-
-    - suggested to use ripple to figure this stuff out. : emulate.phonegap.com
 
  ? What to do when server has new media, but app hasn't been updated? 
 
@@ -171,9 +149,7 @@ This will open a debugger for the emulator instance.
    - setting the settings seems not to have resulted in things workign
      (UIViewControllerBasedStatusBarAppearance, UIStatusBarHidden)
 
- * freeze orientation
-
- * phonegap-based splash instead
+ * phonegap-based splash doesn't work on android
 
  * contact info
 
