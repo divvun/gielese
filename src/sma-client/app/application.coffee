@@ -140,6 +140,15 @@ module.exports = class Application
     'incorrect': () =>  app.soundEffectIncorrect()
     
   constructor: ->
+    @server =
+      path: "http://localhost:5000"
+      offline_media: false
+
+    if window.location.hostname == 'gielese.no'
+      @server.path = window.location.origin
+
+    @initPhoneGap()
+
     $ =>
       @enable_webfonts()
       @initialize
@@ -185,19 +194,10 @@ module.exports = class Application
   initialize: (options = {}) ->
     window.OnlineStatus = true
 
-    @server =
-      path: "http://localhost:5000"
-      offline_media: false
-
-    if window.location.hostname == 'gielese.no'
-      @server.path == 'http://gielese.no'
-
     # TODO: how to detect phonegap on live device, and choose correct hostname?
     @device_type = "mobile"
     @media_size = "small"
     @video_format = "gif"
-
-    @initPhoneGap()
 
     # TODO: when to automatically clear localstorage, and check for
     # existing session?
