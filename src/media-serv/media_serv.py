@@ -392,10 +392,16 @@ def categories():
 ### Front page and brunch serving view
 ##
 
-@app.route('/', methods=['GET'])
+@app.route('/play/', methods=['GET'])
 def client():
     from flask import Response
     return render_template('index.html')
+
+# TODO: switching this eventually with root
+@app.route('/', methods=['GET'])
+def landing():
+    from flask import Response
+    return render_template('landing.html')
 
 @app.route('/video-test/', methods=['GET'])
 def video_test():

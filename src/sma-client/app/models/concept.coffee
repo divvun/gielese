@@ -54,6 +54,11 @@ module.exports = class Concept extends Backbone.Model
     # doesn't exist, but large/mobile does, take that one
 
     has_media = @.get('media')
+
+    path_infix = ''
+    if not window.PhoneGapIndex
+      path_infix = '/'
+
     if 'videos' of has_media
       if has_media.videos.length > 0
 
@@ -64,17 +69,15 @@ module.exports = class Concept extends Backbone.Model
           return false
 
         if videos_for_device.length > 0
-          return videos_for_device[0]
+          return path_infix + videos_for_device[0].path
 
         return videos_for_device
 
     if opts.no_default
       return false
 
-    return "static/images/missing_concept_image.jpg"
+    return path_infix + "static/images/missing_concept_image.jpg"
 
-  hasGif: (opts = {}) ->
-    
   hasImage: (opts = {}) ->
     if not opts.device
       device = app.device_type
@@ -94,6 +97,11 @@ module.exports = class Concept extends Backbone.Model
     # TODO: maybe preference to image size over device? i.e., if large/tablet
     # doesn't exist, but large/mobile does, take that one
     has_media = @.get('media')
+
+    path_infix = ''
+    if not window.PhoneGapIndex
+      path_infix = '/'
+
     if 'image' of has_media
       if has_media.image.length > 0
 
@@ -104,23 +112,23 @@ module.exports = class Concept extends Backbone.Model
           gifs = _.filter images_for_device, (i) ->
             return i.path.search('.gif') > -1
           if gifs.length > 0
-            return gifs[0].path
+            return path_infix + gifs[0].path
         else
           images_for_device = _.filter images_for_device, (i) ->
             return i.path.search('.gif') == -1
 
         if images_for_device.length == 0
-          return has_media.image[0].path
+          return path_infix + has_media.image[0].path
 
         if images_for_device.length > 0
-          return images_for_device[0].path
+          return path_infix + images_for_device[0].path
 
         return images_for_device
 
     if opts.no_default
       return false
 
-    return "static/images/missing_concept_image.jpg"
+    return path_infix + "static/images/missing_concept_image.jpg"
 
   getTranslationsToLang: (lang) ->
     @getTranslations().filter (c) =>
@@ -144,6 +152,10 @@ module.exports = class Concept extends Backbone.Model
     has_media = @.get('media')
     is_not_last_path = (s) => s.path != @last_sound_path
 
+    path_infix = ''
+    if not window.PhoneGapIndex
+      path_infix = '/'
+
     if app.options.getSetting('enable_audio') and has_media.audio?
       if has_media.audio.length > 0
 
@@ -157,7 +169,7 @@ module.exports = class Concept extends Backbone.Model
         if audios.length > 1
           @last_sound_path = has_audio_file
 
-        return has_audio_file
+        return path_infix + has_audio_file
 
     return false
   
@@ -169,12 +181,16 @@ module.exports = class Concept extends Backbone.Model
 
   render_concept: () ->
     concept_media_value = @.get('concept_value')
+    c_type = @.get('concept_type')
 
     if @.get('concept_type') == 'img'
       concept_media_value = @hasImage()
+    if @.get('concept_type') == 'vid'
+      concept_media_value = @hasVideo()
+      c_type = 'img'
     
     LeksaConceptTemplate({
       concept: @
-      concept_type: @.get('concept_type')
+      concept_type: c_type
       concept_value: concept_media_value
     })

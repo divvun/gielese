@@ -54,6 +54,10 @@ The category image is selected from media.
         # doesn't exist, but large/mobile does, take that one
         has_media = @.get('media')
 
+        path_infix = ''
+        if not window.PhoneGapIndex
+          path_infix = '/'
+
         if not has_media?
           return false
 
@@ -64,10 +68,10 @@ The category image is selected from media.
               return i.size == size and i.device == device
     
             if images_for_device.length == 0
-              return has_media.icon[0].path
+              return path_infix + has_media.icon[0].path
     
             if images_for_device.length > 0
-              return images_for_device[0].path
+              return path_infix + images_for_device[0].path
     
             return images_for_device
         return false
@@ -87,6 +91,10 @@ The category image is selected from media.
         # doesn't exist, but large/mobile does, take that one
         has_media = @.get('media')
 
+        path_infix = ''
+        if not window.PhoneGapIndex
+          path_infix = '/'
+
         if not has_media?
           return false
 
@@ -97,10 +105,10 @@ The category image is selected from media.
               return i.size == size and i.device == device
     
             if images_for_device.length == 0
-              return has_media.image[0].path
+              return path_infix + has_media.image[0].path
     
             if images_for_device.length > 0
-              return images_for_device[0].path
+              return path_infix + images_for_device[0].path
     
             return images_for_device
         return false

@@ -267,7 +267,13 @@ def main():
                                , target
                                )
 
-    # TODO: copy_directory(source, target)
+    try:
+        copy_directory(source, target)
+    except Exception, e:
+        print e
+        print 'deleting first'
+        rm_directory(target)
+        copy_directory(source, target)
 
     prune_opts = {
         'strip_formats': strip_files.split(','),
@@ -276,7 +282,7 @@ def main():
         'dry_run': prune_dry_run
     }
 
-    # TODO: prune_category_media(target_path, **prune_opts)
+    prune_category_media(target_path, **prune_opts)
 
     prune_concept_media(target_path, **prune_opts)
 

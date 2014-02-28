@@ -128,6 +128,19 @@ module.exports = class Application
       @incorrect_concept.playAudio()
     true
     
+  icon_resource_path: (p) ->
+    # Take what we get if running in the app
+    # otherwise make it non-relative if running in standalone mode
+    path_infix = ''
+    if not window.PhoneGapIndex
+      path_infix = '/static/'
+    return path_infix + p
+
+  icons:
+    'speaker': () -> app.icon_resource_path "images/speaker.png"
+    'aajege_logo': () -> app.icon_resource_path "images/aajege.png"
+    'ajax_loader': () -> app.icon_resource_path "images/ajax-loader.gif"
+
   soundEffects:
     'click': () => app.audio.playPath('static/audio/click.mp3')
     'correct': () => app.soundEffectCorrect()
@@ -180,8 +193,8 @@ module.exports = class Application
     window.OnlineStatus = true
 
     if window.location.hostname == 'gielese.no'
-      @server.path == window.location.hostname
-    else if window.location.host == 'localhost:5000'
+      @server.path == 'http://gielese.no'
+    else if window.location.pathname.search('play')
       @server.path == 'http://localhost:5000'
 
     # TODO: how to detect phonegap on live device, and choose correct hostname?
@@ -236,10 +249,9 @@ module.exports = class Application
 
     @router = new Router()
 
-    # TODO: phonegapize
     if not window.PhoneGapIndex
       soundManager.setup
-        url: "static/swf/"
+        url: "/static/client/swf/"
         debugMode: false
         defaultOptions:
           volume: 50

@@ -18,6 +18,8 @@ with simultaneous ability to build android and iOS apps.
 
 ## Platform deployment steps: 
 
+ * hostname: dev.gielese.no also needs to be accounted for
+
  * Media directory needs to be pruned for media formats that aren't necessary,
     eg:
 

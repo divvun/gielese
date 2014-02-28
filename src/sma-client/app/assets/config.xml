@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.gielese" version="1.0.12" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.gielese" version="1.0.13" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Gielese</name>
     <description>
         Gïelese is a language learning application for South Saami.
     </description>
-    <author email="info@aajege.no" href="http://aajege.no">
+    <author email="feedback@divvun.no" href="http://divvun.no">
         Aajege / Divvun
     </author>
     <content src="index.html" />
+
     <gap:plugin name="org.apache.cordova.core.device"/>
     <gap:plugin name="org.apache.cordova.core.media"/>
     <gap:plugin name="org.apache.cordova.core.file"/>

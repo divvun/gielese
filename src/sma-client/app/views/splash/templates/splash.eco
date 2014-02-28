@@ -10,7 +10,7 @@
             </div>
             <div id="footer_logo">
                 <div id="logo">
-                    <img src="static/images/aajege.png" />
+                    <img src="<%- app.icons.aajege_logo() %>" />
                     <span class="aajege">Aajege</span>
                 </div>
                 <div id="copy">
