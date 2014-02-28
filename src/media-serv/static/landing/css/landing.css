@@ -1,0 +1,22 @@
+.logo-img {
+   display: block;
+   margin: 0 auto;
+}
+
+.soon {
+    opacity: .4;
+}
+
+.lead.note {
+    font-size: 150%;
+}
+
+.appstore-block {
+    display: block;
+    margin: 0 auto 1.5em auto;
+    text-align: center;
+}
+
+.appstore-block .note {
+    text-align: center;
+}
