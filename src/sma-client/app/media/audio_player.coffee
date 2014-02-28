@@ -2,8 +2,18 @@ SoundLoadingTemplate = require '../views/templates/sound_loading'
 
 module.exports = class AudioPlayer
 
+  playAndroid: (path) ->
+    # TODO: may need to update path to be relative to whatever storage
+    window.media_obj = new Media('file:///android_asset/www/' + path)
+    window.media_obj.play()
+    return true
+
   playPath: (path, opts={}) ->
     # TODO: user feedback about whether audio is downloaded or not.
+    if window.PhoneGapIndex
+      if window.device.platform == "Android"
+        @playAndroid(path)
+        return true
 
     loading = $(document).find('#sound_loading_bar')
     if loading.length == 0

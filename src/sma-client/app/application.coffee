@@ -62,7 +62,7 @@ module.exports = class Application
   # This will be overridden in init.
 
   server:
-    path: "http://gielese.no"
+    path: "http://localhost:5000"
     offline_media: false
 
   # TODO: override server.path in specific development modes
@@ -174,12 +174,15 @@ module.exports = class Application
           statusbar.hide()
       # This controls where media db is read from.
       @server.offline_media = true
+      @server.path = "http://gielese.no"
 
   initialize: (options = {}) ->
     window.OnlineStatus = true
 
     if window.location.hostname == 'gielese.no'
       @server.path == window.location.hostname
+    else if window.location.host == 'localhost:5000'
+      @server.path == 'http://localhost:5000'
 
     # TODO: how to detect phonegap on live device, and choose correct hostname?
     @device_type = "mobile"
@@ -235,7 +238,7 @@ module.exports = class Application
 
     # TODO: phonegapize
     soundManager.setup
-      url: "swf/"
+      url: "static/swf/"
       debugMode: false
       defaultOptions:
         volume: 50

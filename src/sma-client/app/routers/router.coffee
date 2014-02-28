@@ -126,7 +126,8 @@ module.exports = class Router extends Backbone.Router
     @changePage(app.splashView)
     # for testing
     # return false
-    if DSt.get('skip-splash')?
+    # Skip splash if dev setting is set, or if running in phonegap
+    if DSt.get('skip-splash')? or window.PhoneGapIndex
       time = 500
     else
       time = 5000

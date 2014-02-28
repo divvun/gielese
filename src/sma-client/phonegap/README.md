@@ -75,6 +75,42 @@ Other relevant docs:
  * http://developer.android.com/tools/device.html
  * http://developer.android.com/tools/publishing/app-signing.html
 
+## Debugging
+
+### Android
+
+Debugging the application within Android is fairly simple, assuming you've
+gotten the emulator to work.
+
+First, make sure `AndroidManifest.xml` has the following set in the
+`<application />` node:
+
+    android:debuggable="true"
+
+Then build and run the app, and open Chrome, and go to
+
+    about:inspect
+
+When you check `Discover USB Devices`, Chrome will look for the emulator and
+allow you to debug.
+
+#### Debugging the build process
+
+    cordova build android
+
+Returns way more info than
+
+    phonegap build android
+
+So, if in doubt, use that.
+
+### iOS
+
+Assuming the emulator works, you should be able to open Safari, and
+
+ * Development -> iPhone Simulator -> index.html
+
+This will open a debugger for the emulator instance.
 
 ## Major TODOs:
 
@@ -82,9 +118,9 @@ Other relevant docs:
    iOS: ? 
 
  * building for mobile vs. tablet
-   http://developer.android.com/guide/practices/screens_support.html#range
-   http://developer.android.com/guide/topics/manifest/compatible-screens-element.html
-   http://blog.blundell-apps.com/list-of-android-devices-with-pixel-density-buckets/
+       http://developer.android.com/guide/practices/screens_support.html#range
+       http://developer.android.com/guide/topics/manifest/compatible-screens-element.html
+       http://blog.blundell-apps.com/list-of-android-devices-with-pixel-density-buckets/
 
    expansion file: 
 
