@@ -282,6 +282,15 @@ module.exports = class Application
       'help_language': ISOs.two_to_three initial_language
     })
 
+    if window.PhoneGapIndex
+      if navigator.splashscreen?
+        navigator.splashscreen.show()
+        setTimeout(() ->
+          navigator.splashscreen.hide()
+          window.app.splash()
+        , 5000)
+
+
 makeLogger = () ->
   log = log4javascript.getLogger()
   ajaxlogger = new log4javascript.AjaxAppender(

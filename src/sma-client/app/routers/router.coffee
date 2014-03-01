@@ -127,12 +127,13 @@ module.exports = class Router extends Backbone.Router
     # for testing
     # return false
     # Skip splash if dev setting is set, or if running in phonegap
-    if DSt.get('skip-splash')? or window.PhoneGapIndex
+    
+    if DSt.get('skip-splash')?
       time = 500
     else
       time = 5000
 
-    setTimeout(() =>
+    if window.PhoneGapIndex and navigator.splashscreen?
       configured_already = DSt.get('gielese-configured', false)
       if configured_already and app.user
         app.categoryMenu = new CategoryMenu()
@@ -140,7 +141,16 @@ module.exports = class Router extends Backbone.Router
       else
         app.frontPage = new FrontPage()
         @fadePage(app.frontPage)
-    , time)
+    else
+      setTimeout(() =>
+        configured_already = DSt.get('gielese-configured', false)
+        if configured_already and app.user
+          app.categoryMenu = new CategoryMenu()
+          @fadePage(app.categoryMenu)
+        else
+          app.frontPage = new FrontPage()
+          @fadePage(app.frontPage)
+      , time)
 
   reset: ->
     DSt.set('gielese-configured', false)
