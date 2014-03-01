@@ -41,6 +41,7 @@
 		5DEBA3EABC2145F0BE4202D0 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD688D7D3A44A4B15EFF7F /* CDVFile.m */; };
 		16D3636F47664D5EAD9694E4 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F2CB3984A24759B8460D29 /* CDVLocalFilesystem.m */; };
 		563C050F625F4ECF9590056B /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7E3022C76E4FF7885A9848 /* CDVAssetLibraryFilesystem.m */; };
+		9706D9E0A533450D80E9381D /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB489066D3744E3929C6749 /* CDVSplashScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		B6DE08E89BAA431D98DC0870 /* CDVFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVFile.h"; path = "org.apache.cordova.file/CDVFile.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		1CBF0CA4D37148BE8A231734 /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocalFilesystem.h"; path = "org.apache.cordova.file/CDVLocalFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		377368AC7FEE408BB3CA3E1A /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAssetLibraryFilesystem.h"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		7EB489066D3744E3929C6749 /* CDVSplashScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSplashScreen.m"; path = "org.apache.cordova.splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		38BC7AD85452402085044CD7 /* CDVSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSplashScreen.h"; path = "org.apache.cordova.splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +246,8 @@
 				B6DE08E89BAA431D98DC0870 /* CDVFile.h */,
 				1CBF0CA4D37148BE8A231734 /* CDVLocalFilesystem.h */,
 				377368AC7FEE408BB3CA3E1A /* CDVAssetLibraryFilesystem.h */,
+				7EB489066D3744E3929C6749 /* CDVSplashScreen.m */,
+				38BC7AD85452402085044CD7 /* CDVSplashScreen.h */,
 			);
 			name = Plugins;
 			path = Gielese/Plugins;
@@ -438,6 +443,7 @@
 				5DEBA3EABC2145F0BE4202D0 /* CDVFile.m in Sources */,
 				16D3636F47664D5EAD9694E4 /* CDVLocalFilesystem.m in Sources */,
 				563C050F625F4ECF9590056B /* CDVAssetLibraryFilesystem.m in Sources */,
+				9706D9E0A533450D80E9381D /* CDVSplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -117,26 +117,9 @@ This will open a debugger for the emulator instance.
  * publishing in app store: 
    iOS: ? 
 
+ * fontawesome to offline
+
  * misc resource path issues due to path stuff on standalone version
-
- * Offline mode means that user login will need to return a token and session data
-   that can be stored, so if user tries to log in in offline mode and has been
-   kicked out for some reason, they can continue playing
-
-     - offline works now, but
-
-     - when the browser connects again, need to have a login and sync button appear.
-
-     - maybe: https://github.com/nilbus/Backbone.dualStorage
-
- * building for mobile vs. tablet
-       http://developer.android.com/guide/practices/screens_support.html#range
-       http://developer.android.com/guide/topics/manifest/compatible-screens-element.html
-       http://blog.blundell-apps.com/list-of-android-devices-with-pixel-density-buckets/
-
-   expansion file: 
-
-   http://developer.android.com/google/play/expansion-files.html
 
  * Make sure that everything can run without a network connection.
 
@@ -152,8 +135,30 @@ This will open a debugger for the emulator instance.
      (UIViewControllerBasedStatusBarAppearance, UIStatusBarHidden)
 
  * phonegap-based splash doesn't work on android
+   - called by js methods?
 
  * contact info
+
+ * Offline mode means that user login will need to return a token and session data
+   that can be stored, so if user tries to log in in offline mode and has been
+   kicked out for some reason, they can continue playing
+
+     - offline works now, but
+
+     - when the browser connects again, need to have a login and sync button appear.
+
+     - maybe: https://github.com/nilbus/Backbone.dualStorage
+
+
+ * building for mobile vs. tablet
+       http://developer.android.com/guide/practices/screens_support.html#range
+       http://developer.android.com/guide/topics/manifest/compatible-screens-element.html
+       http://blog.blundell-apps.com/list-of-android-devices-with-pixel-density-buckets/
+
+   expansion file: 
+
+   http://developer.android.com/google/play/expansion-files.html
+
 
 # Installing
 

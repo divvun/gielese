@@ -146,6 +146,8 @@ module.exports = class Application
 
     if window.location.hostname == 'gielese.no'
       @server.path = window.location.origin
+    else if window.location.hostname == 'dev.gielese.no'
+      @server.path = window.location.origin
 
     @initPhoneGap()
 
