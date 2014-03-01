@@ -8,14 +8,36 @@ from fabric.api import env
 from fabric.contrib.console import confirm
 from fabvenv import virtualenv
 
-staging_remote_host_and_path = os.environ.get("GTLAB_AAJEGE_STAGING_HOST")
-if staging_remote_host_and_path is None:
-    _print_and_exit("GTLAB_AAJEGE_STAGING_HOST environment variable not set.")
+#
+## Host setup
+#
 
-staging_host, _, _stg_path = staging_remote_host_and_path.partition(':')
-
-env.hosts = [staging_host, ]
 env.use_ssh_config = True
+
+def set_env(var, env):
+    prod_remote_host_and_path = os.environ.get(var)
+    if prod_remote_host_and_path is None:
+        _print_and_exit("%s environment variable not set." % var)
+        _print_and_exit("Must be in form of user@host://path/to/aajege/")
+	setattr(env, 'host_path', prod_remote_host_and_path)
+    _host, _, _stg_path = prod_remote_host_and_path.partition(':')
+    env.host_path = prod_remote_host_and_path
+    env.target_path = _stg_path
+    env.hosts = [_host]
+
+@task
+def production():
+	# Purposefully leaving this function name longer so I have to think
+	# more before I run it ;)
+    set_env("GIELESE_PROD_HOST", env)
+    env.production = True
+    env.development = False
+
+@task
+def dev():
+    set_env("GIELESE_DEV_HOST", env)
+    env.production = False
+    env.development = True
 
 @task
 def reinstall_local_db():
@@ -31,7 +53,7 @@ def rsync_svn():
 
 @task
 def svn_up_target():
-    host, _, path = staging_remote_host_and_path.partition(':')
+    path = env.target_path
 
     media_db_path = path + '/src/media-serv/'
     client_path = path + '/src/sma-client/'
@@ -50,7 +72,7 @@ def compile_translation_strings_local():
 
 @task
 def compile_translation_strings():
-    host, _, path = staging_remote_host_and_path.partition(':')
+    path = env.target_path
 
     media_db_path = path + '/src/media-serv/'
     client_path = path + '/src/sma-client/'
@@ -68,7 +90,7 @@ def compile_translation_strings():
 
 @task
 def clear_node_modules_rebuild():
-    host, _, path = staging_remote_host_and_path.partition(':')
+    path = env.target_path
 
     client_path = path + '/src/sma-client/'
 
@@ -82,7 +104,7 @@ def clear_node_modules_rebuild():
 
 @task
 def update_target_envs():
-    host, _, path = staging_remote_host_and_path.partition(':')
+    path = env.target_path
 
     media_db_path = path + '/src/media-serv/'
     client_path = path + '/src/sma-client/'
@@ -100,7 +122,7 @@ def update_target_envs():
 
 @task
 def update_media_db():
-    host, _, path = staging_remote_host_and_path.partition(':')
+    path = env.target_path
 
     media_db_path = path + '/src/media-serv/'
     media_dir_path = path + '/src/media-serv/static/media/'
@@ -122,7 +144,7 @@ def update_media_db():
 
 @task
 def npm_update_target(production=False):
-    host, _, path = staging_remote_host_and_path.partition(':')
+    path = env.target_path
 
     client_path = path + '/src/sma-client/'
     if production:
@@ -143,7 +165,7 @@ def npm_update_target(production=False):
 
 @task
 def brunch_build_target(production=False):
-    host, _, path = staging_remote_host_and_path.partition(':')
+    path = env.target_path
 
     print(cyan("Rebuilding client src ..."))
     client_path = path + '/src/sma-client/'
@@ -183,8 +205,8 @@ def deploy_client(production=False):
     brunch_build_target()
 
 @task
-def hup():
-    host, _, path = staging_remote_host_and_path.partition(':')
+def hup_dev():
+    path = env.target_path
 
     media_db_path = path + '/src/media-serv/'
     client_path = path + '/src/sma-client/'
@@ -194,6 +216,13 @@ def hup():
     with cd(media_db_path):
         run("kill -HUP `cat pidfile`")
     print(cyan(" Hup'd media serv ..."))
+
+@task
+def hup():
+	if env.development:
+		hup_dev()
+	elif env.production:
+		print(red(" Not available eyt "))
 
 @task
 def extract_strings():
