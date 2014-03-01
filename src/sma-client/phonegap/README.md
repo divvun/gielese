@@ -117,7 +117,9 @@ This will open a debugger for the emulator instance.
  * publishing in app store: 
    iOS: ? 
 
- * fontawesome to offline
+ * google lazy loader fonts -- offline 
+
+ * email reset, test that it all works on prod
 
  * misc resource path issues due to path stuff on standalone version
 
@@ -126,15 +128,7 @@ This will open a debugger for the emulator instance.
     - TODO: show a message on ti-på-topp if user is offline and scores haven't
       been downloaded yet (but store them in local storage just in case)
 
- ? What to do when server has new media, but app hasn't been updated? 
-
- * google fonts and fontawesome needs to have local cached versions
-
- * status bar
-   - setting the settings seems not to have resulted in things workign
-     (UIViewControllerBasedStatusBarAppearance, UIStatusBarHidden)
-
- * phonegap-based splash doesn't work on android
+ * ANDROID: phonegap-based splash doesn't work on android
    - called by js methods?
 
  * contact info
@@ -159,6 +153,10 @@ This will open a debugger for the emulator instance.
 
    http://developer.android.com/google/play/expansion-files.html
 
+
+ * IOS: status bar
+   - setting the settings seems not to have resulted in things workign
+     (UIViewControllerBasedStatusBarAppearance, UIStatusBarHidden)
 
 # Installing
 

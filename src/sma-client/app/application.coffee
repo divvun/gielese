@@ -152,6 +152,7 @@ module.exports = class Application
     @initPhoneGap()
 
     $ =>
+      # TODO: download open sans, kaushan
       @enable_webfonts()
       @initialize
         complete: () =>

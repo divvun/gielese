@@ -19,7 +19,7 @@ def set_env(var, env):
     if prod_remote_host_and_path is None:
         _print_and_exit("%s environment variable not set." % var)
         _print_and_exit("Must be in form of user@host://path/to/aajege/")
-	setattr(env, 'host_path', prod_remote_host_and_path)
+    setattr(env, 'host_path', prod_remote_host_and_path)
     _host, _, _stg_path = prod_remote_host_and_path.partition(':')
     env.host_path = prod_remote_host_and_path
     env.target_path = _stg_path
@@ -27,8 +27,8 @@ def set_env(var, env):
 
 @task
 def production():
-	# Purposefully leaving this function name longer so I have to think
-	# more before I run it ;)
+    # Purposefully leaving this function name longer so I have to think
+    # more before I run it ;)
     set_env("GIELESE_PROD_HOST", env)
     env.production = True
     env.development = False
@@ -83,7 +83,10 @@ def compile_translation_strings():
         with cd(media_db_path):
             run("svn up")
             print(cyan("Pulling from transifex ..."))
-            run("tx pull")
+            try:
+                b = run("tx pull")
+            except:
+                print(red("Pulling from transifex failed."))
             run("pybabel compile -d translations")
 
     print(cyan("Compiled translation strings ..."))
@@ -219,10 +222,10 @@ def hup_dev():
 
 @task
 def hup():
-	if env.development:
-		hup_dev()
-	elif env.production:
-		print(red(" Not available eyt "))
+    if env.development:
+        hup_dev()
+    elif env.production:
+        print(red(" Not available eyt "))
 
 @task
 def extract_strings():
