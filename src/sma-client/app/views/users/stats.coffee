@@ -231,8 +231,20 @@ module.exports = class UserStats extends Backbone.View
     )
 
     scores = @$el.find('div#high_scores')
-    $.get app.server.path + '/users/scores/',
-      (resp) =>
+    req = $.get app.server.path + '/users/scores/'
+    req.done (resp) =>
         scores.html HighScoreList
           highscores: resp.highscores
+        DSt.set("high_score_temp", JSON.stringify resp.highscores)
+
+    req.fail () ->
+      saved_scores = DSt.get("high_score_temp")
+      if saved_scores
+        high_scores = JSON.parse saved_scores
+        scores.html HighScoreList
+          highscores: high_scores
+      else
+        err = $('<p class="score_error" />')
+        err.html gettext.gettext "You must be connected to the internet to view high scores."
+        scores.html err
 

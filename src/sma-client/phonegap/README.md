@@ -117,33 +117,6 @@ This will open a debugger for the emulator instance.
  * publishing in app store: 
    iOS: ? 
 
- * google lazy loader fonts -- offline 
-
- * email reset, test that it all works on prod
-
- * misc resource path issues due to path stuff on standalone version
-
- * Make sure that everything can run without a network connection.
-
-    - TODO: show a message on ti-på-topp if user is offline and scores haven't
-      been downloaded yet (but store them in local storage just in case)
-
- * ANDROID: phonegap-based splash doesn't work on android
-   - called by js methods?
-
- * contact info
-
- * Offline mode means that user login will need to return a token and session data
-   that can be stored, so if user tries to log in in offline mode and has been
-   kicked out for some reason, they can continue playing
-
-     - offline works now, but
-
-     - when the browser connects again, need to have a login and sync button appear.
-
-     - maybe: https://github.com/nilbus/Backbone.dualStorage
-
-
  * building for mobile vs. tablet
        http://developer.android.com/guide/practices/screens_support.html#range
        http://developer.android.com/guide/topics/manifest/compatible-screens-element.html
@@ -152,7 +125,6 @@ This will open a debugger for the emulator instance.
    expansion file: 
 
    http://developer.android.com/google/play/expansion-files.html
-
 
  * IOS: status bar
    - setting the settings seems not to have resulted in things workign

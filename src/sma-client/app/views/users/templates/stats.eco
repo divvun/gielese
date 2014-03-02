@@ -62,8 +62,6 @@
                     </li>
                 </ul>
             </form>
-        <% else: %>
-            <p><%- gettext.gettext "You are playing anonymously, so your points may not be stored if you leave the app." %></p>
         <% end %>
     </div>
 
@@ -89,6 +87,9 @@
 
         <h3><%- gettext.gettext "Learn some words to see stats!" %></h3>
 
+    <% end %>
+    <% if not @user: %>
+        <p><%- gettext.gettext "You are playing anonymously, so your points may not be stored if you leave the app." %></p>
     <% end %>
     </div>
 </div>

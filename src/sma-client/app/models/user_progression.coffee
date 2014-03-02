@@ -69,7 +69,7 @@ module.exports = class UserProgression extends Backbone.Collection
   initialize: () ->
     @storage = new Offline.Storage('leksa-user-progression', @)
     # set after the user successfully authenticates
-    if app.has_user
+    if app.user
       if navigator.onLine
         @fetch()
 

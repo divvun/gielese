@@ -167,7 +167,7 @@ class LogsAPI(MethodView, SessionCheck):
         try:
             form.validate()
         except ValidationError, e:
-            return mongodoc_jsonify(data={'success': False, errors: e.messages})
+            return mongodoc_jsonify(data={'success': False, 'errors': e.messages})
 
         request.json['user_id'] = user_id
 
