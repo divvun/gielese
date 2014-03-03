@@ -81,7 +81,6 @@ def register_babel(app):
         """ This function defines the behavior involved in selecting a
         locale. """
 
-        locales = ['nb', 'sv', 'nob']
         default_locale = 'nb'
 
         # Does the locale exist already?
@@ -156,6 +155,7 @@ def set_locale(iso):
     from flask.ext.babel   import refresh
 
     session['locale'] = iso
+    app.jinja_env.globals['session_locale'] = iso
     # Refresh the localization infos, and send the user back whence they
     # came.
     refresh()
