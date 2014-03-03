@@ -74,7 +74,6 @@ def register_babel(app):
         """
 
         loc = get_locale()
-
         app.jinja_env.globals['session_locale'] = loc
 
     @babel.localeselector
@@ -82,8 +81,8 @@ def register_babel(app):
         """ This function defines the behavior involved in selecting a
         locale. """
 
-        locales = ['no', 'sv', 'nob']
-        default_locale = 'no'
+        locales = ['nb', 'sv', 'nob']
+        default_locale = 'nb'
 
         # Does the locale exist already?
         ses_lang = session.get('locale', None)
@@ -92,12 +91,8 @@ def register_babel(app):
         else:
             # Is there a default locale specified in config file?
             ses_lang = default_locale
-            if not default_locale:
-                # Guess the locale based on some magic that babel performs
-                # on request headers.
-                ses_lang = request.accept_languages.best_match(locales)
-            # Append to session
             session.locale = ses_lang
+            session['locale'] = ses_lang
             app.jinja_env.globals['session'] = session
 
         return ses_lang
