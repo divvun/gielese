@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-03-03 02:15-0600\n"
-"PO-Revision-Date: 2014-03-03 09:01+0000\n"
+"POT-Creation-Date: 2014-03-03 03:24-0600\n"
+"PO-Revision-Date: 2014-03-03 09:30+0000\n"
 "Last-Translator: sjirdi <sjur.n.moshagen@uit.no>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/aajege/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -22,217 +22,202 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4451
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4548
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4927
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5163
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6115
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6352
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8677
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:3
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Back"
 msgstr "Tillbaka"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4459
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4556
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5171
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6257
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:3
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Points"
 msgstr "Poäng"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4467
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:3
 msgid "Wordlist"
 msgstr "Ordlista"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4475
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:3
 msgid "Learn"
 msgstr "Lär"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4483
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:3
 msgid "Practice"
 msgstr "Öva"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5155
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6107
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6253
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:3
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Home"
 msgstr "Hem"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6261
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Tjoho!"
 msgstr "Tjoho!"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6267
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "You completed the category!"
 msgstr "Du klarade hela kategorin!"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6271
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "You completed the level!"
 msgstr "Du klarade nivån!"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6279
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Play again"
 msgstr "Spela igen"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6283
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Next level"
 msgstr "Nästa nivå"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6289
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Category list"
 msgstr "Kategorilista"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6718
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "About this app"
 msgstr "Om denna app"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6817
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Use an account?"
 msgstr "Vill du använda ett konto?"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6821
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "New account?"
 msgstr "Nytt konto?"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6825
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6833
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8705
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8713
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8804
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Yes"
 msgstr "Ja"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6829
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6837
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8701
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8709
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8810
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "No"
 msgstr "Nej"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6857
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 #: templates/user_reset_form.html:68
 msgid "Username"
 msgstr "Användarnamn"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6861
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 #: templates/user_reset_form.html:75
 msgid "Password"
 msgstr "Lösenord"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6865
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "E-mail"
 msgstr "E-post"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6869
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8693
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Translation language"
 msgstr "Översättningsspråk"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6873
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Your account was created, you may now begin!"
 msgstr "Ditt konto är skapat, du kan börja!"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6877
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "You are logged in, and may now begin!"
 msgstr "Du är inloggad och kan börja!"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6881
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "You are already logged in. You may begin or log out."
 msgstr "Du är redan inloggad. Du kan börja eller logga ut."
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6885
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid ""
 "You've chosen to play offline. Stats will sync when you are connected to the"
 " internet next."
 msgstr "Du har valt att spela offline. Statistiken synkroniseras nästa gång du är ansluten till Internet."
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6889
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Begin!"
 msgstr "Börja!"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6893
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Log in"
 msgstr "Logga in"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6897
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:4
 msgid "Log out"
 msgstr "Logga ut"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:7218
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5
 msgid "Could not connect. Play offline?"
 msgstr "Kunde inte kopla till. Spela offline?"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:7501
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5
 msgid "Did you forget your password?"
 msgstr "Har du glömt ditt lösenord?"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:7502
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5
 msgid "Check your email!"
 msgstr "Kolla din e-post!"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:7503
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5
 msgid "Check your network connection and try again"
 msgstr "Kolla din nätverksanslutning och försök igen"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8228
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5
 msgid "You must be connected to the internet to view high scores."
 msgstr "Du måste vara ansluten till Internet för att se tio-i-topplistan."
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8533
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5
 msgid "Try again"
 msgstr "Försök igen"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8537
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5
 msgid "Close"
 msgstr "Stäng"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8543
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5
 msgid "Email me"
 msgstr "Maila mig"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8547
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:5
 msgid "Play offline"
 msgstr "Spela offline"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8681
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Help language"
 msgstr "Hjälpspråk"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8697
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Play audio?"
 msgstr "Spela audio?"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8776
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8780
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8788
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Top 10"
 msgstr "Tio i topp"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8784
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Statistics"
 msgstr "Statistik"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8792
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Loading..."
 msgstr "Laddar..."
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8798
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Show my score to everyone?"
 msgstr "Visa mina poäng till andra?"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8816
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Your stats"
 msgstr "Din statistik"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8824
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "points"
 msgstr "poäng"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8834
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid "Learn some words to see stats!"
 msgstr "Lär några ord för att se din statistik!"
 
-#: ../sma-client/phonegap/gielese/www/javascripts/app.js:8842
+#: ../sma-client/phonegap/gielese/www/javascripts/app.js:6
 msgid ""
 "You are playing anonymously, so your points may not be stored if you leave "
 "the app."
@@ -259,6 +244,17 @@ msgstr "Om du inte har begärt att återställa ditt lösenord, kan du bortse fr
 msgid "South Sámi learning app"
 msgstr "Sydsamisk språkapp"
 
+#: templates/landing.html:63
+msgid ""
+"Learn vocabulary with images, video and sound. Available for\n"
+"          download for iOS (soon!) and Android, or for use in your\n"
+"          mobile or desktop browser."
+msgstr "Lär ord med bilder, video och ljud. Tillgänglig för nerladdning\nför iOS (kommer snart!) och Android, eller du kan använda appen\ni din webbläsare för mobil eller bordsdator."
+
+#: templates/landing.html:70
+msgid "Play now "
+msgstr "Spela nu"
+
 #: templates/landing.html:78
 msgid "Get it on Google Play"
 msgstr "Ladda ner från Google Play"
@@ -267,7 +263,7 @@ msgstr "Ladda ner från Google Play"
 msgid "Last ned fra App Store"
 msgstr "Ladda ner från App Store"
 
-#: templates/privacy.html:47
+#: templates/landing.html:102 templates/privacy.html:47
 msgid "Privacy policy"
 msgstr "Persondataskydd"
 

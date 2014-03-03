@@ -77,7 +77,7 @@ def register_babel(app):
 
         app.jinja_env.globals['session_locale'] = loc
 
-    @app.babel.localeselector
+    @babel.localeselector
     def get_locale():
         """ This function defines the behavior involved in selecting a
         locale. """
@@ -110,6 +110,9 @@ def create_app():
     app = Flask(__name__, static_url_path='/static',)
 
     app = apply_yaml_config(app, _yamlfile)
+
+    app.jinja_env.add_extension('jinja2.ext.i18n')
+
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////%s/media_serv.db' % os.getcwd()
     db.init_app(app)
     mongo = PyMongo(app)
@@ -131,8 +134,6 @@ def create_app():
 
     app.register_blueprint(auth.blueprint)
     app.register_blueprint(users.blueprint)
-
-    app.jinja_env.add_extension('jinja2.ext.i18n')
 
     # initialize babel
     app = register_babel(app)
@@ -453,13 +454,11 @@ def categories():
 
 @app.route('/play/', methods=['GET'])
 def client():
-    from flask import Response
     return render_template('index.html')
 
 # TODO: switching this eventually with root
 @app.route('/', methods=['GET'])
 def landing():
-    from flask import Response
     return render_template('landing.html')
 
 @app.route('/privacy/', methods=['GET'])
