@@ -62,7 +62,7 @@ module.exports = class Concept extends Backbone.Model
     if 'videos' of has_media
       if has_media.videos.length > 0
 
-        videos_for_device = _.filter has_media.videos, (i) ->
+        videos_for_device = _.filter has_media.videos, (i) =>
           return i.size == size and i.device == device and i.format == format
 
         if videos_for_device.length == 0
