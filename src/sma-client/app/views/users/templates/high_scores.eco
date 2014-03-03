@@ -1,19 +1,31 @@
 <ul id="top_three">
-    <% you_are_here_second = "" %>
-    <% if app.user?: %>
-        <% if app.user.username == @highscores[1].username: %>
-            <% you_are_here_second = "you_are_here" %>
-        <% end %>
+    <% if @highscores.length > 1: %>
+      <% you_are_here_second = "" %>
+      <% if app.user?: %>
+          <% if app.user.username == @highscores[1].username: %>
+              <% you_are_here_second = "you_are_here" %>
+          <% end %>
+      <% end %>
+      <li class="point_block second <%- you_are_here_second %>">
+          <ul class="score_set">
+              <li class="number">
+                  <span class="circled-number"> 2 </span>
+              </li>
+              <li class="score_part username"><span class="txt"><%- @highscores[1].username %></span class="txt"></li>
+              <li class="score_part points"><span class="txt"><%- @highscores[1].points %></span class="txt"></li>
+          </ul>
+      </li>
+    <% else: %>
+      <li class="point_block second">
+          <ul class="score_set">
+              <li class="number">
+                  <span class="circled-number"> 2 </span>
+              </li>
+              <li class="score_part username"><span class="txt">?</span class="txt"></li>
+              <li class="score_part points"><span class="txt">&nbsp;</span class="txt"></li>
+          </ul>
+      </li>
     <% end %>
-    <li class="point_block second <%- you_are_here_second %>">
-        <ul class="score_set">
-            <li class="number">
-                <span class="circled-number"> 2 </span>
-            </li>
-            <li class="score_part username"><span class="txt"><%- @highscores[1].username %></span class="txt"></li>
-            <li class="score_part points"><span class="txt"><%- @highscores[1].points %></span class="txt"></li>
-        </ul>
-    </li>
 
     <% you_are_here_first = "" %>
     <% if app.user?: %>
@@ -31,21 +43,33 @@
         </ul>
     </li>
 
-    <% you_are_here_third = "" %>
-    <% if app.user?: %>
-        <% if app.user.username == @highscores[2].username: %>
-            <% you_are_here_third = "you_are_here" %>
-        <% end %>
+    <% if @highscores.length > 2: %>
+      <% you_are_here_third = "" %>
+      <% if app.user?: %>
+          <% if app.user.username == @highscores[2].username: %>
+              <% you_are_here_third = "you_are_here" %>
+          <% end %>
+      <% end %>
+      <li class="point_block third <%- you_are_here_third %>">
+          <ul class="score_set">
+              <li class="number">
+                  <span class="circled-number"> 3 </span>
+              </li>
+              <li class="score_part username"><span class="txt"><%- @highscores[2].username %></span class="txt"></li>
+              <li class="score_part points"><span class="txt"><%- @highscores[2].points %></span class="txt"></li>
+          </ul>
+      </li>
+    <% else: %>
+      <li class="point_block third">
+          <ul class="score_set">
+              <li class="number">
+                  <span class="circled-number"> 3 </span>
+              </li>
+              <li class="score_part username"><span class="txt">?</span class="txt"></li>
+              <li class="score_part points"><span class="txt">&nbsp;</span class="txt"></li>
+          </ul>
+      </li>
     <% end %>
-    <li class="point_block third <%- you_are_here_third %>">
-        <ul class="score_set">
-            <li class="number">
-                <span class="circled-number"> 3 </span>
-            </li>
-            <li class="score_part username"><span class="txt"><%- @highscores[2].username %></span class="txt"></li>
-            <li class="score_part points"><span class="txt"><%- @highscores[2].points %></span class="txt"></li>
-        </ul>
-    </li>
 
 </ul>
 

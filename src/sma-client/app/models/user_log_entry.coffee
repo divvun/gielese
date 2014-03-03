@@ -1,6 +1,7 @@
 module.exports = class UserLogEntry extends Backbone.Model
 
-  url: "/user/data/log/"
+  url: () ->
+    return app.server.path + "/user/data/log/"
 
   attributes:
     game_name: false        # string
