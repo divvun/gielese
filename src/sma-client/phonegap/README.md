@@ -55,6 +55,7 @@ with simultaneous ability to build android and iOS apps.
 TODO: maybe make a fab process to make this easier
  - include removing of `*.map` files and whatnot
 
+
 ### Release process
 
 http://stackoverflow.com/questions/17316910/phonegap-run-from-cli-with-release-and-self-signed-app-requires-me-to-patch-co
@@ -76,6 +77,9 @@ Other relevant docs:
 
  * http://developer.android.com/tools/device.html
  * http://developer.android.com/tools/publishing/app-signing.html
+
+NB: before uploading a new release to the android app store, be sure to update the versionCode in the AndroidManifest.xml file.
+
 
 ## Debugging
 
