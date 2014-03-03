@@ -358,6 +358,7 @@ module.exports = class FrontPage extends Backbone.View
       vs.attr('data-theme', val)
 
     create_or = DSt.get('form-create-or-not')
+    form_sub_action = $('#user').attr('data-use', create_or)
 
     if create_or == "create"
       @$el.find('#email_field').show()

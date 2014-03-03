@@ -228,8 +228,8 @@ def hup():
 
 @task
 def build_ios():
-	client_path = "/Users/pyry/aajege/src/sma-client/"
-	phonegap_path = "/Users/pyry/aajege/src/sma-client/phonegap/gielese/"
+    client_path = "/Users/pyry/aajege/src/sma-client/"
+    phonegap_path = "/Users/pyry/aajege/src/sma-client/phonegap/gielese/"
 
     # 
     with cd(client_path):
@@ -240,9 +240,9 @@ def build_ios():
 
 @task
 def build_android():
-	client_path = "/Users/pyry/aajege/src/sma-client/"
-	phonegap_path = "/Users/pyry/aajege/src/sma-client/phonegap/gielese/"
-	android_path = "/Users/pyry/aajege/src/sma-client/phonegap/gielese/platforms/android/"
+    client_path = "/Users/pyry/aajege/src/sma-client/"
+    phonegap_path = "/Users/pyry/aajege/src/sma-client/phonegap/gielese/"
+    android_path = "/Users/pyry/aajege/src/sma-client/phonegap/gielese/platforms/android/"
 
     # 
     with cd(client_path):
@@ -251,6 +251,7 @@ def build_android():
         local("cordova build android")
     with cd(android_path):
         local("ant release")
+
 
 @task
 def extract_strings():
