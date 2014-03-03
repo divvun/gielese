@@ -203,7 +203,7 @@ module.exports = class LearnView extends LeksaView
     if app.debug
       console.log "View got sound finished."
     if window.PhoneGapIndex
-      delay = 3100
+      delay = 3000
     else
       delay = 4000
     app.wait_handler = setTimeout(() =>

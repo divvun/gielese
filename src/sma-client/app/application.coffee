@@ -60,6 +60,8 @@ class LeksaOptions
 module.exports = class Application
   # TODO: override server.path in specific development modes
 
+  version: "1.1.0"
+
   enable_webfonts: () ->
     if not window.PhoneGapIndex
       if not WebFont?

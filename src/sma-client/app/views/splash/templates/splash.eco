@@ -6,7 +6,7 @@
 
         <div id="splash_footer">
             <div id="footer_version">
-                <span class="version">v. 0.1.0</span>
+                <span class="version">v. <%- window.app.version %></span>
             </div>
             <div id="footer_logo">
                 <div id="logo">
