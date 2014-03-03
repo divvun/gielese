@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Aajege\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2014-03-03 02:15-0600\n"
-"PO-Revision-Date: 2014-03-03 08:26+0000\n"
+"PO-Revision-Date: 2014-03-03 09:04+0000\n"
 "Last-Translator: sjirdi <sjur.n.moshagen@uit.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/aajege/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -258,7 +258,7 @@ msgstr "Hvis du ikke etterspurte tilbakestilling av passord, ser du bort i fra\n
 
 #: templates/landing.html:9 templates/privacy.html:9
 msgid "South Sámi learning app"
-msgstr "Sørsamisk språklæringsapp"
+msgstr "Sørsamisk språkapp"
 
 #: templates/landing.html:78
 msgid "Get it on Google Play"

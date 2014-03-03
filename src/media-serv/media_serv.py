@@ -60,6 +60,50 @@ def apply_yaml_config(app, _yamlfile):
 
 from flask_marrowmailer import Mailer
 
+def register_babel(app):
+
+    babel = Babel(app)
+    babel.init_app(app)
+
+    app.babel = babel
+
+    @app.before_request
+    def append_session_globals():
+        """ Add two-character and three-char session locale to global
+        template contexts: session_locale, session_locale_long_iso.
+        """
+
+        loc = get_locale()
+
+        app.jinja_env.globals['session_locale'] = loc
+
+    @app.babel.localeselector
+    def get_locale():
+        """ This function defines the behavior involved in selecting a
+        locale. """
+
+        locales = ['no', 'sv', 'nob']
+        default_locale = 'no'
+
+        # Does the locale exist already?
+        ses_lang = session.get('locale', None)
+        if ses_lang is not None:
+            return ses_lang
+        else:
+            # Is there a default locale specified in config file?
+            ses_lang = default_locale
+            if not default_locale:
+                # Guess the locale based on some magic that babel performs
+                # on request headers.
+                ses_lang = request.accept_languages.best_match(locales)
+            # Append to session
+            session.locale = ses_lang
+            app.jinja_env.globals['session'] = session
+
+        return ses_lang
+
+    return app
+
 def create_app():
     _yamlfile = os.environ.get('MEDIA_SERV_CONF_PATH', 'gielese.app.config.yaml')
 
@@ -70,10 +114,6 @@ def create_app():
     db.init_app(app)
     mongo = PyMongo(app)
     app.mongodb = mongo
-
-    # initialize babel
-    babel = Babel(app)
-    babel.init_app(app)
 
     # Mailer - if more is needed for configuration...
     # DOC: http://flask-marrowmailer.readthedocs.org/en/latest/
@@ -92,6 +132,11 @@ def create_app():
     app.register_blueprint(auth.blueprint)
     app.register_blueprint(users.blueprint)
 
+    app.jinja_env.add_extension('jinja2.ext.i18n')
+
+    # initialize babel
+    app = register_babel(app)
+
     app.debug = False
     if hasattr(app.config.app, 'debug'):
         app.debug = app.config.app.debug
@@ -109,6 +154,20 @@ def favicon():
     from flask import send_from_directory
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.route('/locale/<iso>/', methods=['GET'])
+def set_locale(iso):
+    from flask.ext.babel   import refresh
+
+    session['locale'] = iso
+    # Refresh the localization infos, and send the user back whence they
+    # came.
+    refresh()
+    ref = request.referrer
+    if ref is not None:
+        return redirect(request.referrer)
+    else:
+        return redirect('/')
 
 # Using caveman for validation, but note, there is a django project for
 # automatically producing manifests, when integration with smaoahpa
