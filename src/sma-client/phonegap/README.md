@@ -50,6 +50,8 @@ with simultaneous ability to build android and iOS apps.
 
     brunch build --production
 
+ * Compress images in media directory (ImageOptim.app for now, will find something cross-platform)
+
 TODO: maybe make a fab process to make this easier
  - include removing of `*.map` files and whatnot
 

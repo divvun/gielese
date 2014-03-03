@@ -61,12 +61,14 @@ module.exports = class Application
   # TODO: override server.path in specific development modes
 
   enable_webfonts: () ->
-    if not WebFont?
-      console.log "ERROR: WebFont async loader not available."
-      return
-    WebFont.load
-      google:
-        families: ['Open Sans', 'Kaushan Script']
+    if not window.PhoneGapIndex
+      if not WebFont?
+        console.log "ERROR: WebFont async loader not available."
+        return
+      WebFont.load
+        google:
+          families: ['Open Sans', 'Kaushan Script']
+
 
   switch_locale: (locale, options = {}) ->
     if options.offline or app.server.offline_media or window.PhoneGapIndex
@@ -153,7 +155,7 @@ module.exports = class Application
 
     $ =>
       # TODO: download open sans, kaushan
-      @enable_webfonts()
+      # @enable_webfonts()
       @initialize
         complete: () =>
           Backbone.history.start

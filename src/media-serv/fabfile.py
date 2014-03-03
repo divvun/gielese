@@ -165,7 +165,6 @@ def npm_update_target(production=False):
             run("npm update")
     print(cyan("Updated npm..."))
 
-
 @task
 def brunch_build_target(production=False):
     path = env.target_path
@@ -226,6 +225,32 @@ def hup():
         hup_dev()
     elif env.production:
         print(red(" Not available eyt "))
+
+@task
+def build_ios():
+	client_path = "/Users/pyry/aajege/src/sma-client/"
+	phonegap_path = "/Users/pyry/aajege/src/sma-client/phonegap/gielese/"
+
+    # 
+    with cd(client_path):
+        local("brunch build --production")
+    with cd(phonegap_path):
+        local("phonegap build ios")
+
+
+@task
+def build_android():
+	client_path = "/Users/pyry/aajege/src/sma-client/"
+	phonegap_path = "/Users/pyry/aajege/src/sma-client/phonegap/gielese/"
+	android_path = "/Users/pyry/aajege/src/sma-client/phonegap/gielese/platforms/android/"
+
+    # 
+    with cd(client_path):
+        local("brunch build --production")
+    with cd(phonegap_path):
+        local("cordova build android")
+    with cd(android_path):
+        local("ant release")
 
 @task
 def extract_strings():

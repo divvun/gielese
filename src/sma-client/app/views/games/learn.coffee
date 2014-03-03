@@ -202,13 +202,17 @@ module.exports = class LearnView extends LeksaView
   soundFinished: () ->
     if app.debug
       console.log "View got sound finished."
+    if window.PhoneGapIndex
+      delay = 3100
+    else
+      delay = 4000
     app.wait_handler = setTimeout(() =>
       if /leksa/.exec window.location.hash
         app.leksaView.renderQuestion()
       else
         clearTimeout app.wait_handler
         return false
-    , 4000)
+    , delay)
 
   render: ->
     # if user ends up on front page due to error and comes back here, events
