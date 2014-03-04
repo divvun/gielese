@@ -98,8 +98,13 @@
       <hr>
 
       <footer>
-        <p><a href="http://aajege.no">Aajege</a> &amp; <a href="http://divvuno.no">Divvun</a>, 2014</p>
-        <p><a href="/privacy/">{% trans %}Privacy policy{% endtrans %}</a></p>
+          <div class="row">
+            <div class="col-lg-5 col-md-5">
+                <p><a href="http://aajege.no">Aajege</a> &amp; <a href="http://divvun.no">Divvun</a>, 2014</p>
+                <p><a href="/privacy/">{% trans %}Privacy policy{% endtrans %}</a></p>
+                <p><a href="http://www.google.com/recaptcha/mailhide/d?k=01oVngYaHuWj3tlwL1-hl3pA==&c=SpaFrXBJuJ-mRa-kqMSB-t5mKgadEA4meIMKfH4O2Go=">{% trans %}Feedback{% endtrans %} ({{ gettext("E-mail")|lower }})</a></p>
+            </div>
+        <div>
       </footer>
     </div> 
     <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
