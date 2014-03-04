@@ -137,6 +137,7 @@ module.exports = class Application
     'speaker': () -> app.icon_resource_path "images/speaker.png"
     'aajege_logo': () -> app.icon_resource_path "images/aajege.png"
     'ajax_loader': () -> app.icon_resource_path "images/ajax-loader.gif"
+    'loading_spinner': () -> app.icon_resource_path "images/icon_loading_spinner.gif"
 
   soundEffects:
     'click': () => app.audio.playPath('static/audio/click.mp3')
@@ -157,7 +158,7 @@ module.exports = class Application
 
     $ =>
       # TODO: download open sans, kaushan
-      # @enable_webfonts()
+      @enable_webfonts()
       @initialize
         complete: () =>
           Backbone.history.start
