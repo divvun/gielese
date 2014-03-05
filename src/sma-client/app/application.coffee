@@ -150,9 +150,9 @@ module.exports = class Application
       offline_media: false
 
     if window.location.hostname == 'gielese.no'
-      @server.path = window.location.origin
+      @server.path = "#{window.location.protocol}//#{window.location.hostname}"
     else if window.location.hostname == 'dev.gielese.no'
-      @server.path = window.location.origin
+      @server.path = "#{window.location.protocol}//#{window.location.hostname}"
 
     @initPhoneGap()
 
@@ -308,7 +308,7 @@ makeLogger = () ->
   log.addAppender(ajaxlogger)
   return log
 
-window.app = new Application
+window.app = new Application()
 window.client_log = makeLogger()
 
 window.onerror = (errorMsg, url, lineNumber) ->
