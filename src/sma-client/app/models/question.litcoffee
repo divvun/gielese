@@ -1,9 +1,12 @@
+This module is somewhat complex, thus it is written in Literate Coffeescript.
+
     NoMoreProgression = require '/models/exceptions/progression_cycle_done'
     LevelComplete = require '/models/exceptions/level_complete'
 
-This module is somewhat complex, thus it is written in Literate Coffeescript.
-
-This class is returned when a question is generated.
+This class is returned when a question is generated for presentation to the
+user. This is different from the `Question` model, in that that model maintains
+all the parameters and connections to concepts for what is possible to be
+randomly generated.
 
     class QuestionInstance
       constructor: (@generator, @question, @choices, @answer, @current_count,
@@ -154,7 +157,12 @@ Here we increment the cycle if the current question is compelte
 
         return false
 
-      # TODO: something problematic going on here
+Concepts often need to be filtered by media size. This function does so,
+returning the original set of concepts if no matching concepts are found. This
+may seem like a gotcha, but it works out well when the prepared media is
+consistent. The only side effect is that sometimes a larger concept than
+intended for the device will be requested, increasing load times.
+
       filter_concepts_by_media: (concepts, media_size) ->
         filtered_concepts = _.filter concepts, (c) =>
           if c.get('language') == 'img'
@@ -181,6 +189,12 @@ Here we increment the cycle if the current question is compelte
 
         return filtered_concepts
 
+Some helper functions for concept selection. Some parts of these are larger and
+more complex, so they've been split out to separate files.
+
+Here we select _question_ concepts relevant to the user's progression, but also
+filter by media size and return.
+
       select_question_concepts_by_progression: (conceptdb) ->
         userprog = app.userprogression
         orderConceptsByProgression = require './helpers/concept_progression_sorter'
@@ -189,6 +203,9 @@ Here we increment the cycle if the current question is compelte
             @select_question_concepts(conceptdb), app.media_size
           )
         )
+
+Here we select question concepts by a simple ordering, but also filter by media
+size and return.
 
       select_question_concepts_by_ordering: (conceptdb, ordering) ->
         orderConceptsByList = require './helpers/concept_by_ordering'
@@ -199,7 +216,10 @@ Here we increment the cycle if the current question is compelte
           ordering
         )
 
+Select all question concepts from the database for the current question.
+
       select_question_concepts: (conceptdb) ->
+
         default_similarity = {
           'features': false
           'semantics': false
@@ -226,6 +246,8 @@ Here we increment the cycle if the current question is compelte
           else
             return false
         return q_concepts
+
+Search for concepts and return the question instance.
 
       find_concepts: (conceptdb, opts={}) ->
 
