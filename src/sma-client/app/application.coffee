@@ -71,7 +71,6 @@ module.exports = class Application
         google:
           families: ['Open Sans', 'Kaushan Script']
 
-
   switch_locale: (locale, options = {}) ->
     if options.offline or app.server.offline_media or window.PhoneGapIndex
       offline = true
@@ -109,6 +108,14 @@ module.exports = class Application
       tries += 1
       app.switch_locale(locale, {offline: true, tries: tries})
 
+  ###
+  
+      Some global media features
+
+      TODO: move to separate module.
+  
+  ###
+
   soundEffectCorrect: () ->
     @correct_concept = _.first @conceptdb.where
       semantics: ["CORRECT"]
@@ -143,6 +150,12 @@ module.exports = class Application
     'click': () => app.audio.playPath('static/audio/click.mp3')
     'correct': () => app.soundEffectCorrect()
     'incorrect': () =>  app.soundEffectIncorrect()
+  
+  ###
+  
+      App constructor/initialization
+  
+  ###
     
   constructor: ->
     @server =

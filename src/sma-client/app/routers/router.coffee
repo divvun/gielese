@@ -1,5 +1,14 @@
-# NB:   some views need to be reinstantiated in order for all events to be
-#       available again, as router.changePage destroys them for some reason.
+
+# Including views in `application.coffee` was getting to be too messy, so 
+# initialized views will be stored around here. 
+
+# NB: some views need to be reinstantiated in order for all events to be
+# available again, as router.changePage destroys them for some reason.
+
+# NB: There were some compatibility issues at one point or another, regarding
+# whether URLs were anchors (with #hash) pattern, or just bare URLs. For the
+# sake of compatibility with this potential situation, don't remove these, it's
+# possible to confirm that this will not be problematic on any devices.
 
 LeksaView = require 'views/games/leksa'
 LearnView = require 'views/games/learn'
@@ -272,4 +281,3 @@ module.exports = class Router extends Backbone.Router
 
     $.mobile.changePage($(page.el), {changeHash:false, transition:transition})
     return false
-
