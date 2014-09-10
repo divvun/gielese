@@ -63,6 +63,8 @@ module.exports = class Application
   version: "1.1.0"
 
   enable_webfonts: () ->
+    # If we're running on the server, fetch webfonts. The app version already
+    # has these packaged locally. This is asynchronous.
     if not window.PhoneGapIndex
       if not WebFont?
         console.log "ERROR: WebFont async loader not available."
@@ -158,19 +160,28 @@ module.exports = class Application
   ###
     
   constructor: ->
+    # Object for tracking application mode and status. This will control how
+    # collections fetch data, and whether it is fetched from an actual remote
+    # location, or locally stored in the app structure for mobile apps.
+    #
     @server =
       path: "http://localhost:5000"
       offline_media: false
 
+    # Construct the hostname for the server path based on where this appears to
+    # be currently running.
     if window.location.hostname == 'gielese.no'
       @server.path = "#{window.location.protocol}//#{window.location.hostname}"
     else if window.location.hostname == 'dev.gielese.no'
       @server.path = "#{window.location.protocol}//#{window.location.hostname}"
 
+    # Check whether this is running in Phonegap, and if so, set up phonegap.
     @initPhoneGap()
 
+    # Main initialization call based on jQuery's event handling structure.
+    # This runs everything in a big closure.
+    #
     $ =>
-      # TODO: download open sans, kaushan
       @enable_webfonts()
       @initialize
         complete: () =>
@@ -192,13 +203,17 @@ module.exports = class Application
           if app.options.getSetting('enable_cache')?
             initWindowCache()
           
-          if window.location.hostname == 'localhost'
-            console.log "Appending debug watcher"
-            debug_watch = $ "<script />"
-            debug_watch.attr('src',"http://localhost:9001/ws")
-            debug_watch.appendTo 'head'
+          # Handy vim development thing.
+          # if window.location.hostname == 'localhost'
+          #   console.log "Appending debug watcher"
+          #   debug_watch = $ "<script />"
+          #   debug_watch.attr('src',"http://localhost:9001/ws")
+          #   debug_watch.appendTo 'head'
 
   initPhoneGap: () ->
+    # This will be set in the init JS file, and phonegap should already exist
+    # by this stage if we're in Phonegap. If not, produce some fake objects.
+    #
     if not window.PhoneGapIndex?
       window.PhoneGapIndex = false
 
@@ -208,22 +223,23 @@ module.exports = class Application
         if window.plugins.statusBar?
           statusbar = window.plugins.statusBar
           statusbar.hide()
-      # This controls where media db is read from.
+      # This controls where media db is read from. Collections will fetch from
+      # an offline path, if so, but the server path will continue to be a
+      # remote path for data that still needs to come from the server (user
+      # progressions).
       @server.offline_media = true
       @server.path = "http://gielese.no"
 
   initialize: (options = {}) ->
     window.OnlineStatus = true
 
-    # TODO: how to detect phonegap on live device, and choose correct hostname?
+    # Determine device formats. For now this is simple, would be a good idea to
+    # use PhoneGap if possible to detect tablet vs. mobile status instead of
+    # screen widths.
+
     @device_type = "mobile"
     @media_size = "small"
     @video_format = "gif"
-
-    # TODO: when to automatically clear localstorage, and check for
-    # existing session?
-    @device_type = "mobile"
-    @media_size = "small"
 
     if $(window).width() > 499
       @device_type = "tablet"
@@ -232,6 +248,7 @@ module.exports = class Application
     @screen_width = $(window).width()
     @screen_height = $(window).height()
 
+    # Things to watch for. These are prerequisites to the app running.
     @loadingTracker = new LoadingTracker({
       'concepts.json': false
       'leksa_questions.json': false
@@ -241,7 +258,8 @@ module.exports = class Application
 
     @loadingTracker.showLoading()
 
-    # TODO: use phonegap APIs in AudioPlayer if available.
+    # Generalized object for determining how media will be played, and playing
+    # it.
     @audio = new AudioPlayer()
 
     @gettext = new Gettext({
@@ -258,8 +276,6 @@ module.exports = class Application
     @categories = new CategoryList()
     @questiondb = new QuestionDB()
 
-    # TODO: userprogression should be stored offline using Backbone.Offline
-    #       however this needs to be tested obsessively.
     @userprogression = new UserProgression()
     @leksaOptions = new LeksaOptions()
 
@@ -295,8 +311,6 @@ module.exports = class Application
 
     # Convert the initial ISO settings
 
-    # TODO: usersettings should be stored offline using Backbone.Offline
-    #       however this needs to be tested obsessively.
     @options = new UserSettings()
     @options.setSettings({
       'interface_language': ISOs.two_to_three initial_language
@@ -311,6 +325,7 @@ module.exports = class Application
           window.app.splash()
         , 5000)
 
+# This is the client-to-server error logging service.
 
 makeLogger = () ->
   log = log4javascript.getLogger()
