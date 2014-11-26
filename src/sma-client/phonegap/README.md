@@ -56,6 +56,27 @@ TODO: maybe make a fab process to make this easier
  - include removing of `*.map` files and whatnot
 
 
+### iOS release process
+
+1.) Get certificates and provisioning profiles in order: https://coderwall.com/p/eceasa/getting-everything-for-building-ios-apps-with-build-phonegap-com
+
+2.) Install profiles and certificates
+
+3.) Open project in XCode and ensure that the team is set for provisioning, for
+    this you may have to add your Apple developer account for it to be able to locate the team.
+
+4.) Once that is done, run the following command:
+
+    cordova build ios --device
+
+This should automatically sign the package and build it to: 
+    
+    platforms/ios/build/device/Gielese.app
+
+NB: while addint the team in the project settings you may think it is logical
+to specify the main view of the app, because you may be prompted to do so. *do
+not*
+
 ### Release process
 
 http://stackoverflow.com/questions/17316910/phonegap-run-from-cli-with-release-and-self-signed-app-requires-me-to-patch-co
@@ -195,6 +216,18 @@ Platform is optional, otherwise builds all platforms.
 
 This appears to also build the project before launching. Rerunning will
 update the emulator.
+
+To specify a specific platform version
+
+    cordova emulate ios --target="iPhone-6"
+
+You can find available images by running the following:
+
+    ./platforms/ios/cordova/lib/list-emulator-images 
+
+iOS troubleshooting:
+    https://github.com/phonegap/ios-sim
+
 
 For android you may need to do things via the following instead
 
