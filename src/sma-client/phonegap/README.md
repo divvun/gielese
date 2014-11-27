@@ -80,6 +80,7 @@ not*
 ### Release process
 
 http://stackoverflow.com/questions/17316910/phonegap-run-from-cli-with-release-and-self-signed-app-requires-me-to-patch-co
+https://shazronatadobe.wordpress.com/2014/03/12/xcode-5-1-and-cordova-ios/
 
 #### Building release
 
