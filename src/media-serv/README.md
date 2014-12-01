@@ -1,3 +1,5 @@
+NB: this may be out of date-- see the online documentation.
+
 # Initializing media server
 
  * Create a virtualenv, run it and initialize from requirements.txt

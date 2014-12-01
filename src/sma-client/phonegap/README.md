@@ -69,6 +69,14 @@ TODO: maybe make a fab process to make this easier
 
     cordova build ios --device
 
+#### Archiving and uploading
+
+5.) If the above works, good. Open Xcode, and build the project.
+
+6.) Product -> Destination -> iOS Device
+
+7.) Product -> Archive
+
 This should automatically sign the package and build it to: 
     
     platforms/ios/build/device/Gielese.app
