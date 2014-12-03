@@ -60,7 +60,7 @@ class LeksaOptions
 module.exports = class Application
   # TODO: override server.path in specific development modes
 
-  version: "1.1.0"
+  version: "1.1.2"
 
   enable_webfonts: () ->
     # If we're running on the server, fetch webfonts. The app version already
