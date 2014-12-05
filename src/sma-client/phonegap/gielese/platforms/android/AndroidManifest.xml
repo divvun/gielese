@@ -11,10 +11,7 @@
         </activity>
     </application>
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="19" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <screen android:screenDensity="ldpi" android:screenSize="small" />
     <screen android:screenDensity="mdpi" android:screenSize="small" />
     <screen android:screenDensity="hdpi" android:screenSize="small" />
@@ -23,4 +20,7 @@
     <screen android:screenDensity="mdpi" android:screenSize="normal" />
     <screen android:screenDensity="hdpi" android:screenSize="normal" />
     <screen android:screenDensity="xhdpi" android:screenSize="normal" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 </manifest>
