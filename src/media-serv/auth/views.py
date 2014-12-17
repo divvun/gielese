@@ -339,7 +339,6 @@ def reset():
 
 from flask_marrowmailer import Mailer
 
-# TODO: validate, check that user exists, if not, nope
 @blueprint.route('/user/forgot/', methods=['POST'])
 def forgot():
     """
@@ -472,7 +471,10 @@ def forgot():
 
 @blueprint.route('/user/create/', methods=['POST', 'CREATE'])
 def create_user():
-    # TODO: send confirmation email
+    """ Create a new user, validating against various criteria:
+         * Password is long enough
+         * username or email does not already exist
+    """
 
     def user_does_not_exist(value):
         if users.find_one({'username': value}):
@@ -520,6 +522,9 @@ def create_user():
 
 @blueprint.route('/user/has_session/', methods=['POST'])
 def user_has_session():
+    """ Determine if the user already has a session available, if so
+    return their username and email as a success.
+    """
     users = current_app.mongodb.db.users
 
     un = None
@@ -544,7 +549,8 @@ def user_has_session():
 
 @blueprint.route('/user/logout/')
 def logout():
-    # remove the username from the session if it's there
+    """ remove the username from the session if it's there
+    """
 
     # TEST:
     # http -f POST http://localhost:5000/user/create/ username=boba password=bobbala email=boba@someplace.com
@@ -553,12 +559,14 @@ def logout():
     # http GET http://localhost:5000/user/logout/ --session=boba
     # http GET http://localhost:5000/user/data/log/ --session=boba
 
-    # TODO: session not invalidating?
     session.pop('username', None)
     return jsonify(success=True)
 
 @blueprint.route('/session/update/', methods=['POST'])
 def update_session():
+    """ Update the session.
+    """
+
     from session_models import Session
 
     # TODO: get user id, user access token from form
@@ -592,6 +600,8 @@ def update_session():
 
 @blueprint.route('/session/token/', methods=['POST'])
 def generate_session_token():
+    """ Generate a session token.
+    """
     from session_models import Session
 
     user_id = request.form.get('user_id', False)
@@ -613,6 +623,8 @@ def generate_session_token():
 
 @blueprint.route('/session/get/', methods=['POST'])
 def get_session():
+    """ Get a user session for the user ID and provided access token.
+    """
     from session_models import Session
 
     user_id = request.form.get('user_id', False)
@@ -635,6 +647,8 @@ def get_session():
 
 @blueprint.route('/session/generate/', methods=['GET'])
 def generate_session():
+    """ Generate a session access token.
+    """
     import uuid
     from session_models import Session
 
