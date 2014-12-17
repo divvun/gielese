@@ -1,8 +1,23 @@
-﻿def create_manifest(app_host):
+﻿""" An app manifest is a required part of offline HTML5 apps. It tells
+the browser which files to store and use locally, and which files must
+be used live on the server. This allows you to define cached media
+directories alongside live API endpoints.
+
+For additional information:
+
+ * http://appcachefacts.info/
+ * http://diveintohtml5.info/offline.html
+
+
+"""
+
+
+def create_manifest(app_host):
     from datetime import datetime
     from textwrap import dedent
 
     def list_dir(p):
+        """ List the files in a directory """
         from os import listdir
         from os.path import isfile, join, isdir
         this_dir = [ join(p, f) for f in listdir(p) if isfile(join(p, f)) and not f.startswith('.')]
@@ -10,8 +25,11 @@
         return this_dir + sum(subdirs, [])
 
     def join_hosts(ps):
+        """ Join the host with a path """
         return [app_host + p for p in ps]
 
+    # These are our image files.
+    # TODO: this is too specific now, need to generalize.
     images = join_hosts(list_dir('static/client/images/')) + \
              join_hosts(list_dir('static/nature_animals/img/small/')) + \
              join_hosts(list_dir('static/nature_world/img/small/')) + \
@@ -23,11 +41,10 @@
              join_hosts(list_dir('static/images/ansikt/small/'))
 
     def quote_add_dir(s):
+        """ Join the host, and encode the URL. """
         return join_hosts(map(quote, list_dir(s)))
 
     from urllib import quote
-             # quote_add_dir('static/audio/body/ED/') + \
-             # quote_add_dir('static/audio/body/KB/') + \
 
     audios = quote_add_dir('static/audio/') + \
              quote_add_dir('static/nature_animals/mp3/') + \
