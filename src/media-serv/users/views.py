@@ -18,20 +18,9 @@ from schematics.types import ( EmailType
                              , BooleanType
                              )
 
-# TODO: auth - get user data to store in db from session, and totes do
-#       not trust input
-
-# TODO: return all user's data: stored options included
-#       dirty?
-
-#       _id vs id
-
-# TODO: strip sid key?
-
 # DOC: http://flask.pocoo.org/docs/views/ - class based view ideas
 # DOC: http://api.mongodb.org/python/current/api/pymongo/collection.html
 # DOC: https://schematics.readthedocs.org/
-
 
 class MongoDocumentEncoder(simplejson.JSONEncoder):
     """ Some overrides are necessary for JSON encoding to work: right
@@ -43,7 +32,6 @@ class MongoDocumentEncoder(simplejson.JSONEncoder):
         elif isinstance(o, ObjectId):
             return str(o)
         return simplejson.JSONEncoder(self, o)
-
 
 def mongodoc_jsonify(*args, **kwargs):
     """ Return a JSON-encoded response, with the additional mongo
@@ -60,6 +48,8 @@ from auth.views import plz_can_haz_auth
 class SessionCheck(object):
 
     def session_user(self):
+        """ Get the user for the session, return data from mongo.
+        """
         users = current_app.mongodb.db.users
 
         un = None
@@ -91,9 +81,11 @@ def date_format_valid(value):
     return value
 
 class LogsAPI(MethodView, SessionCheck):
+    """ Endpoints for logging user activity.
+    """
 
     class PostValidator(Model):
-        """ Validate the user log input.
+        """ Validate the user log input with schematics.
 
         { 'question_category_level': 2,
           'question_concept': u'b\xefenje',
@@ -321,6 +313,8 @@ class SettingsAPI(MethodView, SessionCheck):
                           })
 
         return mongodoc_jsonify(data=request.json)
+
+# Register the router for the blueprint
 
 settings_view = SettingsAPI.as_view('settings_api')
 

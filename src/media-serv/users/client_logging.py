@@ -1,3 +1,6 @@
+""" This endpoint is for logging javascript errors.
+"""
+
 from . import blueprint
 from flask import current_app
 
@@ -30,10 +33,7 @@ class ClientLoggerAPI(MethodView, SessionCheck):
         if not un:
             un = 'anonymous'
 
-        # TODO: is this sufficient?
         _uastring = request.headers.get('User-Agent')
-
-        # TODO: client log Logging.logger
 
         def fmt_log(form):
             import datetime
@@ -60,12 +60,12 @@ class ClientLoggerAPI(MethodView, SessionCheck):
             fmt_log(request.form)
         )
 
-        # TODO: can user create record?
         return Response( simplejson.dumps({'success': True})
                        , mimetype='application/json'
                        )
 
 
+# Initialize the router
 client_log_view = ClientLoggerAPI.as_view('client_logger_api')
 
 blueprint.add_url_rule( '/client_logger/'
@@ -73,4 +73,3 @@ blueprint.add_url_rule( '/client_logger/'
                       , view_func=client_log_view
                       , methods=['POST']
                       )
-

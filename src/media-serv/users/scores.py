@@ -1,4 +1,8 @@
-﻿from . import blueprint
+﻿""" Endpoints here render the high score list into JSON. Usernames are
+anonymized if the user is not logged in.
+"""
+
+from . import blueprint
 from flask import current_app
 
 from bson import ObjectId
@@ -7,6 +11,7 @@ from flask import Response, session, jsonify, request
 from flask import request
 from flask.views import MethodView
 from functools import wraps
+
 import simplejson
 
 class MongoDocumentEncoder(simplejson.JSONEncoder):
@@ -112,4 +117,3 @@ def get_highscores():
                              )
 
     return mongodoc_jsonify(highscores=users_and_points)
-

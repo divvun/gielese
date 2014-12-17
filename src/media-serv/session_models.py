@@ -1,4 +1,7 @@
-# TODO: user progression data
+""" Models for session and user data. See users. module for user
+progression.
+"""
+
 from database import db
 from sqlalchemy import UniqueConstraint
 from sqlalchemy.orm import validates
