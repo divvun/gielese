@@ -1,4 +1,8 @@
 # -*- encoding: utf-8 -*-
+""" This file is mainly for deployment management commands, compiling
+translation strings, and the like. Database commands are available in
+manage.py
+"""
 import os
 import sys
 

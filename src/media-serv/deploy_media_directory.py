@@ -286,8 +286,5 @@ def main():
 
     prune_concept_media(target_path, **prune_opts)
 
-    # TODO: prune_concept_media
-
-
 if __name__ == "__main__":
     sys.exit(main())

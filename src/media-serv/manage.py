@@ -1,4 +1,7 @@
 # -*- encoding:utf-8 -*-
+""" This management script is for compiling the database from lexicon
+files, and testing that it has worked. Other Flask-Actions actions
+are available here too. """
 
 from flask import Flask
 from flaskext.actions import Manager

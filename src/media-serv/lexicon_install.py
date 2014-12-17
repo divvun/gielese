@@ -1,4 +1,5 @@
-﻿""" Most of this is copied from NDS's lexicon XML parsers and classes
+﻿""" Most of this is copied from NDS's lexicon XML parsers and classes.
+Some of these functions are called by manage.py script.
 """
 
 import sys
@@ -379,6 +380,8 @@ class LexiconSimpleJSON(EntryNodeIterator):
                 return False
 
         def fix_keys(attrs):
+            """ These values aren't stored in boolean format, so we have
+            to convert them. """
             _attrs = dict(attrs)
             if 'stat' in _attrs:
                 if _attrs['stat'] == 'pref':
@@ -419,7 +422,6 @@ class LexiconSimpleJSON(EntryNodeIterator):
             if t.text is not None:
                 _t['phrase'] = t.text
                 translations.append(_t)
-            # TODO: {'explanation': 'blah', 'stat': 'pref', 'tcomm': 'etc'}
 
         return translations
 
@@ -450,7 +452,6 @@ class LexiconSimpleJSON(EntryNodeIterator):
 
         semantics = [a.attrib.get('class') for a in e.find('mg/semantics')]
 
-        # TODO: current language
         return { 'lemma': lemma
                , 'context': lemma_context
                , 'pos': lemma_pos
@@ -463,6 +464,8 @@ class LexiconSimpleJSON(EntryNodeIterator):
                }
 
 def install_media_references(_d, filename):
+    """ This step installs media references.
+    """
     from lexicon_models import Concept, Semtype, Dialect
 
     _add = _d.session.add
