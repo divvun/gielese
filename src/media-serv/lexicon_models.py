@@ -1,4 +1,14 @@
 # -*- coding: utf-8 -*-
+""" All models contained here have to do with the lexicon. Some of these
+models are based roughly on Oahpa models, as the input lexicon is
+similar, but with modifications for media paths.
+
+Models here are defined using [sqlalchemy][sql]. If you're used to Django
+models, there will be some differences.
+
+ [sql]: http://www.sqlalchemy.org/
+
+"""
 
 from database import db
 from sqlalchemy import UniqueConstraint
@@ -28,6 +38,8 @@ class TimestampMixin(object):
     updated_at = db.Column(db.DateTime, default=func.now(), onupdate=datetime.utcnow, nullable=False)
 
 class Semtype(db.Model):
+    """ A model for a semantic set.
+    """
     __tablename__ = 'semtype'
     id = db.Column(db.Integer, primary_key=True)
     semtype = db.Column(db.String(50), unique=True)
@@ -36,6 +48,8 @@ class Semtype(db.Model):
         return "<Semtype '%s'>" % self.semtype.encode('utf-8')
 
 class Source(db.Model):
+    """ A model for the data source.
+    """
     __tablename__ = 'source'
     id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String(20))
@@ -48,6 +62,8 @@ class Source(db.Model):
             return "<Source %s>" % self.name
 
 class Dialect(db.Model):
+    """ Language dialect model.
+    """
     __tablename__ = 'dialect'
     id = db.Column(db.Integer, primary_key=True)
     dialect = db.Column(db.String(5))
@@ -62,6 +78,10 @@ class Dialect(db.Model):
             return "<Dialect %s>" % self.dialect
 
 class MorphPhonTag(db.Model):
+    """ This model tags morphophonological information, so that it is
+    possible to query for lemmas against morphophonological classes.
+    """
+
     __tablename__ = 'morphphontag'
     id = db.Column(db.Integer, primary_key=True)
     stem         = db.Column(db.String(20))
@@ -88,6 +108,7 @@ class MorphPhonTag(db.Model):
         return "<Morphophon: %s>" % S
 
 # Many-To-Many intermediary table
+""" This foreignkey relationship is for concepts and semantic types. """
 concept_semtype = db.Table( 'concept_semtype'
 
                        , db.Column( 'concept_id'
@@ -103,6 +124,7 @@ concept_semtype = db.Table( 'concept_semtype'
                        )
 
 # Many-To-Many intermediary table
+""" This foreignkey relationship is for concepts and sources. """
 concept_source = db.Table( 'concept_source'
 
                       , db.Column( 'concept_id'
@@ -132,6 +154,12 @@ concept_dialect = db.Table( 'concept_dialect'
 
                       )
 
+""" This relationship is at the heart of the concept-to-media
+relationships. For the database to work as it does, media is stored as
+its own concept, with a language set to 'mov' or 'mp3'. Concepts are
+installed, and at a separate phase interrelationships are installed.
+This makes it possible to resolve an audio file from a word, or a word
+from an audio file. """
 concept_concept = db.Table( 'concept_to_concept'
 
                           , db.Column( 'left_concept_id'
@@ -148,6 +176,11 @@ concept_concept = db.Table( 'concept_to_concept'
                           )
 
 class Concept(db.Model, TimestampMixin):
+    """ A concept may be a word, or a reference to a media file. Each
+    concept contains attributes for a variety of things listed in the <l />
+    node, or media size, format, and path information. Concepts are interrelated
+    so that media files are resolvable from word concepts, and vice-versa.
+    """
     __tablename__ = 'concept'
     id = db.Column(db.Integer, primary_key=True)
     wordid = db.Column(db.String(200), index=True)
