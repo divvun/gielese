@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		08EAB480C3DE4C50938B7B39 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E7B0AF4F7D40FB86AB7714 /* CDVInAppBrowser.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -532,7 +533,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Gielese;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -563,7 +564,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Gielese;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
