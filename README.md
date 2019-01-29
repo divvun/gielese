@@ -1,6 +1,6 @@
 # Gïelese
 
-An open source language learning app and web app for South Sámi.
+An open source language learning mobile app and web app for South Sámi.
 
 # So far... 
 
@@ -41,6 +41,11 @@ Use virtualenv, install from requirements.txt and run the main python file.
 Since this uses brunch, the easiest way to develop is:
 
     brunch watch
+
+## Administrative documentation
+
+* http://divvun.no/doc/gielese/admin/index.html
+* http://divvun.no/doc/apps/gielese/GieleseRestarting.html
 
 ## License
 
