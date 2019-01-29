@@ -1,3 +1,7 @@
+# Gïelese
+
+An open source language learning app and web app for South Sámi.
+
 # So far... 
 
  * http://brunch.io/
@@ -38,4 +42,6 @@ Since this uses brunch, the easiest way to develop is:
 
     brunch watch
 
+## License
 
+Not yet decided.
